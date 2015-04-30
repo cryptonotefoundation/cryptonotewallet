@@ -2,7 +2,6 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-
 #pragma once
 
 #include <QFrame>
@@ -29,7 +28,7 @@ private:
   QScopedPointer<Ui::SendFrame> m_ui;
   QList<TransferFrame*> m_transfers;
 
-  void sendTransactionCompleted(CryptoNote::TransactionId _id, bool _result, const QString& _error_text);
+  void sendTransactionCompleted(CryptoNote::TransactionId _id, bool _error, const QString& _error_text);
   void walletActualBalanceUpdated(quint64 _balance);
 
   Q_SLOT void addRecipientClicked();

@@ -2,7 +2,6 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-
 #include "AddressBookModel.h"
 #include "CurrencyAdapter.h"
 #include "MainWindow.h"
@@ -15,8 +14,6 @@
 #include "ui_sendframe.h"
 
 namespace WalletGui {
-
-const quint64 MINIMAL_FEE = 1000000;
 
 SendFrame::SendFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::SendFrame) {
   m_ui->setupUi(this);
@@ -85,12 +82,7 @@ void SendFrame::sendClicked() {
     }
   }
 
-  quint64 fee = MINIMAL_FEE;
-  if (fee < MINIMAL_FEE) {
-    QCoreApplication::postEvent(&MainWindow::instance(), new ShowMessageEvent(tr("Minimum allowed fee is 0.01"), QtCriticalMsg));
-    return;
-  }
-
+  quint64 fee = CurrencyAdapter::instance().getMinimumFee();
   if (WalletAdapter::instance().isOpen()) {
     WalletAdapter::instance().sendTransaction(walletTransfers, fee, m_ui->m_paymentIdEdit->text(), m_ui->m_mixinSlider->value());
   }
@@ -100,11 +92,15 @@ void SendFrame::mixinValueChanged(int _value) {
   m_ui->m_mixinEdit->setText(QString::number(_value));
 }
 
-void SendFrame::sendTransactionCompleted(CryptoNote::TransactionId _id, bool _result, const QString& _errorText) {
+void SendFrame::sendTransactionCompleted(CryptoNote::TransactionId _id, bool _error, const QString& _errorText) {
   Q_UNUSED(_id);
-  Q_UNUSED(_result);
-  Q_UNUSED(_errorText);
-  clearAllClicked();
+  if (_error) {
+    QCoreApplication::postEvent(
+      &MainWindow::instance(),
+      new ShowMessageEvent(_errorText, QtCriticalMsg));
+  } else {
+    clearAllClicked();
+  }
 }
 
 void SendFrame::walletActualBalanceUpdated(quint64 _balance) {

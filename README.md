@@ -29,5 +29,5 @@ Replace URL with git remote repository of your coin.
 **4. Build**
 
 ```
-mkdir build && cmake .. && make
+mkdir build && cd build && cmake .. && make
 ```
