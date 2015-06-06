@@ -1,4 +1,5 @@
 // Copyright (c) 2011-2015 The Cryptonote developers
+// Copyright (c) 2015 XDN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -69,7 +70,7 @@ int main(int argc, char* argv[]) {
     splash->show();
   }
 
-  splash->showMessage(QObject::tr("Loading blockchain..."), Qt::AlignLeft | Qt::AlignBottom, Qt::white);
+  splash->showMessage(QObject::tr("Loading blockchain..."), Qt::AlignLeft | Qt::AlignBottom, Qt::black);
   app.processEvents();
   qRegisterMetaType<CryptoNote::TransactionId>("CryptoNote::TransactionId");
   qRegisterMetaType<quintptr>("quintptr");

@@ -1,4 +1,5 @@
 // Copyright (c) 2011-2015 The Cryptonote developers
+// Copyright (c) 2015 XDN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -30,6 +31,13 @@ public:
     case TransactionsModel::COLUMN_DATE:
       static_cast<QLabel*>(_editor)->setText(_index.data().toString());
       return;
+    case TransactionsModel::COLUMN_MESSAGE: {
+      QFontMetrics fm(_editor->font());
+      QString elidedText = fm.elidedText(_index.data().toString(), Qt::ElideRight, 425);
+      static_cast<QLabel*>(_editor)->setText(elidedText);
+      return;
+    }
+
     case TransactionsModel::COLUMN_TYPE:
       static_cast<QLabel*>(_editor)->setPixmap(_index.data(TransactionsModel::ROLE_ICON).value<QPixmap>());
       return;
@@ -52,6 +60,7 @@ TransactionFrame::TransactionFrame(const QModelIndex& _index, QWidget* _parent) 
   m_dataMapper.addMapping(m_ui->m_amountLabel, TransactionsModel::COLUMN_AMOUNT);
   m_dataMapper.addMapping(m_ui->m_timeLabel, TransactionsModel::COLUMN_DATE);
   m_dataMapper.addMapping(m_ui->m_hashLabel, TransactionsModel::COLUMN_HASH);
+  m_dataMapper.addMapping(m_ui->m_messageLabel, TransactionsModel::COLUMN_MESSAGE);
   m_dataMapper.setCurrentModelIndex(m_index);
 }
 

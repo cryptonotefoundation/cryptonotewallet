@@ -1,4 +1,5 @@
 // Copyright (c) 2011-2015 The Cryptonote developers
+// Copyright (c) 2015 XDN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -21,7 +22,9 @@ TransactionDetailsDialog::TransactionDetailsDialog(const QModelIndex& _index, QW
     "<span style=\" font-weight:600;\">To: </span>%4</p><br>\n"
     "<span style=\" font-weight:600;\">Amount: </span>%5</p><br>\n"
     "<span style=\" font-weight:600;\">Fee: </span>%6</p><br>\n"
-    "<span style=\" font-weight:600;\">Transaction hash: </span>%8</p></body></html>") {
+    "<span style=\" font-weight:600;\">Transaction hash: </span>%8</p><br>\n"
+    "<span style=\" font-weight:600;\">Messages: </span></p><br>\n"
+    "%9</body></html>") {
   m_ui->setupUi(this);
 
   QModelIndex index = TransactionsModel::instance().index(_index.data(TransactionsModel::ROLE_ROW).toInt(),
@@ -32,11 +35,13 @@ TransactionDetailsDialog::TransactionDetailsDialog(const QModelIndex& _index, QW
     CurrencyAdapter::instance().getCurrencyTicker().toUpper();
   QString feeText = CurrencyAdapter::instance().formatAmount(index.data(TransactionsModel::ROLE_FEE).value<quint64>()) + " " +
     CurrencyAdapter::instance().getCurrencyTicker().toUpper();
+  QStringList messageList = _index.data(TransactionsModel::ROLE_MESSAGES).toStringList();
 
   m_ui->m_detailsBrowser->setHtml(m_detailsTemplate.arg(QString("%1 confirmations").arg(numberOfConfirmations)).
     arg(index.sibling(index.row(), TransactionsModel::COLUMN_DATE).data().toString()).arg(index.sibling(index.row(),
     TransactionsModel::COLUMN_ADDRESS).data().toString()).arg(amountText).arg(feeText).
-    arg(index.sibling(index.row(), TransactionsModel::COLUMN_HASH).data().toString()));
+    arg(index.sibling(index.row(), TransactionsModel::COLUMN_HASH).data().toString()).
+    arg(messageList.join("<br><br>=========<br><br>")));
 }
 
 TransactionDetailsDialog::~TransactionDetailsDialog() {

@@ -1,4 +1,5 @@
 // Copyright (c) 2011-2015 The Cryptonote developers
+// Copyright (c) 2015 XDN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -6,8 +7,10 @@
 #include <QFont>
 #include <QMetaEnum>
 #include <QPixmap>
+#include <QTextStream>
 
 #include "CurrencyAdapter.h"
+#include "Message.h"
 #include "NodeAdapter.h"
 #include "TransactionsModel.h"
 #include "WalletAdapter.h"
@@ -52,7 +55,7 @@ TransactionsModel::TransactionsModel() : QAbstractItemModel() {
     static_cast<void(TransactionsModel::*)(CryptoNote::TransactionId)>(&TransactionsModel::appendTransaction), Qt::QueuedConnection);
   connect(&WalletAdapter::instance(), &WalletAdapter::walletTransactionUpdatedSignal, this, &TransactionsModel::updateWalletTransaction,
     Qt::QueuedConnection);
-  connect(&NodeAdapter::instance(), &NodeAdapter::localBlockchainUpdatedSignal, this, &TransactionsModel::localBlockchainUpdated,
+  connect(&NodeAdapter::instance(), &NodeAdapter::lastKnownBlockHeightUpdatedSignal, this, &TransactionsModel::lastKnownHeightUpdated,
     Qt::QueuedConnection);
   connect(&WalletAdapter::instance(), &WalletAdapter::walletCloseCompletedSignal, this, &TransactionsModel::reset,
     Qt::QueuedConnection);
@@ -100,6 +103,8 @@ QVariant TransactionsModel::headerData(int _section, Qt::Orientation _orientatio
       return tr("Amount");
     case COLUMN_PAYMENT_ID:
       return tr("PaymentID");
+    case COLUMN_MESSAGE:
+      return tr("Message");
     default:
       break;
     }
@@ -222,6 +227,12 @@ QVariant TransactionsModel::getDisplayRole(const QModelIndex& _index) const {
   case COLUMN_HEIGHT:
     return QString::number(_index.data(ROLE_HEIGHT).value<quint64>());
 
+  case COLUMN_MESSAGE: {
+    QString messageString = _index.data(ROLE_MESSAGE).toString();
+    QTextStream messageStream(&messageString);
+    return messageStream.readLine();
+  }
+
   default:
     break;
   }
@@ -232,21 +243,23 @@ QVariant TransactionsModel::getDisplayRole(const QModelIndex& _index) const {
 QVariant TransactionsModel::getDecorationRole(const QModelIndex& _index) const {
   if(_index.column() == COLUMN_STATE) {
     quint64 numberOfConfirmations = _index.data(ROLE_NUMBER_OF_CONFIRMATIONS).value<quint64>();
-    if(numberOfConfirmations == 0) {
+    switch (numberOfConfirmations) {
+    case 0:
       return QPixmap(":icons/unconfirmed");
-    } else if(numberOfConfirmations < 2) {
+    case 1:
       return QPixmap(":icons/clock1");
-    } else if(numberOfConfirmations < 4) {
+    case 2:
       return QPixmap(":icons/clock2");
-    } else if(numberOfConfirmations < 6) {
+    case 3:
       return QPixmap(":icons/clock3");
-    } else if(numberOfConfirmations < 8) {
+    case 4:
       return QPixmap(":icons/clock4");
-    } else if(numberOfConfirmations < 10) {
+    case 5:
       return QPixmap(":icons/clock5");
-    } else {
+    default:
       return QPixmap(":icons/transaction");
     }
+
   } else if (_index.column() == COLUMN_ADDRESS) {
     return _index.data(ROLE_ICON).value<QPixmap>().scaled(20, 20, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
   }
@@ -305,13 +318,34 @@ QVariant TransactionsModel::getUserRole(const QModelIndex& _index, int _role, Cr
 
   case ROLE_NUMBER_OF_CONFIRMATIONS:
     return (_transaction.blockHeight == CryptoNote::UNCONFIRMED_TRANSACTION_HEIGHT ? 0 :
-      NodeAdapter::instance().getLastKnownBlockHeight() - _transaction.blockHeight + 1);
+      NodeAdapter::instance().getLastKnownBlockHeight() - _transaction.blockHeight);
 
   case ROLE_COLUMN:
     return headerData(_index.column(), Qt::Horizontal, ROLE_COLUMN);
 
   case ROLE_ROW:
     return _index.row();
+
+  case ROLE_MESSAGE: {
+    if (_transaction.messages.size() == 0) {
+      return QVariant();
+    }
+
+    QString messageString = Message(QString::fromStdString(_transaction.messages[0])).getMessage();
+    QTextStream messageStream(&messageString);
+    return messageStream.readLine();
+  }
+
+  case ROLE_MESSAGES: {
+    QStringList messageList;
+    messageList.reserve(_transaction.messages.size());
+    Q_FOREACH (const auto& message, _transaction.messages) {
+      messageList << QString::fromStdString(message);
+    }
+
+    return messageList;
+  }
+
   }
 
   return QVariant();
@@ -377,7 +411,7 @@ void TransactionsModel::updateWalletTransaction(CryptoNote::TransactionId _id) {
   Q_EMIT dataChanged(index(firstRow, COLUMN_DATE), index(lastRow, COLUMN_DATE));
 }
 
-void TransactionsModel::localBlockchainUpdated(quint64 _height) {
+void TransactionsModel::lastKnownHeightUpdated(quint64 _height) {
   if(rowCount() > 0) {
     Q_EMIT dataChanged(index(0, COLUMN_STATE), index(rowCount() - 1, COLUMN_STATE));
   }

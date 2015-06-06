@@ -1,4 +1,5 @@
 // Copyright (c) 2011-2015 The Cryptonote developers
+// Copyright (c) 2015 XDN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -9,14 +10,18 @@
 #include <QSystemTrayIcon>
 #include <QTimer>
 
+#include <common/base58.h>
 #include <common/util.h>
 
 #include "AboutDialog.h"
+#include "AddressBookModel.h"
 #include "AnimatedLabel.h"
 #include "ChangePasswordDialog.h"
 #include "CurrencyAdapter.h"
 #include "ExitWidget.h"
+#include "ImportKeyDialog.h"
 #include "MainWindow.h"
+#include "MessagesModel.h"
 #include "NewPasswordDialog.h"
 #include "NodeAdapter.h"
 #include "PasswordDialog.h"
@@ -57,15 +62,20 @@ MainWindow::~MainWindow() {
 void MainWindow::connectToSignals() {
   connect(&WalletAdapter::instance(), &WalletAdapter::openWalletWithPasswordSignal, this, &MainWindow::askForWalletPassword, Qt::QueuedConnection);
   connect(&WalletAdapter::instance(), &WalletAdapter::changeWalletPasswordSignal, this, &MainWindow::encryptWallet, Qt::QueuedConnection);
-  connect(&WalletAdapter::instance(), &WalletAdapter::walletSynchronizationProgressUpdatedSignal,
-    this, &MainWindow::walletSynchronizationInProgress, Qt::QueuedConnection);
-  connect(&WalletAdapter::instance(), &WalletAdapter::walletSynchronizationCompletedSignal, this, &MainWindow::walletSynchronized
-    , Qt::QueuedConnection);
+  connect(&WalletAdapter::instance(), &WalletAdapter::walletSynchronizationProgressUpdatedSignal, this, &MainWindow::walletSynchronizationInProgress,
+    Qt::QueuedConnection);
+  connect(&WalletAdapter::instance(), &WalletAdapter::walletSynchronizationCompletedSignal, this, &MainWindow::walletSynchronized,
+    Qt::QueuedConnection);
   connect(&WalletAdapter::instance(), &WalletAdapter::walletStateChangedSignal, this, &MainWindow::setStatusBarText);
   connect(&WalletAdapter::instance(), &WalletAdapter::walletInitCompletedSignal, this, &MainWindow::walletOpened);
   connect(&WalletAdapter::instance(), &WalletAdapter::walletCloseCompletedSignal, this, &MainWindow::walletClosed);
+  connect(&WalletAdapter::instance(), &WalletAdapter::walletTransactionCreatedSignal, this, [this]() {
+    QApplication::alert(this);
+  });
   connect(&NodeAdapter::instance(), &NodeAdapter::peerCountUpdatedSignal, this, &MainWindow::peerCountUpdated, Qt::QueuedConnection);
   connect(m_ui->m_exitAction, &QAction::triggered, qApp, &QApplication::quit);
+  connect(m_ui->m_messagesFrame, &MessagesFrame::replyToSignal, this, &MainWindow::replyTo);
+  connect(m_ui->m_addressBookFrame, &AddressBookFrame::payToSignal, this, &MainWindow::payTo);
 }
 
 void MainWindow::initUi() {
@@ -83,12 +93,16 @@ void MainWindow::initUi() {
   m_ui->m_receiveFrame->hide();
   m_ui->m_transactionsFrame->hide();
   m_ui->m_addressBookFrame->hide();
+  m_ui->m_messagesFrame->hide();
+  m_ui->m_sendMessageFrame->hide();
 
   m_tabActionGroup->addAction(m_ui->m_overviewAction);
   m_tabActionGroup->addAction(m_ui->m_sendAction);
   m_tabActionGroup->addAction(m_ui->m_receiveAction);
   m_tabActionGroup->addAction(m_ui->m_transactionsAction);
   m_tabActionGroup->addAction(m_ui->m_addressBookAction);
+  m_tabActionGroup->addAction(m_ui->m_messagesAction);
+  m_tabActionGroup->addAction(m_ui->m_sendMessageAction);
 
   m_ui->m_overviewAction->toggle();
   encryptedFlagChanged(false);
@@ -239,6 +253,35 @@ void MainWindow::openWallet() {
 
     WalletAdapter::instance().setWalletFile(filePath);
     WalletAdapter::instance().open("");
+  }
+}
+
+void MainWindow::importKey() {
+  ImportKeyDialog dlg(this);
+  if (dlg.exec() == QDialog::Accepted) {
+    QString keyString = dlg.getKeyString().trimmed();
+    QString filePath = dlg.getFilePath();
+    if (keyString.isEmpty() || filePath.isEmpty()) {
+      return;
+    }
+
+    if (!filePath.endsWith(".wallet")) {
+      filePath.append(".wallet");
+    }
+
+    uint64_t addressPrefix;
+    std::string data;
+    CryptoNote::WalletAccountKeys keys;
+    if (tools::base58::decode_addr(keyString.toStdString(), addressPrefix, data) && addressPrefix == CurrencyAdapter::instance().getAddressPrefix() &&
+      data.size() == sizeof(keys)) {
+      std::memcpy(&keys, data.data(), sizeof(keys));
+      if (WalletAdapter::instance().isOpen()) {
+        WalletAdapter::instance().close();
+        WalletAdapter::instance().setWalletFile(filePath);
+        WalletAdapter::instance().createWithKeys(keys);
+      }
+    }
+
   }
 }
 
@@ -394,12 +437,24 @@ void MainWindow::walletClosed() {
   m_ui->m_sendFrame->hide();
   m_ui->m_transactionsFrame->hide();
   m_ui->m_addressBookFrame->hide();
+  m_ui->m_messagesFrame->hide();
+  m_ui->m_sendMessageFrame->hide();
   m_encryptionStateIconLabel->hide();
   m_synchronizationStateIconLabel->hide();
   QList<QAction*> tabActions = m_tabActionGroup->actions();
   Q_FOREACH(auto action, tabActions) {
     action->setEnabled(false);
   }
+}
+
+void MainWindow::replyTo(const QModelIndex& _index) {
+  m_ui->m_sendMessageFrame->setAddress(_index.data(MessagesModel::ROLE_HEADER_REPLY_TO).toString());
+  m_ui->m_sendMessageAction->trigger();
+}
+
+void MainWindow::payTo(const QModelIndex& _index) {
+  m_ui->m_sendFrame->setAddress(_index.data(AddressBookModel::ROLE_ADDRESS).toString());
+  m_ui->m_sendAction->trigger();
 }
 
 #ifdef Q_OS_WIN

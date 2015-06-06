@@ -1,4 +1,5 @@
 // Copyright (c) 2011-2015 The Cryptonote developers
+// Copyright (c) 2015 XDN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -16,6 +17,9 @@
 #include "Settings.h"
 
 namespace WalletGui {
+
+Q_DECL_CONSTEXPR char OPTION_WALLET_FILE[] = "walletFile";
+Q_DECL_CONSTEXPR char OPTION_ENCRYPTED[] = "encrypted";
 
 Settings& Settings::instance() {
   static Settings inst;
@@ -38,10 +42,10 @@ void Settings::load() {
   if (cfgFile.open(QIODevice::ReadOnly)) {
     m_settings = QJsonDocument::fromJson(cfgFile.readAll()).object();
     cfgFile.close();
-    if (!m_settings.contains("walletFile")) {
+    if (!m_settings.contains(OPTION_WALLET_FILE)) {
       m_addressBookFile = getDataDir().absoluteFilePath(QCoreApplication::applicationName() + ".addressbook");
     } else {
-      m_addressBookFile = m_settings.value("walletFile").toString();
+      m_addressBookFile = m_settings.value(OPTION_WALLET_FILE).toString();
       m_addressBookFile.replace(m_addressBookFile.lastIndexOf(".wallet"), 7, ".addressbook");
     }
   } else {
@@ -55,7 +59,7 @@ QDir Settings::getDataDir() const {
 }
 
 QString Settings::getWalletFile() const {
-  return m_settings.contains("walletFile") ? m_settings.value("walletFile").toString() :
+  return m_settings.contains(OPTION_WALLET_FILE) ? m_settings.value(OPTION_WALLET_FILE).toString() :
     getDataDir().absoluteFilePath(QCoreApplication::applicationName() + ".wallet");
 }
 
@@ -64,11 +68,11 @@ QString Settings::getAddressBookFile() const {
 }
 
 bool Settings::isEncrypted() const {
-  return m_settings.contains("encrypted") ? m_settings.value("encrypted").toBool() : false;
+  return m_settings.contains(OPTION_ENCRYPTED) ? m_settings.value(OPTION_ENCRYPTED).toBool() : false;
 }
 
 QString Settings::getVersion() const {
-  return GIT_REVISION;
+  return VERSION;
 }
 
 bool Settings::isStartOnLoginEnabled() const {
@@ -120,24 +124,21 @@ bool Settings::isCloseToTrayEnabled() const {
 
 void Settings::setWalletFile(const QString& _file) {
   if (_file.endsWith(".wallet") || _file.endsWith(".keys")) {
-    m_settings.insert("walletFile", _file);
+    m_settings.insert(OPTION_WALLET_FILE, _file);
   } else {
-    m_settings.insert("walletFile", _file + ".wallet");
+    m_settings.insert(OPTION_WALLET_FILE, _file + ".wallet");
   }
 
   saveSettings();
-  m_addressBookFile = m_settings.value("walletFile").toString();
+  m_addressBookFile = m_settings.value(OPTION_WALLET_FILE).toString();
   m_addressBookFile.replace(m_addressBookFile.lastIndexOf(".wallet"), 7, ".addressbook");
 }
 
 void Settings::setEncrypted(bool _encrypted) {
   if (isEncrypted() != _encrypted) {
-    m_settings.insert("encrypted", _encrypted);
+    m_settings.insert(OPTION_ENCRYPTED, _encrypted);
     saveSettings();
   }
-}
-
-void Settings::setCurrentTheme(const QString& _theme) {
 }
 
 void Settings::setStartOnLoginEnabled(bool _enable) {

@@ -1,4 +1,5 @@
 // Copyright (c) 2011-2015 The Cryptonote developers
+// Copyright (c) 2015 XDN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -52,6 +53,14 @@ void AddressBookFrame::deleteClicked() {
 void AddressBookFrame::currentAddressChanged(const QModelIndex& _index) {
   m_ui->m_copyAddressButton->setEnabled(_index.isValid());
   m_ui->m_deleteAddressButton->setEnabled(_index.isValid());
+}
+
+void AddressBookFrame::addressDoubleClicked(const QModelIndex& _index) {
+  if (!_index.isValid()) {
+    return;
+  }
+
+  Q_EMIT payToSignal(_index);
 }
 
 }

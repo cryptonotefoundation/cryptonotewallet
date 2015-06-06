@@ -1,4 +1,5 @@
 // Copyright (c) 2011-2015 The Cryptonote developers
+// Copyright (c) 2015 XDN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -39,8 +40,16 @@ QString TransferFrame::getAmountString() const {
   return m_ui->m_amountSpin->cleanText();
 }
 
+QString TransferFrame::getComment() const {
+  return m_ui->m_transactionCommentEdit->text();
+}
+
 void TransferFrame::disableRemoveButton(bool _disable) {
   m_ui->m_removeButton->setDisabled(_disable);
+}
+
+void TransferFrame::setAddress(const QString& _address) {
+  m_ui->m_addressEdit->setText(_address);
 }
 
 void TransferFrame::addressBookClicked() {

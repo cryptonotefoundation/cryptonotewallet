@@ -1,4 +1,5 @@
 // Copyright (c) 2011-2015 The Cryptonote developers
+// Copyright (c) 2015 XDN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -20,13 +21,14 @@ class TransactionsModel : public QAbstractItemModel {
 
 public:
   enum Columns{
-    COLUMN_STATE = 0, COLUMN_DATE, COLUMN_AMOUNT, COLUMN_ADDRESS, COLUMN_PAYMENT_ID, COLUMN_HASH, COLUMN_FEE,
+    COLUMN_STATE = 0, COLUMN_DATE, COLUMN_AMOUNT, COLUMN_ADDRESS, COLUMN_MESSAGE, COLUMN_PAYMENT_ID, COLUMN_HASH, COLUMN_FEE,
     COLUMN_HEIGHT, COLUMN_TYPE
   };
 
   enum Roles{
     ROLE_DATE = Qt::UserRole, ROLE_TYPE, ROLE_HASH, ROLE_ADDRESS, ROLE_AMOUNT, ROLE_PAYMENT_ID, ROLE_ICON,
-    ROLE_TRANSACTION_ID, ROLE_HEIGHT, ROLE_FEE, ROLE_NUMBER_OF_CONFIRMATIONS, ROLE_COLUMN, ROLE_ROW
+    ROLE_TRANSACTION_ID, ROLE_HEIGHT, ROLE_FEE, ROLE_NUMBER_OF_CONFIRMATIONS, ROLE_COLUMN, ROLE_ROW, ROLE_MESSAGE,
+    ROLE_MESSAGES
   };
 
   static TransactionsModel& instance();
@@ -59,7 +61,7 @@ private:
   void appendTransaction(CryptoNote::TransactionId _id, quint32& _row_count);
   void appendTransaction(CryptoNote::TransactionId _id);
   void updateWalletTransaction(CryptoNote::TransactionId _id);
-  void localBlockchainUpdated(quint64 _height);
+  void lastKnownHeightUpdated(quint64 _height);
   void reset();
 };
 

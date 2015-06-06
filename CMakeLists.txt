@@ -39,7 +39,7 @@ set(VERSION "")
 configure_file("cryptonote/src/version.h.in" "version.h")
 configure_file("src/CryptoNoteWalletConfig.h.in" "CryptoNoteWalletConfig.h")
 
-add_definitions(-DGIT_REVISION=\"${GIT_REVISION}\")
+add_definitions(-DVERSION=\"${CN_VERSION}\")
 
 set(CMAKE_AUTOMOC ON)
 
@@ -61,7 +61,7 @@ set(CRYPTONOTE_SOURCES
     cryptonote/src/common/command_line.cpp
     cryptonote/src/common/util.cpp
     cryptonote/src/crypto/blake256.c
-    cryptonote/src/crypto/chacha8.c
+    cryptonote/src/crypto/chacha.c
     cryptonote/src/crypto/crypto-ops-data.c
     cryptonote/src/crypto/crypto-ops.c
     cryptonote/src/crypto/crypto.cpp
@@ -84,6 +84,7 @@ set(CRYPTONOTE_SOURCES
     cryptonote/src/cryptonote_core/Currency.cpp
     cryptonote/src/cryptonote_core/MinerConfig.cpp
     cryptonote/src/cryptonote_core/Transaction.cpp
+    cryptonote/src/cryptonote_core/tx_extra.cpp
     cryptonote/src/cryptonote_core/account.cpp
     cryptonote/src/cryptonote_core/blockchain_storage.cpp
     cryptonote/src/cryptonote_core/checkpoints.cpp
@@ -148,7 +149,7 @@ elseif (UNIX)
     file(GLOB_RECURSE OBJC_SOURCES src/*.mm)
     set(SOURCES ${SOURCES} ${OBJC_SOURCES})
     set(PLATFORM_DIR OSX)
-    set(MACOSX_BUNDLE_INFO_STRING "Cryptonote GUI wallet")
+    set(MACOSX_BUNDLE_INFO_STRING "DigitalNote GUI wallet")
     set(MACOSX_BUNDLE_LONG_VERSION_STRING "${VERSION_VERSION}.${VERSION_MINOR}.${VERSION_PATCH}")
     set(MACOSX_BUNDLE_BUNDLE_NAME CryptonoteWallet)
     set(MACOSX_BUNDLE_SHORT_VERSION_STRING "${VERSION_VERSION}.${VERSION_MINOR}.${VERSION_PATCH}")
@@ -181,7 +182,6 @@ endif ()
 include_directories(cryptonote/src/Platform/${PLATFORM_DIR})
 file(GLOB PLATFORM_SOURCES cryptonote/src/Platform/${PLATFORM_DIR}/System/*)
 set(CRYPTONOTE_SOURCES ${CRYPTONOTE_SOURCES} ${PLATFORM_SOURCES})
-
 add_library(${CRYPTONOTE_LIB} STATIC ${CRYPTONOTE_SOURCES})
 set_target_properties(${CRYPTONOTE_LIB} PROPERTIES COMPILE_DEFINITIONS _GNU_SOURCE)
 target_link_libraries(${CRYPTONOTE_LIB} ${Boost_LIBRARIES})

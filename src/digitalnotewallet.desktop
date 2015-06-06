@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=DigitalNote Wallet
+Comment=DigitalNote wallet
+Exec=digitalnotewallet
+Terminal=false
+Type=Application
+Icon=digitalnote
+MimeType=x-scheme-handler/digitalnotewallet;
+Categories=Office;Finance;

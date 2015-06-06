@@ -1,4 +1,5 @@
 // Copyright (c) 2011-2015 The Cryptonote developers
+// Copyright (c) 2015 XDN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -7,6 +8,7 @@
 #include <QLocale>
 #include <QVector>
 
+#include <common/base58.h>
 #include <common/util.h>
 #include <wallet/WalletErrors.h>
 #include <wallet/LegacyKeysImporter.h>
@@ -30,7 +32,8 @@ WalletAdapter& WalletAdapter::instance() {
 
 WalletAdapter::WalletAdapter() : QObject(), m_wallet(nullptr), m_mutex(), m_isBackupInProgress(false),
   m_isSynchronized(false), m_newTransactionsNotificationTimer(),
-  m_lastWalletTransactionId(std::numeric_limits<quint64>::max()) {
+  m_lastWalletTransactionId(std::numeric_limits<quint64>::max()),
+  m_sentTransactionId(CryptoNote::INVALID_TRANSACTION_ID), m_sentMessageId(CryptoNote::INVALID_TRANSACTION_ID) {
   connect(this, &WalletAdapter::walletInitCompletedSignal, this, &WalletAdapter::onWalletInitCompleted, Qt::QueuedConnection);
   connect(this, &WalletAdapter::walletSendTransactionCompletedSignal, this, &WalletAdapter::onWalletSendTransactionCompleted, Qt::QueuedConnection);
   connect(this, &WalletAdapter::updateBlockStatusTextSignal, this, &WalletAdapter::updateBlockStatusText, Qt::QueuedConnection);
@@ -110,6 +113,14 @@ void WalletAdapter::open(const QString& _password) {
       m_wallet = nullptr;
     }
   }
+}
+
+void WalletAdapter::createWithKeys(const CryptoNote::WalletAccountKeys& _keys) {
+    m_wallet = NodeAdapter::instance().createWallet();
+    m_wallet->addObserver(this);
+    Settings::instance().setEncrypted(false);
+    Q_EMIT walletStateChangedSignal(tr("Importing keys"));
+    m_wallet->initWithKeys(_keys, "");
 }
 
 bool WalletAdapter::isOpen() const {
@@ -228,12 +239,37 @@ bool WalletAdapter::getTransfer(CryptoNote::TransferId& _id, CryptoNote::Transfe
   return false;
 }
 
-void WalletAdapter::sendTransaction(const QVector<CryptoNote::Transfer>& _transfers, quint64 _fee, const QString& _paymentId, quint64 _mixin) {
+bool WalletAdapter::getAccountKeys(CryptoNote::WalletAccountKeys& _keys) {
+  Q_CHECK_PTR(m_wallet);
+  try {
+    m_wallet->getAccountKeys(_keys);
+    return true;
+  } catch (std::system_error&) {
+  }
+
+  return false;
+}
+
+void WalletAdapter::sendTransaction(const QVector<CryptoNote::Transfer>& _transfers, quint64 _fee, const QString& _paymentId, quint64 _mixin,
+    const QVector<CryptoNote::TransactionMessage>& _messages) {
   Q_CHECK_PTR(m_wallet);
   try {
     lock();
-    m_wallet->sendTransaction(_transfers.toStdVector(), _fee, NodeAdapter::instance().convertPaymentId(_paymentId), _mixin, 0);
+    m_sentTransactionId = m_wallet->sendTransaction(_transfers.toStdVector(), _fee, NodeAdapter::instance().convertPaymentId(_paymentId), _mixin, 0,
+      _messages.toStdVector());
     Q_EMIT walletStateChangedSignal(tr("Sending transaction"));
+  } catch (std::system_error&) {
+    unlock();
+  }
+}
+
+void WalletAdapter::sendMessage(const QVector<CryptoNote::Transfer>& _transfers, quint64 _fee, quint64 _mixin,
+  const QVector<CryptoNote::TransactionMessage>& _messages) {
+  Q_CHECK_PTR(m_wallet);
+  try {
+    lock();
+    m_sentMessageId = m_wallet->sendTransaction(_transfers.toStdVector(), _fee, "", _mixin, 0, _messages.toStdVector());
+    Q_EMIT walletStateChangedSignal(tr("Sending messages"));
   } catch (std::system_error&) {
     unlock();
   }
@@ -341,9 +377,16 @@ void WalletAdapter::externalTransactionCreated(CryptoNote::TransactionId _transa
   }
 }
 
-void WalletAdapter::sendTransactionCompleted(CryptoNote::TransactionId _transaction_id, std::error_code _error) {
+void WalletAdapter::sendTransactionCompleted(CryptoNote::TransactionId _transactionId, std::error_code _error) {
+  Q_ASSERT(_transactionId == m_sentTransactionId || _transactionId == m_sentMessageId);
   unlock();
-  Q_EMIT walletSendTransactionCompletedSignal(_transaction_id, _error.value(), QString::fromStdString(_error.message()));
+  Q_EMIT walletSendTransactionCompletedSignal(_transactionId, _error.value(), QString::fromStdString(_error.message()));
+  if (_transactionId == m_sentTransactionId) {
+    m_sentTransactionId = CryptoNote::INVALID_TRANSACTION_ID;
+  } else if (_transactionId == m_sentMessageId) {
+    Q_EMIT walletSendMessageCompletedSignal(_transactionId, _error.value(), QString::fromStdString(_error.message()));
+    m_sentMessageId = CryptoNote::INVALID_TRANSACTION_ID;
+  }
   Q_EMIT updateBlockStatusTextWithDelaySignal();
 }
 

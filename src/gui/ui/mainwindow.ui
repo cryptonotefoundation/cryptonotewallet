@@ -102,6 +102,26 @@
       </property>
      </widget>
     </item>
+    <item>
+     <widget class="WalletGui::MessagesFrame" name="m_messagesFrame">
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="WalletGui::SendMessageFrame" name="m_sendMessageFrame">
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -110,7 +130,7 @@
      <x>0</x>
      <y>0</y>
      <width>920</width>
-     <height>27</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -119,6 +139,7 @@
     </property>
     <addaction name="m_createWalletAction"/>
     <addaction name="m_openWalletAction"/>
+    <addaction name="m_importKeyAction"/>
     <addaction name="m_backupWalletAction"/>
     <addaction name="m_exitAction"/>
    </widget>
@@ -164,6 +185,8 @@
    <addaction name="m_sendAction"/>
    <addaction name="m_receiveAction"/>
    <addaction name="m_transactionsAction"/>
+   <addaction name="m_messagesAction"/>
+   <addaction name="m_sendMessageAction"/>
    <addaction name="m_addressBookAction"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
@@ -336,6 +359,35 @@
     <string>Close to tray</string>
    </property>
   </action>
+  <action name="m_messagesAction">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../../resources.qrc">
+     <normaloff>:/icons/messages</normaloff>:/icons/messages</iconset>
+   </property>
+   <property name="text">
+    <string>Messages</string>
+   </property>
+  </action>
+  <action name="m_sendMessageAction">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../../resources.qrc">
+     <normaloff>:/icons/send_message</normaloff>:/icons/send_message</iconset>
+   </property>
+   <property name="text">
+    <string>Send message</string>
+   </property>
+  </action>
+  <action name="m_importKeyAction">
+   <property name="text">
+    <string>Import private key</string>
+   </property>
+  </action>
  </widget>
  <customwidgets>
   <customwidget>
@@ -351,12 +403,6 @@
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>WalletGui::ReceiveFrame</class>
-   <extends>QFrame</extends>
-   <header>gui/ReceiveFrame.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
    <class>WalletGui::TransactionsFrame</class>
    <extends>QFrame</extends>
    <header>gui/TransactionsFrame.h</header>
@@ -366,6 +412,24 @@
    <class>WalletGui::AddressBookFrame</class>
    <extends>QFrame</extends>
    <header>gui/AddressBookFrame.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>WalletGui::ReceiveFrame</class>
+   <extends>QFrame</extends>
+   <header>gui/ReceiveFrame.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>WalletGui::MessagesFrame</class>
+   <extends>QFrame</extends>
+   <header>gui/MessagesFrame.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>WalletGui::SendMessageFrame</class>
+   <extends>QFrame</extends>
+   <header>gui/SendMessageFrame.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
@@ -613,6 +677,54 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>m_messagesAction</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>m_messagesFrame</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>843</x>
+     <y>322</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_sendMessageAction</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>m_sendMessageFrame</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>854</x>
+     <y>322</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_importKeyAction</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>importKey()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>459</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>createWallet()</slot>
@@ -624,5 +736,6 @@
   <slot>setStartOnLogin(bool)</slot>
   <slot>setMinimizeToTray(bool)</slot>
   <slot>setCloseToTray(bool)</slot>
+  <slot>importKey()</slot>
  </slots>
 </ui>
