@@ -122,6 +122,16 @@
       </property>
      </widget>
     </item>
+    <item>
+     <widget class="WalletGui::MiningFrame" name="m_miningFrame">
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -188,6 +198,7 @@
    <addaction name="m_messagesAction"/>
    <addaction name="m_sendMessageAction"/>
    <addaction name="m_addressBookAction"/>
+   <addaction name="m_miningAction"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="m_overviewAction">
@@ -388,6 +399,18 @@
     <string>Import private key</string>
    </property>
   </action>
+  <action name="m_miningAction">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../../resources.qrc">
+     <normaloff>:/icons/mining</normaloff>:/icons/mining</iconset>
+   </property>
+   <property name="text">
+    <string>Mining</string>
+   </property>
+  </action>
  </widget>
  <customwidgets>
   <customwidget>
@@ -430,6 +453,12 @@
    <class>WalletGui::SendMessageFrame</class>
    <extends>QFrame</extends>
    <header>gui/SendMessageFrame.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>WalletGui::MiningFrame</class>
+   <extends>QFrame</extends>
+   <header>gui/MiningFrame.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
@@ -722,6 +751,22 @@
     <hint type="destinationlabel">
      <x>459</x>
      <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_miningAction</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>m_miningFrame</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>862</x>
+     <y>322</y>
     </hint>
    </hints>
   </connection>

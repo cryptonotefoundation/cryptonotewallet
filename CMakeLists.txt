@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 
 include(CryptoNoteWallet.cmake)
+include(QREncode.cmake)
 
 project(${CN_PROJECT_NAME})
 
@@ -11,11 +12,12 @@ OUTPUT_VARIABLE GIT_REVISION)
 set(CRYPTONOTE_LIB cryptonote)
 
 include_directories(${CMAKE_BINARY_DIR}
-    src
-    cryptonote/external
-    cryptonote/include
-    cryptonote/src
-    cryptonote/contrib/epee/include)
+  ${CMAKE_CURRENT_SOURCE_DIR}
+  src
+  cryptonote/external
+  cryptonote/include
+  cryptonote/src
+  cryptonote/contrib/epee/include)
 
 find_package(Qt5Gui REQUIRED)
 find_package(Qt5Widgets REQUIRED)
@@ -188,7 +190,7 @@ target_link_libraries(${CRYPTONOTE_LIB} ${Boost_LIBRARIES})
 
 add_executable(${PROJECT_NAME} ${BUILD_PLATFORM} ${BUILD_RESOURCES} ${SOURCES} ${HEADERS} ${UIS} ${RCC})
 set_target_properties(${PROJECT_NAME} PROPERTIES COMPILE_DEFINITIONS _GNU_SOURCE)
-target_link_libraries(${PROJECT_NAME} ${Boost_LIBRARIES} ${QTMAIN} ${CRYPTONOTE_LIB})
+target_link_libraries(${PROJECT_NAME} ${Boost_LIBRARIES} ${QTMAIN} ${CRYPTONOTE_LIB} ${QRENCODE_LIB})
 
 if (APPLE)
   qt5_use_modules(${PROJECT_NAME} PrintSupport)
@@ -198,4 +200,83 @@ elseif (WIN32)
   target_link_libraries(${PROJECT_NAME} Imm32 Iphlpapi Winmm)
 endif (APPLE)
 
-qt5_use_modules(${PROJECT_NAME} Widgets Gui)
+qt5_use_modules(${PROJECT_NAME} Widgets Gui Network)
+
+# Installation
+
+set(CPACK_PACKAGE_NAME ${CN_PROJECT_NAME})
+#set(CPACK_PACKAGE_VERSION_MAJOR 1)
+#set(CPACK_PACKAGE_VERSION_MINOR 0)
+#set(CPACK_PACKAGE_VERSION_PATCH 0)
+set(CPACK_PACKAGE_VERSION ${CN_VERSION})
+set(CPACK_PACKAGE_VENDOR "XDN-project")
+set(CPACK_PACKAGE_CONTACT "http://digitalnote.org")
+set(CPACK_STRIP_FILES ON)
+if (APPLE)
+    set(CPACK_GENERATOR DragNDrop)
+    install(TARGETS ${PROJECT_NAME} BUNDLE DESTINATION .)
+    set(CPACK_PACKAGE_FILE_NAME "${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}.-${VERSION_RELEASE}")
+elseif (UNIX)
+    find_program(RPMBUILD rpmbuild)
+
+    install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION bin)
+    install(FILES src/digitalnotewallet.desktop DESTINATION share/applications)
+    install(FILES src/images/cryptonote.png DESTINATION share/pixmaps RENAME digitalnote.png)
+    install(FILES copyright DESTINATION share/doc/digitalnotewallet)
+
+    if (NOT RPMBUILD)
+        set(CPACK_GENERATOR DEB)
+        set(CPACK_DEBIAN_PACKAGE_NAME ${CPACK_PACKAGE_NAME})
+        set(CPACK_SYSTEM_NAME amd64)
+        set(CPACK_DEBIAN_PACKAGE_MAINTAINER "${CPACK_PACKAGE_VENDOR} <xdnproject@tutanota.com>")
+        set(CPACK_DEBIAN_PACKAGE_SECTION Office)
+        set(CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)
+        set(CPACK_DEBIAN_PACKAGE_DESCRIPTION "DigitalNote XDN wallet
+ DigitalNote is a decentrilized privacy protected peer-to-peer
+ cryptocurrency and untraceable encrypted messaging system. XDN is
+ open-source; its design is public, nobody owns or controls XDN and
+ everyone can take part.
+ .
+ Features of the DigitalNote wallet listed bellow:
+ * Classic Bitcoin alike appearance in CryptoNote based cryptocurrency,
+   made with QT and open-source.
+ * Instant anonymous XDN transfers and transfers notifications
+ * Instant untraceable encrypted messages transfers and notifications
+ * Safe and secure, full XDN network node in wallet, fast network
+   syncronization.
+ * Wallet encryption
+ * Fast and hardware optimized
+ * Open and easy. Private keys can be exported into other clients.")
+set(CPACK_PACKAGE_FILE_NAME "${CPACK_DEBIAN_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}-${VERSION_RELEASE}.${CPACK_SYSTEM_NAME}")
+    else()
+        set(CPACK_GENERATOR RPM)
+        set(CPACK_SYSTEM_NAME x86_64)
+        set(CPACK_RPM_PACKAGE_RELEASE ${VERSION_RELEASE})
+        set(CPACK_RPM_PACKAGE_LICENSE "MIT")
+        set(CPACK_RPM_PACKAGE_GROUP Office)
+        set(CPACK_RPM_PACKAGE_REQUIRES "qt5-qtbase >= 5.3.2, qt5-qtbase-gui >= 5.3.2")
+        set(CPACK_RPM_PACKAGE_SUMMARY "DigitalNote XDN wallet")
+        set(CPACK_RPM_PACKAGE_DESCRIPTION "Open-source DigitalNote XDN GUI wallet
+ DigitalNote is a decentrilized privacy protected peer-to-peer
+ cryptocurrency and untraceable encrypted messaging system. XDN is
+ open-source; its design is public, nobody owns or controls XDN and
+ everyone can take part.
+
+ Features of the DigitalNote wallet listed bellow:
+ *Classic Bitcoin alike appearance in CryptoNote based cryptocurrency,
+    made with QT and open-source.
+ *Instant anonymous XDN transfers and transfers notifications
+ *Instant untraceable encrypted messages transfers and notifications
+ *Safe and secure, full XDN network node in wallet, fast network
+    syncronization.
+ *Wallet encryption
+ *Fast and hardware optimized
+ *Open and easy. Private keys can be exported into other clients.")
+set(CPACK_PACKAGE_FILE_NAME "${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}-${VERSION_RELEASE}.${CPACK_SYSTEM_NAME}")
+    endif ()
+elseif (WIN32)
+  install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION .)
+  set(CPACK_GENERATOR ZIP)
+endif (APPLE)
+
+include(CPack)

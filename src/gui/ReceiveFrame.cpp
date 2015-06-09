@@ -17,8 +17,10 @@ namespace WalletGui {
 
 ReceiveFrame::ReceiveFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::ReceiveFrame) {
   m_ui->setupUi(this);
+  m_ui->m_keyFrame->hide();
   connect(&WalletAdapter::instance(), &WalletAdapter::updateWalletAddressSignal, this, &ReceiveFrame::updateWalletAddress);
-  connect(&WalletAdapter::instance(), &WalletAdapter::walletCloseCompletedSignal, this, &ReceiveFrame::reset);
+  connect(&WalletAdapter::instance(), &WalletAdapter::walletInitCompletedSignal, this, &ReceiveFrame::walletOpened, Qt::QueuedConnection);
+  connect(&WalletAdapter::instance(), &WalletAdapter::walletCloseCompletedSignal, this, &ReceiveFrame::walletClosed, Qt::QueuedConnection);
 }
 
 ReceiveFrame::~ReceiveFrame() {
@@ -28,9 +30,24 @@ void ReceiveFrame::updateWalletAddress(const QString& _address) {
   m_ui->m_addressEdit->setText(_address);
 }
 
-void ReceiveFrame::reset() {
+void ReceiveFrame::walletOpened(int _error) {
+  if (_error != 0) {
+    return;
+  }
+
+  CryptoNote::WalletAccountKeys keys;
+  WalletAdapter::instance().getAccountKeys(keys);
+  QString privateKeys = QString::fromStdString(tools::base58::encode_addr(CurrencyAdapter::instance().getAddressPrefix(),
+    std::string(reinterpret_cast<char*>(&keys), sizeof(keys))));
+
+  m_ui->m_keyEdit->setText(privateKeys);
+  m_ui->m_qrLabel->showQRCode(privateKeys);
+}
+
+void ReceiveFrame::walletClosed() {
   m_ui->m_addressEdit->clear();
   m_ui->m_keyEdit->clear();
+  m_ui->m_qrLabel->clear();
 }
 
 void ReceiveFrame::copyAddress() {
@@ -43,15 +60,12 @@ void ReceiveFrame::copyKey() {
 
 void ReceiveFrame::showKeyClicked() {
   if (!WalletAdapter::instance().isOpen()) {
+    m_ui->m_showKeyButton->setChecked(false);
     return;
   }
 
-  CryptoNote::WalletAccountKeys keys;
-  WalletAdapter::instance().getAccountKeys(keys);
-  QString privateKeys = QString::fromStdString(tools::base58::encode_addr(CurrencyAdapter::instance().getAddressPrefix(),
-    std::string(reinterpret_cast<char*>(&keys), sizeof(keys))));
-
-  m_ui->m_keyEdit->setText(privateKeys);
+  m_ui->m_showKeyButton->setText(m_ui->m_showKeyButton->isChecked() ? tr("Hide private keys") : tr("Show private keys"));
+  m_ui->m_keyFrame->setVisible(m_ui->m_showKeyButton->isChecked());
 }
 
 }

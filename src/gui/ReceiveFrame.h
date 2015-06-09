@@ -25,7 +25,8 @@ private:
   QScopedPointer<Ui::ReceiveFrame> m_ui;
 
   void updateWalletAddress(const QString& _address);
-  void reset();
+  void walletOpened(int _error);
+  void walletClosed();
 
   Q_SLOT void copyAddress();
   Q_SLOT void copyKey();

@@ -26,8 +26,9 @@ public:
   QDir getDataDir() const;
   QString getWalletFile() const;
   QString getAddressBookFile() const;
-  bool isEncrypted() const;
   QString getVersion() const;
+  QStringList getMiningPoolList() const;
+  bool isEncrypted() const;
   bool isStartOnLoginEnabled() const;
 #ifdef Q_OS_WIN
   bool isMinimizeToTrayEnabled() const;
@@ -37,6 +38,7 @@ public:
   void setWalletFile(const QString& _file);
   void setEncrypted(bool _encrypted);
   void setStartOnLoginEnabled(bool _enable);
+  void setMiningPoolList(const QStringList& _miningPoolList);
 #ifdef Q_OS_WIN
   void setMinimizeToTrayEnabled(bool _enable);
   void setCloseToTrayEnabled(bool _enable);

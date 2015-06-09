@@ -3,8 +3,9 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include <QApplication>
+#include <QCoreApplication>
 #include <QFile>
+#include <QJsonArray>
 #include <QJsonDocument>
 #include <QSettings>
 #include <QStandardPaths>
@@ -20,6 +21,7 @@ namespace WalletGui {
 
 Q_DECL_CONSTEXPR char OPTION_WALLET_FILE[] = "walletFile";
 Q_DECL_CONSTEXPR char OPTION_ENCRYPTED[] = "encrypted";
+Q_DECL_CONSTEXPR char OPTION_MINING_POOLS[] = "miningPools";
 
 Settings& Settings::instance() {
   static Settings inst;
@@ -51,6 +53,10 @@ void Settings::load() {
   } else {
     m_addressBookFile = getDataDir().absoluteFilePath(QCoreApplication::applicationName() + ".addressbook");
   }
+
+  if (!m_settings.contains(OPTION_MINING_POOLS)) {
+    setMiningPoolList(QStringList() << "xdn.miner.center:4555" << "duckpool.mooo.com:2222");
+  }
 }
 
 QDir Settings::getDataDir() const {
@@ -67,12 +73,21 @@ QString Settings::getAddressBookFile() const {
   return m_addressBookFile;
 }
 
+QString Settings::getVersion() const {
+  return VERSION;
+}
+
 bool Settings::isEncrypted() const {
   return m_settings.contains(OPTION_ENCRYPTED) ? m_settings.value(OPTION_ENCRYPTED).toBool() : false;
 }
 
-QString Settings::getVersion() const {
-  return VERSION;
+QStringList Settings::getMiningPoolList() const {
+  QStringList res;
+  if (m_settings.contains(OPTION_MINING_POOLS)) {
+    res << m_settings.value(OPTION_MINING_POOLS).toVariant().toStringList();
+  }
+
+  return res;
 }
 
 bool Settings::isStartOnLoginEnabled() const {
@@ -107,7 +122,7 @@ bool Settings::isStartOnLoginEnabled() const {
   QSettings autorunSettings("HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run", QSettings::NativeFormat);
   QString keyName = QString("%1Wallet").arg(CurrencyAdapter::instance().getCurrencyDisplayName());
   res = autorunSettings.contains(keyName) &&
-    !QDir::fromNativeSeparators(autorunSettings.value(keyName).toString()).compare(QApplication::applicationFilePath());
+    !QDir::fromNativeSeparators(autorunSettings.value(keyName).toString()).compare(QCoreApplication::applicationFilePath());
 #endif
   return res;
 }
@@ -151,7 +166,7 @@ void Settings::setStartOnLoginEnabled(bool _enable) {
   QString autorunFilePath = autorunDir.absoluteFilePath(QCoreApplication::applicationName() + ".plist");
   QSettings autorunSettings(autorunFilePath, QSettings::NativeFormat);
   autorunSettings.setValue("Label", "org." + QCoreApplication::applicationName());
-  autorunSettings.setValue("Program", QApplication::applicationFilePath());
+  autorunSettings.setValue("Program", QCoreApplication::applicationFilePath());
   autorunSettings.setValue("RunAtLoad", _enable);
   autorunSettings.setValue("ProcessType", "InterActive");
 #elif defined(Q_OS_LINUX)
@@ -179,7 +194,7 @@ void Settings::setStartOnLoginEnabled(bool _enable) {
     autorunFile.write("[Desktop Entry]\n");
     autorunFile.write("Type=Application\n");
     autorunFile.write(QString("Name=%1 Wallet\n").arg(CurrencyAdapter::instance().getCurrencyDisplayName()).toLocal8Bit());
-    autorunFile.write(QString("Exec=%1\n").arg(QApplication::applicationFilePath()).toLocal8Bit());
+    autorunFile.write(QString("Exec=%1\n").arg(QCoreApplication::applicationFilePath()).toLocal8Bit());
     autorunFile.write("Terminal=false\n");
     autorunFile.write("Hidden=false\n");
     autorunFile.close();
@@ -190,11 +205,19 @@ void Settings::setStartOnLoginEnabled(bool _enable) {
   QSettings autorunSettings("HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run", QSettings::NativeFormat);
   QString keyName = QString("%1Wallet").arg(CurrencyAdapter::instance().getCurrencyDisplayName());
   if (_enable) {
-    autorunSettings.setValue(keyName, QDir::toNativeSeparators(QApplication::applicationFilePath()));
+    autorunSettings.setValue(keyName, QDir::toNativeSeparators(QCoreApplication::applicationFilePath()));
   } else {
     autorunSettings.remove(keyName);
   }
 #endif
+}
+
+void Settings::setMiningPoolList(const QStringList &_miningPoolList) {
+  if (getMiningPoolList() != _miningPoolList) {
+    m_settings.insert(OPTION_MINING_POOLS, QJsonArray::fromStringList(_miningPoolList));
+  }
+
+  saveSettings();
 }
 
 #ifdef Q_OS_WIN
