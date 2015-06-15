@@ -54,8 +54,20 @@ void Settings::load() {
     m_addressBookFile = getDataDir().absoluteFilePath(QCoreApplication::applicationName() + ".addressbook");
   }
 
+  QStringList defaultPoolList;
+  defaultPoolList << "xdn.miner.center:4555" << "duckpool.mooo.com:2222" << "xdn.cryptonight.net:4444" <<
+    "digitalpool.ddns.net:3333";
   if (!m_settings.contains(OPTION_MINING_POOLS)) {
-    setMiningPoolList(QStringList() << "xdn.miner.center:4555" << "duckpool.mooo.com:2222");
+    setMiningPoolList(QStringList() << defaultPoolList);
+  } else {
+    QStringList poolList = getMiningPoolList();
+    Q_FOREACH (const QString& pool, defaultPoolList) {
+      if (!poolList.contains(pool)) {
+        poolList << pool;
+      }
+    }
+
+    setMiningPoolList(poolList);
   }
 }
 

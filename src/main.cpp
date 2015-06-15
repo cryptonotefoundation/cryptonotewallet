@@ -56,7 +56,7 @@ int main(int argc, char* argv[]) {
 
   QLockFile lockFile(Settings::instance().getDataDir().absoluteFilePath(QApplication::applicationName() + ".lock"));
   if (!lockFile.tryLock()) {
-    QMessageBox::warning(nullptr, QObject::tr("Fail"), QString("%1 wallet already running").arg(CurrencyAdapter::instance().getCurrencyDisplayName()));
+    QMessageBox::warning(nullptr, QObject::tr("Fail"), QObject::tr("%1 wallet already running").arg(CurrencyAdapter::instance().getCurrencyDisplayName()));
     return 0;
   }
 
@@ -75,6 +75,8 @@ int main(int argc, char* argv[]) {
   qRegisterMetaType<CryptoNote::TransactionId>("CryptoNote::TransactionId");
   qRegisterMetaType<quintptr>("quintptr");
   if (!NodeAdapter::instance().init()) {
+    splash->hide();
+    QMessageBox::warning(nullptr, QObject::tr("Fail"), QObject::tr("Core initialization problems encountered. Please check log file."));
     return 0;
   }
 

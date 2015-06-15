@@ -37,11 +37,15 @@ TransactionDetailsDialog::TransactionDetailsDialog(const QModelIndex& _index, QW
     CurrencyAdapter::instance().getCurrencyTicker().toUpper();
   QStringList messageList = _index.data(TransactionsModel::ROLE_MESSAGES).toStringList();
 
+  for (quint32 i = 0; i < messageList.size(); ++i) {
+    messageList[i] = messageList[i].toHtmlEscaped().replace("\n", "<br/>");
+  }
+
   m_ui->m_detailsBrowser->setHtml(m_detailsTemplate.arg(QString("%1 confirmations").arg(numberOfConfirmations)).
     arg(index.sibling(index.row(), TransactionsModel::COLUMN_DATE).data().toString()).arg(index.sibling(index.row(),
     TransactionsModel::COLUMN_ADDRESS).data().toString()).arg(amountText).arg(feeText).
     arg(index.sibling(index.row(), TransactionsModel::COLUMN_HASH).data().toString()).
-    arg(messageList.join("<br><br>=========<br><br>")));
+    arg(messageList.join("<br/><br/>=========<br/><br/>")));
 }
 
 TransactionDetailsDialog::~TransactionDetailsDialog() {
