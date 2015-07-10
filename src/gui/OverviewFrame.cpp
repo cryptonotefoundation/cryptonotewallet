@@ -36,12 +36,17 @@ public:
   }
 };
 
-OverviewFrame::OverviewFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::OverviewFrame), m_transactionModel(new RecentTransactionsModel) {
+OverviewFrame::OverviewFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::OverviewFrame),
+  m_transactionModel(new RecentTransactionsModel) {
   m_ui->setupUi(this);
-  connect(&WalletAdapter::instance(), &WalletAdapter::walletActualBalanceUpdatedSignal, this, &OverviewFrame::updateActualBalance,
-    Qt::QueuedConnection);
-  connect(&WalletAdapter::instance(), &WalletAdapter::walletPendingBalanceUpdatedSignal, this, &OverviewFrame::updatePendingBalance,
-    Qt::QueuedConnection);
+  connect(&WalletAdapter::instance(), &WalletAdapter::walletActualBalanceUpdatedSignal,
+    this, &OverviewFrame::actualBalanceUpdated, Qt::QueuedConnection);
+  connect(&WalletAdapter::instance(), &WalletAdapter::walletPendingBalanceUpdatedSignal,
+    this, &OverviewFrame::pendingBalanceUpdated, Qt::QueuedConnection);
+  connect(&WalletAdapter::instance(), &WalletAdapter::walletActualDepositBalanceUpdatedSignal,
+    this, &OverviewFrame::actualDepositBalanceUpdated, Qt::QueuedConnection);
+  connect(&WalletAdapter::instance(), &WalletAdapter::walletPendingDepositBalanceUpdatedSignal,
+    this, &OverviewFrame::pendingDepositBalanceUpdated, Qt::QueuedConnection);
   connect(&WalletAdapter::instance(), &WalletAdapter::walletCloseCompletedSignal, this, &OverviewFrame::reset,
     Qt::QueuedConnection);
   connect(m_transactionModel.data(), &QAbstractItemModel::rowsInserted, this, &OverviewFrame::transactionsInserted);
@@ -50,6 +55,9 @@ OverviewFrame::OverviewFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::O
   m_ui->m_tickerLabel1->setText(CurrencyAdapter::instance().getCurrencyTicker().toUpper());
   m_ui->m_tickerLabel2->setText(CurrencyAdapter::instance().getCurrencyTicker().toUpper());
   m_ui->m_tickerLabel3->setText(CurrencyAdapter::instance().getCurrencyTicker().toUpper());
+  m_ui->m_tickerLabel4->setText(CurrencyAdapter::instance().getCurrencyTicker().toUpper());
+  m_ui->m_tickerLabel5->setText(CurrencyAdapter::instance().getCurrencyTicker().toUpper());
+  m_ui->m_tickerLabel6->setText(CurrencyAdapter::instance().getCurrencyTicker().toUpper());
 
   m_ui->m_recentTransactionsView->setItemDelegate(new RecentTransactionsDelegate(this));
   m_ui->m_recentTransactionsView->setModel(m_transactionModel.data());
@@ -73,21 +81,35 @@ void OverviewFrame::layoutChanged() {
   }
 }
 
-void OverviewFrame::updateActualBalance(quint64 _balance) {
+void OverviewFrame::actualBalanceUpdated(quint64 _balance) {
   m_ui->m_actualBalanceLabel->setText(CurrencyAdapter::instance().formatAmount(_balance));
   quint64 pendingBalance = WalletAdapter::instance().getPendingBalance();
   m_ui->m_totalBalanceLabel->setText(CurrencyAdapter::instance().formatAmount(_balance + pendingBalance));
 }
 
-void OverviewFrame::updatePendingBalance(quint64 _balance) {
+void OverviewFrame::pendingBalanceUpdated(quint64 _balance) {
   m_ui->m_pendingBalanceLabel->setText(CurrencyAdapter::instance().formatAmount(_balance));
   quint64 actualBalance = WalletAdapter::instance().getActualBalance();
   m_ui->m_totalBalanceLabel->setText(CurrencyAdapter::instance().formatAmount(_balance + actualBalance));
 }
 
+void OverviewFrame::actualDepositBalanceUpdated(quint64 _balance) {
+  m_ui->m_unlockedDepositLabel->setText(CurrencyAdapter::instance().formatAmount(_balance));
+  quint64 pendingDepositBalance = WalletAdapter::instance().getPendingDepositBalance();
+  m_ui->m_totalDepositLabel->setText(CurrencyAdapter::instance().formatAmount(_balance + pendingDepositBalance));
+}
+
+void OverviewFrame::pendingDepositBalanceUpdated(quint64 _balance) {
+  m_ui->m_lockedDepositLabel->setText(CurrencyAdapter::instance().formatAmount(_balance));
+  quint64 actualDepositBalance = WalletAdapter::instance().getActualDepositBalance();
+  m_ui->m_totalDepositLabel->setText(CurrencyAdapter::instance().formatAmount(_balance + actualDepositBalance));
+}
+
 void OverviewFrame::reset() {
-  updateActualBalance(0);
-  updatePendingBalance(0);
+  actualBalanceUpdated(0);
+  pendingBalanceUpdated(0);
+  actualDepositBalanceUpdated(0);
+  pendingDepositBalanceUpdated(0);
 }
 
 }

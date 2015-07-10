@@ -20,15 +20,15 @@ class TransactionsModel : public QAbstractItemModel {
   Q_ENUMS(Roles)
 
 public:
-  enum Columns{
+  enum Columns {
     COLUMN_STATE = 0, COLUMN_DATE, COLUMN_AMOUNT, COLUMN_ADDRESS, COLUMN_MESSAGE, COLUMN_PAYMENT_ID, COLUMN_HASH, COLUMN_FEE,
     COLUMN_HEIGHT, COLUMN_TYPE
   };
 
-  enum Roles{
+  enum Roles {
     ROLE_DATE = Qt::UserRole, ROLE_TYPE, ROLE_HASH, ROLE_ADDRESS, ROLE_AMOUNT, ROLE_PAYMENT_ID, ROLE_ICON,
     ROLE_TRANSACTION_ID, ROLE_HEIGHT, ROLE_FEE, ROLE_NUMBER_OF_CONFIRMATIONS, ROLE_COLUMN, ROLE_ROW, ROLE_MESSAGE,
-    ROLE_MESSAGES
+    ROLE_MESSAGES, ROLE_DEPOSIT_ID, ROLE_DEPOSIT_COUNT
   };
 
   static TransactionsModel& instance();
@@ -54,8 +54,9 @@ private:
   QVariant getDisplayRole(const QModelIndex& _index) const;
   QVariant getDecorationRole(const QModelIndex& _index) const;
   QVariant getAlignmentRole(const QModelIndex& _index) const;
-  QVariant getUserRole(const QModelIndex& _index, int _role, CryptoNote::TransactionId _transactionId, CryptoNote::TransactionInfo& _transaction,
-    CryptoNote::TransferId _transferId, CryptoNote::Transfer& _transfer) const;
+  QVariant getUserRole(const QModelIndex& _index, int _role, CryptoNote::TransactionId _transactionId,
+    const CryptoNote::TransactionInfo& _transaction, CryptoNote::TransferId _transferId,
+    const CryptoNote::Transfer& _transfer, CryptoNote::DepositId _depositId, const CryptoNote::Deposit& _deposit) const;
 
   void reloadWalletTransactions();
   void appendTransaction(CryptoNote::TransactionId _id, quint32& _row_count);

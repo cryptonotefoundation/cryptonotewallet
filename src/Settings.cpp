@@ -55,8 +55,7 @@ void Settings::load() {
   }
 
   QStringList defaultPoolList;
-  defaultPoolList << "xdn.miner.center:4555" << "duckpool.mooo.com:2222" << "xdn.cryptonight.net:4444" <<
-    "digitalpool.ddns.net:3333";
+  defaultPoolList << "xdn.miner.center:4555" << "duckpool.mooo.com:2222" << "xdn.poolto.be:11010";
   if (!m_settings.contains(OPTION_MINING_POOLS)) {
     setMiningPoolList(QStringList() << defaultPoolList);
   } else {

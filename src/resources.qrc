@@ -30,6 +30,8 @@
         <file alias="messages">icons/messages.png</file>
         <file alias="send_message">icons/send_message.png</file>
         <file alias="mining">icons/mining.png</file>
+        <file alias="deposits">icons/deposits.png</file>
+        <file alias="tx-deposit">icons/tx_deposit.png</file>
     </qresource>
     <qresource prefix="/images">
         <file alias="splash">images/splash.png</file>

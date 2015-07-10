@@ -20,8 +20,13 @@ public:
   QString getCurrencyDisplayName() const;
   QString getCurrencyName() const;
   QString getCurrencyTicker() const;
+  quint64 calculateInterest(quint64 _amount, quint32 _term) const;
   quint64 getMinimumFee() const;
   quint64 getAddressPrefix() const;
+  quint64 getDepositMinAmount() const;
+  quint32 getDepositMinTerm() const;
+  quint32 getDepositMaxTerm() const;
+  quint64 getDifficultyTarget() const;
   quintptr getNumberOfDecimalPlaces() const;
   QString formatAmount(quint64 _amount) const;
   quint64 parseAmount(const QString& _amountString) const;

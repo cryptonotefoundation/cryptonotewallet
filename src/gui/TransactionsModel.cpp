@@ -17,7 +17,7 @@
 
 namespace WalletGui {
 
-enum class TransactionType : quint8 {MINED, INPUT, OUTPUT, INOUT};
+enum class TransactionType : quint8 {MINED, INPUT, OUTPUT, INOUT, DEPOSIT};
 
 const int TRANSACTIONS_MODEL_COLUMN_COUNT =
   TransactionsModel::staticMetaObject.enumerator(TransactionsModel::staticMetaObject.indexOfEnumerator("Columns")).keyCount();
@@ -34,6 +34,8 @@ QPixmap getTransactionIcon(TransactionType _transactionType) {
     return QPixmap(":icons/tx-output");
   case TransactionType::INOUT:
     return QPixmap(":icons/tx-inout");
+  case TransactionType::DEPOSIT:
+    return QPixmap(":icons/tx-deposit");
   default:
     break;
   }
@@ -130,6 +132,7 @@ QVariant TransactionsModel::data(const QModelIndex& _index, int _role) const {
 
   CryptoNote::TransactionInfo transaction;
   CryptoNote::Transfer transfer;
+  CryptoNote::Deposit deposit;
   CryptoNote::TransactionId transactionId = m_transfers.value(_index.row()).first;
   CryptoNote::TransferId transferId = m_transfers.value(_index.row()).second;
 
@@ -137,6 +140,13 @@ QVariant TransactionsModel::data(const QModelIndex& _index, int _role) const {
     (m_transfers.value(_index.row()).second != CryptoNote::INVALID_TRANSFER_ID &&
     !WalletAdapter::instance().getTransfer(transferId, transfer))) {
     return QVariant();
+  }
+
+  CryptoNote::DepositId depositId = transaction.firstDepositId;
+  if (depositId != CryptoNote::INVALID_DEPOSIT_ID) {
+    if(!WalletAdapter::instance().getDeposit(depositId, deposit)) {
+      return QVariant();
+    }
   }
 
   switch(_role) {
@@ -151,7 +161,7 @@ QVariant TransactionsModel::data(const QModelIndex& _index, int _role) const {
     return getAlignmentRole(_index);
 
   default:
-    return getUserRole(_index, _role, transactionId, transaction, transferId, transfer);
+    return getUserRole(_index, _role, transactionId, transaction, transferId, transfer, depositId, deposit);
   }
 
   return QVariant();
@@ -224,8 +234,14 @@ QVariant TransactionsModel::getDisplayRole(const QModelIndex& _index) const {
     return CurrencyAdapter::instance().formatAmount(fee);
   }
 
-  case COLUMN_HEIGHT:
-    return QString::number(_index.data(ROLE_HEIGHT).value<quint64>());
+  case COLUMN_HEIGHT: {
+    quint64 transactionHeight = _index.data(ROLE_HEIGHT).value<quint64>();
+    if (transactionHeight == CryptoNote::UNCONFIRMED_TRANSACTION_HEIGHT) {
+      return QVariant();
+    }
+
+    return QString::number(transactionHeight);
+  }
 
   case COLUMN_MESSAGE: {
     QString messageString = _index.data(ROLE_MESSAGE).toString();
@@ -272,7 +288,8 @@ QVariant TransactionsModel::getAlignmentRole(const QModelIndex& _index) const {
 }
 
 QVariant TransactionsModel::getUserRole(const QModelIndex& _index, int _role, CryptoNote::TransactionId _transactionId,
-  CryptoNote::TransactionInfo& _transaction, CryptoNote::TransferId _transferId, CryptoNote::Transfer& _transfer) const {
+  const CryptoNote::TransactionInfo& _transaction, CryptoNote::TransferId _transferId, const CryptoNote::Transfer& _transfer,
+  CryptoNote::DepositId _depositId, const CryptoNote::Deposit& _deposit) const {
   switch(_role) {
   case ROLE_DATE:
     return (_transaction.timestamp > 0 ? QDateTime::fromTime_t(_transaction.timestamp) : QDateTime());
@@ -281,6 +298,8 @@ QVariant TransactionsModel::getUserRole(const QModelIndex& _index, int _role, Cr
     QString transactionAddress = _index.data(ROLE_ADDRESS).toString();
     if(_transaction.isCoinbase) {
       return static_cast<quint8>(TransactionType::MINED);
+    } else if (_transaction.firstDepositId != CryptoNote::INVALID_DEPOSIT_ID) {
+      return static_cast<quint8>(TransactionType::DEPOSIT);
     } else if (!transactionAddress.compare(WalletAdapter::instance().getAddress())) {
       return static_cast<quint8>(TransactionType::INOUT);
     } else if(_transaction.totalAmount < 0) {
@@ -291,13 +310,27 @@ QVariant TransactionsModel::getUserRole(const QModelIndex& _index, int _role, Cr
   }
 
   case ROLE_HASH:
-    return QByteArray(reinterpret_cast<char*>(&_transaction.hash.front()), _transaction.hash.size());
+    return QByteArray(reinterpret_cast<const char*>(&_transaction.hash.front()), _transaction.hash.size());
 
   case ROLE_ADDRESS:
     return QString::fromStdString(_transfer.address);
 
-  case ROLE_AMOUNT:
-    return static_cast<qint64>(_transferId == CryptoNote::INVALID_TRANSFER_ID ? _transaction.totalAmount : -_transfer.amount);
+  case ROLE_AMOUNT: {
+    TransactionType transactionType = static_cast<TransactionType>(_index.data(ROLE_TYPE).value<quint8>());
+    if (transactionType == TransactionType::INPUT || transactionType == TransactionType::MINED) {
+      return static_cast<qint64>(_transaction.totalAmount);
+    } else if (transactionType == TransactionType::OUTPUT || transactionType == TransactionType::INOUT) {
+      if (_transferId == CryptoNote::INVALID_TRANSFER_ID) {
+        return static_cast<qint64>(_transaction.totalAmount);
+      }
+
+      return static_cast<qint64>(-_transfer.amount);
+    } else if (transactionType == TransactionType::DEPOSIT) {
+      return static_cast<qint64>(-(_transaction.fee + _deposit.amount));
+    }
+
+    return QVariant();
+  }
 
   case ROLE_PAYMENT_ID:
     return NodeAdapter::instance().extractPaymentId(_transaction.extra);
@@ -318,7 +351,7 @@ QVariant TransactionsModel::getUserRole(const QModelIndex& _index, int _role, Cr
 
   case ROLE_NUMBER_OF_CONFIRMATIONS:
     return (_transaction.blockHeight == CryptoNote::UNCONFIRMED_TRANSACTION_HEIGHT ? 0 :
-      NodeAdapter::instance().getLastKnownBlockHeight() - _transaction.blockHeight);
+      NodeAdapter::instance().getLastKnownBlockHeight() - _transaction.blockHeight + 1);
 
   case ROLE_COLUMN:
     return headerData(_index.column(), Qt::Horizontal, ROLE_COLUMN);
@@ -346,6 +379,11 @@ QVariant TransactionsModel::getUserRole(const QModelIndex& _index, int _role, Cr
     return messageList;
   }
 
+  case ROLE_DEPOSIT_ID:
+    return static_cast<quintptr>(_transaction.firstDepositId);
+
+  case ROLE_DEPOSIT_COUNT:
+    return static_cast<quintptr>(_transaction.depositCount);
   }
 
   return QVariant();

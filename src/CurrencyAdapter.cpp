@@ -39,12 +39,32 @@ QString CurrencyAdapter::getCurrencyTicker() const {
   return WALLET_CURRENCY_TICKER;
 }
 
+quint64 CurrencyAdapter::calculateInterest(quint64 _amount, quint32 _term) const {
+  return m_currency.calculateInterest(_amount, _term);
+}
+
 quint64 CurrencyAdapter::getMinimumFee() const {
   return m_currency.minimumFee();
 }
 
 quint64 CurrencyAdapter::getAddressPrefix() const {
   return m_currency.publicAddressBase58Prefix();
+}
+
+quint64 CurrencyAdapter::getDepositMinAmount() const {
+  return m_currency.depositMinAmount();
+}
+
+quint32 CurrencyAdapter::getDepositMinTerm() const {
+  return m_currency.depositMinTerm();
+}
+
+quint32 CurrencyAdapter::getDepositMaxTerm() const {
+  return m_currency.depositMaxTerm();
+}
+
+quint64 CurrencyAdapter::getDifficultyTarget() const {
+  return m_currency.difficultyTarget();
 }
 
 QString CurrencyAdapter::formatAmount(quint64 _amount) const {

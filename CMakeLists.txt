@@ -84,6 +84,7 @@ set(CRYPTONOTE_SOURCES
     cryptonote/src/cryptonote_core/BlockIndex.cpp
     cryptonote/src/cryptonote_core/CoreConfig.cpp
     cryptonote/src/cryptonote_core/Currency.cpp
+    cryptonote/src/cryptonote_core/DepositIndex.cpp
     cryptonote/src/cryptonote_core/MinerConfig.cpp
     cryptonote/src/cryptonote_core/Transaction.cpp
     cryptonote/src/cryptonote_core/tx_extra.cpp

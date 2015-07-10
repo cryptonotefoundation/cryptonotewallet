@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>920</width>
-    <height>600</height>
+    <width>1014</width>
+    <height>604</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -132,6 +132,16 @@
       </property>
      </widget>
     </item>
+    <item>
+     <widget class="WalletGui::DepositsFrame" name="m_depositsFrame">
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -139,8 +149,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>920</width>
-     <height>22</height>
+     <width>1014</width>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -192,6 +202,7 @@
     <bool>false</bool>
    </attribute>
    <addaction name="m_overviewAction"/>
+   <addaction name="m_depositsAction"/>
    <addaction name="m_sendAction"/>
    <addaction name="m_receiveAction"/>
    <addaction name="m_transactionsAction"/>
@@ -411,6 +422,18 @@
     <string>Mining</string>
    </property>
   </action>
+  <action name="m_depositsAction">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../../resources.qrc">
+     <normaloff>:/icons/deposits</normaloff>:/icons/deposits</iconset>
+   </property>
+   <property name="text">
+    <string>Deposits</string>
+   </property>
+  </action>
  </widget>
  <customwidgets>
   <customwidget>
@@ -459,6 +482,12 @@
    <class>WalletGui::MiningFrame</class>
    <extends>QFrame</extends>
    <header>gui/MiningFrame.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>WalletGui::DepositsFrame</class>
+   <extends>QFrame</extends>
+   <header>gui/DepositsFrame.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
@@ -766,6 +795,22 @@
     </hint>
     <hint type="destinationlabel">
      <x>862</x>
+     <y>322</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_depositsAction</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>m_depositsFrame</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>868</x>
      <y>322</y>
     </hint>
    </hints>

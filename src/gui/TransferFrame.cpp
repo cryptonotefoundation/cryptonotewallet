@@ -6,10 +6,10 @@
 #include <QApplication>
 #include <QClipboard>
 
+#include "TransferFrame.h"
 #include "AddressBookDialog.h"
 #include "MainWindow.h"
 #include "CurrencyAdapter.h"
-#include "TransferFrame.h"
 
 #include "ui_transferframe.h"
 
@@ -25,7 +25,7 @@ TransferFrame::~TransferFrame() {
 }
 
 QString TransferFrame::getAddress() const {
-  return m_ui->m_addressEdit->text().trimmed();
+  return m_ui->m_addressEdit->text().trimmed();;
 }
 
 QString TransferFrame::getLabel() const {
