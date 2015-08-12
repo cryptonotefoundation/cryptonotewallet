@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>885</width>
-    <height>136</height>
+    <height>134</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -197,9 +197,26 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>m_addressEdit</sender>
+   <signal>textEdited(QString)</signal>
+   <receiver>TransferFrame</receiver>
+   <slot>addressEdited(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>460</x>
+     <y>18</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>442</x>
+     <y>66</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>addressBookClicked()</slot>
   <slot>pasteClicked()</slot>
+  <slot>addressEdited(QString)</slot>
  </slots>
 </ui>
