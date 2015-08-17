@@ -318,11 +318,28 @@ p, li { white-space: pre-wrap; }
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>m_addressEdit</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>SendMessageFrame</receiver>
+   <slot>addressEdited(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>382</x>
+     <y>25</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>386</x>
+     <y>287</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>addressBookClicked()</slot>
   <slot>pasteClicked()</slot>
   <slot>sendClicked()</slot>
   <slot>mixinValueChanged(int)</slot>
+  <slot>addressEdited(QString)</slot>
  </slots>
 </ui>

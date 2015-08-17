@@ -16,7 +16,7 @@
 
 namespace WalletGui {
 
-Q_DECL_CONSTEXPR quint32 ADDRESS_INPUT_INTERVAL = 1500;
+Q_DECL_CONSTEXPR quint32 TRANSACTION_ADDRESS_INPUT_INTERVAL = 1500;
 
 TransferFrame::TransferFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::TransferFrame),
   m_aliasProvider(new AliasProvider(this)), m_addressInputTimer(-1) {
@@ -67,6 +67,8 @@ void TransferFrame::setAddress(const QString& _address) {
 void TransferFrame::timerEvent(QTimerEvent* _event) {
   if (_event->timerId() == m_addressInputTimer) {
     m_aliasProvider->getAddresses(m_ui->m_addressEdit->text().trimmed());
+    killTimer(m_addressInputTimer);
+    m_addressInputTimer = -1;
     return;
   }
 
@@ -89,7 +91,7 @@ void TransferFrame::addressEdited(const QString& _text) {
     killTimer(m_addressInputTimer);
   }
 
-  m_addressInputTimer = startTimer(ADDRESS_INPUT_INTERVAL);
+  m_addressInputTimer = startTimer(TRANSACTION_ADDRESS_INPUT_INTERVAL);
 }
 
 void TransferFrame::pasteClicked() {
