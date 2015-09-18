@@ -22,7 +22,19 @@ public:
   void setCommandLineParser(CommandLineParser* _cmd_line_parser);
   void load();
 
+  bool hasAllowLocalIpOption() const;
+  bool hasHideMyPortOption() const;
+  bool isTestnet() const;
   QDir getDataDir() const;
+  QString getP2pBindIp() const;
+  quint16 getLocalRpcPort() const;
+  quint16 getP2pBindPort() const;
+  quint16 getP2pExternalPort() const;
+  QStringList getExclusiveNodes() const;
+  QStringList getPeers() const;
+  QStringList getPriorityNodes() const;
+  QStringList getSeedNodes() const;
+
   QString getWalletFile() const;
   QString getAddressBookFile() const;
   bool isEncrypted() const;

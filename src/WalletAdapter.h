@@ -11,11 +11,11 @@
 #include <atomic>
 #include <fstream>
 
-#include <IWallet.h>
+#include <IWalletLegacy.h>
 
 namespace WalletGui {
 
-class WalletAdapter : public QObject, public CryptoNote::IWalletObserver {
+class WalletAdapter : public QObject, public CryptoNote::IWalletLegacyObserver {
   Q_OBJECT
   Q_DISABLE_COPY(WalletAdapter)
 
@@ -32,16 +32,16 @@ public:
   quint64 getPendingBalance() const;
   quint64 getTransactionCount() const;
   quint64 getTransferCount() const;
-  bool getTransaction(CryptoNote::TransactionId& _id, CryptoNote::TransactionInfo& _transaction);
-  bool getTransfer(CryptoNote::TransferId& _id, CryptoNote::Transfer& _transfer);
+  bool getTransaction(CryptoNote::TransactionId& _id, CryptoNote::WalletLegacyTransaction& _transaction);
+  bool getTransfer(CryptoNote::TransferId& _id, CryptoNote::WalletLegacyTransfer& _transfer);
   bool isOpen() const;
-  void sendTransaction(const QVector<CryptoNote::Transfer>& _transfers, quint64 _fee, const QString& _payment_id, quint64 _mixin);
+  void sendTransaction(const QVector<CryptoNote::WalletLegacyTransfer>& _transfers, quint64 _fee, const QString& _payment_id, quint64 _mixin);
   bool changePassword(const QString& _old_pass, const QString& _new_pass);
   void setWalletFile(const QString& _path);
 
   void initCompleted(std::error_code _result) Q_DECL_OVERRIDE;
   void saveCompleted(std::error_code _result) Q_DECL_OVERRIDE;
-  void synchronizationProgressUpdated(uint64_t _current, uint64_t _total) Q_DECL_OVERRIDE;
+  void synchronizationProgressUpdated(uint32_t _current, uint32_t _total) Q_DECL_OVERRIDE;
   void synchronizationCompleted(std::error_code _error) Q_DECL_OVERRIDE;
   void actualBalanceUpdated(uint64_t _actual_balance) Q_DECL_OVERRIDE;
   void pendingBalanceUpdated(uint64_t _pending_balance) Q_DECL_OVERRIDE;
@@ -51,7 +51,7 @@ public:
 
 private:
   std::fstream m_file;
-  CryptoNote::IWallet* m_wallet;
+  CryptoNote::IWalletLegacy* m_wallet;
   QMutex m_mutex;
   std::atomic<bool> m_isBackupInProgress;
   std::atomic<bool> m_isSynchronized;

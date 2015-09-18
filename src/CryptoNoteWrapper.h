@@ -9,19 +9,18 @@
 #include <string>
 #include <system_error>
 
-#include <cryptonote_core/CoreConfig.h>
-
-namespace cryptonote {
-
-class Currency;
-
-}
-
 namespace CryptoNote {
 
 class INode;
-class IWallet;
+class IWalletLegacy;
+class Currency;
+class CoreConfig;
+class NetNodeConfig;
 
+}
+
+namespace Logging {
+  class LoggerManager;
 }
 
 namespace WalletGui {
@@ -39,7 +38,7 @@ public:
   virtual uint64_t getLastLocalBlockTimestamp() const = 0;
   virtual uint64_t getPeerCount() const = 0;
 
-  virtual CryptoNote::IWallet* createWallet() = 0;
+  virtual CryptoNote::IWalletLegacy* createWallet() = 0;
 };
 
 class INodeCallback {
@@ -49,7 +48,8 @@ public:
   virtual void lastKnownBlockHeightUpdated(Node& node, uint64_t height) = 0;
 };
 
-Node* createRpcNode(const cryptonote::Currency& currency, INodeCallback& callback, const std::string& nodeHost, unsigned short nodePort);
-Node* createInprocessNode(const cryptonote::Currency& currency, INodeCallback& callback, const cryptonote::CoreConfig& coreConfig);
+Node* createRpcNode(const CryptoNote::Currency& currency, INodeCallback& callback, const std::string& nodeHost, unsigned short nodePort);
+Node* createInprocessNode(const CryptoNote::Currency& currency, Logging::LoggerManager& logManager,
+  const CryptoNote::CoreConfig& coreConfig, const CryptoNote::NetNodeConfig& netNodeConfig, INodeCallback& callback);
 
 }

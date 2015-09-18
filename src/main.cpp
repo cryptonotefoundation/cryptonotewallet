@@ -12,6 +12,7 @@
 
 #include "CommandLineParser.h"
 #include "CurrencyAdapter.h"
+#include "LoggerAdapter.h"
 #include "NodeAdapter.h"
 #include "Settings.h"
 #include "SignalHandler.h"
@@ -33,9 +34,9 @@ int main(int argc, char* argv[]) {
   QApplication::setStyle(QStyleFactory::create("Fusion"));
 #endif
 
-  CommandLineParser cmdLineParser;
+  CommandLineParser cmdLineParser(nullptr);
   Settings::instance().setCommandLineParser(&cmdLineParser);
-  bool cmdLineParseResult = cmdLineParser.process();
+  bool cmdLineParseResult = cmdLineParser.process(app.arguments());
   Settings::instance().load();
 
 #ifdef Q_OS_WIN
@@ -47,6 +48,8 @@ int main(int argc, char* argv[]) {
     return app.exec();
   }
 #endif
+
+  LoggerAdapter::instance().init();
 
   QString dataDirPath = Settings::instance().getDataDir().absolutePath();
   if (!QDir().exists(dataDirPath)) {

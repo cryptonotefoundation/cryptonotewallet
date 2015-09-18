@@ -9,7 +9,7 @@
 #include <QSystemTrayIcon>
 #include <QTimer>
 
-#include <common/util.h>
+#include <Common/Util.h>
 
 #include "AboutDialog.h"
 #include "AnimatedLabel.h"

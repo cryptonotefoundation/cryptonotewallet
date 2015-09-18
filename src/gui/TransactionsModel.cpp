@@ -123,13 +123,13 @@ QVariant TransactionsModel::data(const QModelIndex& _index, int _role) const {
     return QVariant();
   }
 
-  CryptoNote::TransactionInfo transaction;
-  CryptoNote::Transfer transfer;
+  CryptoNote::WalletLegacyTransaction transaction;
+  CryptoNote::WalletLegacyTransfer transfer;
   CryptoNote::TransactionId transactionId = m_transfers.value(_index.row()).first;
   CryptoNote::TransferId transferId = m_transfers.value(_index.row()).second;
 
   if(!WalletAdapter::instance().getTransaction(transactionId, transaction) ||
-    (m_transfers.value(_index.row()).second != CryptoNote::INVALID_TRANSFER_ID &&
+    (m_transfers.value(_index.row()).second != CryptoNote::WALLET_LEGACY_INVALID_TRANSFER_ID &&
     !WalletAdapter::instance().getTransfer(transferId, transfer))) {
     return QVariant();
   }
@@ -259,7 +259,7 @@ QVariant TransactionsModel::getAlignmentRole(const QModelIndex& _index) const {
 }
 
 QVariant TransactionsModel::getUserRole(const QModelIndex& _index, int _role, CryptoNote::TransactionId _transactionId,
-  CryptoNote::TransactionInfo& _transaction, CryptoNote::TransferId _transferId, CryptoNote::Transfer& _transfer) const {
+  CryptoNote::WalletLegacyTransaction& _transaction, CryptoNote::TransferId _transferId, CryptoNote::WalletLegacyTransfer& _transfer) const {
   switch(_role) {
   case ROLE_DATE:
     return (_transaction.timestamp > 0 ? QDateTime::fromTime_t(_transaction.timestamp) : QDateTime());
@@ -278,13 +278,13 @@ QVariant TransactionsModel::getUserRole(const QModelIndex& _index, int _role, Cr
   }
 
   case ROLE_HASH:
-    return QByteArray(reinterpret_cast<char*>(&_transaction.hash.front()), _transaction.hash.size());
+    return QByteArray(reinterpret_cast<char*>(&_transaction.hash), sizeof(_transaction.hash));
 
   case ROLE_ADDRESS:
     return QString::fromStdString(_transfer.address);
 
   case ROLE_AMOUNT:
-    return static_cast<qint64>(_transferId == CryptoNote::INVALID_TRANSFER_ID ? _transaction.totalAmount : -_transfer.amount);
+    return static_cast<qint64>(_transferId == CryptoNote::WALLET_LEGACY_INVALID_TRANSFER_ID ? _transaction.totalAmount : -_transfer.amount);
 
   case ROLE_PAYMENT_ID:
     return NodeAdapter::instance().extractPaymentId(_transaction.extra);
@@ -304,7 +304,7 @@ QVariant TransactionsModel::getUserRole(const QModelIndex& _index, int _role, Cr
     return static_cast<quint64>(_transaction.fee);
 
   case ROLE_NUMBER_OF_CONFIRMATIONS:
-    return (_transaction.blockHeight == CryptoNote::UNCONFIRMED_TRANSACTION_HEIGHT ? 0 :
+    return (_transaction.blockHeight == CryptoNote::WALLET_LEGACY_UNCONFIRMED_TRANSACTION_HEIGHT ? 0 :
       NodeAdapter::instance().getLastKnownBlockHeight() - _transaction.blockHeight + 1);
 
   case ROLE_COLUMN:
@@ -335,7 +335,7 @@ void TransactionsModel::reloadWalletTransactions() {
 }
 
 void TransactionsModel::appendTransaction(CryptoNote::TransactionId _transactionId, quint32& _insertedRowCount) {
-  CryptoNote::TransactionInfo transaction;
+  CryptoNote::WalletLegacyTransaction transaction;
   if (!WalletAdapter::instance().getTransaction(_transactionId, transaction)) {
     return;
   }
@@ -348,7 +348,7 @@ void TransactionsModel::appendTransaction(CryptoNote::TransactionId _transaction
       ++_insertedRowCount;
     }
   } else {
-    m_transfers.append(TransactionTransferId(_transactionId, CryptoNote::INVALID_TRANSFER_ID));
+    m_transfers.append(TransactionTransferId(_transactionId, CryptoNote::WALLET_LEGACY_INVALID_TRANSFER_ID));
     m_transactionRow[_transactionId] = qMakePair(m_transfers.size() - 1, 1);
     ++_insertedRowCount;
   }

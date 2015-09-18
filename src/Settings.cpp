@@ -9,7 +9,7 @@
 #include <QStandardPaths>
 #include <QTextCodec>
 
-#include <common/util.h>
+#include <Common/Util.h>
 
 #include "CommandLineParser.h"
 #include "CurrencyAdapter.h"
@@ -47,6 +47,56 @@ void Settings::load() {
   } else {
     m_addressBookFile = getDataDir().absoluteFilePath(QCoreApplication::applicationName() + ".addressbook");
   }
+}
+
+bool Settings::isTestnet() const {
+  Q_ASSERT(m_cmdLineParser != nullptr);
+  return m_cmdLineParser->hasTestnetOption();
+}
+
+bool Settings::hasAllowLocalIpOption() const {
+  Q_ASSERT(m_cmdLineParser != nullptr);
+  return m_cmdLineParser->hasAllowLocalIpOption();
+}
+
+bool Settings::hasHideMyPortOption() const {
+  Q_ASSERT(m_cmdLineParser != nullptr);
+  return m_cmdLineParser->hasHideMyPortOption();
+}
+
+QString Settings::getP2pBindIp() const {
+  Q_ASSERT(m_cmdLineParser != nullptr);
+  return m_cmdLineParser->getP2pBindIp();
+}
+
+quint16 Settings::getP2pBindPort() const {
+  Q_ASSERT(m_cmdLineParser != nullptr);
+  return m_cmdLineParser->getP2pBindPort();
+}
+
+quint16 Settings::getP2pExternalPort() const {
+  Q_ASSERT(m_cmdLineParser != nullptr);
+  return m_cmdLineParser->getP2pExternalPort();
+}
+
+QStringList Settings::getPeers() const {
+  Q_ASSERT(m_cmdLineParser != nullptr);
+  return m_cmdLineParser->getPeers();
+}
+
+QStringList Settings::getPriorityNodes() const {
+  Q_ASSERT(m_cmdLineParser != nullptr);
+  return m_cmdLineParser->getPiorityNodes();
+}
+
+QStringList Settings::getExclusiveNodes() const {
+  Q_ASSERT(m_cmdLineParser != nullptr);
+  return m_cmdLineParser->getExclusiveNodes();
+}
+
+QStringList Settings::getSeedNodes() const {
+  Q_ASSERT(m_cmdLineParser != nullptr);
+  return m_cmdLineParser->getSeedNodes();
 }
 
 QDir Settings::getDataDir() const {
