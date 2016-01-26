@@ -2,6 +2,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
+#include <QCoreApplication>
+
 #include "LoggerAdapter.h"
 #include "Settings.h"
 
@@ -18,7 +20,7 @@ void LoggerAdapter::init() {
   Common::JsonValue& cfgLoggers = loggerConfiguration.insert("loggers", Common::JsonValue::ARRAY);
   Common::JsonValue& fileLogger = cfgLoggers.pushBack(Common::JsonValue::OBJECT);
   fileLogger.insert("type", "file");
-  fileLogger.insert("filename", Settings::instance().getDataDir().absoluteFilePath("bytecoinwallet.log").toStdString());
+  fileLogger.insert("filename", Settings::instance().getDataDir().absoluteFilePath(QCoreApplication::applicationName() + ".log").toStdString());
   fileLogger.insert("level", static_cast<int64_t>(Logging::INFO));
   m_logManager.configure(loggerConfiguration);
 }
