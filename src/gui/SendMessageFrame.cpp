@@ -1,5 +1,5 @@
-// Copyright (c) 2011-2015 The Cryptonote developers
-// Copyright (c) 2015 XDN developers
+// Copyright (c) 2011-2016 The Cryptonote developers
+// Copyright (c) 2015-2016 XDN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -127,7 +127,7 @@ void SendMessageFrame::sendClicked() {
     messageString = Message::makeTextMessage(messageString, header);
   }
 
-  CryptoNote::Transfer transfer;
+  CryptoNote::WalletLegacyTransfer transfer;
   transfer.address = address.toStdString();
   quint64 fee = CurrencyAdapter::instance().parseAmount(m_ui->m_feeSpin->cleanText());
   transfer.amount = MESSAGE_AMOUNT;
@@ -140,7 +140,7 @@ void SendMessageFrame::sendClicked() {
   }
 
   if (WalletAdapter::instance().isOpen()) {
-    WalletAdapter::instance().sendMessage(QVector<CryptoNote::Transfer>() << transfer, fee - MESSAGE_AMOUNT, m_ui->m_mixinSlider->value(),
+    WalletAdapter::instance().sendMessage(QVector<CryptoNote::WalletLegacyTransfer>() << transfer, fee - MESSAGE_AMOUNT, m_ui->m_mixinSlider->value(),
       QVector<CryptoNote::TransactionMessage>() << message);
   }
 }

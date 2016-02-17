@@ -1,5 +1,5 @@
-// Copyright (c) 2011-2015 The Cryptonote developers
-// Copyright (c) 2015 XDN developers
+// Copyright (c) 2011-2016 The Cryptonote developers
+// Copyright (c) 2015-2016 XDN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -10,8 +10,8 @@
 #include <QSystemTrayIcon>
 #include <QTimer>
 
-#include <common/base58.h>
-#include <common/util.h>
+#include <Common/Base58.h>
+#include <Common/Util.h>
 
 #include "AboutDialog.h"
 #include "AddressBookModel.h"
@@ -275,8 +275,8 @@ void MainWindow::importKey() {
 
     uint64_t addressPrefix;
     std::string data;
-    CryptoNote::WalletAccountKeys keys;
-    if (tools::base58::decode_addr(keyString.toStdString(), addressPrefix, data) && addressPrefix == CurrencyAdapter::instance().getAddressPrefix() &&
+    CryptoNote::AccountKeys keys;
+    if (Tools::Base58::decode_addr(keyString.toStdString(), addressPrefix, data) && addressPrefix == CurrencyAdapter::instance().getAddressPrefix() &&
       data.size() == sizeof(keys)) {
       std::memcpy(&keys, data.data(), sizeof(keys));
       if (WalletAdapter::instance().isOpen()) {

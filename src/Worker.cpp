@@ -1,5 +1,5 @@
-// Copyright (c) 2011-2015 The Cryptonote developers
-// Copyright (c) 2015 XDN developers
+// Copyright (c) 2011-2016 The Cryptonote developers
+// Copyright (c) 2015-2016 XDN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -31,8 +31,8 @@ void Worker::stop() {
 void Worker::run() {
   Job localJob;
   quint32 localNonce;
-  crypto::hash hash;
-  crypto::cn_context context;
+  Crypto::Hash hash;
+  Crypto::cn_context context;
   while (!m_isStopped) {
     {
       QReadLocker lock(&m_jobLock);
@@ -50,7 +50,7 @@ void Worker::run() {
     localNonce = ++m_nonce;
     localJob.blob.replace(39, sizeof(localNonce), reinterpret_cast<char*>(&localNonce), sizeof(localNonce));
     std::memset(&hash, 0, sizeof(hash));
-    crypto::cn_slow_hash(context, localJob.blob.data(), localJob.blob.size(), hash);
+    Crypto::cn_slow_hash(context, localJob.blob.data(), localJob.blob.size(), hash);
     ++m_hashCounter;
     if (Q_UNLIKELY(((quint32*)&hash)[7] < localJob.target)) {
       m_observer->processShare(localJob.jobId, localNonce, QByteArray(reinterpret_cast<char*>(&hash), sizeof(hash)));

@@ -5,19 +5,22 @@
 
 #pragma once
 
-#include <QSortFilterProxyModel>
+#include "Logging/LoggerManager.h"
 
 namespace WalletGui {
 
-class DepositListModel : public QSortFilterProxyModel {
-  Q_OBJECT
+class LoggerAdapter {
 
 public:
-  DepositListModel();
-  ~DepositListModel();
+  static LoggerAdapter& instance();
+  void init();
+  Logging::LoggerManager& getLoggerManager();
 
-protected:
-  bool filterAcceptsColumn(int _sourceColumn, const QModelIndex& _sourceParent) const Q_DECL_OVERRIDE;
+private:
+  Logging::LoggerManager m_logManager;
+
+  LoggerAdapter();
+  ~LoggerAdapter();
 };
 
 }

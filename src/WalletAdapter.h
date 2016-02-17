@@ -1,5 +1,5 @@
-// Copyright (c) 2011-2015 The Cryptonote developers
-// Copyright (c) 2015 XDN developers
+// Copyright (c) 2011-2016 The Cryptonote developers
+// Copyright (c) 2015-2016 XDN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -12,11 +12,11 @@
 #include <atomic>
 #include <fstream>
 
-#include <IWallet.h>
+#include <IWalletLegacy.h>
 
 namespace WalletGui {
 
-class WalletAdapter : public QObject, public CryptoNote::IWalletObserver {
+class WalletAdapter : public QObject, public CryptoNote::IWalletLegacyObserver {
   Q_OBJECT
   Q_DISABLE_COPY(WalletAdapter)
 
@@ -24,7 +24,7 @@ public:
   static WalletAdapter& instance();
 
   void open(const QString& _password);
-  void createWithKeys(const CryptoNote::WalletAccountKeys& _keys);
+  void createWithKeys(const CryptoNote::AccountKeys& _keys);
   void close();
   bool save(bool _details, bool _cache);
   void backup(const QString& _file);
@@ -37,14 +37,14 @@ public:
   quint64 getTransactionCount() const;
   quint64 getTransferCount() const;
   quint64 getDepositCount() const;
-  bool getTransaction(CryptoNote::TransactionId _id, CryptoNote::TransactionInfo& _transaction);
-  bool getTransfer(CryptoNote::TransferId _id, CryptoNote::Transfer& _transfer);
+  bool getTransaction(CryptoNote::TransactionId _id, CryptoNote::WalletLegacyTransaction& _transaction);
+  bool getTransfer(CryptoNote::TransferId _id, CryptoNote::WalletLegacyTransfer& _transfer);
   bool getDeposit(CryptoNote::DepositId _id, CryptoNote::Deposit& _deposit);
-  bool getAccountKeys(CryptoNote::WalletAccountKeys& _keys);
+  bool getAccountKeys(CryptoNote::AccountKeys& _keys);
   bool isOpen() const;
-  void sendTransaction(const QVector<CryptoNote::Transfer>& _transfers, quint64 _fee, const QString& _payment_id, quint64 _mixin,
+  void sendTransaction(const QVector<CryptoNote::WalletLegacyTransfer>& _transfers, quint64 _fee, const QString& _payment_id, quint64 _mixin,
     const QVector<CryptoNote::TransactionMessage>& _messages);
-  void sendMessage(const QVector<CryptoNote::Transfer>& _transfers, quint64 _fee, quint64 _mixin,
+  void sendMessage(const QVector<CryptoNote::WalletLegacyTransfer>& _transfers, quint64 _fee, quint64 _mixin,
     const QVector<CryptoNote::TransactionMessage>& _messages);
   void deposit(quint32 _term, quint64 _amount, quint64 _fee, quint64 _mixIn);
   void withdrawUnlockedDeposits(QVector<CryptoNote::DepositId> _depositIds, quint64 _fee);
@@ -53,7 +53,7 @@ public:
 
   void initCompleted(std::error_code _result) Q_DECL_OVERRIDE;
   void saveCompleted(std::error_code _result) Q_DECL_OVERRIDE;
-  void synchronizationProgressUpdated(uint64_t _current, uint64_t _total) Q_DECL_OVERRIDE;
+  void synchronizationProgressUpdated(uint32_t _current, uint32_t _total) Q_DECL_OVERRIDE;
   void synchronizationCompleted(std::error_code _error) Q_DECL_OVERRIDE;
   void actualBalanceUpdated(uint64_t _actualBalance) Q_DECL_OVERRIDE;
   void pendingBalanceUpdated(uint64_t _pendingBalance) Q_DECL_OVERRIDE;
@@ -66,7 +66,7 @@ public:
 
 private:
   std::fstream m_file;
-  CryptoNote::IWallet* m_wallet;
+  CryptoNote::IWalletLegacy* m_wallet;
   QMutex m_mutex;
   std::atomic<bool> m_isBackupInProgress;
   std::atomic<bool> m_isSynchronized;

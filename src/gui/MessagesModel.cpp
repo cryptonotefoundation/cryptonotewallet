@@ -1,5 +1,5 @@
-// Copyright (c) 2011-2015 The Cryptonote developers
-// Copyright (c) 2015 XDN developers
+// Copyright (c) 2011-2016 The Cryptonote developers
+// Copyright (c) 2015-2016 XDN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -96,7 +96,7 @@ QVariant MessagesModel::data(const QModelIndex& _index, int _role) const {
     return QVariant();
   }
 
-  CryptoNote::TransactionInfo transaction;
+  CryptoNote::WalletLegacyTransaction transaction;
   CryptoNote::TransactionId transactionId = m_messages.value(_index.row()).first;
   Message message = m_messages.value(_index.row()).second;
 
@@ -154,7 +154,7 @@ QVariant MessagesModel::getDisplayRole(const QModelIndex& _index) const {
 
   case COLUMN_HEIGHT: {
     quint64 height = _index.data(ROLE_HEIGHT).value<quint64>();
-    return (height == CryptoNote::UNCONFIRMED_TRANSACTION_HEIGHT ? "-" : QString::number(height));
+    return (height == CryptoNote::WALLET_LEGACY_UNCONFIRMED_TRANSACTION_HEIGHT ? "-" : QString::number(height));
   }
 
   case COLUMN_MESSAGE: {
@@ -196,7 +196,7 @@ QVariant MessagesModel::getAlignmentRole(const QModelIndex& _index) const {
 }
 
 QVariant MessagesModel::getUserRole(const QModelIndex& _index, int _role, CryptoNote::TransactionId _transactionId,
-  CryptoNote::TransactionInfo& _transaction, const Message& _message) const {
+  CryptoNote::WalletLegacyTransaction& _transaction, const Message& _message) const {
   switch(_role) {
   case ROLE_DATE:
     return (_transaction.timestamp > 0 ? QDateTime::fromTime_t(_transaction.timestamp) : QDateTime());
@@ -222,7 +222,7 @@ QVariant MessagesModel::getUserRole(const QModelIndex& _index, int _role, Crypto
     return _message.getHeaderValue(HEADER_REPLY_TO_KEY);
 
   case ROLE_HASH:
-    return QByteArray(reinterpret_cast<char*>(&_transaction.hash.front()), _transaction.hash.size());
+    return QByteArray(reinterpret_cast<char*>(&_transaction.hash), sizeof(_transaction.hash));
 
   case ROLE_AMOUNT:
     return static_cast<qint64>(_transaction.totalAmount);
@@ -255,7 +255,7 @@ void MessagesModel::reloadWalletTransactions() {
 }
 
 void MessagesModel::appendTransaction(CryptoNote::TransactionId _transactionId, quint32& _insertedRowCount) {
-  CryptoNote::TransactionInfo transaction;
+  CryptoNote::WalletLegacyTransaction transaction;
   if (!WalletAdapter::instance().getTransaction(_transactionId, transaction)) {
     return;
   }

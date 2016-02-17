@@ -1,10 +1,12 @@
-// Copyright (c) 2011-2015 The Cryptonote developers
-// Copyright (c) 2015 XDN developers
+// Copyright (c) 2011-2016 The Cryptonote developers
+// Copyright (c) 2015-2016 XDN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "CurrencyAdapter.h"
 #include "CryptoNoteWalletConfig.h"
+#include "LoggerAdapter.h"
+#include "Settings.h"
 
 namespace WalletGui {
 
@@ -13,13 +15,13 @@ CurrencyAdapter& CurrencyAdapter::instance() {
   return inst;
 }
 
-CurrencyAdapter::CurrencyAdapter() : m_currency(cryptonote::CurrencyBuilder().currency()) {
+CurrencyAdapter::CurrencyAdapter() : m_currency(CryptoNote::CurrencyBuilder(LoggerAdapter::instance().getLoggerManager()).testnet(Settings::instance().isTestnet()).currency()) {
 }
 
 CurrencyAdapter::~CurrencyAdapter() {
 }
 
-const cryptonote::Currency& CurrencyAdapter::getCurrency() {
+const CryptoNote::Currency& CurrencyAdapter::getCurrency() {
   return m_currency;
 }
 
@@ -32,7 +34,7 @@ QString CurrencyAdapter::getCurrencyDisplayName() const {
 }
 
 QString CurrencyAdapter::getCurrencyName() const {
-  return cryptonote::CRYPTONOTE_NAME;
+  return CryptoNote::CRYPTONOTE_NAME;
 }
 
 QString CurrencyAdapter::getCurrencyTicker() const {
@@ -126,7 +128,7 @@ quint64 CurrencyAdapter::parseAmount(const QString& _amountString) const {
 }
 
 bool CurrencyAdapter::validateAddress(const QString& _address) const {
-  cryptonote::AccountPublicAddress internalAddress;
+  CryptoNote::AccountPublicAddress internalAddress;
   return m_currency.parseAccountAddressString(_address.toStdString(), internalAddress);
 }
 

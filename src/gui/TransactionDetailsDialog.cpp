@@ -1,5 +1,5 @@
-// Copyright (c) 2011-2015 The Cryptonote developers
-// Copyright (c) 2015 XDN developers
+// Copyright (c) 2011-2016 The Cryptonote developers
+// Copyright (c) 2015-2016 XDN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -46,7 +46,7 @@ TransactionDetailsDialog::TransactionDetailsDialog(const QModelIndex& _index, QW
   CryptoNote::DepositId depositId = transactionIndex.data(TransactionsModel::ROLE_DEPOSIT_ID).value<CryptoNote::DepositId>();
 
   QString depositInfo;
-  if (depositId != CryptoNote::INVALID_DEPOSIT_ID) {
+  if (depositId != CryptoNote::WALLET_LEGACY_INVALID_DEPOSIT_ID) {
     QModelIndex depositIndex = DepositModel::instance().index(depositId, 0);
     QString depositAmount = depositIndex.sibling(depositIndex.row(), DepositModel::COLUMN_AMOUNT).data().toString() + " " +
       CurrencyAdapter::instance().getCurrencyTicker().toUpper();

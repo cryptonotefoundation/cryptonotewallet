@@ -1,5 +1,5 @@
-// Copyright (c) 2011-2015 The Cryptonote developers
-// Copyright (c) 2015 XDN developers
+// Copyright (c) 2011-2016 The Cryptonote developers
+// Copyright (c) 2015-2016 XDN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -13,6 +13,7 @@
 
 #include "CommandLineParser.h"
 #include "CurrencyAdapter.h"
+#include "LoggerAdapter.h"
 #include "NodeAdapter.h"
 #include "Settings.h"
 #include "SignalHandler.h"
@@ -26,7 +27,7 @@ using namespace WalletGui;
 
 int main(int argc, char* argv[]) {
   QApplication app(argc, argv);
-  app.setApplicationName(CurrencyAdapter::instance().getCurrencyName() + "wallet");
+  app.setApplicationName("digitalnotewallet");
   app.setApplicationVersion(Settings::instance().getVersion());
   app.setQuitOnLastWindowClosed(false);
 
@@ -34,20 +35,22 @@ int main(int argc, char* argv[]) {
   QApplication::setStyle(QStyleFactory::create("Fusion"));
 #endif
 
-  CommandLineParser cmdLineParser;
+  CommandLineParser cmdLineParser(nullptr);
   Settings::instance().setCommandLineParser(&cmdLineParser);
-  bool cmdLineParseResult = cmdLineParser.process();
+  bool cmdLineParseResult = cmdLineParser.process(app.arguments());
   Settings::instance().load();
 
 #ifdef Q_OS_WIN
   if(!cmdLineParseResult) {
-    QMessageBox::critical(nullptr, QObject::tr("Error"), cmdLineParser.errorText());
+    QMessageBox::critical(nullptr, QObject::tr("Error"), cmdLineParser.getErrorText());
     return app.exec();
   } else if (cmdLineParser.hasHelpOption()) {
-    QMessageBox::information(nullptr, QObject::tr("Help"), cmdLineParser.helpText());
+    QMessageBox::information(nullptr, QObject::tr("Help"), cmdLineParser.getHelpText());
     return app.exec();
   }
 #endif
+
+  LoggerAdapter::instance().init();
 
   QString dataDirPath = Settings::instance().getDataDir().absolutePath();
   if (!QDir().exists(dataDirPath)) {
@@ -56,7 +59,7 @@ int main(int argc, char* argv[]) {
 
   QLockFile lockFile(Settings::instance().getDataDir().absoluteFilePath(QApplication::applicationName() + ".lock"));
   if (!lockFile.tryLock()) {
-    QMessageBox::warning(nullptr, QObject::tr("Fail"), QObject::tr("%1 wallet already running").arg(CurrencyAdapter::instance().getCurrencyDisplayName()));
+    QMessageBox::warning(nullptr, QObject::tr("Fail"), QString("%1 wallet already running").arg(CurrencyAdapter::instance().getCurrencyDisplayName()));
     return 0;
   }
 
@@ -70,13 +73,11 @@ int main(int argc, char* argv[]) {
     splash->show();
   }
 
-  splash->showMessage(QObject::tr("Loading blockchain..."), Qt::AlignLeft | Qt::AlignBottom, Qt::black);
+  splash->showMessage(QObject::tr("Loading blockchain..."), Qt::AlignLeft | Qt::AlignBottom, Qt::white);
   app.processEvents();
   qRegisterMetaType<CryptoNote::TransactionId>("CryptoNote::TransactionId");
   qRegisterMetaType<quintptr>("quintptr");
   if (!NodeAdapter::instance().init()) {
-    splash->hide();
-    QMessageBox::warning(nullptr, QObject::tr("Fail"), QObject::tr("Core initialization problems encountered. Please check log file."));
     return 0;
   }
 

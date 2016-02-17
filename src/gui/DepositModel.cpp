@@ -1,5 +1,5 @@
-// Copyright (c) 2011-2015 The Cryptonote developers
-// Copyright (c) 2015 XDN developers
+// Copyright (c) 2011-2016 The Cryptonote developers
+// Copyright (c) 2015-2016 XDN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -190,7 +190,7 @@ QVariant DepositModel::getDisplayRole(const QModelIndex& _index) const {
     return _index.data(ROLE_DEPOSIT_TERM);
   case COLUMN_UNLOCK_HEIGHT: {
     quint64 unlockHeight = _index.data(ROLE_UNLOCK_HEIGHT).value<quint64>();
-    if (unlockHeight == CryptoNote::UNCONFIRMED_TRANSACTION_HEIGHT) {
+    if (unlockHeight == CryptoNote::WALLET_LEGACY_UNCONFIRMED_TRANSACTION_HEIGHT) {
       return "-";
     }
 
@@ -201,7 +201,7 @@ QVariant DepositModel::getDisplayRole(const QModelIndex& _index) const {
     DepositState depositState = static_cast<DepositState>(_index.data(ROLE_STATE).toInt());
     if (depositState == STATE_LOCKED) {
       quint64 unlockHeight = _index.data(ROLE_UNLOCK_HEIGHT).value<quint64>();
-      if (unlockHeight == CryptoNote::UNCONFIRMED_TRANSACTION_HEIGHT) {
+      if (unlockHeight == CryptoNote::WALLET_LEGACY_UNCONFIRMED_TRANSACTION_HEIGHT) {
         return "-";
       }
 
@@ -218,7 +218,7 @@ QVariant DepositModel::getDisplayRole(const QModelIndex& _index) const {
 
   case COLUMN_CREATING_HEIGHT: {
     CryptoNote::TransactionId creatingTransactionId = _index.data(ROLE_CREATING_TRANSACTION_ID).value<CryptoNote::TransactionId>();
-    if (creatingTransactionId == CryptoNote::INVALID_TRANSACTION_ID) {
+    if (creatingTransactionId == CryptoNote::WALLET_LEGACY_INVALID_TRANSACTION_ID) {
       return "-";
     }
 
@@ -227,7 +227,7 @@ QVariant DepositModel::getDisplayRole(const QModelIndex& _index) const {
 
   case COLUMN_CREATING_TIME: {
     CryptoNote::TransactionId creatingTransactionId = _index.data(ROLE_CREATING_TRANSACTION_ID).value<CryptoNote::TransactionId>();
-    if (creatingTransactionId == CryptoNote::INVALID_TRANSACTION_ID) {
+    if (creatingTransactionId == CryptoNote::WALLET_LEGACY_INVALID_TRANSACTION_ID) {
       return "-";
     }
 
@@ -236,7 +236,7 @@ QVariant DepositModel::getDisplayRole(const QModelIndex& _index) const {
 
   case COLUMN_SPENDING_TRANSACTION_HASH: {
     CryptoNote::TransactionId spendingTransactionId = _index.data(ROLE_SPENDING_TRANSACTION_ID).value<CryptoNote::TransactionId>();
-    if (spendingTransactionId == CryptoNote::INVALID_TRANSACTION_ID) {
+    if (spendingTransactionId == CryptoNote::WALLET_LEGACY_INVALID_TRANSACTION_ID) {
       return "-";
     }
 
@@ -245,7 +245,7 @@ QVariant DepositModel::getDisplayRole(const QModelIndex& _index) const {
 
   case COLUMN_SPENDING_HEIGHT: {
     CryptoNote::TransactionId spendingTransactionId = _index.data(ROLE_SPENDING_TRANSACTION_ID).value<CryptoNote::TransactionId>();
-    if (spendingTransactionId == CryptoNote::INVALID_TRANSACTION_ID) {
+    if (spendingTransactionId == CryptoNote::WALLET_LEGACY_INVALID_TRANSACTION_ID) {
       return "-";
     }
 
@@ -254,7 +254,7 @@ QVariant DepositModel::getDisplayRole(const QModelIndex& _index) const {
 
   case COLUMN_SPENDING_TIME: {
     CryptoNote::TransactionId spendingTransactionId = _index.data(ROLE_SPENDING_TRANSACTION_ID).value<CryptoNote::TransactionId>();
-    if (spendingTransactionId == CryptoNote::INVALID_TRANSACTION_ID) {
+    if (spendingTransactionId == CryptoNote::WALLET_LEGACY_INVALID_TRANSACTION_ID) {
       return "-";
     }
 
@@ -296,7 +296,7 @@ QVariant DepositModel::getUserRole(const QModelIndex& _index, int _role) const {
   case ROLE_STATE:
     if (deposit.locked) {
       return static_cast<int>(STATE_LOCKED);
-    } else if (deposit.spendingTransactionId == CryptoNote::INVALID_TRANSACTION_ID) {
+    } else if (deposit.spendingTransactionId == CryptoNote::WALLET_LEGACY_INVALID_TRANSACTION_ID) {
       return static_cast<int>(STATE_UNLOCKED);
     } else {
       return static_cast<int>(STATE_SPENT);
@@ -314,8 +314,8 @@ QVariant DepositModel::getUserRole(const QModelIndex& _index, int _role) const {
     CryptoNote::TransactionId creatingTransactionId = _index.data(ROLE_CREATING_TRANSACTION_ID).value<CryptoNote::TransactionId>();
     quint64 creatingHeight = TransactionsModel::instance().index(creatingTransactionId, 0).
       data(TransactionsModel::ROLE_HEIGHT).value<quint64>();
-    if (creatingHeight == CryptoNote::UNCONFIRMED_TRANSACTION_HEIGHT) {
-      return static_cast<const quint64>(CryptoNote::UNCONFIRMED_TRANSACTION_HEIGHT);
+    if (creatingHeight == CryptoNote::WALLET_LEGACY_UNCONFIRMED_TRANSACTION_HEIGHT) {
+      return static_cast<const quint64>(CryptoNote::WALLET_LEGACY_UNCONFIRMED_TRANSACTION_HEIGHT);
     }
 
     return creatingHeight + _index.data(ROLE_DEPOSIT_TERM).value<quint32>();

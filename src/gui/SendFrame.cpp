@@ -1,5 +1,5 @@
-// Copyright (c) 2011-2015 The Cryptonote developers
-// Copyright (c) 2015 XDN developers
+// Copyright (c) 2011-2016 The Cryptonote developers
+// Copyright (c) 2015-2016 XDN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -79,7 +79,7 @@ void SendFrame::clearAllClicked() {
 }
 
 void SendFrame::sendClicked() {
-  QVector<CryptoNote::Transfer> walletTransfers;
+  QVector<CryptoNote::WalletLegacyTransfer> walletTransfers;
   QVector<CryptoNote::TransactionMessage> walletMessages;
   Q_FOREACH (TransferFrame * transfer, m_transfers) {
     QString address = transfer->getAddress();
@@ -88,7 +88,7 @@ void SendFrame::sendClicked() {
       return;
     }
 
-    CryptoNote::Transfer walletTransfer;
+    CryptoNote::WalletLegacyTransfer walletTransfer;
     walletTransfer.address = address.toStdString();
     uint64_t amount = CurrencyAdapter::instance().parseAmount(transfer->getAmountString());
     walletTransfer.amount = amount;

@@ -1,5 +1,5 @@
-// Copyright (c) 2011-2015 The Cryptonote developers
-// Copyright (c) 2015 XDN developers
+// Copyright (c) 2011-2016 The Cryptonote developers
+// Copyright (c) 2015-2016 XDN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -9,14 +9,18 @@
 #include <QThread>
 
 #include <INode.h>
-#include <IWallet.h>
+#include <IWalletLegacy.h>
 
-#include "CryptoNote.h"
+#include "CryptoNoteWrapper.h"
 
-namespace cryptonote {
+namespace CryptoNote {
 
 class Currency;
 
+}
+
+namespace Logging {
+  class LoggerManager;
 }
 
 namespace WalletGui {
@@ -33,7 +37,7 @@ public:
   quintptr getPeerCount() const;
   std::string convertPaymentId(const QString& _payment_id_string) const;
   QString extractPaymentId(const std::string& _extra) const;
-  CryptoNote::IWallet* createWallet() const;
+  CryptoNote::IWalletLegacy* createWallet() const;
 
   bool init();
   void deinit();
@@ -53,14 +57,16 @@ private:
   ~NodeAdapter();
 
   bool initInProcessNode();
-  cryptonote::CoreConfig makeCoreConfig() const;
+  CryptoNote::CoreConfig makeCoreConfig() const;
+  CryptoNote::NetNodeConfig makeNetNodeConfig() const;
 
 Q_SIGNALS:
   void localBlockchainUpdatedSignal(quint64 _height);
   void lastKnownBlockHeightUpdatedSignal(quint64 _height);
   void nodeInitCompletedSignal();
   void peerCountUpdatedSignal(quintptr _count);
-  void initNodeSignal(Node** _node, const cryptonote::Currency* currency, INodeCallback* _callback, const cryptonote::CoreConfig& _core_config);
+  void initNodeSignal(Node** _node, const CryptoNote::Currency* currency, INodeCallback* _callback, Logging::LoggerManager* _loggerManager,
+    const CryptoNote::CoreConfig& _coreConfig, const CryptoNote::NetNodeConfig& _netNodeConfig);
   void deinitNodeSignal(Node** _node);
 };
 

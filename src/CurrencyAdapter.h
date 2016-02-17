@@ -1,5 +1,5 @@
-// Copyright (c) 2011-2015 The Cryptonote developers
-// Copyright (c) 2015 XDN developers
+// Copyright (c) 2011-2016 The Cryptonote developers
+// Copyright (c) 2015-2016 XDN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -7,7 +7,7 @@
 
 #include <QString>
 
-#include "cryptonote_core/Currency.h"
+#include "CryptoNoteCore/Currency.h"
 
 namespace WalletGui {
 
@@ -16,7 +16,7 @@ class CurrencyAdapter {
 public:
   static CurrencyAdapter& instance();
 
-  const cryptonote::Currency& getCurrency();
+  const CryptoNote::Currency& getCurrency();
   QString getCurrencyDisplayName() const;
   QString getCurrencyName() const;
   QString getCurrencyTicker() const;
@@ -33,7 +33,7 @@ public:
   bool validateAddress(const QString& _address) const;
 
 private:
-  cryptonote::Currency m_currency;
+  CryptoNote::Currency m_currency;
 
   CurrencyAdapter();
   ~CurrencyAdapter();

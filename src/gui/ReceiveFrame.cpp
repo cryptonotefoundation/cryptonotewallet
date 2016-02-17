@@ -1,11 +1,11 @@
-// Copyright (c) 2011-2015 The Cryptonote developers
-// Copyright (c) 2015 XDN developers
+// Copyright (c) 2011-2016 The Cryptonote developers
+// Copyright (c) 2015-2016 XDN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include <QClipboard>
 
-#include <common/base58.h>
+#include <Common/Base58.h>
 
 #include "ReceiveFrame.h"
 #include "CurrencyAdapter.h"
@@ -35,9 +35,9 @@ void ReceiveFrame::walletOpened(int _error) {
     return;
   }
 
-  CryptoNote::WalletAccountKeys keys;
+  CryptoNote::AccountKeys keys;
   WalletAdapter::instance().getAccountKeys(keys);
-  QString privateKeys = QString::fromStdString(tools::base58::encode_addr(CurrencyAdapter::instance().getAddressPrefix(),
+  QString privateKeys = QString::fromStdString(Tools::Base58::encode_addr(CurrencyAdapter::instance().getAddressPrefix(),
     std::string(reinterpret_cast<char*>(&keys), sizeof(keys))));
 
   m_ui->m_keyEdit->setText(privateKeys);
