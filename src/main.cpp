@@ -41,10 +41,10 @@ int main(int argc, char* argv[]) {
 
 #ifdef Q_OS_WIN
   if(!cmdLineParseResult) {
-    QMessageBox::critical(nullptr, QObject::tr("Error"), cmdLineParser.errorText());
+    QMessageBox::critical(nullptr, QObject::tr("Error"), cmdLineParser.getErrorText());
     return app.exec();
   } else if (cmdLineParser.hasHelpOption()) {
-    QMessageBox::information(nullptr, QObject::tr("Help"), cmdLineParser.helpText());
+    QMessageBox::information(nullptr, QObject::tr("Help"), cmdLineParser.getHelpText());
     return app.exec();
   }
 #endif
