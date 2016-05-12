@@ -42,6 +42,7 @@ private:
 
   Q_SLOT void addressBookClicked();
   Q_SLOT void addressEdited(const QString& _text);
+  Q_SLOT void messageTextChanged();
   Q_SLOT void mixinValueChanged(int _value);
   Q_SLOT void pasteClicked();
   Q_SLOT void sendClicked();

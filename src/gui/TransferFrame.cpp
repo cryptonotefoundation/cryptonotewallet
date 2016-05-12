@@ -94,6 +94,10 @@ void TransferFrame::addressEdited(const QString& _text) {
   m_addressInputTimer = startTimer(TRANSACTION_ADDRESS_INPUT_INTERVAL);
 }
 
+void TransferFrame::commentEdited(const QString& _text) {
+  Q_EMIT commentEditedSignal();
+}
+
 void TransferFrame::pasteClicked() {
   m_ui->m_addressEdit->setText(QApplication::clipboard()->text());
 }

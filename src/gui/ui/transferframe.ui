@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>885</width>
-    <height>134</height>
+    <height>136</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -213,10 +213,27 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>m_transactionCommentEdit</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>TransferFrame</receiver>
+   <slot>commentEdited(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>499</x>
+     <y>118</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>442</x>
+     <y>67</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>addressBookClicked()</slot>
   <slot>pasteClicked()</slot>
   <slot>addressEdited(QString)</slot>
+  <slot>commentEdited(QString)</slot>
  </slots>
 </ui>

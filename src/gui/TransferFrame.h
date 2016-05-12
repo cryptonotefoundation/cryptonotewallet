@@ -43,7 +43,11 @@ private:
   void onAliasFound(const QString& _name, const QString& _address);
   Q_SLOT void addressBookClicked();
   Q_SLOT void addressEdited(const QString& _text);
+  Q_SLOT void commentEdited(const QString& _text);
   Q_SLOT void pasteClicked();
+
+Q_SIGNALS:
+  void commentEditedSignal();
 };
 
 }

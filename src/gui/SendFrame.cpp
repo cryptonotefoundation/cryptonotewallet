@@ -17,6 +17,7 @@
 namespace WalletGui {
 
 Q_DECL_CONSTEXPR int DEFAULT_MIXIN = 2;
+Q_DECL_CONSTEXPR quint64 COMMENT_CHAR_PRICE = 1000000;
 
 SendFrame::SendFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::SendFrame) {
   m_ui->setupUi(this);
@@ -58,11 +59,14 @@ void SendFrame::addRecipientClicked() {
     m_transfers[0]->disableRemoveButton(false);
   }
 
+  connect(newTransfer, &TransferFrame::commentEditedSignal, this, &SendFrame::updateFee);
   connect(newTransfer, &TransferFrame::destroyed, [this](QObject* _obj) {
       m_transfers.removeOne(static_cast<TransferFrame*>(_obj));
       if (m_transfers.size() == 1) {
         m_transfers[0]->disableRemoveButton(true);
       }
+
+      updateFee();
     });
 }
 
@@ -111,6 +115,12 @@ void SendFrame::sendClicked() {
   }
 
   if (WalletAdapter::instance().isOpen()) {
+    QByteArray paymentIdString = m_ui->m_paymentIdEdit->text().toUtf8();
+    if (!isValidPaymentId(paymentIdString)) {
+      QCoreApplication::postEvent(&MainWindow::instance(), new ShowMessageEvent(tr("Invalid payment ID"), QtCriticalMsg));
+      return;
+    }
+
     WalletAdapter::instance().sendTransaction(walletTransfers, fee, m_ui->m_paymentIdEdit->text(), m_ui->m_mixinSlider->value(),
       walletMessages);
   }
@@ -131,6 +141,25 @@ void SendFrame::sendTransactionCompleted(CryptoNote::TransactionId _id, bool _er
 
 void SendFrame::walletActualBalanceUpdated(quint64 _balance) {
   m_ui->m_balanceLabel->setText(CurrencyAdapter::instance().formatAmount(_balance));
+}
+
+void SendFrame::updateFee() {
+  quint64 commentsFee = 0;
+  Q_FOREACH (const auto& transfer, m_transfers) {
+    commentsFee += transfer->getComment().length() * COMMENT_CHAR_PRICE;
+  }
+
+  m_ui->m_feeSpin->setMinimum( CurrencyAdapter::instance().formatAmount(commentsFee + CurrencyAdapter::instance().getMinimumFee()).toDouble());
+  m_ui->m_feeSpin->setValue(m_ui->m_feeSpin->minimum());
+}
+
+bool SendFrame::isValidPaymentId(const QByteArray& _paymentIdString) {
+  if (_paymentIdString.isEmpty()) {
+    return true;
+  }
+
+  QByteArray paymentId = QByteArray::fromHex(_paymentIdString);
+  return (paymentId.size() == sizeof(Crypto::Hash)) && (_paymentIdString.toUpper() == paymentId.toHex().toUpper());
 }
   
 }

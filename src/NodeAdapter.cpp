@@ -63,7 +63,7 @@ public:
           Q_EMIT nodeInitCompletedSignal();
           QCoreApplication::processEvents();
         });
-    } catch (std::runtime_error& err) {
+    } catch (std::exception& err) {
       Q_EMIT nodeInitFailedSignal(CryptoNote::error::INTERNAL_WALLET_ERROR);
       QCoreApplication::processEvents();
       return;
@@ -133,14 +133,26 @@ bool NodeAdapter::init() {
   initTimer.setInterval(3000);
   initTimer.setSingleShot(true);
   initTimer.start();
+  bool initCompleted = false;
   m_node->init([this](std::error_code _err) {
-      Q_UNUSED(_err);
-    });
+    Q_UNUSED(_err);
+  });
   QEventLoop waitLoop;
   connect(&initTimer, &QTimer::timeout, &waitLoop, &QEventLoop::quit);
+  connect(this, &NodeAdapter::peerCountUpdatedSignal, [&initCompleted]() {
+    initCompleted = true;
+  });
+  connect(this, &NodeAdapter::localBlockchainUpdatedSignal, [&initCompleted]() {
+    initCompleted = true;
+  });
   connect(this, &NodeAdapter::peerCountUpdatedSignal, &waitLoop, &QEventLoop::quit);
   connect(this, &NodeAdapter::localBlockchainUpdatedSignal, &waitLoop, &QEventLoop::quit);
+
   waitLoop.exec();
+  if (initTimer.isActive() && !initCompleted) {
+    return false;
+  }
+
   if (initTimer.isActive()) {
     initTimer.stop();
     Q_EMIT nodeInitCompletedSignal();
@@ -189,9 +201,17 @@ bool NodeAdapter::initInProcessNode() {
   CryptoNote::NetNodeConfig netNodeConfig = makeNetNodeConfig();
   Q_EMIT initNodeSignal(&m_node, &CurrencyAdapter::instance().getCurrency(), this, &LoggerAdapter::instance().getLoggerManager(), coreConfig, netNodeConfig);
   QEventLoop waitLoop;
+  bool initCompleted = false;
+  connect(m_nodeInitializer, &InProcessNodeInitializer::nodeInitCompletedSignal, [&initCompleted]() {
+    initCompleted = true;
+  });
+  connect(m_nodeInitializer, &InProcessNodeInitializer::nodeInitFailedSignal, [&initCompleted]() {
+    initCompleted = false;
+  });
   connect(m_nodeInitializer, &InProcessNodeInitializer::nodeInitCompletedSignal, &waitLoop, &QEventLoop::quit);
   connect(m_nodeInitializer, &InProcessNodeInitializer::nodeInitFailedSignal, &waitLoop, &QEventLoop::exit);
-  if (waitLoop.exec() != 0) {
+
+  if (waitLoop.exec() != 0 || !initCompleted) {
     return false;
   }
 

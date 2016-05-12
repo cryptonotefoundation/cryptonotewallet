@@ -35,6 +35,9 @@ void AddressBookFrame::addClicked() {
     if (!CurrencyAdapter::instance().validateAddress(address)) {
       QCoreApplication::postEvent(&MainWindow::instance(), new ShowMessageEvent(tr("Invalid address"), QtCriticalMsg));
       return;
+    } else if (label.trimmed().isEmpty()) {
+      QCoreApplication::postEvent(&MainWindow::instance(), new ShowMessageEvent(tr("Empty label"), QtCriticalMsg));
+      return;
     }
 
     AddressBookModel::instance().addAddress(label, address);
