@@ -30,7 +30,8 @@
     </qresource>
     <qresource prefix="/images">
         <file alias="splash">images/splash.png</file>
-        <file alias="cryptonote">images/cryptonote.png</file>
+        <file alias="cryptonote">images/karbowanez.png</file>
+        <file alias="coin">images/krbcoin.png</file>
         <file alias="clock">images/clock.gif</file>
     </qresource>
 </RCC>
