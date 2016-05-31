@@ -150,7 +150,7 @@
      <x>0</x>
      <y>0</y>
      <width>1014</width>
-     <height>25</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -161,6 +161,7 @@
     <addaction name="m_openWalletAction"/>
     <addaction name="m_importKeyAction"/>
     <addaction name="m_backupWalletAction"/>
+    <addaction name="m_resetAction"/>
     <addaction name="m_exitAction"/>
    </widget>
    <widget class="QMenu" name="menuSettings">
@@ -432,6 +433,14 @@
    </property>
    <property name="text">
     <string>Deposits</string>
+   </property>
+  </action>
+  <action name="m_resetAction">
+   <property name="text">
+    <string>Reset wallet</string>
+   </property>
+   <property name="toolTip">
+    <string>Reset wallet</string>
    </property>
   </action>
  </widget>
@@ -815,6 +824,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>m_resetAction</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>resetWallet()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>506</x>
+     <y>301</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>createWallet()</slot>
@@ -827,5 +852,6 @@
   <slot>setMinimizeToTray(bool)</slot>
   <slot>setCloseToTray(bool)</slot>
   <slot>importKey()</slot>
+  <slot>resetWallet()</slot>
  </slots>
 </ui>

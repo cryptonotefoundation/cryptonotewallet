@@ -15,10 +15,11 @@ class SendMessageFrame;
 
 namespace WalletGui {
 
-class AliasProvider;
+class MessageAddressFrame;
 
 class SendMessageFrame : public QFrame {
   Q_OBJECT
+  Q_DISABLE_COPY(SendMessageFrame)
 
 public:
   SendMessageFrame(QWidget* _parent);
@@ -26,26 +27,21 @@ public:
 
   void setAddress(const QString& _address);
 
-protected:
-  void timerEvent(QTimerEvent* _event) Q_DECL_OVERRIDE;
-
 private:
   QScopedPointer<Ui::SendMessageFrame> m_ui;
-  AliasProvider* m_aliasProvider;
-  int m_addressInputTimer;
-
-  void onAliasFound(const QString& _name, const QString& _address);
+  QList<MessageAddressFrame*> m_addressFrames;
   void sendMessageCompleted(CryptoNote::TransactionId _transactionId, bool _error, const QString& _errorText);
   void reset();
 
-  QString getAddress() const;
+  QString extractAddress(const QString& _addressString) const;
+  void recalculateFeeValue();
 
-  Q_SLOT void addressBookClicked();
-  Q_SLOT void addressEdited(const QString& _text);
+  Q_SLOT void addRecipientClicked();
   Q_SLOT void messageTextChanged();
   Q_SLOT void mixinValueChanged(int _value);
-  Q_SLOT void pasteClicked();
   Q_SLOT void sendClicked();
+  Q_SLOT void ttlCheckStateChanged(int _state);
+  Q_SLOT void ttlValueChanged(int _ttlValue);
 };
 
 }

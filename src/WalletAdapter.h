@@ -28,6 +28,7 @@ public:
   void close();
   bool save(bool _details, bool _cache);
   void backup(const QString& _file);
+  void reset();
 
   QString getAddress() const;
   quint64 getActualBalance() const;
@@ -45,7 +46,7 @@ public:
   void sendTransaction(const QVector<CryptoNote::WalletLegacyTransfer>& _transfers, quint64 _fee, const QString& _payment_id, quint64 _mixin,
     const QVector<CryptoNote::TransactionMessage>& _messages);
   void sendMessage(const QVector<CryptoNote::WalletLegacyTransfer>& _transfers, quint64 _fee, quint64 _mixin,
-    const QVector<CryptoNote::TransactionMessage>& _messages);
+    const QVector<CryptoNote::TransactionMessage>& _messages, quint64 _ttl);
   void deposit(quint32 _term, quint64 _amount, quint64 _fee, quint64 _mixIn);
   void withdrawUnlockedDeposits(QVector<CryptoNote::DepositId> _depositIds, quint64 _fee);
   bool changePassword(const QString& _old_pass, const QString& _new_pass);

@@ -21,40 +21,54 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_2">
-     <item>
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>Send To:</string>
+    <widget class="QScrollArea" name="m_messageAddressScrollArea">
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="widgetResizable">
+      <bool>true</bool>
+     </property>
+     <widget class="QWidget" name="scrollAreaWidgetContents">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>747</width>
+        <height>126</height>
+       </rect>
+      </property>
+      <layout class="QVBoxLayout" name="m_addressesLayout">
+       <property name="spacing">
+        <number>0</number>
        </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="m_addressEdit"/>
-     </item>
-     <item>
-      <widget class="QToolButton" name="m_addressBookButton">
-       <property name="text">
-        <string>...</string>
+       <property name="leftMargin">
+        <number>0</number>
        </property>
-       <property name="icon">
-        <iconset resource="../../resources.qrc">
-         <normaloff>:/icons/address-book</normaloff>:/icons/address-book</iconset>
+       <property name="topMargin">
+        <number>0</number>
        </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QToolButton" name="m_pasteButton">
-       <property name="text">
-        <string>...</string>
+       <property name="rightMargin">
+        <number>0</number>
        </property>
-       <property name="icon">
-        <iconset resource="../../resources.qrc">
-         <normaloff>:/icons/paste</normaloff>:/icons/paste</iconset>
+       <property name="bottomMargin">
+        <number>0</number>
        </property>
-      </widget>
-     </item>
-    </layout>
+       <item>
+        <spacer name="verticalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>139</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </widget>
    </item>
    <item>
     <widget class="QLabel" name="label_3">
@@ -85,7 +99,7 @@ p, li { white-space: pre-wrap; }
      <property name="sizeHint" stdset="0">
       <size>
        <width>20</width>
-       <height>20</height>
+       <height>10</height>
       </size>
      </property>
     </spacer>
@@ -101,6 +115,56 @@ p, li { white-space: pre-wrap; }
         <string>Add &quot;Reply To&quot;</string>
        </property>
       </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <property name="rightMargin">
+      <number>10</number>
+     </property>
+     <item>
+      <widget class="QCheckBox" name="m_ttlCheck">
+       <property name="toolTip">
+        <string>Do not include message in blockchain</string>
+       </property>
+       <property name="text">
+        <string>Set self destruct time</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QSlider" name="m_ttlSlider">
+       <property name="singleStep">
+        <number>300</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="tickInterval">
+        <number>1</number>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="m_ttlLabel">
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
      </item>
     </layout>
    </item>
@@ -227,6 +291,17 @@ p, li { white-space: pre-wrap; }
       </widget>
      </item>
      <item>
+      <widget class="QPushButton" name="m_addRecipientButton">
+       <property name="text">
+        <string>Add Recipient</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../../resources.qrc">
+         <normaloff>:/icons/add</normaloff>:/icons/add</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
       <spacer name="horizontalSpacer_2">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -254,38 +329,6 @@ p, li { white-space: pre-wrap; }
   <include location="../../resources.qrc"/>
  </resources>
  <connections>
-  <connection>
-   <sender>m_addressBookButton</sender>
-   <signal>clicked()</signal>
-   <receiver>SendMessageFrame</receiver>
-   <slot>addressBookClicked()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>712</x>
-     <y>25</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>386</x>
-     <y>287</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>m_pasteButton</sender>
-   <signal>clicked()</signal>
-   <receiver>SendMessageFrame</receiver>
-   <slot>pasteClicked()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>746</x>
-     <y>25</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>386</x>
-     <y>287</y>
-    </hint>
-   </hints>
-  </connection>
   <connection>
    <sender>m_sendButton</sender>
    <signal>clicked()</signal>
@@ -319,22 +362,6 @@ p, li { white-space: pre-wrap; }
    </hints>
   </connection>
   <connection>
-   <sender>m_addressEdit</sender>
-   <signal>textChanged(QString)</signal>
-   <receiver>SendMessageFrame</receiver>
-   <slot>addressEdited(QString)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>382</x>
-     <y>25</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>386</x>
-     <y>287</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>m_messageTextEdit</sender>
    <signal>textChanged()</signal>
    <receiver>SendMessageFrame</receiver>
@@ -350,6 +377,86 @@ p, li { white-space: pre-wrap; }
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>m_addRecipientButton</sender>
+   <signal>clicked()</signal>
+   <receiver>SendMessageFrame</receiver>
+   <slot>addRecipientClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>179</x>
+     <y>546</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>386</x>
+     <y>287</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_ttlSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>SendMessageFrame</receiver>
+   <slot>ttlValueChanged(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>296</x>
+     <y>426</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>386</x>
+     <y>287</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_ttlCheck</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>m_ttlSlider</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>89</x>
+     <y>426</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>296</x>
+     <y>426</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_ttlCheck</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>m_ttlLabel</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>89</x>
+     <y>426</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>463</x>
+     <y>426</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_ttlCheck</sender>
+   <signal>stateChanged(int)</signal>
+   <receiver>SendMessageFrame</receiver>
+   <slot>ttlCheckStateChanged(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>89</x>
+     <y>426</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>386</x>
+     <y>287</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>addressBookClicked()</slot>
@@ -358,5 +465,8 @@ p, li { white-space: pre-wrap; }
   <slot>mixinValueChanged(int)</slot>
   <slot>addressEdited(QString)</slot>
   <slot>messageTextChanged()</slot>
+  <slot>addRecipientClicked()</slot>
+  <slot>ttlCheckStateChanged(int)</slot>
+  <slot>ttlValueChanged(int)</slot>
  </slots>
 </ui>

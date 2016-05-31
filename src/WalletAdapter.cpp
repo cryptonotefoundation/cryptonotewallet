@@ -216,6 +216,21 @@ void WalletAdapter::backup(const QString& _file) {
   }
 }
 
+void WalletAdapter::reset() {
+  Q_CHECK_PTR(m_wallet);
+  save(false, false);
+  lock();
+  m_wallet->removeObserver(this);
+  m_isSynchronized = false;
+  m_newTransactionsNotificationTimer.stop();
+  m_lastWalletTransactionId = std::numeric_limits<quint64>::max();
+  Q_EMIT walletCloseCompletedSignal();
+  QCoreApplication::processEvents();
+  delete m_wallet;
+  m_wallet = nullptr;
+  unlock();
+}
+
 quint64 WalletAdapter::getTransactionCount() const {
   Q_CHECK_PTR(m_wallet);
   try {
@@ -301,11 +316,11 @@ void WalletAdapter::sendTransaction(const QVector<CryptoNote::WalletLegacyTransf
 }
 
 void WalletAdapter::sendMessage(const QVector<CryptoNote::WalletLegacyTransfer>& _transfers, quint64 _fee, quint64 _mixin,
-  const QVector<CryptoNote::TransactionMessage>& _messages) {
+  const QVector<CryptoNote::TransactionMessage>& _messages, quint64 _ttl) {
   Q_CHECK_PTR(m_wallet);
   try {
     lock();
-    m_sentMessageId = m_wallet->sendTransaction(_transfers.toStdVector(), _fee, "", _mixin, 0, _messages.toStdVector());
+    m_sentMessageId = m_wallet->sendTransaction(_transfers.toStdVector(), _fee, "", _mixin, 0, _messages.toStdVector(), _ttl);
     Q_EMIT walletStateChangedSignal(tr("Sending messages"));
   } catch (std::system_error&) {
     unlock();

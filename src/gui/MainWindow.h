@@ -65,6 +65,7 @@ private:
   Q_SLOT void openWallet();
   Q_SLOT void importKey();
   Q_SLOT void backupWallet();
+  Q_SLOT void resetWallet();
   Q_SLOT void encryptWallet();
   Q_SLOT void aboutQt();
   Q_SLOT void about();
