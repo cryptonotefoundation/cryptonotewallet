@@ -87,18 +87,17 @@ QString SendMessageFrame::extractAddress(const QString& _addressString) const {
 
 void SendMessageFrame::recalculateFeeValue() {
   QString messageText = m_ui->m_messageTextEdit->toPlainText();
-  quint32 messageSize = messageText.length() ;
+  quint32 messageSize = messageText.length();
   if (messageSize > 0) {
     --messageSize;
   }
 
-  quint64 fee = MINIMAL_MESSAGE_FEE;
-  if (m_ui->m_ttlCheck->checkState() == Qt::Checked) {
-    fee = 0;
+  quint64 fee = MESSAGE_AMOUNT * m_addressFrames.size();
+  if (m_ui->m_ttlCheck->checkState() == Qt::Unchecked) {
+    fee += MINIMAL_MESSAGE_FEE + messageSize * MESSAGE_CHAR_PRICE;
   }
 
-  m_ui->m_feeSpin->setMinimum(CurrencyAdapter::instance().formatAmount(MESSAGE_AMOUNT * m_addressFrames.size() +
-    fee + messageSize * MESSAGE_CHAR_PRICE).toDouble());
+  m_ui->m_feeSpin->setMinimum(CurrencyAdapter::instance().formatAmount(fee).toDouble());
 
   m_ui->m_feeSpin->setValue(m_ui->m_feeSpin->minimum());
 }
@@ -160,17 +159,16 @@ void SendMessageFrame::sendClicked() {
     messages.append({messageString.toStdString(), address.toStdString()});
   }
 
-  quint64 fee = CurrencyAdapter::instance().parseAmount(m_ui->m_feeSpin->cleanText());
-  fee -= MESSAGE_AMOUNT * transfers.size();
-  if (fee < MINIMAL_MESSAGE_FEE) {
-    QCoreApplication::postEvent(&MainWindow::instance(), new ShowMessageEvent(tr("Incorrect fee value"), QtCriticalMsg));
-    return;
-  }
-
   quint64 ttl = 0;
   if (m_ui->m_ttlCheck->checkState() == Qt::Checked) {
     ttl = QDateTime::currentDateTimeUtc().toTime_t() + m_ui->m_ttlSlider->value() * MIN_TTL;
-    fee = 0;
+  }
+
+  quint64 fee = CurrencyAdapter::instance().parseAmount(m_ui->m_feeSpin->cleanText());
+  fee -= MESSAGE_AMOUNT * transfers.size();
+  if (ttl == 0 && fee < MINIMAL_MESSAGE_FEE) {
+    QCoreApplication::postEvent(&MainWindow::instance(), new ShowMessageEvent(tr("Incorrect fee value"), QtCriticalMsg));
+    return;
   }
 
   if (WalletAdapter::instance().isOpen()) {

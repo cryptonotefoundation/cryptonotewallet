@@ -260,6 +260,10 @@ QVariant TransactionsModel::getDisplayRole(const QModelIndex& _index) const {
 
 QVariant TransactionsModel::getDecorationRole(const QModelIndex& _index) const {
   if(_index.column() == COLUMN_STATE) {
+    if (_index.data(ROLE_FEE).toULongLong() == 0 && _index.data(ROLE_TYPE).value<quint8>() != static_cast<quint8>(TransactionType::MINED)) {
+      return QPixmap(":icons/tx-message").scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+    }
+
     quint64 numberOfConfirmations = _index.data(ROLE_NUMBER_OF_CONFIRMATIONS).value<quint64>();
     switch (numberOfConfirmations) {
     case 0:

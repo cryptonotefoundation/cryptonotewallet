@@ -32,6 +32,7 @@
         <file alias="mining">icons/mining.png</file>
         <file alias="deposits">icons/deposits.png</file>
         <file alias="tx-deposit">icons/tx_deposit.png</file>
+        <file alias="tx-message">icons/tx_message.png</file>
     </qresource>
     <qresource prefix="/images">
         <file alias="splash">images/splash.png</file>
