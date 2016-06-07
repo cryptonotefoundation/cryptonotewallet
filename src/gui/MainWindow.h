@@ -1,4 +1,5 @@
-// Copyright (c) 2011-2015 The Cryptonote developers
+// Copyright (c) 2011-2016 The Cryptonote developers
+// Copyright (c) 2015-2016 XDN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -60,7 +61,9 @@ private:
 
   Q_SLOT void createWallet();
   Q_SLOT void openWallet();
+  Q_SLOT void importKey();  
   Q_SLOT void backupWallet();
+  Q_SLOT void resetWallet();
   Q_SLOT void encryptWallet();
   Q_SLOT void aboutQt();
   Q_SLOT void about();
