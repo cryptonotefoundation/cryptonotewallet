@@ -43,6 +43,10 @@ quint64 CurrencyAdapter::getMinimumFee() const {
   return m_currency.minimumFee();
 }
 
+quint64 CurrencyAdapter::getAddressPrefix() const {
+  return m_currency.publicAddressBase58Prefix();
+}
+
 QString CurrencyAdapter::formatAmount(quint64 _amount) const {
   QString result = QString::number(_amount);
   if (result.length() < getNumberOfDecimalPlaces() + 1) {

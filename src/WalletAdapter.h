@@ -1,4 +1,5 @@
-// Copyright (c) 2011-2015 The Cryptonote developers
+// Copyright (c) 2011-2016 The Cryptonote developers
+// Copyright (c) 2015-2016 XDN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -23,9 +24,11 @@ public:
   static WalletAdapter& instance();
 
   void open(const QString& _password);
+  void createWithKeys(const CryptoNote::AccountKeys& _keys);
   void close();
   bool save(bool _details, bool _cache);
   void backup(const QString& _file);
+  void reset();
 
   QString getAddress() const;
   quint64 getActualBalance() const;
@@ -34,6 +37,7 @@ public:
   quint64 getTransferCount() const;
   bool getTransaction(CryptoNote::TransactionId& _id, CryptoNote::WalletLegacyTransaction& _transaction);
   bool getTransfer(CryptoNote::TransferId& _id, CryptoNote::WalletLegacyTransfer& _transfer);
+  bool getAccountKeys(CryptoNote::AccountKeys& _keys);
   bool isOpen() const;
   void sendTransaction(const QVector<CryptoNote::WalletLegacyTransfer>& _transfers, quint64 _fee, const QString& _payment_id, quint64 _mixin);
   bool changePassword(const QString& _old_pass, const QString& _new_pass);

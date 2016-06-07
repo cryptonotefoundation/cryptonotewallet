@@ -5,6 +5,7 @@
 #include <QApplication>
 #include <QCommandLineParser>
 #include <QLocale>
+#include <QTranslator>
 #include <QLockFile>
 #include <QMessageBox>
 #include <QSplashScreen>
@@ -25,10 +26,24 @@
 using namespace WalletGui;
 
 int main(int argc, char* argv[]) {
+
+
   QApplication app(argc, argv);
   app.setApplicationName(CurrencyAdapter::instance().getCurrencyName() + "wallet");
   app.setApplicationVersion(Settings::instance().getVersion());
   app.setQuitOnLastWindowClosed(false);
+
+  QTranslator translator;
+  translator.load("languages/uk");
+  app.installTranslator(&translator);
+
+
+   QFile File("skin.qss");
+   File.open(QFile::ReadOnly);
+   QString StyleSheet = QLatin1String(File.readAll());
+
+   qApp->setStyleSheet(StyleSheet);
+
 
 #ifndef Q_OS_MAC
   QApplication::setStyle(QStyleFactory::create("Fusion"));

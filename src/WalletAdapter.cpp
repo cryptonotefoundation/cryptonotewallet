@@ -1,4 +1,5 @@
-// Copyright (c) 2011-2015 The Cryptonote developers
+// Copyright (c) 2011-2016 The Cryptonote developers
+// Copyright (c) 2015-2016 XDN developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -7,6 +8,7 @@
 #include <QLocale>
 #include <QVector>
 
+#include <Common/Base58.h>
 #include <Common/Util.h>
 #include <Wallet/WalletErrors.h>
 #include <Wallet/LegacyKeysImporter.h>
@@ -112,6 +114,15 @@ void WalletAdapter::open(const QString& _password) {
   }
 }
 
+void WalletAdapter::createWithKeys(const CryptoNote::AccountKeys& _keys) {
+    m_wallet = NodeAdapter::instance().createWallet();
+    m_wallet->addObserver(this);
+    Settings::instance().setEncrypted(false);
+    Q_EMIT walletStateChangedSignal(tr("Importing keys"));
+    m_wallet->initWithKeys(_keys, "");
+}
+
+
 bool WalletAdapter::isOpen() const {
   return m_wallet != nullptr;
 }
@@ -188,6 +199,21 @@ void WalletAdapter::backup(const QString& _file) {
   }
 }
 
+void WalletAdapter::reset() {
+  Q_CHECK_PTR(m_wallet);
+  save(false, false);
+  lock();
+  m_wallet->removeObserver(this);
+  m_isSynchronized = false;
+  m_newTransactionsNotificationTimer.stop();
+  m_lastWalletTransactionId = std::numeric_limits<quint64>::max();
+  Q_EMIT walletCloseCompletedSignal();
+  QCoreApplication::processEvents();
+  delete m_wallet;
+  m_wallet = nullptr;
+  unlock();
+}
+
 quint64 WalletAdapter::getTransactionCount() const {
   Q_CHECK_PTR(m_wallet);
   try {
@@ -222,6 +248,17 @@ bool WalletAdapter::getTransfer(CryptoNote::TransferId& _id, CryptoNote::WalletL
   Q_CHECK_PTR(m_wallet);
   try {
     return m_wallet->getTransfer(_id, _transfer);
+  } catch (std::system_error&) {
+  }
+
+  return false;
+}
+
+bool WalletAdapter::getAccountKeys(CryptoNote::AccountKeys& _keys) {
+  Q_CHECK_PTR(m_wallet);
+  try {
+    m_wallet->getAccountKeys(_keys);
+    return true;
   } catch (std::system_error&) {
   }
 
@@ -415,10 +452,10 @@ void WalletAdapter::updateBlockStatusText() {
   const QDateTime blockTime = NodeAdapter::instance().getLastLocalBlockTimestamp();
   quint64 blockAge = blockTime.msecsTo(currentTime);
   const QString warningString = blockTime.msecsTo(currentTime) < LAST_BLOCK_INFO_WARNING_INTERVAL ? "" :
-    QString("  Warning: last block was received %1 hours %2 minutes ago").arg(blockAge / MSECS_IN_HOUR).arg(blockAge % MSECS_IN_HOUR / MSECS_IN_MINUTE);
+    QString(tr("  Warning: last block was received %1 hours %2 minutes ago")).arg(blockAge / MSECS_IN_HOUR).arg(blockAge % MSECS_IN_HOUR / MSECS_IN_MINUTE);
   Q_EMIT walletStateChangedSignal(QString(tr("Wallet synchronized. Height: %1  |  Time (UTC): %2%3")).
     arg(NodeAdapter::instance().getLastLocalBlockHeight()).
-    arg(QLocale(QLocale::English).toString(blockTime, "dd MMM yyyy, HH:mm:ss")).
+    arg(QLocale(QLocale::English).toString(blockTime, "dd.MM.yyyy, HH:mm:ss")).
     arg(warningString));
 
   QTimer::singleShot(LAST_BLOCK_INFO_UPDATING_INTERVAL, this, SLOT(updateBlockStatusText()));

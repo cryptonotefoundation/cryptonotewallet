@@ -20,6 +20,7 @@ public:
   QString getCurrencyName() const;
   QString getCurrencyTicker() const;
   quint64 getMinimumFee() const;
+  quint64 getAddressPrefix() const;
   quintptr getNumberOfDecimalPlaces() const;
   QString formatAmount(quint64 _amount) const;
   quint64 parseAmount(const QString& _amountString) const;
