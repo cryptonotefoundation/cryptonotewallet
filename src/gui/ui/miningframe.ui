@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MiningFrame</class>
+ <widget class="QFrame" name="MiningFrame">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>760</width>
+    <height>469</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Frame</string>
+  </property>
+  <property name="frameShape">
+   <enum>QFrame::StyledPanel</enum>
+  </property>
+  <property name="frameShadow">
+   <enum>QFrame::Raised</enum>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QGridLayout" name="gridLayout" columnstretch="0,1,2">
+     <property name="horizontalSpacing">
+      <number>20</number>
+     </property>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>Mining status</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QComboBox" name="m_poolCombo">
+       <property name="editable">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>CPU cores</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Select pool</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1" alignment="Qt::AlignLeft">
+      <widget class="QComboBox" name="m_cpuCombo"/>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLabel" name="m_stateLabel">
+       <property name="text">
+        <string>Stopped</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2" alignment="Qt::AlignLeft">
+      <widget class="QPushButton" name="m_addPoolButton">
+       <property name="text">
+        <string>Add pool</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="m_startButton">
+       <property name="text">
+        <string>Start mining</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">m_miningButtonGroup</string>
+       </attribute>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="m_stopButton">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="text">
+        <string>Pause mining</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+       <attribute name="buttonGroup">
+        <string notr="true">m_miningButtonGroup</string>
+       </attribute>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>m_startButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>m_startButton</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>71</x>
+     <y>117</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>71</x>
+     <y>117</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_stopButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>m_stopButton</receiver>
+   <slot>setDisabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>194</x>
+     <y>117</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>194</x>
+     <y>117</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_miningButtonGroup</sender>
+   <signal>buttonClicked(QAbstractButton*)</signal>
+   <receiver>MiningFrame</receiver>
+   <slot>startStopClicked(QAbstractButton*)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>379</x>
+     <y>234</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_addPoolButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MiningFrame</receiver>
+   <slot>addPoolClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>380</x>
+     <y>29</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>379</x>
+     <y>234</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>startStopClicked(QAbstractButton*)</slot>
+  <slot>addPoolClicked()</slot>
+ </slots>
+ <buttongroups>
+  <buttongroup name="m_miningButtonGroup"/>
+ </buttongroups>
+</ui>
