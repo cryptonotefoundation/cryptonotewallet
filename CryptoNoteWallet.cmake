@@ -1,3 +1,3 @@
-set(CN_PROJECT_NAME "Lyte-Cryptocurrency")
+set(CN_PROJECT_NAME "Lyte-Wallet")
 set(CN_CURRENCY_DISPLAY_NAME "Lyte")
 set(CN_CURRENCY_TICKER "LYTE")
