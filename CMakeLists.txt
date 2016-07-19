@@ -12,9 +12,9 @@ set(CRYPTONOTE_LIB cryptonote)
 
 include_directories(${CMAKE_BINARY_DIR}
     src
-    Lyte-Cryptocurency/external
-    Lyte-Cryptocurency/include
-    Lyte-Cryptocurency/src)
+    Lyte-Cryptocurrency/external
+    Lyte-Cryptocurrency/include
+    Lyte-Cryptocurrency/src)
 
 find_package(Qt5Gui REQUIRED)
 find_package(Qt5Widgets REQUIRED)
@@ -35,7 +35,7 @@ include_directories(${Boost_INCLUDE_DIRS})
 link_directories(${Boost_LIBRARY_DIRS})
 
 set(VERSION "")
-configure_file("Lyte-Cryptocurency/src/version.h.in" "version.h")
+configure_file("Lyte-Cryptocurrency/src/version.h.in" "version.h")
 configure_file("src/CryptoNoteWalletConfig.h.in" "CryptoNoteWalletConfig.h")
 
 add_definitions(-DGIT_REVISION=\"${GIT_REVISION}\")
@@ -43,130 +43,130 @@ add_definitions(-DGIT_REVISION=\"${GIT_REVISION}\")
 set(CMAKE_AUTOMOC ON)
 
 set(CRYPTONOTE_SOURCES
-  Lyte-Cryptocurency/external/miniupnpc/connecthostport.c
-  Lyte-Cryptocurency/external/miniupnpc/igd_desc_parse.c
-  Lyte-Cryptocurency/external/miniupnpc/minisoap.c
-  Lyte-Cryptocurency/external/miniupnpc/miniupnpc.c
-  Lyte-Cryptocurency/external/miniupnpc/miniwget.c
-  Lyte-Cryptocurency/external/miniupnpc/minixml.c
-  Lyte-Cryptocurency/external/miniupnpc/portlistingparse.c
-  Lyte-Cryptocurency/external/miniupnpc/receivedata.c
-  Lyte-Cryptocurency/external/miniupnpc/upnpcommands.c
-  Lyte-Cryptocurency/external/miniupnpc/upnpreplyparse.c
-  Lyte-Cryptocurency/src/Common/Base58.cpp
-  Lyte-Cryptocurency/src/Common/CommandLine.cpp
-  Lyte-Cryptocurency/src/Common/Util.cpp
-  Lyte-Cryptocurency/src/Common/StringTools.cpp
-  Lyte-Cryptocurency/src/Common/JsonValue.cpp
-  Lyte-Cryptocurency/src/Common/ConsoleTools.cpp
-  Lyte-Cryptocurency/src/Common/MemoryInputStream.cpp
-  Lyte-Cryptocurency/src/Common/PathTools.cpp
-  Lyte-Cryptocurency/src/Common/StdInputStream.cpp
-  Lyte-Cryptocurency/src/Common/StdOutputStream.cpp
-  Lyte-Cryptocurency/src/Common/StreamTools.cpp
-  Lyte-Cryptocurency/src/Common/StringOutputStream.cpp
-  Lyte-Cryptocurency/src/Common/StringView.cpp
-  Lyte-Cryptocurency/src/Common/VectorOutputStream.cpp
-  Lyte-Cryptocurency/src/crypto/blake256.c
-  Lyte-Cryptocurency/src/crypto/chacha8.c
-  Lyte-Cryptocurency/src/crypto/crypto-ops-data.c
-  Lyte-Cryptocurency/src/crypto/crypto-ops.c
-  Lyte-Cryptocurency/src/crypto/crypto.cpp
-  Lyte-Cryptocurency/src/crypto/groestl.c
-  Lyte-Cryptocurency/src/crypto/hash-extra-blake.c
-  Lyte-Cryptocurency/src/crypto/hash-extra-groestl.c
-  Lyte-Cryptocurency/src/crypto/hash-extra-jh.c
-  Lyte-Cryptocurency/src/crypto/hash-extra-skein.c
-  Lyte-Cryptocurency/src/crypto/hash.c
-  Lyte-Cryptocurency/src/crypto/jh.c
-  Lyte-Cryptocurency/src/crypto/keccak.c
-  Lyte-Cryptocurency/src/crypto/oaes_lib.c
-  Lyte-Cryptocurency/src/crypto/random.c
-  Lyte-Cryptocurency/src/crypto/skein.c
-  Lyte-Cryptocurency/src/crypto/slow-hash.c
-  Lyte-Cryptocurency/src/crypto/slow-hash.cpp
-  Lyte-Cryptocurency/src/crypto/tree-hash.c
-  Lyte-Cryptocurency/src/CryptoNoteCore/BlockchainIndices.cpp
-  Lyte-Cryptocurency/src/CryptoNoteCore/BlockchainMessages.cpp
-  Lyte-Cryptocurency/src/CryptoNoteCore/BlockIndex.cpp
-  Lyte-Cryptocurency/src/CryptoNoteCore/CoreConfig.cpp
-  Lyte-Cryptocurency/src/CryptoNoteCore/CryptoNoteBasic.cpp
-  Lyte-Cryptocurency/src/CryptoNoteCore/CryptoNoteTools.cpp
-  Lyte-Cryptocurency/src/CryptoNoteCore/Currency.cpp
-  Lyte-Cryptocurency/src/CryptoNoteCore/MinerConfig.cpp
-  Lyte-Cryptocurency/src/CryptoNoteCore/Transaction.cpp
-  Lyte-Cryptocurency/src/CryptoNoteCore/Account.cpp
-  Lyte-Cryptocurency/src/CryptoNoteCore/Blockchain.cpp
-  Lyte-Cryptocurency/src/CryptoNoteCore/Checkpoints.cpp
-  Lyte-Cryptocurency/src/CryptoNoteCore/CryptoNoteBasicImpl.cpp
-  Lyte-Cryptocurency/src/CryptoNoteCore/Core.cpp
-  Lyte-Cryptocurency/src/CryptoNoteCore/CryptoNoteFormatUtils.cpp
-  Lyte-Cryptocurency/src/CryptoNoteCore/CryptoNoteSerialization.cpp
-  Lyte-Cryptocurency/src/CryptoNoteCore/Difficulty.cpp
-  Lyte-Cryptocurency/src/CryptoNoteCore/IBlock.cpp
-  Lyte-Cryptocurency/src/CryptoNoteCore/Miner.cpp
-  Lyte-Cryptocurency/src/CryptoNoteCore/TransactionExtra.cpp
-  Lyte-Cryptocurency/src/CryptoNoteCore/TransactionPool.cpp
-  Lyte-Cryptocurency/src/CryptoNoteCore/TransactionPrefixImpl.cpp
-  Lyte-Cryptocurency/src/CryptoNoteCore/TransactionUtils.cpp
-  Lyte-Cryptocurency/src/InProcessNode/InProcessNode.cpp
-  Lyte-Cryptocurency/src/InProcessNode/InProcessNodeErrors.cpp
-  Lyte-Cryptocurency/src/NodeRpcProxy/NodeErrors.cpp
-  Lyte-Cryptocurency/src/NodeRpcProxy/NodeRpcProxy.cpp
-  Lyte-Cryptocurency/src/P2p/NetNodeConfig.cpp
-  Lyte-Cryptocurency/src/Serialization/BinaryInputStreamSerializer.cpp
-  Lyte-Cryptocurency/src/Serialization/BinaryOutputStreamSerializer.cpp
-  Lyte-Cryptocurency/src/Serialization/JsonInputValueSerializer.cpp
-  Lyte-Cryptocurency/src/Serialization/JsonOutputStreamSerializer.cpp
-  Lyte-Cryptocurency/src/Serialization/KVBinaryInputStreamSerializer.cpp
-  Lyte-Cryptocurency/src/Serialization/KVBinaryOutputStreamSerializer.cpp
-  Lyte-Cryptocurency/src/Serialization/SerializationOverloads.cpp
-  Lyte-Cryptocurency/src/Transfers/BlockchainSynchronizer.cpp
-  Lyte-Cryptocurency/src/Transfers/SynchronizationState.cpp
-  Lyte-Cryptocurency/src/Transfers/TransfersConsumer.cpp
-  Lyte-Cryptocurency/src/Transfers/TransfersContainer.cpp
-  Lyte-Cryptocurency/src/Transfers/TransfersSubscription.cpp
-  Lyte-Cryptocurency/src/Transfers/TransfersSynchronizer.cpp
-  Lyte-Cryptocurency/src/Wallet/LegacyKeysImporter.cpp
-  Lyte-Cryptocurency/src/Wallet/WalletAsyncContextCounter.cpp
-  Lyte-Cryptocurency/src/Wallet/WalletErrors.cpp
-  Lyte-Cryptocurency/src/WalletLegacy/KeysStorage.cpp
-  Lyte-Cryptocurency/src/WalletLegacy/WalletLegacy.cpp
-  Lyte-Cryptocurency/src/WalletLegacy/WalletHelper.cpp
-  Lyte-Cryptocurency/src/WalletLegacy/WalletLegacySerializer.cpp
-  Lyte-Cryptocurency/src/WalletLegacy/WalletLegacySerialization.cpp
-  Lyte-Cryptocurency/src/WalletLegacy/WalletTransactionSender.cpp
-  Lyte-Cryptocurency/src/WalletLegacy/WalletUnconfirmedTransactions.cpp
-  Lyte-Cryptocurency/src/WalletLegacy/WalletUserTransactionsCache.cpp
-  Lyte-Cryptocurency/src/System/ContextGroup.cpp
-  Lyte-Cryptocurency/src/System/Event.cpp
-  Lyte-Cryptocurency/src/System/EventLock.cpp
-  Lyte-Cryptocurency/src/System/InterruptedException.cpp
-  Lyte-Cryptocurency/src/System/Ipv4Address.cpp
-  Lyte-Cryptocurency/src/System/TcpStream.cpp
-  Lyte-Cryptocurency/src/HTTP/HttpRequest.cpp
-  Lyte-Cryptocurency/src/HTTP/HttpParser.cpp
-  Lyte-Cryptocurency/src/HTTP/HttpParserErrorCodes.cpp
-  Lyte-Cryptocurency/src/HTTP/HttpResponse.cpp
-  Lyte-Cryptocurency/src/Rpc/HttpClient.cpp
-  Lyte-Cryptocurency/src/Rpc/JsonRpc.cpp
-  Lyte-Cryptocurency/src/P2p/NetNode.cpp
-  Lyte-Cryptocurency/src/P2p/LevinProtocol.cpp
-  Lyte-Cryptocurency/src/P2p/NetNodeConfig.cpp
-  Lyte-Cryptocurency/src/P2p/PeerListManager.cpp
-  Lyte-Cryptocurency/src/CryptoNoteProtocol/CryptoNoteProtocolHandler.cpp
-  Lyte-Cryptocurency/src/Logging/ILogger.cpp
-  Lyte-Cryptocurency/src/Logging/LoggerGroup.cpp
-  Lyte-Cryptocurency/src/Logging/CommonLogger.cpp
-  Lyte-Cryptocurency/src/Logging/LoggerManager.cpp
-  Lyte-Cryptocurency/src/Logging/FileLogger.cpp
-  Lyte-Cryptocurency/src/Logging/StreamLogger.cpp
-  Lyte-Cryptocurency/src/Logging/ConsoleLogger.cpp
-  Lyte-Cryptocurency/src/Logging/LoggerMessage.cpp
-  Lyte-Cryptocurency/src/Logging/LoggerRef.cpp
-  Lyte-Cryptocurency/src/BlockchainExplorer/BlockchainExplorer.cpp
-  Lyte-Cryptocurency/src/BlockchainExplorer/BlockchainExplorerDataBuilder.cpp
-  Lyte-Cryptocurency/src/BlockchainExplorer/BlockchainExplorerErrors.cpp
+  Lyte-Cryptocurrency/external/miniupnpc/connecthostport.c
+  Lyte-Cryptocurrency/external/miniupnpc/igd_desc_parse.c
+  Lyte-Cryptocurrency/external/miniupnpc/minisoap.c
+  Lyte-Cryptocurrency/external/miniupnpc/miniupnpc.c
+  Lyte-Cryptocurrency/external/miniupnpc/miniwget.c
+  Lyte-Cryptocurrency/external/miniupnpc/minixml.c
+  Lyte-Cryptocurrency/external/miniupnpc/portlistingparse.c
+  Lyte-Cryptocurrency/external/miniupnpc/receivedata.c
+  Lyte-Cryptocurrency/external/miniupnpc/upnpcommands.c
+  Lyte-Cryptocurrency/external/miniupnpc/upnpreplyparse.c
+  Lyte-Cryptocurrency/src/Common/Base58.cpp
+  Lyte-Cryptocurrency/src/Common/CommandLine.cpp
+  Lyte-Cryptocurrency/src/Common/Util.cpp
+  Lyte-Cryptocurrency/src/Common/StringTools.cpp
+  Lyte-Cryptocurrency/src/Common/JsonValue.cpp
+  Lyte-Cryptocurrency/src/Common/ConsoleTools.cpp
+  Lyte-Cryptocurrency/src/Common/MemoryInputStream.cpp
+  Lyte-Cryptocurrency/src/Common/PathTools.cpp
+  Lyte-Cryptocurrency/src/Common/StdInputStream.cpp
+  Lyte-Cryptocurrency/src/Common/StdOutputStream.cpp
+  Lyte-Cryptocurrency/src/Common/StreamTools.cpp
+  Lyte-Cryptocurrency/src/Common/StringOutputStream.cpp
+  Lyte-Cryptocurrency/src/Common/StringView.cpp
+  Lyte-Cryptocurrency/src/Common/VectorOutputStream.cpp
+  Lyte-Cryptocurrency/src/crypto/blake256.c
+  Lyte-Cryptocurrency/src/crypto/chacha8.c
+  Lyte-Cryptocurrency/src/crypto/crypto-ops-data.c
+  Lyte-Cryptocurrency/src/crypto/crypto-ops.c
+  Lyte-Cryptocurrency/src/crypto/crypto.cpp
+  Lyte-Cryptocurrency/src/crypto/groestl.c
+  Lyte-Cryptocurrency/src/crypto/hash-extra-blake.c
+  Lyte-Cryptocurrency/src/crypto/hash-extra-groestl.c
+  Lyte-Cryptocurrency/src/crypto/hash-extra-jh.c
+  Lyte-Cryptocurrency/src/crypto/hash-extra-skein.c
+  Lyte-Cryptocurrency/src/crypto/hash.c
+  Lyte-Cryptocurrency/src/crypto/jh.c
+  Lyte-Cryptocurrency/src/crypto/keccak.c
+  Lyte-Cryptocurrency/src/crypto/oaes_lib.c
+  Lyte-Cryptocurrency/src/crypto/random.c
+  Lyte-Cryptocurrency/src/crypto/skein.c
+  Lyte-Cryptocurrency/src/crypto/slow-hash.c
+  Lyte-Cryptocurrency/src/crypto/slow-hash.cpp
+  Lyte-Cryptocurrency/src/crypto/tree-hash.c
+  Lyte-Cryptocurrency/src/CryptoNoteCore/BlockchainIndices.cpp
+  Lyte-Cryptocurrency/src/CryptoNoteCore/BlockchainMessages.cpp
+  Lyte-Cryptocurrency/src/CryptoNoteCore/BlockIndex.cpp
+  Lyte-Cryptocurrency/src/CryptoNoteCore/CoreConfig.cpp
+  Lyte-Cryptocurrency/src/CryptoNoteCore/CryptoNoteBasic.cpp
+  Lyte-Cryptocurrency/src/CryptoNoteCore/CryptoNoteTools.cpp
+  Lyte-Cryptocurrency/src/CryptoNoteCore/Currency.cpp
+  Lyte-Cryptocurrency/src/CryptoNoteCore/MinerConfig.cpp
+  Lyte-Cryptocurrency/src/CryptoNoteCore/Transaction.cpp
+  Lyte-Cryptocurrency/src/CryptoNoteCore/Account.cpp
+  Lyte-Cryptocurrency/src/CryptoNoteCore/Blockchain.cpp
+  Lyte-Cryptocurrency/src/CryptoNoteCore/Checkpoints.cpp
+  Lyte-Cryptocurrency/src/CryptoNoteCore/CryptoNoteBasicImpl.cpp
+  Lyte-Cryptocurrency/src/CryptoNoteCore/Core.cpp
+  Lyte-Cryptocurrency/src/CryptoNoteCore/CryptoNoteFormatUtils.cpp
+  Lyte-Cryptocurrency/src/CryptoNoteCore/CryptoNoteSerialization.cpp
+  Lyte-Cryptocurrency/src/CryptoNoteCore/Difficulty.cpp
+  Lyte-Cryptocurrency/src/CryptoNoteCore/IBlock.cpp
+  Lyte-Cryptocurrency/src/CryptoNoteCore/Miner.cpp
+  Lyte-Cryptocurrency/src/CryptoNoteCore/TransactionExtra.cpp
+  Lyte-Cryptocurrency/src/CryptoNoteCore/TransactionPool.cpp
+  Lyte-Cryptocurrency/src/CryptoNoteCore/TransactionPrefixImpl.cpp
+  Lyte-Cryptocurrency/src/CryptoNoteCore/TransactionUtils.cpp
+  Lyte-Cryptocurrency/src/InProcessNode/InProcessNode.cpp
+  Lyte-Cryptocurrency/src/InProcessNode/InProcessNodeErrors.cpp
+  Lyte-Cryptocurrency/src/NodeRpcProxy/NodeErrors.cpp
+  Lyte-Cryptocurrency/src/NodeRpcProxy/NodeRpcProxy.cpp
+  Lyte-Cryptocurrency/src/P2p/NetNodeConfig.cpp
+  Lyte-Cryptocurrency/src/Serialization/BinaryInputStreamSerializer.cpp
+  Lyte-Cryptocurrency/src/Serialization/BinaryOutputStreamSerializer.cpp
+  Lyte-Cryptocurrency/src/Serialization/JsonInputValueSerializer.cpp
+  Lyte-Cryptocurrency/src/Serialization/JsonOutputStreamSerializer.cpp
+  Lyte-Cryptocurrency/src/Serialization/KVBinaryInputStreamSerializer.cpp
+  Lyte-Cryptocurrency/src/Serialization/KVBinaryOutputStreamSerializer.cpp
+  Lyte-Cryptocurrency/src/Serialization/SerializationOverloads.cpp
+  Lyte-Cryptocurrency/src/Transfers/BlockchainSynchronizer.cpp
+  Lyte-Cryptocurrency/src/Transfers/SynchronizationState.cpp
+  Lyte-Cryptocurrency/src/Transfers/TransfersConsumer.cpp
+  Lyte-Cryptocurrency/src/Transfers/TransfersContainer.cpp
+  Lyte-Cryptocurrency/src/Transfers/TransfersSubscription.cpp
+  Lyte-Cryptocurrency/src/Transfers/TransfersSynchronizer.cpp
+  Lyte-Cryptocurrency/src/Wallet/LegacyKeysImporter.cpp
+  Lyte-Cryptocurrency/src/Wallet/WalletAsyncContextCounter.cpp
+  Lyte-Cryptocurrency/src/Wallet/WalletErrors.cpp
+  Lyte-Cryptocurrency/src/WalletLegacy/KeysStorage.cpp
+  Lyte-Cryptocurrency/src/WalletLegacy/WalletLegacy.cpp
+  Lyte-Cryptocurrency/src/WalletLegacy/WalletHelper.cpp
+  Lyte-Cryptocurrency/src/WalletLegacy/WalletLegacySerializer.cpp
+  Lyte-Cryptocurrency/src/WalletLegacy/WalletLegacySerialization.cpp
+  Lyte-Cryptocurrency/src/WalletLegacy/WalletTransactionSender.cpp
+  Lyte-Cryptocurrency/src/WalletLegacy/WalletUnconfirmedTransactions.cpp
+  Lyte-Cryptocurrency/src/WalletLegacy/WalletUserTransactionsCache.cpp
+  Lyte-Cryptocurrency/src/System/ContextGroup.cpp
+  Lyte-Cryptocurrency/src/System/Event.cpp
+  Lyte-Cryptocurrency/src/System/EventLock.cpp
+  Lyte-Cryptocurrency/src/System/InterruptedException.cpp
+  Lyte-Cryptocurrency/src/System/Ipv4Address.cpp
+  Lyte-Cryptocurrency/src/System/TcpStream.cpp
+  Lyte-Cryptocurrency/src/HTTP/HttpRequest.cpp
+  Lyte-Cryptocurrency/src/HTTP/HttpParser.cpp
+  Lyte-Cryptocurrency/src/HTTP/HttpParserErrorCodes.cpp
+  Lyte-Cryptocurrency/src/HTTP/HttpResponse.cpp
+  Lyte-Cryptocurrency/src/Rpc/HttpClient.cpp
+  Lyte-Cryptocurrency/src/Rpc/JsonRpc.cpp
+  Lyte-Cryptocurrency/src/P2p/NetNode.cpp
+  Lyte-Cryptocurrency/src/P2p/LevinProtocol.cpp
+  Lyte-Cryptocurrency/src/P2p/NetNodeConfig.cpp
+  Lyte-Cryptocurrency/src/P2p/PeerListManager.cpp
+  Lyte-Cryptocurrency/src/CryptoNoteProtocol/CryptoNoteProtocolHandler.cpp
+  Lyte-Cryptocurrency/src/Logging/ILogger.cpp
+  Lyte-Cryptocurrency/src/Logging/LoggerGroup.cpp
+  Lyte-Cryptocurrency/src/Logging/CommonLogger.cpp
+  Lyte-Cryptocurrency/src/Logging/LoggerManager.cpp
+  Lyte-Cryptocurrency/src/Logging/FileLogger.cpp
+  Lyte-Cryptocurrency/src/Logging/StreamLogger.cpp
+  Lyte-Cryptocurrency/src/Logging/ConsoleLogger.cpp
+  Lyte-Cryptocurrency/src/Logging/LoggerMessage.cpp
+  Lyte-Cryptocurrency/src/Logging/LoggerRef.cpp
+  Lyte-Cryptocurrency/src/BlockchainExplorer/BlockchainExplorer.cpp
+  Lyte-Cryptocurrency/src/BlockchainExplorer/BlockchainExplorerDataBuilder.cpp
+  Lyte-Cryptocurrency/src/BlockchainExplorer/BlockchainExplorerErrors.cpp
 )
 
 file(GLOB_RECURSE SOURCES src/*.cpp)
@@ -184,7 +184,7 @@ if (WIN32)
 	message(FATAL_ERROR "Only MSVC is supported on this platform")
   endif ()
   add_definitions(/D_CRT_SECURE_NO_WARNINGS /D_WIN32_WINNT=0x0600 /DSTATICLIB)
-  include_directories(Lyte-Cryptocurency/src/platform/msc)
+  include_directories(Lyte-Cryptocurrency/src/platform/msc)
 
   set(PLATFORM_DIR Windows)
   set(BUILD_PLATFORM WIN32)
@@ -192,7 +192,7 @@ if (WIN32)
   set(QTMAIN Qt5::WinMain)
 
 elseif (UNIX)
-  set(CRYPTONOTE_SOURCES ${CRYPTONOTE_SOURCES} Lyte-Cryptocurency/external/miniupnpc/minissdpc.c)
+  set(CRYPTONOTE_SOURCES ${CRYPTONOTE_SOURCES} Lyte-Cryptocurrency/external/miniupnpc/minissdpc.c)
   if (APPLE)
     enable_language(ASM)
     file(GLOB_RECURSE OBJC_SOURCES src/*.mm)
@@ -228,8 +228,8 @@ elseif (UNIX)
   endif (APPLE)
 endif ()
 
-include_directories(Lyte-Cryptocurency/src/Platform/${PLATFORM_DIR})
-file(GLOB PLATFORM_SOURCES Lyte-Cryptocurency/src/Platform/${PLATFORM_DIR}/System/*)
+include_directories(Lyte-Cryptocurrency/src/Platform/${PLATFORM_DIR})
+file(GLOB PLATFORM_SOURCES Lyte-Cryptocurrency/src/Platform/${PLATFORM_DIR}/System/*)
 set(CRYPTONOTE_SOURCES ${CRYPTONOTE_SOURCES} ${PLATFORM_SOURCES})
 
 add_library(${CRYPTONOTE_LIB} STATIC ${CRYPTONOTE_SOURCES})
