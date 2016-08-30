@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>920</width>
-    <height>600</height>
+    <width>990</width>
+    <height>640</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -36,10 +36,7 @@
     <normaloff>:/images/cryptonote</normaloff>:/images/cryptonote</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout" name="horizontalLayout">
-    <property name="spacing">
-     <number>0</number>
-    </property>
+   <layout class="QGridLayout" name="gridLayout">
     <property name="leftMargin">
      <number>0</number>
     </property>
@@ -52,28 +49,32 @@
     <property name="bottomMargin">
      <number>0</number>
     </property>
-    <item>
-     <widget class="WalletGui::OverviewFrame" name="m_overviewFrame">
-      <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="WalletGui::SendFrame" name="m_sendFrame">
-      <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-     </widget>
-    </item>
-    <item>
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <item row="0" column="0" colspan="5">
      <widget class="WalletGui::ReceiveFrame" name="m_receiveFrame">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>80</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>80</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
       <property name="frameShape">
        <enum>QFrame::NoFrame</enum>
       </property>
@@ -82,8 +83,46 @@
       </property>
      </widget>
     </item>
-    <item>
+    <item row="1" column="0">
+     <widget class="WalletGui::OverviewFrame" name="m_overviewFrame">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="WalletGui::SendFrame" name="m_sendFrame">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="2">
      <widget class="WalletGui::TransactionsFrame" name="m_transactionsFrame">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <property name="frameShape">
        <enum>QFrame::NoFrame</enum>
       </property>
@@ -92,8 +131,14 @@
       </property>
      </widget>
     </item>
-    <item>
+    <item row="1" column="3">
      <widget class="WalletGui::AddressBookFrame" name="m_addressBookFrame">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <property name="frameShape">
        <enum>QFrame::NoFrame</enum>
       </property>
@@ -102,8 +147,14 @@
       </property>
      </widget>
     </item>
-    <item>
+    <item row="1" column="4">
      <widget class="WalletGui::MiningFrame" name="m_miningFrame">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <property name="frameShape">
        <enum>QFrame::NoFrame</enum>
       </property>
@@ -111,7 +162,7 @@
        <enum>QFrame::Raised</enum>
       </property>
      </widget>
-    </item>	
+    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -119,8 +170,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>920</width>
-     <height>27</height>
+     <width>990</width>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -129,9 +180,10 @@
     </property>
     <addaction name="m_createWalletAction"/>
     <addaction name="m_openWalletAction"/>
-    <addaction name="m_importKeyAction"/>	
+    <addaction name="m_importKeyAction"/>
+    <addaction name="m_showPrivateKey"/>
     <addaction name="m_backupWalletAction"/>
-	<addaction name="m_resetAction"/>
+    <addaction name="m_resetAction"/>
     <addaction name="m_exitAction"/>
    </widget>
    <widget class="QMenu" name="menuSettings">
@@ -140,6 +192,7 @@
     </property>
     <addaction name="m_encryptWalletAction"/>
     <addaction name="m_changePasswordAction"/>
+    <addaction name="m_changeLanguageAction"/>
     <addaction name="separator"/>
     <addaction name="m_startOnLoginAction"/>
     <addaction name="m_minimizeToTrayAction"/>
@@ -174,7 +227,6 @@
    </attribute>
    <addaction name="m_overviewAction"/>
    <addaction name="m_sendAction"/>
-   <addaction name="m_receiveAction"/>
    <addaction name="m_transactionsAction"/>
    <addaction name="m_addressBookAction"/>
    <addaction name="m_miningAction"/>
@@ -263,7 +315,7 @@
      <normaloff>:/icons/address-book</normaloff>:/icons/address-book</iconset>
    </property>
    <property name="text">
-    <string>Address Book</string>
+    <string>Contacts</string>
    </property>
   </action>
   <action name="m_createWalletAction">
@@ -366,14 +418,27 @@
     <string>Mining</string>
    </property>
   </action>
-   <action name="m_resetAction">
+  <action name="m_resetAction">
    <property name="text">
     <string>Reset wallet</string>
    </property>
    <property name="toolTip">
     <string>Reset wallet</string>
    </property>
-  </action> 
+  </action>
+  <action name="m_changeLanguageAction">
+   <property name="text">
+    <string>Language</string>
+   </property>
+   <property name="toolTip">
+    <string>Change language</string>
+   </property>
+  </action>
+  <action name="m_showPrivateKey">
+   <property name="text">
+    <string>Show private key</string>
+   </property>
+  </action>
  </widget>
  <customwidgets>
   <customwidget>
@@ -562,6 +627,22 @@
    </hints>
   </connection>
   <connection>
+   <sender>m_changeLanguageAction</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>ChangeLanguage()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>449</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
    <sender>m_aboutQtAction</sender>
    <signal>triggered()</signal>
    <receiver>MainWindow</receiver>
@@ -657,7 +738,7 @@
     </hint>
    </hints>
   </connection>
-   <connection>
+  <connection>
    <sender>m_resetAction</sender>
    <signal>triggered()</signal>
    <receiver>MainWindow</receiver>
@@ -689,7 +770,7 @@
     </hint>
    </hints>
   </connection>
-    <connection>
+  <connection>
    <sender>m_miningAction</sender>
    <signal>toggled(bool)</signal>
    <receiver>m_miningFrame</receiver>
@@ -705,6 +786,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>m_showPrivateKey</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showPrivateKeys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>459</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>createWallet()</slot>
@@ -717,6 +814,7 @@
   <slot>setMinimizeToTray(bool)</slot>
   <slot>setCloseToTray(bool)</slot>
   <slot>importKey()</slot>
-  <slot>resetWallet()</slot>  
+  <slot>resetWallet()</slot>
+  <slot>showPrivateKeys()</slot>
  </slots>
 </ui>
