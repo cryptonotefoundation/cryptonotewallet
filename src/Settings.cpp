@@ -1,5 +1,6 @@
 // Copyright (c) 2011-2015 The Cryptonote developers
 // Copyright (c) 2015-2016 XDN developers
+// Copyright (c) 2016 The Karbowanec developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -22,6 +23,7 @@ namespace WalletGui {
 Q_DECL_CONSTEXPR char OPTION_WALLET_FILE[] = "walletFile";
 Q_DECL_CONSTEXPR char OPTION_ENCRYPTED[] = "encrypted";
 Q_DECL_CONSTEXPR char OPTION_MINING_POOLS[] = "miningPools";
+Q_DECL_CONSTEXPR char OPTION_LANGUAGE[] = "Language";
 
 Settings& Settings::instance() {
   static Settings inst;
@@ -50,15 +52,27 @@ void Settings::load() {
       m_addressBookFile = m_settings.value("walletFile").toString();
       m_addressBookFile.replace(m_addressBookFile.lastIndexOf(".wallet"), 7, ".addressbook");
     }
+
+    if (!m_settings.contains("Language")) {
+         m_currentLang = "uk";
+    }
+
   } else {
     m_addressBookFile = getDataDir().absoluteFilePath(QCoreApplication::applicationName() + ".addressbook");
   }
 
-//  if (!m_settings.contains(OPTION_MINING_POOLS)) {
-//       setMiningPoolList(QStringList() << "pool.karbowanec.com:3333");
-//   }
+
+ // if (!m_settings.contains(OPTION_LANGUAGE)) {
+ //        m_settings.insert(OPTION_LANGUAGE, "uk"); // default language is Ukrainian
+ //  }
+  if (m_settings.contains(OPTION_LANGUAGE)) {
+        m_currentLang = m_settings.value(OPTION_LANGUAGE).toString();
+  }
+
+
+
   QStringList defaultPoolList;
-  defaultPoolList << "pool.karbowanec.com:3333" << "52.40.254.202:3333";
+  defaultPoolList << "pool.karbowanec.com:3333" << "pool2.democats.org:45570";
   if (!m_settings.contains(OPTION_MINING_POOLS)) {
     setMiningPoolList(QStringList() << defaultPoolList);
   } else {
@@ -71,6 +85,7 @@ void Settings::load() {
 
     setMiningPoolList(poolList);
   }
+   
 }
 
 bool Settings::isTestnet() const {
@@ -143,7 +158,7 @@ bool Settings::isEncrypted() const {
 }
 
 QString Settings::getVersion() const {
-  return GIT_REVISION;
+  return VERSION;
 }
 
 QStringList Settings::getMiningPoolList() const {
@@ -153,6 +168,18 @@ QStringList Settings::getMiningPoolList() const {
   }
 
   return res;
+}
+
+QString Settings::getLanguage() const {
+    QString currentLang;
+    if (m_settings.contains(OPTION_LANGUAGE)) {
+        currentLang = m_settings.value(OPTION_LANGUAGE).toString();
+    }
+   // else {
+   // currentLang = "uk"; // default is Ukrainian
+   // }
+    return currentLang;
+    // return m_currentLang;
 }
 
 bool Settings::isStartOnLoginEnabled() const {
@@ -222,6 +249,11 @@ void Settings::setEncrypted(bool _encrypted) {
 }
 
 void Settings::setCurrentTheme(const QString& _theme) {
+}
+
+void Settings::setLanguage(const QString& _language) {
+    m_settings.insert(OPTION_LANGUAGE, _language);
+    saveSettings();
 }
 
 void Settings::setStartOnLoginEnabled(bool _enable) {

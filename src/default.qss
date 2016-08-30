@@ -1,0 +1,40 @@
+* {
+	color: #15315E;
+}
+
+
+QTabBar {
+	background-color: #a8b6cb;
+}
+
+QMainWindow {
+  background:qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0  rgb(255, 255, 255) stop: 1.0 rgb(156, 193, 239)) url(":/images/bg.png") no-repeat bottom left;
+}
+
+QAbstractScrollArea#m_transfersScrollarea
+{
+background-color: transparent;
+}
+
+QWidget#scrollAreaWidgetContents{
+background-color: transparent;
+}
+
+QWidget#m_receiveFrame {
+background-color: rgb(133, 167, 211);
+}
+
+#m_receiveFrame #m_addressEdit {
+border: 0;
+background: transparent;
+}
+
+#m_receiveFrame #m_copyButton {
+border: 0;
+background: transparent;
+}
+
+#m_receiveFrame #totalBalance {color: #15315e;}
+
+#m_receiveFrame #addressStatusLabel {color: #C6D1DF;}
+

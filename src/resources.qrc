@@ -34,5 +34,9 @@
         <file alias="cryptonote">images/karbowanez.png</file>
         <file alias="coin">images/krbcoin.png</file>
         <file alias="clock">images/clock.gif</file>
+        <file alias="bg.png">images/bg.png</file>
+    </qresource>
+    <qresource prefix="/skin">
+        <file>default.qss</file>
     </qresource>
 </RCC>

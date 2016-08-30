@@ -1,7 +1,7 @@
 // Copyright (c) 2011-2015 The Cryptonote developers
+// Copyright (c) 2016 Karbowanec developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-
 #include <QApplication>
 #include <QCommandLineParser>
 #include <QLocale>
@@ -21,29 +21,20 @@
 
 #include "gui/MainWindow.h"
 
+#include "update.h"
+
+#include <QTextCodec>
+
 #define DEBUG 1
 
 using namespace WalletGui;
 
 int main(int argc, char* argv[]) {
 
-
   QApplication app(argc, argv);
   app.setApplicationName(CurrencyAdapter::instance().getCurrencyName() + "wallet");
   app.setApplicationVersion(Settings::instance().getVersion());
   app.setQuitOnLastWindowClosed(false);
-
-  QTranslator translator;
-  translator.load("languages/uk");
-  app.installTranslator(&translator);
-
-
-   QFile File("skin.qss");
-   File.open(QFile::ReadOnly);
-   QString StyleSheet = QLatin1String(File.readAll());
-
-   qApp->setStyleSheet(StyleSheet);
-
 
 #ifndef Q_OS_MAC
   QApplication::setStyle(QStyleFactory::create("Fusion"));
@@ -53,6 +44,30 @@ int main(int argc, char* argv[]) {
   Settings::instance().setCommandLineParser(&cmdLineParser);
   bool cmdLineParseResult = cmdLineParser.process(app.arguments());
   Settings::instance().load();
+
+
+  QTranslator translator;
+  QTranslator translatorQt;
+
+  QString lng = Settings::instance().getLanguage();
+
+  if(!lng.isEmpty()) {
+      translator.load("languages/" + lng + ".qm");
+      translatorQt.load("languages/qt_" + lng + ".qm");
+    } else {
+      translator.load("languages/" + QLocale::system().name());
+      translatorQt.load("languages/qt_" +  QLocale::system().name());
+  }
+  app.installTranslator(&translator);
+  app.installTranslator(&translatorQt);
+
+  QLocale::setDefault(QLocale::c());
+
+  QFile File(":/skin/default.qss");
+  File.open(QFile::ReadOnly);
+  QString StyleSheet = QLatin1String(File.readAll());
+  qApp->setStyleSheet(StyleSheet);
+
 
 #ifdef Q_OS_WIN
   if(!cmdLineParseResult) {
@@ -67,17 +82,16 @@ int main(int argc, char* argv[]) {
   LoggerAdapter::instance().init();
 
   QString dataDirPath = Settings::instance().getDataDir().absolutePath();
+
   if (!QDir().exists(dataDirPath)) {
     QDir().mkpath(dataDirPath);
   }
 
   QLockFile lockFile(Settings::instance().getDataDir().absoluteFilePath(QApplication::applicationName() + ".lock"));
   if (!lockFile.tryLock()) {
-    QMessageBox::warning(nullptr, QObject::tr("Fail"), QString("%1 wallet already running").arg(CurrencyAdapter::instance().getCurrencyDisplayName()));
+    QMessageBox::warning(nullptr, QObject::tr("Fail"), QObject::tr("%1 wallet already running").arg(CurrencyAdapter::instance().getCurrencyDisplayName()));
     return 0;
   }
-
-  QLocale::setDefault(QLocale::c());
 
   SignalHandler::instance().init();
   QObject::connect(&SignalHandler::instance(), &SignalHandler::quitSignal, &app, &QApplication::quit);
@@ -96,6 +110,8 @@ int main(int argc, char* argv[]) {
   }
 
   splash->finish(&MainWindow::instance());
+  Updater d;
+      d.checkForUpdate();
   MainWindow::instance().show();
   WalletAdapter::instance().open("");
   QObject::connect(QApplication::instance(), &QApplication::aboutToQuit, []() {

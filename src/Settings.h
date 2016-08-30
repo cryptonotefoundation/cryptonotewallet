@@ -39,6 +39,8 @@ public:
   QString getAddressBookFile() const;
   QString getVersion() const;
   QStringList getMiningPoolList() const;
+  QString getLanguage() const;
+
   bool isEncrypted() const;
   bool isStartOnLoginEnabled() const;
 #ifdef Q_OS_WIN
@@ -49,6 +51,7 @@ public:
   void setWalletFile(const QString& _file);
   void setEncrypted(bool _encrypted);
   void setCurrentTheme(const QString& _theme);
+  void setLanguage(const QString& _language);
   void setStartOnLoginEnabled(bool _enable);
   void setMiningPoolList(const QStringList& _miningPoolList);
 #ifdef Q_OS_WIN
@@ -59,6 +62,7 @@ public:
 private:
   QJsonObject m_settings;
   QString m_addressBookFile;
+  QString m_currentLang;
   CommandLineParser* m_cmdLineParser;
 
   Settings();

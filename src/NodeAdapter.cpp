@@ -1,4 +1,5 @@
 // Copyright (c) 2011-2015 The Cryptonote developers
+// Copyright (c) 2016 The Karbowanec developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -218,7 +219,7 @@ void NodeAdapter::deinit() {
 CryptoNote::CoreConfig NodeAdapter::makeCoreConfig() const {
   CryptoNote::CoreConfig config;
   boost::program_options::variables_map options;
-  boost::any dataDir = Settings::instance().getDataDir().absolutePath().toStdString();
+  boost::any dataDir = std::string(Settings::instance().getDataDir().absolutePath().toLocal8Bit().data());
   options.insert(std::make_pair("data-dir", boost::program_options::variable_value(dataDir, false)));
   config.init(options);
   return config;
@@ -231,7 +232,7 @@ CryptoNote::NetNodeConfig NodeAdapter::makeNetNodeConfig() const {
   boost::any p2pBindPort = static_cast<uint16_t>(Settings::instance().getP2pBindPort());
   boost::any p2pExternalPort = static_cast<uint16_t>(Settings::instance().getP2pExternalPort());
   boost::any p2pAllowLocalIp = Settings::instance().hasAllowLocalIpOption();
-  boost::any dataDir = Settings::instance().getDataDir().absolutePath().toStdString();
+  boost::any dataDir = std::string(Settings::instance().getDataDir().absolutePath().toLocal8Bit().data());
   boost::any hideMyPort = Settings::instance().hasHideMyPortOption();
   options.insert(std::make_pair("p2p-bind-ip", boost::program_options::variable_value(p2pBindIp, false)));
   options.insert(std::make_pair("p2p-bind-port", boost::program_options::variable_value(p2pBindPort, false)));
