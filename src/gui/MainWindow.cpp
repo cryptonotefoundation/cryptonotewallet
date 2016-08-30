@@ -1,5 +1,6 @@
 // Copyright (c) 2011-2016 The Cryptonote developers
 // Copyright (c) 2015-2016 XDN developers
+// Copyright (c) 2016 Karbowanec developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -16,6 +17,8 @@
 #include "AboutDialog.h"
 #include "AnimatedLabel.h"
 #include "ChangePasswordDialog.h"
+#include "ChangeLanguageDialog.h"
+#include "privatekeysdialog.h"
 #include "CurrencyAdapter.h"
 #include "ExitWidget.h"
 #include "ImportKeyDialog.h"
@@ -28,6 +31,8 @@
 #include "WalletEvents.h"
 
 #include "ui_mainwindow.h"
+
+
 
 namespace WalletGui {
 
@@ -80,7 +85,6 @@ void MainWindow::initUi() {
   }
 #endif
   m_ui->m_aboutCryptonoteAction->setText(QString(tr("About %1 Wallet")).arg(CurrencyAdapter::instance().getCurrencyDisplayName()));
-
   m_ui->m_overviewFrame->hide();
   m_ui->m_sendFrame->hide();
   m_ui->m_receiveFrame->hide();
@@ -90,7 +94,7 @@ void MainWindow::initUi() {
 
   m_tabActionGroup->addAction(m_ui->m_overviewAction);
   m_tabActionGroup->addAction(m_ui->m_sendAction);
-  m_tabActionGroup->addAction(m_ui->m_receiveAction);
+//  m_tabActionGroup->addAction(m_ui->m_receiveAction);
   m_tabActionGroup->addAction(m_ui->m_transactionsAction);
   m_tabActionGroup->addAction(m_ui->m_addressBookAction);
   m_tabActionGroup->addAction(m_ui->m_miningAction);
@@ -277,6 +281,16 @@ void MainWindow::importKey() {
 }
 
 
+void MainWindow::ChangeLanguage() {
+  ChangeLanguageDialog dlg(&MainWindow::instance());
+  dlg.initLangList();
+  if (dlg.exec() == QDialog::Accepted) {
+    QString language = dlg.getLang();
+    Settings::instance().setLanguage((language));
+    QMessageBox::information(this, tr("Language was changed"), tr("The language will be changed after restarting the wallet."), QMessageBox::Ok);
+  }
+}
+
 void MainWindow::backupWallet() {
   QString filePath = QFileDialog::getSaveFileName(this, tr("Backup wallet to..."),
   #ifdef Q_OS_WIN
@@ -304,6 +318,11 @@ void MainWindow::resetWallet() {
   }
 }
 
+void MainWindow::showPrivateKeys() {
+  PrivateKeysDialog dlg(this);
+  dlg.walletOpened();
+  dlg.exec();
+}
 
 void MainWindow::encryptWallet() {
   if (Settings::instance().isEncrypted()) {
@@ -417,6 +436,7 @@ void MainWindow::walletOpened(bool _error, const QString& _error_text) {
     m_encryptionStateIconLabel->show();
     m_synchronizationStateIconLabel->show();
     m_ui->m_backupWalletAction->setEnabled(true);
+    m_ui->m_showPrivateKey->setEnabled(true);
 	m_ui->m_resetAction->setEnabled(true);
     encryptedFlagChanged(Settings::instance().isEncrypted());
 
@@ -426,6 +446,7 @@ void MainWindow::walletOpened(bool _error, const QString& _error_text) {
     }
 
     m_ui->m_overviewAction->trigger();
+    m_ui->m_receiveFrame->show();
     m_ui->m_overviewFrame->show();
   } else {
     walletClosed();
@@ -438,6 +459,7 @@ void MainWindow::walletClosed() {
   m_ui->m_changePasswordAction->setEnabled(false);
   m_ui->m_resetAction->setEnabled(false);
   m_ui->m_overviewFrame->hide();
+  m_ui->m_receiveFrame->hide();
   m_ui->m_sendFrame->hide();
   m_ui->m_transactionsFrame->hide();
   m_ui->m_addressBookFrame->hide();

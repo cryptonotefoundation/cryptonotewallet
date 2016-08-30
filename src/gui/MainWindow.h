@@ -9,6 +9,7 @@
 #include <QMainWindow>
 #include <QSystemTrayIcon>
 #include <QTimer>
+#include "ChangeLanguageDialog.h"
 
 class QActionGroup;
 
@@ -58,6 +59,8 @@ private:
   void walletSynchronized(int _error, const QString& _error_text);
   void walletOpened(bool _error, const QString& _error_text);
   void walletClosed();
+  void updateWalletAddress(const QString& _address);
+  void reset();
 
   Q_SLOT void createWallet();
   Q_SLOT void openWallet();
@@ -70,6 +73,8 @@ private:
   Q_SLOT void setStartOnLogin(bool _on);
   Q_SLOT void setMinimizeToTray(bool _on);
   Q_SLOT void setCloseToTray(bool _on);
+  Q_SLOT void ChangeLanguage();
+  Q_SLOT void showPrivateKeys();
 
 #ifdef Q_OS_MAC
 public:
