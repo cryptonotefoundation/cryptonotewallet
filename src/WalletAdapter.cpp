@@ -418,7 +418,15 @@ void WalletAdapter::unlock() {
 
 bool WalletAdapter::openFile(const QString& _file, bool _readOnly) {
   lock();
+
+
+#ifdef Q_OS_WIN
   m_file.open(_file.toStdWString(), std::ios::binary | (_readOnly ? std::ios::in : (std::ios::out | std::ios::trunc)));
+#else
+  m_file.open(_file.toStdString(), std::ios::binary | (_readOnly ? std::ios::in : (std::ios::out | std::ios::trunc)));
+#endif
+
+
   if (!m_file.is_open()) {
     unlock();
   }
