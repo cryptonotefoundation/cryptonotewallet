@@ -80,7 +80,10 @@ void Updater::replyFinished (QNetworkReply *reply)
     else
     {
         Version ourVersion = Settings::instance().getVersion().split("-")[0].toStdString();
-        Version remoteVersion = reply->readAll().data();
+	
+		QString result = reply->readAll().data();      
+
+		Version remoteVersion = result.toStdString();
 
          if (ourVersion < remoteVersion) {
 
