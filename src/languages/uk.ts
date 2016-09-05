@@ -446,6 +446,21 @@ Please wait...</source>
     </message>
 </context>
 <context>
+    <name>PrivateKeysDialog</name>
+    <message>
+        <source>Private Key</source>
+        <translation>Приватний ключ</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Закрити</translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation>...</translation>
+    </message>
+</context>
+<context>
     <name>QObject</name>
     <message>
         <source>Error</source>
@@ -630,7 +645,7 @@ Do you want to go to download page?</source>
     <name>WalletGui::AboutDialog</name>
     <message>
         <source>About %1 Wallet</source>
-        <translation>Про гаманець карбованця</translation>
+        <translation>Про %1</translation>
     </message>
 </context>
 <context>
@@ -823,6 +838,10 @@ Are you sure?</source>
     <message>
         <source>Language was changed</source>
         <translation>Мову змінено</translation>
+    </message>
+    <message>
+        <source>%1 Wallet %2</source>
+        <translation>%1 в. %2</translation>
     </message>
 </context>
 <context>

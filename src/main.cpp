@@ -45,23 +45,24 @@ int main(int argc, char* argv[]) {
   bool cmdLineParseResult = cmdLineParser.process(app.arguments());
   Settings::instance().load();
 
-
   QTranslator translator;
   QTranslator translatorQt;
 
   QString lng = Settings::instance().getLanguage();
 
   if(!lng.isEmpty()) {
-      translator.load("languages/" + lng + ".qm");
-      translatorQt.load("languages/qt_" + lng + ".qm");
+      translator.load(":/languages/" + lng + ".qm");
+      translatorQt.load(":/languages/qt_" + lng + ".qm");
     } else {
-      translator.load("languages/" + QLocale::system().name());
-      translatorQt.load("languages/qt_" +  QLocale::system().name());
+      translator.load(":/languages/" + QLocale::system().name());
+      translatorQt.load(":/languages/qt_" +  QLocale::system().name());
   }
   app.installTranslator(&translator);
   app.installTranslator(&translatorQt);
 
   QLocale::setDefault(QLocale::c());
+
+  setlocale(LC_ALL, "");
 
   QFile File(":/skin/default.qss");
   File.open(QFile::ReadOnly);

@@ -6,9 +6,11 @@
 #include <QDesktopServices>
 #include <QApplication>
 #include <QMessageBox>
-#include <cstdio>
-#include <string>
+
 #include <iostream>
+#include <sstream>
+#include <vector>
+#include <iterator>
 
 using namespace WalletGui;
 
@@ -17,48 +19,45 @@ Updater::Updater(QObject *parent) :
 {
 }
 
-struct Version
+class Version
 {
-    int major, minor, revision;
-
-    Version(const std::string& version)
+    // An internal utility structure just used to make the std::copy in the constructor easy to write.
+    struct VersionDigit
     {
-        std::sscanf(version.c_str(), "%d.%d.%d", &major, &minor, &revision);
-        if (major < 0) major = 0;
-        if (minor < 0) minor = 0;
-        if (revision < 0) revision = 0;
+        int value;
+        operator int() const {return value;}
+    };
+    friend std::istream& operator>>(std::istream& str, Version::VersionDigit& digit);
+    public:
+        Version(std::string const& versionStr)
+        {
+            // To Make processing easier in VersionDigit prepend a '.'
+            std::stringstream   versionStream(std::string(".") + versionStr);
 
-    }
+            // Copy all parts of the version number into the version Info vector.
+            std::copy(  std::istream_iterator<VersionDigit>(versionStream),
+                        std::istream_iterator<VersionDigit>(),
+                        std::back_inserter(versionInfo)
+                     );
+        }
 
-    bool operator < (const Version& other)
-    {
-        if (major < other.major)
-            return true;
-        if (minor < other.minor)
-            return true;
-        if (revision < other.revision)
-            return true;
+        // Test if two version numbers are the same.
+        bool operator<(Version const& rhs) const
+        {
+            return std::lexicographical_compare(versionInfo.begin(), versionInfo.end(), rhs.versionInfo.begin(), rhs.versionInfo.end());
+        }
 
-        return false;
-    }
-
-    bool operator == (const Version& other)
-    {
-        return major == other.major
-            && minor == other.minor
-            && revision == other.revision;
-    }
-
-    friend std::ostream& operator << (std::ostream& stream, const Version& ver)
-    {
-        stream << ver.major;
-        stream << '.';
-        stream << ver.minor;
-        stream << '.';
-        stream << ver.revision;
-        return stream;
-    }
+    private:
+        std::vector<int>    versionInfo;
 };
+
+// Read a single digit from the version.
+std::istream& operator>>(std::istream& str, Version::VersionDigit& digit)
+{
+    str.get();
+    str >> digit.value;
+    return str;
+}
 
 void Updater::checkForUpdate()
 {
@@ -80,10 +79,10 @@ void Updater::replyFinished (QNetworkReply *reply)
     else
     {
         Version ourVersion = Settings::instance().getVersion().split("-")[0].toStdString();
-	
+
 		QString result = reply->readAll().data();      
 
-		Version remoteVersion = result.toStdString();
+        Version remoteVersion = result.toStdString();
 
          if (ourVersion < remoteVersion) {
 

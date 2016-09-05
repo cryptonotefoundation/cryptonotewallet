@@ -39,4 +39,13 @@
     <qresource prefix="/skin">
         <file>default.qss</file>
     </qresource>
+    <qresource prefix="/">
+        <file>languages/be.qm</file>
+        <file>languages/pl.qm</file>
+        <file>languages/qt_pl.qm</file>
+        <file>languages/qt_ru.qm</file>
+        <file>languages/qt_uk.qm</file>
+        <file>languages/ru.qm</file>
+        <file>languages/uk.qm</file>
+    </qresource>
 </RCC>

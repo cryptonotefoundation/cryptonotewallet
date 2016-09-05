@@ -446,6 +446,21 @@ Proszę czekać...</translation>
     </message>
 </context>
 <context>
+    <name>PrivateKeysDialog</name>
+    <message>
+        <source>Private Key</source>
+        <translation>Klucz prywatny</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Zamknij</translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished">...</translation>
+    </message>
+</context>
+<context>
     <name>QObject</name>
     <message>
         <source>Error</source>
@@ -630,7 +645,7 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
     <name>WalletGui::AboutDialog</name>
     <message>
         <source>About %1 Wallet</source>
-        <translation>O portfelu karbowańca</translation>
+        <translation>O Karbowańcu</translation>
     </message>
 </context>
 <context>
@@ -819,6 +834,10 @@ Jesteś pewien?</translation>
     <message>
         <source>Language was changed</source>
         <translation>Język został zmieniony</translation>
+    </message>
+    <message>
+        <source>%1 Wallet %2</source>
+        <translation>%1 v. %2</translation>
     </message>
 </context>
 <context>

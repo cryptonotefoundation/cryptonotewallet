@@ -66,7 +66,7 @@
     </message>
     <message>
         <source>Ukrainian</source>
-        <translation>Ўкраінская</translation>
+        <translation>Украінская</translation>
     </message>
     <message>
         <source>Russian</source>
@@ -86,7 +86,7 @@
     </message>
     <message>
         <source>Belarusian</source>
-        <translation>Білоруська</translation>
+        <translation>Беларуская</translation>
     </message>
 </context>
 <context>
@@ -145,7 +145,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Wallet path:</source>
-        <translation>Шлях да кашалька:</translation>
+        <translation>Шлях да гаманца:</translation>
     </message>
     <message>
         <source>...</source>
@@ -212,15 +212,15 @@ Please wait...</source>
     </message>
     <message>
         <source>Create wallet</source>
-        <translation>Стварыць кашалёк</translation>
+        <translation>Стварыць гаманец</translation>
     </message>
     <message>
         <source>Open wallet</source>
-        <translation>Адкрыць кашалёк</translation>
+        <translation>Адкрыць гаманец</translation>
     </message>
     <message>
         <source>Encrypt wallet</source>
-        <translation>Зашыфраваць кашалёк</translation>
+        <translation>Зашыфраваць гаманец</translation>
     </message>
     <message>
         <source>Change password</source>
@@ -395,11 +395,11 @@ Please wait...</source>
     </message>
     <message>
         <source>Total:</source>
-        <translation>Ўсяго:</translation>
+        <translation>Усяго:</translation>
     </message>
     <message>
         <source>Wallet</source>
-        <translation type="vanished">Кашалёк</translation>
+        <translation type="vanished">гаманец</translation>
     </message>
     <message>
         <source>Unconfirmed:</source>
@@ -446,6 +446,21 @@ Please wait...</source>
     </message>
 </context>
 <context>
+    <name>PrivateKeysDialog</name>
+    <message>
+        <source>Private Key</source>
+        <translation>Прыватны ключ</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Зачыніць</translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished">...</translation>
+    </message>
+</context>
+<context>
     <name>QObject</name>
     <message>
         <source>Error</source>
@@ -469,18 +484,18 @@ Please wait...</source>
     </message>
     <message>
         <source>New version available</source>
-        <translation>Даступна абнаўленне кашалька</translation>
+        <translation>Даступна абнаўленне гаманца</translation>
     </message>
     <message>
         <source>There is update available.
  Do you want to go to download page?</source>
-        <translation type="vanished">Ёсць новая версія кашалька.
+        <translation type="vanished">Ёсць новая версія гаманца.
  Хочаце адкрыць старонку загрузкі?</translation>
     </message>
     <message>
         <source>There is update available.
 Do you want to go to download page?</source>
-        <translation>Ёсць новая версія кашалька.
+        <translation>Ёсць новая версія гаманца.
 Хочаце адкрыць старонку загрузкі?</translation>
     </message>
 </context>
@@ -539,7 +554,7 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>Anonimity level:</source>
-        <translation>Ўзровень прыватнасці:</translation>
+        <translation>Узровень прыватнасці:</translation>
     </message>
     <message>
         <source>PaymentID:</source>
@@ -551,7 +566,7 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>Clear All</source>
-        <translation>Ачысціць ўсе</translation>
+        <translation>Ачысціць усе</translation>
     </message>
     <message>
         <source>Add Recipient</source>
@@ -630,7 +645,7 @@ Do you want to go to download page?</source>
     <name>WalletGui::AboutDialog</name>
     <message>
         <source>About %1 Wallet</source>
-        <translation>Аб кашальку %1</translation>
+        <translation>Пра %1</translation>
     </message>
 </context>
 <context>
@@ -662,7 +677,7 @@ Do you want to go to download page?</source>
     <name>WalletGui::CommandLineParser</name>
     <message>
         <source>Used to deploy test nets. Checkpoints and hardcoded seeds are ignored, network id is changed. Use it with –data-dir flag. The wallet must be launched with –testnet flag</source>
-        <translation>Для разгортвання тэставай сеткі. Чекпойнты і жорстка закадаваныя насенне ігнаруюцца, ідэнтыфікатар сеткі зменены.  Выкарыстоўвайце яго з сцягам –data-dir. Кашалька павінен быць запушчаны з –testnet</translation>
+        <translation>Для разгортвання тэставай сеткі. Чекпойнты і жорстка закадаваныя насенне ігнаруюцца, ідэнтыфікатар сеткі зменены.  Выкарыстоўвайце яго з сцягам –data-dir. гаманца павінен быць запушчаны з –testnet</translation>
     </message>
     <message>
         <source>Interface for p2p network protocol</source>
@@ -690,7 +705,7 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>Manually add peer to local peerlist</source>
-        <translation>Ўручную дадайце піра да лакальнага спісу піраў</translation>
+        <translation>Уручную дадайце піра да лакальнага спісу піраў</translation>
     </message>
     <message>
         <source>peer</source>
@@ -730,7 +745,7 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>Karbowanec wallet</source>
-        <translation>Кашалёк карбованцаў</translation>
+        <translation>Гаманец карбованцаў</translation>
     </message>
     <message>
         <source>External port for p2p network protocol (if port forwarding used with NAT)</source>
@@ -741,7 +756,7 @@ Do you want to go to download page?</source>
     <name>WalletGui::ImportKeyDialog</name>
     <message>
         <source>Wallet file</source>
-        <translation>Файл кашалька</translation>
+        <translation>Файл гаманца</translation>
     </message>
     <message>
         <source>Wallets (*.wallet)</source>
@@ -752,11 +767,11 @@ Do you want to go to download page?</source>
     <name>WalletGui::MainWindow</name>
     <message>
         <source>About %1 Wallet</source>
-        <translation>Аб кашальку %1</translation>
+        <translation>Пра гаманец</translation>
     </message>
     <message>
         <source>New wallet file</source>
-        <translation>Новы файл кашалька</translation>
+        <translation>Новы файл гаманца</translation>
     </message>
     <message>
         <source>Wallets (*.wallet)</source>
@@ -768,11 +783,11 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>Wallet (*.wallet *.keys)</source>
-        <translation>Кашалёк (*.wallet *.keys)</translation>
+        <translation>Гаманец (*.wallet *.keys)</translation>
     </message>
     <message>
         <source>Backup wallet to...</source>
-        <translation>Рэзервовае капіраванне кашалька ў...</translation>
+        <translation>Рэзервовае капіраванне гаманца ў...</translation>
     </message>
     <message>
         <source>Warning</source>
@@ -781,16 +796,16 @@ Do you want to go to download page?</source>
     <message>
         <source>Your wallet will be reset and restored from blockchain.
 Are you sure?</source>
-        <translation>Ваш кашалёк будзе скінута і адноўлена з блокчейн.
+        <translation>Ваш гаманец будзе скінута і адноўлена з блокчейн.
 Вы ўпэўненыя?</translation>
     </message>
     <message>
         <source>Wallet error</source>
-        <translation>Памылка кашалька</translation>
+        <translation>Памылка гаманца</translation>
     </message>
     <message>
         <source>Wallet</source>
-        <translation>Кашалёк</translation>
+        <translation>Гаманец</translation>
     </message>
     <message>
         <source>Encrypted</source>
@@ -818,11 +833,15 @@ Are you sure?</source>
     </message>
     <message>
         <source>The language will be changed after restarting the wallet.</source>
-        <translation>Мова будзе зменена пасля перазапуску кашалька.</translation>
+        <translation>Мова будзе зменена пасля перазапуску гаманца.</translation>
     </message>
     <message>
         <source>Language was changed</source>
         <translation>Мова зменена</translation>
+    </message>
+    <message>
+        <source>%1 Wallet %2</source>
+        <translation>%1 в. %2</translation>
     </message>
 </context>
 <context>
@@ -959,7 +978,7 @@ Are you sure?</source>
     <name>WalletGui::WalletAdapter</name>
     <message>
         <source>Opening wallet</source>
-        <translation>Адкрываецца кашалёк</translation>
+        <translation>Адкрываецца гаманец</translation>
     </message>
     <message>
         <source>Importing keys</source>
@@ -983,7 +1002,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>Wallet synchronized. Height: %1  |  Time (UTC): %2%3</source>
-        <translation>Кашалёк сінхранізаваны. Вышыня: %1  |  Дата і час апошняга блока (UTC): %2%3</translation>
+        <translation>Гаманец сінхранізаваны. Вышыня: %1  |  Дата і час апошняга блока (UTC): %2%3</translation>
     </message>
     <message>
         <source>  Warning: last block was received %1 hours %2 minutes ago</source>

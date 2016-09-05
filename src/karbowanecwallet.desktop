@@ -1,0 +1,19 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Karbowanec
+Name[uk]=Карбованeць
+Name[ru]=Карбованeц
+Name[pl]=Karbowaneć
+Name[be]=Карбованэць
+Comment=Karbowanec wallet
+Comment[uk]=Гаманець Карбованца
+Comment[ru]=Кошелек Карбованца
+Comment[pl]=Portfel Karbowańca
+Comment[be]=Кашалёк Карбованца
+Exec=karbowanec
+Terminal=false
+Type=Application
+Icon=karbowanec
+MimeType=x-scheme-handler/karbowanec;
+Categories=Office;Finance;
+Version=0.2.7
