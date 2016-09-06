@@ -18,7 +18,7 @@ Updater::Updater(QObject *parent) :
     QObject(parent)
 {
 }
-
+// http://stackoverflow.com/questions/2941491/compare-versions-as-strings/2941895#2941895
 class Version
 {
     // An internal utility structure just used to make the std::copy in the constructor easy to write.

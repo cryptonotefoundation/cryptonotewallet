@@ -256,7 +256,7 @@ Proszę czekać...</translation>
     </message>
     <message>
         <source>Mining</source>
-        <translation>Kopalnia</translation>
+        <translation>Karbowanie</translation>
     </message>
     <message>
         <source>Reset wallet</source>
@@ -287,7 +287,7 @@ Proszę czekać...</translation>
     </message>
     <message>
         <source>Mining status</source>
-        <translation>Stan kopania</translation>
+        <translation>Stan karbowania</translation>
     </message>
     <message>
         <source>CPU cores</source>
@@ -307,11 +307,11 @@ Proszę czekać...</translation>
     </message>
     <message>
         <source>Start mining</source>
-        <translation>Zacznij kopać</translation>
+        <translation>Zacznij karbować</translation>
     </message>
     <message>
         <source>Pause mining</source>
-        <translation>Przerwij kopanie</translation>
+        <translation>Przerwij karbowanie</translation>
     </message>
 </context>
 <context>
@@ -543,7 +543,7 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
     </message>
     <message>
         <source> krb</source>
-        <translation>krb.</translation>
+        <translation> krb.</translation>
     </message>
 </context>
 <context>
