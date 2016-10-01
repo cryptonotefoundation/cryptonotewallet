@@ -53,7 +53,9 @@ gui/TransactionsListModel.cpp \
 gui/TransactionsModel.cpp \
 gui/TransferFrame.cpp \
 update.cpp \
-
+gui/ConnectionSettings.cpp \
+gui/NewNodeDialog.cpp \
+gui/NodeModel.cpp \
 
  
 
@@ -97,6 +99,10 @@ gui/TransactionsModel.h \
 gui/TransferFrame.h \
 gui/WalletEvents.h \
 update.h \
+gui/ConnectionSettings.h \
+gui/NewNodeDialog.h \
+gui/NodeModel.h \
+
 
 
 FORMS = gui/ui/aboutdialog.ui \
@@ -119,6 +125,10 @@ gui/ui/transactionframe.ui \
 gui/ui/transactionsframe.ui \
 gui/ui/transferframe.ui \
 gui/ui/changelanguagedialog.ui \
+gui/ui/privatekeysdialog.ui \
+gui/ui/connectionsettingsdialog.ui \
+gui/ui/newnodedialog.ui \
+
 
 
 TRANSLATIONS = 	languages/uk.ts \

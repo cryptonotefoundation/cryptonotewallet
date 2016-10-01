@@ -40,6 +40,10 @@ public:
   QString getVersion() const;
   QStringList getMiningPoolList() const;
   QString getLanguage() const;
+  QString getConnection() const;
+  QStringList getRPCNodesList() const;
+  quint16 getCurrentLocalDaemonPort() const;
+  QString getCurrentRemoteNode() const;
 
   bool isEncrypted() const;
   bool isStartOnLoginEnabled() const;
@@ -54,6 +58,10 @@ public:
   void setLanguage(const QString& _language);
   void setStartOnLoginEnabled(bool _enable);
   void setMiningPoolList(const QStringList& _miningPoolList);
+  void setConnection(const QString& _connection);
+  void setCurrentLocalDaemonPort(const quint16& _daemonPort);
+  void setCurrentRemoteNode(const QString& _remoteNode);
+  void setRPCNodesList(const QStringList& _RPCNodesList);
 #ifdef Q_OS_WIN
   void setMinimizeToTrayEnabled(bool _enable);
   void setCloseToTrayEnabled(bool _enable);
@@ -63,6 +71,8 @@ private:
   QJsonObject m_settings;
   QString m_addressBookFile;
   QString m_currentLang;
+  QString m_connectionMode;
+  QString m_daemonPort;
   CommandLineParser* m_cmdLineParser;
 
   Settings();

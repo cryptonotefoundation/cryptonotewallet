@@ -24,6 +24,11 @@ Q_DECL_CONSTEXPR char OPTION_WALLET_FILE[] = "walletFile";
 Q_DECL_CONSTEXPR char OPTION_ENCRYPTED[] = "encrypted";
 Q_DECL_CONSTEXPR char OPTION_MINING_POOLS[] = "miningPools";
 Q_DECL_CONSTEXPR char OPTION_LANGUAGE[] = "Language";
+Q_DECL_CONSTEXPR char OPTION_CONNECTION[] = "connectionMode";
+Q_DECL_CONSTEXPR char OPTION_RPCNODES[] = "remoteNodes";
+Q_DECL_CONSTEXPR char OPTION_DAEMON_PORT[] = "daemonPort";
+Q_DECL_CONSTEXPR char OPTION_REMOTE_NODE[] = "remoteNode";
+
 
 Settings& Settings::instance() {
   static Settings inst;
@@ -53,23 +58,33 @@ void Settings::load() {
       m_addressBookFile.replace(m_addressBookFile.lastIndexOf(".wallet"), 7, ".addressbook");
     }
 
-    if (!m_settings.contains("Language")) {
+    if (!m_settings.contains(OPTION_LANGUAGE)) {
          m_currentLang = "uk";
+    }
+
+    if (!m_settings.contains(OPTION_CONNECTION)) {
+         m_connectionMode = "auto";
+    }
+
+    if (!m_settings.contains(OPTION_DAEMON_PORT)) {
+         m_daemonPort = CryptoNote::RPC_DEFAULT_PORT;
     }
 
   } else {
     m_addressBookFile = getDataDir().absoluteFilePath(QCoreApplication::applicationName() + ".addressbook");
   }
 
-
- // if (!m_settings.contains(OPTION_LANGUAGE)) {
- //        m_settings.insert(OPTION_LANGUAGE, "uk"); // default language is Ukrainian
- //  }
   if (m_settings.contains(OPTION_LANGUAGE)) {
         m_currentLang = m_settings.value(OPTION_LANGUAGE).toString();
   }
 
+  if (m_settings.contains(OPTION_CONNECTION)) {
+        m_connectionMode = m_settings.value(OPTION_CONNECTION).toString();
+  }
 
+  if (!m_settings.contains(OPTION_DAEMON_PORT)) {
+        m_settings.insert(OPTION_DAEMON_PORT, CryptoNote::RPC_DEFAULT_PORT); // default daemon port
+  }
 
   QStringList defaultPoolList;
   defaultPoolList << "pool.karbowanec.com:3333" << "pool2.democats.org:45570";
@@ -82,10 +97,23 @@ void Settings::load() {
         poolList << pool;
       }
     }
-
     setMiningPoolList(poolList);
   }
-   
+
+  QStringList defaultNodesList;
+  defaultNodesList << "node.karbowanec.com:32348" << "pool2.democats.org:7671";
+  if (!m_settings.contains(OPTION_RPCNODES)) {
+    setRPCNodesList(QStringList() << defaultNodesList);
+  } else {
+    QStringList nodesList = getRPCNodesList();
+    Q_FOREACH (const QString& node, defaultNodesList) {
+      if (!nodesList.contains(node)) {
+        nodesList << node;
+      }
+    }
+    setRPCNodesList(nodesList);
+ }
+
 }
 
 bool Settings::isTestnet() const {
@@ -175,11 +203,43 @@ QString Settings::getLanguage() const {
     if (m_settings.contains(OPTION_LANGUAGE)) {
         currentLang = m_settings.value(OPTION_LANGUAGE).toString();
     }
-   // else {
-   // currentLang = "uk"; // default is Ukrainian
-   // }
     return currentLang;
-    // return m_currentLang;
+}
+
+QString Settings::getConnection() const {
+    QString connection;
+    if (m_settings.contains(OPTION_CONNECTION)) {
+        connection = m_settings.value(OPTION_CONNECTION).toString();
+    }
+    else {
+    connection = "auto"; // default
+    }
+    return connection;
+}
+
+QStringList Settings::getRPCNodesList() const {
+  QStringList res;
+  if (m_settings.contains(OPTION_RPCNODES)) {
+    res << m_settings.value(OPTION_RPCNODES).toVariant().toStringList();
+  }
+
+  return res;
+}
+
+quint16 Settings::getCurrentLocalDaemonPort() const {
+    quint16 port;
+    if (m_settings.contains(OPTION_DAEMON_PORT)) {
+        port = m_settings.value(OPTION_DAEMON_PORT).toVariant().toInt();
+    }
+    return port;
+}
+
+QString Settings::getCurrentRemoteNode() const {
+    QString remotenode;
+    if (m_settings.contains(OPTION_REMOTE_NODE)) {
+        remotenode = m_settings.value(OPTION_REMOTE_NODE).toString();
+    }
+    return remotenode;
 }
 
 bool Settings::isStartOnLoginEnabled() const {
@@ -316,7 +376,30 @@ void Settings::setMiningPoolList(const QStringList &_miningPoolList) {
   if (getMiningPoolList() != _miningPoolList) {
     m_settings.insert(OPTION_MINING_POOLS, QJsonArray::fromStringList(_miningPoolList));
   }
+  saveSettings();
+}
 
+void Settings::setConnection(const QString& _connection) {
+    m_settings.insert(OPTION_CONNECTION, _connection);
+    saveSettings();
+}
+
+void Settings::setCurrentLocalDaemonPort(const quint16& _daemonPort) {
+    m_settings.insert(OPTION_DAEMON_PORT, _daemonPort);
+    saveSettings();
+}
+
+void Settings::setCurrentRemoteNode(const QString& _remoteNode) {
+    if (!_remoteNode.isEmpty()) {
+    m_settings.insert(OPTION_REMOTE_NODE, _remoteNode);
+    }
+    saveSettings();
+}
+
+void Settings::setRPCNodesList(const QStringList &_RPCNodesList) {
+  if (getRPCNodesList() != _RPCNodesList) {
+    m_settings.insert(OPTION_RPCNODES, QJsonArray::fromStringList(_RPCNodesList));
+  }
   saveSettings();
 }
 
