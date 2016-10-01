@@ -80,7 +80,14 @@
       </widget>
      </item>
      <item row="1" column="1" colspan="3">
-      <widget class="QLineEdit" name="m_paymentIdEdit"/>
+      <widget class="QLineEdit" name="m_paymentIdEdit">
+       <property name="maxLength">
+        <number>64</number>
+       </property>
+       <property name="placeholderText">
+        <string>Payment identifier issued by payee (exchange, shop or other entity)</string>
+       </property>
+      </widget>
      </item>
      <item row="1" column="0">
       <widget class="QLabel" name="label_6">
@@ -220,7 +227,7 @@
        </property>
        <property name="icon">
         <iconset resource="../../resources.qrc">
-         <normaloff>:/icons/add</normaloff>:/icons/add</iconset>
+         <normaloff>:/icons/add_recepient</normaloff>:/icons/add_recepient</iconset>
        </property>
       </widget>
      </item>

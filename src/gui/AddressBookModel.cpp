@@ -26,7 +26,7 @@ AddressBookModel::~AddressBookModel() {
 }
 
 int AddressBookModel::columnCount(const QModelIndex& _parent) const {
-  return 2;
+  return 3;
 }
 
 QVariant AddressBookModel::data(const QModelIndex& _index, int _role) const {
@@ -43,6 +43,8 @@ QVariant AddressBookModel::data(const QModelIndex& _index, int _role) const {
       return _index.data(ROLE_LABEL);
     case COLUMN_ADDRESS:
       return _index.data(ROLE_ADDRESS);
+    case COLUMN_PAYMENTID:
+      return _index.data(ROLE_PAYMENTID);
     default:
       return QVariant();
     }
@@ -51,6 +53,8 @@ QVariant AddressBookModel::data(const QModelIndex& _index, int _role) const {
     return address.value("label");
   case ROLE_ADDRESS:
     return address.value("address");
+  case ROLE_PAYMENTID:
+    return address.value("paymentid");
   default:
     return QVariant();
   }
@@ -72,6 +76,8 @@ QVariant AddressBookModel::headerData(int _section, Qt::Orientation _orientation
     return tr("Label");
   case COLUMN_ADDRESS:
     return tr("Address");
+  case COLUMN_PAYMENTID:
+    return tr("PaymentID");
   }
 
   return QVariant();
@@ -93,11 +99,12 @@ int AddressBookModel::rowCount(const QModelIndex& _parent) const {
   return m_addressBook.size();
 }
 
-void AddressBookModel::addAddress(const QString& _label, const QString& _address) {
+void AddressBookModel::addAddress(const QString& _label, const QString& _address, const QString& _paymentid) {
   beginInsertRows(QModelIndex(), m_addressBook.size(), m_addressBook.size());
   QJsonObject newAddress;
   newAddress.insert("label", _label);
   newAddress.insert("address", _address);
+  newAddress.insert("paymentid", _paymentid);
   m_addressBook.append(newAddress);
   endInsertRows();
   saveAddressBook();

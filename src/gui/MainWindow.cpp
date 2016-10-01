@@ -10,7 +10,7 @@
 #include <QMessageBox>
 #include <QSystemTrayIcon>
 #include <QTimer>
-
+#include <QFontDatabase>
 #include <Common/Base58.h>
 #include <Common/Util.h>
 
@@ -18,6 +18,7 @@
 #include "AnimatedLabel.h"
 #include "ChangePasswordDialog.h"
 #include "ChangeLanguageDialog.h"
+#include "ConnectionSettings.h"
 #include "privatekeysdialog.h"
 #include "CurrencyAdapter.h"
 #include "ExitWidget.h"
@@ -77,7 +78,7 @@ void MainWindow::connectToSignals() {
 }
 
 void MainWindow::initUi() {
-  setWindowTitle(QString("%1 Wallet %2").arg(CurrencyAdapter::instance().getCurrencyDisplayName()).arg(Settings::instance().getVersion()));
+  setWindowTitle(QString(tr("%1 Wallet %2")).arg(CurrencyAdapter::instance().getCurrencyDisplayName()).arg(Settings::instance().getVersion()));
 #ifdef Q_OS_WIN32
   if (QSystemTrayIcon::isSystemTrayAvailable()) {
     m_trayIcon = new QSystemTrayIcon(QPixmap(":images/cryptonote"), this);
@@ -280,7 +281,6 @@ void MainWindow::importKey() {
   }
 }
 
-
 void MainWindow::ChangeLanguage() {
   ChangeLanguageDialog dlg(&MainWindow::instance());
   dlg.initLangList();
@@ -289,6 +289,42 @@ void MainWindow::ChangeLanguage() {
     Settings::instance().setLanguage((language));
     QMessageBox::information(this, tr("Language was changed"), tr("The language will be changed after restarting the wallet."), QMessageBox::Ok);
   }
+}
+
+void MainWindow::DisplayCmdLineHelp() {
+    CommandLineParser cmdLineParser(nullptr);
+//  QMessageBox::information(nullptr, QObject::tr("Help"), cmdLineParser.getHelpText());
+    QMessageBox *msg = new QMessageBox(QMessageBox::Information, QObject::tr("Help"),
+                       cmdLineParser.getHelpText(),
+                       QMessageBox::Ok, this);
+    msg->setInformativeText(tr("More info can be found at www.karbowanec.com in Documentation section"));
+    QFont font = QFontDatabase::systemFont(QFontDatabase::FixedFont);
+    msg->setFont(font);
+    QSpacerItem* horizontalSpacer = new QSpacerItem(650, 0, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        QGridLayout* layout = (QGridLayout*)msg->layout();
+        layout->addItem(horizontalSpacer, layout->rowCount(), 0, 1, layout->columnCount());
+    msg->exec();
+}
+
+void MainWindow::openConnectionSettings() {
+    ConnectionSettingsDialog dlg(&MainWindow::instance());
+    dlg.initConnectionSettings();
+    dlg.setConnectionMode();
+    dlg.setRemoteNode();
+    dlg.setLocalDaemonPort();
+    if (dlg.exec() == QDialog::Accepted) {
+
+      QString connection = dlg.setConnectionMode();
+      Settings::instance().setConnection(connection);
+
+      QString remoteNode = dlg.setRemoteNode();
+      Settings::instance().setCurrentRemoteNode(remoteNode);
+
+      quint16 daemonPort = dlg.setLocalDaemonPort();
+      Settings::instance().setCurrentLocalDaemonPort(daemonPort);
+
+      QMessageBox::information(this, tr("Connection settings changed"), tr("Connection mode will be changed after restarting the wallet."), QMessageBox::Ok);
+    }
 }
 
 void MainWindow::backupWallet() {

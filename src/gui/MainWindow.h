@@ -10,6 +10,7 @@
 #include <QSystemTrayIcon>
 #include <QTimer>
 #include "ChangeLanguageDialog.h"
+#include "CommandLineParser.h"
 
 class QActionGroup;
 
@@ -75,6 +76,8 @@ private:
   Q_SLOT void setCloseToTray(bool _on);
   Q_SLOT void ChangeLanguage();
   Q_SLOT void showPrivateKeys();
+  Q_SLOT void DisplayCmdLineHelp();
+  Q_SLOT void openConnectionSettings();
 
 #ifdef Q_OS_MAC
 public:

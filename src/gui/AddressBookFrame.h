@@ -23,8 +23,12 @@ public:
 private:
   QScopedPointer<Ui::AddressBookFrame> m_ui;
 
+  static bool isValidPaymentId(const QByteArray& _paymentIdString);
+
   Q_SLOT void addClicked();
+  Q_SLOT void editClicked();
   Q_SLOT void copyClicked();
+  Q_SLOT void copyPaymentIdClicked();
   Q_SLOT void deleteClicked();
   Q_SLOT void currentAddressChanged(const QModelIndex& _index);
 };

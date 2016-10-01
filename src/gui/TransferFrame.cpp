@@ -47,11 +47,19 @@ void TransferFrame::addressBookClicked() {
   AddressBookDialog dlg(&MainWindow::instance());
   if(dlg.exec() == QDialog::Accepted) {
     m_ui->m_addressEdit->setText(dlg.getAddress());
+    Q_EMIT insertPaymentIDSignal(dlg.getPaymentID());
   }
 }
 
 void TransferFrame::pasteClicked() {
   m_ui->m_addressEdit->setText(QApplication::clipboard()->text());
+}
+
+void TransferFrame::amountValueChange() {
+
+Q_EMIT amountValueChangedSignal();
+
+
 }
 
 }

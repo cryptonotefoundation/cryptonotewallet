@@ -15,8 +15,6 @@ ChangeLanguageDialog::ChangeLanguageDialog(QWidget* _parent) : QDialog(_parent),
 ChangeLanguageDialog::~ChangeLanguageDialog() {
 }
 
-
-
 void ChangeLanguageDialog::initLangList() {
  QString currentlang = Settings::instance().getLanguage();
 
@@ -45,8 +43,6 @@ void ChangeLanguageDialog::initLangList() {
 
 QString ChangeLanguageDialog::getLang() const {
 
-
-
     QString lang;
      int n = m_ui->ChangeLangComboBox->currentIndex();
      if (n == 1)
@@ -71,6 +67,5 @@ QString ChangeLanguageDialog::getLang() const {
          }
      return lang;
 }
-
 
 }

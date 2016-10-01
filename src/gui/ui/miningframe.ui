@@ -68,6 +68,10 @@
        <property name="text">
         <string>Add pool</string>
        </property>
+       <property name="icon">
+        <iconset resource="../../resources.qrc">
+         <normaloff>:/icons/add</normaloff>:/icons/add</iconset>
+       </property>
       </widget>
      </item>
     </layout>
@@ -136,7 +140,9 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../../resources.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>m_startButton</sender>

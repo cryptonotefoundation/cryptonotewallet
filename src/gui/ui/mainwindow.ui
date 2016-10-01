@@ -193,6 +193,7 @@
     <addaction name="m_encryptWalletAction"/>
     <addaction name="m_changePasswordAction"/>
     <addaction name="m_changeLanguageAction"/>
+    <addaction name="m_connectionSettingsAction"/>
     <addaction name="separator"/>
     <addaction name="m_startOnLoginAction"/>
     <addaction name="m_minimizeToTrayAction"/>
@@ -204,6 +205,7 @@
     </property>
     <addaction name="m_aboutCryptonoteAction"/>
     <addaction name="m_aboutQtAction"/>
+    <addaction name="actionHelp"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuSettings"/>
@@ -437,6 +439,19 @@
   <action name="m_showPrivateKey">
    <property name="text">
     <string>Show private key</string>
+   </property>
+  </action>
+  <action name="actionHelp">
+   <property name="text">
+    <string>Help</string>
+   </property>
+   <property name="shortcut">
+    <string>F1</string>
+   </property>
+  </action>
+  <action name="m_connectionSettingsAction">
+   <property name="text">
+    <string>Connection</string>
    </property>
   </action>
  </widget>
@@ -802,6 +817,38 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>actionHelp</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>DisplayCmdLineHelp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>494</x>
+     <y>319</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_connectionSettingsAction</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>openConnectionSettings()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>494</x>
+     <y>319</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>createWallet()</slot>
@@ -816,5 +863,6 @@
   <slot>importKey()</slot>
   <slot>resetWallet()</slot>
   <slot>showPrivateKeys()</slot>
+  <slot>openConnectionSettings()</slot>
  </slots>
 </ui>

@@ -27,11 +27,16 @@ public:
 
   void disableRemoveButton(bool _disable);
 
+signals:
+    void amountValueChangedSignal();
+    void insertPaymentIDSignal(QString _paymentid);
+
 private:
   QScopedPointer<Ui::TransferFrame> m_ui;
 
   Q_SLOT void addressBookClicked();
   Q_SLOT void pasteClicked();
+  Q_SLOT void amountValueChange();
 };
 
 }

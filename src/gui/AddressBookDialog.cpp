@@ -1,4 +1,5 @@
 // Copyright (c) 2011-2015 The Cryptonote developers
+// Copyright (c) 2016 The Karbowanec developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -14,7 +15,7 @@ AddressBookDialog::AddressBookDialog(QWidget* _parent) : QDialog(_parent), m_ui(
   m_ui->m_addressBookView->setModel(&AddressBookModel::instance());
   if (AddressBookModel::instance().rowCount() > 0) {
     m_ui->m_addressBookView->setCurrentIndex(AddressBookModel::instance().index(0, 0));
-  }
+  } 
 }
 
 AddressBookDialog::~AddressBookDialog() {
@@ -22,6 +23,10 @@ AddressBookDialog::~AddressBookDialog() {
 
 QString AddressBookDialog::getAddress() const {
   return m_ui->m_addressBookView->currentIndex().data(AddressBookModel::ROLE_ADDRESS).toString();
+}
+
+QString AddressBookDialog::getPaymentID() const {
+  return m_ui->m_addressBookView->currentIndex().data(AddressBookModel::ROLE_PAYMENTID).toString();
 }
 
 }
