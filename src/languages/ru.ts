@@ -39,15 +39,31 @@
     </message>
     <message>
         <source>New address</source>
-        <translation>Добавить адрес</translation>
+        <translation type="vanished">Добавить адрес</translation>
     </message>
     <message>
         <source>Delete address</source>
-        <translation>Удалить адрес</translation>
+        <translation type="vanished">Удалить адрес</translation>
     </message>
     <message>
         <source>Copy address</source>
         <translation>Скопировать адрес</translation>
+    </message>
+    <message>
+        <source>New contact</source>
+        <translation>Добавить контакт</translation>
+    </message>
+    <message>
+        <source>Edit contact</source>
+        <translation>Изменить контакт</translation>
+    </message>
+    <message>
+        <source>Delete contact</source>
+        <translation>Удалить контакт</translation>
+    </message>
+    <message>
+        <source>Copy Payment ID</source>
+        <translation>Скопировать идентификатор платежа</translation>
     </message>
 </context>
 <context>
@@ -118,6 +134,61 @@
     <message>
         <source>Password not confirmed</source>
         <translation>Пароль не подтверджен</translation>
+    </message>
+</context>
+<context>
+    <name>ConnectionSettingsDialog</name>
+    <message>
+        <source>Connection settings</source>
+        <translation>Настройки подключения</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Отменить</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Сохранить</translation>
+    </message>
+    <message>
+        <source>Auto selection</source>
+        <translation>Автоматически</translation>
+    </message>
+    <message>
+        <source>Wallet will connect to local daemon on default port. In case of no local daemon running it will launch built-in node.</source>
+        <translation>Кошелек будет подключаться к локальному демону через порт по-умолчанию. Если демон не запущен, он запустит встроенный узел.</translation>
+    </message>
+    <message>
+        <source>Embedded</source>
+        <translation>Встроенный узел</translation>
+    </message>
+    <message>
+        <source>Built-in embedded node will be used.</source>
+        <translation>Будет запускаться встроенный узел.</translation>
+    </message>
+    <message>
+        <source>Local daemon</source>
+        <translation>Локальный демон</translation>
+    </message>
+    <message>
+        <source>Port: </source>
+        <translation>Порт: </translation>
+    </message>
+    <message>
+        <source>Wallet will connect to local daemon on specified port.</source>
+        <translation>Кошелек будет подключаться к локальному демону через указанный порт.</translation>
+    </message>
+    <message>
+        <source>Remote daemon</source>
+        <translation>Удаленный демон</translation>
+    </message>
+    <message>
+        <source>Add node</source>
+        <translation>Добавить узел</translation>
+    </message>
+    <message>
+        <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port.</source>
+        <translation>Кошелек будет подключаться к удаленному узлу в локальной или глобальной сети. Выберите узел или укажите IP адрес или домен и порт чтобы добавить новый.</translation>
     </message>
 </context>
 <context>
@@ -278,6 +349,14 @@ Please wait...</source>
         <source>Show private key</source>
         <translation>Показать приватный ключ</translation>
     </message>
+    <message>
+        <source>F1</source>
+        <translation>F1</translation>
+    </message>
+    <message>
+        <source>Connection</source>
+        <translation>Подключение</translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
@@ -335,6 +414,33 @@ Please wait...</source>
     <message>
         <source>Cancel</source>
         <translation>Отменить</translation>
+    </message>
+    <message>
+        <source>PaymentID:</source>
+        <translation>Идентификатор платежа:</translation>
+    </message>
+</context>
+<context>
+    <name>NewNodeDialog</name>
+    <message>
+        <source>New remote node</source>
+        <translation>Новый удаленный узел</translation>
+    </message>
+    <message>
+        <source>Host:</source>
+        <translation>Узел:</translation>
+    </message>
+    <message>
+        <source>Port:</source>
+        <translation>Порт:</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Отменить</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>Хорошо</translation>
     </message>
 </context>
 <context>
@@ -580,6 +686,10 @@ Do you want to go to download page?</source>
         <source>Fee:</source>
         <translation>Комиссия:</translation>
     </message>
+    <message>
+        <source>Payment identifier issued by payee (exchange, shop or other entity)</source>
+        <translation>Идентификатор платежа выданный получателем (биржей, магазином или другим учреждением)</translation>
+    </message>
 </context>
 <context>
     <name>TransactionDetailsDialog</name>
@@ -638,7 +748,27 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>Label:</source>
-        <translation>Метка:</translation>
+        <translation type="vanished">Метка:</translation>
+    </message>
+    <message>
+        <source>Add to Contacts:</source>
+        <translation type="vanished">Добавить в контакты:</translation>
+    </message>
+    <message>
+        <source>Select recipient from Address Book</source>
+        <translation>Выбрать получателя из Адресной книжки</translation>
+    </message>
+    <message>
+        <source>Paste from clipboard</source>
+        <translation>Вставить из буфера обмена</translation>
+    </message>
+    <message>
+        <source>Save to Contacts:</source>
+        <translation type="vanished">Сохранить в контакты:</translation>
+    </message>
+    <message>
+        <source>Save to Contacts as:</source>
+        <translation>Сохранить в контакты как:</translation>
     </message>
 </context>
 <context>
@@ -654,6 +784,14 @@ Do you want to go to download page?</source>
         <source>Invalid address</source>
         <translation>Неправильный адрес</translation>
     </message>
+    <message>
+        <source>Invalid payment ID</source>
+        <translation>Неправильный идентификатор платежа</translation>
+    </message>
+    <message>
+        <source>Edit contact</source>
+        <translation>Редактирование контакта</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::AddressBookModel</name>
@@ -664,6 +802,10 @@ Do you want to go to download page?</source>
     <message>
         <source>Address</source>
         <translation>Адрес</translation>
+    </message>
+    <message>
+        <source>PaymentID</source>
+        <translation>Идентификатор платежа</translation>
     </message>
 </context>
 <context>
@@ -843,6 +985,18 @@ Are you sure?</source>
         <source>%1 Wallet %2</source>
         <translation>%1 в. %2</translation>
     </message>
+    <message>
+        <source>More info can be found at www.karbowanec.com in Documentation section</source>
+        <translation>Больше информации на сайте www.karbowanec.com в разделе Документация.</translation>
+    </message>
+    <message>
+        <source>Connection settings changed</source>
+        <translation>Настройки подключения сохранены</translation>
+    </message>
+    <message>
+        <source>Connection mode will be changed after restarting the wallet.</source>
+        <translation>Рэжым падлучэння будзе зменены пасля перазапуску гаманца.</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::MiningFrame</name>
@@ -868,6 +1022,13 @@ Are you sure?</source>
     <message>
         <source>Password not confirmed</source>
         <translation>Пароль не подтвержден</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui::NodeModel</name>
+    <message>
+        <source>Node URL</source>
+        <translation>Адрес узла</translation>
     </message>
 </context>
 <context>

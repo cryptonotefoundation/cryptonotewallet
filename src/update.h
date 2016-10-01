@@ -27,8 +27,6 @@ public slots:
 
 private:
    QNetworkAccessManager *manager;
-   int compare;
-
 
 };
 

@@ -39,15 +39,31 @@
     </message>
     <message>
         <source>New address</source>
-        <translation>Додати адресу</translation>
+        <translation type="vanished">Додати адресу</translation>
     </message>
     <message>
         <source>Delete address</source>
-        <translation>Видалити адресу</translation>
+        <translation type="vanished">Видалити адресу</translation>
     </message>
     <message>
         <source>Copy address</source>
         <translation>Скопіювати адресу</translation>
+    </message>
+    <message>
+        <source>New contact</source>
+        <translation>Додати контакт</translation>
+    </message>
+    <message>
+        <source>Edit contact</source>
+        <translation>Змінити контакт</translation>
+    </message>
+    <message>
+        <source>Delete contact</source>
+        <translation>Видалити контакт</translation>
+    </message>
+    <message>
+        <source>Copy Payment ID</source>
+        <translation>Скопіювати ідентифікатор платежу</translation>
     </message>
 </context>
 <context>
@@ -118,6 +134,61 @@
     <message>
         <source>Password not confirmed</source>
         <translation>Пароль не підтверджено</translation>
+    </message>
+</context>
+<context>
+    <name>ConnectionSettingsDialog</name>
+    <message>
+        <source>Connection settings</source>
+        <translation>Налаштування підключення</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Скасувати</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Зберегти</translation>
+    </message>
+    <message>
+        <source>Auto selection</source>
+        <translation>Автоматично</translation>
+    </message>
+    <message>
+        <source>Wallet will connect to local daemon on default port. In case of no local daemon running it will launch built-in node.</source>
+        <translation>Гаманець підключатиметься до локального демона через стандартний порт. Якщо локальний демон не запущений, гаманець запустить вбудований вузол.</translation>
+    </message>
+    <message>
+        <source>Embedded</source>
+        <translation>Вбудований вузол</translation>
+    </message>
+    <message>
+        <source>Built-in embedded node will be used.</source>
+        <translation>Запускатиметься вбудований вузол мережі.</translation>
+    </message>
+    <message>
+        <source>Local daemon</source>
+        <translation>Локальний демон</translation>
+    </message>
+    <message>
+        <source>Port: </source>
+        <translation>Порт: </translation>
+    </message>
+    <message>
+        <source>Wallet will connect to local daemon on specified port.</source>
+        <translation>Гаманець підключатиметься до локального демона через вказаний порт.</translation>
+    </message>
+    <message>
+        <source>Remote daemon</source>
+        <translation>Віддалений демон</translation>
+    </message>
+    <message>
+        <source>Add node</source>
+        <translation>Додати вузол</translation>
+    </message>
+    <message>
+        <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port.</source>
+        <translation>Гаманець підключатиметься до віддаленого вузла, що запущений у локальній або глобальній мережі. Виберіть вузол, або вкажіть IP адресу чи домен та порт нового вузла.</translation>
     </message>
 </context>
 <context>
@@ -278,6 +349,14 @@ Please wait...</source>
         <source>Show private key</source>
         <translation>Показати приватний ключ</translation>
     </message>
+    <message>
+        <source>F1</source>
+        <translation>F1</translation>
+    </message>
+    <message>
+        <source>Connection</source>
+        <translation>Підключення</translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
@@ -335,6 +414,33 @@ Please wait...</source>
     <message>
         <source>Cancel</source>
         <translation>Скасувати</translation>
+    </message>
+    <message>
+        <source>PaymentID:</source>
+        <translation>Ідентифікатор платежу:</translation>
+    </message>
+</context>
+<context>
+    <name>NewNodeDialog</name>
+    <message>
+        <source>New remote node</source>
+        <translation>Новий віддалений вузол</translation>
+    </message>
+    <message>
+        <source>Host:</source>
+        <translation>Вузол:</translation>
+    </message>
+    <message>
+        <source>Port:</source>
+        <translation>Порт:</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Скасувати</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>Гаразд</translation>
     </message>
 </context>
 <context>
@@ -580,6 +686,14 @@ Do you want to go to download page?</source>
         <source>Fee:</source>
         <translation>Комісія:</translation>
     </message>
+    <message>
+        <source>Payment identifier issued by payee (exchange or other entity)</source>
+        <translation type="vanished">Ідентифікатор платежу виданий одержувачем (біржею, магазином чи іншою установою)</translation>
+    </message>
+    <message>
+        <source>Payment identifier issued by payee (exchange, shop or other entity)</source>
+        <translation>Ідентифікатор платежу виданий одержувачем (біржею, магазином чи іншою установою)</translation>
+    </message>
 </context>
 <context>
     <name>TransactionDetailsDialog</name>
@@ -630,7 +744,7 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>Enter a label for this address to add it to your address book</source>
-        <translation>Введіть мітку для цієї адреси щоб додати її в адресну книжку</translation>
+        <translation>Введіть мітку для цієї адреси щоб зберегти її в адресну книжку</translation>
     </message>
     <message>
         <source>Amount:</source>
@@ -638,7 +752,27 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>Label:</source>
-        <translation>Мітка:</translation>
+        <translation type="vanished">Контакт:</translation>
+    </message>
+    <message>
+        <source>Add to Contacts:</source>
+        <translation type="vanished">Додати в контакти:</translation>
+    </message>
+    <message>
+        <source>Select recipient from Address Book</source>
+        <translation>Вибрати отримувача з Контактів</translation>
+    </message>
+    <message>
+        <source>Paste from clipboard</source>
+        <translation>Вставити з буферу обміну</translation>
+    </message>
+    <message>
+        <source>Save to Contacts:</source>
+        <translation type="vanished">Зберегти в контакти:</translation>
+    </message>
+    <message>
+        <source>Save to Contacts as:</source>
+        <translation>Зберегти в контакти як:</translation>
     </message>
 </context>
 <context>
@@ -654,6 +788,14 @@ Do you want to go to download page?</source>
         <source>Invalid address</source>
         <translation>Неправильна адреса</translation>
     </message>
+    <message>
+        <source>Invalid payment ID</source>
+        <translation>Неправильний ідентифікатор платежу</translation>
+    </message>
+    <message>
+        <source>Edit contact</source>
+        <translation>Редагування контакту</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::AddressBookModel</name>
@@ -664,6 +806,10 @@ Do you want to go to download page?</source>
     <message>
         <source>Address</source>
         <translation>Адреса</translation>
+    </message>
+    <message>
+        <source>PaymentID</source>
+        <translation>Ідентифікатор платежу</translation>
     </message>
 </context>
 <context>
@@ -843,6 +989,18 @@ Are you sure?</source>
         <source>%1 Wallet %2</source>
         <translation>%1 в. %2</translation>
     </message>
+    <message>
+        <source>More info can be found at www.karbowanec.com in Documentation section</source>
+        <translation>Більше інформації на сайті www.karbowanec.com у розділі Документація.</translation>
+    </message>
+    <message>
+        <source>Connection settings changed</source>
+        <translation>Налаштування підключення змінено</translation>
+    </message>
+    <message>
+        <source>Connection mode will be changed after restarting the wallet.</source>
+        <translation>Заданий режим підключення буде задіяно після перезапуску гаманця.</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::MiningFrame</name>
@@ -868,6 +1026,13 @@ Are you sure?</source>
     <message>
         <source>Password not confirmed</source>
         <translation>Пароль не підтверджено</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui::NodeModel</name>
+    <message>
+        <source>Node URL</source>
+        <translation>Адреса вузла</translation>
     </message>
 </context>
 <context>

@@ -39,15 +39,31 @@
     </message>
     <message>
         <source>New address</source>
-        <translation>Nowy adres</translation>
+        <translation type="vanished">Nowy adres</translation>
     </message>
     <message>
         <source>Delete address</source>
-        <translation>Usuń adres</translation>
+        <translation type="vanished">Usuń adres</translation>
     </message>
     <message>
         <source>Copy address</source>
         <translation>Kopiuj adres</translation>
+    </message>
+    <message>
+        <source>New contact</source>
+        <translation>Nowy kontakt</translation>
+    </message>
+    <message>
+        <source>Edit contact</source>
+        <translation>Edytuj kontakt</translation>
+    </message>
+    <message>
+        <source>Delete contact</source>
+        <translation>Usuń kontakt</translation>
+    </message>
+    <message>
+        <source>Copy Payment ID</source>
+        <translation>Kopiuj identyfikator płatności</translation>
     </message>
 </context>
 <context>
@@ -118,6 +134,61 @@
     <message>
         <source>Password not confirmed</source>
         <translation>Hasło nie potwierdzone</translation>
+    </message>
+</context>
+<context>
+    <name>ConnectionSettingsDialog</name>
+    <message>
+        <source>Connection settings</source>
+        <translation>Ustawienia połączeń</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Anuluj</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Zapisz</translation>
+    </message>
+    <message>
+        <source>Auto selection</source>
+        <translation>Automatyczny wybór</translation>
+    </message>
+    <message>
+        <source>Wallet will connect to local daemon on default port. In case of no local daemon running it will launch built-in node.</source>
+        <translation>Portfel będzie łączyć się z lokalnym demonem przez domyślny port. W przypadku braku lokalnego demona uruchomi wbudowany węzeł.</translation>
+    </message>
+    <message>
+        <source>Built-in embedded node will be used.</source>
+        <translation>Po połączenia będzie używany wbudowany węzeł.</translation>
+    </message>
+    <message>
+        <source>Local daemon</source>
+        <translation>Daemon lokalny</translation>
+    </message>
+    <message>
+        <source>Port: </source>
+        <translation>Port: </translation>
+    </message>
+    <message>
+        <source>Wallet will connect to local daemon on specified port.</source>
+        <translation>Portfel będzie łączyć się z lokalnym demonem przez określony port.</translation>
+    </message>
+    <message>
+        <source>Remote daemon</source>
+        <translation>Zdalny daemon</translation>
+    </message>
+    <message>
+        <source>Add node</source>
+        <translation>Dodaj węzeł</translation>
+    </message>
+    <message>
+        <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port.</source>
+        <translation>Portfel będzie łączyć się ze zdalnym węzłem w sieci lokalnej lub globalnej. Wybierz węzeł lub kliknij &quot;Dodaj węzeł&quot; i podaj adres IP czy nazwę domeny i port.</translation>
+    </message>
+    <message>
+        <source>Embedded</source>
+        <translation>Wbudowany</translation>
     </message>
 </context>
 <context>
@@ -278,6 +349,14 @@ Proszę czekać...</translation>
         <source>Show private key</source>
         <translation>Pokaż klucza prywatnego</translation>
     </message>
+    <message>
+        <source>F1</source>
+        <translation>F1</translation>
+    </message>
+    <message>
+        <source>Connection</source>
+        <translation>Połączenie</translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
@@ -335,6 +414,33 @@ Proszę czekać...</translation>
     <message>
         <source>Cancel</source>
         <translation>Anuluj</translation>
+    </message>
+    <message>
+        <source>PaymentID:</source>
+        <translation>Identyfikator płatności:</translation>
+    </message>
+</context>
+<context>
+    <name>NewNodeDialog</name>
+    <message>
+        <source>New remote node</source>
+        <translation>Dodaj zdalny węzeł</translation>
+    </message>
+    <message>
+        <source>Host:</source>
+        <translation>Adres:</translation>
+    </message>
+    <message>
+        <source>Port:</source>
+        <translation>Port:</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Anuluj</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -580,6 +686,10 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
         <source>Fee:</source>
         <translation>Prowizja:</translation>
     </message>
+    <message>
+        <source>Payment identifier issued by payee (exchange, shop or other entity)</source>
+        <translation>Identyfikator płatności wydany przez odbiorcę (giełdę, sklep czy inną jednostkę)</translation>
+    </message>
 </context>
 <context>
     <name>TransactionDetailsDialog</name>
@@ -638,7 +748,27 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
     </message>
     <message>
         <source>Label:</source>
-        <translation>Etykieta:</translation>
+        <translation type="vanished">Etykieta:</translation>
+    </message>
+    <message>
+        <source>Add to Contacts:</source>
+        <translation type="vanished">Dodać do kontaktów:</translation>
+    </message>
+    <message>
+        <source>Select recipient from Address Book</source>
+        <translation>Wybierz odbiorcę z Kontaktów</translation>
+    </message>
+    <message>
+        <source>Paste from clipboard</source>
+        <translation>Wklej ze schowka</translation>
+    </message>
+    <message>
+        <source>Save to Contacts:</source>
+        <translation type="vanished">Zapisz do Kontaktów:</translation>
+    </message>
+    <message>
+        <source>Save to Contacts as:</source>
+        <translation>Zapisz do Kontaktów jako:</translation>
     </message>
 </context>
 <context>
@@ -654,6 +784,14 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
         <source>Invalid address</source>
         <translation>Błędny adres</translation>
     </message>
+    <message>
+        <source>Invalid payment ID</source>
+        <translation>Nieprawidłowy identyfikator płatności</translation>
+    </message>
+    <message>
+        <source>Edit contact</source>
+        <translation>Edytuj kontakt</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::AddressBookModel</name>
@@ -664,6 +802,10 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
     <message>
         <source>Address</source>
         <translation>Adres</translation>
+    </message>
+    <message>
+        <source>PaymentID</source>
+        <translation>Identyfikator płatności</translation>
     </message>
 </context>
 <context>
@@ -839,6 +981,18 @@ Jesteś pewien?</translation>
         <source>%1 Wallet %2</source>
         <translation>%1 v. %2</translation>
     </message>
+    <message>
+        <source>More info can be found at www.karbowanec.com in Documentation section</source>
+        <translation>Więcej informacji można znaleźć na stronie www.karbowanec.com w sekcji Dokumentacja</translation>
+    </message>
+    <message>
+        <source>Connection settings changed</source>
+        <translation>Ustawienia połączenia zostały zmienione</translation>
+    </message>
+    <message>
+        <source>Connection mode will be changed after restarting the wallet.</source>
+        <translation>Tryb połączenia zostanie zmieniony po ponownym uruchomieniu portfela.</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::MiningFrame</name>
@@ -864,6 +1018,13 @@ Jesteś pewien?</translation>
     <message>
         <source>Password not confirmed</source>
         <translation>Hasło nie potwierdzone</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui::NodeModel</name>
+    <message>
+        <source>Node URL</source>
+        <translation>Adres węzła</translation>
     </message>
 </context>
 <context>

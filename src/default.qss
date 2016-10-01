@@ -2,6 +2,9 @@
 	color: #15315E;
 }
 
+*:disabled {
+	color: #41548D;
+}
 
 QTabBar {
 	background-color: #a8b6cb;

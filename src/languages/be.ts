@@ -39,15 +39,31 @@
     </message>
     <message>
         <source>New address</source>
-        <translation>Дадаць адрас</translation>
+        <translation type="vanished">Дадаць адрас</translation>
     </message>
     <message>
         <source>Delete address</source>
-        <translation>Выдаліць адрас</translation>
+        <translation type="vanished">Выдаліць адрас</translation>
     </message>
     <message>
         <source>Copy address</source>
         <translation>Скапіяваць адрас</translation>
+    </message>
+    <message>
+        <source>New contact</source>
+        <translation>Дадаць кантакт</translation>
+    </message>
+    <message>
+        <source>Edit contact</source>
+        <translation>Рэдагаваць кантакт</translation>
+    </message>
+    <message>
+        <source>Delete contact</source>
+        <translation>Выдаліць кантакт</translation>
+    </message>
+    <message>
+        <source>Copy Payment ID</source>
+        <translation>Скапіяваць ідэнтыфікатар плацяжу</translation>
     </message>
 </context>
 <context>
@@ -118,6 +134,61 @@
     <message>
         <source>Password not confirmed</source>
         <translation>Пароль не пацверджаны</translation>
+    </message>
+</context>
+<context>
+    <name>ConnectionSettingsDialog</name>
+    <message>
+        <source>Connection settings</source>
+        <translation>Параметры падлучэння</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Адмяніць</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Захаваць</translation>
+    </message>
+    <message>
+        <source>Auto selection</source>
+        <translation>Аўтаматычны выбар</translation>
+    </message>
+    <message>
+        <source>Wallet will connect to local daemon on default port. In case of no local daemon running it will launch built-in node.</source>
+        <translation>Гаманец будзе падлучацца да лакальнага дэману праз порт па-змаўчанні. Калі дэман ня запушчаны, ён запусціць убудаваны вузел.</translation>
+    </message>
+    <message>
+        <source>Embedded</source>
+        <translation>Убудаваны вузел</translation>
+    </message>
+    <message>
+        <source>Built-in embedded node will be used.</source>
+        <translation>Будзе запускацца ўбудаваны вузел.</translation>
+    </message>
+    <message>
+        <source>Local daemon</source>
+        <translation>Лакальны дэман</translation>
+    </message>
+    <message>
+        <source>Port: </source>
+        <translation>Порт: </translation>
+    </message>
+    <message>
+        <source>Wallet will connect to local daemon on specified port.</source>
+        <translation>Гаманец будзе падлучацца да лакальнага дэману праз паказаны порт.</translation>
+    </message>
+    <message>
+        <source>Remote daemon</source>
+        <translation>Аддалены дэман</translation>
+    </message>
+    <message>
+        <source>Add node</source>
+        <translation>Дадаць вузел</translation>
+    </message>
+    <message>
+        <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port.</source>
+        <translation>Гаманец будзе падлучацца да вузла ў лакальнай або глабальнай сеткі. Выберыце вузел або пакажыце IP адрас або дамен і порт каб дадаць новы.</translation>
     </message>
 </context>
 <context>
@@ -278,6 +349,14 @@ Please wait...</source>
         <source>Show private key</source>
         <translation>Паказаць прыватны ключ</translation>
     </message>
+    <message>
+        <source>F1</source>
+        <translation>F1</translation>
+    </message>
+    <message>
+        <source>Connection</source>
+        <translation>Падключэнне</translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
@@ -335,6 +414,33 @@ Please wait...</source>
     <message>
         <source>Cancel</source>
         <translation>Адмяніць</translation>
+    </message>
+    <message>
+        <source>PaymentID:</source>
+        <translation>Ідэнтыфікатар плацяжу:</translation>
+    </message>
+</context>
+<context>
+    <name>NewNodeDialog</name>
+    <message>
+        <source>New remote node</source>
+        <translation>Новы аддалены вузел</translation>
+    </message>
+    <message>
+        <source>Host:</source>
+        <translation>Адрас:</translation>
+    </message>
+    <message>
+        <source>Port:</source>
+        <translation>Порт:</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Адмяніць</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>Добра</translation>
     </message>
 </context>
 <context>
@@ -580,6 +686,10 @@ Do you want to go to download page?</source>
         <source>Fee:</source>
         <translation>Поплатак:</translation>
     </message>
+    <message>
+        <source>Payment identifier issued by payee (exchange, shop or other entity)</source>
+        <translation>Ідэнтыфікатар плацяжу выдадзены атрымальнікам (біржай, крамай ці іншы)</translation>
+    </message>
 </context>
 <context>
     <name>TransactionDetailsDialog</name>
@@ -638,7 +748,27 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>Label:</source>
-        <translation>Пазнака:</translation>
+        <translation type="vanished">Пазнака:</translation>
+    </message>
+    <message>
+        <source>Add to Contacts:</source>
+        <translation type="vanished">Дадаць у спіс кантактаў:</translation>
+    </message>
+    <message>
+        <source>Select recipient from Address Book</source>
+        <translation>Выберыце атрымальніка з адраснай кнігі</translation>
+    </message>
+    <message>
+        <source>Paste from clipboard</source>
+        <translation>Уставіць з буфера абмену</translation>
+    </message>
+    <message>
+        <source>Save to Contacts:</source>
+        <translation type="vanished">Захаваць у спіс кантактаў:</translation>
+    </message>
+    <message>
+        <source>Save to Contacts as:</source>
+        <translation>Захаваць у спіс кантактаў як:</translation>
     </message>
 </context>
 <context>
@@ -654,6 +784,14 @@ Do you want to go to download page?</source>
         <source>Invalid address</source>
         <translation>Няправільны адрас</translation>
     </message>
+    <message>
+        <source>Invalid payment ID</source>
+        <translation>Няправільны ідэнтыфікатар плацяжу</translation>
+    </message>
+    <message>
+        <source>Edit contact</source>
+        <translation>Рэдагаваць кантакт</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::AddressBookModel</name>
@@ -664,6 +802,10 @@ Do you want to go to download page?</source>
     <message>
         <source>Address</source>
         <translation>Адрас</translation>
+    </message>
+    <message>
+        <source>PaymentID</source>
+        <translation>Ідэнтыфікатар плацяжу</translation>
     </message>
 </context>
 <context>
@@ -694,10 +836,6 @@ Do you want to go to download page?</source>
     <message>
         <source>port</source>
         <translation>порт</translation>
-    </message>
-    <message>
-        <source>xternal port for p2p network protocol (if port forwarding used with NAT)</source>
-        <translation type="vanished">Зовнішній порт для мережевого p2p протоколу (якщо задіяно порт форвардінг у  NAT)</translation>
     </message>
     <message>
         <source>Allow local ip add to peer list, mostly in debug purposes</source>
@@ -843,6 +981,18 @@ Are you sure?</source>
         <source>%1 Wallet %2</source>
         <translation>%1 в. %2</translation>
     </message>
+    <message>
+        <source>More info can be found at www.karbowanec.com in Documentation section</source>
+        <translation>Больш інфармацыі на сайце www.karbowanec.com у раздзеле Дакументацыя.</translation>
+    </message>
+    <message>
+        <source>Connection settings changed</source>
+        <translation>Налады падлучэння захаваны</translation>
+    </message>
+    <message>
+        <source>Connection mode will be changed after restarting the wallet.</source>
+        <translation></translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::MiningFrame</name>
@@ -868,6 +1018,13 @@ Are you sure?</source>
     <message>
         <source>Password not confirmed</source>
         <translation>Пароль не пацверджаны</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui::NodeModel</name>
+    <message>
+        <source>Node URL</source>
+        <translation>Адрас узла</translation>
     </message>
 </context>
 <context>

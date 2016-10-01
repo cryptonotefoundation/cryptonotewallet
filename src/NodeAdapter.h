@@ -67,6 +67,7 @@ Q_SIGNALS:
   void initNodeSignal(Node** _node, const CryptoNote::Currency* currency, INodeCallback* _callback, Logging::LoggerManager* _loggerManager,
     const CryptoNote::CoreConfig& _coreConfig, const CryptoNote::NetNodeConfig& _netNodeConfig);
   void deinitNodeSignal(Node** _node);
+  void connectionFailedSignal();
 };
 
 }
