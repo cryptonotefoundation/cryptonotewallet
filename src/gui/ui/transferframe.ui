@@ -190,7 +190,7 @@
   </connection>
   <connection>
    <sender>m_amountSpin</sender>
-   <signal>editingFinished()</signal>
+   <signal>valueChanged(double)</signal>
    <receiver>TransferFrame</receiver>
    <slot>amountValueChange()</slot>
    <hints>
