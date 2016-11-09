@@ -62,11 +62,12 @@ std::istream& operator>>(std::istream& str, Version::VersionDigit& digit)
 void Updater::checkForUpdate()
 {
     manager = new QNetworkAccessManager(this);
-
-    connect(manager, SIGNAL(finished(QNetworkReply*)),
-            this, SLOT(replyFinished(QNetworkReply*)));
-
-    manager->get(QNetworkRequest(QUrl(KRBCOIN_UPDATE_URL)));
+    if(manager->networkAccessible() == QNetworkAccessManager::Accessible)
+    {
+        connect(manager, SIGNAL(finished(QNetworkReply*)),
+                this, SLOT(replyFinished(QNetworkReply*)));
+        manager->get(QNetworkRequest(QUrl(KRBCOIN_UPDATE_URL)));
+    }
 }
 
 void Updater::replyFinished (QNetworkReply *reply)

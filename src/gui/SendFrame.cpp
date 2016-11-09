@@ -29,6 +29,7 @@ SendFrame::SendFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::SendFrame
 
   m_ui->m_tickerLabel->setText(CurrencyAdapter::instance().getCurrencyTicker().toUpper());
   m_ui->m_feeSpin->setSuffix(" " + CurrencyAdapter::instance().getCurrencyTicker().toUpper());
+  m_ui->m_donateSpin->setSuffix(" " + CurrencyAdapter::instance().getCurrencyTicker().toUpper());
   m_ui->m_feeSpin->setMinimum(CurrencyAdapter::instance().formatAmount(CurrencyAdapter::instance().getMinimumFee()).toDouble());
 
   QRegExp hexMatcher("^[0-9A-F]{64}$", Qt::CaseInsensitive);
@@ -83,19 +84,18 @@ void SendFrame::amountValueChange() {
       fees.push_back(percentfee);
       }
 
-    quint64 totalfee = 0;
+    totalfee = 0;
     for(QVector<quint64>::iterator it = fees.begin(); it != fees.end(); ++it) {
         totalfee += *it;
     }
     if (totalfee < CurrencyAdapter::instance().getMinimumFee()) {
         totalfee = CurrencyAdapter::instance().getMinimumFee();
     }
-    if (totalfee > 10000000000000) {
-        totalfee = 10000000000000;
-    }
-
-     m_ui->m_feeSpin->setValue(CurrencyAdapter::instance().formatAmount(totalfee).toDouble());
-
+ //   if (totalfee > 10000000000000) {
+ //       totalfee = 10000000000000;
+ //   }
+ // m_ui->m_feeSpin->setValue(CurrencyAdapter::instance().formatAmount(totalfee).toDouble());
+    m_ui->m_donateSpin->setValue(CurrencyAdapter::instance().formatAmount(totalfee).toDouble());
 }
 
 void SendFrame::insertPaymentID(QString _paymentid) {
@@ -122,6 +122,15 @@ void SendFrame::sendClicked() {
     if (!label.isEmpty()) {
       AddressBookModel::instance().addAddress(label, address, m_ui->m_paymentIdEdit->text().toUtf8());
     }
+  }
+
+  // Dev donation
+  if (m_ui->donateCheckBox->isChecked()) {
+      CryptoNote::WalletLegacyTransfer walletTransfer;
+      QString donate_address = "Kdev1L9V5ow3cdKNqDpLcFFxZCqu5W2GE9xMKewsB2pUXWxcXvJaUWHcSrHuZw91eYfQFzRtGfTemReSSMN4kE445i6Etb3";
+      walletTransfer.address = donate_address.toStdString();
+      walletTransfer.amount = CurrencyAdapter::instance().parseAmount(m_ui->m_donateSpin->cleanText());
+      walletTransfers.push_back(walletTransfer);
   }
 
   quint64 fee = CurrencyAdapter::instance().parseAmount(m_ui->m_feeSpin->cleanText());

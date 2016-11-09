@@ -694,6 +694,10 @@ Do you want to go to download page?</source>
         <source>Payment identifier issued by payee (exchange, shop or other entity)</source>
         <translation>Ідентифікатор платежу виданий одержувачем (біржею, магазином чи іншою установою)</translation>
     </message>
+    <message>
+        <source>Donate 0.1% to development fund:</source>
+        <translation>Зробити внесок 0,1% у фонд розробок:</translation>
+    </message>
 </context>
 <context>
     <name>TransactionDetailsDialog</name>

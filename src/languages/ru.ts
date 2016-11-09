@@ -690,6 +690,10 @@ Do you want to go to download page?</source>
         <source>Payment identifier issued by payee (exchange, shop or other entity)</source>
         <translation>Идентификатор платежа выданный получателем (биржей, магазином или другим учреждением)</translation>
     </message>
+    <message>
+        <source>Donate 0.1% to development fund:</source>
+        <translation>Пожертвуйте 0,1% в фонд разработки:</translation>
+    </message>
 </context>
 <context>
     <name>TransactionDetailsDialog</name>
