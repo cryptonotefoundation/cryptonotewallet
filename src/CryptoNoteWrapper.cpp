@@ -154,7 +154,7 @@ public:
     m_coreConfig(coreConfig),
     m_netNodeConfig(netNodeConfig),
     m_protocolHandler(currency, m_dispatcher, m_core, nullptr, logManager),
-    m_core(currency, &m_protocolHandler, logManager),
+    m_core(currency, &m_protocolHandler, logManager, true),
     m_nodeServer(m_dispatcher, m_protocolHandler, logManager),
     m_node(m_core, m_protocolHandler) {
 

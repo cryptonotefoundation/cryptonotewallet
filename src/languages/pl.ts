@@ -184,11 +184,15 @@
     </message>
     <message>
         <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port.</source>
-        <translation>Portfel będzie łączyć się ze zdalnym węzłem w sieci lokalnej lub globalnej. Wybierz węzeł lub kliknij &quot;Dodaj węzeł&quot; i podaj adres IP czy nazwę domeny i port.</translation>
+        <translation type="vanished">Portfel będzie łączyć się ze zdalnym węzłem w sieci lokalnej lub globalnej. Wybierz węzeł lub kliknij &quot;Dodaj węzeł&quot; i podaj adres IP czy nazwę domeny i port.</translation>
     </message>
     <message>
         <source>Embedded</source>
         <translation>Wbudowany</translation>
+    </message>
+    <message>
+        <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet sends 0.25% fee from each transaction to the node, but no more than 10 KRB.</source>
+        <translation>Portfel będzie łączyć się ze zdalnym węzłem w sieci lokalnej lub globalnej. Wybierz węzeł lub kliknij &quot;Dodaj węzeł&quot; i podaj adres IP czy nazwę domeny i port. W tym trybie portfel płaci prowizję dla węzła w rozmiarze 0,25% od sumy transakcji, ale nie więcej niż 10 krb.</translation>
     </message>
 </context>
 <context>
@@ -689,6 +693,10 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
     <message>
         <source>Payment identifier issued by payee (exchange, shop or other entity)</source>
         <translation>Identyfikator płatności wydany przez odbiorcę (giełdę, sklep czy inną jednostkę)</translation>
+    </message>
+    <message>
+        <source>Donate 0.1% to development fund:</source>
+        <translation>Wpłać 0,1% do funduszu rozwoju:</translation>
     </message>
 </context>
 <context>

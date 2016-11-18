@@ -17,6 +17,7 @@ namespace Ui {
 namespace WalletGui {
 
 class TransferFrame;
+class AddressProvider;
 
 class SendFrame : public QFrame {
   Q_OBJECT
@@ -29,19 +30,24 @@ public:
 private:
   QScopedPointer<Ui::SendFrame> m_ui;
   QList<TransferFrame*> m_transfers;
+  AddressProvider* m_addressProvider;
 
+  QString m_fee_address;
   quint64 totalfee;
+  quint64 donation_amount;
 
   void sendTransactionCompleted(CryptoNote::TransactionId _id, bool _error, const QString& _error_text);
   void walletActualBalanceUpdated(quint64 _balance);
   void insertPaymentID(QString _paymentid);
   static bool isValidPaymentId(const QByteArray& _paymentIdString);
+  void onAddressFound(const QString& _address);
 
   Q_SLOT void addRecipientClicked();
   Q_SLOT void clearAllClicked();
   Q_SLOT void mixinValueChanged(int _value);
   Q_SLOT void amountValueChange();
   Q_SLOT void sendClicked();
+
 };
 
 }

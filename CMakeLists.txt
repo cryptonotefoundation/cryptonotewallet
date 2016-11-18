@@ -131,6 +131,9 @@ set(CRYPTONOTE_SOURCES
   cryptonote/src/Wallet/LegacyKeysImporter.cpp
   cryptonote/src/Wallet/WalletAsyncContextCounter.cpp
   cryptonote/src/Wallet/WalletErrors.cpp
+  cryptonote/src/Wallet/WalletSerializationV1.cpp
+  cryptonote/src/Wallet/WalletSerializationV2.cpp
+  cryptonote/src/Wallet/WalletUtils.cpp
   cryptonote/src/WalletLegacy/KeysStorage.cpp
   cryptonote/src/WalletLegacy/WalletLegacy.cpp
   cryptonote/src/WalletLegacy/WalletHelper.cpp
@@ -201,7 +204,7 @@ elseif (UNIX)
     set(PLATFORM_DIR OSX)
     set(MACOSX_BUNDLE_INFO_STRING "Karbowanec GUI wallet")
     set(MACOSX_BUNDLE_LONG_VERSION_STRING "${VERSION_VERSION}.${VERSION_MINOR}.${VERSION_PATCH}")
-    set(MACOSX_BUNDLE_BUNDLE_NAME KarbowanecWallet)
+    set(MACOSX_BUNDLE_BUNDLE_NAME "Карбованець")
     set(MACOSX_BUNDLE_SHORT_VERSION_STRING "${VERSION_VERSION}.${VERSION_MINOR}.${VERSION_PATCH}")
     set(MACOSX_BUNDLE_BUNDLE_VERSION "$${VERSION_VERSION}.${VERSION_MINOR}.${VERSION_PATCH}")
 

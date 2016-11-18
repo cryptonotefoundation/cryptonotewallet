@@ -188,7 +188,11 @@
     </message>
     <message>
         <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port.</source>
-        <translation>Кошелек будет подключаться к удаленному узлу в локальной или глобальной сети. Выберите узел или укажите IP адрес или домен и порт чтобы добавить новый.</translation>
+        <translation type="vanished">Кошелек будет подключаться к удаленному узлу в локальной или глобальной сети. Выберите узел или укажите IP адрес или домен и порт чтобы добавить новый.</translation>
+    </message>
+    <message>
+        <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet sends 0.25% fee from each transaction to the node, but no more than 10 KRB.</source>
+        <translation>Кошелек будет подключаться к удаленному узлу в локальной или глобальной сети. Выберите узел или укажите IP адрес или домен и порт чтобы добавить новый. В этом режиме кошелек платит комиссию узлу в размере 0,25% от суммы транзакции, но не более 10 крб.</translation>
     </message>
 </context>
 <context>
@@ -689,6 +693,10 @@ Do you want to go to download page?</source>
     <message>
         <source>Payment identifier issued by payee (exchange, shop or other entity)</source>
         <translation>Идентификатор платежа выданный получателем (биржей, магазином или другим учреждением)</translation>
+    </message>
+    <message>
+        <source>Donate 0.1% to development fund:</source>
+        <translation>Пожертвуйте 0,1% в фонд разработки:</translation>
     </message>
 </context>
 <context>

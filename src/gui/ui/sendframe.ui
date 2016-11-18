@@ -72,52 +72,28 @@
      <property name="topMargin">
       <number>5</number>
      </property>
-     <item row="2" column="0">
-      <widget class="QLabel" name="label_2">
+     <item row="1" column="3">
+      <widget class="QCheckBox" name="donateCheckBox">
        <property name="text">
-        <string>Anonimity level:</string>
+        <string>Donate 0.1% to development fund:</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
-     <item row="1" column="1" colspan="3">
-      <widget class="QLineEdit" name="m_paymentIdEdit">
-       <property name="maxLength">
-        <number>64</number>
-       </property>
-       <property name="placeholderText">
-        <string>Payment identifier issued by payee (exchange, shop or other entity)</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="label_6">
-       <property name="text">
-        <string>PaymentID:</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="3">
-      <spacer name="horizontalSpacer">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Expanding</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>298</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item row="2" column="1">
+     <item row="5" column="1">
       <widget class="QSlider" name="m_mixinSlider">
        <property name="maximumSize">
         <size>
-         <width>200</width>
+         <width>150</width>
          <height>16777215</height>
+        </size>
+       </property>
+       <property name="baseSize">
+        <size>
+         <width>200</width>
+         <height>0</height>
         </size>
        </property>
        <property name="maximum">
@@ -143,7 +119,65 @@
        </property>
       </widget>
      </item>
-     <item row="2" column="2">
+     <item row="5" column="0">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>Anonimity level:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1" colspan="5">
+      <widget class="QLineEdit" name="m_paymentIdEdit">
+       <property name="maxLength">
+        <number>64</number>
+       </property>
+       <property name="placeholderText">
+        <string>Payment identifier issued by payee (exchange, shop or other entity)</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QDoubleSpinBox" name="m_feeSpin">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="baseSize">
+        <size>
+         <width>150</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="suffix">
+        <string/>
+       </property>
+       <property name="decimals">
+        <number>12</number>
+       </property>
+       <property name="minimum">
+        <double>0.000100000000000</double>
+       </property>
+       <property name="maximum">
+        <double>999999999999999.000000000000000</double>
+       </property>
+       <property name="singleStep">
+        <double>0.000100000000000</double>
+       </property>
+       <property name="value">
+        <double>0.000100000000000</double>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_6">
+       <property name="text">
+        <string>PaymentID:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="2">
       <widget class="QLineEdit" name="m_mixinEdit">
        <property name="maximumSize">
         <size>
@@ -165,34 +199,56 @@
        </property>
       </widget>
      </item>
-     <item row="0" column="0">
+     <item row="1" column="0">
       <widget class="QLabel" name="label">
        <property name="text">
         <string>Fee:</string>
        </property>
       </widget>
      </item>
-     <item row="0" column="1">
-      <widget class="QDoubleSpinBox" name="m_feeSpin">
-       <property name="suffix">
-        <string/>
+     <item row="1" column="4">
+      <widget class="QDoubleSpinBox" name="m_donateSpin">
+       <property name="minimumSize">
+        <size>
+         <width>150</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>150</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="baseSize">
+        <size>
+         <width>150</width>
+         <height>0</height>
+        </size>
        </property>
        <property name="decimals">
         <number>12</number>
        </property>
-       <property name="minimum">
-        <double>0.000100000000000</double>
-       </property>
-       <property name="maximum">
-        <double>999999999999999.000000000000000</double>
-       </property>
        <property name="singleStep">
-        <double>0.000100000000000</double>
-       </property>
-       <property name="value">
-        <double>0.000100000000000</double>
+        <double>0.100000000000000</double>
        </property>
       </widget>
+     </item>
+     <item row="1" column="5">
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Expanding</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>100</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
      </item>
     </layout>
    </item>
