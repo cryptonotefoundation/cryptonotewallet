@@ -126,8 +126,6 @@ CryptoNote::IWalletLegacy* NodeAdapter::createWallet() const {
 bool NodeAdapter::init() {
   Q_ASSERT(m_node == nullptr);
 
-  QString connection = Settings::instance().getConnection();
-
   if(connection.compare("embedded") == 0) {
 
       m_node = nullptr;
@@ -308,7 +306,12 @@ CryptoNote::NetNodeConfig NodeAdapter::makeNetNodeConfig() const {
     options.insert(std::make_pair("seed-node", boost::program_options::variable_value(seedNodeList, false)));
   }
 
-  options.insert(std::make_pair("hide-my-port", boost::program_options::variable_value(hideMyPort, false)));
+  if(connection.compare("remote") == 0) {
+      options.insert(std::make_pair("hide-my-port", boost::program_options::variable_value(hideMyPort, true)));
+  } else {
+      options.insert(std::make_pair("hide-my-port", boost::program_options::variable_value(hideMyPort, false)));
+  }
+
   options.insert(std::make_pair("data-dir", boost::program_options::variable_value(dataDir, false)));
   int size = options.size();
   config.init(options);
