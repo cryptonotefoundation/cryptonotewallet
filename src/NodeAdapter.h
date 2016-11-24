@@ -59,8 +59,6 @@ private:
   CryptoNote::CoreConfig makeCoreConfig() const;
   CryptoNote::NetNodeConfig makeNetNodeConfig() const;
 
-  QString connection;
-
 Q_SIGNALS:
   void localBlockchainUpdatedSignal(quint64 _height);
   void lastKnownBlockHeightUpdatedSignal(quint64 _height);
