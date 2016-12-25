@@ -10,7 +10,7 @@
         <file alias="tx-input">icons/tx_input.png</file>
         <file alias="tx-output">icons/tx_output.png</file>
         <file alias="address-book">icons/address-book.png</file>
-        <file alias="paste">icons/editpaste.png</file>
+        <file alias="paste">icons/paste.png</file>
         <file alias="remove">icons/remove.png</file>
         <file alias="receive">icons/receive.png</file>
         <file alias="transactions">icons/transactions.png</file>
@@ -30,6 +30,14 @@
         <file alias="mining">icons/mining.png</file>
         <file alias="edit">icons/edit.png</file>
         <file alias="add_recepient">icons/add_recepient.png</file>
+        <file alias="qrcode">icons/qrcode.png</file>
+        <file alias="save">icons/save.png</file>
+        <file alias="btn-receive">icons/receive_small.png</file>
+        <file alias="btn-send">icons/sendbtn.png</file>
+        <file alias="up_arrow.png">icons/up_arrow.png</file>
+        <file alias="down_arrow.png">icons/down_arrow.png</file>
+        <file alias="copy_white">icons/copy.png</file>
+        <file alias="cancel">icons/cancel.png</file>
     </qresource>
     <qresource prefix="/images">
         <file alias="splash">images/splash.png</file>
@@ -37,6 +45,7 @@
         <file alias="coin">images/krbcoin.png</file>
         <file alias="clock">images/clock.gif</file>
         <file alias="bg.png">images/bg.png</file>
+        <file alias="handle.png">images/handle.png</file>
     </qresource>
     <qresource prefix="/skin">
         <file>default.qss</file>
@@ -49,5 +58,8 @@
         <file>languages/qt_uk.qm</file>
         <file>languages/ru.qm</file>
         <file>languages/uk.qm</file>
+    </qresource>
+    <qresource prefix="/fonts">
+        <file alias="mplusm">fonts/mplus-1m-medium.ttf</file>
     </qresource>
 </RCC>

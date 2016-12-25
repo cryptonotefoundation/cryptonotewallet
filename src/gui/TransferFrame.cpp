@@ -56,10 +56,19 @@ void TransferFrame::pasteClicked() {
 }
 
 void TransferFrame::amountValueChange() {
+  Q_EMIT amountValueChangedSignal();
+}
 
-Q_EMIT amountValueChangedSignal();
+void TransferFrame::setAddress(QString _address) {
+  m_ui->m_addressEdit->setText(_address);
+}
 
+void TransferFrame::setLabel(QString _label) {
+  m_ui->m_labelEdit->setText(_label);
+}
 
+void TransferFrame::setAmount(quint64 _amount) {
+  m_ui->m_amountSpin->setValue(CurrencyAdapter::instance().formatAmount(_amount).toDouble());
 }
 
 }

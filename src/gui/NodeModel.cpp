@@ -10,7 +10,7 @@
 namespace WalletGui {
 
 NodeModel::NodeModel(QObject* _parent) : QStringListModel(_parent) {
-  setStringList(Settings::instance().getRPCNodesList());
+  setStringList(Settings::instance().getRpcNodesList());
 }
 
 NodeModel::~NodeModel() {
@@ -52,7 +52,7 @@ QVariant NodeModel::headerData(int _section, Qt::Orientation _orientation, int _
 
 bool NodeModel::setData(const QModelIndex& _index, const QVariant& _value, int _role) {
   bool res = QStringListModel::setData(_index, _value, _role);
-  Settings::instance().setRPCNodesList(stringList());
+  Settings::instance().setRpcNodesList(stringList());
   return res;
 }
 

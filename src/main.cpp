@@ -18,12 +18,10 @@
 #include "Settings.h"
 #include "SignalHandler.h"
 #include "WalletAdapter.h"
-
 #include "gui/MainWindow.h"
-
 #include "update.h"
-
 #include <QTextCodec>
+#include "PaymentServer.h"
 
 #define DEBUG 1
 
@@ -44,7 +42,6 @@ int main(int argc, char* argv[]) {
   Settings::instance().setCommandLineParser(&cmdLineParser);
   bool cmdLineParseResult = cmdLineParser.process(app.arguments());
   Settings::instance().load();
-
   QTranslator translator;
   QTranslator translatorQt;
 
@@ -69,6 +66,10 @@ int main(int argc, char* argv[]) {
   QString StyleSheet = QLatin1String(File.readAll());
   qApp->setStyleSheet(StyleSheet);
 
+  if (PaymentServer::ipcSendCommandLine())
+  exit(0);
+
+  PaymentServer* paymentServer = new PaymentServer(&app);
 
 #ifdef Q_OS_WIN
   if(!cmdLineParseResult) {
@@ -103,18 +104,23 @@ int main(int argc, char* argv[]) {
   }
 
   splash->showMessage(QObject::tr("Loading blockchain..."), Qt::AlignLeft | Qt::AlignBottom, Qt::white);
+
   app.processEvents();
   qRegisterMetaType<CryptoNote::TransactionId>("CryptoNote::TransactionId");
   qRegisterMetaType<quintptr>("quintptr");
   if (!NodeAdapter::instance().init()) {
     return 0;
   }
-
   splash->finish(&MainWindow::instance());
   Updater d;
       d.checkForUpdate();
+
   MainWindow::instance().show();
   WalletAdapter::instance().open("");
+
+  QTimer::singleShot(1000, paymentServer, SLOT(uiReady()));
+  QObject::connect(paymentServer, &PaymentServer::receivedURI, &MainWindow::instance(), &MainWindow::handlePaymentRequest, Qt::QueuedConnection);
+
   QObject::connect(QApplication::instance(), &QApplication::aboutToQuit, []() {
     MainWindow::instance().quit();
     if (WalletAdapter::instance().isOpen()) {

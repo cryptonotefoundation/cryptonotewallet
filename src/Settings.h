@@ -42,7 +42,7 @@ public:
   QStringList getMiningPoolList() const;
   QString getLanguage() const;
   QString getConnection() const;
-  QStringList getRPCNodesList() const;
+  QStringList getRpcNodesList() const;
   quint16 getCurrentLocalDaemonPort() const;
   QString getCurrentRemoteNode() const;
 
@@ -62,7 +62,7 @@ public:
   void setConnection(const QString& _connection);
   void setCurrentLocalDaemonPort(const quint16& _daemonPort);
   void setCurrentRemoteNode(const QString& _remoteNode);
-  void setRPCNodesList(const QStringList& _RPCNodesList);
+  void setRpcNodesList(const QStringList& _RpcNodesList);
 #ifdef Q_OS_WIN
   void setMinimizeToTrayEnabled(bool _enable);
   void setCloseToTrayEnabled(bool _enable);
@@ -73,7 +73,7 @@ private:
   QString m_addressBookFile;
   QString m_currentLang;
   QString m_connectionMode;
-  QString m_daemonPort;
+  quint16 m_daemonPort;
   CommandLineParser* m_cmdLineParser;
 
   Settings();

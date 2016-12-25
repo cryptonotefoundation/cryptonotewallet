@@ -11,6 +11,7 @@
 #include <QTimer>
 #include "ChangeLanguageDialog.h"
 #include "CommandLineParser.h"
+#include "PaymentServer.h"
 
 class QActionGroup;
 
@@ -27,6 +28,7 @@ class MainWindow : public QMainWindow {
 public:
   static MainWindow& instance();
   void scrollToTransaction(const QModelIndex& _index);
+  void handlePaymentRequest(QString _request);
   void quit();
 
 protected:
@@ -34,6 +36,8 @@ protected:
   bool event(QEvent* _event) Q_DECL_OVERRIDE;
 
 private:
+  PaymentServer* paymentServer;
+
   QScopedPointer<Ui::MainWindow> m_ui;
   QLabel* m_connectionStateIconLabel;
   QLabel* m_encryptionStateIconLabel;
@@ -62,6 +66,8 @@ private:
   void walletClosed();
   void updateWalletAddress(const QString& _address);
   void reset();
+  void onShowQR();
+  void onUriOpenSignal();
 
   Q_SLOT void createWallet();
   Q_SLOT void openWallet();

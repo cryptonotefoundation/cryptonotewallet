@@ -27,6 +27,8 @@ public:
   SendFrame(QWidget* _parent);
   ~SendFrame();
 
+  Q_SLOT void parsePaymentRequest(QString _request);
+
 private:
   QScopedPointer<Ui::SendFrame> m_ui;
   QList<TransferFrame*> m_transfers;
@@ -35,6 +37,7 @@ private:
   QString m_fee_address;
   quint64 totalfee;
   quint64 donation_amount;
+  quint64 total_amount;
 
   void sendTransactionCompleted(CryptoNote::TransactionId _id, bool _error, const QString& _error_text);
   void walletActualBalanceUpdated(quint64 _balance);
@@ -47,6 +50,11 @@ private:
   Q_SLOT void mixinValueChanged(int _value);
   Q_SLOT void amountValueChange();
   Q_SLOT void sendClicked();
+  Q_SLOT void openUriClicked();
+  Q_SLOT void generatePaymentIdClicked();
+
+Q_SIGNALS:
+  void uriOpenSignal();
 
 };
 

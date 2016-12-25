@@ -13,13 +13,14 @@
 #include <QFontDatabase>
 #include <Common/Base58.h>
 #include <Common/Util.h>
-
+#include <QToolButton>
+#include <QDebug>
 #include "AboutDialog.h"
 #include "AnimatedLabel.h"
 #include "ChangePasswordDialog.h"
 #include "ChangeLanguageDialog.h"
 #include "ConnectionSettings.h"
-#include "privatekeysdialog.h"
+#include "PrivateKeysDialog.h"
 #include "CurrencyAdapter.h"
 #include "ExitWidget.h"
 #include "ImportKeyDialog.h"
@@ -30,10 +31,8 @@
 #include "Settings.h"
 #include "WalletAdapter.h"
 #include "WalletEvents.h"
-
+#include "SendFrame.h"
 #include "ui_mainwindow.h"
-
-
 
 namespace WalletGui {
 
@@ -48,19 +47,19 @@ MainWindow& MainWindow::instance() {
 }
 
 MainWindow::MainWindow() : QMainWindow(), m_ui(new Ui::MainWindow), m_trayIcon(nullptr), m_tabActionGroup(new QActionGroup(this)),
-  m_isAboutToQuit(false) {
+  m_isAboutToQuit(false), paymentServer(0) {
   m_ui->setupUi(this);
   m_connectionStateIconLabel = new QLabel(this);
   m_encryptionStateIconLabel = new QLabel(this);
   m_synchronizationStateIconLabel = new AnimatedLabel(this);
-
   connectToSignals();
   initUi();
-
   walletClosed();
 }
 
 MainWindow::~MainWindow() {
+    delete paymentServer;
+    paymentServer = 0;
 }
 
 void MainWindow::connectToSignals() {
@@ -75,6 +74,8 @@ void MainWindow::connectToSignals() {
   connect(&WalletAdapter::instance(), &WalletAdapter::walletCloseCompletedSignal, this, &MainWindow::walletClosed);
   connect(&NodeAdapter::instance(), &NodeAdapter::peerCountUpdatedSignal, this, &MainWindow::peerCountUpdated, Qt::QueuedConnection);
   connect(m_ui->m_exitAction, &QAction::triggered, qApp, &QApplication::quit);
+  connect(m_ui->m_accountFrame, &AccountFrame::showQRcodeSignal, this, &MainWindow::onShowQR, Qt::QueuedConnection);
+  connect(m_ui->m_sendFrame, &SendFrame::uriOpenSignal, this, &MainWindow::onUriOpenSignal, Qt::QueuedConnection);
 }
 
 void MainWindow::initUi() {
@@ -85,9 +86,25 @@ void MainWindow::initUi() {
     connect(m_trayIcon, &QSystemTrayIcon::activated, this, &MainWindow::trayActivated);
   }
 #endif
+
+  QToolBar *accountToolBar = addToolBar(tr("Account toolbar"));
+  accountToolBar->setAllowedAreas(Qt::TopToolBarArea);
+  accountToolBar->addWidget(m_ui->m_accountFrame);
+  accountToolBar->setMovable(false);
+  addToolBar(Qt::TopToolBarArea, accountToolBar);
+  addToolBarBreak();
+  addToolBar(Qt::LeftToolBarArea, m_ui->toolBar);
+  accountToolBar->setStyleSheet("QToolBar {background-color: rgb(133, 167, 211); border: 0;}");
+  m_ui->toolBar->setStyleSheet("QToolBar {background-color: rgba(32, 55, 92, 0.9); border: 0; width: 150px; min-width: 150px; spacing: 0; padding: 0; margin: 0;}");
+  QToolButton button;
+  button.setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+  button.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+  button.setStyleSheet("QToolButton {spacing:0px; width: 150px; min-width: 150px;}");
+
   m_ui->m_aboutCryptonoteAction->setText(QString(tr("About %1 Wallet")).arg(CurrencyAdapter::instance().getCurrencyDisplayName()));
   m_ui->m_overviewFrame->hide();
   m_ui->m_sendFrame->hide();
+  m_ui->m_accountFrame->hide();
   m_ui->m_receiveFrame->hide();
   m_ui->m_transactionsFrame->hide();
   m_ui->m_addressBookFrame->hide();
@@ -95,7 +112,7 @@ void MainWindow::initUi() {
 
   m_tabActionGroup->addAction(m_ui->m_overviewAction);
   m_tabActionGroup->addAction(m_ui->m_sendAction);
-//  m_tabActionGroup->addAction(m_ui->m_receiveAction);
+  m_tabActionGroup->addAction(m_ui->m_receiveAction);
   m_tabActionGroup->addAction(m_ui->m_transactionsAction);
   m_tabActionGroup->addAction(m_ui->m_addressBookAction);
   m_tabActionGroup->addAction(m_ui->m_miningAction);
@@ -360,6 +377,21 @@ void MainWindow::showPrivateKeys() {
   dlg.exec();
 }
 
+void MainWindow::onShowQR() {
+  m_ui->m_receiveAction->trigger();
+  m_ui->m_receiveFrame->closePaymentRequestForm();
+}
+
+void MainWindow::handlePaymentRequest(QString _request) {
+  m_ui->m_sendAction->trigger();
+  m_ui->m_sendFrame->parsePaymentRequest(_request);
+  QWidget::activateWindow();
+}
+
+void MainWindow::onUriOpenSignal() {
+  m_ui->m_sendAction->trigger();
+}
+
 void MainWindow::encryptWallet() {
   if (Settings::instance().isEncrypted()) {
     bool error = false;
@@ -482,8 +514,9 @@ void MainWindow::walletOpened(bool _error, const QString& _error_text) {
     }
 
     m_ui->m_overviewAction->trigger();
-    m_ui->m_receiveFrame->show();
+    m_ui->m_accountFrame->show();
     m_ui->m_overviewFrame->show();
+    m_ui->m_receiveFrame->closePaymentRequestForm();
   } else {
     walletClosed();
   }
@@ -495,6 +528,7 @@ void MainWindow::walletClosed() {
   m_ui->m_changePasswordAction->setEnabled(false);
   m_ui->m_resetAction->setEnabled(false);
   m_ui->m_overviewFrame->hide();
+  m_ui->m_accountFrame->hide();
   m_ui->m_receiveFrame->hide();
   m_ui->m_sendFrame->hide();
   m_ui->m_transactionsFrame->hide();

@@ -34,7 +34,7 @@
         <x>0</x>
         <y>0</y>
         <width>846</width>
-        <height>442</height>
+        <height>439</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="m_send_frame_layout">
@@ -72,16 +72,6 @@
      <property name="topMargin">
       <number>5</number>
      </property>
-     <item row="1" column="3">
-      <widget class="QCheckBox" name="donateCheckBox">
-       <property name="text">
-        <string>Donate 0.1% to development fund:</string>
-       </property>
-       <property name="checked">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
      <item row="5" column="1">
       <widget class="QSlider" name="m_mixinSlider">
        <property name="maximumSize">
@@ -126,7 +116,59 @@
        </property>
       </widget>
      </item>
-     <item row="3" column="1" colspan="5">
+     <item row="1" column="3">
+      <widget class="QCheckBox" name="donateCheckBox">
+       <property name="text">
+        <string>Donate 0.1% to development fund:</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Fee:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_6">
+       <property name="text">
+        <string>PaymentID:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="2">
+      <widget class="QLineEdit" name="m_mixinEdit">
+       <property name="minimumSize">
+        <size>
+         <width>35</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>30</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string notr="true"/>
+       </property>
+       <property name="maxLength">
+        <number>5</number>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1" colspan="3">
       <widget class="QLineEdit" name="m_paymentIdEdit">
        <property name="maxLength">
         <number>64</number>
@@ -140,7 +182,7 @@
       <widget class="QDoubleSpinBox" name="m_feeSpin">
        <property name="minimumSize">
         <size>
-         <width>0</width>
+         <width>150</width>
          <height>0</height>
         </size>
        </property>
@@ -170,39 +212,22 @@
        </property>
       </widget>
      </item>
-     <item row="3" column="0">
-      <widget class="QLabel" name="label_6">
-       <property name="text">
-        <string>PaymentID:</string>
+     <item row="3" column="4">
+      <widget class="QPushButton" name="m_generatePaymentIdButton">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
        </property>
-      </widget>
-     </item>
-     <item row="5" column="2">
-      <widget class="QLineEdit" name="m_mixinEdit">
        <property name="maximumSize">
         <size>
-         <width>30</width>
+         <width>200</width>
          <height>16777215</height>
         </size>
        </property>
        <property name="text">
-        <string notr="true"/>
-       </property>
-       <property name="maxLength">
-        <number>5</number>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="readOnly">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>Fee:</string>
+        <string>Generate Payment ID</string>
        </property>
       </widget>
      </item>
@@ -216,7 +241,7 @@
        </property>
        <property name="maximumSize">
         <size>
-         <width>150</width>
+         <width>16777215</width>
          <height>16777215</height>
         </size>
        </property>
@@ -234,7 +259,7 @@
        </property>
       </widget>
      </item>
-     <item row="1" column="5">
+     <item row="1" column="2">
       <spacer name="horizontalSpacer">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -256,12 +281,21 @@
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QPushButton" name="m_sendButton">
+       <property name="minimumSize">
+        <size>
+         <width>100</width>
+         <height>0</height>
+        </size>
+       </property>
        <property name="text">
         <string>Send</string>
        </property>
        <property name="icon">
         <iconset resource="../../resources.qrc">
-         <normaloff>:/icons/send</normaloff>:/icons/send</iconset>
+         <normaloff>:/icons/btn-send</normaloff>:/icons/btn-send</iconset>
+       </property>
+       <property name="default">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -326,13 +360,16 @@
   </layout>
  </widget>
  <tabstops>
+  <tabstop>m_feeSpin</tabstop>
+  <tabstop>donateCheckBox</tabstop>
+  <tabstop>m_donateSpin</tabstop>
   <tabstop>m_paymentIdEdit</tabstop>
   <tabstop>m_mixinSlider</tabstop>
+  <tabstop>m_mixinEdit</tabstop>
   <tabstop>m_sendButton</tabstop>
   <tabstop>m_clearAllButton</tabstop>
   <tabstop>m_addRecipientButton</tabstop>
   <tabstop>m_transfersScrollarea</tabstop>
-  <tabstop>m_mixinEdit</tabstop>
  </tabstops>
  <resources>
   <include location="../../resources.qrc"/>
@@ -395,6 +432,22 @@
     <hint type="sourcelabel">
      <x>221</x>
      <y>520</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>432</x>
+     <y>294</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_generatePaymentIdButton</sender>
+   <signal>clicked()</signal>
+   <receiver>SendFrame</receiver>
+   <slot>generatePaymentIdClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>748</x>
+     <y>497</y>
     </hint>
     <hint type="destinationlabel">
      <x>432</x>

@@ -34,6 +34,9 @@
        <property name="maxLength">
         <number>95</number>
        </property>
+       <property name="clearButtonEnabled">
+        <bool>false</bool>
+       </property>
       </widget>
      </item>
      <item>
@@ -46,7 +49,7 @@
        </property>
        <property name="icon">
         <iconset resource="../../resources.qrc">
-         <normaloff>:/icons/address-book</normaloff>:/icons/address-book</iconset>
+         <normaloff>:/icons/add_recepient</normaloff>:/icons/add_recepient</iconset>
        </property>
       </widget>
      </item>
@@ -130,8 +133,8 @@
  </widget>
  <tabstops>
   <tabstop>m_addressEdit</tabstop>
-  <tabstop>m_labelEdit</tabstop>
   <tabstop>m_amountSpin</tabstop>
+  <tabstop>m_labelEdit</tabstop>
   <tabstop>m_addressBookButton</tabstop>
   <tabstop>m_pasteButton</tabstop>
   <tabstop>m_removeButton</tabstop>

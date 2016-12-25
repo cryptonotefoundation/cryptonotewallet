@@ -12,12 +12,59 @@
         <translation>Закрыть</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Karbowanec v. %1&lt;/p&gt;&lt;p&gt;This is the next generation anonymous cryptocurrency based on CryptoNote.&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2015. CryptoNote Developers&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://opensource.org/licenses/MIT&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://cryptonote.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://cryptonote.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://karbowanec.com/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://karbowanec.com/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Карбованец версия %1&lt;/p&gt;&lt;p&gt;Это криптовалюта нового поколения на базе  CryptoNote.&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2015. CryptoNote Developers&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://opensource.org/licenses/MIT&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://cryptonote.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://cryptonote.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://karbowanec.com/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://karbowanec.com/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Karbowanec v. %1&lt;/p&gt;&lt;p&gt;This is the next generation anonymous cryptocurrency based on CryptoNote.&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2015. CryptoNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2016. Karbowanec Developers&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://opensource.org/licenses/MIT&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://cryptonote.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://cryptonote.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://karbowanec.com/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://karbowanec.com/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Карбованец версия %1&lt;/p&gt;&lt;p&gt;Это криптовалюта нового поколения на базе  CryptoNote.&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2015. CryptoNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2016. Karbowanec Developers&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://opensource.org/licenses/MIT&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://cryptonote.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://cryptonote.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://karbowanec.com/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://karbowanec.com/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+</context>
+<context>
+    <name>AccountFrame</name>
+    <message>
+        <source>Address:</source>
+        <translation type="vanished">Адрес:</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Karbowanec v. %1&lt;/p&gt;&lt;p&gt;This is the next generation anonymous cryptocurrency based on CryptoNote.&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2015. CryptoNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2016. Karbowanec Developers&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://opensource.org/licenses/MIT&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://cryptonote.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://cryptonote.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://karbowanec.com/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://karbowanec.com/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Карбованец версия %1&lt;/p&gt;&lt;p&gt;Это криптовалюта нового поколения на базе  CryptoNote.&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2015. CryptoNote Developers&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://opensource.org/licenses/MIT&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://cryptonote.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://cryptonote.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://karbowanec.com/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://karbowanec.com/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>...</source>
+        <translation>...</translation>
+    </message>
+    <message>
+        <source>Show private key</source>
+        <translation type="vanished">Показать приватный ключ</translation>
+    </message>
+    <message>
+        <source>Your account:</source>
+        <translation>Ваш счет:</translation>
+    </message>
+    <message>
+        <source>Your receiving address</source>
+        <translation>Ваш адрес для получения карбованцев</translation>
+    </message>
+    <message>
+        <source>This is your account address</source>
+        <translation>Это адрес вашего счета</translation>
+    </message>
+    <message>
+        <source>Copy address</source>
+        <translation>Скопировать адрес</translation>
+    </message>
+    <message>
+        <source>Total balance</source>
+        <translation>Баланс счета</translation>
+    </message>
+    <message>
+        <source> krb</source>
+        <translation> крб.</translation>
+    </message>
+    <message>
+        <source>Frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show QR code</source>
+        <translation>Показать QR-код</translation>
+    </message>
+    <message>
+        <source>0.00</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -137,6 +184,25 @@
     </message>
 </context>
 <context>
+    <name>ConfirmSendDialog</name>
+    <message>
+        <source>Comfirm sending %1 KRB</source>
+        <translation>Подтвердите отправку %1 крб.</translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Are you sure you want to send &lt;strong&gt;%1 KRB&lt;/strong&gt;?&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Желаете выслать &lt;strong&gt;%1 крб.&lt;/strong&gt;?&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <source>Yes</source>
+        <translation>Да</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Отменить</translation>
+    </message>
+</context>
+<context>
     <name>ConnectionSettingsDialog</name>
     <message>
         <source>Connection settings</source>
@@ -185,10 +251,6 @@
     <message>
         <source>Add node</source>
         <translation>Добавить узел</translation>
-    </message>
-    <message>
-        <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port.</source>
-        <translation type="vanished">Кошелек будет подключаться к удаленному узлу в локальной или глобальной сети. Выберите узел или укажите IP адрес или домен и порт чтобы добавить новый.</translation>
     </message>
     <message>
         <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet sends 0.25% fee from each transaction to the node, but no more than 10 KRB.</source>
@@ -361,6 +423,10 @@ Please wait...</source>
         <source>Connection</source>
         <translation>Подключение</translation>
     </message>
+    <message>
+        <source>Open payment request</source>
+        <translation>Открыть запрос платежа</translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
@@ -498,6 +564,25 @@ Please wait...</source>
     </message>
 </context>
 <context>
+    <name>OpenUriDialog</name>
+    <message>
+        <source>Open payment request</source>
+        <translation>Открыть запрос на платеж</translation>
+    </message>
+    <message>
+        <source>URI:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Отменить</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>Хорошо</translation>
+    </message>
+</context>
+<context>
     <name>OverviewFrame</name>
     <message>
         <source>Frame</source>
@@ -556,6 +641,13 @@ Please wait...</source>
     </message>
 </context>
 <context>
+    <name>PaymentServer</name>
+    <message>
+        <source>Cannot start karbowanec: click-to-pay handler</source>
+        <translation>Не удалось запустить click-to-pay обработчик karbowanec:</translation>
+    </message>
+</context>
+<context>
     <name>PrivateKeysDialog</name>
     <message>
         <source>Private Key</source>
@@ -598,12 +690,6 @@ Please wait...</source>
     </message>
     <message>
         <source>There is update available.
- Do you want to go to download page?</source>
-        <translation type="vanished">Есть обновление кошелька.
- Хотите открыть страницу загрузки?</translation>
-    </message>
-    <message>
-        <source>There is update available.
 Do you want to go to download page?</source>
         <translation>Есть обновление кошелька.
 Хотите открыть страницу загрузки?</translation>
@@ -613,47 +699,55 @@ Do you want to go to download page?</source>
     <name>ReceiveFrame</name>
     <message>
         <source>Frame</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Address:</source>
-        <translation type="vanished">Адрес:</translation>
-    </message>
-    <message>
-        <source>...</source>
-        <translation>...</translation>
-    </message>
-    <message>
-        <source>Show private key</source>
-        <translation type="vanished">Показать приватный ключ</translation>
-    </message>
-    <message>
-        <source>Your account:</source>
-        <translation>Ваш счет:</translation>
-    </message>
-    <message>
-        <source>Your receiving address</source>
-        <translation>Ваш адрес для получения карбованцев</translation>
-    </message>
-    <message>
-        <source>This is your account address</source>
-        <translation>Это адрес вашего аккаунта</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Copy address</source>
         <translation>Скопировать адрес</translation>
     </message>
     <message>
-        <source>Total balance</source>
-        <translation>Баланс счета</translation>
+        <source>Save QR to file</source>
+        <translation>Сохранить QR код в файл</translation>
     </message>
     <message>
-        <source>0.00</source>
-        <translation type="unfinished"></translation>
+        <source>Request payment</source>
+        <translation>Платежное требование</translation>
     </message>
     <message>
-        <source> krb</source>
-        <translation> крб.</translation>
+        <source>Use this form to request payment.</source>
+        <translation>Создать запрос на получение платежа.</translation>
+    </message>
+    <message>
+        <source>Label:</source>
+        <translation>Метка:</translation>
+    </message>
+    <message>
+        <source>Amount:</source>
+        <translation>Сумма:</translation>
+    </message>
+    <message>
+        <source>PaymentID:</source>
+        <translation>Идентификатор платежа:</translation>
+    </message>
+    <message>
+        <source>Generate Payment ID</source>
+        <translation>Сгенерировать идентификатор</translation>
+    </message>
+    <message>
+        <source>Create payment request</source>
+        <translation>Создать платежное требование</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Закрыть</translation>
+    </message>
+    <message>
+        <source>Enter desired label for payer&apos;s address book</source>
+        <translation>Как вас записать в контакты плательщика</translation>
+    </message>
+    <message>
+        <source>Payment identifier which payer should attach to transaction</source>
+        <translation>Идентификатор платежа который плательщик должен включить в транзакцию</translation>
     </message>
 </context>
 <context>
@@ -697,6 +791,37 @@ Do you want to go to download page?</source>
     <message>
         <source>Donate 0.1% to development fund:</source>
         <translation>Пожертвуйте 0,1% в фонд разработки:</translation>
+    </message>
+    <message>
+        <source>Generate Payment ID</source>
+        <translation>Сгенерировать идентификатор</translation>
+    </message>
+</context>
+<context>
+    <name>ShowPaymentRequestDialog</name>
+    <message>
+        <source>Payment request</source>
+        <translation>Платежное требование</translation>
+    </message>
+    <message>
+        <source>Payment information</source>
+        <translation>Информация о платеже</translation>
+    </message>
+    <message>
+        <source>Copy URI</source>
+        <translation>Копировать</translation>
+    </message>
+    <message>
+        <source>Save URI</source>
+        <translation>Сохранить</translation>
+    </message>
+    <message>
+        <source>Save image</source>
+        <translation>Записать QR-код</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Закрыть</translation>
     </message>
 </context>
 <context>
@@ -787,6 +912,21 @@ Do you want to go to download page?</source>
     </message>
 </context>
 <context>
+    <name>WalletGui::AccountFrame</name>
+    <message>
+        <source>Hide private keys</source>
+        <translation type="vanished">Скрыть приватные ключи</translation>
+    </message>
+    <message>
+        <source>Show private keys</source>
+        <translation type="vanished">Показать приватные ключи</translation>
+    </message>
+    <message>
+        <source>Copied to clipboard</source>
+        <translation>Скопирован</translation>
+    </message>
+</context>
+<context>
     <name>WalletGui::AddressBookFrame</name>
     <message>
         <source>Invalid address</source>
@@ -846,10 +986,6 @@ Do you want to go to download page?</source>
         <translation>порт</translation>
     </message>
     <message>
-        <source>xternal port for p2p network protocol (if port forwarding used with NAT)</source>
-        <translation type="vanished">Внешний порт для сетевого p2p протокола (если используется порт форвардинг в NAT)</translation>
-    </message>
-    <message>
         <source>Allow local ip add to peer list, mostly in debug purposes</source>
         <translation>Разрешить добавлять локальные IP в список пиров, нужно для выявления ошибок</translation>
     </message>
@@ -900,6 +1036,21 @@ Do you want to go to download page?</source>
     <message>
         <source>External port for p2p network protocol (if port forwarding used with NAT)</source>
         <translation>Внешний порт для сетевого p2p протокола (если используется порт форвардинг в NAT)</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui::ConfirmSendDialog</name>
+    <message>
+        <source>Confirm sending %1 KRB</source>
+        <translation>Подтвердите отправку %1 крб.</translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Payment ID: %1&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Идентификатор платежа: %1&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Are you sure you want to send &lt;strong&gt;without Payment ID&lt;/strong&gt;?&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Вы точно хотите выслать &lt;strong&gt;без идентификатора платежа&lt;/strong&gt;?&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -1005,6 +1156,10 @@ Are you sure?</source>
         <source>Connection mode will be changed after restarting the wallet.</source>
         <translation>Рэжым падлучэння будзе зменены пасля перазапуску гаманца.</translation>
     </message>
+    <message>
+        <source>Account toolbar</source>
+        <translation>Счет</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::MiningFrame</name>
@@ -1047,18 +1202,29 @@ Are you sure?</source>
     </message>
 </context>
 <context>
+    <name>WalletGui::QRLabel</name>
+    <message>
+        <source>&amp;Save Image...</source>
+        <translation>&amp;Сохранить изображение...</translation>
+    </message>
+    <message>
+        <source>&amp;Copy Image</source>
+        <translation>&amp;Скопировать изображение...</translation>
+    </message>
+    <message>
+        <source>Save QR Code</source>
+        <translation>Сохранить QR-код</translation>
+    </message>
+</context>
+<context>
     <name>WalletGui::ReceiveFrame</name>
     <message>
-        <source>Hide private keys</source>
-        <translation type="vanished">Скрыть приватные ключи</translation>
+        <source>New PNG file</source>
+        <translation type="vanished">Новый PNG файл</translation>
     </message>
     <message>
-        <source>Show private keys</source>
-        <translation type="vanished">Показать приватные ключи</translation>
-    </message>
-    <message>
-        <source>Copied to clipboard</source>
-        <translation>Скопирован</translation>
+        <source>Save QR Code</source>
+        <translation>Сохранить QR-код</translation>
     </message>
 </context>
 <context>
@@ -1074,6 +1240,10 @@ Are you sure?</source>
     <message>
         <source>Invalid payment ID</source>
         <translation>Неправильный идентификатор платежа</translation>
+    </message>
+    <message>
+        <source>Payment request should start with karbowanec:</source>
+        <translation>Платежное требование должно начинаться с karbowanec:</translation>
     </message>
 </context>
 <context>

@@ -26,6 +26,7 @@ SignalHandler.cpp \
 StratumClient.cpp \
 WalletAdapter.cpp \
 Worker.cpp \
+PaymentServer.cpp \
 gui/AboutDialog.cpp \
 gui/AddressBookDialog.cpp \
 gui/AddressBookFrame.cpp \
@@ -42,6 +43,7 @@ gui/NewPoolDialog.cpp \
 gui/OverviewFrame.cpp \
 gui/PasswordDialog.cpp \
 gui/PoolModel.cpp \
+gui/AccountFrame.cpp \
 gui/ReceiveFrame.cpp \
 gui/RecentTransactionsModel.cpp \
 gui/SendFrame.cpp \
@@ -56,6 +58,9 @@ update.cpp \
 gui/ConnectionSettings.cpp \
 gui/NewNodeDialog.cpp \
 gui/NodeModel.cpp \
+gui/QRLabel.cpp \
+gui/OpenUriDialog.cpp \
+gui/ConfirmSendDialog.cpp \
 
  
 
@@ -71,6 +76,7 @@ SignalHandler.h \
 StratumClient.h \
 WalletAdapter.h \
 Worker.h \
+PaymentServer.h \
 gui/AboutDialog.h \
 gui/AddressBookDialog.h \
 gui/AddressBookFrame.h \
@@ -87,6 +93,7 @@ gui/NewPoolDialog.h \
 gui/OverviewFrame.h \
 gui/PasswordDialog.h \
 gui/PoolModel.h \
+gui/AccountFrame.h \
 gui/ReceiveFrame.h \
 gui/RecentTransactionsModel.h \
 gui/SendFrame.h \
@@ -102,6 +109,9 @@ update.h \
 gui/ConnectionSettings.h \
 gui/NewNodeDialog.h \
 gui/NodeModel.h \
+gui/QRLabel.h \
+gui/OpenUriDialog.h \
+gui/ConfirmSendDialog.h \
 
 
 
@@ -119,6 +129,7 @@ gui/ui/newpooldialog.ui \
 gui/ui/overviewframe.ui \
 gui/ui/passworddialog.ui \
 gui/ui/receiveframe.ui \
+gui/ui/accountframe.ui \
 gui/ui/sendframe.ui \
 gui/ui/transactiondetailsdialog.ui \
 gui/ui/transactionframe.ui \
@@ -128,6 +139,9 @@ gui/ui/changelanguagedialog.ui \
 gui/ui/privatekeysdialog.ui \
 gui/ui/connectionsettingsdialog.ui \
 gui/ui/newnodedialog.ui \
+gui/ui/showpaymentrequest.ui \
+gui/ui/openuridialog.ui \
+gui/ui/confirmsenddialog.ui \
 
 
 

@@ -19,7 +19,7 @@
   <property name="frameShadow">
    <enum>QFrame::Raised</enum>
   </property>
-  <layout class="QGridLayout" name="gridLayout" columnstretch="45,55">
+  <layout class="QGridLayout" name="gridLayout" columnstretch="35,65">
    <property name="sizeConstraint">
     <enum>QLayout::SetDefaultConstraint</enum>
    </property>

@@ -2,7 +2,7 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include "privatekeysdialog.h"
+#include "PrivateKeysDialog.h"
 #include "ui_privatekeysdialog.h"
 #include <QClipboard>
 #include <Common/Base58.h>

@@ -13,9 +13,15 @@
 #include "WalletAdapter.h"
 #include "WalletEvents.h"
 #include <QRegExpValidator>
+#include <QInputDialog>
+#include <QUrlQuery>
+#include <QTime>
+#include <QUrl>
 #include "ui_sendframe.h"
 #include "Settings.h"
 #include "AddressProvider.h"
+#include "OpenUriDialog.h"
+#include "ConfirmSendDialog.h"
 
 namespace WalletGui {
 
@@ -79,12 +85,24 @@ void SendFrame::clearAllClicked() {
 
   m_transfers.clear();
   addRecipientClicked();
+  amountValueChange();
   m_ui->m_paymentIdEdit->clear();
   m_ui->m_mixinSlider->setValue(2);
   m_ui->m_feeSpin->setValue(m_ui->m_feeSpin->minimum());
 }
 
 void SendFrame::amountValueChange() {
+
+    QVector<quint64> amounts;
+    Q_FOREACH (TransferFrame * transfer, m_transfers) {
+      quint64 amount = CurrencyAdapter::instance().parseAmount(transfer->getAmountString());
+      amounts.push_back(amount);
+      }
+    total_amount = 0;
+    for(QVector<quint64>::iterator it = amounts.begin(); it != amounts.end(); ++it) {
+      total_amount += *it;
+    }
+
     QVector<quint64> fees;
     fees.clear();
     Q_FOREACH (TransferFrame * transfer, m_transfers) {
@@ -92,7 +110,6 @@ void SendFrame::amountValueChange() {
       quint64 percentfee = amount * 0.25 / 100; // fee is 0.25%
       fees.push_back(percentfee);
       }
-
     totalfee = 0;
     for(QVector<quint64>::iterator it = fees.begin(); it != fees.end(); ++it) {
         totalfee += *it;
@@ -112,7 +129,6 @@ void SendFrame::amountValueChange() {
       quint64 donationpercent = amount * 0.1 / 100; // donation is 0.1%
       donations.push_back(donationpercent);
       }
-
     donation_amount = 0;
     for(QVector<quint64>::iterator it = donations.begin(); it != donations.end(); ++it) {
         donation_amount += *it;
@@ -120,7 +136,6 @@ void SendFrame::amountValueChange() {
     if (donation_amount < CurrencyAdapter::instance().getMinimumFee()) {
         donation_amount = CurrencyAdapter::instance().getMinimumFee();
     }
-
     m_ui->m_donateSpin->setValue(CurrencyAdapter::instance().formatAmount(donation_amount).toDouble());
 }
 
@@ -132,60 +147,130 @@ void SendFrame::onAddressFound(const QString& _address) {
     SendFrame::m_fee_address = _address;
 }
 
-void SendFrame::sendClicked() {
-  QVector<CryptoNote::WalletLegacyTransfer> walletTransfers;
-  Q_FOREACH (TransferFrame * transfer, m_transfers) {
-    QString address = transfer->getAddress();
+void SendFrame::openUriClicked() {
+    OpenUriDialog dlg(&MainWindow::instance());
+    if (dlg.exec() == QDialog::Accepted) {
+        QString uri = dlg.getURI();
+        if (uri.isEmpty()) {
+          return;
+        }
+        SendFrame::parsePaymentRequest(uri);
+        Q_EMIT uriOpenSignal();
+    }
+}
+
+void SendFrame::parsePaymentRequest(QString _request) {
+    if(_request.startsWith("karbowanec://", Qt::CaseInsensitive))
+    {
+       _request.replace(0, 13, "karbowanec:");
+    }
+    if(!_request.startsWith("karbowanec:", Qt::CaseInsensitive)) {
+      QCoreApplication::postEvent(&MainWindow::instance(), new ShowMessageEvent(tr("Payment request should start with karbowanec:"), QtCriticalMsg));
+      return;
+    }
+
+    if(_request.startsWith("karbowanec:", Qt::CaseInsensitive))
+    {
+      _request.remove(0, 11);
+    }
+
+    QString address = _request.split("?").at(0);
+
     if (!CurrencyAdapter::instance().validateAddress(address)) {
       QCoreApplication::postEvent(
         &MainWindow::instance(),
         new ShowMessageEvent(tr("Invalid recipient address"), QtCriticalMsg));
       return;
     }
+    m_transfers.at(0)->TransferFrame::setAddress(address);
 
-    CryptoNote::WalletLegacyTransfer walletTransfer;
-    walletTransfer.address = address.toStdString();
-    uint64_t amount = CurrencyAdapter::instance().parseAmount(transfer->getAmountString());
-    walletTransfer.amount = amount;
-    walletTransfers.push_back(walletTransfer);
-    QString label = transfer->getLabel();
-    if (!label.isEmpty()) {
-      AddressBookModel::instance().addAddress(label, address, m_ui->m_paymentIdEdit->text().toUtf8());
+    _request.replace("?", "&");
+
+    QUrlQuery uriQuery(_request);
+
+    quint64 amount = CurrencyAdapter::instance().parseAmount(uriQuery.queryItemValue("amount"));
+    if(amount != 0){
+        m_transfers.at(0)->TransferFrame::setAmount(amount);
     }
-  }
 
-  // Dev donation
-  if (m_ui->donateCheckBox->isChecked()) {
-      CryptoNote::WalletLegacyTransfer walletTransfer;
-      walletTransfer.address = "Kdev1L9V5ow3cdKNqDpLcFFxZCqu5W2GE9xMKewsB2pUXWxcXvJaUWHcSrHuZw91eYfQFzRtGfTemReSSMN4kE445i6Etb3";
-      walletTransfer.amount = CurrencyAdapter::instance().parseAmount(m_ui->m_donateSpin->cleanText());
-      walletTransfers.push_back(walletTransfer);
-  }
+    QString label = uriQuery.queryItemValue("label");
+    if(!label.isEmpty()){
+        m_transfers.at(0)->TransferFrame::setLabel(label);
+    }
 
-  // Remote node fee
-  QString connection = Settings::instance().getConnection();
-  if(connection.compare("remote") == 0) {
-      if (!SendFrame::m_fee_address.isEmpty()) {
+    QString payment_id = uriQuery.queryItemValue("payment_id");
+    if(!payment_id.isEmpty()){
+        SendFrame::insertPaymentID(payment_id);
+    }
+
+}
+
+void SendFrame::sendClicked() {
+ ConfirmSendDialog dlg(&MainWindow::instance());
+    dlg.showPasymentDetails(total_amount);
+    if(!m_ui->m_paymentIdEdit->text().isEmpty()){
+      dlg.showPaymentId(m_ui->m_paymentIdEdit->text());
+    } else {
+      dlg.confirmNoPaymentId();
+    }
+    if (dlg.exec() == QDialog::Accepted) {
+
+      QVector<CryptoNote::WalletLegacyTransfer> walletTransfers;
+      Q_FOREACH (TransferFrame * transfer, m_transfers) {
+        QString address = transfer->getAddress();
+        if (!CurrencyAdapter::instance().validateAddress(address)) {
+          QCoreApplication::postEvent(
+            &MainWindow::instance(),
+            new ShowMessageEvent(tr("Invalid recipient address"), QtCriticalMsg));
+          return;
+        }
+
         CryptoNote::WalletLegacyTransfer walletTransfer;
-        walletTransfer.address = SendFrame::m_fee_address.toStdString();
-        walletTransfer.amount = totalfee;
+        walletTransfer.address = address.toStdString();
+        uint64_t amount = CurrencyAdapter::instance().parseAmount(transfer->getAmountString());
+        walletTransfer.amount = amount;
         walletTransfers.push_back(walletTransfer);
+        QString label = transfer->getLabel();
+        if (!label.isEmpty()) {
+          AddressBookModel::instance().addAddress(label, address, m_ui->m_paymentIdEdit->text().toUtf8());
+        }
       }
-  }
 
-  // Miners fee
-  quint64 fee = CurrencyAdapter::instance().parseAmount(m_ui->m_feeSpin->cleanText());
-  if (fee < CurrencyAdapter::instance().getMinimumFee()) {
-    QCoreApplication::postEvent(&MainWindow::instance(), new ShowMessageEvent(tr("Incorrect fee value"), QtCriticalMsg));
-    return;
-  }
-  if (WalletAdapter::instance().isOpen()) {
-      QByteArray paymentIdString = m_ui->m_paymentIdEdit->text().toUtf8();
-      if (!isValidPaymentId(paymentIdString)) {
-        QCoreApplication::postEvent(&MainWindow::instance(), new ShowMessageEvent(tr("Invalid payment ID"), QtCriticalMsg));
+      // Dev donation
+      if (m_ui->donateCheckBox->isChecked()) {
+          CryptoNote::WalletLegacyTransfer walletTransfer;
+          walletTransfer.address = "Kdev1L9V5ow3cdKNqDpLcFFxZCqu5W2GE9xMKewsB2pUXWxcXvJaUWHcSrHuZw91eYfQFzRtGfTemReSSMN4kE445i6Etb3";
+          walletTransfer.amount = CurrencyAdapter::instance().parseAmount(m_ui->m_donateSpin->cleanText());
+          walletTransfers.push_back(walletTransfer);
+      }
+
+      // Remote node fee
+      QString connection = Settings::instance().getConnection();
+      if(connection.compare("remote") == 0) {
+          if (!SendFrame::m_fee_address.isEmpty()) {
+            CryptoNote::WalletLegacyTransfer walletTransfer;
+            walletTransfer.address = SendFrame::m_fee_address.toStdString();
+            walletTransfer.amount = totalfee;
+            walletTransfers.push_back(walletTransfer);
+          }
+      }
+
+      // Miners fee
+      quint64 fee = CurrencyAdapter::instance().parseAmount(m_ui->m_feeSpin->cleanText());
+      if (fee < CurrencyAdapter::instance().getMinimumFee()) {
+        QCoreApplication::postEvent(&MainWindow::instance(), new ShowMessageEvent(tr("Incorrect fee value"), QtCriticalMsg));
         return;
       }
-    WalletAdapter::instance().sendTransaction(walletTransfers, fee, m_ui->m_paymentIdEdit->text(), m_ui->m_mixinSlider->value());
+
+      if (WalletAdapter::instance().isOpen()) {
+          QByteArray paymentIdString = m_ui->m_paymentIdEdit->text().toUtf8();
+          if (!isValidPaymentId(paymentIdString)) {
+            QCoreApplication::postEvent(&MainWindow::instance(), new ShowMessageEvent(tr("Invalid payment ID"), QtCriticalMsg));
+            return;
+          }
+
+          WalletAdapter::instance().sendTransaction(walletTransfers, fee, m_ui->m_paymentIdEdit->text(), m_ui->m_mixinSlider->value());
+      }
   }
 }
 
@@ -215,6 +300,21 @@ bool SendFrame::isValidPaymentId(const QByteArray& _paymentIdString) {
 
   QByteArray paymentId = QByteArray::fromHex(_paymentIdString);
   return (paymentId.size() == sizeof(Crypto::Hash)) && (_paymentIdString.toUpper() == paymentId.toHex().toUpper());
+}
+
+void SendFrame::generatePaymentIdClicked() {
+  QTime time = QTime::currentTime();
+  qsrand((uint)time.msec());
+  const QString possibleCharacters("ABCDEF0123456789");
+  const int randomStringLength = 64;
+  QString randomString;
+  for(int i=0; i<randomStringLength; ++i)
+  {
+    int index = qrand() % possibleCharacters.length();
+    QChar nextChar = possibleCharacters.at(index);
+    randomString.append(nextChar);
+  }
+  SendFrame::insertPaymentID(randomString);
 }
 
 }

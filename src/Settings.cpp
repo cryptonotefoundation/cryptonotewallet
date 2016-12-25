@@ -11,9 +11,7 @@
 #include <QSettings>
 #include <QStandardPaths>
 #include <QTextCodec>
-
 #include <Common/Util.h>
-
 #include "CommandLineParser.h"
 #include "CurrencyAdapter.h"
 #include "Settings.h"
@@ -103,17 +101,16 @@ void Settings::load() {
   QStringList defaultNodesList;
   defaultNodesList << "node.karbowanec.com:32348" << "pool2.democats.org:7671";
   if (!m_settings.contains(OPTION_RPCNODES)) {
-    setRPCNodesList(QStringList() << defaultNodesList);
+    setRpcNodesList(QStringList() << defaultNodesList);
   } else {
-    QStringList nodesList = getRPCNodesList();
+    QStringList nodesList = getRpcNodesList();
     Q_FOREACH (const QString& node, defaultNodesList) {
       if (!nodesList.contains(node)) {
         nodesList << node;
       }
     }
-    setRPCNodesList(nodesList);
+    setRpcNodesList(nodesList);
  }
-
 }
 
 bool Settings::isTestnet() const {
@@ -176,7 +173,6 @@ QString Settings::getWalletFile() const {
     getDataDir().absoluteFilePath(QCoreApplication::applicationName() + ".wallet");
 }
 
-
 QString Settings::getAddressBookFile() const {
   return m_addressBookFile;
 }
@@ -194,7 +190,6 @@ QStringList Settings::getMiningPoolList() const {
   if (m_settings.contains(OPTION_MINING_POOLS)) {
     res << m_settings.value(OPTION_MINING_POOLS).toVariant().toStringList();
   }
-
   return res;
 }
 
@@ -217,7 +212,7 @@ QString Settings::getConnection() const {
     return connection;
 }
 
-QStringList Settings::getRPCNodesList() const {
+QStringList Settings::getRpcNodesList() const {
   QStringList res;
   if (m_settings.contains(OPTION_RPCNODES)) {
     res << m_settings.value(OPTION_RPCNODES).toVariant().toStringList();
@@ -396,9 +391,9 @@ void Settings::setCurrentRemoteNode(const QString& _remoteNode) {
     saveSettings();
 }
 
-void Settings::setRPCNodesList(const QStringList &_RPCNodesList) {
-  if (getRPCNodesList() != _RPCNodesList) {
-    m_settings.insert(OPTION_RPCNODES, QJsonArray::fromStringList(_RPCNodesList));
+void Settings::setRpcNodesList(const QStringList &_RpcNodesList) {
+  if (getRpcNodesList() != _RpcNodesList) {
+    m_settings.insert(OPTION_RPCNODES, QJsonArray::fromStringList(_RpcNodesList));
   }
   saveSettings();
 }

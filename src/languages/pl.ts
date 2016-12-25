@@ -12,12 +12,59 @@
         <translation>Zamknij</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Karbowanec v. %1&lt;/p&gt;&lt;p&gt;This is the next generation anonymous cryptocurrency based on CryptoNote.&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2015. CryptoNote Developers&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://opensource.org/licenses/MIT&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://cryptonote.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://cryptonote.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://karbowanec.com/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://karbowanec.com/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Karbowaniec wersja %1&lt;/p&gt;&lt;p&gt;Jest to kryptowaluta nowej generacji, oparta na CryptoNote.&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2015. CryptoNote Developers&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://opensource.org/licenses/MIT&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://cryptonote.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://cryptonote.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://karbowanec.com/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://karbowanec.com/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Karbowanec v. %1&lt;/p&gt;&lt;p&gt;This is the next generation anonymous cryptocurrency based on CryptoNote.&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2015. CryptoNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2016. Karbowanec Developers&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://opensource.org/licenses/MIT&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://cryptonote.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://cryptonote.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://karbowanec.com/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://karbowanec.com/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Karbowaniec wersja %1&lt;/p&gt;&lt;p&gt;Jest to kryptowaluta nowej generacji, oparta na CryptoNote.&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2015. CryptoNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2016. Karbowanec Developers&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://opensource.org/licenses/MIT&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://cryptonote.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://cryptonote.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://karbowanec.com/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://karbowanec.com/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+</context>
+<context>
+    <name>AccountFrame</name>
+    <message>
+        <source>Address:</source>
+        <translation type="vanished">Adres:</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Karbowanec v. %1&lt;/p&gt;&lt;p&gt;This is the next generation anonymous cryptocurrency based on CryptoNote.&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2015. CryptoNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2016. Karbowanec Developers&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://opensource.org/licenses/MIT&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://cryptonote.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://cryptonote.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://karbowanec.com/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://karbowanec.com/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Karbowaniec wersja %1&lt;/p&gt;&lt;p&gt;Jest to kryptowaluta nowej generacji, oparta na CryptoNote.&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2015. CryptoNote Developers&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://opensource.org/licenses/MIT&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://cryptonote.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://cryptonote.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://karbowanec.com/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://karbowanec.com/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>...</source>
+        <translation>...</translation>
+    </message>
+    <message>
+        <source>Show private key</source>
+        <translation type="vanished">Pokaż klucza prywatnego</translation>
+    </message>
+    <message>
+        <source>Your account:</source>
+        <translation>Twoje konto:</translation>
+    </message>
+    <message>
+        <source>Your receiving address</source>
+        <translation>Twój adres do otrzymania płatności</translation>
+    </message>
+    <message>
+        <source>This is your account address</source>
+        <translation>To jest adres twojego konta</translation>
+    </message>
+    <message>
+        <source>Copy address</source>
+        <translation>Kopiuj adres</translation>
+    </message>
+    <message>
+        <source>Total balance</source>
+        <translation>Saldo konta</translation>
+    </message>
+    <message>
+        <source> krb</source>
+        <translation> krb.</translation>
+    </message>
+    <message>
+        <source>Frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show QR code</source>
+        <translation>Pokaż QR kod</translation>
+    </message>
+    <message>
+        <source>0.00</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -137,6 +184,25 @@
     </message>
 </context>
 <context>
+    <name>ConfirmSendDialog</name>
+    <message>
+        <source>Comfirm sending %1 KRB</source>
+        <translation>Potwierdź wysłanie %1 KRB</translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Are you sure you want to send &lt;strong&gt;%1 KRB&lt;/strong&gt;?&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Czy na pewno chcesz wysłać &lt;strong&gt;%1 KRB&lt;/strong&gt;?&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <source>Yes</source>
+        <translation>Tak</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Anuluj</translation>
+    </message>
+</context>
+<context>
     <name>ConnectionSettingsDialog</name>
     <message>
         <source>Connection settings</source>
@@ -181,10 +247,6 @@
     <message>
         <source>Add node</source>
         <translation>Dodaj węzeł</translation>
-    </message>
-    <message>
-        <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port.</source>
-        <translation type="vanished">Portfel będzie łączyć się ze zdalnym węzłem w sieci lokalnej lub globalnej. Wybierz węzeł lub kliknij &quot;Dodaj węzeł&quot; i podaj adres IP czy nazwę domeny i port.</translation>
     </message>
     <message>
         <source>Embedded</source>
@@ -361,6 +423,10 @@ Proszę czekać...</translation>
         <source>Connection</source>
         <translation>Połączenie</translation>
     </message>
+    <message>
+        <source>Open payment request</source>
+        <translation>Otwórz wniosek o płatność</translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
@@ -498,6 +564,25 @@ Proszę czekać...</translation>
     </message>
 </context>
 <context>
+    <name>OpenUriDialog</name>
+    <message>
+        <source>Open payment request</source>
+        <translation>Otwórz wniosek o dokonanie płatności</translation>
+    </message>
+    <message>
+        <source>URI:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Anuluj</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>OK</translation>
+    </message>
+</context>
+<context>
     <name>OverviewFrame</name>
     <message>
         <source>Frame</source>
@@ -556,6 +641,13 @@ Proszę czekać...</translation>
     </message>
 </context>
 <context>
+    <name>PaymentServer</name>
+    <message>
+        <source>Cannot start karbowanec: click-to-pay handler</source>
+        <translation>Nie można uruchomić click-to-pay handler karbowanec:</translation>
+    </message>
+</context>
+<context>
     <name>PrivateKeysDialog</name>
     <message>
         <source>Private Key</source>
@@ -598,12 +690,6 @@ Proszę czekać...</translation>
     </message>
     <message>
         <source>There is update available.
- Do you want to go to download page?</source>
-        <translation type="vanished">Dostępna jest nowa wersja portfela.
- Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
-    </message>
-    <message>
-        <source>There is update available.
 Do you want to go to download page?</source>
         <translation>Dostępna jest nowa wersja portfela.
 Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
@@ -613,47 +699,55 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
     <name>ReceiveFrame</name>
     <message>
         <source>Frame</source>
-        <translation></translation>
-    </message>
-    <message>
-        <source>Address:</source>
-        <translation type="vanished">Adres:</translation>
-    </message>
-    <message>
-        <source>...</source>
-        <translation>...</translation>
-    </message>
-    <message>
-        <source>Show private key</source>
-        <translation type="vanished">Pokaż klucza prywatnego</translation>
-    </message>
-    <message>
-        <source>Your account:</source>
-        <translation>Twoje konto:</translation>
-    </message>
-    <message>
-        <source>Your receiving address</source>
-        <translation>Twój adres do otrzymania płatności</translation>
-    </message>
-    <message>
-        <source>This is your account address</source>
-        <translation>To jest adres twojego konta</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Copy address</source>
         <translation>Kopiuj adres</translation>
     </message>
     <message>
-        <source>Total balance</source>
-        <translation>Saldo konta</translation>
+        <source>Save QR to file</source>
+        <translation>Zapisz QR kod do pliku</translation>
     </message>
     <message>
-        <source>0.00</source>
-        <translation type="unfinished"></translation>
+        <source>Request payment</source>
+        <translation>Żądanie zapłaty</translation>
     </message>
     <message>
-        <source> krb</source>
-        <translation> krb.</translation>
+        <source>Use this form to request payment.</source>
+        <translation>Użyj tego formularza do stworzenia wniosku o zapłatę</translation>
+    </message>
+    <message>
+        <source>Label:</source>
+        <translation>Etykieta:</translation>
+    </message>
+    <message>
+        <source>Amount:</source>
+        <translation>Suma:</translation>
+    </message>
+    <message>
+        <source>PaymentID:</source>
+        <translation>Identyfikator płatności:</translation>
+    </message>
+    <message>
+        <source>Generate Payment ID</source>
+        <translation>Wygeneruj identyfikator</translation>
+    </message>
+    <message>
+        <source>Create payment request</source>
+        <translation>Stwórz wniosek o płatność</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Zamknij</translation>
+    </message>
+    <message>
+        <source>Enter desired label for payer&apos;s address book</source>
+        <translation>Jak cię zapisać do kontaktów płatnika</translation>
+    </message>
+    <message>
+        <source>Payment identifier which payer should attach to transaction</source>
+        <translation>Jaki identyfikator ma załączyć płatnik do transakcji</translation>
     </message>
 </context>
 <context>
@@ -697,6 +791,37 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
     <message>
         <source>Donate 0.1% to development fund:</source>
         <translation>Wpłać 0,1% do funduszu rozwoju:</translation>
+    </message>
+    <message>
+        <source>Generate Payment ID</source>
+        <translation>Wygeneruj identyfikator</translation>
+    </message>
+</context>
+<context>
+    <name>ShowPaymentRequestDialog</name>
+    <message>
+        <source>Payment request</source>
+        <translation>Wniosek o płatność</translation>
+    </message>
+    <message>
+        <source>Payment information</source>
+        <translation>Informacje o płatności</translation>
+    </message>
+    <message>
+        <source>Copy URI</source>
+        <translation>Kopiuj URI</translation>
+    </message>
+    <message>
+        <source>Save URI</source>
+        <translation>Zapisz URI</translation>
+    </message>
+    <message>
+        <source>Save image</source>
+        <translation>Zapisz obrazek</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Zamknij</translation>
     </message>
 </context>
 <context>
@@ -784,6 +909,21 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
     <message>
         <source>About %1 Wallet</source>
         <translation>O Karbowańcu</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui::AccountFrame</name>
+    <message>
+        <source>Hide private keys</source>
+        <translation type="vanished">Ukryj klucze prywatne</translation>
+    </message>
+    <message>
+        <source>Show private keys</source>
+        <translation type="vanished">Pokaż klucze prywatne</translation>
+    </message>
+    <message>
+        <source>Copied to clipboard</source>
+        <translation>Skopiowany do schowka</translation>
     </message>
 </context>
 <context>
@@ -899,6 +1039,21 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
     </message>
 </context>
 <context>
+    <name>WalletGui::ConfirmSendDialog</name>
+    <message>
+        <source>Confirm sending %1 KRB</source>
+        <translation>Potwierdź wysłanie %1 KRB</translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Payment ID: %1&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Identyfikator płatności: %1&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Are you sure you want to send &lt;strong&gt;without Payment ID&lt;/strong&gt;?&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Na pewno wysłać &lt;strong&gt;bez identyfikatora płatności&lt;/strong&gt;?&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+</context>
+<context>
     <name>WalletGui::ImportKeyDialog</name>
     <message>
         <source>Wallet file</source>
@@ -1001,6 +1156,10 @@ Jesteś pewien?</translation>
         <source>Connection mode will be changed after restarting the wallet.</source>
         <translation>Tryb połączenia zostanie zmieniony po ponownym uruchomieniu portfela.</translation>
     </message>
+    <message>
+        <source>Account toolbar</source>
+        <translation>Numer rachunku</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::MiningFrame</name>
@@ -1043,18 +1202,29 @@ Jesteś pewien?</translation>
     </message>
 </context>
 <context>
+    <name>WalletGui::QRLabel</name>
+    <message>
+        <source>&amp;Save Image...</source>
+        <translation>&amp;Zapisz obrazek...</translation>
+    </message>
+    <message>
+        <source>&amp;Copy Image</source>
+        <translation>&amp;Skopiuj obrazek</translation>
+    </message>
+    <message>
+        <source>Save QR Code</source>
+        <translation>Zapisz QR kod</translation>
+    </message>
+</context>
+<context>
     <name>WalletGui::ReceiveFrame</name>
     <message>
-        <source>Hide private keys</source>
-        <translation type="vanished">Ukryj klucze prywatne</translation>
+        <source>New PNG file</source>
+        <translation type="vanished">Nowy plik PNG</translation>
     </message>
     <message>
-        <source>Show private keys</source>
-        <translation type="vanished">Pokaż klucze prywatne</translation>
-    </message>
-    <message>
-        <source>Copied to clipboard</source>
-        <translation>Skopiowany do schowka</translation>
+        <source>Save QR Code</source>
+        <translation>Zapisz QR kod</translation>
     </message>
 </context>
 <context>
@@ -1070,6 +1240,10 @@ Jesteś pewien?</translation>
     <message>
         <source>Invalid payment ID</source>
         <translation>Nieprawidłowy identyfikator płatności</translation>
+    </message>
+    <message>
+        <source>Payment request should start with karbowanec:</source>
+        <translation>Wniosek o płatność powinien zaczynać się od karbowanec:</translation>
     </message>
 </context>
 <context>

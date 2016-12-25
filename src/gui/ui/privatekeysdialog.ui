@@ -45,7 +45,7 @@
        </property>
        <property name="icon">
         <iconset resource="../../resources.qrc">
-         <normaloff>:/icons/copy</normaloff>:/icons/copy</iconset>
+         <normaloff>:/icons/copy_white</normaloff>:/icons/copy_white</iconset>
        </property>
       </widget>
      </item>

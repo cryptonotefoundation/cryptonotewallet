@@ -26,6 +26,9 @@ public:
   QString getAmountString() const;
 
   void disableRemoveButton(bool _disable);
+  void setAddress(QString _address);
+  void setLabel(QString _label);
+  void setAmount(quint64 _amount);
 
 signals:
     void amountValueChangedSignal();
