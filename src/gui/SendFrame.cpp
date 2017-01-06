@@ -39,6 +39,7 @@ SendFrame::SendFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::SendFrame
   m_ui->m_feeSpin->setSuffix(" " + CurrencyAdapter::instance().getCurrencyTicker().toUpper());
   m_ui->m_donateSpin->setSuffix(" " + CurrencyAdapter::instance().getCurrencyTicker().toUpper());
   m_ui->m_feeSpin->setMinimum(CurrencyAdapter::instance().formatAmount(CurrencyAdapter::instance().getMinimumFee()).toDouble());
+  m_ui->m_remote_label->hide();
 
   QRegExp hexMatcher("^[0-9A-F]{64}$", Qt::CaseInsensitive);
   QValidator *validator = new QRegExpValidator(hexMatcher, this);
@@ -92,7 +93,6 @@ void SendFrame::clearAllClicked() {
 }
 
 void SendFrame::amountValueChange() {
-
     QVector<quint64> amounts;
     Q_FOREACH (TransferFrame * transfer, m_transfers) {
       quint64 amount = CurrencyAdapter::instance().parseAmount(transfer->getAmountString());
@@ -110,33 +110,37 @@ void SendFrame::amountValueChange() {
       quint64 percentfee = amount * 0.25 / 100; // fee is 0.25%
       fees.push_back(percentfee);
       }
-    totalfee = 0;
-    for(QVector<quint64>::iterator it = fees.begin(); it != fees.end(); ++it) {
-        totalfee += *it;
+    remote_node_fee = 0;
+    if( !remote_node_fee_address.isEmpty() ) {
+        for(QVector<quint64>::iterator it = fees.begin(); it != fees.end(); ++it) {
+            remote_node_fee += *it;
+        }
+        if (remote_node_fee < CurrencyAdapter::instance().getMinimumFee()) {
+            remote_node_fee = CurrencyAdapter::instance().getMinimumFee();
+        }
+        if (remote_node_fee > 10000000000000) {
+            remote_node_fee = 10000000000000;
+        }
     }
-    if (totalfee < CurrencyAdapter::instance().getMinimumFee()) {
-        totalfee = CurrencyAdapter::instance().getMinimumFee();
-    }
-    if (totalfee > 10000000000000) {
-        totalfee = 10000000000000;
-    }
- // m_ui->m_feeSpin->setValue(CurrencyAdapter::instance().formatAmount(totalfee).toDouble());
 
-    QVector<quint64> donations;
+    QVector<float> donations;
     donations.clear();
     Q_FOREACH (TransferFrame * transfer, m_transfers) {
-      quint64 amount = CurrencyAdapter::instance().parseAmount(transfer->getAmountString());
-      quint64 donationpercent = amount * 0.1 / 100; // donation is 0.1%
+      float amount = transfer->getAmountString().toFloat();
+      float donationpercent = amount * 0.1 / 100; // donation is 0.1%
       donations.push_back(donationpercent);
       }
-    donation_amount = 0;
-    for(QVector<quint64>::iterator it = donations.begin(); it != donations.end(); ++it) {
+    float donation_amount = 0;
+    for(QVector<float>::iterator it = donations.begin(); it != donations.end(); ++it) {
         donation_amount += *it;
     }
-    if (donation_amount < CurrencyAdapter::instance().getMinimumFee()) {
-        donation_amount = CurrencyAdapter::instance().getMinimumFee();
+    float min = CurrencyAdapter::instance().formatAmount(CurrencyAdapter::instance().getMinimumFee()).toFloat();
+    if (donation_amount < min) {
+        donation_amount = min;
     }
-    m_ui->m_donateSpin->setValue(CurrencyAdapter::instance().formatAmount(donation_amount).toDouble());
+    donation_amount = floor(donation_amount * pow(10., 4) + .5) / pow(10., 4);
+    m_ui->m_donateSpin->setValue(QString::number(donation_amount).toDouble());
+    SendFrame::walletActualBalanceUpdated(actual_balance);
 }
 
 void SendFrame::insertPaymentID(QString _paymentid) {
@@ -144,7 +148,8 @@ void SendFrame::insertPaymentID(QString _paymentid) {
 }
 
 void SendFrame::onAddressFound(const QString& _address) {
-    SendFrame::m_fee_address = _address;
+    SendFrame::remote_node_fee_address = _address;
+    m_ui->m_remote_label->show();
 }
 
 void SendFrame::openUriClicked() {
@@ -247,10 +252,10 @@ void SendFrame::sendClicked() {
       // Remote node fee
       QString connection = Settings::instance().getConnection();
       if(connection.compare("remote") == 0) {
-          if (!SendFrame::m_fee_address.isEmpty()) {
+          if (!SendFrame::remote_node_fee_address.isEmpty()) {
             CryptoNote::WalletLegacyTransfer walletTransfer;
-            walletTransfer.address = SendFrame::m_fee_address.toStdString();
-            walletTransfer.amount = totalfee;
+            walletTransfer.address = SendFrame::remote_node_fee_address.toStdString();
+            walletTransfer.amount = remote_node_fee;
             walletTransfers.push_back(walletTransfer);
           }
       }
@@ -290,7 +295,8 @@ void SendFrame::sendTransactionCompleted(CryptoNote::TransactionId _id, bool _er
 }
 
 void SendFrame::walletActualBalanceUpdated(quint64 _balance) {
-  m_ui->m_balanceLabel->setText(CurrencyAdapter::instance().formatAmount(_balance));
+  actual_balance = _balance;
+  m_ui->m_balanceLabel->setText(CurrencyAdapter::instance().formatAmount(_balance - remote_node_fee));
 }
 
 bool SendFrame::isValidPaymentId(const QByteArray& _paymentIdString) {

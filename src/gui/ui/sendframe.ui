@@ -254,6 +254,9 @@
        <property name="decimals">
         <number>12</number>
        </property>
+       <property name="maximum">
+        <double>999999999999999.000000000000000</double>
+       </property>
        <property name="singleStep">
         <double>0.100000000000000</double>
        </property>
@@ -335,9 +338,25 @@
       </spacer>
      </item>
      <item>
+      <widget class="QLabel" name="m_remote_label">
+       <property name="font">
+        <font>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>Wallet is connected through remote node. Additional 0.25% fee will be applied.</string>
+       </property>
+       <property name="text">
+        <string>Remote node mode</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QLabel" name="label_4">
        <property name="text">
-        <string>Balance:</string>
+        <string>Available balance:</string>
        </property>
       </widget>
      </item>

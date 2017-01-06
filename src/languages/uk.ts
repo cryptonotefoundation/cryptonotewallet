@@ -782,7 +782,7 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>Balance:</source>
-        <translation>Баланс:</translation>
+        <translation type="vanished">Баланс:</translation>
     </message>
     <message>
         <source>Fee:</source>
@@ -799,6 +799,18 @@ Do you want to go to download page?</source>
     <message>
         <source>Generate Payment ID</source>
         <translation>Згенерувати ідентифікатор</translation>
+    </message>
+    <message>
+        <source>Wallet is connected through remote node. Additional 0.25% fee will be applied.</source>
+        <translation>Гаманець підключений через віддалений вузол. Буде стягуватись додаткова комісія 0,25%.</translation>
+    </message>
+    <message>
+        <source>Remote node mode</source>
+        <translation>Режим віддаленого вузла</translation>
+    </message>
+    <message>
+        <source>Available balance:</source>
+        <translation>Доступний баланс:</translation>
     </message>
 </context>
 <context>

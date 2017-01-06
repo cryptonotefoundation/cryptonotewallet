@@ -34,10 +34,10 @@ private:
   QList<TransferFrame*> m_transfers;
   AddressProvider* m_addressProvider;
 
-  QString m_fee_address;
-  quint64 totalfee;
-  quint64 donation_amount;
+  QString remote_node_fee_address;
+  quint64 remote_node_fee;
   quint64 total_amount;
+  quint64 actual_balance;
 
   void sendTransactionCompleted(CryptoNote::TransactionId _id, bool _error, const QString& _error_text);
   void walletActualBalanceUpdated(quint64 _balance);

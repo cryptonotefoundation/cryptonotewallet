@@ -778,7 +778,7 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
     </message>
     <message>
         <source>Balance:</source>
-        <translation>Saldo:</translation>
+        <translation type="vanished">Saldo:</translation>
     </message>
     <message>
         <source>Fee:</source>
@@ -795,6 +795,18 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
     <message>
         <source>Generate Payment ID</source>
         <translation>Wygeneruj identyfikator</translation>
+    </message>
+    <message>
+        <source>Wallet is connected through remote node. Additional 0.25% fee will be applied.</source>
+        <translation>Portfel jest podłączony za pośrednictwem zdalnego węzła. Będzie pobrana dodatkowa opłata 0,25%.</translation>
+    </message>
+    <message>
+        <source>Remote node mode</source>
+        <translation>Tryb zdalnego węzła</translation>
+    </message>
+    <message>
+        <source>Available balance:</source>
+        <translation>Dostępne saldo:</translation>
     </message>
 </context>
 <context>
