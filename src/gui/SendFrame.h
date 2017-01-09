@@ -37,13 +37,13 @@ private:
   QString remote_node_fee_address;
   quint64 remote_node_fee;
   quint64 total_amount;
-  quint64 actual_balance;
 
   void sendTransactionCompleted(CryptoNote::TransactionId _id, bool _error, const QString& _error_text);
   void walletActualBalanceUpdated(quint64 _balance);
   void insertPaymentID(QString _paymentid);
   static bool isValidPaymentId(const QByteArray& _paymentIdString);
   void onAddressFound(const QString& _address);
+  void reset();
 
   Q_SLOT void addRecipientClicked();
   Q_SLOT void clearAllClicked();
