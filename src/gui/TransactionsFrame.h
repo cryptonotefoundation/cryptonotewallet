@@ -5,6 +5,7 @@
 #pragma once
 
 #include <QFrame>
+#include <QMenu>
 #include <QStyledItemDelegate>
 
 namespace Ui {
@@ -22,15 +23,31 @@ class TransactionsFrame : public QFrame {
 public:
   TransactionsFrame(QWidget* _parent);
   ~TransactionsFrame();
+  QModelIndex index;
 
   void scrollToTransaction(const QModelIndex& _index);
+
+public slots:
+    void onCustomContextMenu(const QPoint &point);
+
+public Q_SLOTS:
+    void copyTxHash();
+    void copyAmount();
+    void copyPaymentID();
+    void showTxDetails();
+    void computeSelected();
+    void showTransactionDetails(const QModelIndex& _index);
 
 private:
   QScopedPointer<Ui::TransactionsFrame> m_ui;
   QScopedPointer<TransactionsListModel> m_transactionsModel;
+  QMenu* contextMenu;
+
+  QString formatAmount(int64_t _amount) const;
 
   Q_SLOT void exportToCsv();
-  Q_SLOT void showTransactionDetails(const QModelIndex& _index);
+
+
 };
 
 }

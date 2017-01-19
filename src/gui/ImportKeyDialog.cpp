@@ -20,7 +20,7 @@ ImportKeyDialog::~ImportKeyDialog() {
 }
 
 QString ImportKeyDialog::getKeyString() const {
-  return m_ui->m_keyEdit->text().trimmed();
+  return m_ui->m_keyEdit->toPlainText().trimmed();
 }
 
 QString ImportKeyDialog::getFilePath() const {

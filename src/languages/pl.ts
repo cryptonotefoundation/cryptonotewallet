@@ -271,6 +271,29 @@ Proszę czekać...</translation>
     </message>
 </context>
 <context>
+    <name>ExportTrackingKeyDialog</name>
+    <message>
+        <source>Export tracking key</source>
+        <translation>Eksportuj klucz śledzenia</translation>
+    </message>
+    <message>
+        <source>Tracking key allows to see all incoming transactions of this wallet. It does not allow to spend funds.</source>
+        <translation>Klucz śledzenia pozwala zobaczyć wszystkie przychodzące transakcje tego portfela, ale nie pozwala wydać fundusze.</translation>
+    </message>
+    <message>
+        <source>Save to file</source>
+        <translation>Zapisz do pliku</translation>
+    </message>
+    <message>
+        <source>Copy key</source>
+        <translation>Kopiuj klucz</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Zamknij</translation>
+    </message>
+</context>
+<context>
     <name>ImportKeyDialog</name>
     <message>
         <source>Import private key</source>
@@ -287,6 +310,37 @@ Proszę czekać...</translation>
     <message>
         <source>...</source>
         <translation>...</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Anuluj</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>OK</translation>
+    </message>
+</context>
+<context>
+    <name>ImportTrackingKeyDialog</name>
+    <message>
+        <source>Import tracking key</source>
+        <translation>Importuj klucz śledzenia</translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished">...</translation>
+    </message>
+    <message>
+        <source>Key:</source>
+        <translation>Klucz:</translation>
+    </message>
+    <message>
+        <source>Wallet path:</source>
+        <translation>Ścieżka do portfela:</translation>
+    </message>
+    <message>
+        <source>Import a tracking key of a wallet to see all its incoming transactions. It doesn&apos;t allow spending funds.</source>
+        <translation>Importuj klucz śledzenia portfela aby zobaczyć wszystkie transakcje przychodzące. To nie pozwala wydatkowania środków.</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -413,7 +467,7 @@ Proszę czekać...</translation>
     </message>
     <message>
         <source>Show private key</source>
-        <translation>Pokaż klucza prywatnego</translation>
+        <translation type="vanished">Pokaż klucza prywatnego</translation>
     </message>
     <message>
         <source>F1</source>
@@ -426,6 +480,30 @@ Proszę czekać...</translation>
     <message>
         <source>Open payment request</source>
         <translation>Otwórz wniosek o płatność</translation>
+    </message>
+    <message>
+        <source>Export tracking key</source>
+        <translation>Eksportuj klucz śledzenia</translation>
+    </message>
+    <message>
+        <source>Import tracking key</source>
+        <translation>Importuj klucz śledzenia</translation>
+    </message>
+    <message>
+        <source>Export private key</source>
+        <translation>Eksportuj klucz prywatny</translation>
+    </message>
+    <message>
+        <source>Account toolbar</source>
+        <translation>Konto</translation>
+    </message>
+    <message>
+        <source>Close wallet</source>
+        <translation>Zamknij portfel</translation>
+    </message>
+    <message>
+        <source>Recent wallets</source>
+        <translation>Ostatnie portfele</translation>
     </message>
 </context>
 <context>
@@ -659,7 +737,11 @@ Proszę czekać...</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation type="obsolete">...</translation>
+    </message>
+    <message>
+        <source>Copy key</source>
+        <translation>Kopiuj klucz</translation>
     </message>
 </context>
 <context>
@@ -868,6 +950,10 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
         <source>Export</source>
         <translation>Eksportuj</translation>
     </message>
+    <message>
+        <source>Selected amount: </source>
+        <translation>Razem w wybranym: </translation>
+    </message>
 </context>
 <context>
     <name>TransferFrame</name>
@@ -1066,6 +1152,17 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
     </message>
 </context>
 <context>
+    <name>WalletGui::ExportTrackingKeyDialog</name>
+    <message>
+        <source>Save tracking key to...</source>
+        <translation>Zapisz klucz śledzenia w...</translation>
+    </message>
+    <message>
+        <source>Tracking key (*.trackingkey)</source>
+        <translation>Klucz śledzenia (*.trackingkey)</translation>
+    </message>
+</context>
+<context>
     <name>WalletGui::ImportKeyDialog</name>
     <message>
         <source>Wallet file</source>
@@ -1074,6 +1171,17 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
     <message>
         <source>Wallets (*.wallet)</source>
         <translation>Porfele (*.wallet)</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui::ImportTrackingKeyDialog</name>
+    <message>
+        <source>Tracking wallet file</source>
+        <translation>Plik porfela śledzenia</translation>
+    </message>
+    <message>
+        <source>Tracking wallets (*.trackingwallet)</source>
+        <translation>Porfel śledzenia (*.trackingwallet)</translation>
     </message>
 </context>
 <context>
@@ -1170,7 +1278,15 @@ Jesteś pewien?</translation>
     </message>
     <message>
         <source>Account toolbar</source>
-        <translation>Numer rachunku</translation>
+        <translation type="vanished">Numer rachunku</translation>
+    </message>
+    <message>
+        <source>Tracking wallet. Spending unawailable</source>
+        <translation>Portfel śledzenia. Wydatki niedostępne</translation>
+    </message>
+    <message>
+        <source>Connected through remote node</source>
+        <translation>Połączone za pośrednictwem zdalnego węzła</translation>
     </message>
 </context>
 <context>
@@ -1288,6 +1404,22 @@ Jesteś pewien?</translation>
     <message>
         <source>Select CSV file</source>
         <translation>Wybierz plik CSV</translation>
+    </message>
+    <message>
+        <source>Copy transaction &amp;hash</source>
+        <translation>Skopiuj &amp;hash transakcji</translation>
+    </message>
+    <message>
+        <source>Copy &amp;amount</source>
+        <translation>Skopiuj &amp;sumę</translation>
+    </message>
+    <message>
+        <source>Copy Payment &amp;ID</source>
+        <translation>Skopiuj &amp;Identyfikator płatności</translation>
+    </message>
+    <message>
+        <source>Show &amp;details</source>
+        <translation>&amp;Pokaż szczegóły</translation>
     </message>
 </context>
 <context>

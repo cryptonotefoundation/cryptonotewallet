@@ -12,15 +12,17 @@
 #include <QTimer>
 #include <QFontDatabase>
 #include <Common/Base58.h>
+#include <Common/StringTools.h>
 #include <Common/Util.h>
 #include <QToolButton>
-#include <QDebug>
 #include "AboutDialog.h"
 #include "AnimatedLabel.h"
 #include "ChangePasswordDialog.h"
 #include "ChangeLanguageDialog.h"
 #include "ConnectionSettings.h"
 #include "PrivateKeysDialog.h"
+#include "ExportTrackingKeyDialog.h"
+#include "ImportTrackingKeyDialog.h"
 #include "CurrencyAdapter.h"
 #include "ExitWidget.h"
 #include "ImportKeyDialog.h"
@@ -47,10 +49,12 @@ MainWindow& MainWindow::instance() {
 }
 
 MainWindow::MainWindow() : QMainWindow(), m_ui(new Ui::MainWindow), m_trayIcon(nullptr), m_tabActionGroup(new QActionGroup(this)),
-  m_isAboutToQuit(false), paymentServer(0) {
+  m_isAboutToQuit(false), paymentServer(0), maxRecentFiles(10) {
   m_ui->setupUi(this);
   m_connectionStateIconLabel = new QLabel(this);
   m_encryptionStateIconLabel = new QLabel(this);
+  m_trackingModeIconLabel = new QLabel(this);
+  m_remoteModeIconLabel = new QLabel(this);
   m_synchronizationStateIconLabel = new AnimatedLabel(this);
   connectToSignals();
   initUi();
@@ -87,24 +91,21 @@ void MainWindow::initUi() {
   }
 #endif
 
-  QToolBar *accountToolBar = addToolBar(tr("Account toolbar"));
-  accountToolBar->setAllowedAreas(Qt::TopToolBarArea);
-  accountToolBar->addWidget(m_ui->m_accountFrame);
-  accountToolBar->setMovable(false);
-  addToolBar(Qt::TopToolBarArea, accountToolBar);
+  m_ui->accountToolBar->setAllowedAreas(Qt::TopToolBarArea);
+
+  accountWidget = m_ui->accountToolBar->addWidget(m_ui->m_accountFrame);
+  m_ui->accountToolBar->setMovable(false);
+  addToolBar(Qt::TopToolBarArea, m_ui->accountToolBar);
   addToolBarBreak();
   addToolBar(Qt::LeftToolBarArea, m_ui->toolBar);
-  accountToolBar->setStyleSheet("QToolBar {background-color: rgb(133, 167, 211); border: 0;}");
-  m_ui->toolBar->setStyleSheet("QToolBar {background-color: rgba(32, 55, 92, 0.9); border: 0; width: 150px; min-width: 150px; spacing: 0; padding: 0; margin: 0;}");
   QToolButton button;
   button.setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
   button.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
-  button.setStyleSheet("QToolButton {spacing:0px; width: 150px; min-width: 150px;}");
 
   m_ui->m_aboutCryptonoteAction->setText(QString(tr("About %1 Wallet")).arg(CurrencyAdapter::instance().getCurrencyDisplayName()));
   m_ui->m_overviewFrame->hide();
   m_ui->m_sendFrame->hide();
-  m_ui->m_accountFrame->hide();
+  accountWidget->setVisible(false);
   m_ui->m_receiveFrame->hide();
   m_ui->m_transactionsFrame->hide();
   m_ui->m_addressBookFrame->hide();
@@ -119,11 +120,36 @@ void MainWindow::initUi() {
 
   m_ui->m_overviewAction->toggle();
   encryptedFlagChanged(false);
+  statusBar()->addPermanentWidget(m_trackingModeIconLabel);
+  statusBar()->addPermanentWidget(m_remoteModeIconLabel);
   statusBar()->addPermanentWidget(m_connectionStateIconLabel);
   statusBar()->addPermanentWidget(m_encryptionStateIconLabel);
   statusBar()->addPermanentWidget(m_synchronizationStateIconLabel);
   qobject_cast<AnimatedLabel*>(m_synchronizationStateIconLabel)->setSprite(QPixmap(":icons/sync_sprite"), QSize(16, 16), 5, 24);
   m_connectionStateIconLabel->setPixmap(QPixmap(":icons/disconnected").scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+  m_trackingModeIconLabel->setPixmap(QPixmap(":icons/tracking").scaledToHeight(16, Qt::SmoothTransformation));
+  m_remoteModeIconLabel->hide();
+  m_trackingModeIconLabel->hide();
+  m_trackingModeIconLabel->setToolTip(tr("Tracking wallet. Spending unawailable"));
+  m_remoteModeIconLabel->setToolTip(tr("Connected through remote node"));
+
+  QString connection = Settings::instance().getConnection();
+  if(connection.compare("remote") == 0) {
+    m_remoteModeIconLabel->show();
+    m_remoteModeIconLabel->setPixmap(QPixmap(":icons/remote_mode").scaledToHeight(16, Qt::SmoothTransformation));
+  }
+
+  m_ui->menuRecent_wallets->setVisible(false);
+  QAction* recentWalletAction = 0;
+  for(int i = 0; i < maxRecentFiles; ++i){
+    recentWalletAction = new QAction(this);
+    recentWalletAction->setVisible(false);
+    QObject::connect(recentWalletAction, SIGNAL(triggered()), this, SLOT(openRecent()));
+    recentFileActionList.append(recentWalletAction);
+  }
+  for(int i = 0; i < maxRecentFiles; ++i)
+     m_ui->menuRecent_wallets->addAction(recentFileActionList.at(i));
+  updateRecentActionList();
 
 #ifdef Q_OS_MAC
   installDockHandler();
@@ -269,6 +295,14 @@ void MainWindow::openWallet() {
   }
 }
 
+void MainWindow::openRecent(){
+  QAction *action = qobject_cast<QAction *>(sender());
+  if (action) {
+    WalletAdapter::instance().setWalletFile(action->data().toString());
+    WalletAdapter::instance().open("");
+  }
+}
+
 void MainWindow::importKey() {
   ImportKeyDialog dlg(this);
   if (dlg.exec() == QDialog::Accepted) {
@@ -291,11 +325,86 @@ void MainWindow::importKey() {
       if (WalletAdapter::instance().isOpen()) {
         WalletAdapter::instance().close();
       }
-
       WalletAdapter::instance().setWalletFile(filePath);
       WalletAdapter::instance().createWithKeys(keys);
     }
   }
+}
+
+void MainWindow::importTrackingKey() {
+  ImportTrackingKeyDialog dlg(this);
+  if (dlg.exec() == QDialog::Accepted) {
+    QString keyString = dlg.getKeyString().trimmed();
+    QString filePath = dlg.getFilePath();
+    if (keyString.isEmpty() || filePath.isEmpty()) {
+      return;
+    }
+
+    if (!filePath.endsWith(".trackingwallet")) {
+      filePath.append(".trackingwallet");
+    }
+
+    CryptoNote::AccountKeys keys;
+
+    //  XDN style tracking key import
+    //  uint64_t addressPrefix;
+    //  std::string data;
+
+    //  if (Tools::Base58::decode_addr(keyString.toStdString(), addressPrefix, data) && addressPrefix == CurrencyAdapter::instance().getAddressPrefix() &&
+    //    data.size() == sizeof(keys)) {
+    //    std::memcpy(&keys, data.data(), sizeof(keys));
+
+    // To prevent confusing with import of private key / paperwallet lets use Bytecoin style tracking keys, they look different
+    std::string public_spend_key_string = keyString.mid(0,64).toStdString();
+    std::string public_view_key_string = keyString.mid(64,64).toStdString();
+    std::string private_spend_key_string = keyString.mid(128,64).toStdString();
+    std::string private_view_key_string = keyString.mid(192,64).toStdString();
+
+    Crypto::Hash public_spend_key_hash;
+    Crypto::Hash public_view_key_hash;
+    Crypto::Hash private_spend_key_hash;
+    Crypto::Hash private_view_key_hash;
+
+    size_t size;
+    if (!Common::fromHex(public_spend_key_string, &public_spend_key_hash, sizeof(public_spend_key_hash), size) || size != sizeof(public_spend_key_hash)) {
+      return;
+    }
+    if (!Common::fromHex(public_view_key_string, &public_view_key_hash, sizeof(public_view_key_hash), size) || size != sizeof(public_view_key_hash)) {
+      return;
+    }
+    if (!Common::fromHex(private_spend_key_string, &private_spend_key_hash, sizeof(private_spend_key_hash), size) || size != sizeof(private_spend_key_hash)) {
+      return;
+    }
+    if (!Common::fromHex(private_view_key_string, &private_view_key_hash, sizeof(private_view_key_hash), size) || size != sizeof(private_spend_key_hash)) {
+      return;
+    }
+
+    Crypto::PublicKey public_spend_key = *(struct Crypto::PublicKey *) &public_spend_key_hash;
+    Crypto::PublicKey public_view_key = *(struct Crypto::PublicKey *) &public_view_key_hash;
+    Crypto::SecretKey private_spend_key = *(struct Crypto::SecretKey *) &private_spend_key_hash;
+    Crypto::SecretKey private_view_key = *(struct Crypto::SecretKey *) &private_view_key_hash;
+
+    keys.address.spendPublicKey = public_spend_key;
+    keys.address.viewPublicKey = public_view_key;
+    keys.spendSecretKey = private_spend_key;
+    keys.viewSecretKey = private_view_key;
+
+      if (WalletAdapter::instance().isOpen()) {
+        WalletAdapter::instance().close();
+      }
+      Settings::instance().setTrackingMode(true);
+      WalletAdapter::instance().setWalletFile(filePath);
+      WalletAdapter::instance().createWithKeys(keys);
+   // }
+  }
+}
+
+void MainWindow::isTrackingMode() {
+  m_ui->m_sendFrame->hide();
+  m_ui->m_overviewAction->trigger();
+  m_ui->m_sendAction->setEnabled(false);
+  m_ui->m_openUriAction->setEnabled(false);
+  m_trackingModeIconLabel->show();
 }
 
 void MainWindow::ChangeLanguage() {
@@ -377,18 +486,32 @@ void MainWindow::showPrivateKeys() {
   dlg.exec();
 }
 
+void MainWindow::exportTrackingKey() {
+  ExportTrackingKeyDialog dlg(this);
+  dlg.walletOpened();
+  dlg.exec();
+}
+
 void MainWindow::onShowQR() {
   m_ui->m_receiveAction->trigger();
   m_ui->m_receiveFrame->closePaymentRequestForm();
 }
 
 void MainWindow::handlePaymentRequest(QString _request) {
+  if (Settings::instance().isTrackingMode()) {
+      isTrackingMode();
+      return;
+  }
   m_ui->m_sendAction->trigger();
   m_ui->m_sendFrame->parsePaymentRequest(_request);
   QWidget::activateWindow();
 }
 
 void MainWindow::onUriOpenSignal() {
+  if (Settings::instance().isTrackingMode()) {
+      isTrackingMode();
+      return;
+  }
   m_ui->m_sendAction->trigger();
 }
 
@@ -415,6 +538,37 @@ void MainWindow::encryptWallet() {
 
       encryptedFlagChanged(WalletAdapter::instance().changePassword("", password));
     }
+  }
+}
+
+void MainWindow::closeWallet() {
+  if (WalletAdapter::instance().isOpen()) {
+    WalletAdapter::instance().close();
+  }
+}
+
+void MainWindow::updateRecentActionList(){
+  QStringList recentFilePaths = Settings::instance().getRecentWalletsList();
+  if(recentFilePaths.isEmpty())
+    m_ui->menuRecent_wallets->setVisible(false);
+
+  if(recentFilePaths.size() != 0) {
+    int itEnd = 0;
+    if(recentFilePaths.size() <= maxRecentFiles)
+        itEnd = recentFilePaths.size();
+    else
+        itEnd = maxRecentFiles;
+
+    for (int i = 0; i < itEnd; ++i) {
+        QString strippedName = QFileInfo(recentFilePaths.at(i)).fileName();
+        recentFileActionList.at(i)->setText(strippedName);
+        recentFileActionList.at(i)->setData(recentFilePaths.at(i));
+        recentFileActionList.at(i)->setVisible(true);
+    }
+    for (int i = itEnd; i < maxRecentFiles; ++i)
+        recentFileActionList.at(i)->setVisible(false);
+  } else {
+      m_ui->menuRecent_wallets->setVisible(false);
   }
 }
 
@@ -501,11 +655,15 @@ void MainWindow::walletSynchronized(int _error, const QString& _error_text) {
 
 void MainWindow::walletOpened(bool _error, const QString& _error_text) {
   if (!_error) {
+    m_ui->accountToolBar->show();
+    m_ui->m_closeWalletAction->setEnabled(true);
+    m_ui->m_exportTrackingKeyAction->setEnabled(true);
     m_encryptionStateIconLabel->show();
     m_synchronizationStateIconLabel->show();
     m_ui->m_backupWalletAction->setEnabled(true);
     m_ui->m_showPrivateKey->setEnabled(true);
 	m_ui->m_resetAction->setEnabled(true);
+    m_ui->m_openUriAction->setEnabled(true);
     encryptedFlagChanged(Settings::instance().isEncrypted());
 
     QList<QAction*> tabActions = m_tabActionGroup->actions();
@@ -514,9 +672,17 @@ void MainWindow::walletOpened(bool _error, const QString& _error_text) {
     }
 
     m_ui->m_overviewAction->trigger();
-    m_ui->m_accountFrame->show();
+    accountWidget->setVisible(true);
     m_ui->m_overviewFrame->show();
     m_ui->m_receiveFrame->closePaymentRequestForm();
+
+    checkTrackingMode();
+    updateRecentActionList();
+
+    if (Settings::instance().isTrackingMode()) {
+      isTrackingMode();
+    }
+
   } else {
     walletClosed();
   }
@@ -526,19 +692,36 @@ void MainWindow::walletClosed() {
   m_ui->m_backupWalletAction->setEnabled(false);
   m_ui->m_encryptWalletAction->setEnabled(false);
   m_ui->m_changePasswordAction->setEnabled(false);
+  m_ui->m_closeWalletAction->setEnabled(false);
+  m_ui->m_openUriAction->setEnabled(false);
+  m_ui->m_exportTrackingKeyAction->setEnabled(false);
+  m_ui->m_showPrivateKey->setEnabled(false);
   m_ui->m_resetAction->setEnabled(false);
   m_ui->m_overviewFrame->hide();
-  m_ui->m_accountFrame->hide();
+  accountWidget->setVisible(false);
   m_ui->m_receiveFrame->hide();
   m_ui->m_sendFrame->hide();
   m_ui->m_transactionsFrame->hide();
   m_ui->m_addressBookFrame->hide();
   m_ui->m_miningFrame->hide();
   m_encryptionStateIconLabel->hide();
+  m_trackingModeIconLabel->hide();
   m_synchronizationStateIconLabel->hide();
   QList<QAction*> tabActions = m_tabActionGroup->actions();
   Q_FOREACH(auto action, tabActions) {
     action->setEnabled(false);
+  }
+  Settings::instance().setTrackingMode(false);
+  updateRecentActionList();
+}
+
+void MainWindow::checkTrackingMode() {
+  CryptoNote::AccountKeys keys;
+  WalletAdapter::instance().getAccountKeys(keys);
+  if (keys.spendSecretKey == boost::value_initialized<Crypto::SecretKey>()) {
+    Settings::instance().setTrackingMode(true);
+  } else {
+    Settings::instance().setTrackingMode(false);
   }
 }
 

@@ -1,7 +1,7 @@
 // Copyright (c) 2016 The Karbowanec developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#include "update.h"
+#include "Update.h"
 #include "Settings.h"
 #include <QDesktopServices>
 #include <QApplication>

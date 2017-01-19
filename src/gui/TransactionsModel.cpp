@@ -60,10 +60,6 @@ TransactionsModel::~TransactionsModel() {
 
 Qt::ItemFlags TransactionsModel::flags(const QModelIndex& _index) const {
   Qt::ItemFlags flags = Qt::ItemIsEnabled | Qt::ItemNeverHasChildren | Qt::ItemIsSelectable;
-  if(_index.column() == COLUMN_HASH) {
-    flags |= Qt::ItemIsEditable;
-  }
-
   return flags;
 }
 

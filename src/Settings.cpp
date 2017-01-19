@@ -27,7 +27,6 @@ Q_DECL_CONSTEXPR char OPTION_RPCNODES[] = "remoteNodes";
 Q_DECL_CONSTEXPR char OPTION_DAEMON_PORT[] = "daemonPort";
 Q_DECL_CONSTEXPR char OPTION_REMOTE_NODE[] = "remoteNode";
 
-
 Settings& Settings::instance() {
   static Settings inst;
   return inst;
@@ -66,6 +65,9 @@ void Settings::load() {
 
     if (!m_settings.contains(OPTION_DAEMON_PORT)) {
          m_daemonPort = CryptoNote::RPC_DEFAULT_PORT;
+    }
+    if (!m_settings.contains("tracking")) {
+         m_settings.insert("tracking", false);
     }
 
   } else {
@@ -110,7 +112,15 @@ void Settings::load() {
       }
     }
     setRpcNodesList(nodesList);
- }
+  }
+
+  if (!m_settings.contains("recentWallets")) {
+    QStringList recentWallets;
+    if (m_settings.contains("walletFile")) {
+       recentWallets.prepend(m_settings.value("walletFile").toString());
+       m_settings.insert("recentWallets", QJsonArray::fromStringList(recentWallets));
+    }
+  }
 }
 
 bool Settings::isTestnet() const {
@@ -173,12 +183,24 @@ QString Settings::getWalletFile() const {
     getDataDir().absoluteFilePath(QCoreApplication::applicationName() + ".wallet");
 }
 
+QStringList Settings::getRecentWalletsList() const {
+   QStringList recent_wallets;
+   if (m_settings.contains("recentWallets")) {
+     recent_wallets << m_settings.value("recentWallets").toVariant().toStringList();
+   }
+   return recent_wallets;
+}
+
 QString Settings::getAddressBookFile() const {
   return m_addressBookFile;
 }
 
 bool Settings::isEncrypted() const {
   return m_settings.contains("encrypted") ? m_settings.value("encrypted").toBool() : false;
+}
+
+bool Settings::isTrackingMode() const {
+  return m_settings.contains("tracking") ? m_settings.value("tracking").toBool() : false;
 }
 
 QString Settings::getVersion() const {
@@ -287,8 +309,39 @@ bool Settings::isCloseToTrayEnabled() const {
 void Settings::setWalletFile(const QString& _file) {
   if (_file.endsWith(".wallet") || _file.endsWith(".keys")) {
     m_settings.insert("walletFile", _file);
+  } else if (_file.endsWith(".trackingwallet")) {
+    m_settings.insert("walletFile", _file);
   } else {
     m_settings.insert("walletFile", _file + ".wallet");
+  }
+
+  if (!m_settings.contains("recentWallets")) {
+    QStringList recentWallets;
+    if (_file.endsWith(".wallet") || _file.endsWith(".keys")) {
+        recentWallets.prepend(_file);
+    } else if (_file.endsWith(".trackingwallet")) {
+        recentWallets.prepend(_file);
+    } else {
+       recentWallets.prepend(_file + ".wallet");
+    }
+    m_settings.insert("recentWallets", QJsonArray::fromStringList(recentWallets));
+  } else {
+    QStringList recentWallets = m_settings.value("recentWallets").toVariant().toStringList();
+
+    foreach (const QString &recentFile, recentWallets) {
+      if (recentFile.contains(_file))
+        recentWallets.removeOne(recentFile);
+    }
+    if (_file.endsWith(".wallet") || _file.endsWith(".keys")) {
+        recentWallets.prepend(_file);
+    } else if (_file.endsWith(".trackingwallet")) {
+        recentWallets.prepend(_file);
+    } else {
+       recentWallets.prepend(_file + ".wallet");
+    }
+    while (recentWallets.size() > 10)
+           recentWallets.removeLast();
+    m_settings.insert("recentWallets", QJsonArray::fromStringList(recentWallets));
   }
 
   saveSettings();
@@ -299,6 +352,13 @@ void Settings::setWalletFile(const QString& _file) {
 void Settings::setEncrypted(bool _encrypted) {
   if (isEncrypted() != _encrypted) {
     m_settings.insert("encrypted", _encrypted);
+    saveSettings();
+  }
+}
+
+void Settings::setTrackingMode(bool _tracking) {
+  if (isTrackingMode() != _tracking) {
+    m_settings.insert("tracking", _tracking);
     saveSettings();
   }
 }

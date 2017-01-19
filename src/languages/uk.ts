@@ -271,6 +271,29 @@ Please wait...</source>
     </message>
 </context>
 <context>
+    <name>ExportTrackingKeyDialog</name>
+    <message>
+        <source>Export tracking key</source>
+        <translation>Експортувати ключ стеження</translation>
+    </message>
+    <message>
+        <source>Tracking key allows to see all incoming transactions of this wallet. It does not allow to spend funds.</source>
+        <translation>Ключ стеження дозволяє бачити всі вхідні транзакції цього гаманця, але витрачати кошти неможливо.</translation>
+    </message>
+    <message>
+        <source>Save to file</source>
+        <translation>Зберегти у файл</translation>
+    </message>
+    <message>
+        <source>Copy key</source>
+        <translation>Скопіювати ключ</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Закрити</translation>
+    </message>
+</context>
+<context>
     <name>ImportKeyDialog</name>
     <message>
         <source>Import private key</source>
@@ -287,6 +310,37 @@ Please wait...</source>
     <message>
         <source>...</source>
         <translation>...</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Скасувати</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>Гаразд</translation>
+    </message>
+</context>
+<context>
+    <name>ImportTrackingKeyDialog</name>
+    <message>
+        <source>Import tracking key</source>
+        <translation>Імпортувати ключ стеження</translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished">...</translation>
+    </message>
+    <message>
+        <source>Key:</source>
+        <translation>Ключ:</translation>
+    </message>
+    <message>
+        <source>Wallet path:</source>
+        <translation>Шлях до гаманця:</translation>
+    </message>
+    <message>
+        <source>Import a tracking key of a wallet to see all its incoming transactions. It doesn&apos;t allow spending funds.</source>
+        <translation>Імпортувати ключ стеження щоб бачити всі вхідні транзакції. Але витрачати кошти неможливо.</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -413,7 +467,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Show private key</source>
-        <translation>Показати приватний ключ</translation>
+        <translation type="vanished">Показати приватний ключ</translation>
     </message>
     <message>
         <source>F1</source>
@@ -426,6 +480,30 @@ Please wait...</source>
     <message>
         <source>Open payment request</source>
         <translation>Відкрити запит на отримання платежу</translation>
+    </message>
+    <message>
+        <source>Export tracking key</source>
+        <translation>Експортувати ключ стеження</translation>
+    </message>
+    <message>
+        <source>Import tracking key</source>
+        <translation>Імпортувати ключ стеження</translation>
+    </message>
+    <message>
+        <source>Export private key</source>
+        <translation>Експортувати приватний ключ</translation>
+    </message>
+    <message>
+        <source>Account toolbar</source>
+        <translation>Рахунок</translation>
+    </message>
+    <message>
+        <source>Close wallet</source>
+        <translation>Закрити гаманець</translation>
+    </message>
+    <message>
+        <source>Recent wallets</source>
+        <translation>Останні гаманці</translation>
     </message>
 </context>
 <context>
@@ -659,7 +737,11 @@ Please wait...</source>
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="vanished">...</translation>
+    </message>
+    <message>
+        <source>Copy key</source>
+        <translation>Скопіювати ключ</translation>
     </message>
 </context>
 <context>
@@ -872,6 +954,10 @@ Do you want to go to download page?</source>
         <source>Export</source>
         <translation>Експортувати</translation>
     </message>
+    <message>
+        <source>Selected amount: </source>
+        <translation>Разом у вибраному: </translation>
+    </message>
 </context>
 <context>
     <name>TransferFrame</name>
@@ -1070,6 +1156,17 @@ Do you want to go to download page?</source>
     </message>
 </context>
 <context>
+    <name>WalletGui::ExportTrackingKeyDialog</name>
+    <message>
+        <source>Save tracking key to...</source>
+        <translation>Зберегти ключ стеження в...</translation>
+    </message>
+    <message>
+        <source>Tracking key (*.trackingkey)</source>
+        <translation>Ключ стеження (*.trackingkey)</translation>
+    </message>
+</context>
+<context>
     <name>WalletGui::ImportKeyDialog</name>
     <message>
         <source>Wallet file</source>
@@ -1078,6 +1175,17 @@ Do you want to go to download page?</source>
     <message>
         <source>Wallets (*.wallet)</source>
         <translation>Гаманці (*.wallet)</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui::ImportTrackingKeyDialog</name>
+    <message>
+        <source>Tracking wallet file</source>
+        <translation>Файл гаманця стеження</translation>
+    </message>
+    <message>
+        <source>Tracking wallets (*.trackingwallet)</source>
+        <translation>Гаманці стеження (*.trackingwallet)</translation>
     </message>
 </context>
 <context>
@@ -1174,7 +1282,15 @@ Are you sure?</source>
     </message>
     <message>
         <source>Account toolbar</source>
-        <translation>Рахунок</translation>
+        <translation type="vanished">Рахунок</translation>
+    </message>
+    <message>
+        <source>Tracking wallet. Spending unawailable</source>
+        <translation>Гаманець стеження. Витрати недоступні</translation>
+    </message>
+    <message>
+        <source>Connected through remote node</source>
+        <translation>Підключення через віддалений вузол</translation>
     </message>
 </context>
 <context>
@@ -1292,6 +1408,22 @@ Are you sure?</source>
     <message>
         <source>Select CSV file</source>
         <translation>Вибрати файл CSV</translation>
+    </message>
+    <message>
+        <source>Copy transaction &amp;hash</source>
+        <translation>Скопіювати &amp;хеш транзакції</translation>
+    </message>
+    <message>
+        <source>Copy &amp;amount</source>
+        <translation>Скопіювати &amp;суму</translation>
+    </message>
+    <message>
+        <source>Copy Payment &amp;ID</source>
+        <translation>Скопіювати &amp;ідентифікатор платежу</translation>
+    </message>
+    <message>
+        <source>Show &amp;details</source>
+        <translation>&amp;Детальніше</translation>
     </message>
 </context>
 <context>

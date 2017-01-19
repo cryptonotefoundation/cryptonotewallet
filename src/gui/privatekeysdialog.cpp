@@ -23,20 +23,21 @@ PrivateKeysDialog::~PrivateKeysDialog() {
 void PrivateKeysDialog::walletOpened() {
   CryptoNote::AccountKeys keys;
   WalletAdapter::instance().getAccountKeys(keys);
+
   QString privateKeys = QString::fromStdString(Tools::Base58::encode_addr(CurrencyAdapter::instance().getAddressPrefix(),
     std::string(reinterpret_cast<char*>(&keys), sizeof(keys))));
 
   m_ui->m_privateKeyEdit->setText(privateKeys);
-  // m_ui->m_qrLabel->showQRCode(privateKeys);
+//m_ui->m_qrLabel->showQRCode(privateKeys);
 }
 
 void PrivateKeysDialog::walletClosed() {
   m_ui->m_privateKeyEdit->clear();
- // m_ui->m_qrLabel->clear();
+//m_ui->m_qrLabel->clear();
 }
 
 void PrivateKeysDialog::copyKey() {
-  QApplication::clipboard()->setText(m_ui->m_privateKeyEdit->text());
+  QApplication::clipboard()->setText(m_ui->m_privateKeyEdit->toPlainText());
 }
 
 }

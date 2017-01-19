@@ -37,6 +37,7 @@ public:
   QStringList getSeedNodes() const;
 
   QString getWalletFile() const;
+  QStringList getRecentWalletsList() const;
   QString getAddressBookFile() const;
   QString getVersion() const;
   QStringList getMiningPoolList() const;
@@ -48,6 +49,8 @@ public:
 
   bool isEncrypted() const;
   bool isStartOnLoginEnabled() const;
+  bool isTrackingMode() const;
+
 #ifdef Q_OS_WIN
   bool isMinimizeToTrayEnabled() const;
   bool isCloseToTrayEnabled() const;
@@ -55,6 +58,7 @@ public:
 
   void setWalletFile(const QString& _file);
   void setEncrypted(bool _encrypted);
+  void setTrackingMode(bool _tracking);
   void setCurrentTheme(const QString& _theme);
   void setLanguage(const QString& _language);
   void setStartOnLoginEnabled(bool _enable);

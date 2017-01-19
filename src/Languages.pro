@@ -61,6 +61,8 @@ gui/NodeModel.cpp \
 gui/QRLabel.cpp \
 gui/OpenUriDialog.cpp \
 gui/ConfirmSendDialog.cpp \
+gui/ExportTrackingKeyDialog.cpp \
+gui/ImportTrackingKeyDialog.cpp \
 
  
 
@@ -105,14 +107,15 @@ gui/TransactionsListModel.h \
 gui/TransactionsModel.h \
 gui/TransferFrame.h \
 gui/WalletEvents.h \
-update.h \
+Update.h \
 gui/ConnectionSettings.h \
 gui/NewNodeDialog.h \
 gui/NodeModel.h \
 gui/QRLabel.h \
 gui/OpenUriDialog.h \
 gui/ConfirmSendDialog.h \
-
+gui/ExportTrackingKeyDialog.h \
+gui/ImportTrackingKeyDialog.h \
 
 
 FORMS = gui/ui/aboutdialog.ui \
@@ -142,6 +145,8 @@ gui/ui/newnodedialog.ui \
 gui/ui/showpaymentrequest.ui \
 gui/ui/openuridialog.ui \
 gui/ui/confirmsenddialog.ui \
+gui/ui/importtrackingkeydialog.ui \
+gui/ui/exporttrackingkeydialog.ui \
 
 
 

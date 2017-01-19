@@ -29,6 +29,8 @@ public:
   static MainWindow& instance();
   void scrollToTransaction(const QModelIndex& _index);
   void handlePaymentRequest(QString _request);
+  void isTrackingMode();
+  void checkTrackingMode();
   void quit();
 
 protected:
@@ -42,9 +44,14 @@ private:
   QLabel* m_connectionStateIconLabel;
   QLabel* m_encryptionStateIconLabel;
   QLabel* m_synchronizationStateIconLabel;
+  QLabel* m_trackingModeIconLabel;
+  QLabel* m_remoteModeIconLabel;
   QSystemTrayIcon* m_trayIcon;
   QActionGroup* m_tabActionGroup;
+  QAction* accountWidget;
   bool m_isAboutToQuit;
+  QList<QAction*> recentFileActionList;
+  const int maxRecentFiles;
 
   static MainWindow* m_instance;
 
@@ -68,10 +75,13 @@ private:
   void reset();
   void onShowQR();
   void onUriOpenSignal();
+  void adjustForCurrentFile(const QString& filePath);
+  void updateRecentActionList();
 
   Q_SLOT void createWallet();
   Q_SLOT void openWallet();
-  Q_SLOT void importKey();  
+  Q_SLOT void closeWallet();
+  Q_SLOT void importKey();
   Q_SLOT void backupWallet();
   Q_SLOT void resetWallet();
   Q_SLOT void encryptWallet();
@@ -84,6 +94,9 @@ private:
   Q_SLOT void showPrivateKeys();
   Q_SLOT void DisplayCmdLineHelp();
   Q_SLOT void openConnectionSettings();
+  Q_SLOT void exportTrackingKey();
+  Q_SLOT void importTrackingKey();
+  Q_SLOT void openRecent();
 
 #ifdef Q_OS_MAC
 public:

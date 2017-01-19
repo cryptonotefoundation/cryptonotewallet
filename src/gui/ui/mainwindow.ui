@@ -205,13 +205,27 @@
     <property name="title">
      <string>File</string>
     </property>
+    <widget class="QMenu" name="menuRecent_wallets">
+     <property name="title">
+      <string>Recent wallets</string>
+     </property>
+
+    </widget>
     <addaction name="m_createWalletAction"/>
     <addaction name="m_openWalletAction"/>
-    <addaction name="m_openUriAction"/>
-    <addaction name="m_importKeyAction"/>
-    <addaction name="m_showPrivateKey"/>
+    <addaction name="menuRecent_wallets"/>
     <addaction name="m_backupWalletAction"/>
     <addaction name="m_resetAction"/>
+    <addaction name="m_closeWalletAction"/>
+    <addaction name="separator"/>
+    <addaction name="m_openUriAction"/>
+    <addaction name="separator"/>
+    <addaction name="m_showPrivateKey"/>
+    <addaction name="m_importKeyAction"/>
+    <addaction name="separator"/>
+    <addaction name="m_exportTrackingKeyAction"/>
+    <addaction name="m_importTrackingKeyAction"/>
+    <addaction name="separator"/>
     <addaction name="m_exitAction"/>
    </widget>
    <widget class="QMenu" name="menuSettings">
@@ -304,6 +318,17 @@
    <addaction name="m_miningAction"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QToolBar" name="accountToolBar">
+   <property name="windowTitle">
+    <string>Account toolbar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
   <action name="m_overviewAction">
    <property name="checkable">
     <bool>true</bool>
@@ -508,7 +533,7 @@
   </action>
   <action name="m_showPrivateKey">
    <property name="text">
-    <string>Show private key</string>
+    <string>Export private key</string>
    </property>
   </action>
   <action name="actionHelp">
@@ -527,6 +552,26 @@
   <action name="m_openUriAction">
    <property name="text">
     <string>Open payment request</string>
+   </property>
+  </action>
+  <action name="m_exportTrackingKeyAction">
+   <property name="text">
+    <string>Export tracking key</string>
+   </property>
+  </action>
+  <action name="m_importTrackingKeyAction">
+   <property name="text">
+    <string>Import tracking key</string>
+   </property>
+  </action>
+  <action name="m_closeWalletAction">
+   <property name="text">
+    <string>Close wallet</string>
+   </property>
+  </action>
+  <action name="m_recentWalletsAction">
+   <property name="text">
+    <string>Recent wallets</string>
    </property>
   </action>
  </widget>
@@ -943,6 +988,54 @@
     <hint type="destinationlabel">
      <x>316</x>
      <y>310</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_exportTrackingKeyAction</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>exportTrackingKey()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>489</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_importTrackingKeyAction</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>importTrackingKey()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>489</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_closeWalletAction</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>closeWallet()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>489</x>
+     <y>274</y>
     </hint>
    </hints>
   </connection>

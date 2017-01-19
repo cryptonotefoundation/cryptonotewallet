@@ -19,7 +19,7 @@
 #include "SignalHandler.h"
 #include "WalletAdapter.h"
 #include "gui/MainWindow.h"
-#include "update.h"
+#include "Update.h"
 #include <QTextCodec>
 #include "PaymentServer.h"
 
@@ -113,9 +113,9 @@ int main(int argc, char* argv[]) {
   }
   splash->finish(&MainWindow::instance());
   Updater d;
-      d.checkForUpdate();
-
+    d.checkForUpdate();
   MainWindow::instance().show();
+  WalletAdapter::instance().setWalletFile(Settings::instance().getDataDir().absoluteFilePath(QApplication::applicationName()));
   WalletAdapter::instance().open("");
 
   QTimer::singleShot(1000, paymentServer, SLOT(uiReady()));

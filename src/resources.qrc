@@ -38,6 +38,8 @@
         <file alias="down_arrow.png">icons/down_arrow.png</file>
         <file alias="copy_white">icons/copy.png</file>
         <file alias="cancel">icons/cancel.png</file>
+        <file alias="remote_mode">icons/remote_mode.png</file>
+        <file alias="tracking">icons/tracking_mode.png</file>
     </qresource>
     <qresource prefix="/images">
         <file alias="splash">images/splash.png</file>
