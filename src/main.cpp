@@ -115,7 +115,6 @@ int main(int argc, char* argv[]) {
   Updater d;
     d.checkForUpdate();
   MainWindow::instance().show();
-  WalletAdapter::instance().setWalletFile(Settings::instance().getDataDir().absoluteFilePath(QApplication::applicationName()));
   WalletAdapter::instance().open("");
 
   QTimer::singleShot(1000, paymentServer, SLOT(uiReady()));

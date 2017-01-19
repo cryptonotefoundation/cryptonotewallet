@@ -115,11 +115,13 @@ void Settings::load() {
   }
 
   if (!m_settings.contains("recentWallets")) {
-    QStringList recentWallets;
-    if (m_settings.contains("walletFile")) {
-       recentWallets.prepend(m_settings.value("walletFile").toString());
-       m_settings.insert("recentWallets", QJsonArray::fromStringList(recentWallets));
-    }
+     QStringList recentWallets;
+     if (m_settings.contains("walletFile")) {
+        recentWallets.prepend(m_settings.value("walletFile").toString());
+     } else {
+        recentWallets.prepend(getDataDir().absoluteFilePath(QCoreApplication::applicationName() + ".wallet"));
+     }
+     m_settings.insert("recentWallets", QJsonArray::fromStringList(recentWallets));
   }
 }
 
