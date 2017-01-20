@@ -298,8 +298,14 @@ void MainWindow::openWallet() {
 void MainWindow::openRecent(){
   QAction *action = qobject_cast<QAction *>(sender());
   if (action) {
-    WalletAdapter::instance().setWalletFile(action->data().toString());
-    WalletAdapter::instance().open("");
+    QString filePath = action->data().toString();
+    if (!filePath.isEmpty()) {
+      if (WalletAdapter::instance().isOpen()) {
+          WalletAdapter::instance().close();
+      }
+      WalletAdapter::instance().setWalletFile(filePath);
+      WalletAdapter::instance().open("");
+    }
   }
 }
 
