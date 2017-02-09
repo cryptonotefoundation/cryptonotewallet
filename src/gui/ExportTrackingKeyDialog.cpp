@@ -3,7 +3,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "ExportTrackingKeyDialog.h"
-#include "ui_ExportTrackingKeyDialog.h"
+#include "ui_exporttrackingkeydialog.h"
 #include <QClipboard>
 #include <QFileDialog>
 #include <QTextStream>
