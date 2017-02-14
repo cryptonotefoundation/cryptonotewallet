@@ -192,6 +192,12 @@
          <height>0</height>
         </size>
        </property>
+       <property name="cursor">
+        <cursorShape>IBeamCursor</cursorShape>
+       </property>
+       <property name="locale">
+        <locale language="English" country="UnitedStates"/>
+       </property>
        <property name="suffix">
         <string/>
        </property>
@@ -250,6 +256,12 @@
          <width>150</width>
          <height>0</height>
         </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>IBeamCursor</cursorShape>
+       </property>
+       <property name="locale">
+        <locale language="English" country="UnitedStates"/>
        </property>
        <property name="decimals">
         <number>12</number>

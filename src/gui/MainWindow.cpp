@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2016 The Cryptonote developers
 // Copyright (c) 2015-2016 XDN developers
-// Copyright (c) 2016 Karbowanec developers
+// Copyright (c) 2016-2017 The Karbowanec developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -643,7 +643,7 @@ void MainWindow::peerCountUpdated(quint64 _peerCount) {
   QString connectionIconPath = _peerCount > 0 ? ":icons/connected" : ":icons/disconnected";
   QPixmap connectionIcon = QPixmap(connectionIconPath).scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
   m_connectionStateIconLabel->setPixmap(connectionIcon);
-  m_connectionStateIconLabel->setToolTip(QString(tr("%1 peers").arg(_peerCount)));
+  m_connectionStateIconLabel->setToolTip(QString(tr("%n peer(s)", "", _peerCount)));
 }
 
 void MainWindow::walletSynchronizationInProgress() {

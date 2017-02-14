@@ -12,8 +12,8 @@
         <translation>Zamknij</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Karbowanec v. %1&lt;/p&gt;&lt;p&gt;This is the next generation anonymous cryptocurrency based on CryptoNote.&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2015. CryptoNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2016. Karbowanec Developers&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://opensource.org/licenses/MIT&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://cryptonote.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://cryptonote.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://karbowanec.com/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://karbowanec.com/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Karbowaniec wersja %1&lt;/p&gt;&lt;p&gt;Jest to kryptowaluta nowej generacji, oparta na CryptoNote.&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2015. CryptoNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2016. Karbowanec Developers&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://opensource.org/licenses/MIT&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://cryptonote.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://cryptonote.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://karbowanec.com/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://karbowanec.com/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Karbowanec v. %1&lt;/p&gt;&lt;p&gt;This is the next generation anonymous cryptocurrency based on CryptoNote.&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2015. CryptoNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2015-2016. DigitalNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2016-2017. Karbowanec Developers&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://opensource.org/licenses/MIT&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://cryptonote.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://cryptonote.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://karbowanec.com/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://karbowanec.com/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Karbowaniec wersja %1&lt;/p&gt;&lt;p&gt;Jest to kryptowaluta nowej generacji, oparta na CryptoNote.&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2015. CryptoNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2015-2016. DigitalNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2016-2017. Karbowanec Developers&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://opensource.org/licenses/MIT&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://cryptonote.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://cryptonote.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://karbowanec.com/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://karbowanec.com/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -954,6 +954,14 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
         <source>Selected amount: </source>
         <translation>Razem w wybranym: </translation>
     </message>
+    <message>
+        <source>Search for address, amount, transaction hash or Payment ID</source>
+        <translation>Szukaj adresu, kwoty, transakcji lub identyfikatora płatności</translation>
+    </message>
+    <message>
+        <source>Reset filter</source>
+        <translation>Usuń filtr</translation>
+    </message>
 </context>
 <context>
     <name>TransferFrame</name>
@@ -1001,6 +1009,25 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
         <source>Save to Contacts as:</source>
         <translation>Zapisz do Kontaktów jako:</translation>
     </message>
+    <message>
+        <source>Remove recepient</source>
+        <translation>Usuń odbiorcę</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui</name>
+    <message>
+        <source>Synchronization in progress</source>
+        <translation type="obsolete">Trwa synchronizacja z siecią</translation>
+    </message>
+    <message>
+        <source>Not synchronized</source>
+        <translation type="obsolete">Nie zsynchronizowany</translation>
+    </message>
+    <message>
+        <source>Synchronized</source>
+        <translation type="obsolete">Zsynchronizowany</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::AboutDialog</name>
@@ -1037,6 +1064,30 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
     <message>
         <source>Edit contact</source>
         <translation>Edytuj kontakt</translation>
+    </message>
+    <message>
+        <source>Copy &amp;label</source>
+        <translation>Skopiuj &amp;nazwę</translation>
+    </message>
+    <message>
+        <source>Copy Payment &amp;ID</source>
+        <translation>Skopiuj &amp;Identyfikator płatności</translation>
+    </message>
+    <message>
+        <source>Copy &amp;address</source>
+        <translation>Skopiuj &amp;adres</translation>
+    </message>
+    <message>
+        <source>&amp;Edit</source>
+        <translation>&amp;Edytuj</translation>
+    </message>
+    <message>
+        <source>&amp;Delete</source>
+        <translation>&amp;Usuń</translation>
+    </message>
+    <message>
+        <source>Contact with such label already exists.</source>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -1238,7 +1289,7 @@ Jesteś pewien?</translation>
     </message>
     <message>
         <source>%1 peers</source>
-        <translation>%1 peerów</translation>
+        <translation type="vanished">%1 peerów</translation>
     </message>
     <message>
         <source>Synchronization in progress</source>
@@ -1287,6 +1338,14 @@ Jesteś pewien?</translation>
     <message>
         <source>Connected through remote node</source>
         <translation>Połączone za pośrednictwem zdalnego węzła</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n peer(s)</source>
+        <translation>
+            <numerusform>%n peer</numerusform>
+            <numerusform>%n peera</numerusform>
+            <numerusform>%n peerów</numerusform>
+        </translation>
     </message>
 </context>
 <context>
@@ -1421,6 +1480,66 @@ Jesteś pewien?</translation>
         <source>Show &amp;details</source>
         <translation>&amp;Pokaż szczegóły</translation>
     </message>
+    <message>
+        <source>Unconfirmed</source>
+        <translation>Niepotwierdzone</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>Wszystkie</translation>
+    </message>
+    <message>
+        <source>Today</source>
+        <translation>Dzisiaj</translation>
+    </message>
+    <message>
+        <source>This week</source>
+        <translation>W tym tygodniu</translation>
+    </message>
+    <message>
+        <source>This month</source>
+        <translation>W tym miesiącu</translation>
+    </message>
+    <message>
+        <source>Last month</source>
+        <translation>W zeszłym miesiącu</translation>
+    </message>
+    <message>
+        <source>This year</source>
+        <translation>W tym roku</translation>
+    </message>
+    <message>
+        <source>Range...</source>
+        <translation>Okres...</translation>
+    </message>
+    <message>
+        <source>to</source>
+        <translation>do</translation>
+    </message>
+    <message>
+        <source>From</source>
+        <translation>Od</translation>
+    </message>
+    <message>
+        <source>All types</source>
+        <translation>Wszystkie typy</translation>
+    </message>
+    <message>
+        <source>Incoming</source>
+        <translation>Przychodzące</translation>
+    </message>
+    <message>
+        <source>Outgoing</source>
+        <translation>Wychodzące</translation>
+    </message>
+    <message>
+        <source>Mined</source>
+        <translation>Zdobyte</translation>
+    </message>
+    <message>
+        <source>Sent to myself</source>
+        <translation>Wysłane do siebie</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::TransactionsModel</name>
@@ -1455,6 +1574,54 @@ Jesteś pewien?</translation>
     <message>
         <source>(n/a)</source>
         <translation>brak danych</translation>
+    </message>
+    <message>
+        <source>Incoming transaction, unconfirmed</source>
+        <translation>Przychodząca transakcja, niepotwierdzona</translation>
+    </message>
+    <message>
+        <source>Mined, confirmations</source>
+        <translation>Wydobyto, niepotwierdzona</translation>
+    </message>
+    <message>
+        <source>Sent to yourself, unconfirmed</source>
+        <translation>Wysłana do siebie, niepotwierdzona</translation>
+    </message>
+    <message>
+        <source>Outgoing transaction, unconfirmed</source>
+        <translation>Wychodząca transakcja, niepotwierdzona</translation>
+    </message>
+    <message numerus="yes">
+        <source>Incoming transaction, %n confirmation(s)</source>
+        <translation>
+            <numerusform>Przychodząca transakcja, %n potwiedzenie</numerusform>
+            <numerusform>Przychodząca transakcja, %n potwiedzenia</numerusform>
+            <numerusform>Przychodząca transakcja, %n potwiedzeń</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Mined, %n confirmation(s)</source>
+        <translation>
+            <numerusform>Wydobyto, %n potwiedzenie</numerusform>
+            <numerusform>Wydobyto, %n </numerusform>
+            <numerusform>Wydobyto, %n potwiedzeń</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Sent to yourself, %n confirmation(s)</source>
+        <translation>
+            <numerusform>Wysłana do siebie, %n potwiedzenie</numerusform>
+            <numerusform>Wysłana do siebie, %n potwiedzenia</numerusform>
+            <numerusform>Wysłana do siebie, %n potwiedzeń</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Outgoing transaction, %n confirmation(s)</source>
+        <translation>
+            <numerusform>Wychodząca transakcja, %n potwiedzenie</numerusform>
+            <numerusform>Wychodząca transakcja, %n potwiedzenia</numerusform>
+            <numerusform>Wychodząca transakcja, %n potwiedzeń</numerusform>
+        </translation>
     </message>
 </context>
 <context>

@@ -12,8 +12,8 @@
         <translation>Закрити</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Karbowanec v. %1&lt;/p&gt;&lt;p&gt;This is the next generation anonymous cryptocurrency based on CryptoNote.&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2015. CryptoNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2016. Karbowanec Developers&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://opensource.org/licenses/MIT&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://cryptonote.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://cryptonote.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://karbowanec.com/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://karbowanec.com/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Карбованець версія %1&lt;/p&gt;&lt;p&gt;Це криптовалюта нового покоління на основі CryptoNote.&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2015. CryptoNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2016. Karbowanec Developers&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://opensource.org/licenses/MIT&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://cryptonote.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://cryptonote.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://karbowanec.com/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://karbowanec.com/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Karbowanec v. %1&lt;/p&gt;&lt;p&gt;This is the next generation anonymous cryptocurrency based on CryptoNote.&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2015. CryptoNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2015-2016. DigitalNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2016-2017. Karbowanec Developers&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://opensource.org/licenses/MIT&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://cryptonote.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://cryptonote.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://karbowanec.com/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://karbowanec.com/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Карбованець версія %1&lt;/p&gt;&lt;p&gt;Це криптовалюта нового покоління на основі CryptoNote.&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2015. CryptoNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2015-2016. DigitalNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2016-2017. Karbowanec Developers&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://opensource.org/licenses/MIT&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://cryptonote.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://cryptonote.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://karbowanec.com/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://karbowanec.com/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -191,7 +191,7 @@
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Are you sure you want to send &lt;strong&gt;%1 KRB&lt;/strong&gt;?&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Вислати &lt;strong&gt;%1 крб.&lt;/strong&gt;?&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Надіслати &lt;strong&gt;%1 крб.&lt;/strong&gt;?&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>Yes</source>
@@ -379,7 +379,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Send</source>
-        <translation>Вислати</translation>
+        <translation>Надіслати</translation>
     </message>
     <message>
         <source>Receive</source>
@@ -852,7 +852,7 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>Send</source>
-        <translation>Вислати</translation>
+        <translation>Надіслати</translation>
     </message>
     <message>
         <source>Clear All</source>
@@ -958,6 +958,14 @@ Do you want to go to download page?</source>
         <source>Selected amount: </source>
         <translation>Разом у вибраному: </translation>
     </message>
+    <message>
+        <source>Search for address, amount, transaction hash or Payment ID</source>
+        <translation>Пошук адреси, суми, транзакції чи ідентифікатора платежу</translation>
+    </message>
+    <message>
+        <source>Reset filter</source>
+        <translation>Скинути фільтр</translation>
+    </message>
 </context>
 <context>
     <name>TransferFrame</name>
@@ -1005,6 +1013,10 @@ Do you want to go to download page?</source>
         <source>Save to Contacts as:</source>
         <translation>Зберегти в контакти як:</translation>
     </message>
+    <message>
+        <source>Remove recepient</source>
+        <translation>Видалити отримувача</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::AboutDialog</name>
@@ -1041,6 +1053,34 @@ Do you want to go to download page?</source>
     <message>
         <source>Edit contact</source>
         <translation>Редагування контакту</translation>
+    </message>
+    <message>
+        <source>Contact with such label and address already exists.</source>
+        <translation type="vanished">Контакт з такою назвою й адресою вже є.</translation>
+    </message>
+    <message>
+        <source>Copy &amp;label</source>
+        <translation>Скопіювати &amp;назву</translation>
+    </message>
+    <message>
+        <source>Copy Payment &amp;ID</source>
+        <translation>Скопіювати &amp;ідентифікатор платежу</translation>
+    </message>
+    <message>
+        <source>Copy &amp;address</source>
+        <translation>Скопіювати &amp;адресу</translation>
+    </message>
+    <message>
+        <source>&amp;Edit</source>
+        <translation>&amp;Редагувати</translation>
+    </message>
+    <message>
+        <source>&amp;Delete</source>
+        <translation>&amp;Видалити</translation>
+    </message>
+    <message>
+        <source>Contact with such label already exists.</source>
+        <translation>Контакт з такою назвою вже є.</translation>
     </message>
 </context>
 <context>
@@ -1152,7 +1192,7 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Are you sure you want to send &lt;strong&gt;without Payment ID&lt;/strong&gt;?&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Дійсно хочете вислати &lt;strong&gt;без ідентифікатора платежу&lt;/strong&gt;?&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Дійсно хочете надіслати &lt;strong&gt;без ідентифікатора платежу&lt;/strong&gt;?&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -1242,7 +1282,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>%1 peers</source>
-        <translation>%1 пірів</translation>
+        <translation type="vanished">%1 пірів</translation>
     </message>
     <message>
         <source>Synchronization in progress</source>
@@ -1291,6 +1331,14 @@ Are you sure?</source>
     <message>
         <source>Connected through remote node</source>
         <translation>Підключення через віддалений вузол</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n peer(s)</source>
+        <translation>
+            <numerusform>%n пір</numerusform>
+            <numerusform>%n піри</numerusform>
+            <numerusform>%n пірів</numerusform>
+        </translation>
     </message>
 </context>
 <context>
@@ -1425,6 +1473,66 @@ Are you sure?</source>
         <source>Show &amp;details</source>
         <translation>&amp;Детальніше</translation>
     </message>
+    <message>
+        <source>Unconfirmed</source>
+        <translation>Непідтверджені</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>Усі</translation>
+    </message>
+    <message>
+        <source>Today</source>
+        <translation>Сьогодні</translation>
+    </message>
+    <message>
+        <source>This week</source>
+        <translation>Цього тижня</translation>
+    </message>
+    <message>
+        <source>This month</source>
+        <translation>Цього місяця</translation>
+    </message>
+    <message>
+        <source>Last month</source>
+        <translation>Минулого місяця</translation>
+    </message>
+    <message>
+        <source>This year</source>
+        <translation>Цього року</translation>
+    </message>
+    <message>
+        <source>Range...</source>
+        <translation>Проміжок...</translation>
+    </message>
+    <message>
+        <source>to</source>
+        <translation>до</translation>
+    </message>
+    <message>
+        <source>From</source>
+        <translation>Від</translation>
+    </message>
+    <message>
+        <source>All types</source>
+        <translation>Всі типи</translation>
+    </message>
+    <message>
+        <source>Incoming</source>
+        <translation>Вхідні</translation>
+    </message>
+    <message>
+        <source>Outgoing</source>
+        <translation>Вихідні</translation>
+    </message>
+    <message>
+        <source>Mined</source>
+        <translation>Викарбувані</translation>
+    </message>
+    <message>
+        <source>Sent to myself</source>
+        <translation>Вислані самому собі</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::TransactionsModel</name>
@@ -1459,6 +1567,54 @@ Are you sure?</source>
     <message>
         <source>(n/a)</source>
         <translation>немає даних</translation>
+    </message>
+    <message>
+        <source>Incoming transaction, unconfirmed</source>
+        <translation>Вхідна транзакція, непідтверджена</translation>
+    </message>
+    <message>
+        <source>Mined, confirmations</source>
+        <translation>Викарбувано, непідтверджена</translation>
+    </message>
+    <message>
+        <source>Sent to yourself, unconfirmed</source>
+        <translation>Вихідна транзакція, непідтверджена</translation>
+    </message>
+    <message>
+        <source>Outgoing transaction, unconfirmed</source>
+        <translation>Вихідна транзакція, непідтверджена</translation>
+    </message>
+    <message numerus="yes">
+        <source>Incoming transaction, %n confirmation(s)</source>
+        <translation>
+            <numerusform>Вхідна транзакція, %n підтвердження</numerusform>
+            <numerusform>Вхідна транзакція, %n підтвердження</numerusform>
+            <numerusform>Вхідна транзакція, %n підтверджень</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Mined, %n confirmation(s)</source>
+        <translation>
+            <numerusform>Викарбувано, %n підтвердження</numerusform>
+            <numerusform>Викарбувано, %n підтвердження</numerusform>
+            <numerusform>Викарбувано, %n підтверджень</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Sent to yourself, %n confirmation(s)</source>
+        <translation>
+            <numerusform>Вислано самому собі, %n підтвердження</numerusform>
+            <numerusform>Вислано самому собі, %n підтвердження</numerusform>
+            <numerusform>Вислано самому собі, %n підтверджень</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Outgoing transaction, %n confirmation(s)</source>
+        <translation>
+            <numerusform>Вихідна транзакція, %n підтвердження</numerusform>
+            <numerusform>Вихідна транзакція, %n підтвердження</numerusform>
+            <numerusform>Вихідна транзакція, %n підтверджень</numerusform>
+        </translation>
     </message>
 </context>
 <context>

@@ -72,12 +72,24 @@
        <property name="text">
         <string>OK</string>
        </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>true</bool>
+       </property>
       </widget>
      </item>
     </layout>
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>m_hostEdit</tabstop>
+  <tabstop>m_portSpin</tabstop>
+  <tabstop>m_cancelButton</tabstop>
+  <tabstop>m_okButton</tabstop>
+ </tabstops>
  <resources/>
  <connections>
   <connection>

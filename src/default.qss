@@ -18,8 +18,6 @@ QDialog {
 	background:qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0	rgb(255, 255, 255) stop: 1.0 rgb(156, 193, 239));
 }
 
-
-
 QPushButton, QToolButton {
 	font-size: 12px;
 	line-height: 1.8;
@@ -57,13 +55,13 @@ QToolButton:hover {
 	background-color: #628bb3;
 }
 
-QPushButton::focus:hover,
-QToolButton::focus:hover {
-	background-color: #346392;
+QPushButton:disabled,
+QToolButton:disabled {
+	background-color: #84acd3;
 }
 
-QPushButton::default:hover,
-QToolButton::default:hover {
+QPushButton::focus:hover,
+QToolButton::focus:hover {
 	background-color: #346392;
 }
 
@@ -300,4 +298,12 @@ QStatusBar#statusBar {
 
 #m_accountFrame #addressStatusLabel {
 	color: #41548D;
+}
+
+QToolTip{
+	color: #ffffff;
+	background-color: #233E69;
+	border: none;
+	padding: 4px;
+	opacity: 230;
 }
