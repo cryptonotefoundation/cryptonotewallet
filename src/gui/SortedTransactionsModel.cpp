@@ -37,11 +37,11 @@ bool SortedTransactionsModel::filterAcceptsRow(int _row, const QModelIndex &_par
   if(datetime < dateFrom || datetime > dateTo)
     return false;
 
-  int currentType = _index.data(TransactionsModel::ROLE_TYPE).value<quint8>();
-  if(selectedtxtype == 4){
-     return true;
-  } else {
-     return (currentType == selectedtxtype);
+  int txType = _index.data(TransactionsModel::ROLE_TYPE).value<quint8>();
+
+  if(selectedtxtype != 4) {
+    if(txType != selectedtxtype)
+      return false;
   }
 
   QModelIndex index2 = sourceModel()->index(_row, 2, _parent);
