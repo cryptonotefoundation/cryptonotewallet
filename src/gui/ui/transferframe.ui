@@ -31,9 +31,6 @@
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
       <widget class="QLineEdit" name="m_addressEdit">
-       <property name="maxLength">
-        <number>95</number>
-       </property>
        <property name="clearButtonEnabled">
         <bool>false</bool>
        </property>
@@ -232,9 +229,26 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>m_addressEdit</sender>
+   <signal>textEdited(QString)</signal>
+   <receiver>TransferFrame</receiver>
+   <slot>addressEdited(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>460</x>
+     <y>18</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>442</x>
+     <y>66</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>addressBookClicked()</slot>
   <slot>pasteClicked()</slot>
+  <slot>addressEdited(QString)</slot>
  </slots>
 </ui>
