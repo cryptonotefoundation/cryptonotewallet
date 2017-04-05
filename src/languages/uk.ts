@@ -538,7 +538,27 @@ Please wait...</source>
     </message>
     <message>
         <source>Pause mining</source>
-        <translation>Призупинити карбування</translation>
+        <translation type="vanished">Призупинити карбування</translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation>Налаштування</translation>
+    </message>
+    <message>
+        <source>Pool mining</source>
+        <translation>Карбування в пулі</translation>
+    </message>
+    <message>
+        <source>Stop mining</source>
+        <translation>Зупинити карбування</translation>
+    </message>
+    <message>
+        <source>Solo mining</source>
+        <translation>Карбування соло</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation>Стан</translation>
     </message>
 </context>
 <context>
@@ -1345,7 +1365,7 @@ Are you sure?</source>
     <name>WalletGui::MiningFrame</name>
     <message>
         <source>Mining. Hashrate: %1 H/s</source>
-        <translation>Карбую. Хешрейт: %1 H/s</translation>
+        <translation type="vanished">Карбую. Хешрейт: %1 H/s</translation>
     </message>
     <message>
         <source>Error: %1</source>
@@ -1358,6 +1378,18 @@ Are you sure?</source>
     <message>
         <source>Stopped</source>
         <translation>Зупинено</translation>
+    </message>
+    <message>
+        <source>Mining solo. Hashrate: %1 H/s</source>
+        <translation>Карбую соло. Швидкість: %1 H/s</translation>
+    </message>
+    <message>
+        <source>Starting solo minining...</source>
+        <translation>Запуск карбування соло...</translation>
+    </message>
+    <message>
+        <source>Mining in pool. Hashrate: %1 H/s</source>
+        <translation>Карбування в пулі. Швидкість: %1 H/s</translation>
     </message>
 </context>
 <context>

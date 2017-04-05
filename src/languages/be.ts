@@ -538,7 +538,27 @@ Please wait...</source>
     </message>
     <message>
         <source>Pause mining</source>
+        <translation type="vanished">Прыпыніць чаканку</translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation>Налады</translation>
+    </message>
+    <message>
+        <source>Pool mining</source>
+        <translation>Чаканка ў пуле</translation>
+    </message>
+    <message>
+        <source>Stop mining</source>
         <translation>Прыпыніць чаканку</translation>
+    </message>
+    <message>
+        <source>Solo mining</source>
+        <translation>Чаканка соло</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation>Стан</translation>
     </message>
 </context>
 <context>
@@ -1352,7 +1372,7 @@ Are you sure?</source>
     <name>WalletGui::MiningFrame</name>
     <message>
         <source>Mining. Hashrate: %1 H/s</source>
-        <translation>Чаканка. Хешрейт: %1 H/s</translation>
+        <translation type="vanished">Чаканка. Хешрейт: %1 H/s</translation>
     </message>
     <message>
         <source>Error: %1</source>
@@ -1365,6 +1385,18 @@ Are you sure?</source>
     <message>
         <source>Stopped</source>
         <translation>Спынена</translation>
+    </message>
+    <message>
+        <source>Mining solo. Hashrate: %1 H/s</source>
+        <translation>Чаканка соло. Хешрейт: %1 H/s</translation>
+    </message>
+    <message>
+        <source>Starting solo minining...</source>
+        <translation>Запуск чаканкі соло...</translation>
+    </message>
+    <message>
+        <source>Mining in pool. Hashrate: %1 H/s</source>
+        <translation>Чаканка ў пуле. Хешрейт: %1 H/s</translation>
     </message>
 </context>
 <context>

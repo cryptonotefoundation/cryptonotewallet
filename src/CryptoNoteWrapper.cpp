@@ -1,4 +1,5 @@
 // Copyright (c) 2011-2015 The Cryptonote developers
+// Copyright (c) 2016-2017 The Karbowanec developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -10,12 +11,19 @@
 #include "CryptoNoteCore/CoreConfig.h"
 #include "P2p/NetNodeConfig.h"
 #include "CryptoNoteCore/Core.h"
+#include "CryptoNoteCore/Miner.h"
+#include "CryptoNoteCore/MinerConfig.h"
+#include "Rpc/CoreRpcServerCommandsDefinitions.h"
+#include "Rpc/HttpClient.h"
 #include "CryptoNoteProtocol/CryptoNoteProtocolHandler.h"
 #include "InProcessNode/InProcessNode.h"
 #include "P2p/NetNode.h"
 #include "WalletLegacy/WalletLegacy.h"
 #include "Logging/LoggerManager.h"
 #include "System/Dispatcher.h"
+#include "CurrencyAdapter.h"
+#include "Settings.h"
+#include <QDebug>
 
 namespace WalletGui {
 
@@ -74,6 +82,19 @@ std::string extractPaymentId(const std::string& extra) {
   return result;
 }
 
+inline std::string interpret_rpc_response(bool ok, const std::string& status) {
+  std::string err;
+  if (ok) {
+    if (status == CORE_RPC_STATUS_BUSY) {
+      err = "daemon is busy. Please try later";
+    } else if (status != CORE_RPC_STATUS_OK) {
+      err = status;
+    }
+  } else {
+    err = "possible lost connection to daemon";
+  }
+  return err;
+}
 
 }
 
@@ -85,6 +106,7 @@ public:
   RpcNode(const CryptoNote::Currency& currency, INodeCallback& callback, const std::string& nodeHost, unsigned short nodePort) :
     m_callback(callback),
     m_currency(currency),
+    m_dispatcher(),
     m_node(nodeHost, nodePort) {
     m_node.addObserver(this);
   }
@@ -97,6 +119,58 @@ public:
   }
 
   void deinit() override {
+  }
+
+  uint64_t getSpeed() override {
+    // return zero - go look in daemon
+    return 0;
+  }
+
+  void startMining(const std::string& address, size_t threads_count) override {
+    CryptoNote::COMMAND_RPC_START_MINING::request req;
+    CryptoNote::COMMAND_RPC_START_MINING::response res;
+
+    req.miner_address = address;
+    req.threads_count = threads_count;
+
+    try {
+        //CryptoNote::HttpClient httpClient(m_dispatcher, "127.0.0.1", Settings::instance().getCurrentLocalDaemonPort());
+        CryptoNote::HttpClient httpClient(m_dispatcher, m_node.m_nodeHost, m_node.m_nodePort);
+
+        CryptoNote::invokeJsonCommand(httpClient, "/start_mining", req, res);
+
+        std::string err = interpret_rpc_response(true, res.status);
+        if (err.empty())
+          qDebug() << "Mining started in daemon";
+        else
+          qDebug() << "Mining has NOT been started: " << QString::fromStdString(err);
+
+      } catch (const CryptoNote::ConnectException&) {
+        qDebug() << "Wallet failed to connect to daemon.";
+      } catch (const std::exception& e) {
+        qDebug() << "Failed to invoke rpc method: " << e.what();
+      }
+  }
+
+  void stopMining() override {
+      CryptoNote::COMMAND_RPC_STOP_MINING::request req;
+      CryptoNote::COMMAND_RPC_STOP_MINING::response res;
+
+      try {
+          //CryptoNote::HttpClient httpClient(m_dispatcher, "127.0.0.1", Settings::instance().getCurrentLocalDaemonPort());
+          CryptoNote::HttpClient httpClient(m_dispatcher, m_node.m_nodeHost, m_node.m_nodePort);
+
+          CryptoNote::invokeJsonCommand(httpClient, "/stop_mining", req, res);
+          std::string err = interpret_rpc_response(true, res.status);
+          if (err.empty())
+            qDebug() << "Mining stopped in daemon";
+          else
+            qDebug() << "Mining has NOT been stopped: " << QString::fromStdString(err);
+        } catch (const CryptoNote::ConnectException&) {
+          qDebug() << "Wallet failed to connect to daemon.";
+        } catch (const std::exception& e) {
+          qDebug() << "Failed to invoke rpc method: " << e.what();
+        }
   }
 
   std::string convertPaymentId(const std::string& paymentIdString) override {
@@ -131,6 +205,7 @@ private:
   INodeCallback& m_callback;
   const CryptoNote::Currency& m_currency;
   CryptoNote::NodeRpcProxy m_node;
+  System::Dispatcher m_dispatcher;
 
   void peerCountUpdated(size_t count) {
     m_callback.peerCountUpdated(*this, count);
@@ -198,6 +273,18 @@ public:
 
   void deinit() override {
     m_nodeServer.sendStopSignal();
+  }
+
+  void startMining(const std::string& address, size_t threads_count) override {
+    m_core.get_miner().start(CurrencyAdapter::instance().internalAddress(QString::fromStdString(address)), threads_count);
+  }
+
+  void stopMining() override {
+    m_core.get_miner().stop();
+  }
+
+  uint64_t getSpeed() override {
+    return m_core.get_miner().get_speed();
   }
 
   std::string convertPaymentId(const std::string& paymentIdString) override {

@@ -1,4 +1,5 @@
 // Copyright (c) 2011-2015 The Cryptonote developers
+// Copyright (c) 2016-2017 The Karbowanec developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -8,6 +9,7 @@
 #include <memory>
 #include <string>
 #include <system_error>
+#include "CryptoNoteCore/Core.h"
 
 namespace CryptoNote {
 
@@ -37,6 +39,10 @@ public:
   virtual uint64_t getLastLocalBlockHeight() const = 0;
   virtual uint64_t getLastLocalBlockTimestamp() const = 0;
   virtual uint64_t getPeerCount() const = 0;
+
+  virtual void startMining(const std::string& address, size_t threads_count) = 0;
+  virtual void stopMining() = 0;
+  virtual uint64_t getSpeed() = 0;
 
   virtual CryptoNote::IWalletLegacy* createWallet() = 0;
 };

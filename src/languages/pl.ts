@@ -538,7 +538,27 @@ Proszę czekać...</translation>
     </message>
     <message>
         <source>Pause mining</source>
-        <translation>Przerwij karbowanie</translation>
+        <translation type="vanished">Przerwij karbowanie</translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation>Ustawienia</translation>
+    </message>
+    <message>
+        <source>Pool mining</source>
+        <translation>Karbowanie w kopalni</translation>
+    </message>
+    <message>
+        <source>Stop mining</source>
+        <translation>Zatrzymaj karbowanie</translation>
+    </message>
+    <message>
+        <source>Solo mining</source>
+        <translation>Karbowanie solo</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation>Stan</translation>
     </message>
 </context>
 <context>
@@ -1352,7 +1372,7 @@ Jesteś pewien?</translation>
     <name>WalletGui::MiningFrame</name>
     <message>
         <source>Mining. Hashrate: %1 H/s</source>
-        <translation>Kopię. Hashrate: %1 H/s</translation>
+        <translation type="vanished">Kopię. Hashrate: %1 H/s</translation>
     </message>
     <message>
         <source>Error: %1</source>
@@ -1365,6 +1385,18 @@ Jesteś pewien?</translation>
     <message>
         <source>Stopped</source>
         <translation>Zatrzymano</translation>
+    </message>
+    <message>
+        <source>Mining solo. Hashrate: %1 H/s</source>
+        <translation>Trwa karbowanie solo. Hashrate: %1 H/s</translation>
+    </message>
+    <message>
+        <source>Starting solo minining...</source>
+        <translation>Uruchamia się karbowanie solo...</translation>
+    </message>
+    <message>
+        <source>Mining in pool. Hashrate: %1 H/s</source>
+        <translation>Trwa karbowanie w kopalni. Hashrate: %1 H/s</translation>
     </message>
 </context>
 <context>

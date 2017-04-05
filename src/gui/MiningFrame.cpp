@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2016 The Cryptonote developers
 // Copyright (c) 2015-2016 XDN developers
-// Copyright (c) 2016 The Karbowanec developers
+// Copyright (c) 2016-2017 The Karbowanec developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -14,6 +14,9 @@
 #include "PoolModel.h"
 #include "Settings.h"
 #include "WalletAdapter.h"
+#include "NodeAdapter.h"
+#include "CryptoNoteWrapper.h"
+#include "CurrencyAdapter.h"
 
 #include "ui_miningframe.h"
 
@@ -22,17 +25,23 @@ namespace WalletGui {
 const quint32 HASHRATE_TIMER_INTERVAL = 1000;
 
 MiningFrame::MiningFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::MiningFrame), m_miner(nullptr),
-  m_poolModel(new PoolModel(this)), m_hashRateTimerId(-1) {
+  m_poolModel(new PoolModel(this)), m_hashRateTimerId(-1), m_soloHashRateTimerId(-1) {
   m_ui->setupUi(this);
   m_ui->m_poolCombo->setModel(m_poolModel);
   m_ui->m_poolCombo->setCurrentIndex(0);
   initCpuCoreList();
-
+/*
+  QString connection = Settings::instance().getConnection();
+  if (connection.compare("remote") == 0) {
+    m_ui->m_startSolo->setDisabled(true);
+  }
+*/
   connect(&WalletAdapter::instance(), &WalletAdapter::walletCloseCompletedSignal, this, &MiningFrame::walletClosed, Qt::QueuedConnection);
 }
 
 MiningFrame::~MiningFrame() {
   stopMining();
+  stopSolo();
 }
 
 void MiningFrame::timerEvent(QTimerEvent* _event) {
@@ -42,7 +51,17 @@ void MiningFrame::timerEvent(QTimerEvent* _event) {
       return;
     }
 
-    m_ui->m_stateLabel->setText(tr("Mining. Hashrate: %1 H/s").arg(hashRate));
+    m_ui->m_stateLabel->setText(tr("Mining in pool. Hashrate: %1 H/s").arg(hashRate));
+    return;
+  }
+
+  if (_event->timerId() == m_soloHashRateTimerId) {
+    quint64 soloHashRate = NodeAdapter::instance().getSpeed();
+    if (soloHashRate == 0) {
+      return;
+    }
+
+    m_ui->m_stateLabel->setText(tr("Mining solo. Hashrate: %1 H/s").arg(soloHashRate));
     return;
   }
 
@@ -100,6 +119,19 @@ void MiningFrame::walletClosed() {
   stopMining();
 }
 
+void MiningFrame::startSolo() {
+  NodeAdapter::instance().startSoloMining(WalletAdapter::instance().getAddress(), m_ui->m_cpuCombo->currentData().toUInt());
+  m_ui->m_stateLabel->setText(tr("Starting solo minining..."));
+  m_soloHashRateTimerId = startTimer(HASHRATE_TIMER_INTERVAL);
+}
+
+void MiningFrame::stopSolo() {
+  killTimer(m_soloHashRateTimerId);
+  m_soloHashRateTimerId = -1;
+  NodeAdapter::instance().stopSoloMining();
+  m_ui->m_stateLabel->setText(tr("Stopped"));
+}
+
 void MiningFrame::addPoolClicked() {
   NewPoolDialog dlg(&MainWindow::instance());
   if (dlg.exec() == QDialog::Accepted) {
@@ -118,6 +150,14 @@ void MiningFrame::startStopClicked(QAbstractButton* _button) {
     startMining();
   } else if (_button == m_ui->m_stopButton && m_ui->m_stopButton->isChecked()) {
     stopMining();
+  }
+}
+
+void MiningFrame::startStopSoloClicked(QAbstractButton* _button) {
+  if (_button == m_ui->m_startSolo && m_ui->m_startSolo->isChecked()) {
+    startSolo();
+  } else if (_button == m_ui->m_stopSolo && m_ui->m_stopSolo->isChecked()) {
+    stopSolo();
   }
 }
 

@@ -1,4 +1,5 @@
 // Copyright (c) 2011-2015 The Cryptonote developers
+// Copyright (c) 2016-2017 The Karbowanec developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -108,6 +109,14 @@ quint64 CurrencyAdapter::parseAmount(const QString& _amountString) const {
 bool CurrencyAdapter::validateAddress(const QString& _address) const {
   CryptoNote::AccountPublicAddress internalAddress;
   return m_currency.parseAccountAddressString(_address.toStdString(), internalAddress);
+}
+
+CryptoNote::AccountPublicAddress CurrencyAdapter::internalAddress(const QString& _address) const {
+  CryptoNote::AccountPublicAddress internalAddress;
+  if(!m_currency.parseAccountAddressString(_address.toStdString(), internalAddress)) {
+    // Error message
+  }
+  return internalAddress;
 }
 
 }
