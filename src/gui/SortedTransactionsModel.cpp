@@ -49,10 +49,10 @@ bool SortedTransactionsModel::filterAcceptsRow(int _row, const QModelIndex &_par
   QModelIndex index4 = sourceModel()->index(_row, 4, _parent);
   QModelIndex index5 = sourceModel()->index(_row, 5, _parent);
 
-  return (sourceModel()->data(index2).toString().contains(searchstring)
-       || sourceModel()->data(index3).toString().contains(searchstring)
-       || sourceModel()->data(index4).toString().contains(searchstring)
-       || sourceModel()->data(index5).toString().contains(searchstring));
+  return (sourceModel()->data(index2).toString().contains(searchstring,Qt::CaseInsensitive)
+       || sourceModel()->data(index3).toString().contains(searchstring,Qt::CaseInsensitive)
+       || sourceModel()->data(index4).toString().contains(searchstring,Qt::CaseInsensitive)
+       || sourceModel()->data(index5).toString().contains(searchstring,Qt::CaseInsensitive));
 
   return true;
  }
