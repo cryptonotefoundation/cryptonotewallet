@@ -18,6 +18,7 @@
 #include "TransactionDetailsDialog.h"
 #include "TransactionsListModel.h"
 #include "TransactionsModel.h"
+#include "WalletAdapter.h"
 
 #include "ui_transactionsframe.h"
 
@@ -42,6 +43,7 @@ TransactionsFrame::TransactionsFrame(QWidget* _parent) : QFrame(_parent), m_ui(n
 
   m_ui->m_transactionsView->setContextMenuPolicy(Qt::CustomContextMenu);
   connect(m_ui->m_transactionsView, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(onCustomContextMenu(const QPoint &)));
+  connect(&WalletAdapter::instance(), &WalletAdapter::walletCloseCompletedSignal, this, &TransactionsFrame::walletClosed);
 
   contextMenu = new QMenu();
   contextMenu->addAction(QString(tr("Copy transaction &hash")), this, SLOT(copyTxHash()));
@@ -175,6 +177,7 @@ void TransactionsFrame::computeSelected() {
     }
     QString amountText = QString::number(amount, 'f', 12) + " " + CurrencyAdapter::instance().getCurrencyTicker().toUpper();
     if (amount < 0) amountText = "<span style='color:red;'>" + amountText + "</span>";
+    m_ui->m_selectedAmount->show();
     m_ui->m_selectedAmount->setText(amountText);
     m_ui->m_selectedAmountLabel->show();
 }
@@ -338,9 +341,15 @@ void TransactionsFrame::resetFilterClicked() {
 }
 
 void TransactionsFrame::includeUnconfirmed() {
-    SortedTransactionsModel::instance().setDateRange(
-        QDateTime::QDateTime(),
-        SortedTransactionsModel::MAX_DATE);
+  SortedTransactionsModel::instance().setDateRange(
+  QDateTime::QDateTime(),
+  SortedTransactionsModel::MAX_DATE);
+}
+
+void TransactionsFrame::walletClosed() {
+  m_ui->m_selectedAmount->setText("");
+  m_ui->m_selectedAmount->hide();
+  m_ui->m_selectedAmountLabel->hide();
 }
 
 }

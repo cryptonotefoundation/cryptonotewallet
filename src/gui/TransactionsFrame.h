@@ -69,6 +69,7 @@ public Q_SLOTS:
   void showTxDetails();
   void computeSelected();
   void showTransactionDetails(const QModelIndex& _index);
+  void walletClosed();
 
 private:
   QScopedPointer<Ui::TransactionsFrame> m_ui;
