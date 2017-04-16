@@ -37,6 +37,7 @@ MiningFrame::MiningFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::Minin
   }
 */
   connect(&WalletAdapter::instance(), &WalletAdapter::walletCloseCompletedSignal, this, &MiningFrame::walletClosed, Qt::QueuedConnection);
+  connect(&WalletAdapter::instance(), &WalletAdapter::walletInitCompletedSignal, this, &MiningFrame::walletOpened, Qt::QueuedConnection);
 }
 
 MiningFrame::~MiningFrame() {
@@ -50,8 +51,7 @@ void MiningFrame::timerEvent(QTimerEvent* _event) {
     if (hashRate == 0) {
       return;
     }
-
-    m_ui->m_stateLabel->setText(tr("Mining in pool. Hashrate: %1 H/s").arg(hashRate));
+    m_ui->m_poolLabel->setText(tr("Mining in pool. Hashrate: %1 H/s").arg(hashRate));
     return;
   }
 
@@ -60,8 +60,7 @@ void MiningFrame::timerEvent(QTimerEvent* _event) {
     if (soloHashRate == 0) {
       return;
     }
-
-    m_ui->m_stateLabel->setText(tr("Mining solo. Hashrate: %1 H/s").arg(soloHashRate));
+    m_ui->m_soloLabel->setText(tr("Mining solo. Hashrate: %1 H/s").arg(soloHashRate));
     return;
   }
 
@@ -81,6 +80,28 @@ void MiningFrame::initCpuCoreList() {
     m_ui->m_cpuCombo->setCurrentIndex((cpuCoreCount - 1) / 2);
 }
 
+void MiningFrame::walletOpened() {
+  stopMining();
+  stopSolo();
+  m_wallet_closed = false;
+  m_ui->m_stopButton->isChecked();
+  m_ui->m_startButton->setEnabled(true);
+  m_ui->m_stopSolo->isChecked();
+  m_ui->m_startSolo->setEnabled(true);
+}
+
+void MiningFrame::walletClosed() {
+  // allow mining after wallet is closed to it's address
+  // but mining can't be started if there's no open wallet
+  // stopMining();
+  // stopSolo();
+  m_wallet_closed = true;
+  m_ui->m_startButton->setEnabled(false);
+  m_ui->m_stopButton->isChecked();
+  m_ui->m_startSolo->setEnabled(false);
+  m_ui->m_stopSolo->isChecked();
+}
+
 void MiningFrame::startMining() {
   Q_ASSERT(m_miner == nullptr);
   QUrl poolUrl = QUrl::fromUserInput(m_ui->m_poolCombo->currentText());
@@ -90,14 +111,13 @@ void MiningFrame::startMining() {
 
   m_miner = new Miner(this, poolUrl.host(), poolUrl.port(), WalletAdapter::instance().getAddress());
   connect(m_miner, &Miner::socketErrorSignal, this, [this](const QString& _errorString) {
-    m_ui->m_stateLabel->setText(tr("Error: %1").arg(_errorString));
+    m_ui->m_poolLabel->setText(tr("Error: %1").arg(_errorString));
   });
 
-  m_ui->m_stateLabel->setText(tr("Starting..."));
+  m_ui->m_poolLabel->setText(tr("Starting..."));
   m_miner->start(m_ui->m_cpuCombo->currentData().toUInt());
   m_hashRateTimerId = startTimer(HASHRATE_TIMER_INTERVAL);
   m_ui->m_poolCombo->setEnabled(false);
-  m_ui->m_cpuCombo->setEnabled(false);
 }
 
 void MiningFrame::stopMining() {
@@ -110,26 +130,22 @@ void MiningFrame::stopMining() {
   m_miner->stop();
   m_miner->deleteLater();
   m_miner = nullptr;
-  m_ui->m_stateLabel->setText(tr("Stopped"));
+  m_ui->m_poolLabel->setText(tr("Stopped"));
   m_ui->m_poolCombo->setEnabled(true);
-  m_ui->m_cpuCombo->setEnabled(true);
-}
-
-void MiningFrame::walletClosed() {
-  stopMining();
 }
 
 void MiningFrame::startSolo() {
   NodeAdapter::instance().startSoloMining(WalletAdapter::instance().getAddress(), m_ui->m_cpuCombo->currentData().toUInt());
-  m_ui->m_stateLabel->setText(tr("Starting solo minining..."));
+  m_ui->m_soloLabel->setText(tr("Starting solo minining..."));
   m_soloHashRateTimerId = startTimer(HASHRATE_TIMER_INTERVAL);
+
 }
 
 void MiningFrame::stopSolo() {
   killTimer(m_soloHashRateTimerId);
   m_soloHashRateTimerId = -1;
   NodeAdapter::instance().stopSoloMining();
-  m_ui->m_stateLabel->setText(tr("Stopped"));
+  m_ui->m_soloLabel->setText(tr("Stopped"));
 }
 
 void MiningFrame::addPoolClicked() {
@@ -146,16 +162,22 @@ void MiningFrame::addPoolClicked() {
 }
 
 void MiningFrame::startStopClicked(QAbstractButton* _button) {
-  if (_button == m_ui->m_startButton && m_ui->m_startButton->isChecked()) {
+  if (_button == m_ui->m_startButton && m_ui->m_startButton->isChecked() && m_wallet_closed != true) {
     startMining();
+  } else if (m_wallet_closed == true && _button == m_ui->m_stopButton && m_ui->m_stopButton->isChecked()) {
+    m_ui->m_startButton->setEnabled(false);
+    stopMining();
   } else if (_button == m_ui->m_stopButton && m_ui->m_stopButton->isChecked()) {
     stopMining();
   }
 }
 
 void MiningFrame::startStopSoloClicked(QAbstractButton* _button) {
-  if (_button == m_ui->m_startSolo && m_ui->m_startSolo->isChecked()) {
+  if (_button == m_ui->m_startSolo && m_ui->m_startSolo->isChecked() && m_wallet_closed != true) {
     startSolo();
+  } else if (m_wallet_closed == true && _button == m_ui->m_stopSolo && m_ui->m_stopSolo->isChecked()) {
+      m_ui->m_startSolo->setEnabled(false);
+      stopSolo();
   } else if (_button == m_ui->m_stopSolo && m_ui->m_stopSolo->isChecked()) {
     stopSolo();
   }

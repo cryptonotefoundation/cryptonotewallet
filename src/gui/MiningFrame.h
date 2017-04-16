@@ -42,6 +42,9 @@ private:
   void startSolo();
   void stopSolo();
 
+  bool m_wallet_closed = false;
+
+  void walletOpened();
   void walletClosed();
   bool isSoloRunning() const;
   quint32 getHashRate() const;
