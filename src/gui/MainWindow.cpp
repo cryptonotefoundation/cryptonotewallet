@@ -709,7 +709,7 @@ void MainWindow::walletClosed() {
   m_ui->m_sendFrame->hide();
   m_ui->m_transactionsFrame->hide();
   m_ui->m_addressBookFrame->hide();
-  m_ui->m_miningFrame->hide();
+  //m_ui->m_miningFrame->hide();
   m_encryptionStateIconLabel->hide();
   m_trackingModeIconLabel->hide();
   m_synchronizationStateIconLabel->hide();
@@ -717,6 +717,7 @@ void MainWindow::walletClosed() {
   Q_FOREACH(auto action, tabActions) {
     action->setEnabled(false);
   }
+  m_ui->m_miningAction->setEnabled(true);
   Settings::instance().setTrackingMode(false);
   updateRecentActionList();
 }

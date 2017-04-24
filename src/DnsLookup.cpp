@@ -26,6 +26,7 @@ void DnsManager::getAddresses(const QString& _urlString) {
   if(urlString.contains('.')) {
     m_dns->setName(urlString);
     m_dns->lookup();
+    qDebug() << urlString;
     connect(m_dns, SIGNAL(finished()), this, SLOT(handleTxtRecords()));
   }
 }
@@ -44,10 +45,8 @@ void DnsManager::handleTxtRecords(){
         int s2 = txt.indexOf("recipient_name=",0,Qt::CaseInsensitive);
         QString address = txt.mid(s1+18,95);
         QString name = txt.mid(s2+15).split(";")[0].toUtf8();
-        qDebug() << name << address;
         if (!address.isEmpty()) {
           Q_EMIT aliasFoundSignal(name, address);
-          return;
         }
       }
     }

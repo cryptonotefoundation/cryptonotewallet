@@ -77,11 +77,12 @@ void TransferFrame::onAliasFound(const QString& _name, const QString& _address) 
 }
 
 void TransferFrame::addressEdited(const QString& _text) {
-  if (m_addressInputTimer != -1) {
-    killTimer(m_addressInputTimer);
+  if(!_text.isEmpty() && _text.contains('.')) {
+    if (m_addressInputTimer != -1) {
+      killTimer(m_addressInputTimer);
+    }
+    m_addressInputTimer = startTimer(ADDRESS_INPUT_INTERVAL);
   }
-
-  m_addressInputTimer = startTimer(ADDRESS_INPUT_INTERVAL);
 }
 
 void TransferFrame::pasteClicked() {
