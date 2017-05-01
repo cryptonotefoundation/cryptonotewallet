@@ -26,7 +26,6 @@ void DnsManager::getAddresses(const QString& _urlString) {
   if(urlString.contains('.')) {
     m_dns->setName(urlString);
     m_dns->lookup();
-    qDebug() << urlString;
     connect(m_dns, SIGNAL(finished()), this, SLOT(handleTxtRecords()));
   }
 }

@@ -246,13 +246,13 @@ void TransactionsFrame::chooseDate(int idx)
     {
     case Unconfirmed:
         SortedTransactionsModel::instance().setDateRange(
-                QDateTime::QDateTime(),
-                QDateTime::QDateTime());
+                QDateTime(),
+                QDateTime());
         break;
 
     case All:
         SortedTransactionsModel::instance().setDateRange(
-                QDateTime::QDateTime(),
+                QDateTime(),
                 SortedTransactionsModel::MAX_DATE);
         break;
     case Today:
@@ -342,7 +342,7 @@ void TransactionsFrame::resetFilterClicked() {
 
 void TransactionsFrame::includeUnconfirmed() {
   SortedTransactionsModel::instance().setDateRange(
-  QDateTime::QDateTime(),
+  QDateTime(),
   SortedTransactionsModel::MAX_DATE);
 }
 

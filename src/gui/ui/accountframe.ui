@@ -275,13 +275,13 @@
          </property>
          <property name="maximumSize">
           <size>
-           <width>30</width>
+           <width>16777215</width>
            <height>20</height>
           </size>
          </property>
          <property name="baseSize">
           <size>
-           <width>30</width>
+           <width>-1</width>
            <height>20</height>
           </size>
          </property>
