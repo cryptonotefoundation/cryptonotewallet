@@ -5,7 +5,7 @@
     <name>AboutDialog</name>
     <message>
         <source>About %1</source>
-        <translation>Про %1</translation>
+        <translation>Про Карбованець</translation>
     </message>
     <message>
         <source>Close</source>
@@ -255,6 +255,10 @@
     <message>
         <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet sends 0.25% fee from each transaction to the node, but no more than 10 KRB.</source>
         <translation>Гаманець підключатиметься до віддаленого вузла, що запущений у локальній або глобальній мережі. Виберіть вузол, або вкажіть IP адресу чи домен та порт нового вузла. У цьому режимі він сплачує комісію для вузла в розмірі 0,25% від суми переказу, але не більше 10 крб.</translation>
+    </message>
+    <message>
+        <source>Remove node</source>
+        <translation>Видалити вузол</translation>
     </message>
 </context>
 <context>
@@ -514,7 +518,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Mining status</source>
-        <translation>Стан карбування</translation>
+        <translation type="vanished">Стан карбування</translation>
     </message>
     <message>
         <source>CPU cores</source>
@@ -558,7 +562,15 @@ Please wait...</source>
     </message>
     <message>
         <source>Status</source>
-        <translation>Стан</translation>
+        <translation type="vanished">Стан</translation>
+    </message>
+    <message>
+        <source>Remove pool</source>
+        <translation>Видалити пул</translation>
+    </message>
+    <message>
+        <source>Mining status:</source>
+        <translation>Стан карбування:</translation>
     </message>
 </context>
 <context>
@@ -784,7 +796,7 @@ Please wait...</source>
     </message>
     <message>
         <source>%1 wallet already running</source>
-        <translation>%1 вже відкритий</translation>
+        <translation>Гаманець Карбованця вже працює</translation>
     </message>
     <message>
         <source>New version available</source>
@@ -1042,7 +1054,7 @@ Do you want to go to download page?</source>
     <name>WalletGui::AboutDialog</name>
     <message>
         <source>About %1 Wallet</source>
-        <translation>Про %1</translation>
+        <translation>Про гаманець Карбованця</translation>
     </message>
 </context>
 <context>
@@ -1252,7 +1264,7 @@ Do you want to go to download page?</source>
     <name>WalletGui::MainWindow</name>
     <message>
         <source>About %1 Wallet</source>
-        <translation>Про гаманець</translation>
+        <translation>Про гаманець Карбованця</translation>
     </message>
     <message>
         <source>New wallet file</source>
@@ -1326,7 +1338,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>%1 Wallet %2</source>
-        <translation>%1 в. %2</translation>
+        <translation type="vanished">Карбованець в. %2 (%1)</translation>
     </message>
     <message>
         <source>More info can be found at www.karbowanec.com in Documentation section</source>
@@ -1359,6 +1371,10 @@ Are you sure?</source>
             <numerusform>%n піри</numerusform>
             <numerusform>%n пірів</numerusform>
         </translation>
+    </message>
+    <message>
+        <source>Karbo Wallet %1</source>
+        <translation>Карбованець в. %1</translation>
     </message>
 </context>
 <context>

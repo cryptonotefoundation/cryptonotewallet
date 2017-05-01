@@ -83,7 +83,7 @@ void MainWindow::connectToSignals() {
 }
 
 void MainWindow::initUi() {
-  setWindowTitle(QString(tr("%1 Wallet %2")).arg(CurrencyAdapter::instance().getCurrencyDisplayName()).arg(Settings::instance().getVersion()));
+  setWindowTitle(QString(tr("Karbo Wallet %1")).arg(Settings::instance().getVersion()));
 #ifdef Q_OS_WIN32
   if (QSystemTrayIcon::isSystemTrayAvailable()) {
     m_trayIcon = new QSystemTrayIcon(QPixmap(":images/cryptonote"), this);
@@ -181,6 +181,7 @@ void MainWindow::scrollToTransaction(const QModelIndex& _index) {
 
 void MainWindow::quit() {
   if (!m_isAboutToQuit) {
+    //NodeAdapter::instance().stopSoloMining();
     ExitWidget* exitWidget = new ExitWidget(nullptr);
     exitWidget->show();
     m_isAboutToQuit = true;

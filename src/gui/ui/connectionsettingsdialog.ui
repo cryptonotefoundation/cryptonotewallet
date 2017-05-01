@@ -205,6 +205,17 @@
         </widget>
        </item>
        <item>
+        <widget class="QPushButton" name="removeNodeButton">
+         <property name="text">
+          <string>Remove node</string>
+         </property>
+         <property name="icon">
+          <iconset resource="../../resources.qrc">
+           <normaloff>:/icons/remove</normaloff>:/icons/remove</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
         <spacer name="horizontalSpacer_3">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
@@ -310,6 +321,22 @@
     <hint type="destinationlabel">
      <x>290</x>
      <y>135</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>removeNodeButton</sender>
+   <signal>clicked()</signal>
+   <receiver>ConnectionSettingsDialog</receiver>
+   <slot>removeNodeClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>459</x>
+     <y>177</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>299</x>
+     <y>193</y>
     </hint>
    </hints>
   </connection>

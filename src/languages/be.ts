@@ -256,6 +256,10 @@
         <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet sends 0.25% fee from each transaction to the node, but no more than 10 KRB.</source>
         <translation>Гаманец будзе падлучацца да вузла ў лакальнай або глабальнай сеткі. Выберыце вузел або пакажыце IP адрас або дамен і порт каб дадаць новы. У гэтым рэжыме гаманец плаціць камісію вузлу ў памеры 0,25% ад сумы транзакцыі, але не больш за 10 крб.</translation>
     </message>
+    <message>
+        <source>Remove node</source>
+        <translation>Выдаліць вузел</translation>
+    </message>
 </context>
 <context>
     <name>ExitWidget</name>
@@ -514,7 +518,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Mining status</source>
-        <translation>Стан чаканкі</translation>
+        <translation type="vanished">Стан чаканкі</translation>
     </message>
     <message>
         <source>CPU cores</source>
@@ -558,7 +562,15 @@ Please wait...</source>
     </message>
     <message>
         <source>Status</source>
-        <translation>Стан</translation>
+        <translation type="vanished">Стан</translation>
+    </message>
+    <message>
+        <source>Remove pool</source>
+        <translation>Выдаліць пул</translation>
+    </message>
+    <message>
+        <source>Mining status:</source>
+        <translation>Стан чаканкі:</translation>
     </message>
 </context>
 <context>
@@ -1333,7 +1345,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>%1 Wallet %2</source>
-        <translation>%1 в. %2</translation>
+        <translation type="vanished">Карбованець в. %2 (%1)</translation>
     </message>
     <message>
         <source>More info can be found at www.karbowanec.com in Documentation section</source>
@@ -1366,6 +1378,10 @@ Are you sure?</source>
             <numerusform>%n піра</numerusform>
             <numerusform>%n піраў</numerusform>
         </translation>
+    </message>
+    <message>
+        <source>Karbo Wallet %1</source>
+        <translation>Карбованець в. %1</translation>
     </message>
 </context>
 <context>

@@ -26,6 +26,7 @@ Q_DECL_CONSTEXPR char OPTION_CONNECTION[] = "connectionMode";
 Q_DECL_CONSTEXPR char OPTION_RPCNODES[] = "remoteNodes";
 Q_DECL_CONSTEXPR char OPTION_DAEMON_PORT[] = "daemonPort";
 Q_DECL_CONSTEXPR char OPTION_REMOTE_NODE[] = "remoteNode";
+Q_DECL_CONSTEXPR char OPTION_CURRENT_POOL[] = "currentPool";
 
 Settings& Settings::instance() {
   static Settings inst;
@@ -261,6 +262,14 @@ QString Settings::getCurrentRemoteNode() const {
     return remotenode;
 }
 
+QString Settings::getCurrentPool() const {
+  QString pool;
+  if (m_settings.contains(OPTION_CURRENT_POOL)) {
+    pool = m_settings.value(OPTION_CURRENT_POOL).toString();
+  }
+  return pool;
+}
+
 bool Settings::isStartOnLoginEnabled() const {
   bool res = false;
 #ifdef Q_OS_MAC
@@ -456,6 +465,13 @@ void Settings::setCurrentRemoteNode(const QString& _remoteNode) {
 void Settings::setRpcNodesList(const QStringList &_RpcNodesList) {
   if (getRpcNodesList() != _RpcNodesList) {
     m_settings.insert(OPTION_RPCNODES, QJsonArray::fromStringList(_RpcNodesList));
+  }
+  saveSettings();
+}
+
+void Settings::setCurrentPool(const QString& _pool) {
+  if (!_pool.isEmpty()) {
+    m_settings.insert(OPTION_CURRENT_POOL, _pool);
   }
   saveSettings();
 }

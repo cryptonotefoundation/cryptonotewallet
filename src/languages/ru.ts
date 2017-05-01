@@ -256,6 +256,10 @@
         <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet sends 0.25% fee from each transaction to the node, but no more than 10 KRB.</source>
         <translation>Кошелек будет подключаться к удаленному узлу в локальной или глобальной сети. Выберите узел или укажите IP адрес или домен и порт чтобы добавить новый. В этом режиме кошелек платит комиссию узлу в размере 0,25% от суммы транзакции, но не более 10 крб.</translation>
     </message>
+    <message>
+        <source>Remove node</source>
+        <translation>Удалить узел</translation>
+    </message>
 </context>
 <context>
     <name>ExitWidget</name>
@@ -514,7 +518,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Mining status</source>
-        <translation>Состояние майнинга</translation>
+        <translation type="vanished">Состояние майнинга</translation>
     </message>
     <message>
         <source>CPU cores</source>
@@ -558,7 +562,15 @@ Please wait...</source>
     </message>
     <message>
         <source>Status</source>
-        <translation>Состояние</translation>
+        <translation type="vanished">Состояние</translation>
+    </message>
+    <message>
+        <source>Remove pool</source>
+        <translation>Удалить пул</translation>
+    </message>
+    <message>
+        <source>Mining status:</source>
+        <translation>Состояние майнинга:</translation>
     </message>
 </context>
 <context>
@@ -784,7 +796,7 @@ Please wait...</source>
     </message>
     <message>
         <source>%1 wallet already running</source>
-        <translation>%1 уже запущен</translation>
+        <translation>Кошелек Карбованца уже запущен</translation>
     </message>
     <message>
         <source>New version available</source>
@@ -1038,7 +1050,7 @@ Do you want to go to download page?</source>
     <name>WalletGui::AboutDialog</name>
     <message>
         <source>About %1 Wallet</source>
-        <translation>О Карбованце</translation>
+        <translation>О кошельке Карбованца</translation>
     </message>
 </context>
 <context>
@@ -1248,7 +1260,7 @@ Do you want to go to download page?</source>
     <name>WalletGui::MainWindow</name>
     <message>
         <source>About %1 Wallet</source>
-        <translation>О кошельке</translation>
+        <translation>О кошельке Карбованца</translation>
     </message>
     <message>
         <source>New wallet file</source>
@@ -1322,7 +1334,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>%1 Wallet %2</source>
-        <translation>%1 в. %2</translation>
+        <translation type="vanished">Карбованец в. %2 (%1)</translation>
     </message>
     <message>
         <source>More info can be found at www.karbowanec.com in Documentation section</source>
@@ -1356,6 +1368,10 @@ Are you sure?</source>
             <numerusform>%n пиров</numerusform>
         </translation>
     </message>
+    <message>
+        <source>Karbo Wallet %1</source>
+        <translation>Карбованец в. %1</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::MiningFrame</name>
@@ -1385,7 +1401,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>Mining in pool. Hashrate: %1 H/s</source>
-        <translation >Майнинг в пуле. Скорость: %1 H/s</translation>
+        <translation>Майнинг в пуле. Скорость: %1 H/s</translation>
     </message>
 </context>
 <context>

@@ -32,6 +32,7 @@ private:
   NodeModel* m_nodeModel;
 
   Q_SLOT void addNodeClicked();
+  Q_SLOT void removeNodeClicked();
 
 };
 

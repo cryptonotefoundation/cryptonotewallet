@@ -43,6 +43,8 @@ private:
   void stopSolo();
 
   bool m_wallet_closed = false;
+  bool m_pool_mining = false;
+  bool m_solo_mining = false;
 
   void walletOpened();
   void walletClosed();
@@ -50,6 +52,8 @@ private:
   quint32 getHashRate() const;
 
   Q_SLOT void addPoolClicked();
+  Q_SLOT void removePoolClicked();
+  Q_SLOT void currentPoolChanged();
   Q_SLOT void startStopClicked(QAbstractButton* _button);
   Q_SLOT void startStopSoloClicked(QAbstractButton* _button);
 };

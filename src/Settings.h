@@ -46,6 +46,7 @@ public:
   QStringList getRpcNodesList() const;
   quint16 getCurrentLocalDaemonPort() const;
   QString getCurrentRemoteNode() const;
+  QString getCurrentPool() const;
 
   bool isEncrypted() const;
   bool isStartOnLoginEnabled() const;
@@ -67,6 +68,7 @@ public:
   void setCurrentLocalDaemonPort(const quint16& _daemonPort);
   void setCurrentRemoteNode(const QString& _remoteNode);
   void setRpcNodesList(const QStringList& _RpcNodesList);
+  void setCurrentPool(const QString& _pool);
 #ifdef Q_OS_WIN
   void setMinimizeToTrayEnabled(bool _enable);
   void setCloseToTrayEnabled(bool _enable);

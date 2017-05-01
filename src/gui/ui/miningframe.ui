@@ -39,19 +39,6 @@
       <string>Pool mining</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_3">
-      <item row="0" column="0">
-       <widget class="QLabel" name="label">
-        <property name="minimumSize">
-         <size>
-          <width>100</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>Select pool</string>
-        </property>
-       </widget>
-      </item>
       <item row="0" column="1">
        <widget class="QComboBox" name="m_poolCombo">
         <property name="minimumSize">
@@ -65,18 +52,7 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="2">
-       <widget class="QPushButton" name="m_addPoolButton">
-        <property name="text">
-         <string>Add pool</string>
-        </property>
-        <property name="icon">
-         <iconset resource="../../resources.qrc">
-          <normaloff>:/icons/add</normaloff>:/icons/add</iconset>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="3">
+      <item row="0" column="4">
        <spacer name="horizontalSpacer_5">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
@@ -89,7 +65,31 @@
         </property>
        </spacer>
       </item>
-      <item row="1" column="0" colspan="4">
+      <item row="0" column="2">
+       <widget class="QPushButton" name="m_addPoolButton">
+        <property name="text">
+         <string>Add pool</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../../resources.qrc">
+          <normaloff>:/icons/add</normaloff>:/icons/add</iconset>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QLabel" name="label">
+        <property name="minimumSize">
+         <size>
+          <width>100</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Select pool</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0" colspan="5">
        <layout class="QGridLayout" name="gridLayout_2">
         <item row="0" column="4">
          <spacer name="horizontalSpacer">
@@ -146,16 +146,28 @@
         <item row="0" column="2">
          <widget class="QLabel" name="label_3">
           <property name="text">
-           <string>Mining status</string>
+           <string>Mining status:</string>
           </property>
          </widget>
         </item>
        </layout>
       </item>
+      <item row="0" column="3">
+       <widget class="QPushButton" name="m_delPoolButton">
+        <property name="text">
+         <string>Remove pool</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../../resources.qrc">
+          <normaloff>:/icons/remove</normaloff>:/icons/remove</iconset>
+        </property>
+       </widget>
+      </item>
      </layout>
      <zorder>m_poolCombo</zorder>
      <zorder>label</zorder>
      <zorder>m_addPoolButton</zorder>
+     <zorder>m_delPoolButton</zorder>
     </widget>
    </item>
    <item row="0" column="0">
@@ -263,7 +275,7 @@
       <item row="0" column="2">
        <widget class="QLabel" name="label_4">
         <property name="text">
-         <string>Mining status</string>
+         <string>Mining status:</string>
         </property>
        </widget>
       </item>
@@ -385,6 +397,38 @@
     <hint type="destinationlabel">
      <x>139</x>
      <y>186</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_poolCombo</sender>
+   <signal>currentIndexChanged(QString)</signal>
+   <receiver>MiningFrame</receiver>
+   <slot>currentPoolChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>200</x>
+     <y>103</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>379</x>
+     <y>234</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_delPoolButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MiningFrame</receiver>
+   <slot>removePoolClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>407</x>
+     <y>103</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>379</x>
+     <y>234</y>
     </hint>
    </hints>
   </connection>

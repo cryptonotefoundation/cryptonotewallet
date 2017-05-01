@@ -28,7 +28,12 @@ MiningFrame::MiningFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::Minin
   m_poolModel(new PoolModel(this)), m_hashRateTimerId(-1), m_soloHashRateTimerId(-1) {
   m_ui->setupUi(this);
   m_ui->m_poolCombo->setModel(m_poolModel);
-  m_ui->m_poolCombo->setCurrentIndex(0);
+  QString current_pool = Settings::instance().getCurrentPool();
+  if (!current_pool.isEmpty()) {
+    m_ui->m_poolCombo->setCurrentIndex(m_ui->m_poolCombo->findData(current_pool, Qt::DisplayRole));
+  } else {
+    m_ui->m_poolCombo->setCurrentIndex(0);
+  }
   initCpuCoreList();
 /*
   QString connection = Settings::instance().getConnection();
@@ -81,12 +86,17 @@ void MiningFrame::initCpuCoreList() {
 }
 
 void MiningFrame::walletOpened() {
-  stopMining();
-  stopSolo();
+  if(m_pool_mining)
+    stopMining();
+  if(m_solo_mining)
+    stopSolo();
+
   m_wallet_closed = false;
   m_ui->m_stopButton->isChecked();
   m_ui->m_startButton->setEnabled(true);
+  m_ui->m_stopButton->setEnabled(false);
   m_ui->m_stopSolo->isChecked();
+  m_ui->m_stopSolo->setEnabled(false);
   m_ui->m_startSolo->setEnabled(true);
 }
 
@@ -118,13 +128,18 @@ void MiningFrame::startMining() {
   m_miner->start(m_ui->m_cpuCombo->currentData().toUInt());
   m_hashRateTimerId = startTimer(HASHRATE_TIMER_INTERVAL);
   m_ui->m_poolCombo->setEnabled(false);
+
+  m_ui->m_startButton->setEnabled(false);
+  m_ui->m_stopButton->setEnabled(true);
+  Settings::instance().setCurrentPool(m_ui->m_poolCombo->currentText());
+  m_pool_mining = true;
 }
 
 void MiningFrame::stopMining() {
   if (m_miner == nullptr) {
     return;
   }
-
+  if(m_pool_mining) {
   killTimer(m_hashRateTimerId);
   m_hashRateTimerId = -1;
   m_miner->stop();
@@ -132,6 +147,7 @@ void MiningFrame::stopMining() {
   m_miner = nullptr;
   m_ui->m_poolLabel->setText(tr("Stopped"));
   m_ui->m_poolCombo->setEnabled(true);
+  }
 }
 
 void MiningFrame::startSolo() {
@@ -139,13 +155,18 @@ void MiningFrame::startSolo() {
   m_ui->m_soloLabel->setText(tr("Starting solo minining..."));
   m_soloHashRateTimerId = startTimer(HASHRATE_TIMER_INTERVAL);
 
+  m_ui->m_startSolo->setEnabled(false);
+  m_ui->m_stopSolo->setEnabled(true);
+  m_solo_mining = true;
 }
 
 void MiningFrame::stopSolo() {
+  if(m_solo_mining) {
   killTimer(m_soloHashRateTimerId);
   m_soloHashRateTimerId = -1;
   NodeAdapter::instance().stopSoloMining();
   m_ui->m_soloLabel->setText(tr("Stopped"));
+  }
 }
 
 void MiningFrame::addPoolClicked() {
@@ -181,6 +202,15 @@ void MiningFrame::startStopSoloClicked(QAbstractButton* _button) {
   } else if (_button == m_ui->m_stopSolo && m_ui->m_stopSolo->isChecked()) {
     stopSolo();
   }
+}
+
+void MiningFrame::currentPoolChanged() {
+  //Settings::instance().setCurrentPool(m_ui->m_poolCombo->currentText());
+}
+
+void MiningFrame::removePoolClicked() {
+  m_poolModel->removeRow(m_ui->m_poolCombo->currentIndex());
+  Settings::instance().setMiningPoolList(m_poolModel->stringList());
 }
 
 }

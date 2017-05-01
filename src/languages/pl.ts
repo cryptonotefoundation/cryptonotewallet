@@ -256,6 +256,10 @@
         <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet sends 0.25% fee from each transaction to the node, but no more than 10 KRB.</source>
         <translation>Portfel będzie łączyć się ze zdalnym węzłem w sieci lokalnej lub globalnej. Wybierz węzeł lub kliknij &quot;Dodaj węzeł&quot; i podaj adres IP czy nazwę domeny i port. W tym trybie portfel płaci prowizję dla węzła w rozmiarze 0,25% od sumy transakcji, ale nie więcej niż 10 krb.</translation>
     </message>
+    <message>
+        <source>Remove node</source>
+        <translation>Usuń węzeł</translation>
+    </message>
 </context>
 <context>
     <name>ExitWidget</name>
@@ -514,7 +518,7 @@ Proszę czekać...</translation>
     </message>
     <message>
         <source>Mining status</source>
-        <translation>Stan karbowania</translation>
+        <translation type="vanished">Stan karbowania</translation>
     </message>
     <message>
         <source>CPU cores</source>
@@ -558,7 +562,15 @@ Proszę czekać...</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation>Stan</translation>
+        <translation type="vanished">Stan</translation>
+    </message>
+    <message>
+        <source>Remove pool</source>
+        <translation>Usuń kopalnię</translation>
+    </message>
+    <message>
+        <source>Mining status:</source>
+        <translation>Stan karbowania:</translation>
     </message>
 </context>
 <context>
@@ -784,7 +796,7 @@ Proszę czekać...</translation>
     </message>
     <message>
         <source>%1 wallet already running</source>
-        <translation>%1 portfel już uruchomiony</translation>
+        <translation>Portfel %1wańca już uruchomiony</translation>
     </message>
     <message>
         <source>New version available</source>
@@ -1053,7 +1065,7 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
     <name>WalletGui::AboutDialog</name>
     <message>
         <source>About %1 Wallet</source>
-        <translation>O Karbowańcu</translation>
+        <translation>O portfelu Karbowańca</translation>
     </message>
 </context>
 <context>
@@ -1259,7 +1271,7 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
     <name>WalletGui::MainWindow</name>
     <message>
         <source>About %1 Wallet</source>
-        <translation>O portfelu</translation>
+        <translation>O portfelu Karbowańca</translation>
     </message>
     <message>
         <source>New wallet file</source>
@@ -1333,7 +1345,7 @@ Jesteś pewien?</translation>
     </message>
     <message>
         <source>%1 Wallet %2</source>
-        <translation>%1 v. %2</translation>
+        <translation type="vanished">%1waniec v. %2</translation>
     </message>
     <message>
         <source>More info can be found at www.karbowanec.com in Documentation section</source>
@@ -1357,7 +1369,7 @@ Jesteś pewien?</translation>
     </message>
     <message>
         <source>Connected through remote node</source>
-        <translation>Połączone za pośrednictwem zdalnego węzła</translation>
+        <translation>Połączony za pośrednictwem zdalnego węzła</translation>
     </message>
     <message numerus="yes">
         <source>%n peer(s)</source>
@@ -1366,6 +1378,10 @@ Jesteś pewien?</translation>
             <numerusform>%n peera</numerusform>
             <numerusform>%n peerów</numerusform>
         </translation>
+    </message>
+    <message>
+        <source>Karbo Wallet %1</source>
+        <translation>Karbowaneć v. %1</translation>
     </message>
 </context>
 <context>
