@@ -1047,6 +1047,17 @@ Do you want to go to download page?</source>
     </message>
 </context>
 <context>
+    <name>Updater</name>
+    <message>
+        <source>Unable to check for update</source>
+        <translation>Не ў стане праверыць наяўнасць абнаўленняў</translation>
+    </message>
+    <message>
+        <source>Error: %1</source>
+        <translation>Памылка: %1</translation>
+    </message>
+</context>
+<context>
     <name>WalletGui</name>
     <message>
         <source>Synchronization in progress</source>

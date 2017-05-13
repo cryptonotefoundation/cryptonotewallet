@@ -74,8 +74,8 @@ void Updater::replyFinished (QNetworkReply *reply)
 {
     if(reply->error())
     {
- //       qDebug() << "ERROR!";
- //       qDebug() << reply->errorString();
+        QString error = QString(tr("Error: %1")).arg(reply->errorString());
+        QMessageBox::information(nullptr, tr("Unable to check for update"), error, QMessageBox::Ok);
     }
     else
     {
@@ -94,6 +94,5 @@ void Updater::replyFinished (QNetworkReply *reply)
 
          }
     }
-
     reply->deleteLater();
 }

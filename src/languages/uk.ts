@@ -1051,6 +1051,17 @@ Do you want to go to download page?</source>
     </message>
 </context>
 <context>
+    <name>Updater</name>
+    <message>
+        <source>Unable to check for update</source>
+        <translation>Не вдалось перевірити наявність оновлень</translation>
+    </message>
+    <message>
+        <source>Error: %1</source>
+        <translation>Помилка: %1</translation>
+    </message>
+</context>
+<context>
     <name>WalletGui::AboutDialog</name>
     <message>
         <source>About %1 Wallet</source>

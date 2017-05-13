@@ -1047,6 +1047,17 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
     </message>
 </context>
 <context>
+    <name>Updater</name>
+    <message>
+        <source>Unable to check for update</source>
+        <translation>Nie można sprawdzić dostępności aktualizacji</translation>
+    </message>
+    <message>
+        <source>Error: %1</source>
+        <translation>Błąd: %1</translation>
+    </message>
+</context>
+<context>
     <name>WalletGui</name>
     <message>
         <source>Synchronization in progress</source>
@@ -1375,7 +1386,7 @@ Jesteś pewien?</translation>
         <source>%n peer(s)</source>
         <translation>
             <numerusform>%n peer</numerusform>
-            <numerusform>%n peera</numerusform>
+            <numerusform>%n peery</numerusform>
             <numerusform>%n peerów</numerusform>
         </translation>
     </message>
