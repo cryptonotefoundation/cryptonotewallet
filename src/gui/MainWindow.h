@@ -98,6 +98,7 @@ private:
   Q_SLOT void exportTrackingKey();
   Q_SLOT void importTrackingKey();
   Q_SLOT void openRecent();
+  Q_SLOT void showStatusInfo();
 
 #ifdef Q_OS_MAC
 public:
