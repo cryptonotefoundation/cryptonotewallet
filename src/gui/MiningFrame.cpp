@@ -43,11 +43,19 @@ MiningFrame::MiningFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::Minin
 */
   connect(&WalletAdapter::instance(), &WalletAdapter::walletCloseCompletedSignal, this, &MiningFrame::walletClosed, Qt::QueuedConnection);
   connect(&WalletAdapter::instance(), &WalletAdapter::walletInitCompletedSignal, this, &MiningFrame::walletOpened, Qt::QueuedConnection);
+  m_ui->m_startSolo->setEnabled(false);
+  connect(&WalletAdapter::instance(), &WalletAdapter::walletSynchronizationCompletedSignal, this, &MiningFrame::enableSolo, Qt::QueuedConnection);
+
 }
 
 MiningFrame::~MiningFrame() {
   stopMining();
   stopSolo();
+}
+
+void MiningFrame::enableSolo() {
+  m_sychronized = true;
+  m_ui->m_startSolo->setEnabled(true);
 }
 
 void MiningFrame::timerEvent(QTimerEvent* _event) {
@@ -95,9 +103,11 @@ void MiningFrame::walletOpened() {
   m_ui->m_stopButton->isChecked();
   m_ui->m_startButton->setEnabled(true);
   m_ui->m_stopButton->setEnabled(false);
-  m_ui->m_stopSolo->isChecked();
-  m_ui->m_stopSolo->setEnabled(false);
-  m_ui->m_startSolo->setEnabled(true);
+  if(m_sychronized) {
+    m_ui->m_stopSolo->isChecked();
+    m_ui->m_stopSolo->setEnabled(false);
+    m_ui->m_startSolo->setEnabled(true);
+  }
 }
 
 void MiningFrame::walletClosed() {

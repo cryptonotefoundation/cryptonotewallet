@@ -45,6 +45,7 @@ private:
   bool m_wallet_closed = false;
   bool m_pool_mining = false;
   bool m_solo_mining = false;
+  bool m_sychronized = false;
 
   void walletOpened();
   void walletClosed();
@@ -56,6 +57,7 @@ private:
   Q_SLOT void currentPoolChanged();
   Q_SLOT void startStopClicked(QAbstractButton* _button);
   Q_SLOT void startStopSoloClicked(QAbstractButton* _button);
+  Q_SLOT void enableSolo();
 };
 
 }
