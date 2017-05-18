@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="uk_UA" sourcelanguage="en">
+<TS version="2.1" language="be_BY" sourcelanguage="en">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -356,6 +356,57 @@ Please wait...</source>
     </message>
 </context>
 <context>
+    <name>InfoDialog</name>
+    <message>
+        <source>Information</source>
+        <translation>Інфармацыя</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation>Сетка</translation>
+    </message>
+    <message>
+        <source>Connections</source>
+        <translation>Падлучэння</translation>
+    </message>
+    <message>
+        <source>Peer list</source>
+        <translation>Спіс піров</translation>
+    </message>
+    <message>
+        <source>Blockchain</source>
+        <translation>Блокчэйн</translation>
+    </message>
+    <message>
+        <source>Height</source>
+        <translation>Вышыня</translation>
+    </message>
+    <message>
+        <source>Difficulty</source>
+        <translation>Цяжкасць</translation>
+    </message>
+    <message>
+        <source>Transactions</source>
+        <translation>Транзакцыі</translation>
+    </message>
+    <message>
+        <source>Unconfirmed transactions</source>
+        <translation>Непацверджаны транзакцыі</translation>
+    </message>
+    <message>
+        <source>Alternative blocks</source>
+        <translation>Альтэрнатыўныя блокі</translation>
+    </message>
+    <message>
+        <source>Last block date and time</source>
+        <translation>Дата і час апошняга блока</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Зачыніць</translation>
+    </message>
+</context>
+<context>
     <name>MainWindow</name>
     <message>
         <source>MainWindow</source>
@@ -508,6 +559,22 @@ Please wait...</source>
     <message>
         <source>Recent wallets</source>
         <translation>Апошнія гаманцы</translation>
+    </message>
+    <message>
+        <source>Information</source>
+        <translation>Інфармацыя</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation type="vanished">Стан</translation>
+    </message>
+    <message>
+        <source>Tools</source>
+        <translation>Інструменты</translation>
+    </message>
+    <message>
+        <source>Open log file</source>
+        <translation>Адкрыць файл часопіса</translation>
     </message>
 </context>
 <context>
@@ -1279,6 +1346,25 @@ Do you want to go to download page?</source>
     </message>
 </context>
 <context>
+    <name>WalletGui::InfoDialog</name>
+    <message>
+        <source>%1 (Outgoing: %2, Incoming: %3)</source>
+        <translation>%1 (Выходныя: %2, Уваходныя: %3)</translation>
+    </message>
+    <message>
+        <source>White: %1, Grey: %2</source>
+        <translation>Белы: %1, Шэры: %2</translation>
+    </message>
+    <message>
+        <source>Known: %1, Local: %2</source>
+        <translation>Вядома: %1, Загружаны: %2</translation>
+    </message>
+    <message>
+        <source>%1</source>
+        <translation>%1</translation>
+    </message>
+</context>
+<context>
     <name>WalletGui::MainWindow</name>
     <message>
         <source>About %1 Wallet</source>
@@ -1384,7 +1470,7 @@ Are you sure?</source>
     </message>
     <message numerus="yes">
         <source>%n peer(s)</source>
-        <translation>
+        <translation type="vanished">
             <numerusform>%n пір</numerusform>
             <numerusform>%n піра</numerusform>
             <numerusform>%n піраў</numerusform>
@@ -1393,6 +1479,14 @@ Are you sure?</source>
     <message>
         <source>Karbo Wallet %1</source>
         <translation>Карбованець в. %1</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n active connection(s)</source>
+        <translation>
+            <numerusform>%n актыўнае падлучэння</numerusform>
+            <numerusform>%n актыўныя падлучэння</numerusform>
+            <numerusform>%n актыўных падлучэнняў</numerusform>
+        </translation>
     </message>
 </context>
 <context>

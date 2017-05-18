@@ -254,6 +254,9 @@
       </item>
       <item row="0" column="0">
        <widget class="QPushButton" name="m_startSolo">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
         <property name="text">
          <string>Start mining</string>
         </property>
@@ -439,7 +442,7 @@
   <slot>addPoolClicked()</slot>
  </slots>
  <buttongroups>
-  <buttongroup name="m_soloButtonGroup"/>
   <buttongroup name="m_miningButtonGroup"/>
+  <buttongroup name="m_soloButtonGroup"/>
  </buttongroups>
 </ui>

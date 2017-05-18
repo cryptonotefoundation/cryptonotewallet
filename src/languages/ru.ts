@@ -356,6 +356,57 @@ Please wait...</source>
     </message>
 </context>
 <context>
+    <name>InfoDialog</name>
+    <message>
+        <source>Information</source>
+        <translation>Информация</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation>Сеть</translation>
+    </message>
+    <message>
+        <source>Connections</source>
+        <translation>Соединения</translation>
+    </message>
+    <message>
+        <source>Peer list</source>
+        <translation>Список пиров</translation>
+    </message>
+    <message>
+        <source>Blockchain</source>
+        <translation>Блокчейн</translation>
+    </message>
+    <message>
+        <source>Height</source>
+        <translation>Высота</translation>
+    </message>
+    <message>
+        <source>Difficulty</source>
+        <translation>Сложность</translation>
+    </message>
+    <message>
+        <source>Transactions</source>
+        <translation>К-во транзакций в сети</translation>
+    </message>
+    <message>
+        <source>Unconfirmed transactions</source>
+        <translation>Неподтвержденные транзакции</translation>
+    </message>
+    <message>
+        <source>Alternative blocks</source>
+        <translation>Альтернативные блоки</translation>
+    </message>
+    <message>
+        <source>Last block date and time</source>
+        <translation>Дата и время последнего блока</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Закрыть</translation>
+    </message>
+</context>
+<context>
     <name>MainWindow</name>
     <message>
         <source>MainWindow</source>
@@ -431,7 +482,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Backup wallet</source>
-        <translation>Резервная копия кошелька</translation>
+        <translation>Сделать резервную копию кошелька</translation>
     </message>
     <message>
         <source>Start on system login</source>
@@ -508,6 +559,22 @@ Please wait...</source>
     <message>
         <source>Recent wallets</source>
         <translation>Последние кошельки</translation>
+    </message>
+    <message>
+        <source>Information</source>
+        <translation>Информация</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation type="vanished">Состояние</translation>
+    </message>
+    <message>
+        <source>Tools</source>
+        <translation>Инструменты</translation>
+    </message>
+    <message>
+        <source>Open log file</source>
+        <translation>Открыть лог-файл</translation>
     </message>
 </context>
 <context>
@@ -1268,6 +1335,25 @@ Do you want to go to download page?</source>
     </message>
 </context>
 <context>
+    <name>WalletGui::InfoDialog</name>
+    <message>
+        <source>%1 (Outgoing: %2, Incoming: %3)</source>
+        <translation>%1 (Исходящие: %2, Входящие: %3)</translation>
+    </message>
+    <message>
+        <source>White: %1, Grey: %2</source>
+        <translation>Белый: %1, Серый: %2</translation>
+    </message>
+    <message>
+        <source>Known: %1, Local: %2</source>
+        <translation>Известно: %1, Загружено: %2</translation>
+    </message>
+    <message>
+        <source>%1</source>
+        <translation>%1</translation>
+    </message>
+</context>
+<context>
     <name>WalletGui::MainWindow</name>
     <message>
         <source>About %1 Wallet</source>
@@ -1373,7 +1459,7 @@ Are you sure?</source>
     </message>
     <message numerus="yes">
         <source>%n peer(s)</source>
-        <translation>
+        <translation type="vanished">
             <numerusform>%n пир</numerusform>
             <numerusform>%n пира</numerusform>
             <numerusform>%n пиров</numerusform>
@@ -1382,6 +1468,14 @@ Are you sure?</source>
     <message>
         <source>Karbo Wallet %1</source>
         <translation>Карбованец в. %1</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n active connection(s)</source>
+        <translation>
+            <numerusform>%n активное соединение</numerusform>
+            <numerusform>%n активных соединения</numerusform>
+            <numerusform>%n активных соединений</numerusform>
+        </translation>
     </message>
 </context>
 <context>

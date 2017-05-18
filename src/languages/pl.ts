@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="uk_UA" sourcelanguage="en">
+<TS version="2.1" language="pl_PL" sourcelanguage="en">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -356,6 +356,57 @@ Proszę czekać...</translation>
     </message>
 </context>
 <context>
+    <name>InfoDialog</name>
+    <message>
+        <source>Information</source>
+        <translation>Informacja</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation>Sieć</translation>
+    </message>
+    <message>
+        <source>Connections</source>
+        <translation>Połączenia</translation>
+    </message>
+    <message>
+        <source>Peer list</source>
+        <translation>Lista peerów</translation>
+    </message>
+    <message>
+        <source>Blockchain</source>
+        <translation>Blockchain</translation>
+    </message>
+    <message>
+        <source>Height</source>
+        <translation>Wysokość</translation>
+    </message>
+    <message>
+        <source>Difficulty</source>
+        <translation>Trudność</translation>
+    </message>
+    <message>
+        <source>Transactions</source>
+        <translation>Ilość transakcji w sieci</translation>
+    </message>
+    <message>
+        <source>Unconfirmed transactions</source>
+        <translation>Niepotwierdzone transakcje</translation>
+    </message>
+    <message>
+        <source>Alternative blocks</source>
+        <translation>Alternatywne bloki</translation>
+    </message>
+    <message>
+        <source>Last block date and time</source>
+        <translation>Data i czas ostatniego bloku</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Zamknij</translation>
+    </message>
+</context>
+<context>
     <name>MainWindow</name>
     <message>
         <source>MainWindow</source>
@@ -508,6 +559,22 @@ Proszę czekać...</translation>
     <message>
         <source>Recent wallets</source>
         <translation>Ostatnie portfele</translation>
+    </message>
+    <message>
+        <source>Information</source>
+        <translation>Informacje</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation type="vanished">Stan</translation>
+    </message>
+    <message>
+        <source>Tools</source>
+        <translation>Narzędzia</translation>
+    </message>
+    <message>
+        <source>Open log file</source>
+        <translation>Otwórz plik dziennika</translation>
     </message>
 </context>
 <context>
@@ -1279,6 +1346,25 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
     </message>
 </context>
 <context>
+    <name>WalletGui::InfoDialog</name>
+    <message>
+        <source>%1 (Outgoing: %2, Incoming: %3)</source>
+        <translation>%1 (Wychodzące: %2, Wchodzące: %3)</translation>
+    </message>
+    <message>
+        <source>White: %1, Grey: %2</source>
+        <translation>Biała: %1, Szara: %2</translation>
+    </message>
+    <message>
+        <source>Known: %1, Local: %2</source>
+        <translation>Wiadomo: %1, Pobrano: %2</translation>
+    </message>
+    <message>
+        <source>%1</source>
+        <translation>%1</translation>
+    </message>
+</context>
+<context>
     <name>WalletGui::MainWindow</name>
     <message>
         <source>About %1 Wallet</source>
@@ -1384,7 +1470,7 @@ Jesteś pewien?</translation>
     </message>
     <message numerus="yes">
         <source>%n peer(s)</source>
-        <translation>
+        <translation type="vanished">
             <numerusform>%n peer</numerusform>
             <numerusform>%n peery</numerusform>
             <numerusform>%n peerów</numerusform>
@@ -1393,6 +1479,14 @@ Jesteś pewien?</translation>
     <message>
         <source>Karbo Wallet %1</source>
         <translation>Karbowaneć v. %1</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n active connection(s)</source>
+        <translation>
+            <numerusform>%n aktywne połączenie</numerusform>
+            <numerusform>%n aktywne połączenia</numerusform>
+            <numerusform>%n aktywnych połączeń</numerusform>
+        </translation>
     </message>
 </context>
 <context>

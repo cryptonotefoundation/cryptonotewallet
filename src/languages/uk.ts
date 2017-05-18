@@ -356,6 +356,57 @@ Please wait...</source>
     </message>
 </context>
 <context>
+    <name>InfoDialog</name>
+    <message>
+        <source>Information</source>
+        <translation>Інформація</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation>Мережа</translation>
+    </message>
+    <message>
+        <source>Connections</source>
+        <translation>З&apos;єднання</translation>
+    </message>
+    <message>
+        <source>Peer list</source>
+        <translation>Список пірів</translation>
+    </message>
+    <message>
+        <source>Blockchain</source>
+        <translation>Блокчейн</translation>
+    </message>
+    <message>
+        <source>Height</source>
+        <translation>Висота</translation>
+    </message>
+    <message>
+        <source>Difficulty</source>
+        <translation>Складність</translation>
+    </message>
+    <message>
+        <source>Transactions</source>
+        <translation>К-ть транзакцій в мережі</translation>
+    </message>
+    <message>
+        <source>Unconfirmed transactions</source>
+        <translation>Непідтверджені транзакції</translation>
+    </message>
+    <message>
+        <source>Alternative blocks</source>
+        <translation>Альтернативні блоки</translation>
+    </message>
+    <message>
+        <source>Last block date and time</source>
+        <translation>Дата і час останнього блоку</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Закрити</translation>
+    </message>
+</context>
+<context>
     <name>MainWindow</name>
     <message>
         <source>MainWindow</source>
@@ -431,7 +482,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Backup wallet</source>
-        <translation>Резервна копія гаманця</translation>
+        <translation>Зробити резервну копію гаманця</translation>
     </message>
     <message>
         <source>Start on system login</source>
@@ -508,6 +559,22 @@ Please wait...</source>
     <message>
         <source>Recent wallets</source>
         <translation>Останні гаманці</translation>
+    </message>
+    <message>
+        <source>Information</source>
+        <translation>Інформація</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation type="vanished">Стан</translation>
+    </message>
+    <message>
+        <source>Tools</source>
+        <translation>Інструменти</translation>
+    </message>
+    <message>
+        <source>Open log file</source>
+        <translation>Відкрити лог-файл</translation>
     </message>
 </context>
 <context>
@@ -1272,6 +1339,25 @@ Do you want to go to download page?</source>
     </message>
 </context>
 <context>
+    <name>WalletGui::InfoDialog</name>
+    <message>
+        <source>%1 (Outgoing: %2, Incoming: %3)</source>
+        <translation>%1 (Вихідні: %2, Вхідні: %3)</translation>
+    </message>
+    <message>
+        <source>White: %1, Grey: %2</source>
+        <translation>Білий: %1, Сірий: %2</translation>
+    </message>
+    <message>
+        <source>Known: %1, Local: %2</source>
+        <translation>Відомо: %1, Завантажено: %2</translation>
+    </message>
+    <message>
+        <source>%1</source>
+        <translation>%1</translation>
+    </message>
+</context>
+<context>
     <name>WalletGui::MainWindow</name>
     <message>
         <source>About %1 Wallet</source>
@@ -1376,11 +1462,11 @@ Are you sure?</source>
         <translation>Підключення через віддалений вузол</translation>
     </message>
     <message numerus="yes">
-        <source>%n peer(s)</source>
+        <source>%n active connection(s)</source>
         <translation>
-            <numerusform>%n пір</numerusform>
-            <numerusform>%n піри</numerusform>
-            <numerusform>%n пірів</numerusform>
+            <numerusform>%n активне підключення</numerusform>
+            <numerusform>%n активні підключення</numerusform>
+            <numerusform>%n активних підключень</numerusform>
         </translation>
     </message>
     <message>
