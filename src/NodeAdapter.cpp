@@ -217,6 +217,51 @@ QDateTime NodeAdapter::getLastLocalBlockTimestamp() const {
   return QDateTime::fromTime_t(m_node->getLastLocalBlockTimestamp(), Qt::UTC);
 }
 
+quint64 NodeAdapter::getDifficulty() {
+  Q_CHECK_PTR(m_node);
+  return m_node->getDifficulty();
+}
+
+quint64 NodeAdapter::getTxCount() {
+  Q_CHECK_PTR(m_node);
+  return m_node->getTxCount();
+}
+
+quint64 NodeAdapter::getTxPoolSize() {
+  Q_CHECK_PTR(m_node);
+  return m_node->getTxPoolSize();
+}
+
+quint64 NodeAdapter::getAltBlocksCount() {
+  Q_CHECK_PTR(m_node);
+  return m_node->getAltBlocksCount();
+}
+
+quint64 NodeAdapter::getConnectionsCount() {
+  Q_CHECK_PTR(m_node);
+  return m_node->getConnectionsCount();
+}
+
+quint64 NodeAdapter::getOutgoingConnectionsCount() {
+  Q_CHECK_PTR(m_node);
+  return m_node->getOutgoingConnectionsCount();
+}
+
+quint64 NodeAdapter::getIncomingConnectionsCount() {
+  Q_CHECK_PTR(m_node);
+  return m_node->getIncomingConnectionsCount();
+}
+
+quint64 NodeAdapter::getWhitePeerlistSize() {
+  Q_CHECK_PTR(m_node);
+  return m_node->getWhitePeerlistSize();
+}
+
+quint64 NodeAdapter::getGreyPeerlistSize() {
+  Q_CHECK_PTR(m_node);
+  return m_node->getGreyPeerlistSize();
+}
+
 void NodeAdapter::peerCountUpdated(Node& _node, size_t _count) {
   Q_UNUSED(_node);
   Q_EMIT peerCountUpdatedSignal(_count);

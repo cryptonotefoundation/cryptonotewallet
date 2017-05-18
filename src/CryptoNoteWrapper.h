@@ -9,7 +9,6 @@
 #include <memory>
 #include <string>
 #include <system_error>
-#include "CryptoNoteCore/Core.h"
 
 namespace CryptoNote {
 
@@ -38,7 +37,16 @@ public:
   virtual uint64_t getLastKnownBlockHeight() const = 0;
   virtual uint64_t getLastLocalBlockHeight() const = 0;
   virtual uint64_t getLastLocalBlockTimestamp() const = 0;
-  virtual uint64_t getPeerCount() const = 0;
+  virtual uint64_t getPeerCount() = 0;
+  virtual uint64_t getDifficulty() = 0;
+  virtual uint64_t getTxCount() = 0;
+  virtual uint64_t getTxPoolSize() = 0;
+  virtual uint64_t getAltBlocksCount() = 0;
+  virtual uint64_t getConnectionsCount() = 0;
+  virtual uint64_t getOutgoingConnectionsCount() = 0;
+  virtual uint64_t getIncomingConnectionsCount() = 0;
+  virtual uint64_t getWhitePeerlistSize() = 0;
+  virtual uint64_t getGreyPeerlistSize() = 0;
 
   virtual void startMining(const std::string& address, size_t threads_count) = 0;
   virtual void stopMining() = 0;

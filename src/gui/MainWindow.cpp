@@ -34,6 +34,7 @@
 #include "WalletAdapter.h"
 #include "WalletEvents.h"
 #include "SendFrame.h"
+#include "InfoDialog.h"
 #include "ui_mainwindow.h"
 
 namespace WalletGui {
@@ -460,6 +461,11 @@ void MainWindow::openConnectionSettings() {
     }
 }
 
+void MainWindow::showStatusInfo() {
+  InfoDialog dlg(this);
+  dlg.exec();
+}
+
 void MainWindow::backupWallet() {
   QString filePath = QFileDialog::getSaveFileName(this, tr("Backup wallet to..."),
   #ifdef Q_OS_WIN
@@ -644,7 +650,7 @@ void MainWindow::peerCountUpdated(quint64 _peerCount) {
   QString connectionIconPath = _peerCount > 0 ? ":icons/connected" : ":icons/disconnected";
   QPixmap connectionIcon = QPixmap(connectionIconPath).scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
   m_connectionStateIconLabel->setPixmap(connectionIcon);
-  m_connectionStateIconLabel->setToolTip(QString(tr("%n peer(s)", "", _peerCount)));
+  m_connectionStateIconLabel->setToolTip(QString(tr("%n peer(s)", NULL, _peerCount)));
 }
 
 void MainWindow::walletSynchronizationInProgress() {

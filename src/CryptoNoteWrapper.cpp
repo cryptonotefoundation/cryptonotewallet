@@ -157,8 +157,8 @@ public:
       CryptoNote::COMMAND_RPC_STOP_MINING::response res;
 
       try {
-          //CryptoNote::HttpClient httpClient(m_dispatcher, "127.0.0.1", Settings::instance().getCurrentLocalDaemonPort());
-          CryptoNote::HttpClient httpClient(m_dispatcher, m_node.m_nodeHost, m_node.m_nodePort);
+         //CryptoNote::HttpClient httpClient(m_dispatcher, "127.0.0.1", Settings::instance().getCurrentLocalDaemonPort());
+         CryptoNote::HttpClient httpClient(m_dispatcher, m_node.m_nodeHost, m_node.m_nodePort);
 
           CryptoNote::invokeJsonCommand(httpClient, "/stop_mining", req, res);
           std::string err = interpret_rpc_response(true, res.status);
@@ -193,8 +193,46 @@ public:
     return m_node.getLastLocalBlockTimestamp();
   }
 
-  uint64_t getPeerCount() const override {
+  uint64_t getPeerCount() {
     return m_node.getPeerCount();
+  }
+
+  // have to query /getinfo
+
+  uint64_t getDifficulty() {
+    return 0;
+  }
+
+  uint64_t getTxCount() {
+    return 0;
+  }
+
+  uint64_t getTxPoolSize() {
+    return 0;
+  }
+
+  uint64_t getAltBlocksCount() {
+    return 0;
+  }
+
+  uint64_t getConnectionsCount() {
+    return 0;
+  }
+
+  uint64_t getOutgoingConnectionsCount() {
+    return 0;
+  }
+
+  uint64_t getIncomingConnectionsCount() {
+    return 0;
+  }
+
+  uint64_t getWhitePeerlistSize() {
+    return 0;
+  }
+
+  uint64_t getGreyPeerlistSize() {
+    return 0;
   }
 
   CryptoNote::IWalletLegacy* createWallet() override {
@@ -307,8 +345,45 @@ public:
     return m_node.getLastLocalBlockTimestamp();
   }
 
-  uint64_t getPeerCount() const override {
-    return m_node.getPeerCount();
+  uint64_t getPeerCount() {
+    //return m_node.getPeerCount();
+    return m_nodeServer.get_connections_count();
+  }
+
+  uint64_t getDifficulty() {
+    return m_core.getNextBlockDifficulty();
+  }
+
+  uint64_t getTxCount() {
+    return m_core.get_blockchain_total_transactions() - m_core.get_current_blockchain_height();
+  }
+
+  uint64_t getTxPoolSize() {
+    return m_core.get_pool_transactions_count();
+  }
+
+  uint64_t getAltBlocksCount() {
+    return m_core.get_alternative_blocks_count();
+  }
+
+  uint64_t getConnectionsCount() {
+    return m_nodeServer.get_connections_count();
+  }
+
+  uint64_t getOutgoingConnectionsCount() {
+    return m_nodeServer.get_outgoing_connections_count();
+  }
+
+  uint64_t getIncomingConnectionsCount() {
+    return m_nodeServer.get_connections_count() - m_nodeServer.get_outgoing_connections_count();
+  }
+
+  uint64_t getWhitePeerlistSize() {
+    return m_nodeServer.getPeerlistManager().get_white_peers_count();
+  }
+
+  uint64_t getGreyPeerlistSize() {
+    return m_nodeServer.getPeerlistManager().get_gray_peers_count();
   }
 
   CryptoNote::IWalletLegacy* createWallet() override {
