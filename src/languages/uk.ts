@@ -1473,6 +1473,14 @@ Are you sure?</source>
         <source>Karbo Wallet %1</source>
         <translation>Карбованець в. %1</translation>
     </message>
+    <message>
+        <source>&amp;Show / Hide</source>
+        <translation>&amp;Показати / Сховати</translation>
+    </message>
+    <message>
+        <source>Show or hide the main window</source>
+        <translation>Показати або сховати вікно гаманця</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::MiningFrame</name>
@@ -1790,7 +1798,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>Wallet synchronized. Height: %1  |  Time (UTC): %2%3</source>
-        <translation>Гаманець синхронізований. Висота: %1  |  Дата і час останнього блоку (UTC): %2%3</translation>
+        <translation>Синхронізований. Висота: %1  |  Дата і час останнього блоку (UTC): %2%3</translation>
     </message>
     <message>
         <source>  Warning: last block was received %1 hours %2 minutes ago</source>

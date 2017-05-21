@@ -1488,6 +1488,14 @@ Are you sure?</source>
             <numerusform>%n актыўных падлучэнняў</numerusform>
         </translation>
     </message>
+    <message>
+        <source>&amp;Show / Hide</source>
+        <translation>&amp;Паказаць / Схаваць</translation>
+    </message>
+    <message>
+        <source>Show or hide the main window</source>
+        <translation>Паказаць ці схаваць акно паперніка</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::MiningFrame</name>
@@ -1805,7 +1813,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>Wallet synchronized. Height: %1  |  Time (UTC): %2%3</source>
-        <translation>Гаманец сінхранізаваны. Вышыня: %1  |  Дата і час апошняга блока (UTC): %2%3</translation>
+        <translation>Сінхранізаваны. Вышыня: %1  |  Дата і час апошняга блока (UTC): %2%3</translation>
     </message>
     <message>
         <source>  Warning: last block was received %1 hours %2 minutes ago</source>

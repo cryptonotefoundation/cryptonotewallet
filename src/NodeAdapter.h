@@ -34,7 +34,7 @@ class NodeAdapter : public QObject, public INodeCallback {
 public:
   static NodeAdapter& instance();
 
-  quintptr getPeerCount() const;
+  quintptr getPeerCount();
   std::string convertPaymentId(const QString& _payment_id_string) const;
   QString extractPaymentId(const std::string& _extra) const;
   CryptoNote::IWalletLegacy* createWallet() const;

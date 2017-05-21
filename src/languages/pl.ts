@@ -1488,6 +1488,14 @@ Jesteś pewien?</translation>
             <numerusform>%n aktywnych połączeń</numerusform>
         </translation>
     </message>
+    <message>
+        <source>&amp;Show / Hide</source>
+        <translation>&amp;Ukryj / Pokaż</translation>
+    </message>
+    <message>
+        <source>Show or hide the main window</source>
+        <translation>Ukryć lub pokazać okno portfela</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::MiningFrame</name>
@@ -1805,7 +1813,7 @@ Jesteś pewien?</translation>
     </message>
     <message>
         <source>Wallet synchronized. Height: %1  |  Time (UTC): %2%3</source>
-        <translation>Portfel zsynchronizowany. Wysokość: %1  |  Data i czas ostatniego bloku (UTC): %2%3</translation>
+        <translation>Zsynchronizowany. Wysokość: %1  |  Data i czas ostatniego bloku (UTC): %2%3</translation>
     </message>
     <message>
         <source>  Warning: last block was received %1 hours %2 minutes ago</source>

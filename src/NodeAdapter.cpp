@@ -99,7 +99,7 @@ NodeAdapter::NodeAdapter() : QObject(), m_node(nullptr), m_nodeInitializerThread
 NodeAdapter::~NodeAdapter() {
 }
 
-quintptr NodeAdapter::getPeerCount() const {
+quintptr NodeAdapter::getPeerCount() {
   Q_ASSERT(m_node != nullptr);
   return m_node->getPeerCount();
 }

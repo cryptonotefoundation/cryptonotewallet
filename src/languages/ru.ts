@@ -1477,6 +1477,14 @@ Are you sure?</source>
             <numerusform>%n активных соединений</numerusform>
         </translation>
     </message>
+    <message>
+        <source>&amp;Show / Hide</source>
+        <translation>&amp;Показать / Спрятать</translation>
+    </message>
+    <message>
+        <source>Show or hide the main window</source>
+        <translation>Показать или спрятать окно кошелька</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::MiningFrame</name>
@@ -1794,7 +1802,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>Wallet synchronized. Height: %1  |  Time (UTC): %2%3</source>
-        <translation>Кошелек синхронизирован. Высота: %1  |  Дата и время последнего блока (UTC): %2%3</translation>
+        <translation>Синхронизирован. Высота: %1  |  Дата и время последнего блока (UTC): %2%3</translation>
     </message>
     <message>
         <source>  Warning: last block was received %1 hours %2 minutes ago</source>

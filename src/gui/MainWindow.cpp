@@ -671,7 +671,6 @@ void MainWindow::encryptedFlagChanged(bool _encrypted) {
 void MainWindow::peerCountUpdated(quint64 _peerCount) {
   QString connectionIconPath = _peerCount > 0 ? ":icons/connected" : ":icons/disconnected";
   QPixmap connectionIcon = QPixmap(connectionIconPath).scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
-  //m_connectionStateIconLabel->setPixmap(connectionIcon);
   m_connectionStateIconLabel->setIcon(connectionIcon);
   m_connectionStateIconLabel->setToolTip(QString(tr("%n active connection(s)", "", _peerCount)));
 }
@@ -795,8 +794,11 @@ void MainWindow::createTrayIconMenu()
 #endif
 
     // Configuration of the tray icon (or dock icon) icon menu
+
+#ifndef Q_OS_MAC // This is built-in on Mac
     trayIconMenu->addAction(toggleHideAction);
     trayIconMenu->addSeparator();
+#endif
     trayIconMenu->addAction(m_ui->m_sendAction);
     trayIconMenu->addAction(m_ui->m_receiveAction);
     trayIconMenu->addAction(m_ui->m_transactionsAction);
@@ -829,7 +831,6 @@ void MainWindow::trayActivated(QSystemTrayIcon::ActivationReason reason)
 void MainWindow::minimizeToTray(bool _on) {
   if (_on) {
     hide();
-  //  m_trayIcon->show();
   } else {
     showNormal();
     activateWindow();

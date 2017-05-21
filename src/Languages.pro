@@ -63,7 +63,7 @@ gui/OpenUriDialog.cpp \
 gui/ConfirmSendDialog.cpp \
 gui/ExportTrackingKeyDialog.cpp \
 gui/ImportTrackingKeyDialog.cpp \
-
+gui/InfoDialog.cpp \
  
 
 HEADERS = CommandLineParser.h \
@@ -116,6 +116,7 @@ gui/OpenUriDialog.h \
 gui/ConfirmSendDialog.h \
 gui/ExportTrackingKeyDialog.h \
 gui/ImportTrackingKeyDialog.h \
+gui/InfoDialog.h \
 
 
 FORMS = gui/ui/aboutdialog.ui \
@@ -147,6 +148,7 @@ gui/ui/openuridialog.ui \
 gui/ui/confirmsenddialog.ui \
 gui/ui/importtrackingkeydialog.ui \
 gui/ui/exporttrackingkeydialog.ui \
+gui/ui/infodialog.ui \
 
 
 
