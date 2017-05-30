@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2015 The Cryptonote developers
-// Copyright (c) 2016 Karbowanec developers
+// Copyright (c) 2016-2017 The Karbowanec developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #include <QApplication>
@@ -50,14 +50,31 @@ int main(int argc, char* argv[]) {
   if(!lng.isEmpty()) {
       translator.load(":/languages/" + lng + ".qm");
       translatorQt.load(":/languages/qt_" + lng + ".qm");
+
+      if(lng == "uk") {
+            QLocale::setDefault(QLocale("uk_UA"));
+        } else if(lng == "ru") {
+            QLocale::setDefault(QLocale("ru_RU"));
+        } else if(lng == "pl") {
+            QLocale::setDefault(QLocale("pl_PL"));
+        } else if(lng == "be") {
+            QLocale::setDefault(QLocale("be_BY"));
+        } else {
+            QLocale::setDefault(QLocale::c());
+        }
+
     } else {
       translator.load(":/languages/" + QLocale::system().name());
       translatorQt.load(":/languages/qt_" +  QLocale::system().name());
+      QLocale::setDefault(QLocale::system().name());
   }
   app.installTranslator(&translator);
   app.installTranslator(&translatorQt);
 
-  QLocale::setDefault(QLocale::c());
+  //QLocale::setDefault(QLocale::c());
+
+  //QLocale locale = QLocale("uk_UA");
+  //QLocale::setDefault(locale);
 
   setlocale(LC_ALL, "");
 
@@ -98,7 +115,7 @@ int main(int argc, char* argv[]) {
   SignalHandler::instance().init();
   QObject::connect(&SignalHandler::instance(), &SignalHandler::quitSignal, &app, &QApplication::quit);
 
-  QSplashScreen* splash = new QSplashScreen(QPixmap(":images/splash"), Qt::WindowStaysOnTopHint | Qt::X11BypassWindowManagerHint);
+  QSplashScreen* splash = new QSplashScreen(QPixmap(":images/splash"), /*Qt::WindowStaysOnTopHint |*/ Qt::X11BypassWindowManagerHint);
   if (!splash->isVisible()) {
     splash->show();
   }

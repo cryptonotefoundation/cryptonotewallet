@@ -35,8 +35,8 @@ public:
   int columnCount(const QModelIndex& _parent = QModelIndex()) const Q_DECL_OVERRIDE;
   int rowCount(const QModelIndex& _parent = QModelIndex()) const Q_DECL_OVERRIDE;
 
-  QVariant headerData(int _section, Qt::Orientation _orientation, int _role = Qt::DisplayRole) const Q_DECL_OVERRIDE;
-  QVariant data(const QModelIndex& _index, int _role = Qt::DisplayRole) const Q_DECL_OVERRIDE;
+  QVariant headerData(int _section, Qt::Orientation _orientation, int _role = Qt::EditRole) const Q_DECL_OVERRIDE;
+  QVariant data(const QModelIndex& _index, int _role = Qt::EditRole) const Q_DECL_OVERRIDE;
   QModelIndex index(int _row, int _column, const QModelIndex& _parent = QModelIndex()) const Q_DECL_OVERRIDE;
   QModelIndex	parent(const QModelIndex& _index) const Q_DECL_OVERRIDE;
 
@@ -50,8 +50,10 @@ private:
   ~TransactionsModel();
 
   QVariant getDisplayRole(const QModelIndex& _index) const;
+  QVariant getEditRole(const QModelIndex& _index) const;
   QVariant getDecorationRole(const QModelIndex& _index) const;
   QVariant getAlignmentRole(const QModelIndex& _index) const;
+  QVariant getToolTipRole(const QModelIndex& _index) const;
   QVariant getUserRole(const QModelIndex& _index, int _role, CryptoNote::TransactionId _transactionId, CryptoNote::WalletLegacyTransaction& _transaction,
     CryptoNote::TransferId _transferId, CryptoNote::WalletLegacyTransfer& _transfer) const;
 

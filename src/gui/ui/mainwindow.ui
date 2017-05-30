@@ -209,7 +209,6 @@
      <property name="title">
       <string>Recent wallets</string>
      </property>
-
     </widget>
     <addaction name="m_createWalletAction"/>
     <addaction name="m_openWalletAction"/>
@@ -249,8 +248,16 @@
     <addaction name="m_aboutQtAction"/>
     <addaction name="actionHelp"/>
    </widget>
+   <widget class="QMenu" name="menuInformation">
+    <property name="title">
+     <string>Tools</string>
+    </property>
+    <addaction name="actionStatus"/>
+    <addaction name="m_openLogFileAction"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuSettings"/>
+   <addaction name="menuInformation"/>
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QToolBar" name="toolBar">
@@ -572,6 +579,16 @@
   <action name="m_recentWalletsAction">
    <property name="text">
     <string>Recent wallets</string>
+   </property>
+  </action>
+  <action name="actionStatus">
+   <property name="text">
+    <string>Information</string>
+   </property>
+  </action>
+  <action name="m_openLogFileAction">
+   <property name="text">
+    <string>Open log file</string>
    </property>
   </action>
  </widget>
@@ -1039,6 +1056,38 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>actionStatus</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showStatusInfo()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>489</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_openLogFileAction</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>openLogFile()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>489</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>createWallet()</slot>
@@ -1054,5 +1103,6 @@
   <slot>resetWallet()</slot>
   <slot>showPrivateKeys()</slot>
   <slot>openConnectionSettings()</slot>
+  <slot>showStatusInfo()</slot>
  </slots>
 </ui>

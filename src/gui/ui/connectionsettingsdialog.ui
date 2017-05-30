@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>600</width>
-    <height>340</height>
+    <height>388</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -61,11 +61,6 @@
        <property name="enabled">
         <bool>true</bool>
        </property>
-       <property name="font">
-        <font>
-         <pointsize>9</pointsize>
-        </font>
-       </property>
        <property name="text">
         <string>Auto selection</string>
        </property>
@@ -89,11 +84,6 @@
      </item>
      <item row="2" column="0">
       <widget class="QRadioButton" name="radioButton_2">
-       <property name="font">
-        <font>
-         <pointsize>9</pointsize>
-        </font>
-       </property>
        <property name="text">
         <string>Embedded</string>
        </property>
@@ -114,11 +104,6 @@
      </item>
      <item row="4" column="0">
       <widget class="QRadioButton" name="radioButton_3">
-       <property name="font">
-        <font>
-         <pointsize>9</pointsize>
-        </font>
-       </property>
        <property name="text">
         <string>Local daemon</string>
        </property>
@@ -182,11 +167,6 @@
      </item>
      <item row="6" column="0">
       <widget class="QRadioButton" name="radioButton_4">
-       <property name="font">
-        <font>
-         <pointsize>9</pointsize>
-        </font>
-       </property>
        <property name="text">
         <string>Remote daemon</string>
        </property>
@@ -221,6 +201,17 @@
          <property name="icon">
           <iconset resource="../../resources.qrc">
            <normaloff>:/icons/add</normaloff>:/icons/add</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="removeNodeButton">
+         <property name="text">
+          <string>Remove node</string>
+         </property>
+         <property name="icon">
+          <iconset resource="../../resources.qrc">
+           <normaloff>:/icons/remove</normaloff>:/icons/remove</iconset>
          </property>
         </widget>
        </item>
@@ -330,6 +321,22 @@
     <hint type="destinationlabel">
      <x>290</x>
      <y>135</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>removeNodeButton</sender>
+   <signal>clicked()</signal>
+   <receiver>ConnectionSettingsDialog</receiver>
+   <slot>removeNodeClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>459</x>
+     <y>177</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>299</x>
+     <y>193</y>
     </hint>
    </hints>
   </connection>

@@ -23,7 +23,7 @@ ConnectionSettingsDialog::ConnectionSettingsDialog(QWidget* _parent) : QDialog(_
     m_ui(new Ui::ConnectionSettingsDialog) {
     m_ui->setupUi(this);
     m_ui->remoteNodesComboBox->setModel(m_nodeModel);
-//    m_ui->remoteNodesComboBox->setValidator(new QRegExpValidator( QRegExp("[^\\:]+:[0-9]"), this ));
+//  m_ui->remoteNodesComboBox->setValidator(new QRegExpValidator( QRegExp("[^\\:]+:[0-9]"), this ));
 }
 
 ConnectionSettingsDialog::~ConnectionSettingsDialog() {
@@ -109,6 +109,11 @@ void ConnectionSettingsDialog::addNodeClicked() {
     m_nodeModel->addNode(host, port);
   }
 
+}
+
+void ConnectionSettingsDialog::removeNodeClicked() {
+    m_nodeModel->removeRow(m_ui->remoteNodesComboBox->currentIndex());
+    Settings::instance().setRpcNodesList(m_nodeModel->stringList());
 }
 
 }

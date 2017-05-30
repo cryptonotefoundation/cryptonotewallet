@@ -165,6 +165,9 @@
              <height>0</height>
             </size>
            </property>
+           <property name="locale">
+            <locale language="English" country="UnitedStates"/>
+           </property>
            <property name="suffix">
             <string/>
            </property>

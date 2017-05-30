@@ -31,9 +31,6 @@
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
       <widget class="QLineEdit" name="m_addressEdit">
-       <property name="maxLength">
-        <number>95</number>
-       </property>
        <property name="clearButtonEnabled">
         <bool>false</bool>
        </property>
@@ -69,6 +66,9 @@
      </item>
      <item>
       <widget class="QToolButton" name="m_removeButton">
+       <property name="toolTip">
+        <string>Remove recepient</string>
+       </property>
        <property name="text">
         <string>...</string>
        </property>
@@ -94,8 +94,14 @@
        <pointsize>12</pointsize>
       </font>
      </property>
+     <property name="cursor">
+      <cursorShape>IBeamCursor</cursorShape>
+     </property>
      <property name="layoutDirection">
       <enum>Qt::LeftToRight</enum>
+     </property>
+     <property name="locale">
+      <locale language="English" country="UnitedStates"/>
      </property>
      <property name="suffix">
       <string notr="true"/>
@@ -223,9 +229,26 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>m_addressEdit</sender>
+   <signal>textEdited(QString)</signal>
+   <receiver>TransferFrame</receiver>
+   <slot>addressEdited(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>460</x>
+     <y>18</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>442</x>
+     <y>66</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>addressBookClicked()</slot>
   <slot>pasteClicked()</slot>
+  <slot>addressEdited(QString)</slot>
  </slots>
 </ui>

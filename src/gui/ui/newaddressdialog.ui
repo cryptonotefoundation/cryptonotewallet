@@ -115,6 +115,13 @@
    </item>
   </layout>
  </widget>
+ <tabstops>
+  <tabstop>m_labelEdit</tabstop>
+  <tabstop>m_addressEdit</tabstop>
+  <tabstop>m_contactPaymentIdEdit</tabstop>
+  <tabstop>m_okButton</tabstop>
+  <tabstop>m_cancelButton</tabstop>
+ </tabstops>
  <resources/>
  <connections>
   <connection>

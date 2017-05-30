@@ -158,4 +158,13 @@ void AddressBookModel::walletInitCompleted(int _error, const QString& _error_tex
   }
 }
 
+const QModelIndex AddressBookModel::indexFromContact(const QString& searchstring, const int& column){
+    QModelIndex index = match(AddressBookModel::index(0,column,QModelIndex()),
+            Qt::DisplayRole, searchstring, 1,
+            Qt::MatchFlags(Qt::MatchExactly|Qt::MatchRecursive))
+            .value(0);
+
+    return index;
+}
+
 }

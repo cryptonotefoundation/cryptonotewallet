@@ -30,6 +30,8 @@ public:
   void addAddress(const QString& _label, const QString& _address, const QString& _paymentid);
   void removeAddress(quint32 _row);
 
+  const QModelIndex indexFromContact(const QString& searchstring, const int& column);
+
 private:
   QJsonArray m_addressBook;
 

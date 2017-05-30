@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="uk_UA" sourcelanguage="en">
+<TS version="2.1" language="pl_PL" sourcelanguage="en">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -12,8 +12,8 @@
         <translation>Zamknij</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Karbowanec v. %1&lt;/p&gt;&lt;p&gt;This is the next generation anonymous cryptocurrency based on CryptoNote.&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2015. CryptoNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2016. Karbowanec Developers&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://opensource.org/licenses/MIT&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://cryptonote.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://cryptonote.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://karbowanec.com/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://karbowanec.com/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Karbowaniec wersja %1&lt;/p&gt;&lt;p&gt;Jest to kryptowaluta nowej generacji, oparta na CryptoNote.&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2015. CryptoNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2016. Karbowanec Developers&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://opensource.org/licenses/MIT&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://cryptonote.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://cryptonote.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://karbowanec.com/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://karbowanec.com/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Karbowanec v. %1&lt;/p&gt;&lt;p&gt;This is the next generation anonymous cryptocurrency based on CryptoNote.&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2015. CryptoNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2015-2016. DigitalNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2016-2017. Karbowanec Developers&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://opensource.org/licenses/MIT&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://cryptonote.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://cryptonote.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://karbowanec.com/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://karbowanec.com/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Karbowaniec wersja %1&lt;/p&gt;&lt;p&gt;Jest to kryptowaluta nowej generacji, oparta na CryptoNote.&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2015. CryptoNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2015-2016. DigitalNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2016-2017. Karbowanec Developers&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://opensource.org/licenses/MIT&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://cryptonote.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://cryptonote.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://karbowanec.com/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://karbowanec.com/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -256,6 +256,10 @@
         <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet sends 0.25% fee from each transaction to the node, but no more than 10 KRB.</source>
         <translation>Portfel będzie łączyć się ze zdalnym węzłem w sieci lokalnej lub globalnej. Wybierz węzeł lub kliknij &quot;Dodaj węzeł&quot; i podaj adres IP czy nazwę domeny i port. W tym trybie portfel płaci prowizję dla węzła w rozmiarze 0,25% od sumy transakcji, ale nie więcej niż 10 krb.</translation>
     </message>
+    <message>
+        <source>Remove node</source>
+        <translation>Usuń węzeł</translation>
+    </message>
 </context>
 <context>
     <name>ExitWidget</name>
@@ -349,6 +353,57 @@ Proszę czekać...</translation>
     <message>
         <source>OK</source>
         <translation>OK</translation>
+    </message>
+</context>
+<context>
+    <name>InfoDialog</name>
+    <message>
+        <source>Information</source>
+        <translation>Informacja</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation>Sieć</translation>
+    </message>
+    <message>
+        <source>Connections</source>
+        <translation>Połączenia</translation>
+    </message>
+    <message>
+        <source>Peer list</source>
+        <translation>Lista peerów</translation>
+    </message>
+    <message>
+        <source>Blockchain</source>
+        <translation>Blockchain</translation>
+    </message>
+    <message>
+        <source>Height</source>
+        <translation>Wysokość</translation>
+    </message>
+    <message>
+        <source>Difficulty</source>
+        <translation>Trudność</translation>
+    </message>
+    <message>
+        <source>Transactions</source>
+        <translation>Ilość transakcji w sieci</translation>
+    </message>
+    <message>
+        <source>Unconfirmed transactions</source>
+        <translation>Niepotwierdzone transakcje</translation>
+    </message>
+    <message>
+        <source>Alternative blocks</source>
+        <translation>Alternatywne bloki</translation>
+    </message>
+    <message>
+        <source>Last block date and time</source>
+        <translation>Data i czas ostatniego bloku</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Zamknij</translation>
     </message>
 </context>
 <context>
@@ -505,6 +560,22 @@ Proszę czekać...</translation>
         <source>Recent wallets</source>
         <translation>Ostatnie portfele</translation>
     </message>
+    <message>
+        <source>Information</source>
+        <translation>Informacje</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation type="vanished">Stan</translation>
+    </message>
+    <message>
+        <source>Tools</source>
+        <translation>Narzędzia</translation>
+    </message>
+    <message>
+        <source>Open log file</source>
+        <translation>Otwórz plik dziennika</translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
@@ -514,7 +585,7 @@ Proszę czekać...</translation>
     </message>
     <message>
         <source>Mining status</source>
-        <translation>Stan karbowania</translation>
+        <translation type="vanished">Stan karbowania</translation>
     </message>
     <message>
         <source>CPU cores</source>
@@ -538,7 +609,35 @@ Proszę czekać...</translation>
     </message>
     <message>
         <source>Pause mining</source>
-        <translation>Przerwij karbowanie</translation>
+        <translation type="vanished">Przerwij karbowanie</translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation>Ustawienia</translation>
+    </message>
+    <message>
+        <source>Pool mining</source>
+        <translation>Karbowanie w kopalni</translation>
+    </message>
+    <message>
+        <source>Stop mining</source>
+        <translation>Zatrzymaj karbowanie</translation>
+    </message>
+    <message>
+        <source>Solo mining</source>
+        <translation>Karbowanie solo</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation type="vanished">Stan</translation>
+    </message>
+    <message>
+        <source>Remove pool</source>
+        <translation>Usuń kopalnię</translation>
+    </message>
+    <message>
+        <source>Mining status:</source>
+        <translation>Stan karbowania:</translation>
     </message>
 </context>
 <context>
@@ -764,7 +863,7 @@ Proszę czekać...</translation>
     </message>
     <message>
         <source>%1 wallet already running</source>
-        <translation>%1 portfel już uruchomiony</translation>
+        <translation>Portfel %1wańca już uruchomiony</translation>
     </message>
     <message>
         <source>New version available</source>
@@ -954,6 +1053,14 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
         <source>Selected amount: </source>
         <translation>Razem w wybranym: </translation>
     </message>
+    <message>
+        <source>Search for address, amount, transaction hash or Payment ID</source>
+        <translation>Szukaj adresu, kwoty, transakcji lub identyfikatora płatności</translation>
+    </message>
+    <message>
+        <source>Reset filter</source>
+        <translation>Usuń filtr</translation>
+    </message>
 </context>
 <context>
     <name>TransferFrame</name>
@@ -1001,12 +1108,42 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
         <source>Save to Contacts as:</source>
         <translation>Zapisz do Kontaktów jako:</translation>
     </message>
+    <message>
+        <source>Remove recepient</source>
+        <translation>Usuń odbiorcę</translation>
+    </message>
+</context>
+<context>
+    <name>Updater</name>
+    <message>
+        <source>Unable to check for update</source>
+        <translation>Nie można sprawdzić dostępności aktualizacji</translation>
+    </message>
+    <message>
+        <source>Error: %1</source>
+        <translation>Błąd: %1</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui</name>
+    <message>
+        <source>Synchronization in progress</source>
+        <translation type="obsolete">Trwa synchronizacja z siecią</translation>
+    </message>
+    <message>
+        <source>Not synchronized</source>
+        <translation type="obsolete">Nie zsynchronizowany</translation>
+    </message>
+    <message>
+        <source>Synchronized</source>
+        <translation type="obsolete">Zsynchronizowany</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::AboutDialog</name>
     <message>
         <source>About %1 Wallet</source>
-        <translation>O Karbowańcu</translation>
+        <translation>O portfelu Karbowańca</translation>
     </message>
 </context>
 <context>
@@ -1037,6 +1174,30 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
     <message>
         <source>Edit contact</source>
         <translation>Edytuj kontakt</translation>
+    </message>
+    <message>
+        <source>Copy &amp;label</source>
+        <translation>Skopiuj &amp;nazwę</translation>
+    </message>
+    <message>
+        <source>Copy Payment &amp;ID</source>
+        <translation>Skopiuj &amp;Identyfikator płatności</translation>
+    </message>
+    <message>
+        <source>Copy &amp;address</source>
+        <translation>Skopiuj &amp;adres</translation>
+    </message>
+    <message>
+        <source>&amp;Edit</source>
+        <translation>&amp;Edytuj</translation>
+    </message>
+    <message>
+        <source>&amp;Delete</source>
+        <translation>&amp;Usuń</translation>
+    </message>
+    <message>
+        <source>Contact with such label already exists.</source>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -1185,10 +1346,29 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
     </message>
 </context>
 <context>
+    <name>WalletGui::InfoDialog</name>
+    <message>
+        <source>%1 (Outgoing: %2, Incoming: %3)</source>
+        <translation>%1 (Wychodzące: %2, Wchodzące: %3)</translation>
+    </message>
+    <message>
+        <source>White: %1, Grey: %2</source>
+        <translation>Biała: %1, Szara: %2</translation>
+    </message>
+    <message>
+        <source>Known: %1, Local: %2</source>
+        <translation>Wiadomo: %1, Pobrano: %2</translation>
+    </message>
+    <message>
+        <source>%1</source>
+        <translation>%1</translation>
+    </message>
+</context>
+<context>
     <name>WalletGui::MainWindow</name>
     <message>
         <source>About %1 Wallet</source>
-        <translation>O portfelu</translation>
+        <translation>O portfelu Karbowańca</translation>
     </message>
     <message>
         <source>New wallet file</source>
@@ -1238,7 +1418,7 @@ Jesteś pewien?</translation>
     </message>
     <message>
         <source>%1 peers</source>
-        <translation>%1 peerów</translation>
+        <translation type="vanished">%1 peerów</translation>
     </message>
     <message>
         <source>Synchronization in progress</source>
@@ -1262,7 +1442,7 @@ Jesteś pewien?</translation>
     </message>
     <message>
         <source>%1 Wallet %2</source>
-        <translation>%1 v. %2</translation>
+        <translation type="vanished">%1waniec v. %2</translation>
     </message>
     <message>
         <source>More info can be found at www.karbowanec.com in Documentation section</source>
@@ -1286,14 +1466,42 @@ Jesteś pewien?</translation>
     </message>
     <message>
         <source>Connected through remote node</source>
-        <translation>Połączone za pośrednictwem zdalnego węzła</translation>
+        <translation>Połączony za pośrednictwem zdalnego węzła</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n peer(s)</source>
+        <translation type="vanished">
+            <numerusform>%n peer</numerusform>
+            <numerusform>%n peery</numerusform>
+            <numerusform>%n peerów</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Karbo Wallet %1</source>
+        <translation>Karbowaneć v. %1</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n active connection(s)</source>
+        <translation>
+            <numerusform>%n aktywne połączenie</numerusform>
+            <numerusform>%n aktywne połączenia</numerusform>
+            <numerusform>%n aktywnych połączeń</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>&amp;Show / Hide</source>
+        <translation>&amp;Ukryj / Pokaż</translation>
+    </message>
+    <message>
+        <source>Show or hide the main window</source>
+        <translation>Ukryć lub pokazać okno portfela</translation>
     </message>
 </context>
 <context>
     <name>WalletGui::MiningFrame</name>
     <message>
         <source>Mining. Hashrate: %1 H/s</source>
-        <translation>Kopię. Hashrate: %1 H/s</translation>
+        <translation type="vanished">Kopię. Hashrate: %1 H/s</translation>
     </message>
     <message>
         <source>Error: %1</source>
@@ -1306,6 +1514,18 @@ Jesteś pewien?</translation>
     <message>
         <source>Stopped</source>
         <translation>Zatrzymano</translation>
+    </message>
+    <message>
+        <source>Mining solo. Hashrate: %1 H/s</source>
+        <translation>Trwa karbowanie solo. Hashrate: %1 H/s</translation>
+    </message>
+    <message>
+        <source>Starting solo minining...</source>
+        <translation>Uruchamia się karbowanie solo...</translation>
+    </message>
+    <message>
+        <source>Mining in pool. Hashrate: %1 H/s</source>
+        <translation>Trwa karbowanie w kopalni. Hashrate: %1 H/s</translation>
     </message>
 </context>
 <context>
@@ -1421,6 +1641,66 @@ Jesteś pewien?</translation>
         <source>Show &amp;details</source>
         <translation>&amp;Pokaż szczegóły</translation>
     </message>
+    <message>
+        <source>Unconfirmed</source>
+        <translation>Niepotwierdzone</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>Wszystkie</translation>
+    </message>
+    <message>
+        <source>Today</source>
+        <translation>Dzisiaj</translation>
+    </message>
+    <message>
+        <source>This week</source>
+        <translation>W tym tygodniu</translation>
+    </message>
+    <message>
+        <source>This month</source>
+        <translation>W tym miesiącu</translation>
+    </message>
+    <message>
+        <source>Last month</source>
+        <translation>W zeszłym miesiącu</translation>
+    </message>
+    <message>
+        <source>This year</source>
+        <translation>W tym roku</translation>
+    </message>
+    <message>
+        <source>Range...</source>
+        <translation>Okres...</translation>
+    </message>
+    <message>
+        <source>to</source>
+        <translation>do</translation>
+    </message>
+    <message>
+        <source>From</source>
+        <translation>Od</translation>
+    </message>
+    <message>
+        <source>All types</source>
+        <translation>Wszystkie typy</translation>
+    </message>
+    <message>
+        <source>Incoming</source>
+        <translation>Przychodzące</translation>
+    </message>
+    <message>
+        <source>Outgoing</source>
+        <translation>Wychodzące</translation>
+    </message>
+    <message>
+        <source>Mined</source>
+        <translation>Zdobyte</translation>
+    </message>
+    <message>
+        <source>Sent to myself</source>
+        <translation>Wysłane do siebie</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::TransactionsModel</name>
@@ -1456,6 +1736,54 @@ Jesteś pewien?</translation>
         <source>(n/a)</source>
         <translation>brak danych</translation>
     </message>
+    <message>
+        <source>Incoming transaction, unconfirmed</source>
+        <translation>Przychodząca transakcja, niepotwierdzona</translation>
+    </message>
+    <message>
+        <source>Mined, confirmations</source>
+        <translation>Wydobyto, niepotwierdzona</translation>
+    </message>
+    <message>
+        <source>Sent to yourself, unconfirmed</source>
+        <translation>Wysłana do siebie, niepotwierdzona</translation>
+    </message>
+    <message>
+        <source>Outgoing transaction, unconfirmed</source>
+        <translation>Wychodząca transakcja, niepotwierdzona</translation>
+    </message>
+    <message numerus="yes">
+        <source>Incoming transaction, %n confirmation(s)</source>
+        <translation>
+            <numerusform>Przychodząca transakcja, %n potwiedzenie</numerusform>
+            <numerusform>Przychodząca transakcja, %n potwiedzenia</numerusform>
+            <numerusform>Przychodząca transakcja, %n potwiedzeń</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Mined, %n confirmation(s)</source>
+        <translation>
+            <numerusform>Wydobyto, %n potwiedzenie</numerusform>
+            <numerusform>Wydobyto, %n </numerusform>
+            <numerusform>Wydobyto, %n potwiedzeń</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Sent to yourself, %n confirmation(s)</source>
+        <translation>
+            <numerusform>Wysłana do siebie, %n potwiedzenie</numerusform>
+            <numerusform>Wysłana do siebie, %n potwiedzenia</numerusform>
+            <numerusform>Wysłana do siebie, %n potwiedzeń</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Outgoing transaction, %n confirmation(s)</source>
+        <translation>
+            <numerusform>Wychodząca transakcja, %n potwiedzenie</numerusform>
+            <numerusform>Wychodząca transakcja, %n potwiedzenia</numerusform>
+            <numerusform>Wychodząca transakcja, %n potwiedzeń</numerusform>
+        </translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::WalletAdapter</name>
@@ -1485,7 +1813,7 @@ Jesteś pewien?</translation>
     </message>
     <message>
         <source>Wallet synchronized. Height: %1  |  Time (UTC): %2%3</source>
-        <translation>Portfel zsynchronizowany. Wysokość: %1  |  Data i czas ostatniego bloku (UTC): %2%3</translation>
+        <translation>Zsynchronizowany. Wysokość: %1  |  Data i czas ostatniego bloku (UTC): %2%3</translation>
     </message>
     <message>
         <source>  Warning: last block was received %1 hours %2 minutes ago</source>

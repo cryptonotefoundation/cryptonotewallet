@@ -1,11 +1,13 @@
 // Copyright (c) 2011-2016 The Cryptonote developers
 // Copyright (c) 2015-2016 XDN developers
+// Copyright (c) 2016-2017 The Karbowanec developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #pragma once
 
 #include <QLabel>
+#include <QPushButton>
 #include <QMainWindow>
 #include <QSystemTrayIcon>
 #include <QTimer>
@@ -14,6 +16,7 @@
 #include "PaymentServer.h"
 
 class QActionGroup;
+class Notificator;
 
 namespace Ui {
 class MainWindow;
@@ -41,7 +44,7 @@ private:
   PaymentServer* paymentServer;
 
   QScopedPointer<Ui::MainWindow> m_ui;
-  QLabel* m_connectionStateIconLabel;
+  QPushButton* m_connectionStateIconLabel;
   QLabel* m_encryptionStateIconLabel;
   QLabel* m_synchronizationStateIconLabel;
   QLabel* m_trackingModeIconLabel;
@@ -49,17 +52,23 @@ private:
   QSystemTrayIcon* m_trayIcon;
   QActionGroup* m_tabActionGroup;
   QAction* accountWidget;
+  QAction* toggleHideAction;
   bool m_isAboutToQuit;
   QList<QAction*> recentFileActionList;
   const int maxRecentFiles;
 
   static MainWindow* m_instance;
 
+  QMenu *trayIconMenu;
+  Notificator *notificator;
+
   MainWindow();
   ~MainWindow();
 
   void connectToSignals();
   void initUi();
+  void createTrayIcon();
+  void createTrayIconMenu();
 
   void minimizeToTray(bool _on);
   void setStatusBarText(const QString& _text);
@@ -97,6 +106,13 @@ private:
   Q_SLOT void exportTrackingKey();
   Q_SLOT void importTrackingKey();
   Q_SLOT void openRecent();
+  Q_SLOT void showStatusInfo();
+  Q_SLOT void openLogFile();
+  Q_SLOT void toggleHidden();
+  Q_SLOT void showNormalIfMinimized(bool fToggleHidden = false);
+
+  bool isObscured(QWidget *w);
+  bool checkPoint(const QPoint &p, const QWidget *w);
 
 #ifdef Q_OS_MAC
 public:
@@ -109,7 +125,7 @@ protected:
   void changeEvent(QEvent* _event) Q_DECL_OVERRIDE;
 
 private:
-  void trayActivated(QSystemTrayIcon::ActivationReason _reason);
+  Q_SLOT void trayActivated(QSystemTrayIcon::ActivationReason _reason);
 #endif
 };
 

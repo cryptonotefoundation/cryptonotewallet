@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="uk_UA" sourcelanguage="en">
+<TS version="2.1" language="be_BY" sourcelanguage="en">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -12,8 +12,8 @@
         <translation>Зачыніць</translation>
     </message>
     <message>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Karbowanec v. %1&lt;/p&gt;&lt;p&gt;This is the next generation anonymous cryptocurrency based on CryptoNote.&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2015. CryptoNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2016. Karbowanec Developers&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://opensource.org/licenses/MIT&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://cryptonote.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://cryptonote.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://karbowanec.com/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://karbowanec.com/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Карбованець версія %1&lt;/p&gt;&lt;p&gt;Гэта криптовалюта новага пакалення на аснове CryptoNote.&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2015. CryptoNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2016. Karbowanec Developers&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://opensource.org/licenses/MIT&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://cryptonote.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://cryptonote.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://karbowanec.com/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://karbowanec.com/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Karbowanec v. %1&lt;/p&gt;&lt;p&gt;This is the next generation anonymous cryptocurrency based on CryptoNote.&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2015. CryptoNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2015-2016. DigitalNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2016-2017. Karbowanec Developers&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://opensource.org/licenses/MIT&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://cryptonote.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://cryptonote.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://karbowanec.com/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://karbowanec.com/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Карбованець версія %1&lt;/p&gt;&lt;p&gt;Гэта криптовалюта новага пакалення на аснове CryptoNote.&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2015. CryptoNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2015-2016. DigitalNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2016-2017. Karbowanec Developers&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://opensource.org/licenses/MIT&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://cryptonote.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://cryptonote.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://karbowanec.com/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://karbowanec.com/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -256,6 +256,10 @@
         <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet sends 0.25% fee from each transaction to the node, but no more than 10 KRB.</source>
         <translation>Гаманец будзе падлучацца да вузла ў лакальнай або глабальнай сеткі. Выберыце вузел або пакажыце IP адрас або дамен і порт каб дадаць новы. У гэтым рэжыме гаманец плаціць камісію вузлу ў памеры 0,25% ад сумы транзакцыі, але не больш за 10 крб.</translation>
     </message>
+    <message>
+        <source>Remove node</source>
+        <translation>Выдаліць вузел</translation>
+    </message>
 </context>
 <context>
     <name>ExitWidget</name>
@@ -349,6 +353,57 @@ Please wait...</source>
     <message>
         <source>OK</source>
         <translation>Добра</translation>
+    </message>
+</context>
+<context>
+    <name>InfoDialog</name>
+    <message>
+        <source>Information</source>
+        <translation>Інфармацыя</translation>
+    </message>
+    <message>
+        <source>Network</source>
+        <translation>Сетка</translation>
+    </message>
+    <message>
+        <source>Connections</source>
+        <translation>Падлучэння</translation>
+    </message>
+    <message>
+        <source>Peer list</source>
+        <translation>Спіс піров</translation>
+    </message>
+    <message>
+        <source>Blockchain</source>
+        <translation>Блокчэйн</translation>
+    </message>
+    <message>
+        <source>Height</source>
+        <translation>Вышыня</translation>
+    </message>
+    <message>
+        <source>Difficulty</source>
+        <translation>Цяжкасць</translation>
+    </message>
+    <message>
+        <source>Transactions</source>
+        <translation>Транзакцыі</translation>
+    </message>
+    <message>
+        <source>Unconfirmed transactions</source>
+        <translation>Непацверджаны транзакцыі</translation>
+    </message>
+    <message>
+        <source>Alternative blocks</source>
+        <translation>Альтэрнатыўныя блокі</translation>
+    </message>
+    <message>
+        <source>Last block date and time</source>
+        <translation>Дата і час апошняга блока</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Зачыніць</translation>
     </message>
 </context>
 <context>
@@ -505,6 +560,22 @@ Please wait...</source>
         <source>Recent wallets</source>
         <translation>Апошнія гаманцы</translation>
     </message>
+    <message>
+        <source>Information</source>
+        <translation>Інфармацыя</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation type="vanished">Стан</translation>
+    </message>
+    <message>
+        <source>Tools</source>
+        <translation>Інструменты</translation>
+    </message>
+    <message>
+        <source>Open log file</source>
+        <translation>Адкрыць файл часопіса</translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
@@ -514,7 +585,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Mining status</source>
-        <translation>Стан чаканкі</translation>
+        <translation type="vanished">Стан чаканкі</translation>
     </message>
     <message>
         <source>CPU cores</source>
@@ -538,7 +609,35 @@ Please wait...</source>
     </message>
     <message>
         <source>Pause mining</source>
+        <translation type="vanished">Прыпыніць чаканку</translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation>Налады</translation>
+    </message>
+    <message>
+        <source>Pool mining</source>
+        <translation>Чаканка ў пуле</translation>
+    </message>
+    <message>
+        <source>Stop mining</source>
         <translation>Прыпыніць чаканку</translation>
+    </message>
+    <message>
+        <source>Solo mining</source>
+        <translation>Чаканка соло</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation type="vanished">Стан</translation>
+    </message>
+    <message>
+        <source>Remove pool</source>
+        <translation>Выдаліць пул</translation>
+    </message>
+    <message>
+        <source>Mining status:</source>
+        <translation>Стан чаканкі:</translation>
     </message>
 </context>
 <context>
@@ -954,6 +1053,14 @@ Do you want to go to download page?</source>
         <source>Selected amount: </source>
         <translation>Усяго ў абраным:</translation>
     </message>
+    <message>
+        <source>Search for address, amount, transaction hash or Payment ID</source>
+        <translation>Пошук адрасы, сумы, транзакцыі або ідэнтыфікатара плацяжу</translation>
+    </message>
+    <message>
+        <source>Reset filter</source>
+        <translation>Скінуць фільтр</translation>
+    </message>
 </context>
 <context>
     <name>TransferFrame</name>
@@ -1001,6 +1108,36 @@ Do you want to go to download page?</source>
         <source>Save to Contacts as:</source>
         <translation>Захаваць у спіс кантактаў як:</translation>
     </message>
+    <message>
+        <source>Remove recepient</source>
+        <translation>Выдаліць атрымальніка</translation>
+    </message>
+</context>
+<context>
+    <name>Updater</name>
+    <message>
+        <source>Unable to check for update</source>
+        <translation>Не ў стане праверыць наяўнасць абнаўленняў</translation>
+    </message>
+    <message>
+        <source>Error: %1</source>
+        <translation>Памылка: %1</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui</name>
+    <message>
+        <source>Synchronization in progress</source>
+        <translation type="obsolete">Выконваецца сінхранізацыя</translation>
+    </message>
+    <message>
+        <source>Not synchronized</source>
+        <translation type="obsolete">Ня сінхранізаваны</translation>
+    </message>
+    <message>
+        <source>Synchronized</source>
+        <translation type="obsolete">Сінхранізаваны</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::AboutDialog</name>
@@ -1037,6 +1174,30 @@ Do you want to go to download page?</source>
     <message>
         <source>Edit contact</source>
         <translation>Рэдагаваць кантакт</translation>
+    </message>
+    <message>
+        <source>Copy &amp;label</source>
+        <translation>Капіяваць &amp;назву</translation>
+    </message>
+    <message>
+        <source>Copy Payment &amp;ID</source>
+        <translation>Капіяваць &amp;Ідэнтыфікатар плацяжу</translation>
+    </message>
+    <message>
+        <source>Copy &amp;address</source>
+        <translation>Капіяваць &amp;адрас</translation>
+    </message>
+    <message>
+        <source>&amp;Edit</source>
+        <translation>&amp;Змяніць</translation>
+    </message>
+    <message>
+        <source>&amp;Delete</source>
+        <translation>&amp;Выдаліць</translation>
+    </message>
+    <message>
+        <source>Contact with such label already exists.</source>
+        <translation>Кантакт з такой назвай ужо ёсць.</translation>
     </message>
 </context>
 <context>
@@ -1185,6 +1346,25 @@ Do you want to go to download page?</source>
     </message>
 </context>
 <context>
+    <name>WalletGui::InfoDialog</name>
+    <message>
+        <source>%1 (Outgoing: %2, Incoming: %3)</source>
+        <translation>%1 (Выходныя: %2, Уваходныя: %3)</translation>
+    </message>
+    <message>
+        <source>White: %1, Grey: %2</source>
+        <translation>Белы: %1, Шэры: %2</translation>
+    </message>
+    <message>
+        <source>Known: %1, Local: %2</source>
+        <translation>Вядома: %1, Загружаны: %2</translation>
+    </message>
+    <message>
+        <source>%1</source>
+        <translation>%1</translation>
+    </message>
+</context>
+<context>
     <name>WalletGui::MainWindow</name>
     <message>
         <source>About %1 Wallet</source>
@@ -1238,7 +1418,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>%1 peers</source>
-        <translation>%1 піраў</translation>
+        <translation type="vanished">%1 піраў</translation>
     </message>
     <message>
         <source>Synchronization in progress</source>
@@ -1262,7 +1442,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>%1 Wallet %2</source>
-        <translation>%1 в. %2</translation>
+        <translation type="vanished">Карбованець в. %2 (%1)</translation>
     </message>
     <message>
         <source>More info can be found at www.karbowanec.com in Documentation section</source>
@@ -1274,7 +1454,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>Connection mode will be changed after restarting the wallet.</source>
-        <translation></translation>
+        <translation>Рэжым падлучэння будзе зменены пасля перазапуску гаманца</translation>
     </message>
     <message>
         <source>Account toolbar</source>
@@ -1288,12 +1468,40 @@ Are you sure?</source>
         <source>Connected through remote node</source>
         <translation>Падключэнне праз аддалены вузел</translation>
     </message>
+    <message numerus="yes">
+        <source>%n peer(s)</source>
+        <translation type="vanished">
+            <numerusform>%n пір</numerusform>
+            <numerusform>%n піра</numerusform>
+            <numerusform>%n піраў</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>Karbo Wallet %1</source>
+        <translation>Карбованець в. %1</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n active connection(s)</source>
+        <translation>
+            <numerusform>%n актыўнае падлучэння</numerusform>
+            <numerusform>%n актыўныя падлучэння</numerusform>
+            <numerusform>%n актыўных падлучэнняў</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>&amp;Show / Hide</source>
+        <translation>&amp;Паказаць / Схаваць</translation>
+    </message>
+    <message>
+        <source>Show or hide the main window</source>
+        <translation>Паказаць ці схаваць акно паперніка</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::MiningFrame</name>
     <message>
         <source>Mining. Hashrate: %1 H/s</source>
-        <translation>Чаканка. Хешрейт: %1 H/s</translation>
+        <translation type="vanished">Чаканка. Хешрейт: %1 H/s</translation>
     </message>
     <message>
         <source>Error: %1</source>
@@ -1306,6 +1514,18 @@ Are you sure?</source>
     <message>
         <source>Stopped</source>
         <translation>Спынена</translation>
+    </message>
+    <message>
+        <source>Mining solo. Hashrate: %1 H/s</source>
+        <translation>Чаканка соло. Хешрейт: %1 H/s</translation>
+    </message>
+    <message>
+        <source>Starting solo minining...</source>
+        <translation>Запуск чаканкі соло...</translation>
+    </message>
+    <message>
+        <source>Mining in pool. Hashrate: %1 H/s</source>
+        <translation>Чаканка ў пуле. Хешрейт: %1 H/s</translation>
     </message>
 </context>
 <context>
@@ -1421,6 +1641,66 @@ Are you sure?</source>
         <source>Show &amp;details</source>
         <translation>Паказаць &amp;дэталі</translation>
     </message>
+    <message>
+        <source>Unconfirmed</source>
+        <translation>Непацверджаны</translation>
+    </message>
+    <message>
+        <source>All</source>
+        <translation>Усе</translation>
+    </message>
+    <message>
+        <source>Today</source>
+        <translation>Сёння</translation>
+    </message>
+    <message>
+        <source>This week</source>
+        <translation>На гэтым тыдні</translation>
+    </message>
+    <message>
+        <source>This month</source>
+        <translation>У гэтым месяцы</translation>
+    </message>
+    <message>
+        <source>Last month</source>
+        <translation>У мінулым месяцы</translation>
+    </message>
+    <message>
+        <source>This year</source>
+        <translation>У гэтым годзе</translation>
+    </message>
+    <message>
+        <source>Range...</source>
+        <translation>Прамежак...</translation>
+    </message>
+    <message>
+        <source>to</source>
+        <translation>да</translation>
+    </message>
+    <message>
+        <source>From</source>
+        <translation>Ад</translation>
+    </message>
+    <message>
+        <source>All types</source>
+        <translation>Усе тыпы</translation>
+    </message>
+    <message>
+        <source>Incoming</source>
+        <translation>Уваходныя</translation>
+    </message>
+    <message>
+        <source>Outgoing</source>
+        <translation>Выходныя</translation>
+    </message>
+    <message>
+        <source>Mined</source>
+        <translation>Здабытыя</translation>
+    </message>
+    <message>
+        <source>Sent to myself</source>
+        <translation>Высланыя самому сабе</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::TransactionsModel</name>
@@ -1456,6 +1736,54 @@ Are you sure?</source>
         <source>(n/a)</source>
         <translation>няма дадзеных</translation>
     </message>
+    <message>
+        <source>Incoming transaction, unconfirmed</source>
+        <translation>Уваходная транзакцыя, непацьверджаная</translation>
+    </message>
+    <message>
+        <source>Mined, confirmations</source>
+        <translation>Здабыта майнингом, непацьверджаная</translation>
+    </message>
+    <message>
+        <source>Sent to yourself, unconfirmed</source>
+        <translation>Выходная транзакцыя, непацьверджаная</translation>
+    </message>
+    <message>
+        <source>Outgoing transaction, unconfirmed</source>
+        <translation>Выходная транзакцыя, непацьверджаная</translation>
+    </message>
+    <message numerus="yes">
+        <source>Incoming transaction, %n confirmation(s)</source>
+        <translation>
+            <numerusform>Уваходная транзакцыя, %n пацвярджэнне</numerusform>
+            <numerusform>Уваходная транзакцыя, %n пацвярджэння</numerusform>
+            <numerusform>Уваходная транзакцыя, %n пацвярджэнняў</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Mined, %n confirmation(s)</source>
+        <translation>
+            <numerusform>Здабыта майнингом, %n пацвярджэнне</numerusform>
+            <numerusform>Здабыта майнингом, %n пацвярджэння</numerusform>
+            <numerusform>Здабыта майнингом, пацвярджэнняў</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Sent to yourself, %n confirmation(s)</source>
+        <translation>
+            <numerusform>Адпраўлена самому сабе, %n пацвярджэнне</numerusform>
+            <numerusform>Адпраўлена самому сабе, %n пацвярджэння</numerusform>
+            <numerusform>Адпраўлена самому сабе, %n пацвярджэнняў</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>Outgoing transaction, %n confirmation(s)</source>
+        <translation>
+            <numerusform>Выходная транзакцыя, %n пацвярджэнне</numerusform>
+            <numerusform>Выходная транзакцыя, %n пацвярджэння</numerusform>
+            <numerusform>Выходная транзакцыя, %n пацвярджэнняў</numerusform>
+        </translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::WalletAdapter</name>
@@ -1485,7 +1813,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>Wallet synchronized. Height: %1  |  Time (UTC): %2%3</source>
-        <translation>Гаманец сінхранізаваны. Вышыня: %1  |  Дата і час апошняга блока (UTC): %2%3</translation>
+        <translation>Сінхранізаваны. Вышыня: %1  |  Дата і час апошняга блока (UTC): %2%3</translation>
     </message>
     <message>
         <source>  Warning: last block was received %1 hours %2 minutes ago</source>

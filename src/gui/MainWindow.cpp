@@ -1,6 +1,7 @@
 // Copyright (c) 2011-2016 The Cryptonote developers
+// Copyright (c) 2011-2013 The Bitcoin Core developers
 // Copyright (c) 2015-2016 XDN developers
-// Copyright (c) 2016 Karbowanec developers
+// Copyright (c) 2016-2017 The Karbowanec developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -9,12 +10,14 @@
 #include <QInputDialog>
 #include <QMessageBox>
 #include <QSystemTrayIcon>
+#include <QDesktopServices>
 #include <QTimer>
 #include <QFontDatabase>
 #include <Common/Base58.h>
 #include <Common/StringTools.h>
 #include <Common/Util.h>
 #include <QToolButton>
+#include <QPushButton>
 #include "AboutDialog.h"
 #include "AnimatedLabel.h"
 #include "ChangePasswordDialog.h"
@@ -34,7 +37,12 @@
 #include "WalletAdapter.h"
 #include "WalletEvents.h"
 #include "SendFrame.h"
+#include "InfoDialog.h"
 #include "ui_mainwindow.h"
+
+#ifdef Q_OS_MAC
+#include "macdockiconhandler.h"
+#endif
 
 namespace WalletGui {
 
@@ -49,9 +57,15 @@ MainWindow& MainWindow::instance() {
 }
 
 MainWindow::MainWindow() : QMainWindow(), m_ui(new Ui::MainWindow), m_trayIcon(nullptr), m_tabActionGroup(new QActionGroup(this)),
-  m_isAboutToQuit(false), paymentServer(0), maxRecentFiles(10) {
+  m_isAboutToQuit(false), paymentServer(0), maxRecentFiles(10), trayIconMenu(0), notificator(0), toggleHideAction(0) {
   m_ui->setupUi(this);
-  m_connectionStateIconLabel = new QLabel(this);
+  //m_connectionStateIconLabel = new QLabel(this);
+
+  m_connectionStateIconLabel = new QPushButton();
+  m_connectionStateIconLabel->setFlat(true); // Make the button look like a label, but clickable
+  m_connectionStateIconLabel->setStyleSheet(".QPushButton { background-color: rgba(255, 255, 255, 0);}");
+  m_connectionStateIconLabel->setMaximumSize(16, 16);
+
   m_encryptionStateIconLabel = new QLabel(this);
   m_trackingModeIconLabel = new QLabel(this);
   m_remoteModeIconLabel = new QLabel(this);
@@ -64,6 +78,11 @@ MainWindow::MainWindow() : QMainWindow(), m_ui(new Ui::MainWindow), m_trayIcon(n
 MainWindow::~MainWindow() {
     delete paymentServer;
     paymentServer = 0;
+    if(m_trayIcon) // Hide tray icon, as deleting will let it linger until quit (on Ubuntu)
+      m_trayIcon->hide();
+    #ifdef Q_OS_MAC
+      MacDockIconHandler::cleanup();
+    #endif
 }
 
 void MainWindow::connectToSignals() {
@@ -76,19 +95,20 @@ void MainWindow::connectToSignals() {
   connect(&WalletAdapter::instance(), &WalletAdapter::walletStateChangedSignal, this, &MainWindow::setStatusBarText);
   connect(&WalletAdapter::instance(), &WalletAdapter::walletInitCompletedSignal, this, &MainWindow::walletOpened);
   connect(&WalletAdapter::instance(), &WalletAdapter::walletCloseCompletedSignal, this, &MainWindow::walletClosed);
+  connect(&WalletAdapter::instance(), &WalletAdapter::walletTransactionCreatedSignal, this, [this]() {
+      QApplication::alert(this);
+  });
   connect(&NodeAdapter::instance(), &NodeAdapter::peerCountUpdatedSignal, this, &MainWindow::peerCountUpdated, Qt::QueuedConnection);
   connect(m_ui->m_exitAction, &QAction::triggered, qApp, &QApplication::quit);
   connect(m_ui->m_accountFrame, &AccountFrame::showQRcodeSignal, this, &MainWindow::onShowQR, Qt::QueuedConnection);
   connect(m_ui->m_sendFrame, &SendFrame::uriOpenSignal, this, &MainWindow::onUriOpenSignal, Qt::QueuedConnection);
+  connect(m_connectionStateIconLabel, SIGNAL(clicked()), this, SLOT(showStatusInfo()));
 }
 
 void MainWindow::initUi() {
-  setWindowTitle(QString(tr("%1 Wallet %2")).arg(CurrencyAdapter::instance().getCurrencyDisplayName()).arg(Settings::instance().getVersion()));
+  setWindowTitle(QString(tr("Karbo Wallet %1")).arg(Settings::instance().getVersion()));
 #ifdef Q_OS_WIN32
-  if (QSystemTrayIcon::isSystemTrayAvailable()) {
-    m_trayIcon = new QSystemTrayIcon(QPixmap(":images/cryptonote"), this);
-    connect(m_trayIcon, &QSystemTrayIcon::activated, this, &MainWindow::trayActivated);
-  }
+  createTrayIcon();
 #endif
 
   m_ui->accountToolBar->setAllowedAreas(Qt::TopToolBarArea);
@@ -126,7 +146,7 @@ void MainWindow::initUi() {
   statusBar()->addPermanentWidget(m_encryptionStateIconLabel);
   statusBar()->addPermanentWidget(m_synchronizationStateIconLabel);
   qobject_cast<AnimatedLabel*>(m_synchronizationStateIconLabel)->setSprite(QPixmap(":icons/sync_sprite"), QSize(16, 16), 5, 24);
-  m_connectionStateIconLabel->setPixmap(QPixmap(":icons/disconnected").scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+  m_connectionStateIconLabel->setIcon(QPixmap(":icons/disconnected").scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
   m_trackingModeIconLabel->setPixmap(QPixmap(":icons/tracking").scaledToHeight(16, Qt::SmoothTransformation));
   m_remoteModeIconLabel->hide();
   m_trackingModeIconLabel->hide();
@@ -155,24 +175,22 @@ void MainWindow::initUi() {
   installDockHandler();
 #endif
 
+#ifndef Q_OS_MAC
+  m_ui->m_minimizeToTrayAction->setVisible(true);
+  m_ui->m_closeToTrayAction->setVisible(true);
+  toggleHideAction = new QAction(tr("&Show / Hide"), this);
+  toggleHideAction->setStatusTip(tr("Show or hide the main window"));
+  connect(toggleHideAction, SIGNAL(triggered()), this, SLOT(toggleHidden()));
+#endif
+
 #ifndef Q_OS_WIN
   m_ui->m_minimizeToTrayAction->deleteLater();
   m_ui->m_closeToTrayAction->deleteLater();
 #endif
-}
 
-#ifdef Q_OS_WIN
-void MainWindow::minimizeToTray(bool _on) {
-  if (_on) {
-    hide();
-    m_trayIcon->show();
-  } else {
-    showNormal();
-    activateWindow();
-    m_trayIcon->hide();
-  }
+  createTrayIconMenu();
+
 }
-#endif
 
 void MainWindow::scrollToTransaction(const QModelIndex& _index) {
   m_ui->m_transactionsAction->setChecked(true);
@@ -181,6 +199,7 @@ void MainWindow::scrollToTransaction(const QModelIndex& _index) {
 
 void MainWindow::quit() {
   if (!m_isAboutToQuit) {
+    //NodeAdapter::instance().stopSoloMining();
     ExitWidget* exitWidget = new ExitWidget(nullptr);
     exitWidget->show();
     m_isAboutToQuit = true;
@@ -459,6 +478,12 @@ void MainWindow::openConnectionSettings() {
     }
 }
 
+void MainWindow::showStatusInfo() {
+  InfoDialog dlg(this);
+  //dlg.setWindowModality(Qt::NonModal);
+  dlg.exec();
+}
+
 void MainWindow::backupWallet() {
   QString filePath = QFileDialog::getSaveFileName(this, tr("Backup wallet to..."),
   #ifdef Q_OS_WIN
@@ -483,6 +508,13 @@ void MainWindow::resetWallet() {
     "Are you sure?"), QMessageBox::Ok, QMessageBox::Cancel) == QMessageBox::Ok) {
     WalletAdapter::instance().reset();
     WalletAdapter::instance().open("");
+  }
+}
+
+void MainWindow::openLogFile() {
+  QString pathLog = Settings::instance().getDataDir().absoluteFilePath(QApplication::applicationName() + ".log");
+  if (!pathLog.isEmpty()) {
+    QDesktopServices::openUrl(QUrl::fromLocalFile(pathLog));
   }
 }
 
@@ -642,8 +674,8 @@ void MainWindow::encryptedFlagChanged(bool _encrypted) {
 void MainWindow::peerCountUpdated(quint64 _peerCount) {
   QString connectionIconPath = _peerCount > 0 ? ":icons/connected" : ":icons/disconnected";
   QPixmap connectionIcon = QPixmap(connectionIconPath).scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
-  m_connectionStateIconLabel->setPixmap(connectionIcon);
-  m_connectionStateIconLabel->setToolTip(QString(tr("%1 peers").arg(_peerCount)));
+  m_connectionStateIconLabel->setIcon(connectionIcon);
+  m_connectionStateIconLabel->setToolTip(QString(tr("%n active connection(s)", "", _peerCount)));
 }
 
 void MainWindow::walletSynchronizationInProgress() {
@@ -668,7 +700,7 @@ void MainWindow::walletOpened(bool _error, const QString& _error_text) {
     m_synchronizationStateIconLabel->show();
     m_ui->m_backupWalletAction->setEnabled(true);
     m_ui->m_showPrivateKey->setEnabled(true);
-	m_ui->m_resetAction->setEnabled(true);
+    m_ui->m_resetAction->setEnabled(true);
     m_ui->m_openUriAction->setEnabled(true);
     encryptedFlagChanged(Settings::instance().isEncrypted());
 
@@ -709,7 +741,7 @@ void MainWindow::walletClosed() {
   m_ui->m_sendFrame->hide();
   m_ui->m_transactionsFrame->hide();
   m_ui->m_addressBookFrame->hide();
-  m_ui->m_miningFrame->hide();
+  //m_ui->m_miningFrame->hide();
   m_encryptionStateIconLabel->hide();
   m_trackingModeIconLabel->hide();
   m_synchronizationStateIconLabel->hide();
@@ -717,6 +749,7 @@ void MainWindow::walletClosed() {
   Q_FOREACH(auto action, tabActions) {
     action->setEnabled(false);
   }
+  m_ui->m_miningAction->setEnabled(true);
   Settings::instance().setTrackingMode(false);
   updateRecentActionList();
 }
@@ -731,11 +764,123 @@ void MainWindow::checkTrackingMode() {
   }
 }
 
+void MainWindow::createTrayIcon()
+{
+#ifndef Q_OS_MAC
+    m_trayIcon = new QSystemTrayIcon(QPixmap(":images/cryptonote"), this);
+    QString toolTip = QString(tr("Karbo Wallet %1")).arg(Settings::instance().getVersion());
+    m_trayIcon->setToolTip(toolTip);
+    m_trayIcon->show();
+#endif
+
+    //notificator = new Notificator(QApplication::applicationName(), m_trayIcon, this);
+}
+
+void MainWindow::createTrayIconMenu()
+{
 #ifdef Q_OS_WIN
-void MainWindow::trayActivated(QSystemTrayIcon::ActivationReason _reason) {
-  showNormal();
-  m_trayIcon->hide();
+    // return if trayIcon is unset (only on non-Mac OSes)
+    if (!m_trayIcon)
+        return;
+
+    trayIconMenu = new QMenu(this);
+    m_trayIcon->setContextMenu(trayIconMenu);
+
+    connect(m_trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)),
+            this, SLOT(trayActivated(QSystemTrayIcon::ActivationReason)));
+#endif
+#ifdef Q_OS_MAC
+    // Note: On Mac, the dock icon is used to provide the tray's functionality.
+    MacDockIconHandler *dockIconHandler = MacDockIconHandler::instance();
+    dockIconHandler->setMainWindow((QMainWindow *)this);
+    trayIconMenu = dockIconHandler->dockMenu();
+#endif
+
+    // Configuration of the tray icon (or dock icon) icon menu
+
+#ifndef Q_OS_MAC // This is built-in on Mac
+    trayIconMenu->addAction(toggleHideAction);
+    trayIconMenu->addSeparator();
+#endif
+    trayIconMenu->addAction(m_ui->m_sendAction);
+    trayIconMenu->addAction(m_ui->m_receiveAction);
+    trayIconMenu->addAction(m_ui->m_transactionsAction);
+    trayIconMenu->addAction(m_ui->m_addressBookAction);
+    trayIconMenu->addAction(m_ui->m_miningAction);
+    trayIconMenu->addSeparator();
+    trayIconMenu->addAction(m_ui->m_openWalletAction);
+    trayIconMenu->addAction(m_ui->m_closeWalletAction);
+    trayIconMenu->addSeparator();
+    trayIconMenu->addAction(m_ui->actionStatus);
+    trayIconMenu->addAction(m_ui->actionHelp);
+#ifndef Q_OS_MAC // This is built-in on Mac
+    trayIconMenu->addSeparator();
+    trayIconMenu->addAction(m_ui->m_exitAction);
+#endif
+}
+
+#ifdef Q_OS_WIN
+void MainWindow::trayActivated(QSystemTrayIcon::ActivationReason reason)
+{
+    if(reason == QSystemTrayIcon::Trigger)
+    {
+        // Click on system tray icon triggers show/hide of the main window
+        toggleHidden();
+    }
 }
 #endif
+
+#ifdef Q_OS_WIN
+void MainWindow::minimizeToTray(bool _on) {
+  if (_on) {
+    hide();
+  } else {
+    showNormal();
+    activateWindow();
+  }
+}
+#endif
+
+void MainWindow::showNormalIfMinimized(bool fToggleHidden)
+{
+    if (isHidden() || isMinimized())
+    {
+        showNormal();
+        activateWindow();
+    }
+    else if (isObscured(this))
+    {
+        raise();
+        activateWindow();
+    }
+    else if (fToggleHidden) {
+        hide();
+    }
+    else {
+        showNormal();
+        activateWindow();
+    }
+}
+
+void MainWindow::toggleHidden()
+{
+    showNormalIfMinimized(true);
+}
+
+bool MainWindow::checkPoint(const QPoint &p, const QWidget *w)
+{
+    QWidget *atW = QApplication::widgetAt(w->mapToGlobal(p));
+    if (!atW) return false;
+    return atW->topLevelWidget() == w;
+}
+
+bool MainWindow::isObscured(QWidget *w)
+{
+    return !(checkPoint(QPoint(0, 0), w)
+        && checkPoint(QPoint(w->width() - 1, 0), w)
+        && checkPoint(QPoint(0, w->height() - 1), w)
+        && checkPoint(QPoint(w->width() - 1, w->height() - 1), w)
+        && checkPoint(QPoint(w->width() / 2, w->height() / 2), w));
+}
 
 }

@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2015 The Cryptonote developers
-// Copyright (c) 2016 The Karbowanec developers
+// Copyright (c) 2016-2017 The Karbowanec developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -99,7 +99,7 @@ NodeAdapter::NodeAdapter() : QObject(), m_node(nullptr), m_nodeInitializerThread
 NodeAdapter::~NodeAdapter() {
 }
 
-quintptr NodeAdapter::getPeerCount() const {
+quintptr NodeAdapter::getPeerCount() {
   Q_ASSERT(m_node != nullptr);
   return m_node->getPeerCount();
 }
@@ -217,6 +217,51 @@ QDateTime NodeAdapter::getLastLocalBlockTimestamp() const {
   return QDateTime::fromTime_t(m_node->getLastLocalBlockTimestamp(), Qt::UTC);
 }
 
+quint64 NodeAdapter::getDifficulty() {
+  Q_CHECK_PTR(m_node);
+  return m_node->getDifficulty();
+}
+
+quint64 NodeAdapter::getTxCount() {
+  Q_CHECK_PTR(m_node);
+  return m_node->getTxCount();
+}
+
+quint64 NodeAdapter::getTxPoolSize() {
+  Q_CHECK_PTR(m_node);
+  return m_node->getTxPoolSize();
+}
+
+quint64 NodeAdapter::getAltBlocksCount() {
+  Q_CHECK_PTR(m_node);
+  return m_node->getAltBlocksCount();
+}
+
+quint64 NodeAdapter::getConnectionsCount() {
+  Q_CHECK_PTR(m_node);
+  return m_node->getConnectionsCount();
+}
+
+quint64 NodeAdapter::getOutgoingConnectionsCount() {
+  Q_CHECK_PTR(m_node);
+  return m_node->getOutgoingConnectionsCount();
+}
+
+quint64 NodeAdapter::getIncomingConnectionsCount() {
+  Q_CHECK_PTR(m_node);
+  return m_node->getIncomingConnectionsCount();
+}
+
+quint64 NodeAdapter::getWhitePeerlistSize() {
+  Q_CHECK_PTR(m_node);
+  return m_node->getWhitePeerlistSize();
+}
+
+quint64 NodeAdapter::getGreyPeerlistSize() {
+  Q_CHECK_PTR(m_node);
+  return m_node->getGreyPeerlistSize();
+}
+
 void NodeAdapter::peerCountUpdated(Node& _node, size_t _count) {
   Q_UNUSED(_node);
   Q_EMIT peerCountUpdatedSignal(_count);
@@ -230,6 +275,21 @@ void NodeAdapter::localBlockchainUpdated(Node& _node, uint64_t _height) {
 void NodeAdapter::lastKnownBlockHeightUpdated(Node& _node, uint64_t _height) {
   Q_UNUSED(_node);
   Q_EMIT lastKnownBlockHeightUpdatedSignal(_height);
+}
+
+void NodeAdapter::startSoloMining(QString _address, size_t _threads_count) {
+  Q_CHECK_PTR(m_node);
+  m_node->startMining(_address.toStdString(), _threads_count);
+}
+
+void NodeAdapter::stopSoloMining() {
+  Q_CHECK_PTR(m_node);
+  m_node->stopMining();
+}
+
+quint64 NodeAdapter::getSpeed() const {
+  Q_CHECK_PTR(m_node);
+  return m_node->getSpeed();
 }
 
 bool NodeAdapter::initInProcessNode() {
