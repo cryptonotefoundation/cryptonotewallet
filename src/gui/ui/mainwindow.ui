@@ -218,6 +218,7 @@
     <addaction name="m_closeWalletAction"/>
     <addaction name="separator"/>
     <addaction name="m_openUriAction"/>
+    <addaction name="m_openLogFileAction"/>
     <addaction name="separator"/>
     <addaction name="m_showPrivateKey"/>
     <addaction name="m_importKeyAction"/>
@@ -248,16 +249,8 @@
     <addaction name="m_aboutQtAction"/>
     <addaction name="actionHelp"/>
    </widget>
-   <widget class="QMenu" name="menuInformation">
-    <property name="title">
-     <string>Tools</string>
-    </property>
-    <addaction name="actionStatus"/>
-    <addaction name="m_openLogFileAction"/>
-   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuSettings"/>
-   <addaction name="menuInformation"/>
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QToolBar" name="toolBar">
@@ -1045,22 +1038,6 @@
    <signal>triggered()</signal>
    <receiver>MainWindow</receiver>
    <slot>closeWallet()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>489</x>
-     <y>274</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>actionStatus</sender>
-   <signal>triggered()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>showStatusInfo()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>-1</x>
