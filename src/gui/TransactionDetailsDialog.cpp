@@ -7,6 +7,8 @@
 #include "CurrencyAdapter.h"
 #include "TransactionDetailsDialog.h"
 #include "TransactionsModel.h"
+#include <IWalletLegacy.h>
+#include "WalletAdapter.h"
 
 #include "ui_transactiondetailsdialog.h"
 
@@ -33,7 +35,20 @@ TransactionDetailsDialog::TransactionDetailsDialog(const QModelIndex& _index, QW
   QString feeText = CurrencyAdapter::instance().formatAmount(index.data(TransactionsModel::ROLE_FEE).value<quint64>()) + " " +
     CurrencyAdapter::instance().getCurrencyTicker().toUpper();
 
-  m_ui->m_detailsBrowser->setHtml(m_detailsTemplate.arg(QString(tr("%1 confirmations")).arg(numberOfConfirmations)).
+  QString state;
+  CryptoNote::WalletLegacyTransaction transaction;
+  CryptoNote::TransactionId transaction_id = index.row();
+  if(WalletAdapter::instance().getTransaction(transaction_id, transaction)) {
+     if(transaction.state == CryptoNote::WalletLegacyTransactionState::Failed)
+        state = tr("Failed");
+
+     else if(transaction.state == CryptoNote::WalletLegacyTransactionState::Cancelled)
+        state = tr("Cancelled");
+  }
+  if(state.isEmpty())
+    state = QString(tr("%n confirmation(s)", "", numberOfConfirmations));
+
+  m_ui->m_detailsBrowser->setHtml(m_detailsTemplate.arg(state).
     arg(index.sibling(index.row(), TransactionsModel::COLUMN_DATE).data().toString()).arg(index.sibling(index.row(),
     TransactionsModel::COLUMN_ADDRESS).data().toString()).arg(amountText).arg(feeText).
     arg(index.sibling(index.row(), TransactionsModel::COLUMN_HASH).data().toString()));
