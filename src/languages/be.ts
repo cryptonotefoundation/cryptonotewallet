@@ -570,7 +570,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Tools</source>
-        <translation>Інструменты</translation>
+        <translation type="vanished">Інструменты</translation>
     </message>
     <message>
         <source>Open log file</source>
@@ -1496,6 +1496,18 @@ Are you sure?</source>
         <source>Show or hide the main window</source>
         <translation>Паказаць ці схаваць акно паперніка</translation>
     </message>
+    <message>
+        <source>Total amount: %1, hash: %2</source>
+        <translation>Сума: %1, хэш: %2</translation>
+    </message>
+    <message>
+        <source>Karbo Wallet</source>
+        <translation>Карбованець</translation>
+    </message>
+    <message>
+        <source>New transaction received</source>
+        <translation>Атрымана новая транзакцыя</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::MiningFrame</name>
@@ -1598,7 +1610,7 @@ Are you sure?</source>
     <name>WalletGui::TransactionDetailsDialog</name>
     <message>
         <source>%1 confirmations</source>
-        <translation>%1 пацверджання</translation>
+        <translation type="vanished">%1 пацверджання</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -1617,6 +1629,22 @@ Are you sure?</source>
 &lt;span style=&quot; font-weight:600;&quot;&gt;Сума: &lt;/span&gt;%5&lt;/p&gt;&lt;br&gt;
 &lt;span style=&quot; font-weight:600;&quot;&gt;Паплатак: &lt;/span&gt;%6&lt;/p&gt;&lt;br&gt;
 &lt;span style=&quot; font-weight:600;&quot;&gt;Хэш транзакцыі: &lt;/span&gt;%8&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <source>Failed</source>
+        <translation>Не ўдалося</translation>
+    </message>
+    <message>
+        <source>Cancelled</source>
+        <translation>Адменена</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n confirmation(s)</source>
+        <translation>
+            <numerusform>%n пацвярджэнне</numerusform>
+            <numerusform>%n пацвярджэння</numerusform>
+            <numerusform>%n пацвярджэнняў</numerusform>
+        </translation>
     </message>
 </context>
 <context>
@@ -1818,6 +1846,126 @@ Are you sure?</source>
     <message>
         <source>  Warning: last block was received %1 hours %2 minutes ago</source>
         <translation>  Увага: апошні блок атрымана %1 г. %2 хв. таму</translation>
+    </message>
+    <message>
+        <source>Object was not initialized</source>
+        <translation>Аб&apos;ект не быў ініцыялізаваны</translation>
+    </message>
+    <message>
+        <source>The password is wrong</source>
+        <translation>Няправільны пароль</translation>
+    </message>
+    <message>
+        <source>The object is already initialized</source>
+        <translation>Аб&apos;ект ужо ініцыялізаваны</translation>
+    </message>
+    <message>
+        <source>Internal error occurred</source>
+        <translation>Адбылася ўнутраная памылка</translation>
+    </message>
+    <message>
+        <source>MixIn count is too big</source>
+        <translation>Колькасць мяшання занадта вяліка</translation>
+    </message>
+    <message>
+        <source>Bad address</source>
+        <translation>Няправільны адрас</translation>
+    </message>
+    <message>
+        <source>Transaction size is too big</source>
+        <translation>Памер транзакцыі занадта вялікі</translation>
+    </message>
+    <message>
+        <source>Wrong amount</source>
+        <translation>Няправільная сума</translation>
+    </message>
+    <message>
+        <source>Sum overflow</source>
+        <translation>Перапаўненне значэння сумы</translation>
+    </message>
+    <message>
+        <source>The destination is empty</source>
+        <translation>Прызначэнне пустое</translation>
+    </message>
+    <message>
+        <source>Impossible to cancel transaction</source>
+        <translation>Немагчыма адмяніць транзакцыю</translation>
+    </message>
+    <message>
+        <source>The wallet is in wrong state (maybe loading or saving), try again later</source>
+        <translation>Гаманец знаходзіцца ў няправільным стане (магчыма, загрузка або захаванне), паўторыце спробу пазней</translation>
+    </message>
+    <message>
+        <source>The operation you&apos;ve requested has been cancelled</source>
+        <translation>Запытаная аперацыя адменена</translation>
+    </message>
+    <message>
+        <source>Transaction transfer impossible</source>
+        <translation>Перадача транзакцыі немагчымая</translation>
+    </message>
+    <message>
+        <source>Wrong version</source>
+        <translation>Няправільная версія</translation>
+    </message>
+    <message>
+        <source>Transaction fee is too small</source>
+        <translation>Камісія за транзакцыю занадта малая</translation>
+    </message>
+    <message>
+        <source>Cannot generate new key</source>
+        <translation>Не ўдаецца стварыць новы ключ</translation>
+    </message>
+    <message>
+        <source>Index is out of range</source>
+        <translation>Індэкс за межамі дапушчальнага дыяпазону</translation>
+    </message>
+    <message>
+        <source>Address already exists</source>
+        <translation>Адрас ужо існуе</translation>
+    </message>
+    <message>
+        <source>The wallet is in tracking mode</source>
+        <translation>Кашалёк знаходзіцца ў рэжыме адсочвання</translation>
+    </message>
+    <message>
+        <source>Wrong parameters passed</source>
+        <translation>Перададзеныя няправільныя параметры</translation>
+    </message>
+    <message>
+        <source>Object not found</source>
+        <translation>Аб&apos;ект не знойдзены</translation>
+    </message>
+    <message>
+        <source>Requested wallet not found</source>
+        <translation>Запытаны гаманец не знойдзена</translation>
+    </message>
+    <message>
+        <source>Change address required</source>
+        <translation>Патрабуецца адрас для здачы</translation>
+    </message>
+    <message>
+        <source>Change address not found</source>
+        <translation>Адрас для здачы не знойдзены</translation>
+    </message>
+    <message>
+        <source>Destination address required</source>
+        <translation>Патрабуецца адрас прызначэння</translation>
+    </message>
+    <message>
+        <source>Destination address not found</source>
+        <translation>Адрас прызначэння не знойдзены</translation>
+    </message>
+    <message>
+        <source>Wrong payment id format</source>
+        <translation>Няправільны фармат ідэнтыфікатара плацяжу</translation>
+    </message>
+    <message>
+        <source>Wrong transaction extra format</source>
+        <translation>Няправільны фармат дополительной інфармацыі ў транзакцыі</translation>
+    </message>
+    <message>
+        <source>Unknown error</source>
+        <translation>Невядомая памылка</translation>
     </message>
 </context>
 </TS>

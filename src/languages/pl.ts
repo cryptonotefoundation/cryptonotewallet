@@ -570,7 +570,7 @@ Proszę czekać...</translation>
     </message>
     <message>
         <source>Tools</source>
-        <translation>Narzędzia</translation>
+        <translation type="vanished">Narzędzia</translation>
     </message>
     <message>
         <source>Open log file</source>
@@ -1496,6 +1496,18 @@ Jesteś pewien?</translation>
         <source>Show or hide the main window</source>
         <translation>Ukryć lub pokazać okno portfela</translation>
     </message>
+    <message>
+        <source>Total amount: %1, hash: %2</source>
+        <translation>Kwota: %1, hash: %2</translation>
+    </message>
+    <message>
+        <source>Karbo Wallet</source>
+        <translation>Karbowaniec</translation>
+    </message>
+    <message>
+        <source>New transaction received</source>
+        <translation>Otrzymano nową transakcję</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::MiningFrame</name>
@@ -1598,7 +1610,7 @@ Jesteś pewien?</translation>
     <name>WalletGui::TransactionDetailsDialog</name>
     <message>
         <source>%1 confirmations</source>
-        <translation>%1 potwiedzeń</translation>
+        <translation type="vanished">%1 potwiedzeń</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -1617,6 +1629,22 @@ Jesteś pewien?</translation>
 &lt;span style=&quot; font-weight:600;&quot;&gt;Suma: &lt;/span&gt;%5&lt;/p&gt;&lt;br&gt;
 &lt;span style=&quot; font-weight:600;&quot;&gt;Prowizja: &lt;/span&gt;%6&lt;/p&gt;&lt;br&gt;
 &lt;span style=&quot; font-weight:600;&quot;&gt;Hash transakcji: &lt;/span&gt;%8&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <source>Failed</source>
+        <translation>Niepowodzenie</translation>
+    </message>
+    <message>
+        <source>Cancelled</source>
+        <translation>Odwołana</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n confirmation(s)</source>
+        <translation>
+            <numerusform>%n potwiedzenie</numerusform>
+            <numerusform>%n potwiedzenia</numerusform>
+            <numerusform>%n potwiedzeń</numerusform>
+        </translation>
     </message>
 </context>
 <context>
@@ -1818,6 +1846,126 @@ Jesteś pewien?</translation>
     <message>
         <source>  Warning: last block was received %1 hours %2 minutes ago</source>
         <translation>  Uwaga: ostatni blok otrzymany %1 godz. %2 min. temu</translation>
+    </message>
+    <message>
+        <source>Object was not initialized</source>
+        <translation>Obiekt nie został zainicjowany</translation>
+    </message>
+    <message>
+        <source>The password is wrong</source>
+        <translation>Hasło jest nieprawidłowe</translation>
+    </message>
+    <message>
+        <source>The object is already initialized</source>
+        <translation>Obiekt jest już zainicjowany</translation>
+    </message>
+    <message>
+        <source>Internal error occurred</source>
+        <translation>Wystąpił błąd wewnętrzny</translation>
+    </message>
+    <message>
+        <source>MixIn count is too big</source>
+        <translation>Liczba wymieszań jest zbyt duża</translation>
+    </message>
+    <message>
+        <source>Bad address</source>
+        <translation>Zły adres</translation>
+    </message>
+    <message>
+        <source>Transaction size is too big</source>
+        <translation>Wielkość transakcji jest zbyt duża</translation>
+    </message>
+    <message>
+        <source>Wrong amount</source>
+        <translation>Niewłaściwa kwota</translation>
+    </message>
+    <message>
+        <source>Sum overflow</source>
+        <translation>Przepełnienie znaczenia kwoty</translation>
+    </message>
+    <message>
+        <source>The destination is empty</source>
+        <translation>Przeznaczenie docelowe jest puste</translation>
+    </message>
+    <message>
+        <source>Impossible to cancel transaction</source>
+        <translation>Nie można anulować transakcji</translation>
+    </message>
+    <message>
+        <source>The wallet is in wrong state (maybe loading or saving), try again later</source>
+        <translation>Portfel jest w niewłaściwym stanie (być może ładuje lub zapisuje), spróbuj ponownie później</translation>
+    </message>
+    <message>
+        <source>The operation you&apos;ve requested has been cancelled</source>
+        <translation>Zażądana operacja została anulowana</translation>
+    </message>
+    <message>
+        <source>Transaction transfer impossible</source>
+        <translation>Przekazanie transakcji nie jest możliwe</translation>
+    </message>
+    <message>
+        <source>Wrong version</source>
+        <translation>Niewłaściwa wersja</translation>
+    </message>
+    <message>
+        <source>Transaction fee is too small</source>
+        <translation>Opłata za transakcję jest za mała</translation>
+    </message>
+    <message>
+        <source>Cannot generate new key</source>
+        <translation>Nie można wygenerować nowego klucza</translation>
+    </message>
+    <message>
+        <source>Index is out of range</source>
+        <translation>Indeks jest poza zakresem</translation>
+    </message>
+    <message>
+        <source>Address already exists</source>
+        <translation>Adres już istnieje</translation>
+    </message>
+    <message>
+        <source>The wallet is in tracking mode</source>
+        <translation>Portfel jest w trybie śledzenia</translation>
+    </message>
+    <message>
+        <source>Wrong parameters passed</source>
+        <translation>Przekazane nieprawidłowe parametry</translation>
+    </message>
+    <message>
+        <source>Object not found</source>
+        <translation>Nie znaleziono obiektu</translation>
+    </message>
+    <message>
+        <source>Requested wallet not found</source>
+        <translation>Nie znaleziono portfela</translation>
+    </message>
+    <message>
+        <source>Change address required</source>
+        <translation>Wymagany adres dla zwrotu reszty</translation>
+    </message>
+    <message>
+        <source>Change address not found</source>
+        <translation>Nie znaleziono adresu dla zwrotu reszty</translation>
+    </message>
+    <message>
+        <source>Destination address required</source>
+        <translation>Wymagany adres docelowy</translation>
+    </message>
+    <message>
+        <source>Destination address not found</source>
+        <translation>Nie znaleziono adresu docelowego</translation>
+    </message>
+    <message>
+        <source>Wrong payment id format</source>
+        <translation>Niewłaściwy format identyfikatora płatności</translation>
+    </message>
+    <message>
+        <source>Wrong transaction extra format</source>
+        <translation>Niewłaściwy format extra transakcji</translation>
+    </message>
+    <message>
+        <source>Unknown error</source>
+        <translation>Nieznany błąd</translation>
     </message>
 </context>
 </TS>

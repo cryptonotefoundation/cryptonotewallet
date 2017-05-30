@@ -270,7 +270,7 @@
     <message>
         <source>%1 wallet is saving data.
 Please wait...</source>
-        <translation>%1 сохраняет данные.
+        <translation>Кошелек сохраняет данные.
 Подождите пожалуйста...</translation>
     </message>
 </context>
@@ -570,7 +570,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Tools</source>
-        <translation>Инструменты</translation>
+        <translation type="vanished">Инструменты</translation>
     </message>
     <message>
         <source>Open log file</source>
@@ -1485,6 +1485,18 @@ Are you sure?</source>
         <source>Show or hide the main window</source>
         <translation>Показать или спрятать окно кошелька</translation>
     </message>
+    <message>
+        <source>Total amount: %1, hash: %2</source>
+        <translation>Сумма: %1, хеш: %2</translation>
+    </message>
+    <message>
+        <source>Karbo Wallet</source>
+        <translation>Карбованец</translation>
+    </message>
+    <message>
+        <source>New transaction received</source>
+        <translation>Получена новая транзакция</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::MiningFrame</name>
@@ -1587,7 +1599,7 @@ Are you sure?</source>
     <name>WalletGui::TransactionDetailsDialog</name>
     <message>
         <source>%1 confirmations</source>
-        <translation>%1 подтвержд.</translation>
+        <translation type="vanished">%1 подтвержд.</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -1606,6 +1618,22 @@ Are you sure?</source>
 &lt;span style=&quot; font-weight:600;&quot;&gt;Сумма: &lt;/span&gt;%5&lt;/p&gt;&lt;br&gt;
 &lt;span style=&quot; font-weight:600;&quot;&gt;Комиссия: &lt;/span&gt;%6&lt;/p&gt;&lt;br&gt;
 &lt;span style=&quot; font-weight:600;&quot;&gt;Хеш транзакции: &lt;/span&gt;%8&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <source>Failed</source>
+        <translation>Неудалась</translation>
+    </message>
+    <message>
+        <source>Cancelled</source>
+        <translation>Отменена</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n confirmation(s)</source>
+        <translation>
+            <numerusform>%n подтверждение</numerusform>
+            <numerusform>%n подтверждения</numerusform>
+            <numerusform>%n подтверждений</numerusform>
+        </translation>
     </message>
 </context>
 <context>
@@ -1807,6 +1835,126 @@ Are you sure?</source>
     <message>
         <source>  Warning: last block was received %1 hours %2 minutes ago</source>
         <translation>  Внимание: последний блок получен %1 ч. %2 мин. назад</translation>
+    </message>
+    <message>
+        <source>Object was not initialized</source>
+        <translation>Объект не был инициализирован</translation>
+    </message>
+    <message>
+        <source>The password is wrong</source>
+        <translation>Неверный пароль</translation>
+    </message>
+    <message>
+        <source>The object is already initialized</source>
+        <translation>Объект уже инициализирован</translation>
+    </message>
+    <message>
+        <source>Internal error occurred</source>
+        <translation>Произошла внутренняя ошибка</translation>
+    </message>
+    <message>
+        <source>MixIn count is too big</source>
+        <translation>Количество перемешиваний слишком велико</translation>
+    </message>
+    <message>
+        <source>Bad address</source>
+        <translation>Плохой адрес</translation>
+    </message>
+    <message>
+        <source>Transaction size is too big</source>
+        <translation>Размер транзакции слишком большой</translation>
+    </message>
+    <message>
+        <source>Wrong amount</source>
+        <translation>Неверная сумма</translation>
+    </message>
+    <message>
+        <source>Sum overflow</source>
+        <translation>Переполнение значения суммы</translation>
+    </message>
+    <message>
+        <source>The destination is empty</source>
+        <translation>Назначение пустое</translation>
+    </message>
+    <message>
+        <source>Impossible to cancel transaction</source>
+        <translation>Невозможно отменить транзакцию</translation>
+    </message>
+    <message>
+        <source>The wallet is in wrong state (maybe loading or saving), try again later</source>
+        <translation>Кошелек находится в неправильном состоянии (возможно, загрузка или сохранение), повторите попытку позже</translation>
+    </message>
+    <message>
+        <source>The operation you&apos;ve requested has been cancelled</source>
+        <translation>Запрошенная операция отменена</translation>
+    </message>
+    <message>
+        <source>Transaction transfer impossible</source>
+        <translation>Передача транзакции невозможна</translation>
+    </message>
+    <message>
+        <source>Wrong version</source>
+        <translation>Неверная версия</translation>
+    </message>
+    <message>
+        <source>Transaction fee is too small</source>
+        <translation>Комиссия за транзакцию слишком мала</translation>
+    </message>
+    <message>
+        <source>Cannot generate new key</source>
+        <translation>Невозможно создать новый ключ</translation>
+    </message>
+    <message>
+        <source>Index is out of range</source>
+        <translation>Индекс за пределами допустимого диапазона</translation>
+    </message>
+    <message>
+        <source>Address already exists</source>
+        <translation>Адрес уже существует</translation>
+    </message>
+    <message>
+        <source>The wallet is in tracking mode</source>
+        <translation>Кошелек находится в режиме отслеживания</translation>
+    </message>
+    <message>
+        <source>Wrong parameters passed</source>
+        <translation>Переданы неправильные параметры</translation>
+    </message>
+    <message>
+        <source>Object not found</source>
+        <translation>Объект не найден</translation>
+    </message>
+    <message>
+        <source>Requested wallet not found</source>
+        <translation>Запрошенный кошелек не найден</translation>
+    </message>
+    <message>
+        <source>Change address required</source>
+        <translation>Требуется адрес для сдачи</translation>
+    </message>
+    <message>
+        <source>Change address not found</source>
+        <translation>Адрес для сдачи не найден</translation>
+    </message>
+    <message>
+        <source>Destination address required</source>
+        <translation>Требуется адрес назначения</translation>
+    </message>
+    <message>
+        <source>Destination address not found</source>
+        <translation>Адрес назначения не найден</translation>
+    </message>
+    <message>
+        <source>Wrong payment id format</source>
+        <translation>Неверный формат идентификатора платежа</translation>
+    </message>
+    <message>
+        <source>Wrong transaction extra format</source>
+        <translation>Неверный формат дополнительной информации в транзакции</translation>
+    </message>
+    <message>
+        <source>Unknown error</source>
+        <translation>Неизвестная ошибка</translation>
     </message>
 </context>
 </TS>
