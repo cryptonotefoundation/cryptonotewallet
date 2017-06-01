@@ -128,6 +128,7 @@ void MacDockIconHandler::handleDockIconClickEvent()
     {
         this->mainWindow->activateWindow();
         this->mainWindow->show();
+        this->mainWindow->setWindowState(Qt::WindowActive);
     }
 
     emit this->dockIconClicked();
