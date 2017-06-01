@@ -16,7 +16,6 @@
 #include "PaymentServer.h"
 
 class QActionGroup;
-class Notificator;
 
 namespace Ui {
 class MainWindow;
@@ -60,7 +59,6 @@ private:
   static MainWindow* m_instance;
 
   QMenu *trayIconMenu;
-  Notificator *notificator;
 
   MainWindow();
   ~MainWindow();
@@ -120,7 +118,8 @@ public:
 
 private:
   void installDockHandler();
-#elif defined(Q_OS_WIN)
+#endif
+#ifdef Q_OS_WIN
 protected:
   void changeEvent(QEvent* _event) Q_DECL_OVERRIDE;
 
