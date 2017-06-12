@@ -466,8 +466,8 @@ public:
 
     m_nodeServer.run();
     m_nodeServer.deinit();
-    m_node.shutdown();
     m_core.deinit();
+    m_node.shutdown();
   }
 
   void deinit() override {
