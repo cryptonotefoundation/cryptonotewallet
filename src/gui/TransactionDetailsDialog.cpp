@@ -23,6 +23,7 @@ TransactionDetailsDialog::TransactionDetailsDialog(const QModelIndex& _index, QW
     "<span style=\" font-weight:600;\">To: </span>%4</p><br>\n"
     "<span style=\" font-weight:600;\">Amount: </span>%5</p><br>\n"
     "<span style=\" font-weight:600;\">Fee: </span>%6</p><br>\n"
+    "<span style=\" font-weight:600;\">Payment ID: </span>%7</p><br>\n"
     "<span style=\" font-weight:600;\">Transaction hash: </span>%8</p></body></html>")) {
   m_ui->setupUi(this);
 
@@ -51,6 +52,7 @@ TransactionDetailsDialog::TransactionDetailsDialog(const QModelIndex& _index, QW
   m_ui->m_detailsBrowser->setHtml(m_detailsTemplate.arg(state).
     arg(index.sibling(index.row(), TransactionsModel::COLUMN_DATE).data().toString()).arg(index.sibling(index.row(),
     TransactionsModel::COLUMN_ADDRESS).data().toString()).arg(amountText).arg(feeText).
+    arg(index.sibling(index.row(), TransactionsModel::COLUMN_PAYMENT_ID).data().toString()).
     arg(index.sibling(index.row(), TransactionsModel::COLUMN_HASH).data().toString()));
 }
 
