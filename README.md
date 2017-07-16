@@ -1,32 +1,18 @@
+Dependencies: boost >= 1.55, CMake >= 2.8.6, GCC >=4.7.3, Qt >=5.0
+
 **1. Clone wallet sources**
 
 ```
-git clone https://github.com/cryptonotefoundation/cryptonotewallet.git
+git clone https://github.com/valiant1x/cryptonotewallet/intensecoinwallet.git
 ```
 
-**2. Modify `CryptoNoteWallet.cmake`**
- 
-```
-set(CN_PROJECT_NAME "furiouscoin")
-set(CN_CURRENCY_DISPLAY_NAME "FuriousCoin")
-set(CN_CURRENCY_TICKER "XFC")
-```
-
-**3. Set symbolic link to coin sources at the same level as `src`. For example:**
+**2. Create git submodule:**
 
 ```
-ln -s ../cryptonote cryptonote
+git submodule add https://github.com/valiant1x/intensecoin.git cryptonote
 ```
 
-Alternative way is to create git submodule:
-
-```
-git submodule add https://github.com/cryptonotefoundation/cryptonote.git cryptonote
-```
-
-Replace URL with git remote repository of your coin.
-
-**4. Build**
+**3. Build**
 
 ```
 mkdir build && cd build && cmake .. && make
