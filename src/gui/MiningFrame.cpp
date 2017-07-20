@@ -55,7 +55,9 @@ MiningFrame::~MiningFrame() {
 
 void MiningFrame::enableSolo() {
   m_sychronized = true;
-  m_ui->m_startSolo->setEnabled(true);
+  if(!m_solo_mining) {
+    m_ui->m_startSolo->setEnabled(true);
+  }
 }
 
 void MiningFrame::timerEvent(QTimerEvent* _event) {
