@@ -1,0 +1,3 @@
+[submodule "cryptonote"]
+	path = cryptonote
+	url = https://github.com/valiant1x/intensecoin.git

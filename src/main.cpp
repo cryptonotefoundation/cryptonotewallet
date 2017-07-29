@@ -72,7 +72,7 @@ int main(int argc, char* argv[]) {
     splash->show();
   }
 
-  splash->showMessage(QObject::tr("Loading blockchain..."), Qt::AlignLeft | Qt::AlignBottom, Qt::white);
+  splash->showMessage(QObject::tr("Loading blockchain..."), Qt::AlignHCenter | Qt::AlignBottom, Qt::white);
   app.processEvents();
   qRegisterMetaType<CryptoNote::TransactionId>("CryptoNote::TransactionId");
   qRegisterMetaType<quintptr>("quintptr");
