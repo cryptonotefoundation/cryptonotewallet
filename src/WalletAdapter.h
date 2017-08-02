@@ -76,6 +76,7 @@ private:
   bool openFile(const QString& _file, bool _read_only);
   void closeFile();
   void notifyAboutLastTransaction();
+  void backupOnOpen();
   QString walletErrorMessage(int _error_code);
 
   static void renameFile(const QString& _old_name, const QString& _new_name);

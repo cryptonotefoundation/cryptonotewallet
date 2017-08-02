@@ -8,6 +8,7 @@
 #include <QDateTime>
 #include <QLocale>
 #include <QVector>
+#include <QDebug>
 
 #include <Common/Base58.h>
 #include <Common/Util.h>
@@ -89,8 +90,11 @@ void WalletAdapter::open(const QString& _password) {
   m_wallet->addObserver(this);
 
   if (QFile::exists(Settings::instance().getWalletFile())) {
+
+    backupOnOpen(); // Backup wallet
+
     if (Settings::instance().getWalletFile().endsWith(".keys")) {
-      if(!importLegacyWallet(_password)) {
+      if (!importLegacyWallet(_password)) {
         return;
       }
     }
@@ -197,6 +201,43 @@ bool WalletAdapter::save(const QString& _file, bool _details, bool _cache) {
 void WalletAdapter::backup(const QString& _file) {
   if (save(_file.endsWith(".wallet") ? _file : _file + ".wallet", true, false)) {
     m_isBackupInProgress = true;
+  }
+}
+
+void WalletAdapter::backupOnOpen(){
+  QFileInfo sourceInfo(Settings::instance().getWalletFile()), destinationInfo(Settings::instance().getDataDir().absoluteFilePath("backup"));
+  if (!QDir(Settings::instance().getDataDir().absoluteFilePath("backup")).exists())
+       QDir().mkdir(Settings::instance().getDataDir().absoluteFilePath("backup"));
+
+  QString source = Settings::instance().getWalletFile();
+  QString destination = (QFileInfo(QDir(destinationInfo.absoluteFilePath()), sourceInfo.fileName())).filePath();
+  QString dateTimeStr = QLocale(QLocale::English).toString(QDateTime::currentDateTime(), ".dd-MM-yyyy-HH-mm");
+  destination.replace(destination.lastIndexOf(".wallet"), 7, dateTimeStr + ".wallet");
+
+  if (QFile::exists(destination)) {
+      QFile::remove(destination);
+  }
+  QFile::copy(source, destination);
+  qDebug() << qPrintable(QString("Creating backup of %1 -> %2\n").arg(source).arg(destination));
+
+  int counter = 0;
+  QString walletFileName = sourceInfo.fileName();
+  QString walletName = walletFileName.section(".",0,0);
+  QDir dir = Settings::instance().getDataDir().absoluteFilePath("backup");
+  QStringList filters;
+       filters << walletName + "*.wallet";
+       dir.setNameFilters(filters);
+       dir.setFilter(QDir::Files | QDir::Hidden | QDir::NoSymLinks);
+       dir.setSorting(QDir::Time);
+  QFileInfoList list = dir.entryInfoList();
+
+  for (int i = 0; i < list.size(); ++i) {
+    QFileInfo fileInfo = list.at(i);
+    counter++;
+    if (counter > 10){ // More than ten backups: delete oldest one(s)
+      QFile::remove(fileInfo.absoluteFilePath());
+      qDebug() << qPrintable(QString("Old backup deleted: %1").arg(fileInfo.fileName()));
+    }
   }
 }
 
