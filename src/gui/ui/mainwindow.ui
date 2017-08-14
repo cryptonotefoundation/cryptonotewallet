@@ -211,6 +211,7 @@
      </property>
     </widget>
     <addaction name="m_createWalletAction"/>
+    <addaction name="m_createNondeterministicWalletAction"/>
     <addaction name="m_openWalletAction"/>
     <addaction name="menuRecent_wallets"/>
     <addaction name="m_backupWalletAction"/>
@@ -219,6 +220,9 @@
     <addaction name="separator"/>
     <addaction name="m_openUriAction"/>
     <addaction name="m_openLogFileAction"/>
+    <addaction name="separator"/>
+    <addaction name="m_showMnemonicSeedAction"/>
+    <addaction name="m_restoreFromMnemonicSeedAction"/>
     <addaction name="separator"/>
     <addaction name="m_showPrivateKey"/>
     <addaction name="m_importKeyAction"/>
@@ -582,6 +586,24 @@
   <action name="m_openLogFileAction">
    <property name="text">
     <string>Open log file</string>
+   </property>
+  </action>
+  <action name="m_showMnemonicSeedAction">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Show mnemonic seed</string>
+   </property>
+  </action>
+  <action name="m_restoreFromMnemonicSeedAction">
+   <property name="text">
+    <string>Restore from mnemonic seed</string>
+   </property>
+  </action>
+  <action name="m_createNondeterministicWalletAction">
+   <property name="text">
+    <string>Create nondeterministic wallet</string>
    </property>
   </action>
  </widget>
@@ -1054,6 +1076,54 @@
    <signal>triggered()</signal>
    <receiver>MainWindow</receiver>
    <slot>openLogFile()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>489</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_showMnemonicSeedAction</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showMnemonicSeed()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>489</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_restoreFromMnemonicSeedAction</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>restoreFromMnemonicSeed()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>489</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_createNondeterministicWalletAction</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>createNonDeterministicWallet()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>-1</x>

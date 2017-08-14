@@ -576,6 +576,18 @@ Proszę czekać...</translation>
         <source>Open log file</source>
         <translation>Otwórz plik dziennika</translation>
     </message>
+    <message>
+        <source>Show mnemonic seed</source>
+        <translation>Pokaż mnemonik</translation>
+    </message>
+    <message>
+        <source>Restore from mnemonic seed</source>
+        <translation>Przywróć z mnemonika</translation>
+    </message>
+    <message>
+        <source>Create nondeterministic wallet</source>
+        <translation>Utwórz niedeterministyczny portfel</translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
@@ -638,6 +650,17 @@ Proszę czekać...</translation>
     <message>
         <source>Mining status:</source>
         <translation>Stan karbowania:</translation>
+    </message>
+</context>
+<context>
+    <name>MnemonicSeedDialog</name>
+    <message>
+        <source>Mnemonic seed</source>
+        <translation>Mnemonik</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Zamknij</translation>
     </message>
 </context>
 <context>
@@ -932,6 +955,33 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
     </message>
 </context>
 <context>
+    <name>RestoreFromMnemonicSeedDialog</name>
+    <message>
+        <source>Restore from mnemonic phrase</source>
+        <translation>Przywróć z mnemonicznej frazy</translation>
+    </message>
+    <message>
+        <source>Mnemonic:</source>
+        <translation>Mnemonik:</translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished">...</translation>
+    </message>
+    <message>
+        <source>Wallet path:</source>
+        <translation>Ścieżka do portfela:</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Anuluj</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>OK</translation>
+    </message>
+</context>
+<context>
     <name>SendFrame</name>
     <message>
         <source>Frame</source>
@@ -1122,6 +1172,29 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
     <message>
         <source>Error: %1</source>
         <translation>Błąd: %1</translation>
+    </message>
+</context>
+<context>
+    <name>VerifyMnemonicSeedDialog</name>
+    <message>
+        <source>New deterministic wallet created</source>
+        <translation>Utworzono nowy deterministyczny portfel</translation>
+    </message>
+    <message>
+        <source>This is mnemonic seed of your wallet. Write it down carefully. It allows to restore your wallet.</source>
+        <translation>To mnemoniczna fraza portfela. Uważnie ją przepisz. Ona pozwala odzyskać portfel.</translation>
+    </message>
+    <message>
+        <source>Mnemonic:</source>
+        <translation>Mnemonik:</translation>
+    </message>
+    <message>
+        <source>Repeat:</source>
+        <translation>Powtórz:</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -1498,15 +1571,23 @@ Jesteś pewien?</translation>
     </message>
     <message>
         <source>Total amount: %1, hash: %2</source>
-        <translation>Kwota: %1, hash: %2</translation>
+        <translation type="vanished">Kwota: %1, hash: %2</translation>
     </message>
     <message>
         <source>Karbo Wallet</source>
-        <translation>Karbowaniec</translation>
+        <translation type="vanished">Karbowaniec</translation>
     </message>
     <message>
         <source>New transaction received</source>
-        <translation>Otrzymano nową transakcję</translation>
+        <translation type="vanished">Otrzymano nową transakcję</translation>
+    </message>
+    <message>
+        <source>Mnemonic seed is not correct</source>
+        <translation>Mnemonik jest nieprawidłowy</translation>
+    </message>
+    <message>
+        <source>There must be an error in mnemonic seed. Make sure you entered it correctly.</source>
+        <translation>Musi istnieć błąd w mnemoniku. Upewnij się, że został prawidłowo wprowadzony.</translation>
     </message>
 </context>
 <context>
@@ -1585,6 +1666,17 @@ Jesteś pewien?</translation>
     <message>
         <source>Save QR Code</source>
         <translation>Zapisz QR kod</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui::RestoreFromMnemonicSeedDialog</name>
+    <message>
+        <source>Wallet file</source>
+        <translation>Plik porfela</translation>
+    </message>
+    <message>
+        <source>Wallets (*.wallet)</source>
+        <translation>Portfele (*.wallet)</translation>
     </message>
 </context>
 <context>
@@ -1964,6 +2056,18 @@ Jesteś pewien?</translation>
     <message>
         <source>Unknown error</source>
         <translation>Nieznany błąd</translation>
+    </message>
+    <message>
+        <source>Creating wallet</source>
+        <translation>Tworzenie portfela</translation>
+    </message>
+    <message>
+        <source>Mnemonic seed is not correct</source>
+        <translation>Mnemonik jest nieprawidłowy</translation>
+    </message>
+    <message>
+        <source>There must be an error in mnemonic seed. Make sure you entered it correctly.</source>
+        <translation>Musi istnieć błąd w mnemoniku. Upewnij się, że został prawidłowo wprowadzony.</translation>
     </message>
 </context>
 </TS>

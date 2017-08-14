@@ -9,6 +9,7 @@
 #include <QMutex>
 #include <QObject>
 #include <QTimer>
+#include <QPushButton>
 
 #include <atomic>
 #include <fstream>
@@ -25,10 +26,13 @@ public:
   static WalletAdapter& instance();
 
   void open(const QString& _password);
+  void createWallet();
+  void createNonDeterministic();
   void createWithKeys(const CryptoNote::AccountKeys& _keys);
   void close();
   bool save(bool _details, bool _cache);
   void backup(const QString& _file);
+  void backupOnOpen();
   void reset();
 
   QString getAddress() const;
@@ -54,6 +58,11 @@ public:
   void sendTransactionCompleted(CryptoNote::TransactionId _transaction_id, std::error_code _result) Q_DECL_OVERRIDE;
   void transactionUpdated(CryptoNote::TransactionId _transaction_id) Q_DECL_OVERRIDE;
 
+  bool isDeterministic() const;
+  bool isDeterministic(CryptoNote::AccountKeys& _keys) const;
+  QString getMnemonicSeed() const;
+  CryptoNote::AccountKeys getKeysFromMnemonicSeed(QString& _seed) const;
+
 private:
   std::fstream m_file;
   CryptoNote::IWalletLegacy* m_wallet;
@@ -62,6 +71,7 @@ private:
   std::atomic<bool> m_isSynchronized;
   std::atomic<quint64> m_lastWalletTransactionId;
   QTimer m_newTransactionsNotificationTimer;
+  QPushButton* m_closeButton;
 
   WalletAdapter();
   ~WalletAdapter();
@@ -76,7 +86,6 @@ private:
   bool openFile(const QString& _file, bool _read_only);
   void closeFile();
   void notifyAboutLastTransaction();
-  void backupOnOpen();
   QString walletErrorMessage(int _error_code);
 
   static void renameFile(const QString& _old_name, const QString& _new_name);

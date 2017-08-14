@@ -86,6 +86,7 @@ private:
   void updateRecentActionList();
 
   Q_SLOT void createWallet();
+  Q_SLOT void createNonDeterministicWallet();
   Q_SLOT void openWallet();
   Q_SLOT void closeWallet();
   Q_SLOT void importKey();
@@ -108,6 +109,8 @@ private:
   Q_SLOT void openLogFile();
   Q_SLOT void toggleHidden();
   Q_SLOT void showNormalIfMinimized(bool fToggleHidden = false);
+  Q_SLOT void showMnemonicSeed();
+  Q_SLOT void restoreFromMnemonicSeed();
 
   bool isObscured(QWidget *w);
   bool checkPoint(const QPoint &p, const QWidget *w);

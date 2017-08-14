@@ -5,6 +5,9 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include <QCoreApplication>
+#include <QMessageBox>
+#include <QGridLayout>
+#include <QTextEdit>
 #include <QDateTime>
 #include <QLocale>
 #include <QVector>
@@ -18,6 +21,14 @@
 #include "NodeAdapter.h"
 #include "Settings.h"
 #include "WalletAdapter.h"
+#include "mnemonics/electrum-words.h"
+#include "gui/VerifyMnemonicSeedDialog.h"
+
+extern "C"
+{
+#include "Crypto/keccak.h"
+#include "Crypto/crypto-ops.h"
+}
 
 namespace WalletGui {
 
@@ -91,8 +102,6 @@ void WalletAdapter::open(const QString& _password) {
 
   if (QFile::exists(Settings::instance().getWalletFile())) {
 
-    backupOnOpen(); // Backup wallet
-
     if (Settings::instance().getWalletFile().endsWith(".keys")) {
       if (!importLegacyWallet(_password)) {
         return;
@@ -108,14 +117,49 @@ void WalletAdapter::open(const QString& _password) {
         m_wallet = nullptr;
       }
     }
+
+  backupOnOpen(); // Backup wallet
+
   } else {
-    Settings::instance().setEncrypted(false);
-    try {
-      m_wallet->initAndGenerate("");
-    } catch (std::system_error&) {
-      delete m_wallet;
-      m_wallet = nullptr;
+    createWallet();
+  }
+}
+
+void WalletAdapter::createWallet() {
+  Q_ASSERT(m_wallet == nullptr);
+  Settings::instance().setEncrypted(false);
+  Q_EMIT walletStateChangedSignal(tr("Creating wallet"));
+  m_wallet = NodeAdapter::instance().createWallet();
+  m_wallet->addObserver(this);
+
+  try {
+    m_wallet->initAndGenerateDeterministic("");
+
+    VerifyMnemonicSeedDialog dlg(nullptr);
+    if (!dlg.exec() == QDialog::Accepted) {
+      return;
     }
+
+    backupOnOpen(); // Backup wallet
+
+  } catch (std::system_error&) {
+    delete m_wallet;
+    m_wallet = nullptr;
+  }
+}
+
+void WalletAdapter::createNonDeterministic() {
+    m_wallet = NodeAdapter::instance().createWallet();
+    m_wallet->addObserver(this);
+    Settings::instance().setEncrypted(false);
+  try {
+    m_wallet->initAndGenerate("");
+
+    backupOnOpen(); // Backup wallet
+
+  } catch (std::system_error&) {
+    delete m_wallet;
+    m_wallet = nullptr;
   }
 }
 
@@ -125,6 +169,8 @@ void WalletAdapter::createWithKeys(const CryptoNote::AccountKeys& _keys) {
     Settings::instance().setEncrypted(false);
     Q_EMIT walletStateChangedSignal(tr("Importing keys"));
     m_wallet->initWithKeys(_keys, "");
+
+    backupOnOpen(); // Backup wallet
 }
 
 
@@ -548,6 +594,55 @@ void WalletAdapter::updateBlockStatusText() {
 
 void WalletAdapter::updateBlockStatusTextWithDelay() {
   QTimer::singleShot(5000, this, SLOT(updateBlockStatusText()));
+}
+
+bool WalletAdapter::isDeterministic() const {
+  Crypto::SecretKey second;
+  CryptoNote::AccountKeys keys;
+  WalletAdapter::instance().getAccountKeys(keys);
+  keccak((uint8_t *)&keys.spendSecretKey, sizeof(Crypto::SecretKey), (uint8_t *)&second, sizeof(Crypto::SecretKey));
+  sc_reduce32((uint8_t *)&second);
+  bool keys_deterministic = memcmp(second.data,keys.viewSecretKey.data, sizeof(Crypto::SecretKey)) == 0;
+  return keys_deterministic;
+}
+
+bool WalletAdapter::isDeterministic(CryptoNote::AccountKeys& _keys) const {
+  Crypto::SecretKey second;
+  WalletAdapter::instance().getAccountKeys(_keys);
+  keccak((uint8_t *)&_keys.spendSecretKey, sizeof(Crypto::SecretKey), (uint8_t *)&second, sizeof(Crypto::SecretKey));
+  sc_reduce32((uint8_t *)&second);
+  bool keys_deterministic = memcmp(second.data,_keys.viewSecretKey.data, sizeof(Crypto::SecretKey)) == 0;
+  return keys_deterministic;
+}
+
+QString WalletAdapter::getMnemonicSeed() const {
+  std::string electrum_words;
+  if(Settings::instance().isTrackingMode()) {
+    // error "Wallet is watch-only and has no seed";
+    return "Wallet is watch-only and has no seed";
+  }
+  if(!WalletAdapter::instance().isDeterministic()) {
+    // error "Wallet is non-deterministic and has no seed";
+    return "Wallet is non-deterministic and has no seed";
+  }
+  CryptoNote::AccountKeys keys;
+  WalletAdapter::instance().getAccountKeys(keys);
+  std::string seed_language = "English";
+  Crypto::ElectrumWords::bytes_to_words(keys.spendSecretKey, electrum_words, seed_language);
+  return QString::fromStdString(electrum_words);
+}
+
+CryptoNote::AccountKeys WalletAdapter::getKeysFromMnemonicSeed(QString& _seed) const {
+  CryptoNote::AccountKeys keys;
+  std::string seed_language = "English";
+  if(!Crypto::ElectrumWords::words_to_bytes(_seed.toStdString(), keys.spendSecretKey, seed_language)) {
+    QMessageBox::critical(nullptr, tr("Mnemonic seed is not correct"), tr("There must be an error in mnemonic seed. Make sure you entered it correctly."), QMessageBox::Ok);
+  }
+  Crypto::secret_key_to_public_key(keys.spendSecretKey,keys.address.spendPublicKey);
+  Crypto::SecretKey second;
+  keccak((uint8_t *)&keys.spendSecretKey, sizeof(Crypto::SecretKey), (uint8_t *)&second, sizeof(Crypto::SecretKey));
+  Crypto::generate_deterministic_keys(keys.address.viewPublicKey,keys.viewSecretKey,second);
+  return keys;
 }
 
 }

@@ -64,6 +64,9 @@ gui/ConfirmSendDialog.cpp \
 gui/ExportTrackingKeyDialog.cpp \
 gui/ImportTrackingKeyDialog.cpp \
 gui/InfoDialog.cpp \
+gui/MnemonicSeedDialog.cpp \
+gui/RestoreFromMnemonicSeedDialog.cpp \
+gui/VerifyMnemonicSeedDialog.cpp \
  
 
 HEADERS = CommandLineParser.h \
@@ -117,6 +120,9 @@ gui/ConfirmSendDialog.h \
 gui/ExportTrackingKeyDialog.h \
 gui/ImportTrackingKeyDialog.h \
 gui/InfoDialog.h \
+gui/MnemonicSeedDialog.h \
+gui/RestoreFromMnemonicSeedDialog.h \
+gui/VerifyMnemonicSeedDialog.h \
 
 
 FORMS = gui/ui/aboutdialog.ui \
@@ -149,7 +155,9 @@ gui/ui/confirmsenddialog.ui \
 gui/ui/importtrackingkeydialog.ui \
 gui/ui/exporttrackingkeydialog.ui \
 gui/ui/infodialog.ui \
-
+gui/ui/mnemonicseeddialog.ui \
+gui/ui/restorefrommnemonicseeddialog.ui \
+gui/ui/verifymnemonicseeddialog.ui \
 
 
 TRANSLATIONS = 	languages/uk.ts \

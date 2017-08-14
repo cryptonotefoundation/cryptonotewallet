@@ -576,6 +576,18 @@ Please wait...</source>
         <source>Open log file</source>
         <translation>Адкрыць файл часопіса</translation>
     </message>
+    <message>
+        <source>Show mnemonic seed</source>
+        <translation>Паказаць мнеманічную фразу</translation>
+    </message>
+    <message>
+        <source>Restore from mnemonic seed</source>
+        <translation>Аднаўленне з мнеманічнай фразы</translation>
+    </message>
+    <message>
+        <source>Create nondeterministic wallet</source>
+        <translation>Стварыць недетерминированный гаманец</translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
@@ -638,6 +650,17 @@ Please wait...</source>
     <message>
         <source>Mining status:</source>
         <translation>Стан чаканкі:</translation>
+    </message>
+</context>
+<context>
+    <name>MnemonicSeedDialog</name>
+    <message>
+        <source>Mnemonic seed</source>
+        <translation>Мнеманічна фраза</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Зачыніць</translation>
     </message>
 </context>
 <context>
@@ -932,6 +955,33 @@ Do you want to go to download page?</source>
     </message>
 </context>
 <context>
+    <name>RestoreFromMnemonicSeedDialog</name>
+    <message>
+        <source>Restore from mnemonic phrase</source>
+        <translation>Аднаўленне з мнеманічнай фразы</translation>
+    </message>
+    <message>
+        <source>Mnemonic:</source>
+        <translation>Мнеманіка:</translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished">...</translation>
+    </message>
+    <message>
+        <source>Wallet path:</source>
+        <translation>Шлях да гаманца:</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Адмяніць</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>Добра</translation>
+    </message>
+</context>
+<context>
     <name>SendFrame</name>
     <message>
         <source>Frame</source>
@@ -1122,6 +1172,29 @@ Do you want to go to download page?</source>
     <message>
         <source>Error: %1</source>
         <translation>Памылка: %1</translation>
+    </message>
+</context>
+<context>
+    <name>VerifyMnemonicSeedDialog</name>
+    <message>
+        <source>New deterministic wallet created</source>
+        <translation>Створаны новы дэтэрмінаваны гаманец</translation>
+    </message>
+    <message>
+        <source>This is mnemonic seed of your wallet. Write it down carefully. It allows to restore your wallet.</source>
+        <translation>Гэта мнеманічная фраза гаманца. Старанна запішыце яе. З яе можна аднавіць гаманец.</translation>
+    </message>
+    <message>
+        <source>Mnemonic:</source>
+        <translation>Мнеманіка:</translation>
+    </message>
+    <message>
+        <source>Repeat:</source>
+        <translation>Паўтор:</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>Добра</translation>
     </message>
 </context>
 <context>
@@ -1498,15 +1571,23 @@ Are you sure?</source>
     </message>
     <message>
         <source>Total amount: %1, hash: %2</source>
-        <translation>Сума: %1, хэш: %2</translation>
+        <translation type="vanished">Сума: %1, хэш: %2</translation>
     </message>
     <message>
         <source>Karbo Wallet</source>
-        <translation>Карбованець</translation>
+        <translation type="vanished">Карбованець</translation>
     </message>
     <message>
         <source>New transaction received</source>
-        <translation>Атрымана новая транзакцыя</translation>
+        <translation type="vanished">Атрымана новая транзакцыя</translation>
+    </message>
+    <message>
+        <source>Mnemonic seed is not correct</source>
+        <translation>Мнеманічна фраза не з&apos;яўляецца правільнай</translation>
+    </message>
+    <message>
+        <source>There must be an error in mnemonic seed. Make sure you entered it correctly.</source>
+        <translation>Павінна быць памылка ў мнеманічнай фразе. Пераканайцеся што вы ўвялі яе правільна.</translation>
     </message>
 </context>
 <context>
@@ -1585,6 +1666,17 @@ Are you sure?</source>
     <message>
         <source>Save QR Code</source>
         <translation>Захаваць QR-код</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui::RestoreFromMnemonicSeedDialog</name>
+    <message>
+        <source>Wallet file</source>
+        <translation type="unfinished">Файл гаманца</translation>
+    </message>
+    <message>
+        <source>Wallets (*.wallet)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1964,6 +2056,18 @@ Are you sure?</source>
     <message>
         <source>Unknown error</source>
         <translation>Невядомая памылка</translation>
+    </message>
+    <message>
+        <source>Creating wallet</source>
+        <translation>Стварэнне гаманца</translation>
+    </message>
+    <message>
+        <source>Mnemonic seed is not correct</source>
+        <translation>Мнеманічна фраза не з&apos;яўляецца правільнай</translation>
+    </message>
+    <message>
+        <source>There must be an error in mnemonic seed. Make sure you entered it correctly.</source>
+        <translation>Павінна быць памылка ў мнеманічнай фразе. Пераканайцеся што вы ўвялі яе правільна.</translation>
     </message>
 </context>
 </TS>

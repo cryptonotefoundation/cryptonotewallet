@@ -12,6 +12,7 @@
 #include <QSystemTrayIcon>
 #include <QDesktopServices>
 #include <QTimer>
+#include <QDebug>
 #include <QDateTime>
 #include <QFontDatabase>
 #include <Common/Base58.h>
@@ -30,6 +31,7 @@
 #include "CurrencyAdapter.h"
 #include "ExitWidget.h"
 #include "ImportKeyDialog.h"
+#include "RestoreFromMnemonicSeedDialog.h"
 #include "MainWindow.h"
 #include "NewPasswordDialog.h"
 #include "NodeAdapter.h"
@@ -40,10 +42,19 @@
 #include "SendFrame.h"
 #include "InfoDialog.h"
 #include "ui_mainwindow.h"
+#include "MnemonicSeedDialog.h"
 
 #ifdef Q_OS_MAC
 #include "macdockiconhandler.h"
 #endif
+
+#include "mnemonics/electrum-words.h"
+
+extern "C"
+{
+#include "Crypto/keccak.h"
+#include "Crypto/crypto-ops.h"
+}
 
 namespace WalletGui {
 
@@ -157,6 +168,8 @@ void MainWindow::initUi() {
     m_remoteModeIconLabel->show();
     m_remoteModeIconLabel->setPixmap(QPixmap(":icons/remote_mode").scaledToHeight(16, Qt::SmoothTransformation));
   }
+
+  m_ui->m_showMnemonicSeedAction->setEnabled(false);
 
   m_ui->menuRecent_wallets->setVisible(false);
   QAction* recentWalletAction = 0;
@@ -292,7 +305,31 @@ void MainWindow::createWallet() {
       }
 
       WalletAdapter::instance().setWalletFile(filePath);
-      WalletAdapter::instance().open("");
+      WalletAdapter::instance().createWallet();
+    }
+}
+
+void MainWindow::createNonDeterministicWallet() {
+  QString filePath = QFileDialog::getSaveFileName(this, tr("New wallet file"),
+  #ifdef Q_OS_WIN
+      QApplication::applicationDirPath(),
+  #else
+      QDir::homePath(),
+  #endif
+      tr("Wallets (*.wallet)")
+      );
+
+    if (!filePath.isEmpty() && !filePath.endsWith(".wallet")) {
+      filePath.append(".wallet");
+    }
+
+    if (!filePath.isEmpty() && !QFile::exists(filePath)) {
+      if (WalletAdapter::instance().isOpen()) {
+        WalletAdapter::instance().close();
+      }
+
+      WalletAdapter::instance().setWalletFile(filePath);
+      WalletAdapter::instance().createNonDeterministic();
     }
 }
 
@@ -353,6 +390,11 @@ void MainWindow::importKey() {
       }
       WalletAdapter::instance().setWalletFile(filePath);
       WalletAdapter::instance().createWithKeys(keys);
+
+      QTimer::singleShot(1000, [=](){
+        WalletAdapter::instance().backupOnOpen();
+      });
+
     }
   }
 }
@@ -430,7 +472,45 @@ void MainWindow::isTrackingMode() {
   m_ui->m_overviewAction->trigger();
   m_ui->m_sendAction->setEnabled(false);
   m_ui->m_openUriAction->setEnabled(false);
+  m_ui->m_showMnemonicSeedAction->setEnabled(false);
   m_trackingModeIconLabel->show();
+}
+
+void MainWindow::restoreFromMnemonicSeed() {
+  RestoreFromMnemonicSeedDialog dlg(this);
+  if (dlg.exec() == QDialog::Accepted) {
+    QString mnemonicString = dlg.getSeedString().trimmed();
+    QString filePath = dlg.getFilePath();
+    if (mnemonicString.isEmpty() || filePath.isEmpty()) {
+      return;
+    }
+
+    if (!filePath.endsWith(".wallet")) {
+      filePath.append(".wallet");
+    }
+
+    CryptoNote::AccountKeys keys;
+    std::string seed_language = "English";
+    if(Crypto::ElectrumWords::words_to_bytes(mnemonicString.toStdString(), keys.spendSecretKey, seed_language)) {
+      Crypto::secret_key_to_public_key(keys.spendSecretKey,keys.address.spendPublicKey);
+      Crypto::SecretKey second;
+      keccak((uint8_t *)&keys.spendSecretKey, sizeof(Crypto::SecretKey), (uint8_t *)&second, sizeof(Crypto::SecretKey));
+      Crypto::generate_deterministic_keys(keys.address.viewPublicKey,keys.viewSecretKey,second);
+
+      if (WalletAdapter::instance().isOpen()) {
+        WalletAdapter::instance().close();
+      }
+      WalletAdapter::instance().setWalletFile(filePath);
+      WalletAdapter::instance().createWithKeys(keys);
+
+      QTimer::singleShot(1000, [=](){
+        WalletAdapter::instance().backupOnOpen();
+      });
+    } else {
+      QMessageBox::critical(nullptr, tr("Mnemonic seed is not correct"), tr("There must be an error in mnemonic seed. Make sure you entered it correctly."), QMessageBox::Ok);
+      return;
+    }
+  }
 }
 
 void MainWindow::ChangeLanguage() {
@@ -520,6 +600,12 @@ void MainWindow::openLogFile() {
 
 void MainWindow::showPrivateKeys() {
   PrivateKeysDialog dlg(this);
+  dlg.walletOpened();
+  dlg.exec();
+}
+
+void MainWindow::showMnemonicSeed() {
+  MnemonicSeedDialog dlg(this);
   dlg.walletOpened();
   dlg.exec();
 }
@@ -702,6 +788,9 @@ void MainWindow::walletOpened(bool _error, const QString& _error_text) {
     m_ui->m_showPrivateKey->setEnabled(true);
     m_ui->m_resetAction->setEnabled(true);
     m_ui->m_openUriAction->setEnabled(true);
+    if(WalletAdapter::instance().isDeterministic()) {
+       m_ui->m_showMnemonicSeedAction->setEnabled(true);
+    }
     encryptedFlagChanged(Settings::instance().isEncrypted());
 
     QList<QAction*> tabActions = m_tabActionGroup->actions();
@@ -735,6 +824,7 @@ void MainWindow::walletClosed() {
   m_ui->m_exportTrackingKeyAction->setEnabled(false);
   m_ui->m_showPrivateKey->setEnabled(false);
   m_ui->m_resetAction->setEnabled(false);
+  m_ui->m_showMnemonicSeedAction->setEnabled(false);
   m_ui->m_overviewFrame->hide();
   accountWidget->setVisible(false);
   m_ui->m_receiveFrame->hide();
