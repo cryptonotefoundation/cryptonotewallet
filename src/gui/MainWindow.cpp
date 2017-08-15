@@ -299,7 +299,11 @@ void MainWindow::createWallet() {
       filePath.append(".wallet");
     }
 
-    if (!filePath.isEmpty() && !QFile::exists(filePath)) {
+    if (QFile::exists(filePath)) {
+        QFile::remove(filePath);
+    }
+
+    if (!filePath.isEmpty()) {
       if (WalletAdapter::instance().isOpen()) {
         WalletAdapter::instance().close();
       }
@@ -323,7 +327,11 @@ void MainWindow::createNonDeterministicWallet() {
       filePath.append(".wallet");
     }
 
-    if (!filePath.isEmpty() && !QFile::exists(filePath)) {
+    if (QFile::exists(filePath)) {
+        QFile::remove(filePath);
+    }
+
+    if (!filePath.isEmpty()) {
       if (WalletAdapter::instance().isOpen()) {
         WalletAdapter::instance().close();
       }
