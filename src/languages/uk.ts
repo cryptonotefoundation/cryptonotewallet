@@ -1574,6 +1574,42 @@ Are you sure?</source>
         <source>There must be an error in mnemonic seed. Make sure you entered it correctly.</source>
         <translation>У мнемомічній фразі є помилка. Перевірте чи ви ввели її правильно.</translation>
     </message>
+    <message>
+        <source>Wallet keys are not valid</source>
+        <translation>Ключі гаманця неправильні</translation>
+    </message>
+    <message>
+        <source>The private keys you entered are not valid.</source>
+        <translation>Введені приватні ключі є неправильними.</translation>
+    </message>
+    <message>
+        <source>Tracking key is not valid</source>
+        <translation>Ключ стеження неправильний</translation>
+    </message>
+    <message>
+        <source>The tracking key you entered is not valid.</source>
+        <translation>Введений ключ стеження є неправильним.</translation>
+    </message>
+    <message>
+        <source>Key is not valid</source>
+        <translation>Ключ неправильний</translation>
+    </message>
+    <message>
+        <source>The public spend key you entered is not valid.</source>
+        <translation>Введений публічний ключ витрати є неправильним.</translation>
+    </message>
+    <message>
+        <source>The public view key you entered is not valid.</source>
+        <translation>Введений публічний ключ перегляду є неправильним.</translation>
+    </message>
+    <message>
+        <source>The private spend key you entered is not valid.</source>
+        <translation>Введений приватний ключ витрати є неправильним.</translation>
+    </message>
+    <message>
+        <source>The private view key you entered is not valid.</source>
+        <translation>Введений приватний ключ перегляду є неправильним.</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::MiningFrame</name>
@@ -1681,6 +1717,14 @@ Are you sure?</source>
     <message>
         <source>Payment request should start with karbowanec:</source>
         <translation>Платіжна вимога повинна починатись з karbowanec:</translation>
+    </message>
+    <message>
+        <source>Insufficient balance</source>
+        <translation>Недостатній баланс</translation>
+    </message>
+    <message>
+        <source>Available balance is insufficient to send this transaction. Have you excluded a fee?</source>
+        <translation>Доступного балансу недостатньо щоб вислати цю транзакцію. Ви не забули відняти комісію?</translation>
     </message>
 </context>
 <context>

@@ -1589,6 +1589,42 @@ Are you sure?</source>
         <source>There must be an error in mnemonic seed. Make sure you entered it correctly.</source>
         <translation>Павінна быць памылка ў мнеманічнай фразе. Пераканайцеся што вы ўвялі яе правільна.</translation>
     </message>
+    <message>
+        <source>Wallet keys are not valid</source>
+        <translation>Ключы гаманца нядзейныя</translation>
+    </message>
+    <message>
+        <source>Tracking key is not valid</source>
+        <translation>Ключ адсочвання нядзейны</translation>
+    </message>
+    <message>
+        <source>The tracking key you entered is not valid.</source>
+        <translation>Уведзены ключ сачэння няправільны.</translation>
+    </message>
+    <message>
+        <source>Key is not valid</source>
+        <translation>Ключ нядзейны</translation>
+    </message>
+    <message>
+        <source>The public spend key you entered is not valid.</source>
+        <translation>Уведзены публічны ключ расходавання няправільны.</translation>
+    </message>
+    <message>
+        <source>The public view key you entered is not valid.</source>
+        <translation>Уведзены публічны ключ прагляду няправільны.</translation>
+    </message>
+    <message>
+        <source>The private spend key you entered is not valid.</source>
+        <translation>Уведзены прыватны ключ расходавання няправільны.</translation>
+    </message>
+    <message>
+        <source>The private view key you entered is not valid.</source>
+        <translation>Уведзены прыватны ключ прагляду няправільны.</translation>
+    </message>
+    <message>
+        <source>The private keys you entered are not valid.</source>
+        <translation>Уведзеныя прыватныя ключы няправільныя.</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::MiningFrame</name>
@@ -1672,7 +1708,7 @@ Are you sure?</source>
     <name>WalletGui::RestoreFromMnemonicSeedDialog</name>
     <message>
         <source>Wallet file</source>
-        <translation type="unfinished">Файл гаманца</translation>
+        <translation>Файл гаманца</translation>
     </message>
     <message>
         <source>Wallets (*.wallet)</source>
@@ -1687,7 +1723,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>Incorrect fee value</source>
-        <translation>Няправільнае значэнне платы</translation>
+        <translation>Няправільнае значэнне поплаткі</translation>
     </message>
     <message>
         <source>Invalid payment ID</source>
@@ -1696,6 +1732,14 @@ Are you sure?</source>
     <message>
         <source>Payment request should start with karbowanec:</source>
         <translation>Запыт плацяжу мусіць пачынацца з karbowanec:</translation>
+    </message>
+    <message>
+        <source>Insufficient balance</source>
+        <translation>Недастатковы балянс</translation>
+    </message>
+    <message>
+        <source>Available balance is insufficient to send this transaction. Have you excluded a fee?</source>
+        <translation>Даступнага балансу нядосыць для адпраўкі гэтай транзакцыі. Вы не забыліся адняць камісію?</translation>
     </message>
 </context>
 <context>

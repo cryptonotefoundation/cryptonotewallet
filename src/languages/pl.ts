@@ -1589,6 +1589,42 @@ Jesteś pewien?</translation>
         <source>There must be an error in mnemonic seed. Make sure you entered it correctly.</source>
         <translation>Musi istnieć błąd w mnemoniku. Upewnij się, że został prawidłowo wprowadzony.</translation>
     </message>
+    <message>
+        <source>Wallet keys are not valid</source>
+        <translation>Klucze portfela są nieprawidłowe</translation>
+    </message>
+    <message>
+        <source>Tracking key is not valid</source>
+        <translation>Klucz śledzenia jest nieprawidłowy</translation>
+    </message>
+    <message>
+        <source>The tracking key you entered is not valid.</source>
+        <translation>Podany klucz śledzenia nie jest prawidłowy.</translation>
+    </message>
+    <message>
+        <source>Key is not valid</source>
+        <translation>Klucz jest nieprawidłowy</translation>
+    </message>
+    <message>
+        <source>The public spend key you entered is not valid.</source>
+        <translation>Podany klucz publiczny wydatków jest nieprawidłowy.</translation>
+    </message>
+    <message>
+        <source>The public view key you entered is not valid.</source>
+        <translation>Podany klucz publiczny przeglądu jest nieprawidłowy.</translation>
+    </message>
+    <message>
+        <source>The private spend key you entered is not valid.</source>
+        <translation>Podany klucz prywatny wydatków jest nieprawidłowy.</translation>
+    </message>
+    <message>
+        <source>The private view key you entered is not valid.</source>
+        <translation>Podany klucz prywatny przeglądu jest nieprawidłowy.</translation>
+    </message>
+    <message>
+        <source>The private keys you entered are not valid.</source>
+        <translation>Podane klucze prywatne są nieprawidłowe.</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::MiningFrame</name>
@@ -1696,6 +1732,14 @@ Jesteś pewien?</translation>
     <message>
         <source>Payment request should start with karbowanec:</source>
         <translation>Wniosek o płatność powinien zaczynać się od karbowanec:</translation>
+    </message>
+    <message>
+        <source>Insufficient balance</source>
+        <translation>Niewystarczająca ilość środków</translation>
+    </message>
+    <message>
+        <source>Available balance is insufficient to send this transaction. Have you excluded a fee?</source>
+        <translation>Dostępne saldo jest niewystarczające, aby wysłać tę transakcję. Czy prowizja była odliczona?</translation>
     </message>
 </context>
 <context>

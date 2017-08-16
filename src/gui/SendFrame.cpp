@@ -14,6 +14,7 @@
 #include "WalletEvents.h"
 #include <QRegExpValidator>
 #include <QInputDialog>
+#include <QMessageBox>
 #include <QUrlQuery>
 #include <QTime>
 #include <QUrl>
@@ -277,6 +278,15 @@ void SendFrame::sendClicked() {
       quint64 fee = CurrencyAdapter::instance().parseAmount(m_ui->m_feeSpin->cleanText());
       if (fee < CurrencyAdapter::instance().getMinimumFee()) {
         QCoreApplication::postEvent(&MainWindow::instance(), new ShowMessageEvent(tr("Incorrect fee value"), QtCriticalMsg));
+        return;
+      }
+
+      quint64 total_transaction_amount = 0;
+      for (size_t i = 0; i < walletTransfers.size(); i++){
+        total_transaction_amount += walletTransfers.at(i).amount;
+      }
+      if (total_transaction_amount > (WalletAdapter::instance().getActualBalance() - fee)) {
+        QMessageBox::critical(this, tr("Insufficient balance"), tr("Available balance is insufficient to send this transaction. Have you excluded a fee?"), QMessageBox::Ok);
         return;
       }
 

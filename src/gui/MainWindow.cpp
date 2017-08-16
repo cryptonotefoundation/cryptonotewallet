@@ -403,6 +403,8 @@ void MainWindow::importKey() {
         WalletAdapter::instance().backupOnOpen();
       });
 
+    } else {
+      QMessageBox::warning(this, tr("Wallet keys are not valid"), tr("The private keys you entered are not valid."), QMessageBox::Ok);
     }
   }
 }
@@ -413,6 +415,10 @@ void MainWindow::importTrackingKey() {
     QString keyString = dlg.getKeyString().trimmed();
     QString filePath = dlg.getFilePath();
     if (keyString.isEmpty() || filePath.isEmpty()) {
+      return;
+    }
+    if (keyString.size() != 256) {
+      QMessageBox::warning(this, tr("Tracking key is not valid"), tr("The tracking key you entered is not valid."), QMessageBox::Ok);
       return;
     }
 
@@ -443,15 +449,19 @@ void MainWindow::importTrackingKey() {
 
     size_t size;
     if (!Common::fromHex(public_spend_key_string, &public_spend_key_hash, sizeof(public_spend_key_hash), size) || size != sizeof(public_spend_key_hash)) {
+      QMessageBox::warning(this, tr("Key is not valid"), tr("The public spend key you entered is not valid."), QMessageBox::Ok);
       return;
     }
     if (!Common::fromHex(public_view_key_string, &public_view_key_hash, sizeof(public_view_key_hash), size) || size != sizeof(public_view_key_hash)) {
+      QMessageBox::warning(this, tr("Key is not valid"), tr("The public view key you entered is not valid."), QMessageBox::Ok);
       return;
     }
     if (!Common::fromHex(private_spend_key_string, &private_spend_key_hash, sizeof(private_spend_key_hash), size) || size != sizeof(private_spend_key_hash)) {
+      QMessageBox::warning(this, tr("Key is not valid"), tr("The private spend key you entered is not valid."), QMessageBox::Ok);
       return;
     }
     if (!Common::fromHex(private_view_key_string, &private_view_key_hash, sizeof(private_view_key_hash), size) || size != sizeof(private_spend_key_hash)) {
+      QMessageBox::warning(this, tr("Key is not valid"), tr("The private view key you entered is not valid."), QMessageBox::Ok);
       return;
     }
 
