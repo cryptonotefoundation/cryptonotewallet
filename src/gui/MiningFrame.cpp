@@ -27,25 +27,25 @@ const quint32 HASHRATE_TIMER_INTERVAL = 1000;
 MiningFrame::MiningFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::MiningFrame), m_miner(nullptr),
   m_poolModel(new PoolModel(this)), m_hashRateTimerId(-1), m_soloHashRateTimerId(-1) {
   m_ui->setupUi(this);
-  m_ui->m_poolCombo->setModel(m_poolModel);
   QString current_pool = Settings::instance().getCurrentPool();
+  m_ui->m_poolCombo->setModel(m_poolModel);
   if (!current_pool.isEmpty()) {
     m_ui->m_poolCombo->setCurrentIndex(m_ui->m_poolCombo->findData(current_pool, Qt::DisplayRole));
   } else {
     m_ui->m_poolCombo->setCurrentIndex(0);
   }
   initCpuCoreList();
-/*
+
   QString connection = Settings::instance().getConnection();
   if (connection.compare("remote") == 0) {
     m_ui->m_startSolo->setDisabled(true);
   }
-*/
+
+  m_ui->m_startSolo->setEnabled(false);
+
   connect(&WalletAdapter::instance(), &WalletAdapter::walletCloseCompletedSignal, this, &MiningFrame::walletClosed, Qt::QueuedConnection);
   connect(&WalletAdapter::instance(), &WalletAdapter::walletInitCompletedSignal, this, &MiningFrame::walletOpened, Qt::QueuedConnection);
-  m_ui->m_startSolo->setEnabled(false);
   connect(&WalletAdapter::instance(), &WalletAdapter::walletSynchronizationCompletedSignal, this, &MiningFrame::enableSolo, Qt::QueuedConnection);
-
 }
 
 MiningFrame::~MiningFrame() {
@@ -83,16 +83,21 @@ void MiningFrame::timerEvent(QTimerEvent* _event) {
 }
 
 void MiningFrame::initCpuCoreList() {
+  quint16 threads = Settings::instance().getMiningThreads();
   int cpuCoreCount = QThread::idealThreadCount();
-    if (cpuCoreCount == -1) {
+  if (cpuCoreCount == -1) {
       cpuCoreCount = 2;
-    }
+  }
 
-    for (int i = 0; i < cpuCoreCount; ++i) {
-      m_ui->m_cpuCombo->addItem(QString::number(i + 1), i + 1);
-    }
+  for (int i = 0; i < cpuCoreCount; ++i) {
+    m_ui->m_cpuCombo->addItem(QString::number(i + 1), i + 1);
+  }
 
+  if (threads > 0) {
+    m_ui->m_cpuCombo->setCurrentIndex(m_ui->m_cpuCombo->findData(threads, Qt::DisplayRole));
+  } else {
     m_ui->m_cpuCombo->setCurrentIndex((cpuCoreCount - 1) / 2);
+  }
 }
 
 void MiningFrame::walletOpened() {
@@ -109,6 +114,11 @@ void MiningFrame::walletOpened() {
     m_ui->m_stopSolo->isChecked();
     m_ui->m_stopSolo->setEnabled(false);
     m_ui->m_startSolo->setEnabled(true);
+  }
+
+  if(Settings::instance().isMiningOnLaunchEnabled()) {
+    startMining();
+    m_ui->m_startButton->setChecked(true);
   }
 }
 
@@ -143,7 +153,6 @@ void MiningFrame::startMining() {
 
   m_ui->m_startButton->setEnabled(false);
   m_ui->m_stopButton->setEnabled(true);
-  Settings::instance().setCurrentPool(m_ui->m_poolCombo->currentText());
   m_pool_mining = true;
 }
 
@@ -217,7 +226,11 @@ void MiningFrame::startStopSoloClicked(QAbstractButton* _button) {
 }
 
 void MiningFrame::currentPoolChanged() {
-  //Settings::instance().setCurrentPool(m_ui->m_poolCombo->currentText());
+  Settings::instance().setCurrentPool(m_ui->m_poolCombo->currentText());
+}
+
+void MiningFrame::setMiningThreads() {
+  Settings::instance().setMiningThreads(m_ui->m_cpuCombo->currentText().toInt());
 }
 
 void MiningFrame::removePoolClicked() {

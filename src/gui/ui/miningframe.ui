@@ -435,6 +435,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>m_cpuCombo</sender>
+   <signal>currentIndexChanged(QString)</signal>
+   <receiver>MiningFrame</receiver>
+   <slot>setMiningThreads()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>160</x>
+     <y>42</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>379</x>
+     <y>234</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>startStopClicked(QAbstractButton*)</slot>

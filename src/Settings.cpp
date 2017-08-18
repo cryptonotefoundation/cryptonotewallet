@@ -67,9 +67,6 @@ void Settings::load() {
     if (!m_settings.contains(OPTION_DAEMON_PORT)) {
          m_daemonPort = CryptoNote::RPC_DEFAULT_PORT;
     }
-    if (!m_settings.contains("tracking")) {
-         m_settings.insert("tracking", false);
-    }
 
   } else {
     m_addressBookFile = getDataDir().absoluteFilePath(QCoreApplication::applicationName() + ".addressbook");
@@ -87,8 +84,12 @@ void Settings::load() {
         m_settings.insert(OPTION_DAEMON_PORT, CryptoNote::RPC_DEFAULT_PORT); // default daemon port
   }
 
+  if (!m_settings.contains("tracking")) {
+       m_settings.insert("tracking", false);
+  }
+
   QStringList defaultPoolList;
-  defaultPoolList << "pool.karbowanec.com:3333" << "pool2.democats.org:45570" << "krb.sberex.com:3333";
+  defaultPoolList << "pool.karbowanec.com:3333" << "pool2.democats.org:45570" << "krb.sberex.com:3333" << "mine.krb.mypool.online:32350";
   if (!m_settings.contains(OPTION_MINING_POOLS)) {
     setMiningPoolList(QStringList() << defaultPoolList);
   } else {
@@ -270,6 +271,18 @@ QString Settings::getCurrentPool() const {
   return pool;
 }
 
+quint16 Settings::getMiningThreads() const {
+  if (m_settings.contains("miningThreads")) {
+    return m_settings.value("miningThreads").toVariant().toInt();
+  } else {
+    return 0;
+  }
+}
+
+bool Settings::isMiningOnLaunchEnabled() const {
+  return m_settings.contains("autostartMininig") ? m_settings.value("autostartMininig").toBool() : false;
+}
+
 bool Settings::isStartOnLoginEnabled() const {
   bool res = false;
 #ifdef Q_OS_MAC
@@ -374,6 +387,13 @@ void Settings::setTrackingMode(bool _tracking) {
   }
 }
 
+void Settings::setMiningOnLaunchEnabled(bool _automining) {
+  if (isMiningOnLaunchEnabled() != _automining) {
+    m_settings.insert("autostartMininig", _automining);
+    saveSettings();
+  }
+}
+
 void Settings::setCurrentTheme(const QString& _theme) {
 }
 
@@ -472,6 +492,13 @@ void Settings::setRpcNodesList(const QStringList &_RpcNodesList) {
 void Settings::setCurrentPool(const QString& _pool) {
   if (!_pool.isEmpty()) {
     m_settings.insert(OPTION_CURRENT_POOL, _pool);
+  }
+  saveSettings();
+}
+
+void Settings::setMiningThreads(const quint16& _threads) {
+  if (_threads != 0) {
+    m_settings.insert("miningThreads", _threads);
   }
   saveSettings();
 }

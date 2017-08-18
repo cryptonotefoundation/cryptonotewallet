@@ -171,6 +171,8 @@ void MainWindow::initUi() {
 
   m_ui->m_showMnemonicSeedAction->setEnabled(false);
 
+  m_ui->m_miningOnLaunchAction->setChecked(Settings::instance().isMiningOnLaunchEnabled());
+
   m_ui->menuRecent_wallets->setVisible(false);
   QAction* recentWalletAction = 0;
   for(int i = 0; i < maxRecentFiles; ++i){
@@ -721,6 +723,11 @@ void MainWindow::aboutQt() {
 void MainWindow::setStartOnLogin(bool _on) {
   Settings::instance().setStartOnLoginEnabled(_on);
   m_ui->m_startOnLoginAction->setChecked(Settings::instance().isStartOnLoginEnabled());
+}
+
+void MainWindow::setMiningOnLaunch(bool _on) {
+  Settings::instance().setMiningOnLaunchEnabled(_on);
+  m_ui->m_miningOnLaunchAction->setChecked(Settings::instance().isMiningOnLaunchEnabled());
 }
 
 void MainWindow::setMinimizeToTray(bool _on) {

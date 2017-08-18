@@ -244,6 +244,7 @@
     <addaction name="m_startOnLoginAction"/>
     <addaction name="m_minimizeToTrayAction"/>
     <addaction name="m_closeToTrayAction"/>
+    <addaction name="m_miningOnLaunchAction"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -604,6 +605,14 @@
   <action name="m_createNondeterministicWalletAction">
    <property name="text">
     <string>Create nondeterministic wallet</string>
+   </property>
+  </action>
+  <action name="m_miningOnLaunchAction">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Start pool mining automatically</string>
    </property>
   </action>
  </widget>
@@ -1124,6 +1133,22 @@
    <signal>triggered()</signal>
    <receiver>MainWindow</receiver>
    <slot>createNonDeterministicWallet()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>489</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_miningOnLaunchAction</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>setMiningOnLaunch(bool)</slot>
    <hints>
     <hint type="sourcelabel">
      <x>-1</x>

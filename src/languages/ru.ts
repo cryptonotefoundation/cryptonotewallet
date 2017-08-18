@@ -588,6 +588,10 @@ Please wait...</source>
         <source>Create nondeterministic wallet</source>
         <translation>Создать недетерминированный кошелек</translation>
     </message>
+    <message>
+        <source>Start pool mining automatically</source>
+        <translation>Запускать майнинг при старте</translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
