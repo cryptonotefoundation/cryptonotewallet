@@ -26,8 +26,8 @@
 
 extern "C"
 {
-#include "Crypto/keccak.h"
-#include "Crypto/crypto-ops.h"
+#include "crypto/keccak.h"
+#include "crypto/crypto-ops.h"
 }
 
 namespace WalletGui {

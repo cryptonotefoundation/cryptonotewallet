@@ -42,7 +42,7 @@
 #include <string>
 #include <cstdint>
 #include <map>
-#include "Crypto/crypto.h"  // for declaration of Crypto::SecretKey
+#include "crypto/crypto.h"  // for declaration of Crypto::SecretKey
 
 /*!
  * \namespace crypto

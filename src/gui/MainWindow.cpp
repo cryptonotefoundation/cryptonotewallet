@@ -52,8 +52,8 @@
 
 extern "C"
 {
-#include "Crypto/keccak.h"
-#include "Crypto/crypto-ops.h"
+#include "crypto/keccak.h"
+#include "crypto/crypto-ops.h"
 }
 
 namespace WalletGui {
@@ -401,9 +401,12 @@ void MainWindow::importKey() {
       WalletAdapter::instance().setWalletFile(filePath);
       WalletAdapter::instance().createWithKeys(keys);
 
-      QTimer::singleShot(1000, [=](){
+      QTimer* timer = new QTimer;
+      timer->setSingleShot(true);
+      QObject::connect(timer, &QTimer::timeout, []() {
         WalletAdapter::instance().backupOnOpen();
       });
+      timer->start(1000);
 
     } else {
       QMessageBox::warning(this, tr("Wallet keys are not valid"), tr("The private keys you entered are not valid."), QMessageBox::Ok);
@@ -523,9 +526,12 @@ void MainWindow::restoreFromMnemonicSeed() {
       WalletAdapter::instance().setWalletFile(filePath);
       WalletAdapter::instance().createWithKeys(keys);
 
-      QTimer::singleShot(1000, [=](){
+      QTimer* timer = new QTimer;
+      timer->setSingleShot(true);
+      QObject::connect(timer, &QTimer::timeout, []() {
         WalletAdapter::instance().backupOnOpen();
       });
+      timer->start(1000);
     } else {
       QMessageBox::critical(nullptr, tr("Mnemonic seed is not correct"), tr("There must be an error in mnemonic seed. Make sure you entered it correctly."), QMessageBox::Ok);
       return;
