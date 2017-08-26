@@ -172,6 +172,9 @@ void MainWindow::initUi() {
   m_ui->m_showMnemonicSeedAction->setEnabled(false);
 
   m_ui->m_miningOnLaunchAction->setChecked(Settings::instance().isMiningOnLaunchEnabled());
+  m_ui->m_minimizeToTrayAction->setChecked(Settings::instance().isMinimizeToTrayEnabled());
+  m_ui->m_closeToTrayAction->setChecked(Settings::instance().isCloseToTrayEnabled());
+  m_ui->m_startOnLoginAction->setChecked(Settings::instance().isStartOnLoginEnabled());
 
   m_ui->menuRecent_wallets->setVisible(false);
   QAction* recentWalletAction = 0;
@@ -739,12 +742,14 @@ void MainWindow::setMiningOnLaunch(bool _on) {
 void MainWindow::setMinimizeToTray(bool _on) {
 #ifdef Q_OS_WIN
   Settings::instance().setMinimizeToTrayEnabled(_on);
+  m_ui->m_minimizeToTrayAction->setChecked(Settings::instance().isMinimizeToTrayEnabled());
 #endif
 }
 
 void MainWindow::setCloseToTray(bool _on) {
 #ifdef Q_OS_WIN
   Settings::instance().setCloseToTrayEnabled(_on);
+  m_ui->m_closeToTrayAction->setChecked(Settings::instance().isCloseToTrayEnabled());
 #endif
 }
 
