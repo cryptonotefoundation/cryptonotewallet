@@ -10,6 +10,7 @@ git clone https://github.com/valiant1x/cryptonotewallet/intensecoinwallet.git
 
 ```
 git submodule update --init --recursive
+git submodule foreach git pull origin master
 ```
 
 **3. Build**
