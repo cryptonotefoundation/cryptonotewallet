@@ -6,10 +6,11 @@ Dependencies: boost >= 1.55, CMake >= 2.8.6, GCC >=4.7.3, Qt >=5.0
 git clone https://github.com/valiant1x/cryptonotewallet/intensecoinwallet.git
 ```
 
-**2. Create git submodule:**
+**2. Update git submodule:**
 
 ```
-git submodule add https://github.com/valiant1x/intensecoin.git cryptonote
+git submodule update --init --recursive
+git submodule foreach git pull origin master
 ```
 
 **3. Build**
