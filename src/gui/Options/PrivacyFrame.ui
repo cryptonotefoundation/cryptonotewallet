@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PrivacyFrame</class>
+ <widget class="QFrame" name="PrivacyFrame">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>695</width>
+    <height>368</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Frame</string>
+  </property>
+  <property name="frameShape">
+   <enum>QFrame::StyledPanel</enum>
+  </property>
+  <property name="frameShadow">
+   <enum>QFrame::Raised</enum>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_3">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>25</number>
+   </property>
+   <property name="topMargin">
+    <number>40</number>
+   </property>
+   <property name="rightMargin">
+    <number>49</number>
+   </property>
+   <item>
+    <widget class="QWidget" name="widget_2" native="true">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>70</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>70</height>
+      </size>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,1">
+      <property name="spacing">
+       <number>3</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QCheckBox" name="m_newsCheck">
+        <property name="text">
+         <string>I want to see Intensecoin Blog feeds</string>
+        </property>
+       </widget>
+      </item>
+      <item alignment="Qt::AlignTop">
+       <widget class="WalletGui::WalletSmallGrayTextLabel" name="m_embeddedHelperLabel">
+        <property name="text">
+         <string>Checking this box will result in updated Overview screen. It will now show you the latest posts of Intensecoin Blog providing you with fresh Intensecoin news.</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+        <property name="indent">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>171</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>WalletGui::WalletSmallGrayTextLabel</class>
+   <extends>QLabel</extends>
+   <header>Gui/Common/WalletTextLabel.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

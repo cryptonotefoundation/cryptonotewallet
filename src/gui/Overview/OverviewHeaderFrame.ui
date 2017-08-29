@@ -1,0 +1,740 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>OverviewHeaderFrame</class>
+ <widget class="QFrame" name="OverviewHeaderFrame">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1068</width>
+    <height>155</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Frame</string>
+  </property>
+  <property name="frameShape">
+   <enum>QFrame::NoFrame</enum>
+  </property>
+  <property name="frameShadow">
+   <enum>QFrame::Raised</enum>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="sizeConstraint">
+    <enum>QLayout::SetDefaultConstraint</enum>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QFrame" name="m_overviewBalanceFrame">
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <property name="leftMargin">
+       <number>30</number>
+      </property>
+      <property name="topMargin">
+       <number>25</number>
+      </property>
+      <property name="bottomMargin">
+       <number>15</number>
+      </property>
+      <property name="spacing">
+       <number>5</number>
+      </property>
+      <item row="1" column="2" colspan="5">
+       <widget class="WalletGui::WalletHeaderLabel" name="label">
+        <property name="text">
+         <string>Balance</string>
+        </property>
+        <property name="indent">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="4" alignment="Qt::AlignLeft">
+       <widget class="WalletGui::WalletNormalGrayTextLabel" name="m_overviewLockedBalanceTickerLabel">
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+        <property name="indent">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="2">
+       <widget class="WalletGui::WalletSmallGrayTextLabel" name="m_overviewAvailableBalanceTextLabel">
+        <property name="text">
+         <string>Available</string>
+        </property>
+        <property name="indent">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="2">
+       <widget class="WalletGui::WalletSmallGrayTextLabel" name="m_overviewLockedBalanceTextLabel">
+        <property name="text">
+         <string>Locked</string>
+        </property>
+        <property name="indent">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="4">
+       <widget class="WalletGui::WalletNormalGreenBoldTextLabel" name="m_overviewTotalBalanceTickerLabel">
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+        <property name="indent">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="3">
+       <widget class="WalletGui::WalletNormalGrayTextLabel" name="m_overviewAvailableBalanceLabel">
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="toolTip">
+         <string>Click to copy</string>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0" rowspan="5">
+       <widget class="QLabel" name="m_overviewBalanceIconLabel">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap resource="../../resources.qrc">:/icons/actual_balance</pixmap>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="3">
+       <widget class="WalletGui::WalletNormalGrayTextLabel" name="m_overviewLockedBalanceLabel">
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="toolTip">
+         <string>Click to copy</string>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="3">
+       <widget class="WalletGui::WalletNormalGreenBoldTextLabel" name="m_overviewTotalBalanceLabel">
+        <property name="cursor">
+         <cursorShape>PointingHandCursor</cursorShape>
+        </property>
+        <property name="toolTip">
+         <string>Click to copy</string>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="0" colspan="7">
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="3" column="4">
+       <widget class="WalletGui::WalletNormalGrayTextLabel" name="m_overviewAvailableBalanceTickerLabel">
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+        <property name="indent">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="6" rowspan="3">
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="0" column="0" colspan="7">
+       <spacer name="verticalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="1" column="1" rowspan="5">
+       <spacer name="horizontalSpacer_4">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="5" column="2">
+       <widget class="WalletGui::WalletSmallGreenBoldTextLabel" name="m_overviewTotalBalanceTextLabel">
+        <property name="text">
+         <string>Total</string>
+        </property>
+        <property name="indent">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="5">
+       <widget class="WalletGui::CopyMagicLabel" name="m_availableBalanceCopyLabel">
+        <property name="text">
+         <string>Copied!</string>
+        </property>
+        <property name="indent">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="5">
+       <widget class="WalletGui::CopyMagicLabel" name="m_lockedBalanceCopyLabel">
+        <property name="text">
+         <string>Copied!</string>
+        </property>
+        <property name="indent">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="5">
+       <widget class="WalletGui::CopyMagicLabel" name="m_totalBalanceCopyLabel">
+        <property name="text">
+         <string>Copied!</string>
+        </property>
+        <property name="indent">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2" colspan="4">
+       <spacer name="verticalSpacer_8">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>0</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QFrame" name="m_overviewMiningFrame">
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2">
+      <property name="leftMargin">
+       <number>30</number>
+      </property>
+      <property name="topMargin">
+       <number>25</number>
+      </property>
+      <property name="bottomMargin">
+       <number>15</number>
+      </property>
+      <property name="spacing">
+       <number>5</number>
+      </property>
+      <item row="3" column="2">
+       <widget class="WalletGui::WalletSmallBlackTextLabel" name="label_3">
+        <property name="text">
+         <string>Your</string>
+        </property>
+        <property name="indent">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="0" colspan="6">
+       <spacer name="verticalSpacer_4">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="5" column="3" alignment="Qt::AlignLeft">
+       <widget class="WalletGui::WalletNormalBlackTextLabel" name="m_overviewNetworkDifficultyLabel">
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1" rowspan="5">
+       <spacer name="horizontalSpacer_5">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="5" column="2">
+       <widget class="WalletGui::WalletSmallBlackTextLabel" name="label_7">
+        <property name="text">
+         <string>Difficulty</string>
+        </property>
+        <property name="indent">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0" rowspan="5">
+       <widget class="QLabel" name="m_overviewMiningIconLabel">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap resource="../../resources.qrc">:/icons/miner-big</pixmap>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2" colspan="2">
+       <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,1">
+        <property name="spacing">
+         <number>10</number>
+        </property>
+        <item alignment="Qt::AlignVCenter">
+         <widget class="WalletGui::WalletHeaderLabel" name="m_miningStatusTextLabel">
+          <property name="text">
+           <string>Mining status</string>
+          </property>
+          <property name="indent">
+           <number>0</number>
+          </property>
+         </widget>
+        </item>
+        <item alignment="Qt::AlignLeft|Qt::AlignVCenter">
+         <widget class="QPushButton" name="m_startMiningButton">
+          <property name="focusPolicy">
+           <enum>Qt::NoFocus</enum>
+          </property>
+          <property name="text">
+           <string>Start mining</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="3" column="3">
+       <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="0,1">
+        <property name="spacing">
+         <number>20</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <item alignment="Qt::AlignLeft">
+         <widget class="WalletGui::WalletNormalBlackTextLabel" name="m_overviewHashRateLabel">
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+         </widget>
+        </item>
+        <item alignment="Qt::AlignLeft">
+         <widget class="QLabel" name="m_miningStateLabel">
+          <property name="text">
+           <string>mining off</string>
+          </property>
+          <property name="indent">
+           <number>0</number>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="0" column="0" colspan="6">
+       <spacer name="verticalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="3" column="5" rowspan="3">
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="4" column="3" alignment="Qt::AlignLeft">
+       <widget class="WalletGui::WalletNormalBlackTextLabel" name="m_overviewNetworkHashrateLabel">
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="2">
+       <widget class="WalletGui::WalletSmallBlackTextLabel" name="label_5">
+        <property name="text">
+         <string>Network</string>
+        </property>
+        <property name="indent">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2" colspan="2">
+       <spacer name="verticalSpacer_7">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>0</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QFrame" name="m_overviewPoolFrame">
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_3" columnstretch="0,0,0,1,0">
+      <property name="leftMargin">
+       <number>30</number>
+      </property>
+      <property name="topMargin">
+       <number>25</number>
+      </property>
+      <property name="spacing">
+       <number>5</number>
+      </property>
+      <item row="4" column="0" colspan="5">
+       <spacer name="verticalSpacer_6">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="3" column="4">
+       <spacer name="horizontalSpacer_3">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="1" column="3" colspan="2">
+       <widget class="WalletGui::WalletNormalBlackTextLabel" name="m_overviewPoolSizeLabel">
+        <property name="text">
+         <string>0 transactions</string>
+        </property>
+        <property name="indent">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1" rowspan="3">
+       <spacer name="horizontalSpacer_6">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="0" column="0" colspan="5">
+       <spacer name="verticalSpacer_5">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="3" column="2" colspan="2">
+       <widget class="WalletGui::OverviewTransactionPoolTreeView" name="m_overviewTransactionPoolView">
+        <property name="frameShape">
+         <enum>QFrame::NoFrame</enum>
+        </property>
+        <property name="selectionMode">
+         <enum>QAbstractItemView::NoSelection</enum>
+        </property>
+        <property name="textElideMode">
+         <enum>Qt::ElideMiddle</enum>
+        </property>
+        <property name="rootIsDecorated">
+         <bool>false</bool>
+        </property>
+        <property name="uniformRowHeights">
+         <bool>true</bool>
+        </property>
+        <property name="itemsExpandable">
+         <bool>false</bool>
+        </property>
+        <attribute name="headerVisible">
+         <bool>false</bool>
+        </attribute>
+        <attribute name="headerStretchLastSection">
+         <bool>false</bool>
+        </attribute>
+       </widget>
+      </item>
+      <item row="1" column="2" alignment="Qt::AlignLeft">
+       <widget class="WalletGui::WalletHeaderLabel" name="label_9">
+        <property name="text">
+         <string>Pool stats</string>
+        </property>
+        <property name="indent">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0" rowspan="3">
+       <widget class="QLabel" name="m_overviewPoolIconLabel">
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap resource="../../resources.qrc">:/icons/pool-stats</pixmap>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2" colspan="2">
+       <spacer name="verticalSpacer_9">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>0</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>WalletGui::WalletSmallGrayTextLabel</class>
+   <extends>QLabel</extends>
+   <header>Gui/Common/WalletTextLabel.h</header>
+  </customwidget>
+  <customwidget>
+   <class>WalletGui::WalletHeaderLabel</class>
+   <extends>QLabel</extends>
+   <header>Gui/Common/WalletTextLabel.h</header>
+  </customwidget>
+  <customwidget>
+   <class>WalletGui::CopyMagicLabel</class>
+   <extends>QLabel</extends>
+   <header>Gui/Common/CopyMagicLabel.h</header>
+  </customwidget>
+  <customwidget>
+   <class>WalletGui::WalletNormalGrayTextLabel</class>
+   <extends>QLabel</extends>
+   <header>Gui/Common/WalletTextLabel.h</header>
+  </customwidget>
+  <customwidget>
+   <class>WalletGui::WalletNormalBlackTextLabel</class>
+   <extends>QLabel</extends>
+   <header>Gui/Common/WalletTextLabel.h</header>
+  </customwidget>
+  <customwidget>
+   <class>WalletGui::WalletSmallGreenBoldTextLabel</class>
+   <extends>QLabel</extends>
+   <header>Gui/Common/WalletTextLabel.h</header>
+  </customwidget>
+  <customwidget>
+   <class>WalletGui::WalletNormalGreenBoldTextLabel</class>
+   <extends>QLabel</extends>
+   <header>Gui/Common/WalletTextLabel.h</header>
+  </customwidget>
+  <customwidget>
+   <class>WalletGui::WalletSmallBlackTextLabel</class>
+   <extends>QLabel</extends>
+   <header>Gui/Common/WalletTextLabel.h</header>
+  </customwidget>
+  <customwidget>
+   <class>WalletGui::OverviewTransactionPoolTreeView</class>
+   <extends>QTreeView</extends>
+   <header>Gui/Overview/OverviewTransactionPoolTreeView.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="../../resources.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>m_overviewTransactionPoolView</sender>
+   <signal>doubleClicked(QModelIndex)</signal>
+   <receiver>OverviewHeaderFrame</receiver>
+   <slot>poolTransactionClicked(QModelIndex)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>882</x>
+     <y>90</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>533</x>
+     <y>73</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_startMiningButton</sender>
+   <signal>clicked(bool)</signal>
+   <receiver>OverviewHeaderFrame</receiver>
+   <slot>startMiningClicked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>579</x>
+     <y>46</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>533</x>
+     <y>77</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>poolTransactionClicked(QModelIndex)</slot>
+  <slot>startMiningClicked(bool)</slot>
+ </slots>
+</ui>

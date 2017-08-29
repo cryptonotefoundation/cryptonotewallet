@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>OptionsDialog</class>
+ <widget class="QDialog" name="OptionsDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>715</width>
+    <height>500</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>715</width>
+    <height>500</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>715</width>
+    <height>500</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Preferences</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>12</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QTabWidget" name="m_optionsTabWidget">
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="WalletGui::ConnectionOptionsFrame" name="m_connectionTab">
+      <attribute name="title">
+       <string>Connection</string>
+      </attribute>
+     </widget>
+     <widget class="WalletGui::OptimizationOptionsFrame" name="m_optimizationTab">
+      <attribute name="title">
+       <string>Wallet optimization</string>
+      </attribute>
+     </widget>
+     <widget class="WalletGui::DonationOptionsFrame" name="m_donationTab">
+      <attribute name="title">
+       <string>Donations</string>
+      </attribute>
+     </widget>
+     <widget class="WalletGui::PrivacyFrame" name="m_privacyTab">
+      <attribute name="title">
+       <string>Privacy</string>
+      </attribute>
+     </widget>
+    </widget>
+   </item>
+   <item>
+    <widget class="QFrame" name="m_buttonFrame">
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <property name="leftMargin">
+       <number>25</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>25</number>
+      </property>
+      <property name="bottomMargin">
+       <number>25</number>
+      </property>
+      <item>
+       <spacer name="horizontalSpacer_6">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QLabel" name="m_warningLabel">
+        <property name="text">
+         <string>Attention! Restart application to apply changes.</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="WalletGui::WalletCancelButton" name="m_cancelButton">
+        <property name="text">
+         <string>Cancel</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="WalletGui::WalletOkButton" name="m_okButton">
+        <property name="text">
+         <string>Save</string>
+        </property>
+        <property name="default">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>WalletGui::WalletOkButton</class>
+   <extends>QPushButton</extends>
+   <header>Gui/Common/WalletOkButton.h</header>
+  </customwidget>
+  <customwidget>
+   <class>WalletGui::WalletCancelButton</class>
+   <extends>QPushButton</extends>
+   <header>Gui/Common/WalletCancelButton.h</header>
+  </customwidget>
+  <customwidget>
+   <class>WalletGui::OptimizationOptionsFrame</class>
+   <extends>QWidget</extends>
+   <header>Gui/Options/OptimizationOptionsFrame.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>WalletGui::ConnectionOptionsFrame</class>
+   <extends>QWidget</extends>
+   <header>Gui/Options/ConnectionOptionsFrame.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>WalletGui::DonationOptionsFrame</class>
+   <extends>QWidget</extends>
+   <header>Gui/Options/DonationOptionsFrame.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>WalletGui::PrivacyFrame</class>
+   <extends>QWidget</extends>
+   <header>Gui/Options/PrivacyFrame.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>m_okButton</sender>
+   <signal>clicked()</signal>
+   <receiver>OptionsDialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>671</x>
+     <y>388</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>356</x>
+     <y>208</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_cancelButton</sender>
+   <signal>clicked()</signal>
+   <receiver>OptionsDialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>599</x>
+     <y>388</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>356</x>
+     <y>208</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

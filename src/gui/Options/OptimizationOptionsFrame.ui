@@ -1,0 +1,648 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>OptimizationOptionsFrame</class>
+ <widget class="QFrame" name="OptimizationOptionsFrame">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>735</width>
+    <height>474</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Frame</string>
+  </property>
+  <property name="frameShape">
+   <enum>QFrame::NoFrame</enum>
+  </property>
+  <property name="frameShadow">
+   <enum>QFrame::Raised</enum>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>25</number>
+   </property>
+   <property name="topMargin">
+    <number>35</number>
+   </property>
+   <property name="rightMargin">
+    <number>25</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QCheckBox" name="m_enableOptimizationCheck">
+       <property name="text">
+        <string>Run background wallet optimization</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="WalletGui::WalletNormalGrayTextLabel" name="label_8">
+       <property name="text">
+        <string>(Recommended)</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <spacer name="verticalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <widget class="QWidget" name="m_optimizationOptionsWidget" native="true">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <property name="spacing">
+       <number>75</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item alignment="Qt::AlignTop">
+       <widget class="QWidget" name="widget1" native="true">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <layout class="QGridLayout" name="gridLayout" columnstretch="50,0,0,0">
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <property name="verticalSpacing">
+          <number>5</number>
+         </property>
+         <item row="0" column="0" colspan="4">
+          <widget class="WalletGui::WalletNormalBlackTextLabel" name="label_5">
+           <property name="text">
+            <string>Optimization target</string>
+           </property>
+           <property name="indent">
+            <number>0</number>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="0" colspan="4">
+          <spacer name="verticalSpacer_3">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Fixed</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="1" column="0" colspan="3">
+          <widget class="QSlider" name="m_thresholdSlider">
+           <property name="maximum">
+            <number>6</number>
+           </property>
+           <property name="pageStep">
+            <number>1</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="3">
+          <widget class="QComboBox" name="m_thresholdCombo"/>
+         </item>
+         <item row="5" column="0" colspan="4">
+          <widget class="Line" name="line">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="0" colspan="4">
+          <spacer name="verticalSpacer_4">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Fixed</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>15</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="8" column="3">
+          <widget class="QSpinBox" name="m_mixinSpin">
+           <property name="buttonSymbols">
+            <enum>QAbstractSpinBox::UpDownArrows</enum>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="0" colspan="4">
+          <widget class="WalletGui::WalletNormalBlackTextLabel" name="label_7">
+           <property name="text">
+            <string>Anonymity level</string>
+           </property>
+           <property name="indent">
+            <number>0</number>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="0" colspan="3">
+          <widget class="QSlider" name="m_mixinSlider">
+           <property name="pageStep">
+            <number>1</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0" colspan="4">
+          <spacer name="verticalSpacer_12">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Fixed</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>0</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item row="3" column="0" colspan="4">
+          <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="0,1">
+           <item>
+            <widget class="QLabel" name="m_nonOptimizedOutputsLabel">
+             <property name="text">
+              <string>0</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="WalletGui::WalletNormalBlackTextLabel" name="m_nonOptimizedOutputsTextLabel">
+             <property name="text">
+              <string>outputs below selected target</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <property name="spacing">
+         <number>10</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QWidget" name="widget2" native="true">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_2" columnstretch="0,0,0,0">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <property name="verticalSpacing">
+            <number>5</number>
+           </property>
+           <item row="2" column="0" colspan="2" alignment="Qt::AlignLeft">
+            <widget class="QComboBox" name="m_periodCombo"/>
+           </item>
+           <item row="8" column="0">
+            <widget class="WalletGui::WalletNormalBlackTextLabel" name="label_2">
+             <property name="text">
+              <string>From</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="1">
+            <widget class="QTimeEdit" name="m_startTimeEdit">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="displayFormat">
+              <string>HH:mm</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="2">
+            <widget class="WalletGui::WalletNormalBlackTextLabel" name="label_3">
+             <property name="text">
+              <string>To</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="3">
+            <widget class="QTimeEdit" name="m_stopTimeEdit">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="displayFormat">
+              <string>HH:mm</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="0" colspan="4">
+            <widget class="QCheckBox" name="m_optimizationTimeCheck">
+             <property name="text">
+              <string>Specific time for optimization transactions</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0" colspan="4">
+            <widget class="Line" name="line_2">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0" colspan="4">
+            <widget class="WalletGui::WalletNormalBlackTextLabel" name="label_4">
+             <property name="text">
+              <string>Send optimization transactions each</string>
+             </property>
+             <property name="indent">
+              <number>0</number>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="0" colspan="4">
+            <spacer name="verticalSpacer_8">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>0</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="3" column="0" colspan="4">
+            <spacer name="verticalSpacer_6">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>10</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="10" column="0" colspan="4">
+            <widget class="Line" name="line_3">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0" colspan="4">
+            <spacer name="verticalSpacer_5">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>0</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="5" column="0" colspan="4">
+            <spacer name="verticalSpacer_7">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>5</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="9" column="0" colspan="4">
+            <spacer name="verticalSpacer_10">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>10</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="m_showFusionTransactionsCheck">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="text">
+           <string>Show optimization transactions</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer_11">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <widget class="WalletGui::WalletExtraNormalGrayTextLabel" name="m_helpLabel">
+     <property name="text">
+      <string>Wallet optimization is a background task performed in order to aggregate transactions outputs that are below optimization target into bigger ones. It makes it cheaper to send larger amounts of Intensecoins within one transaction.
+Wallet optimization is free for all users but takes some time.</string>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>WalletGui::WalletNormalGrayTextLabel</class>
+   <extends>QLabel</extends>
+   <header>Gui/Common/WalletTextLabel.h</header>
+  </customwidget>
+  <customwidget>
+   <class>WalletGui::WalletNormalBlackTextLabel</class>
+   <extends>QLabel</extends>
+   <header>Gui/Common/WalletTextLabel.h</header>
+  </customwidget>
+  <customwidget>
+   <class>WalletGui::WalletExtraNormalGrayTextLabel</class>
+   <extends>QLabel</extends>
+   <header>Gui/Common/WalletTextLabel.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>m_enableOptimizationCheck</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>widget1</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>147</x>
+     <y>47</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>176</x>
+     <y>204</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_thresholdSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>OptimizationOptionsFrame</receiver>
+   <slot>thresholdChanged(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>116</x>
+     <y>139</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>355</x>
+     <y>194</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_mixinSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>OptimizationOptionsFrame</receiver>
+   <slot>mixinChanged(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>116</x>
+     <y>240</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>367</x>
+     <y>236</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_optimizationTimeCheck</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>m_startTimeEdit</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>543</x>
+     <y>179</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>501</x>
+     <y>207</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_optimizationTimeCheck</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>m_stopTimeEdit</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>543</x>
+     <y>179</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>643</x>
+     <y>207</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_mixinSpin</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>OptimizationOptionsFrame</receiver>
+   <slot>mixinChanged(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>273</x>
+     <y>271</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>367</x>
+     <y>236</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_thresholdCombo</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>OptimizationOptionsFrame</receiver>
+   <slot>thresholdChanged(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>270</x>
+     <y>139</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>367</x>
+     <y>236</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_enableOptimizationCheck</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>widget2</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>158</x>
+     <y>48</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>556</x>
+     <y>197</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>thresholdChanged(int)</slot>
+  <slot>mixinChanged(int)</slot>
+ </slots>
+</ui>

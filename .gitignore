@@ -1,3 +1,8 @@
 .DS_Store
-/build
-/tags
+tags
+build
+*~
+*.dir
+x64
+Win32
+.vs

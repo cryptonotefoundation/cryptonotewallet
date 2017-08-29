@@ -1,4 +1,4 @@
-
-set(CN_PROJECT_NAME "intensecoin")
-set(CN_CURRENCY_DISPLAY_NAME "Intense Coin")
-set(CN_CURRENCY_TICKER "INT")
+set(CN_PROJECT_NAME "Intensecoin")
+set(CN_CURRENCY_DISPLAY_NAME "intensecoin")
+set(CN_CURRENCY_TICKER "ITNS")
+set(CN_VERSION 1.0.0)

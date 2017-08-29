@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PoolTransactionDetailsDialog</class>
+ <widget class="QDialog" name="PoolTransactionDetailsDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>764</width>
+    <height>185</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>16777215</width>
+    <height>16777215</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Transaction details</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,1">
+   <property name="leftMargin">
+    <number>35</number>
+   </property>
+   <property name="topMargin">
+    <number>30</number>
+   </property>
+   <property name="rightMargin">
+    <number>25</number>
+   </property>
+   <property name="bottomMargin">
+    <number>25</number>
+   </property>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,0,1">
+     <property name="spacing">
+      <number>10</number>
+     </property>
+     <item>
+      <widget class="WalletGui::WalletLargeBlackTextLabel" name="m_textLabel">
+       <property name="text">
+        <string>Transaction</string>
+       </property>
+       <property name="indent">
+        <number>0</number>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="WalletGui::WalletLargeBlackTextLabel" name="m_hashLabel">
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="toolTip">
+        <string>Click to copy</string>
+       </property>
+       <property name="text">
+        <string>HASH</string>
+       </property>
+       <property name="indent">
+        <number>0</number>
+       </property>
+       <property name="textInteractionFlags">
+        <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="WalletGui::CopyMagicLabel" name="m_copyLabel">
+       <property name="text">
+        <string>Copied!</string>
+       </property>
+       <property name="indent">
+        <number>0</number>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QGridLayout" name="gridLayout" columnstretch="0,0">
+     <property name="leftMargin">
+      <number>0</number>
+     </property>
+     <property name="rightMargin">
+      <number>0</number>
+     </property>
+     <property name="spacing">
+      <number>0</number>
+     </property>
+     <item row="0" column="0">
+      <widget class="WalletGui::WalletNormalGrayTextLabel" name="m_amountTextLabel">
+       <property name="text">
+        <string>AMOUNT</string>
+       </property>
+       <property name="indent">
+        <number>0</number>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="WalletGui::WalletNormalGrayTextLabel" name="m_sizeTextLabel">
+       <property name="text">
+        <string>SIZE</string>
+       </property>
+       <property name="indent">
+        <number>0</number>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="WalletGui::WalletNormalBlackTextLabel" name="m_sizeLabel">
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+       <property name="indent">
+        <number>0</number>
+       </property>
+       <property name="textInteractionFlags">
+        <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="WalletGui::WalletNormalGrayTextLabel" name="m_mixinTextLabel">
+       <property name="text">
+        <string>MIXIN</string>
+       </property>
+       <property name="indent">
+        <number>0</number>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="WalletGui::WalletNormalBlackTextLabel" name="m_mixinLabel">
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+       <property name="indent">
+        <number>0</number>
+       </property>
+       <property name="textInteractionFlags">
+        <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="0">
+      <widget class="WalletGui::WalletNormalGrayTextLabel" name="m_paymentIdTextLabel">
+       <property name="text">
+        <string>PAYMENT ID</string>
+       </property>
+       <property name="indent">
+        <number>0</number>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="1">
+      <widget class="WalletGui::WalletNormalBlackTextLabel" name="m_paymentIdLabel">
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+       <property name="indent">
+        <number>0</number>
+       </property>
+       <property name="textInteractionFlags">
+        <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="WalletGui::WalletNormalBlackTextLabel" name="m_amountLabel">
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+       <property name="indent">
+        <number>0</number>
+       </property>
+       <property name="textInteractionFlags">
+        <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="WalletGui::WalletNormalGrayTextLabel" name="m_feeTextLabel">
+       <property name="text">
+        <string>FEE</string>
+       </property>
+       <property name="indent">
+        <number>0</number>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="WalletGui::WalletNormalBlackTextLabel" name="m_feeLabel">
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+       <property name="indent">
+        <number>0</number>
+       </property>
+       <property name="textInteractionFlags">
+        <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>WalletGui::CopyMagicLabel</class>
+   <extends>QLabel</extends>
+   <header>Gui/Common/CopyMagicLabel.h</header>
+  </customwidget>
+  <customwidget>
+   <class>WalletGui::WalletNormalGrayTextLabel</class>
+   <extends>QLabel</extends>
+   <header>Gui/Common/WalletTextLabel.h</header>
+  </customwidget>
+  <customwidget>
+   <class>WalletGui::WalletNormalBlackTextLabel</class>
+   <extends>QLabel</extends>
+   <header>Gui/Common/WalletTextLabel.h</header>
+  </customwidget>
+  <customwidget>
+   <class>WalletGui::WalletLargeBlackTextLabel</class>
+   <extends>QLabel</extends>
+   <header>Gui/Common/WalletTextLabel.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>

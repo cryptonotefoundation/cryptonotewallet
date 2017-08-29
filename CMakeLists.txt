@@ -1,5 +1,4 @@
-cmake_minimum_required(VERSION 2.8)
-
+cmake_minimum_required(VERSION 2.8.6)
 include(CryptoNoteWallet.cmake)
 
 project(${CN_PROJECT_NAME})
@@ -11,13 +10,20 @@ OUTPUT_VARIABLE GIT_REVISION)
 set(CRYPTONOTE_LIB cryptonote)
 
 include_directories(${CMAKE_BINARY_DIR}
-    src
-    cryptonote/external
-    cryptonote/include
-    cryptonote/src)
+  src
+  include
+  cryptonote/external
+  cryptonote/external/rocksdb/include/
+  cryptonote/include
+  cryptonote/src
+)
 
 find_package(Qt5Gui REQUIRED)
 find_package(Qt5Widgets REQUIRED)
+find_package(Qt5Network REQUIRED)
+find_package(Qt5DBus REQUIRED)
+
+include_directories(${Qt5DBus_INCLUDE_DIRS} cryptonote/external/rocksdb/include/ include src external "${CMAKE_CURRENT_BINARY_DIR}/version")
 
 set(Boost_USE_STATIC_LIBS ON)
 if(WIN32)
@@ -26,9 +32,9 @@ else(WIN32)
   set(Boost_USE_STATIC_RUNTIME ON)
 endif(WIN32)
 
-find_package(Boost 1.55 REQUIRED COMPONENTS date_time filesystem program_options regex serialization system thread chrono)
+find_package(Boost 1.58 REQUIRED COMPONENTS date_time filesystem program_options regex serialization system thread chrono)
 if ((${Boost_MAJOR_VERSION} EQUAL 1) AND (${Boost_MINOR_VERSION} EQUAL 54))
-	message(SEND_ERROR "Boost version 1.54 is unsupported, more details are available here http://goo.gl/RrCFmA")
+  message(SEND_ERROR "Boost version 1.58 is unsupported, more details are available here http://goo.gl/RrCFmA")
 endif ()
 
 include_directories(${Boost_INCLUDE_DIRS})
@@ -38,11 +44,11 @@ set(VERSION "")
 configure_file("cryptonote/src/version.h.in" "version.h")
 configure_file("src/CryptoNoteWalletConfig.h.in" "CryptoNoteWalletConfig.h")
 
-add_definitions(-DGIT_REVISION=\"${GIT_REVISION}\")
+add_definitions(-DGIT_REVISION="${GIT_REVISION}")
 
 set(CMAKE_AUTOMOC ON)
 
-set(CRYPTONOTE_SOURCES
+file(GLOB_RECURSE CRYPTONOTE_SOURCES
   cryptonote/external/miniupnpc/connecthostport.c
   cryptonote/external/miniupnpc/igd_desc_parse.c
   cryptonote/external/miniupnpc/minisoap.c
@@ -53,6 +59,8 @@ set(CRYPTONOTE_SOURCES
   cryptonote/external/miniupnpc/receivedata.c
   cryptonote/external/miniupnpc/upnpcommands.c
   cryptonote/external/miniupnpc/upnpreplyparse.c
+  cryptonote/src/BlockchainExplorer/BlockchainExplorer.cpp
+  cryptonote/src/BlockchainExplorer/BlockchainExplorerErrors.cpp
   cryptonote/src/Common/Base58.cpp
   cryptonote/src/Common/CommandLine.cpp
   cryptonote/src/Common/Util.cpp
@@ -67,6 +75,8 @@ set(CRYPTONOTE_SOURCES
   cryptonote/src/Common/StringOutputStream.cpp
   cryptonote/src/Common/StringView.cpp
   cryptonote/src/Common/VectorOutputStream.cpp
+  cryptonote/src/Common/ScopeExit.cpp
+  cryptonote/src/ConnectivityTool/ConnectivityTool.cpp
   cryptonote/src/crypto/blake256.c
   cryptonote/src/crypto/chacha8.c
   cryptonote/src/crypto/crypto-ops-data.c
@@ -86,50 +96,25 @@ set(CRYPTONOTE_SOURCES
   cryptonote/src/crypto/slow-hash.c
   cryptonote/src/crypto/slow-hash.cpp
   cryptonote/src/crypto/tree-hash.c
-  cryptonote/src/CryptoNoteCore/BlockchainIndices.cpp
-  cryptonote/src/CryptoNoteCore/BlockchainMessages.cpp
-  cryptonote/src/CryptoNoteCore/BlockIndex.cpp
-  cryptonote/src/CryptoNoteCore/CoreConfig.cpp
-  cryptonote/src/CryptoNoteCore/CryptoNoteBasic.cpp
-  cryptonote/src/CryptoNoteCore/CryptoNoteTools.cpp
-  cryptonote/src/CryptoNoteCore/Currency.cpp
-  cryptonote/src/CryptoNoteCore/MinerConfig.cpp
-  cryptonote/src/CryptoNoteCore/Transaction.cpp
-  cryptonote/src/CryptoNoteCore/Account.cpp
-  cryptonote/src/CryptoNoteCore/Blockchain.cpp
-  cryptonote/src/CryptoNoteCore/Checkpoints.cpp
-  cryptonote/src/CryptoNoteCore/CryptoNoteBasicImpl.cpp
-  cryptonote/src/CryptoNoteCore/Core.cpp
-  cryptonote/src/CryptoNoteCore/CryptoNoteFormatUtils.cpp
-  cryptonote/src/CryptoNoteCore/CryptoNoteSerialization.cpp
-  cryptonote/src/CryptoNoteCore/Difficulty.cpp
-  cryptonote/src/CryptoNoteCore/IBlock.cpp
-  cryptonote/src/CryptoNoteCore/Miner.cpp
-  cryptonote/src/CryptoNoteCore/TransactionExtra.cpp
-  cryptonote/src/CryptoNoteCore/TransactionPool.cpp
-  cryptonote/src/CryptoNoteCore/TransactionPrefixImpl.cpp
-  cryptonote/src/CryptoNoteCore/TransactionUtils.cpp
+  cryptonote/src/CryptoNoteCore/*.cpp
+  cryptonote/src/CryptoNoteProtocol/*.cpp
+  cryptonote/src/Daemon/*.cpp
+  cryptonote/src/HTTP/*.cpp
   cryptonote/src/InProcessNode/InProcessNode.cpp
   cryptonote/src/InProcessNode/InProcessNodeErrors.cpp
+  cryptonote/src/Logging/*.cpp
   cryptonote/src/NodeRpcProxy/NodeErrors.cpp
   cryptonote/src/NodeRpcProxy/NodeRpcProxy.cpp
-  cryptonote/src/P2p/NetNodeConfig.cpp
-  cryptonote/src/Serialization/BinaryInputStreamSerializer.cpp
-  cryptonote/src/Serialization/BinaryOutputStreamSerializer.cpp
-  cryptonote/src/Serialization/JsonInputValueSerializer.cpp
-  cryptonote/src/Serialization/JsonOutputStreamSerializer.cpp
-  cryptonote/src/Serialization/KVBinaryInputStreamSerializer.cpp
-  cryptonote/src/Serialization/KVBinaryOutputStreamSerializer.cpp
-  cryptonote/src/Serialization/SerializationOverloads.cpp
+  cryptonote/src/P2p/*.cpp
+  cryptonote/src/Rpc/*.cpp
+  cryptonote/src/Serialization/*.cpp
   cryptonote/src/Transfers/BlockchainSynchronizer.cpp
   cryptonote/src/Transfers/SynchronizationState.cpp
   cryptonote/src/Transfers/TransfersConsumer.cpp
   cryptonote/src/Transfers/TransfersContainer.cpp
   cryptonote/src/Transfers/TransfersSubscription.cpp
   cryptonote/src/Transfers/TransfersSynchronizer.cpp
-  cryptonote/src/Wallet/LegacyKeysImporter.cpp
-  cryptonote/src/Wallet/WalletAsyncContextCounter.cpp
-  cryptonote/src/Wallet/WalletErrors.cpp
+  cryptonote/src/Wallet/*.cpp
   cryptonote/src/WalletLegacy/KeysStorage.cpp
   cryptonote/src/WalletLegacy/WalletLegacy.cpp
   cryptonote/src/WalletLegacy/WalletHelper.cpp
@@ -144,55 +129,63 @@ set(CRYPTONOTE_SOURCES
   cryptonote/src/System/InterruptedException.cpp
   cryptonote/src/System/Ipv4Address.cpp
   cryptonote/src/System/TcpStream.cpp
-  cryptonote/src/HTTP/HttpRequest.cpp
-  cryptonote/src/HTTP/HttpParser.cpp
-  cryptonote/src/HTTP/HttpParserErrorCodes.cpp
-  cryptonote/src/HTTP/HttpResponse.cpp
-  cryptonote/src/Rpc/HttpClient.cpp
-  cryptonote/src/Rpc/JsonRpc.cpp
-  cryptonote/src/P2p/NetNode.cpp
-  cryptonote/src/P2p/LevinProtocol.cpp
-  cryptonote/src/P2p/NetNodeConfig.cpp
-  cryptonote/src/P2p/PeerListManager.cpp
-  cryptonote/src/CryptoNoteProtocol/CryptoNoteProtocolHandler.cpp
-  cryptonote/src/Logging/ILogger.cpp
-  cryptonote/src/Logging/LoggerGroup.cpp
-  cryptonote/src/Logging/CommonLogger.cpp
-  cryptonote/src/Logging/LoggerManager.cpp
-  cryptonote/src/Logging/FileLogger.cpp
-  cryptonote/src/Logging/StreamLogger.cpp
-  cryptonote/src/Logging/ConsoleLogger.cpp
-  cryptonote/src/Logging/LoggerMessage.cpp
-  cryptonote/src/Logging/LoggerRef.cpp
-  cryptonote/src/BlockchainExplorer/BlockchainExplorer.cpp
-  cryptonote/src/BlockchainExplorer/BlockchainExplorerDataBuilder.cpp
-  cryptonote/src/BlockchainExplorer/BlockchainExplorerErrors.cpp
+  cryptonote/src/JsonRpcServer/*.cpp
+  cryptonote/src/PaymentGate/*.cpp
+  cryptonote/src/PaymentGateService/*.cpp
+  cryptonote/src/Miner/*.cpp
 )
 
 file(GLOB_RECURSE SOURCES src/*.cpp)
 file(GLOB_RECURSE HEADERS src/*.h)
 file(GLOB_RECURSE FORMS src/gui/ui/*.ui)
 
+if(MSVC)
+  include_directories(Platform/Windows)
+  set(SOURCES ${SOURCES} ${CMAKE_SOURCE_DIR}/Platform/Windows/ApplicationEventHandler.cpp)
+elseif(APPLE)
+  include_directories(Platform/OSX)
+  include_directories(Platform/Posix)
+  set(SOURCES ${SOURCES} ${CMAKE_SOURCE_DIR}/Platform/OSX/*)
+  set(SOURCES ${SOURCES} ${CMAKE_SOURCE_DIR}/Platform/Posix/System/MemoryMappedFile.cpp)
+else()
+  include_directories(Platform/Linux)
+  include_directories(Platform/Posix)
+  set(SOURCES ${SOURCES} ${CMAKE_SOURCE_DIR}/Platform/Linux/ApplicationEventHandler.cpp)
+  set(SOURCES ${SOURCES} ${CMAKE_SOURCE_DIR}/Platform/Posix/System/MemoryMappedFile.cpp)
+endif()
+
+
 set(QRC src/resources.qrc)
 
 qt5_wrap_ui(UIS ${FORMS})
 qt5_add_resources(RCC ${QRC})
 
-
 if (WIN32)
   if (NOT MSVC)
-	message(FATAL_ERROR "Only MSVC is supported on this platform")
+    message(FATAL_ERROR "Only MSVC is supported on this platform")
   endif ()
+
   add_definitions(/D_CRT_SECURE_NO_WARNINGS /D_WIN32_WINNT=0x0600 /DSTATICLIB)
-  include_directories(cryptonote/src/platform/msc)
+  include_directories(cryptonote/src/Platform/msc)
 
   set(PLATFORM_DIR Windows)
   set(BUILD_PLATFORM WIN32)
-  set(BUILD_RESOURCES src/cryptonotewallet.rc)
+  set(BUILD_RESOURCES src/intensecoinwallet.rc)
   set(QTMAIN Qt5::WinMain)
 
 elseif (UNIX)
+
+  add_custom_target(
+     rocksdb
+     COMMAND make static_lib -Wno-undef -Wno-unused-result -Wno-unused-value
+     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/cryptonote/external/rocksdb
+  )
+  add_library(rocksdblib STATIC IMPORTED GLOBAL)
+  set_target_properties(rocksdblib PROPERTIES IMPORTED_LOCATION ${CMAKE_CURRENT_SOURCE_DIR}/cryptonote/external/rocksdb/librocksdb.a)
+  add_dependencies(rocksdblib rocksdb)
+
   set(CRYPTONOTE_SOURCES ${CRYPTONOTE_SOURCES} cryptonote/external/miniupnpc/minissdpc.c)
+
   if (APPLE)
     enable_language(ASM)
     file(GLOB_RECURSE OBJC_SOURCES src/*.mm)
@@ -218,10 +211,12 @@ elseif (UNIX)
 
     set(BUILD_PLATFORM MACOSX_BUNDLE)
     set(BUILD_RESOURCES ${APPLICATION_ICON})
-	
+
     GET_TARGET_PROPERTY(QT_LIB_DIR "${Qt5Widgets_LIBRARIES}" LOCATION)
     GET_FILENAME_COMPONENT(QT_LIB_DIR "${QT_LIB_DIR}" PATH)
+
   else(APPLE)
+
     set(PLATFORM_DIR Linux)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -maes -std=c++11")
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -maes -std=c11")
@@ -230,15 +225,16 @@ endif ()
 
 include_directories(cryptonote/src/Platform/${PLATFORM_DIR})
 file(GLOB PLATFORM_SOURCES cryptonote/src/Platform/${PLATFORM_DIR}/System/*)
-set(CRYPTONOTE_SOURCES ${CRYPTONOTE_SOURCES} ${PLATFORM_SOURCES})
+set(CRYPTONOTE_SOURCES ${CRYPTONOTE_SOURCES} ${PLATFORM_SOURCES} ${CRYPTONOTE_PLATFORM})
 
 add_library(${CRYPTONOTE_LIB} STATIC ${CRYPTONOTE_SOURCES})
 set_target_properties(${CRYPTONOTE_LIB} PROPERTIES COMPILE_DEFINITIONS _GNU_SOURCE)
-target_link_libraries(${CRYPTONOTE_LIB} ${Boost_LIBRARIES})
+target_link_libraries(${CRYPTONOTE_LIB} rocksdb ${Boost_LIBRARIES} ${Qt5DBus_LIBRARIES})
 
 add_executable(${PROJECT_NAME} ${BUILD_PLATFORM} ${BUILD_RESOURCES} ${SOURCES} ${HEADERS} ${UIS} ${RCC})
+
 set_target_properties(${PROJECT_NAME} PROPERTIES COMPILE_DEFINITIONS _GNU_SOURCE)
-target_link_libraries(${PROJECT_NAME} ${Boost_LIBRARIES} ${QTMAIN} ${CRYPTONOTE_LIB})
+target_link_libraries(${PROJECT_NAME} rpcrt4.lib wtsapi32.lib rocksdb ${Boost_LIBRARIES} ${QTMAIN} ${CRYPTONOTE_LIB} ${Qt5DBus_LIBRARIES})
 
 if (APPLE)
   qt5_use_modules(${PROJECT_NAME} PrintSupport)
@@ -248,4 +244,7 @@ elseif (WIN32)
   target_link_libraries(${PROJECT_NAME} Imm32 Iphlpapi Winmm)
 endif (APPLE)
 
-qt5_use_modules(${PROJECT_NAME} Widgets Gui)
+qt5_use_modules(${PROJECT_NAME} Widgets Gui Network)
+
+add_subdirectory(cryptonote/external)
+#add_subdirectory(cryptonote/src)

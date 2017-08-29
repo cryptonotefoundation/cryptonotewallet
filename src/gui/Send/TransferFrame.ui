@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TransferFrame</class>
+ <widget class="QFrame" name="TransferFrame">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>908</width>
+    <height>160</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>150</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>160</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>16777215</width>
+    <height>160</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Frame</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <property name="frameShape">
+   <enum>QFrame::NoFrame</enum>
+  </property>
+  <property name="frameShadow">
+   <enum>QFrame::Plain</enum>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>10</number>
+   </property>
+   <property name="leftMargin">
+    <number>25</number>
+   </property>
+   <property name="rightMargin">
+    <number>25</number>
+   </property>
+   <item>
+    <spacer name="verticalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <layout class="QGridLayout" name="gridLayout">
+     <property name="verticalSpacing">
+      <number>5</number>
+     </property>
+     <item row="0" column="0">
+      <widget class="WalletGui::WalletNormalGrayTextLabel" name="m_payToTextLabel">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>PAY TO</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+       </property>
+       <property name="margin">
+        <number>0</number>
+       </property>
+       <property name="indent">
+        <number>0</number>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="WalletGui::WalletTinyLinkLikeButton" name="m_addressBookButton">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="text">
+        <string>Add from contacts</string>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>318</width>
+         <height>10</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="0" column="3" alignment="Qt::AlignBottom">
+      <widget class="WalletGui::WalletTinyLinkLikeButton" name="m_removeButton">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="text">
+        <string>Remove recipient</string>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0" colspan="4">
+      <widget class="WalletGui::ClearableLineEdit" name="m_sendAddressEdit">
+       <property name="styleSheet">
+        <string notr="true">[errorState=&quot;true&quot;] {
+  border-color: #ef3131;
+}</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QGridLayout" name="gridLayout_2">
+     <property name="verticalSpacing">
+      <number>5</number>
+     </property>
+     <item row="0" column="0">
+      <widget class="WalletGui::WalletNormalGrayTextLabel" name="m_amountTextLabel">
+       <property name="text">
+        <string>AMOUNT</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+       </property>
+       <property name="indent">
+        <number>0</number>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="WalletGui::WalletNormalGrayTextLabel" name="m_labelTextLabel">
+       <property name="text">
+        <string>LABEL</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+       </property>
+       <property name="indent">
+        <number>0</number>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QDoubleSpinBox" name="m_sendAmountSpin">
+       <property name="focusPolicy">
+        <enum>Qt::ClickFocus</enum>
+       </property>
+       <property name="layoutDirection">
+        <enum>Qt::LeftToRight</enum>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">[errorState=&quot;true&quot;] {
+  border-color: #ef3131;
+}</string>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::UpDownArrows</enum>
+       </property>
+       <property name="suffix">
+        <string notr="true">BCN</string>
+       </property>
+       <property name="decimals">
+        <number>8</number>
+       </property>
+       <property name="maximum">
+        <double>1000000000000.000000000000000</double>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="WalletGui::ClearableLineEdit" name="m_sendLabelEdit">
+       <property name="styleSheet">
+        <string notr="true">[errorState=&quot;true&quot;] {
+  border-color: #ef3131;
+}</string>
+       </property>
+       <property name="placeholderText">
+        <string>Enter a label for this address to add it to your address book</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>WalletGui::WalletNormalGrayTextLabel</class>
+   <extends>QLabel</extends>
+   <header>Gui/Common/WalletTextLabel.h</header>
+  </customwidget>
+  <customwidget>
+   <class>WalletGui::WalletTinyLinkLikeButton</class>
+   <extends>QPushButton</extends>
+   <header>Gui/Common/WalletLinkLikeButton.h</header>
+  </customwidget>
+  <customwidget>
+   <class>WalletGui::ClearableLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>Gui/Common/ClearableLineEdit.h</header>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>m_sendAddressEdit</tabstop>
+  <tabstop>m_sendAmountSpin</tabstop>
+  <tabstop>m_sendLabelEdit</tabstop>
+  <tabstop>m_addressBookButton</tabstop>
+  <tabstop>m_removeButton</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>m_removeButton</sender>
+   <signal>clicked()</signal>
+   <receiver>TransferFrame</receiver>
+   <slot>deleteLater()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>797</x>
+     <y>41</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>445</x>
+     <y>79</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_addressBookButton</sender>
+   <signal>clicked()</signal>
+   <receiver>TransferFrame</receiver>
+   <slot>addressBookClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>136</x>
+     <y>41</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>445</x>
+     <y>79</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_sendAddressEdit</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>TransferFrame</receiver>
+   <slot>labelOrAddressChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>445</x>
+     <y>56</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>445</x>
+     <y>79</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_sendLabelEdit</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>TransferFrame</receiver>
+   <slot>labelOrAddressChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>582</x>
+     <y>128</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>445</x>
+     <y>79</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_sendAmountSpin</sender>
+   <signal>valueChanged(QString)</signal>
+   <receiver>TransferFrame</receiver>
+   <slot>amountStringChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>124</x>
+     <y>124</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>453</x>
+     <y>79</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_sendAddressEdit</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>TransferFrame</receiver>
+   <slot>addressChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>453</x>
+     <y>69</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>453</x>
+     <y>79</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>addressBookClicked()</slot>
+  <slot>pasteClicked()</slot>
+  <slot>labelOrAddressChanged(QString)</slot>
+  <slot>addressChanged(QString)</slot>
+  <slot>amountStringChanged(QString)</slot>
+ </slots>
+</ui>

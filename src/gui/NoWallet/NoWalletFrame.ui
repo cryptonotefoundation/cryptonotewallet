@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>NoWalletFrame</class>
+ <widget class="QFrame" name="NoWalletFrame">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>838</width>
+    <height>660</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Frame</string>
+  </property>
+  <property name="frameShape">
+   <enum>QFrame::NoFrame</enum>
+  </property>
+  <property name="frameShadow">
+   <enum>QFrame::Raised</enum>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>170</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item alignment="Qt::AlignHCenter">
+    <widget class="WalletGui::WalletHeaderLabel" name="m_welcomeLabel">
+     <property name="text">
+      <string>Welcome to Intensecoin Wallet!</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer_4">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>25</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item alignment="Qt::AlignHCenter">
+    <widget class="QFrame" name="m_passwordFrame">
+     <property name="minimumSize">
+      <size>
+       <width>476</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>338</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <property name="spacing">
+       <number>8</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <item>
+         <widget class="QLabel" name="m_passwordTextLabel">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">[errorState=&quot;true&quot;] {
+  color: #ef3131;
+}</string>
+          </property>
+          <property name="text">
+           <string>PASSWORD FOR</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="m_walletNameLabel">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="m_walletTextLabel">
+          <property name="text">
+           <string>WALLET</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_4">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_5">
+        <item>
+         <widget class="QLineEdit" name="m_passwordEdit">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">[errorState=&quot;true&quot;] {
+  border-color: #ef3131;
+}</string>
+          </property>
+          <property name="echoMode">
+           <enum>QLineEdit::Password</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="WalletGui::WalletOkButton" name="m_okButton">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="text">
+           <string>OK</string>
+          </property>
+          <property name="default">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>30</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <property name="spacing">
+      <number>0</number>
+     </property>
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="WalletGui::WalletLargeBlueButton" name="m_createWalletButton">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>220</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>220</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Create wallet</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeType">
+        <enum>QSizePolicy::Fixed</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>32</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="WalletGui::WalletLargeBlueButton" name="m_openWalletButton">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>220</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>220</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Open wallet</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <spacer name="verticalSpacer_3">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>376</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>WalletGui::WalletOkButton</class>
+   <extends>QPushButton</extends>
+   <header>Gui/Common/WalletOkButton.h</header>
+  </customwidget>
+  <customwidget>
+   <class>WalletGui::WalletHeaderLabel</class>
+   <extends>QLabel</extends>
+   <header>Gui/Common/WalletTextLabel.h</header>
+  </customwidget>
+  <customwidget>
+   <class>WalletGui::WalletLargeBlueButton</class>
+   <extends>QPushButton</extends>
+   <header>Gui/Common/WalletBlueButton.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>m_okButton</sender>
+   <signal>clicked()</signal>
+   <receiver>NoWalletFrame</receiver>
+   <slot>okClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>498</x>
+     <y>266</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>418</x>
+     <y>329</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_passwordEdit</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>NoWalletFrame</receiver>
+   <slot>passwordChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>374</x>
+     <y>265</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>418</x>
+     <y>329</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_passwordEdit</sender>
+   <signal>returnPressed()</signal>
+   <receiver>m_okButton</receiver>
+   <slot>click()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>374</x>
+     <y>265</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>616</x>
+     <y>256</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <signal>createWalletClickedSignal()</signal>
+  <signal>openWalletClickedSignal()</signal>
+  <slot>okClicked()</slot>
+  <slot>passwordChanged(QString)</slot>
+ </slots>
+</ui>

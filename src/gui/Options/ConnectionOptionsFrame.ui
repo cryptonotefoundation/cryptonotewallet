@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ConnectionOptionsFrame</class>
+ <widget class="QFrame" name="ConnectionOptionsFrame">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>746</width>
+    <height>396</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Frame</string>
+  </property>
+  <property name="frameShape">
+   <enum>QFrame::NoFrame</enum>
+  </property>
+  <property name="frameShadow">
+   <enum>QFrame::Raised</enum>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_5">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>25</number>
+   </property>
+   <property name="topMargin">
+    <number>40</number>
+   </property>
+   <property name="rightMargin">
+    <number>49</number>
+   </property>
+   <item>
+    <widget class="QWidget" name="widget" native="true">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>70</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>70</height>
+      </size>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout" stretch="0,1">
+      <property name="spacing">
+       <number>3</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QRadioButton" name="m_autoRadio">
+        <property name="text">
+         <string>Auto selection</string>
+        </property>
+        <attribute name="buttonGroup">
+         <string notr="true">m_connectionButtonGroup</string>
+        </attribute>
+       </widget>
+      </item>
+      <item alignment="Qt::AlignTop">
+       <widget class="WalletGui::WalletSmallGrayTextLabel" name="m_autoHelperLabel">
+        <property name="text">
+         <string>Wallet will connect to local Intensecoin daemon process on port 8081. In case of no local daemon running it will use an in-wallet embedded node implementation.</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+        <property name="indent">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="widget_2" native="true">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>70</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>70</height>
+      </size>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,1">
+      <property name="spacing">
+       <number>3</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QRadioButton" name="m_embeddedRadio">
+        <property name="text">
+         <string>Embedded</string>
+        </property>
+        <attribute name="buttonGroup">
+         <string notr="true">m_connectionButtonGroup</string>
+        </attribute>
+       </widget>
+      </item>
+      <item alignment="Qt::AlignTop">
+       <widget class="WalletGui::WalletSmallGrayTextLabel" name="m_embeddedHelperLabel">
+        <property name="text">
+         <string>An in-wallet embedded Intensecoin node will be used.</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+        <property name="indent">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="widget_3" native="true">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>70</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>70</height>
+      </size>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_3" stretch="0,1">
+      <property name="spacing">
+       <number>3</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <property name="spacing">
+         <number>10</number>
+        </property>
+        <item>
+         <widget class="QRadioButton" name="m_localRadio">
+          <property name="text">
+           <string>Local daemon</string>
+          </property>
+          <attribute name="buttonGroup">
+           <string notr="true">m_connectionButtonGroup</string>
+          </attribute>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>37</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>Port:</string>
+          </property>
+         </widget>
+        </item>
+        <item alignment="Qt::AlignVCenter">
+         <widget class="QSpinBox" name="m_localPortSpin">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="minimum">
+           <number>1</number>
+          </property>
+          <property name="maximum">
+           <number>65535</number>
+          </property>
+          <property name="value">
+           <number>1</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_2">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item alignment="Qt::AlignTop">
+       <widget class="WalletGui::WalletSmallGrayTextLabel" name="m_localHelperLabel">
+        <property name="text">
+         <string>Wallet will connect to local Intensecoin daemon process. Please specify daemon's port.</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+        <property name="indent">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="widget_4" native="true">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>70</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>70</height>
+      </size>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_4" stretch="0,1">
+      <property name="spacing">
+       <number>3</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <property name="spacing">
+         <number>10</number>
+        </property>
+        <item>
+         <widget class="QRadioButton" name="m_remoteRadio">
+          <property name="text">
+           <string>Remote daemon</string>
+          </property>
+          <attribute name="buttonGroup">
+           <string notr="true">m_connectionButtonGroup</string>
+          </attribute>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_3">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>22</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_2">
+          <property name="text">
+           <string>Host:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="m_remoteHostEdit">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_5">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>15</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_3">
+          <property name="text">
+           <string>Port:</string>
+          </property>
+         </widget>
+        </item>
+        <item alignment="Qt::AlignVCenter">
+         <widget class="QSpinBox" name="m_remotePortSpin">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="minimum">
+           <number>1</number>
+          </property>
+          <property name="maximum">
+           <number>65535</number>
+          </property>
+          <property name="value">
+           <number>1</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer_4">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </item>
+      <item alignment="Qt::AlignTop">
+       <widget class="WalletGui::WalletSmallGrayTextLabel" name="m_remoteHelperLabel">
+        <property name="text">
+         <string>Wallet will connect to Intensecoin node running on another PC in the local or global network. Please specify IP address or domain name and the port.</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+        <property name="indent">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>665</width>
+       <height>61</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>WalletGui::WalletSmallGrayTextLabel</class>
+   <extends>QLabel</extends>
+   <header>Gui/Common/WalletTextLabel.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>m_remoteHostEdit</sender>
+   <signal>textChanged(QString)</signal>
+   <receiver>ConnectionOptionsFrame</receiver>
+   <slot>remoteHostNameChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>390</x>
+     <y>319</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>372</x>
+     <y>197</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_connectionButtonGroup</sender>
+   <signal>buttonClicked(int)</signal>
+   <receiver>ConnectionOptionsFrame</receiver>
+   <slot>connectionButtonClicked(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>372</x>
+     <y>197</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_remoteRadio</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>m_remoteHostEdit</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>88</x>
+     <y>264</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>312</x>
+     <y>263</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_remoteRadio</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>m_remotePortSpin</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>88</x>
+     <y>264</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>498</x>
+     <y>263</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_localRadio</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>m_localPortSpin</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>81</x>
+     <y>194</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>270</x>
+     <y>193</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>remoteHostNameChanged(QString)</slot>
+  <slot>connectionButtonClicked(int)</slot>
+ </slots>
+ <buttongroups>
+  <buttongroup name="m_connectionButtonGroup"/>
+ </buttongroups>
+</ui>

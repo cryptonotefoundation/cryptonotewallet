@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Intensecoin Wallet
+Comment=Intensecoin wallet
+Exec=intensecoinwallet %U
+Terminal=false
+Type=Application
+Icon=intensecoin
+MimeType=x-scheme-handler/intensecoin;
+Categories=Office;Finance;

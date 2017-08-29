@@ -1,0 +1,584 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DonationOptionsFrame</class>
+ <widget class="QFrame" name="DonationOptionsFrame">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>701</width>
+    <height>540</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Frame</string>
+  </property>
+  <property name="frameShape">
+   <enum>QFrame::NoFrame</enum>
+  </property>
+  <property name="frameShadow">
+   <enum>QFrame::Raised</enum>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>10</number>
+   </property>
+   <property name="leftMargin">
+    <number>25</number>
+   </property>
+   <property name="topMargin">
+    <number>35</number>
+   </property>
+   <property name="rightMargin">
+    <number>25</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
+   <item>
+    <widget class="QCheckBox" name="m_enableDonationMiningCheck">
+     <property name="text">
+      <string>Donation mining</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QFrame" name="m_donationMiningFrame">
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QGridLayout" name="gridLayout" columnstretch="1,0,0,1">
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <property name="horizontalSpacing">
+       <number>10</number>
+      </property>
+      <property name="verticalSpacing">
+       <number>0</number>
+      </property>
+      <item row="2" column="0" colspan="4">
+       <widget class="QComboBox" name="m_donationMiningAddressCombo"/>
+      </item>
+      <item row="3" column="0" colspan="4">
+       <spacer name="verticalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>25</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="4" column="0" colspan="4">
+       <widget class="WalletGui::WalletNormalBlackTextLabel" name="label_2">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>16</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>% of hashes to be donated</string>
+        </property>
+        <property name="indent">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="QSpinBox" name="m_donationMiningAmountSpin">
+        <property name="suffix">
+         <string>%</string>
+        </property>
+        <property name="minimum">
+         <number>1</number>
+        </property>
+        <property name="maximum">
+         <number>100</number>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QSlider" name="m_donationMiningAmountSlider">
+        <property name="maximumSize">
+         <size>
+          <width>230</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="minimum">
+         <number>1</number>
+        </property>
+        <property name="maximum">
+         <number>100</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="2">
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>5</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="5" column="3" alignment="Qt::AlignVCenter">
+       <widget class="WalletGui::WalletSmallGrayTextLabel" name="m_donationMiningCommentLabel">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>32</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Donation mining allows you to contribute a fixed share of your in-wallet mining profit to a Intensecoin address of you choice.</string>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+        <property name="indent">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0" colspan="4">
+       <spacer name="verticalSpacer_6">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>5</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="0" column="0" colspan="4">
+       <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,1">
+        <property name="spacing">
+         <number>5</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="WalletGui::WalletNormalBlackTextLabel" name="label">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>16</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Address for donations</string>
+          </property>
+          <property name="indent">
+           <number>0</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="WalletGui::WalletSmallGrayTextLabel" name="label_5">
+          <property name="text">
+           <string>(Donation addresses can be added in Contacts)</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer_3">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <widget class="Line" name="line">
+     <property name="frameShadow">
+      <enum>QFrame::Sunken</enum>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer_4">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>15</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <widget class="QCheckBox" name="m_enableDonationChangeCheck">
+     <property name="text">
+      <string>Random donation on each transaction</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QFrame" name="m_donationChangeFrame">
+     <property name="frameShape">
+      <enum>QFrame::NoFrame</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2" columnstretch="1,0,0,1">
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <property name="horizontalSpacing">
+       <number>10</number>
+      </property>
+      <property name="verticalSpacing">
+       <number>0</number>
+      </property>
+      <item row="3" column="0" colspan="4">
+       <spacer name="verticalSpacer_5">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>25</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="4" column="0" colspan="4">
+       <widget class="WalletGui::WalletNormalBlackTextLabel" name="label_3">
+        <property name="text">
+         <string>Max % of transaction to be donated</string>
+        </property>
+        <property name="indent">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QSlider" name="m_donationChangeAmountSlider">
+        <property name="maximumSize">
+         <size>
+          <width>230</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="minimum">
+         <number>1</number>
+        </property>
+        <property name="maximum">
+         <number>100</number>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0" colspan="4">
+       <widget class="QComboBox" name="m_donationChangeAddressCombo"/>
+      </item>
+      <item row="5" column="3" alignment="Qt::AlignVCenter">
+       <widget class="WalletGui::WalletSmallGrayTextLabel" name="m_donationChangeCommentLabel">
+        <property name="text">
+         <string>The donation percentage is random and may not exceed the setting to the left.</string>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
+        </property>
+        <property name="indent">
+         <number>0</number>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="QDoubleSpinBox" name="m_donationChangeAmountSpin">
+        <property name="suffix">
+         <string>%</string>
+        </property>
+        <property name="decimals">
+         <number>1</number>
+        </property>
+        <property name="minimum">
+         <double>0.100000000000000</double>
+        </property>
+        <property name="maximum">
+         <double>10.000000000000000</double>
+        </property>
+        <property name="singleStep">
+         <double>0.100000000000000</double>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="2">
+       <spacer name="horizontalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>5</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="1" column="0" colspan="4">
+       <spacer name="verticalSpacer_7">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>5</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item row="0" column="0" colspan="4">
+       <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,1">
+        <property name="spacing">
+         <number>5</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="WalletGui::WalletNormalBlackTextLabel" name="label_4">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>16</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Address for donations</string>
+          </property>
+          <property name="indent">
+           <number>0</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="WalletGui::WalletSmallGrayTextLabel" name="label_6">
+          <property name="text">
+           <string>(Donation addresses can be added in Contacts)</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Expanding</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>10</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>WalletGui::WalletSmallGrayTextLabel</class>
+   <extends>QLabel</extends>
+   <header>Gui/Common/WalletTextLabel.h</header>
+  </customwidget>
+  <customwidget>
+   <class>WalletGui::WalletNormalBlackTextLabel</class>
+   <extends>QLabel</extends>
+   <header>Gui/Common/WalletTextLabel.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>m_enableDonationMiningCheck</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>m_donationMiningFrame</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>353</x>
+     <y>41</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>350</x>
+     <y>115</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_donationMiningAmountSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>DonationOptionsFrame</receiver>
+   <slot>donationMiningAmountChanged(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>187</x>
+     <y>155</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>350</x>
+     <y>269</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_donationMiningAmountSpin</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>DonationOptionsFrame</receiver>
+   <slot>donationMiningAmountChanged(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>391</x>
+     <y>155</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>350</x>
+     <y>269</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_enableDonationChangeCheck</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>m_donationChangeFrame</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>353</x>
+     <y>237</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>350</x>
+     <y>328</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_donationChangeAmountSlider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>DonationOptionsFrame</receiver>
+   <slot>donationChangeAmountChanged(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>187</x>
+     <y>385</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>350</x>
+     <y>269</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_donationChangeAmountSpin</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>DonationOptionsFrame</receiver>
+   <slot>donationChangeAmountChanged(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>433</x>
+     <y>353</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>350</x>
+     <y>269</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>donationMiningAmountChanged(int)</slot>
+  <slot>donationChangeAmountChanged(int)</slot>
+  <slot>donationChangeAmountChanged(double)</slot>
+ </slots>
+</ui>
