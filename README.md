@@ -16,11 +16,11 @@ git submodule foreach git pull origin master
 **3. Build**
 
 ```
-mkdir build && cd build && cmake .. && make
+mkdir build && cd build && cmake -G "Visual Studio 15 Win64" .. && make
 ```
 
 On windows, you may find it helpful to explicitly include Boost and Qt library paths:
 
 ```
-cmake -DCMAKE_PREFIX_PATH="C:\Qt2\5.9.1\msvc2015" -DBOOST_ROOT="C:\boost_1_64_0_built" -DBOOST_INCLUDEDIR="C:/boost_1_64_0_built/lib32-msvc-14.1" -DBOOST_LIBRARYDIR="C:\boost_1_64_0_built\libs"
+cmake -G "Visual Studio 15 Win64" -DCMAKE_PREFIX_PATH="C:\Qt2\5.9.1\msvc2015" -DBOOST_ROOT="C:\boost_1_64_0_built" -DBOOST_INCLUDEDIR="C:/boost_1_64_0_built/lib32-msvc-14.1" -DBOOST_LIBRARYDIR="C:\boost_1_64_0_built\libs"
  ```
