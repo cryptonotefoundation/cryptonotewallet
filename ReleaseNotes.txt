@@ -1,1 +1,6 @@
-Release notes 1.0.0
+Release notes 1.2.0
+-----
+If you are coming from using the old version of the wallet, either simplewallet or GUI, you may need to clear your data directory before this wallet will work properly for you. Please be sure to backup any .wallet files in the data directory before deleting! On Windows, this directory is:
+`%userprofile%\appdata\roaming\intensecoin`. On Mac/Linux, the directory is `~/.intensecoin`.
+
+Complete overhaul based upon latest Bytecoin GUI. Many changes made, including an upgrade of rocksdb to the latest version at this time (5.7.2) to resolve deadlock issues. A delay is present upon wallet passphrase entry to await peer synchronization; otherwise an indefinite period of syncing would follow.
