@@ -1,4 +1,4 @@
-Dependencies: boost >= 1.55, CMake >= 2.8.6, GCC >=4.7.3, Qt >=5.0
+Dependencies: boost >= 1.58, CMake >= 2.8.6, GCC >=4.7.3, Qt >=5.0
 
 **1. Clone wallet sources**
 
@@ -17,6 +17,12 @@ git submodule foreach git pull origin master
 
 ```
 mkdir build && cd build && cmake -G "Visual Studio 15 Win64" .. && make
+```
+
+If you are building on an older processor without AVX support, add the following options to cmake:
+
+```
+-DPORTABLE=1 -DWITH_AVX2=0
 ```
 
 On windows, you may find it helpful to explicitly include Boost and Qt library paths:
