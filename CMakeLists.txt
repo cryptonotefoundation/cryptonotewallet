@@ -175,15 +175,6 @@ if (WIN32)
 
 elseif (UNIX)
 
-  add_custom_target(
-     rocksdb
-     COMMAND make static_lib -Wno-undef -Wno-unused-result -Wno-unused-value
-     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/cryptonote/external/rocksdb
-  )
-  add_library(rocksdblib STATIC IMPORTED GLOBAL)
-  set_target_properties(rocksdblib PROPERTIES IMPORTED_LOCATION ${CMAKE_CURRENT_SOURCE_DIR}/cryptonote/external/rocksdb/librocksdb.a)
-  add_dependencies(rocksdblib rocksdb)
-
   set(CRYPTONOTE_SOURCES ${CRYPTONOTE_SOURCES} cryptonote/external/miniupnpc/minissdpc.c)
 
   if (APPLE)
@@ -234,14 +225,14 @@ target_link_libraries(${CRYPTONOTE_LIB} rocksdb ${Boost_LIBRARIES} ${Qt5DBus_LIB
 add_executable(${PROJECT_NAME} ${BUILD_PLATFORM} ${BUILD_RESOURCES} ${SOURCES} ${HEADERS} ${UIS} ${RCC})
 
 set_target_properties(${PROJECT_NAME} PROPERTIES COMPILE_DEFINITIONS _GNU_SOURCE)
-target_link_libraries(${PROJECT_NAME} rpcrt4.lib wtsapi32.lib rocksdb ${Boost_LIBRARIES} ${QTMAIN} ${CRYPTONOTE_LIB} ${Qt5DBus_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} rocksdb ${Boost_LIBRARIES} ${QTMAIN} ${CRYPTONOTE_LIB} ${Qt5DBus_LIBRARIES})
 
 if (APPLE)
   qt5_use_modules(${PROJECT_NAME} PrintSupport)
 elseif (UNIX)
   target_link_libraries(${PROJECT_NAME} -lpthread)
 elseif (WIN32)
-  target_link_libraries(${PROJECT_NAME} Imm32 Iphlpapi Winmm)
+  target_link_libraries(${PROJECT_NAME} rpcrt4.lib wtsapi32.lib  Imm32 Iphlpapi Winmm)
 endif (APPLE)
 
 qt5_use_modules(${PROJECT_NAME} Widgets Gui Network)

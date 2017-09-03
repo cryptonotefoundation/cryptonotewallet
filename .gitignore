@@ -6,3 +6,4 @@ build
 x64
 Win32
 .vs
+*.user
