@@ -15,6 +15,7 @@ git submodule foreach git pull origin master
 
 **3. Build**
 
+###Windows build
 ```
 mkdir build && cd build && cmake -G "Visual Studio 15 Win64" .. && make
 ```
@@ -30,3 +31,15 @@ On windows, you may find it helpful to explicitly include Boost and Qt library p
 ```
 cmake -G "Visual Studio 15 Win64" -DCMAKE_PREFIX_PATH="C:\Qt2\5.9.1\msvc2015" -DBOOST_ROOT="C:\boost_1_64_0_built" -DBOOST_INCLUDEDIR="C:/boost_1_64_0_built/lib32-msvc-14.1" -DBOOST_LIBRARYDIR="C:\boost_1_64_0_built\libs"
  ```
+###*nix build
+```
+mkdir build && cd build && cmake .. && make
+```
+
+To create a portable build (AppImage), use linuxdeployqt:
+```
+cp src/intensecoinwallet.desktop build/
+cp src/images/intensecoin.png build/
+cd build
+linuxdeployqt.AppImage intensecoinwallet.desktop -appimage -verbose=2 -always-overwrite -no-translations
+```

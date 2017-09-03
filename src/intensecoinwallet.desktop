@@ -2,7 +2,7 @@
 Encoding=UTF-8
 Name=Intensecoin Wallet
 Comment=Intensecoin wallet
-Exec=intensecoinwallet %U
+Exec=Intensecoin %U
 Terminal=false
 Type=Application
 Icon=intensecoin
