@@ -55,7 +55,7 @@ MiningFrame::~MiningFrame() {
 
 void MiningFrame::enableSolo() {
   m_sychronized = true;
-  if(!m_solo_mining) {
+  if (!m_solo_mining) {
     m_ui->m_startSolo->setEnabled(true);
   }
 }
@@ -116,6 +116,8 @@ void MiningFrame::walletOpened() {
     m_ui->m_startSolo->setEnabled(true);
   }
 
+  m_walletAddress = WalletAdapter::instance().getAddress();
+
   if(Settings::instance().isMiningOnLaunchEnabled()) {
     startMining();
     m_ui->m_startButton->setChecked(true);
@@ -141,7 +143,7 @@ void MiningFrame::startMining() {
     m_ui->m_stopButton->setChecked(true);
   }
 
-  m_miner = new Miner(this, poolUrl.host(), poolUrl.port(), WalletAdapter::instance().getAddress());
+  m_miner = new Miner(this, poolUrl.host(), poolUrl.port(), m_walletAddress);
   connect(m_miner, &Miner::socketErrorSignal, this, [this](const QString& _errorString) {
     m_ui->m_poolLabel->setText(tr("Error: %1").arg(_errorString));
   });
@@ -172,7 +174,7 @@ void MiningFrame::stopMining() {
 }
 
 void MiningFrame::startSolo() {
-  NodeAdapter::instance().startSoloMining(WalletAdapter::instance().getAddress(), m_ui->m_cpuCombo->currentData().toUInt());
+  NodeAdapter::instance().startSoloMining(m_walletAddress, m_ui->m_cpuCombo->currentData().toUInt());
   m_ui->m_soloLabel->setText(tr("Starting solo minining..."));
   m_soloHashRateTimerId = startTimer(HASHRATE_TIMER_INTERVAL);
 

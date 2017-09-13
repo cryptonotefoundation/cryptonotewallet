@@ -35,6 +35,7 @@ private:
   PoolModel* m_poolModel;
   int m_hashRateTimerId;
   int m_soloHashRateTimerId;
+  QString m_walletAddress;
 
   void initCpuCoreList();
   void startMining();
