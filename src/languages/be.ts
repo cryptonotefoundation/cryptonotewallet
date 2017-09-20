@@ -1629,6 +1629,14 @@ Are you sure?</source>
         <source>The private keys you entered are not valid.</source>
         <translation>Уведзеныя прыватныя ключы няправільныя.</translation>
     </message>
+    <message>
+        <source>Wrong wallet file extension</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wrong wallet file extension, wallet file should have &quot;.wallet&quot;, &quot;.keys&quot; or &quot;.trackingwallet&quot; extension.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::MiningFrame</name>

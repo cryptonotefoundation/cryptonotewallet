@@ -1629,6 +1629,14 @@ Jesteś pewien?</translation>
         <source>The private keys you entered are not valid.</source>
         <translation>Podane klucze prywatne są nieprawidłowe.</translation>
     </message>
+    <message>
+        <source>Wrong wallet file extension</source>
+        <translation>Nieprawidłowe rozszerzenie pliku portfela</translation>
+    </message>
+    <message>
+        <source>Wrong wallet file extension, wallet file should have &quot;.wallet&quot;, &quot;.keys&quot; or &quot;.trackingwallet&quot; extension.</source>
+        <translation>Nieprawidłowe rozszerzenie pliku portfela, portfel powinien mieć rozszerzenie &quot;.wallet&quot;, &quot;.keys&quot; lub &quot;.trackingwallet&quot;.</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::MiningFrame</name>

@@ -1614,6 +1614,14 @@ Are you sure?</source>
         <source>The private view key you entered is not valid.</source>
         <translation>Введений приватний ключ перегляду є неправильним.</translation>
     </message>
+    <message>
+        <source>Wrong wallet file extension</source>
+        <translation>Неправильне розширення файлу гаманця</translation>
+    </message>
+    <message>
+        <source>Wrong wallet file extension, wallet file should have &quot;.wallet&quot;, &quot;.keys&quot; or &quot;.trackingwallet&quot; extension.</source>
+        <translation>Неправильне розширення файлу, файл гаманця мусить мати розширення &quot;.wallet&quot;, &quot;.keys&quot; або &quot;.trackingwallet&quot;.</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::MiningFrame</name>

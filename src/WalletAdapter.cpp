@@ -100,25 +100,24 @@ void WalletAdapter::open(const QString& _password) {
   m_wallet = NodeAdapter::instance().createWallet();
   m_wallet->addObserver(this);
 
-  if (QFile::exists(Settings::instance().getWalletFile())) {
-
+  if (QFile::exists(Settings::instance().getWalletFile())) {  
     if (Settings::instance().getWalletFile().endsWith(".keys")) {
       if (!importLegacyWallet(_password)) {
         return;
       }
     }
 
-    if (openFile(Settings::instance().getWalletFile(), true)) {
-      try {
-        m_wallet->initAndLoad(m_file, _password.toStdString());
-      } catch (std::system_error&) {
-        closeFile();
-        delete m_wallet;
-        m_wallet = nullptr;
+    if (Settings::instance().getWalletFile().endsWith(".wallet")) {
+      if (openFile(Settings::instance().getWalletFile(), true)) {
+        try {
+          m_wallet->initAndLoad(m_file, _password.toStdString());
+        } catch (std::system_error&) {
+          closeFile();
+          delete m_wallet;
+          m_wallet = nullptr;
+        }
       }
     }
-
-  backupOnOpen(); // Backup wallet
 
   } else {
     createWallet();
@@ -139,9 +138,6 @@ void WalletAdapter::createWallet() {
     if (!dlg.exec() == QDialog::Accepted) {
       return;
     }
-
-    backupOnOpen(); // Backup wallet
-
   } catch (std::system_error&) {
     delete m_wallet;
     m_wallet = nullptr;
@@ -149,14 +145,11 @@ void WalletAdapter::createWallet() {
 }
 
 void WalletAdapter::createNonDeterministic() {
-    m_wallet = NodeAdapter::instance().createWallet();
-    m_wallet->addObserver(this);
-    Settings::instance().setEncrypted(false);
+  m_wallet = NodeAdapter::instance().createWallet();
+  m_wallet->addObserver(this);
+  Settings::instance().setEncrypted(false);
   try {
     m_wallet->initAndGenerate("");
-
-    backupOnOpen(); // Backup wallet
-
   } catch (std::system_error&) {
     delete m_wallet;
     m_wallet = nullptr;
@@ -164,13 +157,11 @@ void WalletAdapter::createNonDeterministic() {
 }
 
 void WalletAdapter::createWithKeys(const CryptoNote::AccountKeys& _keys) {
-    m_wallet = NodeAdapter::instance().createWallet();
-    m_wallet->addObserver(this);
-    Settings::instance().setEncrypted(false);
-    Q_EMIT walletStateChangedSignal(tr("Importing keys"));
-    m_wallet->initWithKeys(_keys, "");
-
-    backupOnOpen(); // Backup wallet
+  m_wallet = NodeAdapter::instance().createWallet();
+  m_wallet->addObserver(this);
+  Settings::instance().setEncrypted(false);
+  Q_EMIT walletStateChangedSignal(tr("Importing keys"));
+  m_wallet->initWithKeys(_keys, "");
 }
 
 
@@ -250,39 +241,13 @@ void WalletAdapter::backup(const QString& _file) {
   }
 }
 
-void WalletAdapter::backupOnOpen(){
-  QFileInfo sourceInfo(Settings::instance().getWalletFile()), destinationInfo(Settings::instance().getDataDir().absoluteFilePath("backup"));
-  if (!QDir(Settings::instance().getDataDir().absoluteFilePath("backup")).exists())
-       QDir().mkdir(Settings::instance().getDataDir().absoluteFilePath("backup"));
-
+void WalletAdapter::autoBackup(){
   QString source = Settings::instance().getWalletFile();
-  QString destination = (QFileInfo(QDir(destinationInfo.absoluteFilePath()), sourceInfo.fileName())).filePath();
-  QString dateTimeStr = QLocale(QLocale::English).toString(QDateTime::currentDateTime(), ".dd-MM-yyyy-HH-mm");
-  destination.replace(destination.lastIndexOf(".wallet"), 7, dateTimeStr + ".wallet");
+  source.append(QString(".backup"));
 
-  if (QFile::exists(destination)) {
-      QFile::remove(destination);
-  }
-  QFile::copy(source, destination);
-  qDebug() << qPrintable(QString("Creating backup of %1 -> %2\n").arg(source).arg(destination));
-
-  int counter = 0;
-  QString walletFileName = sourceInfo.fileName();
-  QString walletName = walletFileName.section(".",0,0);
-  QDir dir = Settings::instance().getDataDir().absoluteFilePath("backup");
-  QStringList filters;
-       filters << walletName + "*.wallet";
-       dir.setNameFilters(filters);
-       dir.setFilter(QDir::Files | QDir::Hidden | QDir::NoSymLinks);
-       dir.setSorting(QDir::Time);
-  QFileInfoList list = dir.entryInfoList();
-
-  for (int i = 0; i < list.size(); ++i) {
-    QFileInfo fileInfo = list.at(i);
-    counter++;
-    if (counter > 10){ // More than ten backups: delete oldest one(s)
-      QFile::remove(fileInfo.absoluteFilePath());
-      qDebug() << qPrintable(QString("Old backup deleted: %1").arg(fileInfo.fileName()));
+  if (!source.isEmpty() && !QFile::exists(source)) {
+    if (save(source, true, false)) {
+      m_isBackupInProgress = true;
     }
   }
 }

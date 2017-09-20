@@ -32,7 +32,7 @@ public:
   void close();
   bool save(bool _details, bool _cache);
   void backup(const QString& _file);
-  void backupOnOpen();
+  void autoBackup();
   void reset();
 
   QString getAddress() const;

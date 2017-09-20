@@ -356,6 +356,13 @@ void MainWindow::openWallet() {
     tr("Wallet (*.wallet *.keys)"));
 
   if (!filePath.isEmpty()) {
+
+    if (QFile::exists(filePath) && (!filePath.endsWith(".keys") && !filePath.endsWith(".wallet") && !filePath.endsWith(".trackingwallet"))) {
+      QMessageBox::warning(this, tr("Wrong wallet file extension"),
+                                 tr("Wrong wallet file extension, wallet file should have \".wallet\", \".keys\" or \".trackingwallet\" extension."), QMessageBox::Ok);
+      return;
+    }
+
     if (WalletAdapter::instance().isOpen()) {
       WalletAdapter::instance().close();
     }
@@ -403,14 +410,6 @@ void MainWindow::importKey() {
       }
       WalletAdapter::instance().setWalletFile(filePath);
       WalletAdapter::instance().createWithKeys(keys);
-
-      QTimer* timer = new QTimer;
-      timer->setSingleShot(true);
-      QObject::connect(timer, &QTimer::timeout, []() {
-        WalletAdapter::instance().backupOnOpen();
-      });
-      timer->start(1000);
-
     } else {
       QMessageBox::warning(this, tr("Wallet keys are not valid"), tr("The private keys you entered are not valid."), QMessageBox::Ok);
     }
@@ -528,13 +527,6 @@ void MainWindow::restoreFromMnemonicSeed() {
       }
       WalletAdapter::instance().setWalletFile(filePath);
       WalletAdapter::instance().createWithKeys(keys);
-
-      QTimer* timer = new QTimer;
-      timer->setSingleShot(true);
-      QObject::connect(timer, &QTimer::timeout, []() {
-        WalletAdapter::instance().backupOnOpen();
-      });
-      timer->start(1000);
     } else {
       QMessageBox::critical(nullptr, tr("Mnemonic seed is not correct"), tr("There must be an error in mnemonic seed. Make sure you entered it correctly."), QMessageBox::Ok);
       return;
@@ -845,6 +837,8 @@ void MainWindow::walletOpened(bool _error, const QString& _error_text) {
     if (Settings::instance().isTrackingMode()) {
       isTrackingMode();
     }
+
+    WalletAdapter::instance().autoBackup();
 
   } else {
     walletClosed();
