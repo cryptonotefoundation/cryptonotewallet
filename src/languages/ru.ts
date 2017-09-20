@@ -1620,11 +1620,11 @@ Are you sure?</source>
     </message>
     <message>
         <source>Wrong wallet file extension</source>
-        <translation>Неадпаведнае пашырэньне файла гаманца</translation>
+        <translation>Неверное расширение файла кошелька</translation>
     </message>
     <message>
         <source>Wrong wallet file extension, wallet file should have &quot;.wallet&quot;, &quot;.keys&quot; or &quot;.trackingwallet&quot; extension.</source>
-        <translation>Неадпаведнае пашырэньне файла, файл гаманца павінен мець пашырэнне &quot;.wallet&quot;, &quot;.keys&quot; ці &quot;.trackingwallet&quot;.</translation>
+        <translation>Неверное расширение файла, файл кошелька должен иметь расширение &quot;.wallet&quot;, &quot;.keys&quot; или &quot;.trackingwallet&quot;.</translation>
     </message>
 </context>
 <context>
