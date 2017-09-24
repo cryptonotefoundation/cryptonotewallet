@@ -86,6 +86,7 @@ OptimizationOptionsFrame::~OptimizationOptionsFrame() {
 
 void OptimizationOptionsFrame::load() {
   Q_ASSERT(m_optimizationManager != nullptr);
+  m_ui->m_enableOptimizationCheck->setDisabled(true);
   m_ui->m_enableOptimizationCheck->setChecked(m_optimizationManager->isOptimizationEnabled());
   m_ui->m_optimizationTimeCheck->setChecked(m_optimizationManager->isOptimizationTimeSetManually());
   m_ui->m_startTimeEdit->setTime(m_optimizationManager->getOptimizationStartTime());

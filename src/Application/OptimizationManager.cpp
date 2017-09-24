@@ -215,6 +215,10 @@ void OptimizationManager::optimize() {
     return;
   }
 
+  //temporarily disable fusion transactions until the network is more mature.
+  //at present time, it is causing funds to be locked without release.
+  return;
+
   IWalletAdapter* walletAdapter = m_cryptoNoteAdapter->getNodeAdapter()->getWalletAdapter();
   Q_ASSERT(walletAdapter->isOpen());
   if (walletAdapter->isTrackingWallet()) {

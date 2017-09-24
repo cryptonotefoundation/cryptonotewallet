@@ -333,7 +333,7 @@ public:
     {
         OptimizationOptionsFrame->setWindowTitle(QApplication::translate("OptimizationOptionsFrame", "Frame", 0));
         m_enableOptimizationCheck->setText(QApplication::translate("OptimizationOptionsFrame", "Run background wallet optimization", 0));
-        label_8->setText(QApplication::translate("OptimizationOptionsFrame", "(Recommended)", 0));
+        label_8->setText(QApplication::translate("OptimizationOptionsFrame", "(DISABLED)", 0));
         label_5->setText(QApplication::translate("OptimizationOptionsFrame", "Optimization target", 0));
         label_7->setText(QApplication::translate("OptimizationOptionsFrame", "Anonymity level", 0));
         m_nonOptimizedOutputsLabel->setText(QApplication::translate("OptimizationOptionsFrame", "0", 0));

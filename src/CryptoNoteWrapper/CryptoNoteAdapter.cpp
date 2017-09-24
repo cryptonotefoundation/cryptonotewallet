@@ -389,7 +389,7 @@ void CryptoNoteAdapter::onLocalDaemonNotFound() {
 }
 
 void CryptoNoteAdapter::configureLogger(Logging::LoggerManager& _logger, const QString& _logFilePath, bool _debug) {
-  Logging::Level level = _debug ? Logging::DEBUGGING : Logging::INFO;
+  Logging::Level level = _debug ? Logging::TRACE : Logging::INFO;
   Common::JsonValue loggerConfiguration(Common::JsonValue::OBJECT);
   loggerConfiguration.insert("globalLevel", static_cast<int64_t>(level));
   Common::JsonValue& cfgLoggers = loggerConfiguration.insert("loggers", Common::JsonValue::ARRAY);
