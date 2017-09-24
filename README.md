@@ -33,7 +33,7 @@ cmake -G "Visual Studio 15 Win64" -DCMAKE_PREFIX_PATH="C:\Qt2\5.9.1\msvc2015" -D
  ```
 #### *nix build
 ```
-mkdir build && cd build && cmake .. && make
+mkdir build && cd build && cmake -DSTATIC=1 .. && make
 ```
 
 To create a portable build (AppImage), use linuxdeployqt:
