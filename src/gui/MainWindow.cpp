@@ -172,8 +172,6 @@ void MainWindow::initUi() {
   m_ui->m_showMnemonicSeedAction->setEnabled(false);
 
   m_ui->m_miningOnLaunchAction->setChecked(Settings::instance().isMiningOnLaunchEnabled());
-  m_ui->m_minimizeToTrayAction->setChecked(Settings::instance().isMinimizeToTrayEnabled());
-  m_ui->m_closeToTrayAction->setChecked(Settings::instance().isCloseToTrayEnabled());
   m_ui->m_startOnLoginAction->setChecked(Settings::instance().isStartOnLoginEnabled());
 
   m_ui->menuRecent_wallets->setVisible(false);
@@ -195,6 +193,8 @@ void MainWindow::initUi() {
 #ifdef Q_OS_WIN
   m_ui->m_minimizeToTrayAction->setVisible(true);
   m_ui->m_closeToTrayAction->setVisible(true);
+  m_ui->m_minimizeToTrayAction->setChecked(Settings::instance().isMinimizeToTrayEnabled());
+  m_ui->m_closeToTrayAction->setChecked(Settings::instance().isCloseToTrayEnabled());
   toggleHideAction = new QAction(tr("&Show / Hide"), this);
   toggleHideAction->setStatusTip(tr("Show or hide the main window"));
   connect(toggleHideAction, SIGNAL(triggered()), this, SLOT(toggleHidden()));
@@ -705,7 +705,7 @@ void MainWindow::updateRecentActionList(){
         itEnd = maxRecentFiles;
 
     for (int i = 0; i < itEnd; ++i) {
-        QString strippedName = QFileInfo(recentFilePaths.at(i)).fileName();
+        QString strippedName = QFileInfo(recentFilePaths.at(i)).absoluteFilePath();
         recentFileActionList.at(i)->setText(strippedName);
         recentFileActionList.at(i)->setData(recentFilePaths.at(i));
         recentFileActionList.at(i)->setVisible(true);
