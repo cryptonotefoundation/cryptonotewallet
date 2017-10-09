@@ -51,6 +51,7 @@ public:
   virtual bool isOpen() const override;
   virtual bool isEncrypted() const override;
   virtual bool isTrackingWallet() const override;
+  virtual bool resetPendingTransactions() const override;
   virtual QString getAddress(quintptr _addressIndex) const override;
   virtual AccountKeys getAccountKeys(quintptr _addressIndex) const override;
   virtual quint64 getActualBalance() const override;

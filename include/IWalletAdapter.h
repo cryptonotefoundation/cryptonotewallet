@@ -85,6 +85,7 @@ public:
   virtual void close() = 0;
 
   virtual bool isOpen() const = 0;
+  virtual bool resetPendingTransactions() const = 0;
   virtual bool isEncrypted() const = 0;
   virtual bool isTrackingWallet() const = 0;
   virtual QString getAddress(quintptr _addressIndex) const = 0;

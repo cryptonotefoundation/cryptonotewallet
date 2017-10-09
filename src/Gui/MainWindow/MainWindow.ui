@@ -844,6 +844,7 @@
     </widget>
     <addaction name="m_encryptWalletAction"/>
     <addaction name="m_changePasswordAction"/>
+    <addaction name="m_removePendingTxAction"/>
     <addaction name="separator"/>
     <addaction name="m_autostartAction"/>
     <addaction name="m_minimizeToTrayAction"/>
@@ -1017,8 +1018,21 @@
     <string>Export key</string>
    </property>
   </action>
+  <action name="m_removePendingTxAction">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Remove pending TXs</string>
+   </property>
+  </action>
  </widget>
  <customwidgets>
+  <customwidget>
+   <class>WalletGui::WalletTinyLinkLikeButton</class>
+   <extends>QPushButton</extends>
+   <header>Gui/Common/WalletLinkLikeButton.h</header>
+  </customwidget>
   <customwidget>
    <class>WalletGui::WalletSmallGrayTextLabel</class>
    <extends>QLabel</extends>
@@ -1028,11 +1042,6 @@
    <class>WalletGui::CopyMagicLabel</class>
    <extends>QLabel</extends>
    <header>Gui/Common/CopyMagicLabel.h</header>
-  </customwidget>
-  <customwidget>
-   <class>WalletGui::WalletTinyLinkLikeButton</class>
-   <extends>QPushButton</extends>
-   <header>Gui/Common/WalletLinkLikeButton.h</header>
   </customwidget>
   <customwidget>
    <class>WalletGui::OverviewFrame</class>

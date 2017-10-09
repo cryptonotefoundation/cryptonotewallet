@@ -334,7 +334,7 @@ void SendFrame::sendClicked() {
 
   const quint64 actualBalance = m_walletStateModel->index(0, 0).data(WalletStateModel::ROLE_ACTUAL_BALANCE).value<quint64>();
   quint64 transferSum = 0;
-  const qint64 fee = m_cryptoNoteAdapter->parseAmount(m_ui->m_feeSpin->cleanText());
+  const quint64 fee = m_cryptoNoteAdapter->parseAmount(m_ui->m_feeSpin->cleanText());
   for (TransferFrame* transfer : m_transfers) {
     QString address = transfer->getAddress();
     if (!m_cryptoNoteAdapter->isValidAddress(address)) {
@@ -379,7 +379,7 @@ void SendFrame::sendClicked() {
     m_mainWindow);
   dlg.setMinimumHeight(130);
   int mixin = m_ui->m_mixinSpin->value();
-  if (mixin > 50 && dlg.exec() == QDialog::Rejected) {
+  if (mixin > 6 && dlg.exec() == QDialog::Rejected) {
     return;
   }
 

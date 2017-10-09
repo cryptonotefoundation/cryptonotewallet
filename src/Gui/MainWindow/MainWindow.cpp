@@ -259,12 +259,16 @@ void MainWindow::synchronizationProgressUpdated(quint32 _current, quint32 _total
     return;
   }
 
+  if (m_ui->m_removePendingTxAction->isEnabled())
+	  m_ui->m_removePendingTxAction->setEnabled(false);
+
   qreal value = static_cast<qreal>(_current) / _total;
   m_ui->m_syncProgress->setValue(value * m_ui->m_syncProgress->maximum());
 }
 
 void MainWindow::synchronizationCompleted() {
   m_ui->m_syncProgress->setValue(m_ui->m_syncProgress->maximum());
+  m_ui->m_removePendingTxAction->setEnabled(true);
 }
 
 void MainWindow::balanceUpdated(quint64 _actualBalance, quint64 _pendingBalance) {
@@ -383,6 +387,7 @@ void MainWindow::setClosedState() {
   m_ui->m_exportTrackingKeyAction->setEnabled(false);
   m_ui->m_encryptWalletAction->setEnabled(false);
   m_ui->m_changePasswordAction->setEnabled(false);
+  m_ui->m_removePendingTxAction->setEnabled(false);
 
   m_ui->m_overviewFrame->hide();
   m_ui->m_sendFrame->hide();
@@ -639,6 +644,14 @@ void MainWindow::resetWallet() {
   walletAdapter->close();
   walletAdapter->addObserver(this);
   m_ui->m_noWalletFrame->openWallet(Settings::instance().getWalletFile(), QString());
+}
+
+void MainWindow::removePendingTx() {
+	IWalletAdapter* walletAdapter = m_cryptoNoteAdapter->getNodeAdapter()->getWalletAdapter();
+	if (walletAdapter->resetPendingTransactions())
+		QMessageBox::information(this, "Transactions reset", "Transactions reset successfully.", QMessageBox::Ok);
+	else
+		QMessageBox::warning(this, "Transaction reset failed", "Failed to reset transactions. Check debug log.", QMessageBox::Ok);
 }
 
 void MainWindow::encryptWallet() {

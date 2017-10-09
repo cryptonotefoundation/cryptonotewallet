@@ -387,6 +387,29 @@ void WalletGreenWorker::close() {
   WalletLogger::info(tr("[Wallet] Wallet closed"));
 }
 
+bool WalletGreenWorker::resetPendingTransactions() const {
+	
+	SemaphoreLocker locker(m_walletSemaphore);
+	bool ret = false;
+	WalletLogger::debug(tr("[Wallet] Resetting unconfirmed transactions..."));
+	m_dispatcher->remoteSpawn([this, &ret]() {
+		SemaphoreUnlocker unlocker(m_walletSemaphore);
+		try {
+			m_wallet->resetPendingTransactions();
+			ret = true;
+		}
+		catch (const std::system_error& _error) {
+			WalletLogger::critical(tr("[Wallet] Reset unconfirmed error: %1").arg(_error.code().message().data()));
+		}
+		catch (const std::exception& _error) {
+			WalletLogger::critical(tr("[Wallet] Reset unconfirmed runtime error: %1").arg(_error.what()));
+		}
+	});
+
+	locker.wait();
+	return ret;
+}
+
 bool WalletGreenWorker::isOpen() const {
   return m_isOpen.load();
 }
@@ -781,8 +804,8 @@ void WalletGreenWorker::startEventLoop() {
         CryptoNote::WalletEvent event = m_wallet->getEvent();
         processEvent(event);
       }
-    } catch (const std::exception& error) {
-    }
+    } catch (...) {
+	}
   });
 
 }

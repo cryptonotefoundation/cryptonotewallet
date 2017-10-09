@@ -61,6 +61,7 @@ public:
   virtual void close() override;
 
   virtual bool isOpen() const override;
+  virtual bool resetPendingTransactions() const override;
   virtual bool isEncrypted() const override;
   virtual bool isTrackingWallet() const override;
   virtual QString getAddress(quintptr _addressIndex) const override;

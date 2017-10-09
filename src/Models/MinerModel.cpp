@@ -178,7 +178,7 @@ bool MinerModel::moveRows(const QModelIndex& _sourceParent, int _sourceRow, int 
   }
 
   beginResetModel();
-  for (quint32 i = 0; i < _count; ++i) {
+  for (qint32 i = 0; i < _count; ++i) {
     m_miningManager->moveMiner(_sourceRow, _destinationChild);
   }
 
@@ -194,7 +194,7 @@ bool MinerModel::removeRows(int _row, int _count, const QModelIndex& _parent) {
   Q_ASSERT(!_parent.isValid());
   Q_ASSERT(_row + _count - 1 < rowCount());
   beginRemoveRows(QModelIndex(), _row, _row + _count - 1);
-  for (quint32 i = 0; i < _count; ++i) {
+  for (qint32 i = 0; i < _count; ++i) {
     m_miningManager->removeMiner(_row);
   }
 

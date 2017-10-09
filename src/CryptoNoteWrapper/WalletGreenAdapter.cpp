@@ -87,6 +87,11 @@ IWalletAdapter::PasswordStatus WalletGreenAdapter::changePassword(const QString&
   return m_worker->changePassword(_oldPassword, _newPassword);
 }
 
+bool WalletGreenAdapter::resetPendingTransactions() const {
+	Q_ASSERT(m_worker != nullptr);
+	return m_worker->resetPendingTransactions();
+}
+
 void WalletGreenAdapter::close() {
   m_worker->removeObserver(this);
   deleteWorker();
