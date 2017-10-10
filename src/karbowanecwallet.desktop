@@ -1,12 +1,12 @@
 [Desktop Entry]
 Encoding=UTF-8
-Name=Karbowanec
-GenericName=Karbowanec wallet
+Name=Karbo
+GenericName=Karbo wallet
 Name[uk]=Карбованeць
 Name[ru]=Карбованeц
 Name[pl]=Karbowaneć
 Name[be]=Карбованэць
-Comment=Karbowanec wallet
+Comment=Karbovanets wallet
 Comment[uk]=Гаманець Карбованца
 Comment[ru]=Кошелек Карбованца
 Comment[pl]=Portfel Karbowańca
@@ -17,4 +17,4 @@ Type=Application
 Icon=karbowanec
 MimeType=x-scheme-handler/karbowanec;
 Categories=Office;Finance;
-Version=1.1.7
+Version=1.1.8
