@@ -666,6 +666,10 @@ Please wait...</source>
         <source>Close</source>
         <translation>Закрити</translation>
     </message>
+    <message>
+        <source>Select language</source>
+        <translation>Виберіть мову</translation>
+    </message>
 </context>
 <context>
     <name>NewAddressDialog</name>
@@ -1203,6 +1207,10 @@ Do you want to go to download page?</source>
     <message>
         <source>OK</source>
         <translation>Гаразд</translation>
+    </message>
+    <message>
+        <source>Select language</source>
+        <translation>Виберіть мову</translation>
     </message>
 </context>
 <context>
