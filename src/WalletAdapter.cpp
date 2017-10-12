@@ -580,7 +580,7 @@ bool WalletAdapter::isDeterministic(CryptoNote::AccountKeys& _keys) const {
   return keys_deterministic;
 }
 
-QString WalletAdapter::getMnemonicSeed() const {
+QString WalletAdapter::getMnemonicSeed(QString _language) const {
   std::string electrum_words;
   if(Settings::instance().isTrackingMode()) {
     // error "Wallet is watch-only and has no seed";
@@ -592,15 +592,15 @@ QString WalletAdapter::getMnemonicSeed() const {
   }
   CryptoNote::AccountKeys keys;
   WalletAdapter::instance().getAccountKeys(keys);
-  std::string seed_language = "English";
+  std::string seed_language = _language.toUtf8().constData();
   Crypto::ElectrumWords::bytes_to_words(keys.spendSecretKey, electrum_words, seed_language);
   return QString::fromStdString(electrum_words);
 }
 
 CryptoNote::AccountKeys WalletAdapter::getKeysFromMnemonicSeed(QString& _seed) const {
   CryptoNote::AccountKeys keys;
-  std::string seed_language = "English";
-  if(!Crypto::ElectrumWords::words_to_bytes(_seed.toStdString(), keys.spendSecretKey, seed_language)) {
+  std::string m_seed_language;
+  if(!Crypto::ElectrumWords::words_to_bytes(_seed.toStdString(), keys.spendSecretKey, m_seed_language)) {
     QMessageBox::critical(nullptr, tr("Mnemonic seed is not correct"), tr("There must be an error in mnemonic seed. Make sure you entered it correctly."), QMessageBox::Ok);
   }
   Crypto::secret_key_to_public_key(keys.spendSecretKey,keys.address.spendPublicKey);

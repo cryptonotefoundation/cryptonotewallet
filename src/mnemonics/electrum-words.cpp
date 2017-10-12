@@ -60,8 +60,9 @@
 #include "spanish.h"
 #include "portuguese.h"
 #include "japanese.h"
+#include "polish.h"
 #include "russian.h"
-#include "english_old.h"
+#include "ukrainian.h"
 #include "language_base.h"
 #include "singleton.h"
 
@@ -95,7 +96,8 @@ namespace
       Language::Singleton<Language::Portuguese>::instance(),
       Language::Singleton<Language::Japanese>::instance(),
       Language::Singleton<Language::Russian>::instance(),
-      Language::Singleton<Language::EnglishOld>::instance()
+      Language::Singleton<Language::Ukrainian>::instance(),
+	  Language::Singleton<Language::Polish>::instance()
     });
     Language::Base *fallback = NULL;
 
@@ -354,6 +356,14 @@ namespace Crypto
       {
         language = Language::Singleton<Language::Chinese_Simplified>::instance();
       }
+      else if (language_name == "українська мова")
+      {
+        language = Language::Singleton<Language::Ukrainian>::instance();
+      }
+	  else if (language_name == "język polski")
+      {
+        language = Language::Singleton<Language::Polish>::instance();
+      }
       else
       {
         return false;
@@ -407,6 +417,8 @@ namespace Crypto
         Language::Singleton<Language::Dutch>::instance(),
         Language::Singleton<Language::Portuguese>::instance(),
         Language::Singleton<Language::Russian>::instance(),
+        Language::Singleton<Language::Ukrainian>::instance(),
+        Language::Singleton<Language::Polish>::instance(),
         Language::Singleton<Language::Japanese>::instance(),
         Language::Singleton<Language::Chinese_Simplified>::instance()
       });

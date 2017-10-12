@@ -21,7 +21,9 @@ public:
 private:
     QScopedPointer<Ui::VerifyMnemonicSeedDialog> m_ui;
     int wordCount = 0;
+    void initLanguages();
     Q_SLOT void onTextChanged();
+    Q_SLOT void languageChanged();
     Q_SLOT void reject();
     bool m_seedsMatch = false;
 };

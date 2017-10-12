@@ -60,7 +60,7 @@ public:
 
   bool isDeterministic() const;
   bool isDeterministic(CryptoNote::AccountKeys& _keys) const;
-  QString getMnemonicSeed() const;
+  QString getMnemonicSeed(QString _language) const;
   CryptoNote::AccountKeys getKeysFromMnemonicSeed(QString& _seed) const;
 
 private:

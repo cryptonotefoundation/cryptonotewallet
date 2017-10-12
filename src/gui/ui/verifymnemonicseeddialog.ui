@@ -82,9 +82,19 @@
    <item row="4" column="0" colspan="2">
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QLabel" name="m_errorLabel">
+      <widget class="QLabel" name="m_languageLabel">
        <property name="text">
-        <string/>
+        <string>Select language</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="m_languageCombo">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
        </property>
       </widget>
      </item>
@@ -95,7 +105,7 @@
        </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>40</width>
+         <width>60</width>
          <height>20</height>
         </size>
        </property>
@@ -152,6 +162,22 @@
     <hint type="destinationlabel">
      <x>323</x>
      <y>69</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_languageCombo</sender>
+   <signal>currentIndexChanged(QString)</signal>
+   <receiver>VerifyMnemonicSeedDialog</receiver>
+   <slot>languageChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>126</x>
+     <y>170</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>240</x>
+     <y>119</y>
     </hint>
    </hints>
   </connection>

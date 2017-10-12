@@ -98,7 +98,7 @@ namespace Language
         if ((*it).size() < unique_prefix_length)
         {
           if (flags & ALLOW_SHORT_WORDS)
-              qDebug() << "Word is shorter than its prefix length";  //  MWARNING(language_name << " word '" << *it << "' is shorter than its prefix length, " << unique_prefix_length);
+            qDebug() << QString::fromUtf8(language_name.c_str()) << " word '" << word_map.at(*it) << "' is shorter than its prefix length, " << unique_prefix_length;
           else
             throw std::runtime_error("Too short word in " + language_name + " word list: " + *it);
         }
@@ -114,8 +114,7 @@ namespace Language
         if (trimmed_word_map.find(trimmed) != trimmed_word_map.end())
         {
           if (flags & ALLOW_DUPLICATE_PREFIXES)
-             qDebug() << "Duplicate prefix in word list";  //  MWARNING("Duplicate prefix in " << language_name << " word list: " << trimmed);
-          else
+             qDebug() << "Duplicate prefix in " << QString::fromUtf8(language_name.c_str()) << " word list: " << QString::fromUtf8(trimmed.c_str());
             throw std::runtime_error("Duplicate prefix in " + language_name + " word list: " + trimmed);
         }
         trimmed_word_map[trimmed] = ii;
