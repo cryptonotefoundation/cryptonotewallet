@@ -21,7 +21,9 @@ public:
 
 private:
     QScopedPointer<Ui::MnemonicSeedDialog> m_ui;
+
     void initLanguages();
+    QString getLanguageName();
 
     Q_SLOT void languageChanged();
 };
