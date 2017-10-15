@@ -340,6 +340,20 @@ bool WalletAdapter::changePassword(const QString& _oldPassword, const QString& _
   }
 
   Settings::instance().setEncrypted(!_newPassword.isEmpty());
+
+  QString source = Settings::instance().getWalletFile();
+  source.append(QString(".backup"));
+  if (!source.isEmpty()) {
+    // remove old unencrypted backup
+    if(QFile::exists(source)) {
+      QFile::remove(source);
+    }
+    // create new encrypted backup
+    if (save(source, true, false)) {
+      m_isBackupInProgress = true;
+    }
+  }
+
   return save(true, true);
 }
 
