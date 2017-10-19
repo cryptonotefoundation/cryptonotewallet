@@ -3,7 +3,7 @@ Dependencies: boost >= 1.58, CMake >= 2.8.6, GCC >=4.7.3, Qt >=5.0
 **1. Clone wallet sources**
 
 ```
-git clone https://github.com/valiant1x/cryptonotewallet/intensecoinwallet.git
+git clone https://github.com/valiant1x/intensecoinwallet.git
 ```
 
 **2. Update git submodule:**
