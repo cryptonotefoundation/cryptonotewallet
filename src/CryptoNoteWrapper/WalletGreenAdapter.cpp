@@ -275,7 +275,7 @@ void WalletGreenAdapter::deleteWorker() {
   Q_ASSERT(m_worker != nullptr);
   m_worker->close();
   m_workerThread->quit();
-  m_workerThread->wait();
+  m_workerThread->wait(5000);
   dynamic_cast<QObject*>(m_worker)->deleteLater();
   m_worker = nullptr;
 }

@@ -147,7 +147,7 @@ QString Style::makeStyleSheet(const QString& _styleSheetTemplate) const {
     replace("%fontFamily%", fontFamily()).
     replace("%currentTheme%", getStyleId()).
     replace("%viewItemHeight%", QString("%1px").arg(viewItemHeight())).
-    replace("%fontSizeTiny%", QString("%1px").arg(static_cast<quint8>(FontSize::FONT_TINY))).
+    replace("%fontSizeTiny%", QString("%1px").arg(static_cast<quint8>(FontSize::FONT_SMALL))).
     replace("%fontSizeSmall%", QString("%1px").arg(static_cast<quint8>(FontSize::FONT_SMALL))).
     replace("%fontSizeNormal%", QString("%1px").arg(static_cast<quint8>(FontSize::FONT_NORMAL))).
     replace("%fontSizeExtraNormal%", QString("%1px").arg(static_cast<quint8>(FontSize::FONT_EXTRA_NORMAL))).
