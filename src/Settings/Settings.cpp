@@ -71,7 +71,7 @@ const quint64 DEFAULT_OPTIMIZATION_MIXIN = 6;
 
 const quint64 VERSION_MAJOR = 1;
 const quint64 VERSION_MINOR = 2;
-const quint64 VERSION_PATCH = 2;
+const quint64 VERSION_PATCH = 3;
 
 }
 
