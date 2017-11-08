@@ -1,0 +1,3 @@
+[submodule "QCoin"]
+	path = QCoin
+	url = https://github.com/optiq1/QCoin.git
