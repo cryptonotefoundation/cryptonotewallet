@@ -101,7 +101,7 @@
         <file alias="intensecoin_lin">images/intensecoin.png</file>
         <file alias="add_address_helper">images/add_address_helper.png</file>
         <file alias="intensecoin_mac">images/intensecoin.icns</file>
-        <file alias="intensecoin_win">images/intensecoin.ico</file>
+        <file alias="intensecoin_win">images/intensecoin.png</file>
     </qresource>
     <qresource prefix="/style">
         <file alias="qss">intensecoinwallet.qss</file>
