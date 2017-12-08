@@ -20,7 +20,7 @@
     <name>AccountFrame</name>
     <message>
         <source>Address:</source>
-        <translation>Dirección:</translation>
+        <translation type="vanished">Dirección:</translation>
     </message>
     <message>
         <source>...</source>
@@ -28,7 +28,7 @@
     </message>
     <message>
         <source>Show private key</source>
-        <translation>Mostrar la clave privada</translation>
+        <translation type="vanished">Mostrar la clave privada</translation>
     </message>
     <message>
         <source>Your account:</source>
@@ -86,11 +86,11 @@
     </message>
     <message>
         <source>New address</source>
-        <translation>Nueva dirección</translation>
+        <translation type="vanished">Nueva dirección</translation>
     </message>
     <message>
         <source>Delete address</source>
-        <translation>Borrar la dirección</translation>
+        <translation type="vanished">Borrar la dirección</translation>
     </message>
     <message>
         <source>Copy address</source>
@@ -98,7 +98,7 @@
     </message>
     <message>
         <source>New contact</source>
-        <translation>Nuevo contacto</translation>
+        <translation>Añadir contacto</translation>
     </message>
     <message>
         <source>Edit contact</source>
@@ -151,6 +151,14 @@
         <source>Belarusian</source>
         <translation>Bielorruso</translation>
     </message>
+    <message>
+        <source>German</source>
+        <translation>Alemán</translation>
+    </message>
+    <message>
+        <source>Spanish</source>
+        <translation>Español</translation>
+    </message>
 </context>
 <context>
     <name>ChangePasswordDialog</name>
@@ -188,7 +196,7 @@
     <message>
         <source>Comfirm sending %1 KRB</source>
         <translatorcomment>Ошибка в английском слове Comfirm (правильно Confirm)</translatorcomment>
-        <translation>Confirma el envío de %1 KRB</translation>
+        <translation type="vanished">Confirma el envío de %1 KRB</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Are you sure you want to send &lt;strong&gt;%1 KRB&lt;/strong&gt;?&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
@@ -202,6 +210,10 @@
     <message>
         <source>Cancel</source>
         <translation>Cancelar</translation>
+    </message>
+    <message>
+        <source>Confirm sending %1 KRB</source>
+        <translation type="unfinished">Confirma el envío de %1 KRB</translation>
     </message>
 </context>
 <context>
@@ -432,7 +444,7 @@ Por favor, espera...</translation>
     </message>
     <message>
         <source>Overview</source>
-        <translation>Visión de conjunto</translation>
+        <translation>Saldo</translation>
     </message>
     <message>
         <source>Send</source>
@@ -456,7 +468,7 @@ Por favor, espera...</translation>
     </message>
     <message>
         <source>Address Book</source>
-        <translation>Directorio</translation>
+        <translation type="vanished">Directorio</translation>
     </message>
     <message>
         <source>Create wallet</source>
@@ -524,7 +536,7 @@ Por favor, espera...</translation>
     </message>
     <message>
         <source>Show private key</source>
-        <translation>Mostrar la clave privada</translation>
+        <translation type="vanished">Mostrar la clave privada</translation>
     </message>
     <message>
         <source>F1</source>
@@ -568,11 +580,11 @@ Por favor, espera...</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation>Estatus</translation>
+        <translation type="vanished">Estatus</translation>
     </message>
     <message>
         <source>Tools</source>
-        <translation>Herramientas</translation>
+        <translation type="vanished">Herramientas</translation>
     </message>
     <message>
         <source>Open log file</source>
@@ -584,7 +596,7 @@ Por favor, espera...</translation>
     </message>
     <message>
         <source>Restore from mnemonic seed</source>
-        <translation>Restaurar de frase mnemotécnica</translation>
+        <translation>Restaurar de frase mnemónica</translation>
     </message>
     <message>
         <source>Create nondeterministic wallet</source>
@@ -603,7 +615,7 @@ Por favor, espera...</translation>
     </message>
     <message>
         <source>Mining status</source>
-        <translation>Mining estatus</translation>
+        <translation type="vanished">Mining estatus</translation>
     </message>
     <message>
         <source>CPU cores</source>
@@ -627,7 +639,7 @@ Por favor, espera...</translation>
     </message>
     <message>
         <source>Pause mining</source>
-        <translation>hacer una pausa de mining</translation>
+        <translation type="vanished">hacer una pausa de mining</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -647,7 +659,7 @@ Por favor, espera...</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation>Estatus</translation>
+        <translation type="vanished">Estatus</translation>
     </message>
     <message>
         <source>Remove pool</source>
@@ -806,7 +818,7 @@ Por favor, espera...</translation>
     </message>
     <message>
         <source>Wallet</source>
-        <translation>Monedero</translation>
+        <translation type="vanished">Monedero</translation>
     </message>
     <message>
         <source>Unconfirmed:</source>
@@ -814,7 +826,7 @@ Por favor, espera...</translation>
     </message>
     <message>
         <source>Balance:</source>
-        <translation>Saldo:</translation>
+        <translation type="vanished">Saldo:</translation>
     </message>
     <message>
         <source>Recent transactions</source>
@@ -871,7 +883,7 @@ Por favor, espera...</translation>
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="vanished">...</translation>
     </message>
     <message>
         <source>Copy key</source>
@@ -928,7 +940,7 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>Request payment</source>
-        <translation>Solicitar pago</translation>
+        <translation>Solicitar un pago</translation>
     </message>
     <message>
         <source>Use this form to request payment.</source>
@@ -975,7 +987,7 @@ Do you want to go to download page?</source>
     <name>RestoreFromMnemonicSeedDialog</name>
     <message>
         <source>Restore from mnemonic phrase</source>
-        <translation>Restaurar de frase mnemotécnica</translation>
+        <translation>Restaurar de frase mnemónica</translation>
     </message>
     <message>
         <source>Mnemonic:</source>
@@ -1005,7 +1017,7 @@ Do you want to go to download page?</source>
         <translation>Marco</translation>
     </message>
     <message>
-        <source>Anonimity level:</source>
+        <source>Anonymity level:</source>
         <translatorcomment>Ошибка в слове Anonimity  - правильно Anonymity</translatorcomment>
         <translation>Nivel de anonimato:</translation>
     </message>
@@ -1027,7 +1039,7 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>Balance:</source>
-        <translation>Saldo:</translation>
+        <translation type="vanished">Saldo:</translation>
     </message>
     <message>
         <source>Fee:</source>
@@ -1035,7 +1047,7 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>Payment identifier issued by payee (exchange, shop or other entity)</source>
-        <translation>Identificador de pago emitido por beneficiario (cambio, tienda u otra entidad)</translation>
+        <translation>Identificador de pago emitido por beneficiario (bolsa, tienda u otra entidad)</translation>
     </message>
     <message>
         <source>Donate 0.1% to development fund:</source>
@@ -1138,7 +1150,7 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>Pay To:</source>
-        <translation>Pagar A:</translation>
+        <translation>Destinatario:</translation>
     </message>
     <message>
         <source>...</source>
@@ -1154,11 +1166,11 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>Label:</source>
-        <translation>Etiqueta:</translation>
+        <translation type="vanished">Etiqueta:</translation>
     </message>
     <message>
         <source>Add to Contacts:</source>
-        <translation>Añadir a Contactos:</translation>
+        <translation type="vanished">Añadir a Contactos:</translation>
     </message>
     <message>
         <source>Select recipient from Address Book</source>
@@ -1170,7 +1182,7 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>Save to Contacts:</source>
-        <translation>Guardar en Contactos:</translation>
+        <translation type="vanished">Guardar en Contactos:</translation>
     </message>
     <message>
         <source>Save to Contacts as:</source>
@@ -1230,11 +1242,11 @@ Do you want to go to download page?</source>
     <name>WalletGui::AccountFrame</name>
     <message>
         <source>Hide private keys</source>
-        <translation>Ocultar claves privadas</translation>
+        <translation type="vanished">Ocultar claves privadas</translation>
     </message>
     <message>
         <source>Show private keys</source>
-        <translation>Mostrar claves privadas</translation>
+        <translation type="vanished">Mostrar claves privadas</translation>
     </message>
     <message>
         <source>Copied to clipboard</source>
@@ -1257,7 +1269,7 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>Contact with such label and address already exists.</source>
-        <translation>El contacto con tal etiqueta y dirección ya existe.</translation>
+        <translation type="vanished">El contacto con tal etiqueta y dirección ya existe.</translation>
     </message>
     <message>
         <source>Copy &amp;label</source>
@@ -1394,7 +1406,7 @@ Do you want to go to download page?</source>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Are you sure you want to send &lt;strong&gt;without Payment ID&lt;/strong&gt;?&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translatorcomment>Нужен знак &quot;¿&quot; перед вопросом</translatorcomment>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;¿Está seguro de que desea enviar &lt;strong&gt;sin ID de pago&lt;/strong&gt;?&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;¿Estás seguro de que desea enviar &lt;strong&gt;sin ID de pago&lt;/strong&gt;?&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -1504,7 +1516,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>%1 peers</source>
-        <translation>%1 pares</translation>
+        <translation type="vanished">%1 pares</translation>
     </message>
     <message>
         <source>Synchronization in progress</source>
@@ -1528,7 +1540,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>%1 Wallet %2</source>
-        <translation>%1 Monedero %2</translation>
+        <translation type="vanished">%1 Monedero %2</translation>
     </message>
     <message>
         <source>More info can be found at www.karbowanec.com in Documentation section</source>
@@ -1544,7 +1556,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>Account toolbar</source>
-        <translation>Barra de herramientas de cuenta</translation>
+        <translation type="vanished">Barra de herramientas de cuenta</translation>
     </message>
     <message>
         <source>Tracking wallet. Spending unawailable</source>
@@ -1575,15 +1587,15 @@ Are you sure?</source>
     </message>
     <message>
         <source>Total amount: %1, hash: %2</source>
-        <translation>Cantidad total: %1, hash: %2</translation>
+        <translation type="vanished">Cantidad total: %1, hash: %2</translation>
     </message>
     <message>
         <source>Karbo Wallet</source>
-        <translation>Karbo Monedero</translation>
+        <translation type="vanished">Karbo Monedero</translation>
     </message>
     <message>
         <source>New transaction received</source>
-        <translation>Nueva transacción recibida</translation>
+        <translation type="vanished">Nueva transacción recibida</translation>
     </message>
     <message>
         <source>Mnemonic seed is not correct</source>
@@ -1642,7 +1654,7 @@ Are you sure?</source>
     <name>WalletGui::MiningFrame</name>
     <message>
         <source>Mining. Hashrate: %1 H/s</source>
-        <translation>Mining. Tasa de hash: %1 H/s</translation>
+        <translation type="vanished">Mining. Tasa de hash: %1 H/s</translation>
     </message>
     <message>
         <source>Error: %1</source>
@@ -1709,7 +1721,7 @@ Are you sure?</source>
     <name>WalletGui::ReceiveFrame</name>
     <message>
         <source>New PNG file</source>
-        <translation>Nuevo archivo PNG</translation>
+        <translation type="vanished">Nuevo archivo PNG</translation>
     </message>
     <message>
         <source>Save QR Code</source>
@@ -2083,7 +2095,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>Change address required</source>
-        <translation>Cambio fr la dirección es requerida</translation>
+        <translation>Cambio de la dirección es requerida</translation>
     </message>
     <message>
         <source>Change address not found</source>

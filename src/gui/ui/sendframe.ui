@@ -115,7 +115,7 @@
      <item row="5" column="0">
       <widget class="QLabel" name="label_2">
        <property name="text">
-        <string>Anonimity level:</string>
+        <string>Anonymity level:</string>
        </property>
       </widget>
      </item>

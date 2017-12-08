@@ -87,8 +87,8 @@ MainWindow::MainWindow() : QMainWindow(), m_ui(new Ui::MainWindow), m_trayIcon(n
 MainWindow::~MainWindow() {
     delete paymentServer;
     paymentServer = 0;
-    if(m_trayIcon) // Hide tray icon, as deleting will let it linger until quit (on Ubuntu)
-      m_trayIcon->hide();
+    //if(m_trayIcon) // Hide tray icon, as deleting will let it linger until quit (on Ubuntu)
+    //  m_trayIcon->hide();
     #ifdef Q_OS_MAC
       MacDockIconHandler::cleanup();
     #endif
@@ -220,6 +220,8 @@ void MainWindow::quit() {
     ExitWidget* exitWidget = new ExitWidget(nullptr);
     exitWidget->show();
     m_isAboutToQuit = true;
+    if(m_trayIcon) // Hide tray icon, as deleting will let it linger until quit (on Ubuntu)
+       m_trayIcon->hide();
     close();
   }
 }

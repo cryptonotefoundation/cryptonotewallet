@@ -59,6 +59,10 @@ int main(int argc, char* argv[]) {
             QLocale::setDefault(QLocale("pl_PL"));
         } else if(lng == "be") {
             QLocale::setDefault(QLocale("be_BY"));
+        } else if(lng == "de") {
+            QLocale::setDefault(QLocale("de_DE"));
+        } else if(lng == "es") {
+            QLocale::setDefault(QLocale("es_ES"));
         } else {
             QLocale::setDefault(QLocale::c());
         }

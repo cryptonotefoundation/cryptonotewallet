@@ -151,6 +151,14 @@
         <source>Belarusian</source>
         <translation>Беларуская</translation>
     </message>
+    <message>
+        <source>German</source>
+        <translation>Нямецкі</translation>
+    </message>
+    <message>
+        <source>Spanish</source>
+        <translation>Іспанскі</translation>
+    </message>
 </context>
 <context>
     <name>ChangePasswordDialog</name>
@@ -186,7 +194,7 @@
 <context>
     <name>ConfirmSendDialog</name>
     <message>
-        <source>Comfirm sending %1 KRB</source>
+        <source>Confirm sending %1 KRB</source>
         <translation>Пацверджанне адпраўкі %1 крб.</translation>
     </message>
     <message>
@@ -996,7 +1004,7 @@ Do you want to go to download page?</source>
         <translation></translation>
     </message>
     <message>
-        <source>Anonimity level:</source>
+        <source>Anonymity level:</source>
         <translation>Узровень прыватнасці:</translation>
     </message>
     <message>

@@ -36,6 +36,14 @@ void ChangeLanguageDialog::initLangList() {
          {
              index = 4;
          }
+         else if(currentlang.compare("de") == 0)
+         {
+             index = 5;
+         }
+         else if(currentlang.compare("es") == 0)
+         {
+             index = 6;
+         }
 
          m_ui->ChangeLangComboBox->setCurrentIndex(index);
 
@@ -60,6 +68,14 @@ QString ChangeLanguageDialog::getLang() const {
          else if (n == 4)
          {
              lang = "be";
+         }
+         else if (n == 5)
+         {
+             lang = "de";
+         }
+         else if (n == 6)
+         {
+             lang = "es";
          }
          else
          {
