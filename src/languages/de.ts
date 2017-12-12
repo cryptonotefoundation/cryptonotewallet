@@ -123,33 +123,13 @@
         <source>Select language:</source>
         <translation>Sprache wählen:</translation>
     </message>
-    <message>
-        <source>English</source>
-        <translation>Englisch</translation>
-    </message>
-    <message>
-        <source>Ukrainian</source>
-        <translation>Ukrainisch</translation>
-    </message>
-    <message>
-        <source>Russian</source>
-        <translation>Russisch</translation>
-    </message>
-    <message>
-        <source>Polish</source>
-        <translation>Polnisch</translation>
-    </message>
-    <message>
+	<message>
         <source>Cancel</source>
         <translation>Abbrechen</translation>
     </message>
     <message>
         <source>OK</source>
         <translation>OK</translation>
-    </message>
-    <message>
-        <source>Belarusian</source>
-        <translation>Belarusian</translation>
     </message>
 </context>
 <context>

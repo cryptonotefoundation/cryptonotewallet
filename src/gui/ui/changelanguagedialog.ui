@@ -32,32 +32,32 @@
        </item>
        <item>
         <property name="text">
-         <string>Ukrainian</string>
+         <string>Українська</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>Russian</string>
+         <string>Русский</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>Polish</string>
+         <string>Polski</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>Belarusian</string>
+         <string>Беларуская</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>German</string>
+         <string>Deutsch</string>
         </property>
        </item>
        <item>
         <property name="text">
-         <string>Spanish</string>
+         <string>Español</string>
         </property>
        </item>
       </widget>

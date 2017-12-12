@@ -124,22 +124,6 @@
         <translation>Seleccione el idioma:</translation>
     </message>
     <message>
-        <source>English</source>
-        <translation>Inglés</translation>
-    </message>
-    <message>
-        <source>Ukrainian</source>
-        <translation>Ucraniano</translation>
-    </message>
-    <message>
-        <source>Russian</source>
-        <translation>Ruso</translation>
-    </message>
-    <message>
-        <source>Polish</source>
-        <translation>Polaco</translation>
-    </message>
-    <message>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
@@ -148,16 +132,32 @@
         <translation>OK</translation>
     </message>
     <message>
-        <source>Belarusian</source>
-        <translation>Bielorruso</translation>
+        <source>English</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>German</source>
-        <translation>Alemán</translation>
+        <source>Українська</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Spanish</source>
-        <translation>Español</translation>
+        <source>Русский</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Polski</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Беларуская</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Deutsch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Español</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -952,7 +952,7 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>Enter a label for this payer</source>
-        <translation>Ingrese una etiqueta para este pagador</translation>
+        <translation type="vanished">Ingrese una etiqueta para este pagador</translation>
     </message>
     <message>
         <source>Amount:</source>

@@ -124,22 +124,6 @@
         <translation>Wybierz język:</translation>
     </message>
     <message>
-        <source>English</source>
-        <translation>Angielski</translation>
-    </message>
-    <message>
-        <source>Ukrainian</source>
-        <translation>Ukraiński</translation>
-    </message>
-    <message>
-        <source>Russian</source>
-        <translation>Rosyjski</translation>
-    </message>
-    <message>
-        <source>Polish</source>
-        <translation>Polski</translation>
-    </message>
-    <message>
         <source>Cancel</source>
         <translation>Anuluj</translation>
     </message>
@@ -148,16 +132,32 @@
         <translation>OK</translation>
     </message>
     <message>
-        <source>Belarusian</source>
-        <translation>Białoruski</translation>
+        <source>English</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>German</source>
-        <translation>Niemiecki</translation>
+        <source>Українська</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Spanish</source>
-        <translation>Hiszpański</translation>
+        <source>Русский</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Polski</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Беларуская</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Deutsch</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Español</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
