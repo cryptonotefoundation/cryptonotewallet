@@ -1,3 +1,4 @@
+// Copyright (c) 2017-2018, Intense Coin developers
 // Copyright (c) 2015-2017, The Bytecoin developers
 //
 // This file is part of Bytecoin.
@@ -265,6 +266,8 @@ bool WalletApplication::initCryptoNoteAdapter() {
       "If you have intensecoind with non-default RPC port, you should terminate it and relaunch IntensecoinWallet\n"
       "or\n"
       "Set the Local deamon required port in IntensecoinWallet Menu/Preferences/Connection settings."));
+	  if (m_splash != nullptr)
+		  m_splash->hide();
       dlg.exec();
       return false;
     }
@@ -281,6 +284,8 @@ bool WalletApplication::initCryptoNoteAdapter() {
           okButton->setText(QObject::tr("Ok"));
           dlg.addButton(okButton, QMessageBox::AcceptRole);
           dlg.setText(QObject::tr("Error occured"));
+		  if (m_splash != nullptr)
+			  m_splash->hide();
           dlg.exec();
           return false;
         }
@@ -391,6 +396,8 @@ void WalletApplication::showCoreInitError() {
   okButton->setText(QObject::tr("Ok"));
   dlg.addButton(okButton, QMessageBox::AcceptRole);
   dlg.setText(QObject::tr("Blockchain load error"));
+  if (m_splash != nullptr)
+	  m_splash->hide();
   dlg.exec();
 }
 
@@ -400,7 +407,8 @@ bool WalletApplication::askForRemoveDb()
     tr("Erase Blockchain folder and sync from scratch?\n"
     "Attention! If you keep any important files in the same folder they may be\n"
     "erased as well. Are you sure you want to erase the folder and sync again?"), m_mainWindow);
-
+  if (m_splash != nullptr)
+	  m_splash->hide();
   return (dlg.exec() == QDialog::Accepted);
 }
 
