@@ -62,7 +62,7 @@ public:
   virtual void lastKnownBlockHeightUpdated(Node& node, uint64_t height) = 0;
 };
 
-Node* createRpcNode(const CryptoNote::Currency& currency, INodeCallback& callback, const std::string& nodeHost, unsigned short nodePort);
+Node* createRpcNode(const CryptoNote::Currency& currency, INodeCallback& callback, Logging::LoggerManager& logManager, const std::string& nodeHost, unsigned short nodePort);
 Node* createInprocessNode(const CryptoNote::Currency& currency, Logging::LoggerManager& logManager,
   const CryptoNote::CoreConfig& coreConfig, const CryptoNote::NetNodeConfig& netNodeConfig, INodeCallback& callback);
 

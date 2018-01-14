@@ -103,10 +103,12 @@ Node::~Node() {
 
 class RpcNode : CryptoNote::INodeObserver, public Node {
 public:
-  RpcNode(const CryptoNote::Currency& currency, INodeCallback& callback, const std::string& nodeHost, unsigned short nodePort) :
+  Logging::LoggerManager& m_logManager;
+  RpcNode(const CryptoNote::Currency& currency, INodeCallback& callback, Logging::LoggerManager& logManager, const std::string& nodeHost, unsigned short nodePort) :
     m_callback(callback),
     m_currency(currency),
     m_dispatcher(),
+    m_logManager(logManager),
     m_node(nodeHost, nodePort) {
     m_node.addObserver(this);
   }
@@ -396,7 +398,7 @@ public:
   }
 
   CryptoNote::IWalletLegacy* createWallet() override {
-    return new CryptoNote::WalletLegacy(m_currency, m_node);
+    return new CryptoNote::WalletLegacy(m_currency, m_node, m_logManager);
   }
 
 private:
@@ -420,10 +422,12 @@ private:
 
 class InprocessNode : CryptoNote::INodeObserver, public Node {
 public:
+  Logging::LoggerManager& m_logManager;
   InprocessNode(const CryptoNote::Currency& currency, Logging::LoggerManager& logManager, const CryptoNote::CoreConfig& coreConfig,
     const CryptoNote::NetNodeConfig& netNodeConfig, INodeCallback& callback) :
     m_currency(currency), m_dispatcher(),
     m_callback(callback),
+    m_logManager(logManager),
     m_coreConfig(coreConfig),
     m_netNodeConfig(netNodeConfig),
     m_protocolHandler(currency, m_dispatcher, m_core, nullptr, logManager),
@@ -547,7 +551,7 @@ public:
   }
 
   CryptoNote::IWalletLegacy* createWallet() override {
-    return new CryptoNote::WalletLegacy(m_currency, m_node);
+    return new CryptoNote::WalletLegacy(m_currency, m_node, m_logManager);
   }
 
 private:
@@ -576,8 +580,8 @@ private:
   }
 };
 
-Node* createRpcNode(const CryptoNote::Currency& currency, INodeCallback& callback, const std::string& nodeHost, unsigned short nodePort) {
-  return new RpcNode(currency, callback, nodeHost, nodePort);
+Node* createRpcNode(const CryptoNote::Currency& currency, INodeCallback& callback, Logging::LoggerManager& logManager,  const std::string& nodeHost, unsigned short nodePort) {
+  return new RpcNode(currency, callback, logManager, nodeHost, nodePort);
 }
 
 Node* createInprocessNode(const CryptoNote::Currency& currency, Logging::LoggerManager& logManager,

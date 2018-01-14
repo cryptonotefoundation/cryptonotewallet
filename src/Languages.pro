@@ -166,3 +166,4 @@ TRANSLATIONS = 	languages/uk.ts \
 				languages/be.ts \
 				languages/de.ts \
 				languages/es.ts \
+				languages/fr.ts \
