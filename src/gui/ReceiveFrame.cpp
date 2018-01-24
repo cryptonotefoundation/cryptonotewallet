@@ -78,18 +78,7 @@ void ReceiveFrame::closePaymentRequestForm() {
 }
 
 void ReceiveFrame::generatePaymentIdClicked() {
-  QTime time = QTime::currentTime();
-  qsrand((uint)time.msec());
-  const QString possibleCharacters("ABCDEF0123456789");
-  const int randomStringLength = 64;
-  QString randomString;
-  for(int i=0; i<randomStringLength; ++i)
-  {
-    int index = qrand() % possibleCharacters.length();
-    QChar nextChar = possibleCharacters.at(index);
-    randomString.append(nextChar);
-  }
-  m_ui->m_requestPaymentIdEdit->setText(randomString);
+  m_ui->m_requestPaymentIdEdit->setText(CurrencyAdapter::instance().generatePaymentId());
 }
 
 void ReceiveFrame::createRequestPaymentClicked() {

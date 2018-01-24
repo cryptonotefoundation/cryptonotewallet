@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2015 The Cryptonote developers
-// Copyright (c) 2016-2017 The Karbowanec developers
+// Copyright (c) 2016-2018 The Karbowanec developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -26,6 +26,7 @@ public:
   QString formatAmount(quint64 _amount) const;
   quint64 parseAmount(const QString& _amountString) const;
   bool validateAddress(const QString& _address) const;
+  QString generatePaymentId() const;
   CryptoNote::AccountPublicAddress internalAddress(const QString& _address) const;
 
 private:

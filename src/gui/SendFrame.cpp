@@ -335,18 +335,7 @@ bool SendFrame::isValidPaymentId(const QByteArray& _paymentIdString) {
 }
 
 void SendFrame::generatePaymentIdClicked() {
-  QTime time = QTime::currentTime();
-  qsrand((uint)time.msec());
-  const QString possibleCharacters("ABCDEF0123456789");
-  const int randomStringLength = 64;
-  QString randomString;
-  for(int i=0; i<randomStringLength; ++i)
-  {
-    int index = qrand() % possibleCharacters.length();
-    QChar nextChar = possibleCharacters.at(index);
-    randomString.append(nextChar);
-  }
-  SendFrame::insertPaymentID(randomString);
+  SendFrame::insertPaymentID(CurrencyAdapter::instance().generatePaymentId());
 }
 
 }
