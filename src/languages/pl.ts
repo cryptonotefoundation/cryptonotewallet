@@ -1962,7 +1962,7 @@ Jesteś pewien?</translation>
         <source>Mined, %n confirmation(s)</source>
         <translation>
             <numerusform>Wydobyto, %n potwiedzenie</numerusform>
-            <numerusform>Wydobyto, %n </numerusform>
+            <numerusform>Wydobyto, %n potwiedzenia</numerusform>
             <numerusform>Wydobyto, %n potwiedzeń</numerusform>
         </translation>
     </message>
