@@ -32,6 +32,7 @@ class KeyDialog
 
 public:
   KeyDialog(const QByteArray& _key, bool _isTracking, QWidget *_parent);
+  KeyDialog(const QByteArray& _key, bool _isTracking, bool _isPrivateKeyExport, QWidget *_parent);
   KeyDialog(QWidget *_parent);
   ~KeyDialog();
 

@@ -62,7 +62,6 @@ KeyDialog::KeyDialog(const QByteArray& _key, bool _isTracking, QWidget *_parent)
   , m_isExport(true)
   , m_key(_key) {
   m_ui->setupUi(this);
-  setWindowTitle(m_isTracking ? tr("Export tracking key") : tr("Export key"));
   m_ui->m_fileButton->setText(tr("Save to file"));
   m_ui->m_okButton->setText(tr("Close"));
   m_ui->m_keyEdit->setReadOnly(true);
@@ -75,6 +74,28 @@ KeyDialog::KeyDialog(const QByteArray& _key, bool _isTracking, QWidget *_parent)
   m_ui->m_cancelButton->hide();
   setFixedHeight(195);
   setStyleSheet(Settings::instance().getCurrentStyle().makeStyleSheet(KEY_DIALOG_STYLE_SHEET_TEMPLATE));
+  setWindowTitle(m_isTracking ? tr("Export tracking key") : tr("Export key"));
+}
+
+KeyDialog::KeyDialog(const QByteArray& _key, bool _isTracking, bool _isPrivateKeyExport, QWidget *_parent)
+	: QDialog(_parent, static_cast<Qt::WindowFlags>(Qt::WindowCloseButtonHint))
+	, m_ui(new Ui::KeyDialog)
+	, m_isTracking(_isTracking)
+	, m_isExport(true)
+	, m_key(_key) {
+	m_ui->setupUi(this);
+	m_ui->m_fileButton->setText(tr("Save to file"));
+	m_ui->m_okButton->setText(tr("Close"));
+	m_ui->m_keyEdit->setReadOnly(true);
+	m_ui->m_keyEdit->setPlainText("Secret spend key:\n" + m_key.toHex().toUpper().mid(0,64) + "\n\nSecret view key:\n" + m_key.toHex().toUpper().mid(64));
+	if (_isPrivateKeyExport) {
+		m_ui->m_descriptionLabel->setText(tr("These keys allow restoration of your wallet in new wallet software version 1.4.2 and above."));
+	}
+
+	m_ui->m_cancelButton->hide();
+	setFixedHeight(195);
+	setStyleSheet(Settings::instance().getCurrentStyle().makeStyleSheet(KEY_DIALOG_STYLE_SHEET_TEMPLATE));
+	setWindowTitle(tr("Export secret keys"));
 }
 
 KeyDialog::KeyDialog(QWidget* _parent)

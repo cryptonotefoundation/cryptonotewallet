@@ -63,6 +63,7 @@ public:
     QAction *m_resetAction;
     QAction *m_saveKeysAction;
     QAction *m_exportKeyAction;
+	QAction *m_exportPrivateKeyAction;
     QAction *m_removePendingTxAction;
     QWidget *centralwidget;
     QVBoxLayout *verticalLayout_2;
@@ -195,6 +196,8 @@ public:
         m_saveKeysAction->setObjectName(QStringLiteral("m_saveKeysAction"));
         m_exportKeyAction = new QAction(MainWindow);
         m_exportKeyAction->setObjectName(QStringLiteral("m_exportKeyAction"));
+		m_exportPrivateKeyAction = new QAction(MainWindow);
+		m_exportPrivateKeyAction->setObjectName(QStringLiteral("m_exportPrivateKeyAction"));
         m_removePendingTxAction = new QAction(MainWindow);
         m_removePendingTxAction->setObjectName(QStringLiteral("m_removePendingTxAction"));
         m_removePendingTxAction->setCheckable(false);
@@ -570,12 +573,13 @@ public:
         menuFile->addAction(m_saveKeysAction);
         menuFile->addAction(m_resetAction);
         menuFile->addAction(m_importKeyAction);
+		menuFile->addAction(m_exportPrivateKeyAction);
         menuFile->addAction(m_exportKeyAction);
         menuFile->addAction(m_exportTrackingKeyAction);
         menuFile->addAction(m_exitAction);
         menuSettings->addAction(m_encryptWalletAction);
         menuSettings->addAction(m_changePasswordAction);
-        menuSettings->addAction(m_removePendingTxAction);
+        //menuSettings->addAction(m_removePendingTxAction);
         menuSettings->addSeparator();
         menuSettings->addAction(m_autostartAction);
         menuSettings->addAction(m_minimizeToTrayAction);
@@ -616,6 +620,7 @@ public:
         QObject::connect(m_resetAction, SIGNAL(triggered()), MainWindow, SLOT(resetWallet()));
         QObject::connect(m_saveKeysAction, SIGNAL(triggered()), MainWindow, SLOT(saveWalletKeys()));
         QObject::connect(m_exportKeyAction, SIGNAL(triggered()), MainWindow, SLOT(exportKey()));
+		QObject::connect(m_exportPrivateKeyAction, SIGNAL(triggered()), MainWindow, SLOT(exportPrivateKeys()));
 
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
@@ -653,8 +658,10 @@ public:
         m_resetAction->setText(QApplication::translate("MainWindow", "Reset wallet", Q_NULLPTR));
         m_saveKeysAction->setText(QApplication::translate("MainWindow", "Save wallet keys", Q_NULLPTR));
         m_exportKeyAction->setText(QApplication::translate("MainWindow", "Export key", Q_NULLPTR));
+		m_exportPrivateKeyAction->setText(QApplication::translate("MainWindow", "Export secret key", Q_NULLPTR));
 #ifndef QT_NO_TOOLTIP
         m_exportKeyAction->setToolTip(QApplication::translate("MainWindow", "Export key", Q_NULLPTR));
+		m_exportPrivateKeyAction->setToolTip(QApplication::translate("MainWindow", "Export secret key", Q_NULLPTR));
 #endif // QT_NO_TOOLTIP
         m_removePendingTxAction->setText(QApplication::translate("MainWindow", "Remove pending TXs", Q_NULLPTR));
         m_logoLabel->setText(QString());

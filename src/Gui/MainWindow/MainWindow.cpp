@@ -76,6 +76,14 @@ QByteArray convertAccountKeysToByteArray(const AccountKeys& _accountKeys) {
   return trackingKeys;
 }
 
+QByteArray convertAccountPrivateKeysToByteArray(const AccountKeys& _accountKeys) {
+	QByteArray spendPrivateKey(reinterpret_cast<const char*>(&_accountKeys.spendKeys.secretKey), sizeof(Crypto::SecretKey));
+	QByteArray viewPrivateKey(reinterpret_cast<const char*>(&_accountKeys.viewKeys.secretKey), sizeof(Crypto::SecretKey));
+	QByteArray trackingKeys;
+	trackingKeys.append(spendPrivateKey).append(viewPrivateKey);
+	return trackingKeys;
+}
+
 AccountKeys convertByteArrayToAccountKeys(const QByteArray& _array) {
   AccountKeys accountKeys;
   QDataStream trackingKeysDataStream(_array);
@@ -682,10 +690,25 @@ void MainWindow::encryptWallet() {
 }
 
 void MainWindow::exportKey() {
+	if (m_cryptoNoteAdapter->getNodeAdapter() == nullptr ||
+		m_cryptoNoteAdapter->getNodeAdapter()->getWalletAdapter() == nullptr ||
+		!m_cryptoNoteAdapter->getNodeAdapter()->getWalletAdapter()->isOpen())
+		return;
   AccountKeys accountKeys = m_cryptoNoteAdapter->getNodeAdapter()->getWalletAdapter()->getAccountKeys(0);
   QByteArray keys = convertAccountKeysToByteArray(accountKeys);
   KeyDialog dlg(keys, false, this);
   dlg.exec();
+}
+
+void MainWindow::exportPrivateKeys() {
+	if (m_cryptoNoteAdapter->getNodeAdapter() == nullptr ||
+		m_cryptoNoteAdapter->getNodeAdapter()->getWalletAdapter() == nullptr ||
+		!m_cryptoNoteAdapter->getNodeAdapter()->getWalletAdapter()->isOpen())
+		return;
+	AccountKeys accountKeys = m_cryptoNoteAdapter->getNodeAdapter()->getWalletAdapter()->getAccountKeys(0);
+	QByteArray keys = convertAccountPrivateKeysToByteArray(accountKeys);
+	KeyDialog dlg(keys, false, true, this);
+	dlg.exec();
 }
 
 void MainWindow::exportTrackingKey() {
