@@ -39,7 +39,7 @@ void DnsManager::handleTxtRecords(){
   foreach (const QDnsTextRecord &record, m_dns->textRecords()) {
     foreach (const QByteArray &ba, record.values()) {
       QString txt = QString::fromUtf8(ba);
-      if(txt.contains("oa1:krb")) {
+      if(txt.contains("oa1:BFR")) {
         int s1 = txt.indexOf("recipient_address=",0,Qt::CaseInsensitive);
         int s2 = txt.indexOf("recipient_name=",0,Qt::CaseInsensitive);
         QString address = txt.mid(s1+18,95);

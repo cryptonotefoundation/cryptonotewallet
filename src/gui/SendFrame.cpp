@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2015 The Cryptonote developers
 // Copyright (c) 2015-2016 XDN developers
-// Copyright (c) 2016-2017 The Karbowanec developers
+// Copyright (c) 2016-2017 The befrank developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -179,16 +179,16 @@ void SendFrame::openUriClicked() {
 }
 
 void SendFrame::parsePaymentRequest(QString _request) {
-    if(_request.startsWith("karbowanec://", Qt::CaseInsensitive))
+    if(_request.startsWith("befrank://", Qt::CaseInsensitive))
     {
-       _request.replace(0, 13, "karbowanec:");
+       _request.replace(0, 13, "befrank:");
     }
-    if(!_request.startsWith("karbowanec:", Qt::CaseInsensitive)) {
-      QCoreApplication::postEvent(&MainWindow::instance(), new ShowMessageEvent(tr("Payment request should start with karbowanec:"), QtCriticalMsg));
+    if(!_request.startsWith("befrank:", Qt::CaseInsensitive)) {
+      QCoreApplication::postEvent(&MainWindow::instance(), new ShowMessageEvent(tr("Payment request should start with befrank:"), QtCriticalMsg));
       return;
     }
 
-    if(_request.startsWith("karbowanec:", Qt::CaseInsensitive))
+    if(_request.startsWith("befrank:", Qt::CaseInsensitive))
     {
       _request.remove(0, 11);
     }

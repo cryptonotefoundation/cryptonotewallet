@@ -1,4 +1,4 @@
-// Copyright (c) 2016 The Karbowanec developers
+// Copyright (c) 2016 The befrank developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -17,7 +17,7 @@ ConfirmSendDialog::~ConfirmSendDialog() {
 }
 
 void ConfirmSendDialog::showPasymentDetails(quint64 _total) {
-    setWindowTitle(QString(tr("Confirm sending %1 KRB")).arg(CurrencyAdapter::instance().formatAmount(_total)));
+    setWindowTitle(QString(tr("Confirm sending %1 BFR")).arg(CurrencyAdapter::instance().formatAmount(_total)));
     QString amountText = m_ui->m_confirmLabel->text();
     m_ui->m_confirmLabel->setText(amountText.arg(CurrencyAdapter::instance().formatAmount(_total)));
 }

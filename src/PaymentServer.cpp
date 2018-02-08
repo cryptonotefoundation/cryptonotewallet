@@ -1,5 +1,5 @@
 // Copyright (c) 2009-2012 The Bitcoin developers
-// Copyright (c) 2016 The Karbowanec developers
+// Copyright (c) 2016 The befrank developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -23,11 +23,11 @@ using namespace boost;
 using namespace WalletGui;
 
 const int BITCOIN_IPC_CONNECT_TIMEOUT = 1000; // milliseconds
-const QString BITCOIN_IPC_PREFIX("karbowanec:");
+const QString BITCOIN_IPC_PREFIX("befrank:");
 
 static QString ipcServerName()
 {
-    QString name("Karbowanec");
+    QString name("befrank");
 
     return name;
 }
@@ -93,14 +93,14 @@ PaymentServer::PaymentServer(QApplication* parent) : QObject(parent), saveURIs(t
     uriServer = new QLocalServer(this);
 
     if (!uriServer->listen(name))
-        qDebug() << tr("Cannot start karbowanec: click-to-pay handler");
+        qDebug() << tr("Cannot start befrank: click-to-pay handler");
     else
         connect(uriServer, SIGNAL(newConnection()), this, SLOT(handleURIConnection()));
 }
 
 bool PaymentServer::eventFilter(QObject *object, QEvent *event)
 {
-    // clicking on karbowanec: URLs creates FileOpen events on the Mac:
+    // clicking on befrank: URLs creates FileOpen events on the Mac:
     if (event->type() == QEvent::FileOpen)
     {
         QFileOpenEvent* fileEvent = static_cast<QFileOpenEvent*>(event);

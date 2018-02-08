@@ -1,6 +1,6 @@
 [submodule "cryptonote"]
 	path = cryptonote
-	url = https://github.com/seredat/karbowanec.git
+	url = https://github.com/seredat/befrank.git
 [submodule "libqrencode"]
 	path = libqrencode
 	url = https://github.com/fukuchi/libqrencode.git

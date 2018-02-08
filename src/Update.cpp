@@ -1,4 +1,4 @@
-// Copyright (c) 2016 The Karbowanec developers
+// Copyright (c) 2016 The befrank developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #include "Update.h"
@@ -88,7 +88,7 @@ void Updater::replyFinished (QNetworkReply *reply)
          if (ourVersion < remoteVersion) {
 
              if (QMessageBox::warning(nullptr, QObject::tr("New version available"), QObject::tr("There is update available.\nDo you want to go to download page?"), QMessageBox::Ok, QMessageBox::Cancel) == QMessageBox::Ok) {
-                 QString link = "http://karbowanec.com/#downloads";
+                 QString link = "http://befrank.be/#downloads";
                  QDesktopServices::openUrl(QUrl(link));
              }
 

@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2015 The Cryptonote developers
 // Copyright (c) 2015-2016 XDN developers
-// Copyright (c) 2016 The Karbowanec developers
+// Copyright (c) 2016 The befrank developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -89,7 +89,7 @@ void Settings::load() {
   }
 
   QStringList defaultPoolList;
-  defaultPoolList << "pool.karbowanec.com:3333" << "pool2.democats.org:45570" << "krb.sberex.com:3333" << "mine.krb.mypool.online:32350" << "krb-eu1.miningpool.org.ua:3333";
+  defaultPoolList << "pool.befrank.com:3333" << "pool2.democats.org:45570" << "BFR.sberex.com:3333" << "mine.BFR.mypool.online:32350" << "BFR-eu1.miningpool.org.ua:3333";
   if (!m_settings.contains(OPTION_MINING_POOLS)) {
     setMiningPoolList(QStringList() << defaultPoolList);
   } else {
@@ -103,7 +103,7 @@ void Settings::load() {
   }
 
   QStringList defaultNodesList;
-  defaultNodesList << "node.karbowanec.com:32348" << "node.krb.mypool.online:32348"; // "pool2.democats.org:7671"
+  defaultNodesList << "node.befrank.com:32348" << "node.BFR.mypool.online:32348"; // "pool2.democats.org:7671"
   if (!m_settings.contains(OPTION_RPCNODES)) {
     setRpcNodesList(QStringList() << defaultNodesList);
   } else {

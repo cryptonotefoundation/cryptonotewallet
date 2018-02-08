@@ -82,7 +82,7 @@ void ReceiveFrame::generatePaymentIdClicked() {
 }
 
 void ReceiveFrame::createRequestPaymentClicked() {
-  requestUri = "karbowanec:" + wallet_address;
+  requestUri = "befrank:" + wallet_address;
   if(CurrencyAdapter::instance().parseAmount(m_ui->m_requestAmountSpin->cleanText()) != 0){
     requestUri.append("?amount=" + m_ui->m_requestAmountSpin->cleanText());
   }

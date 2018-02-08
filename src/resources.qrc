@@ -43,7 +43,7 @@
     </qresource>
     <qresource prefix="/images">
         <file alias="splash">images/splash.png</file>
-        <file alias="cryptonote">images/karbowanez.png</file>
+        <file alias="cryptonote">images/befrank.png</file>
         <file alias="clock">images/clock.gif</file>
         <file alias="bg.png">images/bg.png</file>
         <file alias="handle.png">images/handle.png</file>
@@ -53,16 +53,8 @@
     </qresource>
     <qresource prefix="/">
         <file>languages/be.qm</file>
-        <file>languages/pl.qm</file>
-        <file>languages/qt_pl.qm</file>
-        <file>languages/qt_ru.qm</file>
-        <file>languages/qt_uk.qm</file>
-        <file>languages/ru.qm</file>
-        <file>languages/uk.qm</file>
         <file>languages/de.qm</file>
         <file>languages/qt_de.qm</file>
-        <file>languages/es.qm</file>
-        <file>languages/qt_es.qm</file>
         <file>languages/fr.qm</file>
         <file>languages/qt_fr.qm</file>
     </qresource>
