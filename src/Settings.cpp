@@ -89,7 +89,7 @@ void Settings::load() {
   }
 
   QStringList defaultPoolList;
-  defaultPoolList << "pool.befrank.com:3333" << "pool2.democats.org:45570" << "BFR.sberex.com:3333" << "mine.BFR.mypool.online:32350" << "BFR-eu1.miningpool.org.ua:3333";
+  defaultPoolList << "pool.befrank.site:3333" << "pool2.befrank.site:3333";
   if (!m_settings.contains(OPTION_MINING_POOLS)) {
     setMiningPoolList(QStringList() << defaultPoolList);
   } else {
@@ -103,7 +103,7 @@ void Settings::load() {
   }
 
   QStringList defaultNodesList;
-  defaultNodesList << "node.befrank.com:32348" << "node.BFR.mypool.online:32348"; // "pool2.democats.org:7671"
+  defaultNodesList << "seed.befrank.site:18320" << "seed2.befrank.site:18320" << "seed3.befrank.site";
   if (!m_settings.contains(OPTION_RPCNODES)) {
     setRpcNodesList(QStringList() << defaultNodesList);
   } else {

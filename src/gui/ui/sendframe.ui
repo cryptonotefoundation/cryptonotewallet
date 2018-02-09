@@ -33,8 +33,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>846</width>
-        <height>439</height>
+        <width>840</width>
+        <height>412</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="m_send_frame_layout">
@@ -93,7 +93,7 @@
         <number>1</number>
        </property>
        <property name="value">
-        <number>1</number>
+        <number>5</number>
        </property>
        <property name="sliderPosition">
         <number>5</number>
@@ -122,7 +122,7 @@
      <item row="1" column="3">
       <widget class="QCheckBox" name="donateCheckBox">
        <property name="text">
-        <string>Donate 0.1% to development fund:</string>
+        <string>Donate 0.1% to community fund:</string>
        </property>
        <property name="checked">
         <bool>true</bool>
@@ -205,19 +205,19 @@
         <string/>
        </property>
        <property name="decimals">
-        <number>12</number>
+        <number>2</number>
        </property>
        <property name="minimum">
-        <double>0.000100000000000</double>
+        <double>0.000000000000000</double>
        </property>
        <property name="maximum">
         <double>999999999999999.000000000000000</double>
        </property>
        <property name="singleStep">
-        <double>0.000100000000000</double>
+        <double>1.000000000000000</double>
        </property>
        <property name="value">
-        <double>0.000100000000000</double>
+        <double>0.000000000000000</double>
        </property>
       </widget>
      </item>
@@ -267,7 +267,7 @@
         <locale language="English" country="UnitedStates"/>
        </property>
        <property name="decimals">
-        <number>12</number>
+        <number>2</number>
        </property>
        <property name="maximum">
         <double>999999999999999.000000000000000</double>

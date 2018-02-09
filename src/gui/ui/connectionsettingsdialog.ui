@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
+    <width>629</width>
     <height>388</height>
    </rect>
   </property>
@@ -130,7 +130,7 @@
           <number>65535</number>
          </property>
          <property name="value">
-          <number>32348</number>
+          <number>18322</number>
          </property>
          <property name="displayIntegerBase">
           <number>10</number>

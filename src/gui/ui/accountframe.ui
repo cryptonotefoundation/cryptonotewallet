@@ -237,6 +237,7 @@
            <pointsize>13</pointsize>
            <weight>50</weight>
            <bold>false</bold>
+           <kerning>true</kerning>
           </font>
          </property>
          <property name="toolTip">
@@ -252,6 +253,9 @@
           <set>Qt::AlignBottom|Qt::AlignRight|Qt::AlignTrailing</set>
          </property>
          <property name="margin">
+          <number>0</number>
+         </property>
+         <property name="indent">
           <number>0</number>
          </property>
          <property name="textInteractionFlags">
@@ -292,6 +296,9 @@
           <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
          </property>
          <property name="margin">
+          <number>0</number>
+         </property>
+         <property name="indent">
           <number>0</number>
          </property>
         </widget>

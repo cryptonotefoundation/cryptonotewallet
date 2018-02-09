@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>885</width>
-    <height>80</height>
+    <height>90</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -107,10 +107,10 @@
       <string notr="true"/>
      </property>
      <property name="decimals">
-      <number>12</number>
+      <number>2</number>
      </property>
      <property name="maximum">
-      <double>9999999.999998999759555</double>
+      <double>99999999999.000000000000000</double>
      </property>
     </widget>
    </item>

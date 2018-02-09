@@ -172,7 +172,7 @@
             <string/>
            </property>
            <property name="decimals">
-            <number>12</number>
+            <number>2</number>
            </property>
            <property name="minimum">
             <double>0.000000000000000</double>

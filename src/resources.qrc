@@ -52,7 +52,6 @@
         <file>default.qss</file>
     </qresource>
     <qresource prefix="/">
-        <file>languages/be.qm</file>
         <file>languages/de.qm</file>
         <file>languages/qt_de.qm</file>
         <file>languages/fr.qm</file>

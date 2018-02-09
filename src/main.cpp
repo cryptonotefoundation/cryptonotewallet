@@ -51,18 +51,8 @@ int main(int argc, char* argv[]) {
       translator.load(":/languages/" + lng + ".qm");
       translatorQt.load(":/languages/qt_" + lng + ".qm");
 
-      if(lng == "uk") {
-            QLocale::setDefault(QLocale("uk_UA"));
-        } else if(lng == "ru") {
-            QLocale::setDefault(QLocale("ru_RU"));
-        } else if(lng == "pl") {
-            QLocale::setDefault(QLocale("pl_PL"));
-        } else if(lng == "be") {
-            QLocale::setDefault(QLocale("be_BY"));
-        } else if(lng == "de") {
+     if(lng == "de") {
             QLocale::setDefault(QLocale("de_DE"));
-        } else if(lng == "es") {
-            QLocale::setDefault(QLocale("es_ES"));
         } else if(lng == "fr") {
             QLocale::setDefault(QLocale("fr_FR"));
         } else {

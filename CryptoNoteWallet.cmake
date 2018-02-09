@@ -1,4 +1,3 @@
-
 set(CN_PROJECT_NAME "befrank")
 set(CN_CURRENCY_DISPLAY_NAME "BeFrank")
 set(CN_CURRENCY_TICKER "BFR")
