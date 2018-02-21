@@ -73,7 +73,7 @@ fi
 if [ "$platform" == "darwin" ]; then
     BIN_PATH=$BIN_PATH/monero-wallet-gui.app/Contents/MacOS/
 elif [ "$platform" == "mingw64" ] || [ "$platform" == "mingw32" ]; then
-    MONEROD_EXEC=monerod.exe
+    MONEROD_EXEC=intensecoind.exe
 fi
 
 # force version update
@@ -95,4 +95,3 @@ fi
 
 # make deploy
 popd
-
