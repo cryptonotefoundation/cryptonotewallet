@@ -117,7 +117,7 @@
     <name>DaemonManagerDialog</name>
     <message>
         <location filename="../components/DaemonManagerDialog.qml" line="93"/>
-        <source>Starting Monero daemon in %1 seconds</source>
+        <source>Starting Intensecoin daemon in %1 seconds</source>
         <translation>모네로 데몬이 %1 초 후 실행됩니다</translation>
     </message>
     <message>

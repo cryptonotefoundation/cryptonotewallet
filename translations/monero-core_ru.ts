@@ -117,8 +117,8 @@
     <name>DaemonManagerDialog</name>
     <message>
         <location filename="../components/DaemonManagerDialog.qml" line="93"/>
-        <source>Starting Monero daemon in %1 seconds</source>
-        <translation>Запуск демона Monero через %1 секунд</translation>
+        <source>Starting Intensecoin daemon in %1 seconds</source>
+        <translation>Запуск демона Intensecoin через %1 секунд</translation>
     </message>
     <message>
         <location filename="../components/DaemonManagerDialog.qml" line="115"/>
