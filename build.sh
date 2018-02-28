@@ -85,7 +85,7 @@ popd
 echo "var GUI_MONERO_VERSION = \"$TAGNAME\"" >> version.js
 
 cd build
-qmake ../monero-wallet-gui.pro "$CONFIG" || exit
+qmake ../intensecoin-wallet-gui.pro "$CONFIG" || exit
 $MAKE || exit
 
 # Copy monerod to bin folder
