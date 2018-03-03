@@ -431,7 +431,7 @@ Rectangle {
                 anchors.right: parent.right
                 anchors.top: verifyAddressLabel.bottom
                 anchors.topMargin: 5
-                placeholderText: "4..."
+                placeholderText: "iz..."
                 // validator: RegExpValidator { regExp: /[0-9A-Fa-f]{95}/g }
             }
 
