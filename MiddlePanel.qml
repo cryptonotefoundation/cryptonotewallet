@@ -171,7 +171,7 @@ Rectangle {
 
         Rectangle { height: 4; width: parent.width / 5; color: "#FFE00A" }
         Rectangle { height: 4; width: parent.width / 5; color: "#6B0072" }
-        Rectangle { height: 4; width: parent.width / 5; color: "#FF6C3C" }
+        Rectangle { height: 4; width: parent.width / 5; color: "#813CFF" }
         Rectangle { height: 4; width: parent.width / 5; color: "#FFD781" }
         Rectangle { height: 4; width: parent.width / 5; color: "#FF4F41" }
     }

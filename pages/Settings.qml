@@ -86,10 +86,10 @@ Rectangle {
             StandardButton {
                 id: closeWalletButton
                 text: qsTr("Close wallet") + translationManager.emptyString
-                shadowReleasedColor: "#FF4304"
+                shadowReleasedColor: "#983CFF"
                 shadowPressedColor: "#B32D00"
-                releasedColor: "#FF6C3C"
-                pressedColor: "#FF4304"
+                releasedColor: "#813CFF"
+                pressedColor: "#983CFF"
                 visible: true
                 onClicked: {
                     console.log("closing wallet button clicked")
@@ -101,10 +101,10 @@ Rectangle {
                 enabled: !viewOnly
                 id: createViewOnlyWalletButton
                 text: qsTr("Create view only wallet") + translationManager.emptyString
-                shadowReleasedColor: "#FF4304"
+                shadowReleasedColor: "#983CFF"
                 shadowPressedColor: "#B32D00"
-                releasedColor: "#FF6C3C"
-                pressedColor: "#FF4304"
+                releasedColor: "#813CFF"
+                pressedColor: "#983CFF"
                 visible: true
                 onClicked: {
                     wizard.openCreateViewOnlyWalletPage();
@@ -113,10 +113,10 @@ Rectangle {
 
             StandardButton {
                 id: showSeedButton
-                shadowReleasedColor: "#FF4304"
+                shadowReleasedColor: "#983CFF"
                 shadowPressedColor: "#B32D00"
-                releasedColor: "#FF6C3C"
-                pressedColor: "#FF4304"
+                releasedColor: "#813CFF"
+                pressedColor: "#983CFF"
                 text: qsTr("Show seed & keys") + translationManager.emptyString
                 onClicked: {
                     settingsPasswordDialog.open();
@@ -127,10 +127,10 @@ Rectangle {
 
             StandardButton {
                 id: rescanWalletbutton
-                shadowReleasedColor: "#FF4304"
+                shadowReleasedColor: "#983CFF"
                 shadowPressedColor: "#B32D00"
-                releasedColor: "#FF6C3C"
-                pressedColor: "#FF4304"
+                releasedColor: "#813CFF"
+                pressedColor: "#983CFF"
                 text: qsTr("Rescan wallet cache") + translationManager.emptyString
                 onClicked: {
                     // Show confirmation dialog
@@ -161,10 +161,10 @@ Rectangle {
             StandardButton {
                 id: rescanSpentButton
                 text: qsTr("Rescan wallet balance") + translationManager.emptyString
-                shadowReleasedColor: "#FF4304"
+                shadowReleasedColor: "#983CFF"
                 shadowPressedColor: "#B32D00"
-                releasedColor: "#FF6C3C"
-                pressedColor: "#FF4304"
+                releasedColor: "#813CFF"
+                pressedColor: "#983CFF"
                 onClicked: {
                     if (!currentWallet.rescanSpent()) {
                         console.error("Error: ", currentWallet.errorString);
@@ -210,10 +210,10 @@ Rectangle {
                 enabled: !appWindow.daemonRunning
                 id: startDaemonButton
                 text: qsTr("Start daemon") + translationManager.emptyString
-                shadowReleasedColor: "#FF4304"
+                shadowReleasedColor: "#983CFF"
                 shadowPressedColor: "#B32D00"
-                releasedColor: "#FF6C3C"
-                pressedColor: "#FF4304"
+                releasedColor: "#813CFF"
+                pressedColor: "#983CFF"
                 onClicked: {
                     appWindow.startDaemon(daemonFlags.text)
                 }
@@ -224,10 +224,10 @@ Rectangle {
                 enabled: appWindow.daemonRunning
                 id: stopDaemonButton
                 text: qsTr("Stop daemon") + translationManager.emptyString
-                shadowReleasedColor: "#FF4304"
+                shadowReleasedColor: "#983CFF"
                 shadowPressedColor: "#B32D00"
-                releasedColor: "#FF6C3C"
-                pressedColor: "#FF4304"
+                releasedColor: "#813CFF"
+                pressedColor: "#983CFF"
                 onClicked: {
                     appWindow.stopDaemon()
                 }
@@ -237,10 +237,10 @@ Rectangle {
                 visible: true
                 id: daemonStatusButton
                 text: qsTr("Show status") + translationManager.emptyString
-                shadowReleasedColor: "#FF4304"
+                shadowReleasedColor: "#983CFF"
                 shadowPressedColor: "#B32D00"
-                releasedColor: "#FF6C3C"
-                pressedColor: "#FF4304"
+                releasedColor: "#813CFF"
+                pressedColor: "#983CFF"
                 onClicked: {
                     daemonManager.sendCommand("status",currentWallet.testnet);
                     daemonConsolePopup.open();
@@ -370,10 +370,10 @@ Rectangle {
                 Layout.fillWidth: false
                 Layout.leftMargin: 30
                 text: qsTr("Connect") + translationManager.emptyString
-                shadowReleasedColor: "#FF4304"
+                shadowReleasedColor: "#983CFF"
                 shadowPressedColor: "#B32D00"
-                releasedColor: "#FF6C3C"
-                pressedColor: "#FF4304"
+                releasedColor: "#813CFF"
+                pressedColor: "#983CFF"
                 onClicked: {
                     console.log("saving daemon adress settings")
                     var newDaemon = daemonAddr.text.trim() + ":" + daemonPort.text.trim()
@@ -494,13 +494,13 @@ Rectangle {
         TextBlock {
             id: guiMoneroVersion
             Layout.fillWidth: true
-            text: qsTr("Embedded Monero version: ") + Version.GUI_MONERO_VERSION + translationManager.emptyString
+            text: qsTr("Embedded Intensecoin version: ") + Version.GUI_MONERO_VERSION + translationManager.emptyString
         }
         TextBlock {
             id: restoreHeightText
             Layout.fillWidth: true
             textFormat: Text.RichText
-            property var txt: "<style type='text/css'>a {text-decoration: none; color: #FF6C3C}</style>" + qsTr("Wallet creation height: ") + currentWallet.walletCreationHeight + translationManager.emptyString
+            property var txt: "<style type='text/css'>a {text-decoration: none; color: #813CFF}</style>" + qsTr("Wallet creation height: ") + currentWallet.walletCreationHeight + translationManager.emptyString
             property var linkTxt: qsTr(" <a href='#'>(Click to change)</a>") + translationManager.emptyString
             text: (typeof currentWallet == "undefined") ? "" : txt + linkTxt
 
@@ -528,10 +528,10 @@ Rectangle {
                 Layout.fillWidth: false
                 Layout.leftMargin: 30
                 text: qsTr("Save") + translationManager.emptyString
-                shadowReleasedColor: "#FF4304"
+                shadowReleasedColor: "#983CFF"
                 shadowPressedColor: "#B32D00"
-                releasedColor: "#FF6C3C"
-                pressedColor: "#FF4304"
+                releasedColor: "#813CFF"
+                pressedColor: "#983CFF"
 
                 onClicked: {
                     currentWallet.walletCreationHeight = restoreHeight.text

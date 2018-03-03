@@ -78,7 +78,7 @@ Item {
             property int maxWidth: parent.width - 4
             width: (maxWidth * fillLevel) / 100
             color: {
-               if(item.fillLevel < 99 ) return "#FF6C3C"
+               if(item.fillLevel < 99 ) return "#813CFF"
                //if(item.fillLevel < 99) return "#FFE00A"
                 return "#36B25C"
             }
