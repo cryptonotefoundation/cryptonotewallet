@@ -225,7 +225,7 @@ linux {
    #     }
     } else {
       # On some distro's we need to add dynload
-      LIBS+= -ldl
+      #LIBS+= -ldl
     }
 
     LIBS+= \
@@ -253,6 +253,7 @@ linux {
         message(Building with libunwind)
         LIBS += -Wl,-Bdynamic -lunwind
     }
+  LIBS+= -ldl
 }
 
 macx {
