@@ -16,9 +16,6 @@ if [ ! -d $MONERO_DIR/src ]; then
     git submodule init intense
 fi
 git submodule update --remote
-git -C $MONERO_DIR fetch
-git -C $MONERO_DIR checkout master
-#release-v0.11.0.0
 
 ## get monero core tag
 #get_tag
