@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/valiant1x/intensecoinwallet.svg?branch=master)](https://travis-ci.org/valiant1x/intensecoinwallet)
+
 # Monero GUI
 
 Copyright (c) 2014-2017, The Monero Project
