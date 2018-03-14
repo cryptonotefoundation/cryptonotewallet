@@ -10,6 +10,7 @@
 #include <QMessageBox>
 #include <QSplashScreen>
 #include <QStyleFactory>
+#include <QSettings>
 
 #include "CommandLineParser.h"
 #include "CurrencyAdapter.h"
@@ -102,6 +103,28 @@ int main(int argc, char* argv[]) {
     QMessageBox::information(nullptr, QObject::tr("Help"), cmdLineParser.getHelpText());
     return app.exec();
   }
+
+  //Create registry entries for URL execution
+  QSettings karbowanecKey("HKEY_CLASSES_ROOT\\karbowanec", QSettings::NativeFormat);
+  karbowanecKey.setValue(".", "Karbo Wallet");
+  karbowanecKey.setValue("URL Protocol", "");
+  QSettings karbowanecOpenKey("HKEY_CLASSES_ROOT\\karbowanec\\shell\\open\\command", QSettings::NativeFormat);
+  karbowanecOpenKey.setValue(".", "\"" + QCoreApplication::applicationFilePath().replace("/", "\\") + "\" \"%1\"");
+#endif
+
+#if defined(Q_OS_LINUX)
+  QStringList args;
+  QProcess exec;
+
+  //as root
+  args << "-c" << "printf '[Desktop Entry]\\nName = Karbo URL Handler\\nGenericName = Karbo\\nComment = Handle URL Sheme karbowanec://\\nExec = " + QCoreApplication::applicationFilePath() + " %%u\\nTerminal = false\\nType = Application\\nMimeType = x-scheme-handler/karbowanec;\\nIcon = Karbo-Wallet' | tee /usr/share/applications/karbowanec-handler.desktop";
+  exec.start("/bin/sh", args);
+  exec.waitForFinished();
+
+  args.clear();
+  args << "-c" << "update-desktop-database";
+  exec.start("/bin/sh", args);
+  exec.waitForFinished();
 #endif
 
   LoggerAdapter::instance().init();
