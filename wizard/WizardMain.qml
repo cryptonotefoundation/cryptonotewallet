@@ -360,7 +360,7 @@ ColumnLayout {
         anchors.right: parent.right
         anchors.bottom: parent.bottom
         anchors.margins:  (isMobile) ? 20 : 50
-        text: qsTr("USE MONERO") + translationManager.emptyString
+        text: qsTr("USE INTENSECOIN") + translationManager.emptyString
         shadowReleasedColor: "#983CFF"
         shadowPressedColor: "#B32D00"
         releasedColor: "#813CFF"

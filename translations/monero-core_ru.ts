@@ -1737,7 +1737,7 @@ Ringsize: </source>
     </message>
     <message>
         <location filename="../wizard/WizardMain.qml" line="366"/>
-        <source>USE MONERO</source>
+        <source>USE INTENSECOIN</source>
         <translation>ПОЛЬЗУЙТЕСЬ MONERO</translation>
     </message>
     <message>
@@ -1832,8 +1832,8 @@ Ringsize: </source>
     <name>WizardOptions</name>
     <message>
         <location filename="../wizard/WizardOptions.qml" line="87"/>
-        <source>Welcome to Monero!</source>
-        <translation>Добро пожаловать в Monero!</translation>
+        <source>Welcome to Intense Coin!</source>
+        <translation>Добро пожаловать в Intense Coin!</translation>
     </message>
     <message>
         <location filename="../wizard/WizardOptions.qml" line="98"/>
@@ -1907,8 +1907,8 @@ Ringsize: </source>
     <name>WizardWelcome</name>
     <message>
         <location filename="../wizard/WizardWelcome.qml" line="79"/>
-        <source>Welcome to Monero!</source>
-        <translation>Добро подаловать в Monero!</translation>
+        <source>Welcome to Intense Coin!</source>
+        <translation>Добро подаловать в Intense Coin!</translation>
     </message>
     <message>
         <location filename="../wizard/WizardWelcome.qml" line="89"/>

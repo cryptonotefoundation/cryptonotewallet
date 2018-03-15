@@ -1738,7 +1738,7 @@ Por favor atualize ou conecte outro daemon</translation>
     </message>
     <message>
         <location filename="../wizard/WizardMain.qml" line="366"/>
-        <source>USE MONERO</source>
+        <source>USE INTENSECOIN</source>
         <translation>USAR O MONERO</translation>
     </message>
     <message>
@@ -1834,8 +1834,8 @@ Por favor atualize ou conecte outro daemon</translation>
     <name>WizardOptions</name>
     <message>
         <location filename="../wizard/WizardOptions.qml" line="87"/>
-        <source>Welcome to Monero!</source>
-        <translation>Bem-vindo ao Monero!</translation>
+        <source>Welcome to Intense Coin!</source>
+        <translation>Bem-vindo ao Intense Coin!</translation>
     </message>
     <message>
         <location filename="../wizard/WizardOptions.qml" line="98"/>
@@ -1909,8 +1909,8 @@ Por favor atualize ou conecte outro daemon</translation>
     <name>WizardWelcome</name>
     <message>
         <location filename="../wizard/WizardWelcome.qml" line="79"/>
-        <source>Welcome to Monero!</source>
-        <translation>Bem-vindo ao Monero!</translation>
+        <source>Welcome to Intense Coin!</source>
+        <translation>Bem-vindo ao Intense Coin!</translation>
     </message>
     <message>
         <location filename="../wizard/WizardWelcome.qml" line="89"/>
