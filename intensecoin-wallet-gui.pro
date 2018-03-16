@@ -269,6 +269,7 @@ macx {
         -lboost_serialization \
         -lboost_thread-mt \
         -lboost_system \
+        -lboost_system-mt \
         -lboost_date_time \
         -lboost_filesystem \
         -lboost_regex \
@@ -323,6 +324,13 @@ TRANSLATION_TARGET_DIR = $$TARGET_FULL_PATH/translations
 macx {
     TARGET_FULL_PATH = $$sprintf("%1/%2/%3.app", $$OUT_PWD, $$DESTDIR, $$TARGET)
     TRANSLATION_TARGET_DIR = $$TARGET_FULL_PATH/Contents/Resources/translations
+    QMAKE_INFO_PLIST = $$PWD/macos/CustomInfo.plist
+        plist.target = "$${TARGET_FULL_PATH}/Contents/Info.plist"
+        plist.depends = $$PWD/macos/CustomInfo.plist
+        plist.commands = $(DEL_FILE) \"$${TARGET_FULL_PATH}/Contents/Info.plist\" $$escape_expand(\n\t) \
+                         $(COPY_FILE) $$PWD/macos/CustomInfo.plist \"$${TARGET_FULL_PATH}/Contents/Info.plist\"
+    QMAKE_EXTRA_TARGETS = plist
+    PRE_TARGETDEPS += $$plist.target
 }
 
 
@@ -374,7 +382,7 @@ QML_IMPORT_PATH =
 # Default rules for deployment.
 include(deployment.pri)
 macx {
-    deploy.commands += macdeployqt $$sprintf("%1/%2/%3.app", $$OUT_PWD, $$DESTDIR, $$TARGET) -qmldir=$$PWD
+    deploy.commands += macdeployqt $$sprintf("%1/%2/%3.app", $$OUT_PWD, $$DESTDIR, $$TARGET) -qmldir=$$PWD -dmg
 }
 
 win32 {
