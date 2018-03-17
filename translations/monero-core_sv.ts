@@ -1741,7 +1741,7 @@ Uppgradera eller anslut till en annan nod</translation>
     </message>
     <message>
         <location filename="../wizard/WizardMain.qml" line="366"/>
-        <source>USE MONERO</source>
+        <source>USE INTENSECOIN</source>
         <translation>ANVÄND MONERO</translation>
     </message>
     <message>
@@ -1842,8 +1842,8 @@ Uppgradera eller anslut till en annan nod</translation>
     <name>WizardOptions</name>
     <message>
         <location filename="../wizard/WizardOptions.qml" line="87"/>
-        <source>Welcome to Monero!</source>
-        <translation>Välkommen till Monero!</translation>
+        <source>Welcome to Intense Coin!</source>
+        <translation>Välkommen till Intense Coin!</translation>
     </message>
     <message>
         <location filename="../wizard/WizardOptions.qml" line="98"/>
@@ -1917,8 +1917,8 @@ Uppgradera eller anslut till en annan nod</translation>
     <name>WizardWelcome</name>
     <message>
         <location filename="../wizard/WizardWelcome.qml" line="79"/>
-        <source>Welcome to Monero!</source>
-        <translation>Välkommen till Monero!</translation>
+        <source>Welcome to Intense Coin!</source>
+        <translation>Välkommen till Intense Coin!</translation>
     </message>
     <message>
         <location filename="../wizard/WizardWelcome.qml" line="89"/>
