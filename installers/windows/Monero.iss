@@ -1,17 +1,17 @@
-; Monero Helium Hydra GUI Wallet Installer for Windows
+; Intensecoin GUI Wallet Installer for Windows
 ; Copyright (c) 2014-2017, The Monero Project
 ; See LICENSE
 
 [Setup]
-AppName=Monero GUI Wallet
+AppName=Intensecoin GUI Wallet
 ; For InnoSetup this is the property that uniquely identifies the application as such
 ; Thus it's important to keep this stable over releases
 ; With a different "AppName" InnoSetup would treat a mere update as a completely new application and thus mess up
 
 AppVersion=0.11.1.0
-DefaultDirName={pf}\Monero GUI Wallet
-DefaultGroupName=Monero GUI Wallet
-UninstallDisplayIcon={app}\monero-wallet-gui.exe
+DefaultDirName={pf}\Intensecoin GUI Wallet
+DefaultGroupName=Intensecoin GUI Wallet
+UninstallDisplayIcon={app}\intensecoin-wallet-gui.exe
 PrivilegesRequired=admin
 ArchitecturesInstallIn64BitMode=x64
 ArchitecturesAllowed=x64
@@ -36,32 +36,32 @@ Name: "en"; MessagesFile: "compiler:Default.isl"
 Source: "ReadMe.htm"; DestDir: "{app}"; Flags: comparetimestamp
 Source: "FinishImage.bmp"; Flags: dontcopy
 
-; Monero GUI wallet
-Source: "bin\monero-wallet-gui.exe"; DestDir: "{app}"; Flags: comparetimestamp
+; Intensecoin GUI wallet
+Source: "bin\intensecoin-wallet-gui.exe"; DestDir: "{app}"; Flags: comparetimestamp
 
-; Monero GUI wallet log file
+; Intensecoin GUI wallet log file
 ; The GUI wallet does not have the "--log-file" command-line option of the CLI wallet and insists to put the .log beside the .exe
 ; so pre-create the file and give the necessary permissions to the wallet to write into it
-Source: "monero-wallet-gui.log"; DestDir: "{app}"; Flags: comparetimestamp; Permissions: users-modify
+Source: "intensecoin-wallet-gui.log"; DestDir: "{app}"; Flags: comparetimestamp; Permissions: users-modify
 
-; Monero CLI wallet
-Source: "bin\monero-wallet-cli.exe"; DestDir: "{app}"; Flags: comparetimestamp
+; Intensecoin CLI wallet
+Source: "bin\intensecoin-wallet-cli.exe"; DestDir: "{app}"; Flags: comparetimestamp
 
-; Monero wallet RPC interface implementation
-Source: "bin\monero-wallet-rpc.exe"; DestDir: "{app}"; Flags: comparetimestamp
+; Intensecoin wallet RPC interface implementation
+Source: "bin\intensecoin-wallet-rpc.exe"; DestDir: "{app}"; Flags: comparetimestamp
 
-; Monero daemon
-Source: "bin\monerod.exe"; DestDir: "{app}"; Flags: comparetimestamp
+; Intensecoin daemon
+Source: "bin\intensecoind.exe"; DestDir: "{app}"; Flags: comparetimestamp
 
-; Monero daemon wrapped in a batch file that stops before the text window closes, to see any error messages
-Source: "monero-daemon.bat"; DestDir: "{app}"; Flags: comparetimestamp;
+; Intensecoin daemon wrapped in a batch file that stops before the text window closes, to see any error messages
+Source: "intensecoin-daemon.bat"; DestDir: "{app}"; Flags: comparetimestamp;
 
-; Monero blockchain utilities
-Source: "bin\monero-blockchain-export.exe"; DestDir: "{app}"; Flags: comparetimestamp
-Source: "bin\monero-blockchain-import.exe"; DestDir: "{app}"; Flags: comparetimestamp
+; Intensecoin blockchain utilities
+Source: "bin\intensecoin-blockchain-export.exe"; DestDir: "{app}"; Flags: comparetimestamp
+Source: "bin\intensecoin-blockchain-import.exe"; DestDir: "{app}"; Flags: comparetimestamp
 
 ; was present in 0.10.3.1, not present anymore in 0.11.1.0
-; Source: "bin\monero-utils-deserialize.exe"; DestDir: "{app}"; Flags: comparetimestamp
+; Source: "bin\intensecoin-utils-deserialize.exe"; DestDir: "{app}"; Flags: comparetimestamp
 
 ; Various .qm files for translating the wallet UI "on the fly" into all supported languages
 Source: "bin\translations\*"; DestDir: "{app}\translations"; Flags: recursesubdirs comparetimestamp
@@ -87,28 +87,28 @@ Source: "bin\audio\*"; DestDir: "{app}\audio"; Flags: recursesubdirs comparetime
 ; Qt bearer / network connection management
 Source: "bin\bearer\*"; DestDir: "{app}\bearer"; Flags: recursesubdirs comparetimestamp
 
-; Qt Windows platform plugin	
+; Qt Windows platform plugin
 Source: "bin\platforms\qwindows.dll"; DestDir: "{app}\platforms"; Flags: comparetimestamp
 
-; Qt support for SVG icons	
+; Qt support for SVG icons
 Source: "bin\iconengines\*"; DestDir: "{app}\iconengines"; Flags: recursesubdirs comparetimestamp
 
-; Qt support for various image formats (JPEG, BMP, SVG etc)	
+; Qt support for various image formats (JPEG, BMP, SVG etc)
 Source: "bin\imageformats\*"; DestDir: "{app}\imageformats"; Flags: recursesubdirs comparetimestamp
 
-; Qt multimedia support	
+; Qt multimedia support
 Source: "bin\QtMultimedia\*"; DestDir: "{app}\QtMultimedia"; Flags: recursesubdirs comparetimestamp
 Source: "bin\mediaservice\*"; DestDir: "{app}\mediaservice"; Flags: recursesubdirs comparetimestamp
 
 ; Qt support for "m3u" playlists
-; candidate for elimination? Don't think the GUI wallet needs such playlists	
+; candidate for elimination? Don't think the GUI wallet needs such playlists
 Source: "bin\playlistformats\*"; DestDir: "{app}\playlistformats"; Flags: recursesubdirs comparetimestamp
 
 ; Qt graphical effects as part of the core runtime, effects like blurring and blending
 Source: "bin\QtGraphicalEffects\*"; DestDir: "{app}\QtGraphicalEffects"; Flags: recursesubdirs comparetimestamp
 
 ; Some more Qt graphical effects
-; "private" as a name for this directory looks a little strange. Historical reasons?	
+; "private" as a name for this directory looks a little strange. Historical reasons?
 Source: "bin\private\*"; DestDir: "{app}\private"; Flags: recursesubdirs comparetimestamp
 
 ; Qt QML files
@@ -179,7 +179,7 @@ Source: "bin\liblcms2-2.dll"; DestDir: "{app}"; Flags: comparetimestamp
 ; XZ Utils, LZMA compression library
 Source: "bin\liblzma-5.dll"; DestDir: "{app}"; Flags: comparetimestamp
 
-; MNG / Portable Network Graphics ("animated PNG") 
+; MNG / Portable Network Graphics ("animated PNG")
 Source: "bin\libmng-2.dll"; DestDir: "{app}"; Flags: comparetimestamp
 
 ; PCRE, Perl Compatible Regular Expressions
@@ -210,7 +210,7 @@ Name: desktopicon; Description: "Create a &desktop icon"; GroupDescription: "Add
 Filename: "{app}\ReadMe.htm"; Description: "Show ReadMe"; Flags: postinstall shellexec skipifsilent
 
 ; DON'T offer to run the wallet right away, let the people read about initial blockchain download first in the ReadMe
-; Filename: "{app}\monero-wallet-gui.exe"; Description: "Run GUI Wallet now"; Flags: postinstall nowait skipifsilent
+; Filename: "{app}\intensecoin-wallet-gui.exe"; Description: "Run GUI Wallet now"; Flags: postinstall nowait skipifsilent
 
 
 [Code]
@@ -233,8 +233,8 @@ begin
   WizardForm.WizardBitmapImage2.Bitmap.LoadFromFile(ExpandConstant('{tmp}\FinishImage.bmp'));
 
   // Additional wizard page for entering a special blockchain location
-  blockChainDefaultDir := ExpandConstant('{commonappdata}\bitmonero');
-  s := 'The default folder to store the Monero blockchain is ' + blockChainDefaultDir;
+  blockChainDefaultDir := ExpandConstant('{commonappdata}\intensecoin');
+  s := 'The default folder to store the Intensecoin blockchain is ' + blockChainDefaultDir;
   s := s + '. As this will need more than 30 GB of free space, you may want to use a folder on a different drive.';
   s := s + ' If yes, specify that folder here.';
 
@@ -283,7 +283,7 @@ end;
 function DaemonLog(Param: String) : String;
 // Full filename of the log of the daemon
 begin
-  Result := BlockChainDir('') + '\bitmonero.log';
+  Result := BlockChainDir('') + '\intensecoin.log';
   // No quotes for filename with blanks as this is never used as part of a command line
 end;
 
@@ -310,12 +310,12 @@ procedure CurStepChanged(CurStep: TSetupStep);
 var s: TArrayOfString;
 begin
   if CurStep = ssPostInstall then begin
-    // Re-build "monero-daemon.bat" according to actual install and blockchain directory used
+    // Re-build "intensecoin-daemon.bat" according to actual install and blockchain directory used
     SetArrayLength(s, 3);
-    s[0] := 'REM Execute the Monero daemon and then stay with window open after it exits';
-    s[1] := '"' + ExpandConstant('{app}\monerod.exe') + '" ' + DaemonFlags('');
+    s[0] := 'REM Execute the Intensecoin daemon and then stay with window open after it exits';
+    s[1] := '"' + ExpandConstant('{app}\intensecoind.exe') + '" ' + DaemonFlags('');
     s[2] := 'PAUSE';
-    SaveStringsToFile(ExpandConstant('{app}\monero-daemon.bat'), s, false); 
+    SaveStringsToFile(ExpandConstant('{app}\intensecoin-daemon.bat'), s, false);
   end;
 end;
 
@@ -331,41 +331,41 @@ end;
 
 
 [Icons]
-; Icons in the "Monero GUI Wallet" program group
+; Icons in the "Intensecoin GUI Wallet" program group
 ; Windows will almost always display icons in alphabetical order, per level, so specify the text accordingly
-Name: "{group}\GUI Wallet"; Filename: "{app}\monero-wallet-gui.exe"
+Name: "{group}\GUI Wallet"; Filename: "{app}\intensecoin-wallet-gui.exe"
 Name: "{group}\Uninstall GUI Wallet"; Filename: "{uninstallexe}"
 
 ; Sub-folder "Utilities";
 ; Note that Windows 10, unlike Windows 7, ignores such sub-folders completely
 ; and insists on displaying ALL icons on one single level
-Name: "{group}\Utilities\Monero Daemon"; Filename: "{app}\monerod.exe"; Parameters: {code:DaemonFlags}
+Name: "{group}\Utilities\Intensecoin Daemon"; Filename: "{app}\intensecoind.exe"; Parameters: {code:DaemonFlags}
 Name: "{group}\Utilities\Read Me"; Filename: "{app}\ReadMe.htm"
 
 ; CLI wallet: Needs a working directory ("Start in:") set in the icon, because with no such directory set
 ; it tries to create new wallets without a path given in the probably non-writable program folder and will abort with an error
-Name: "{group}\Utilities\Textual (CLI) Wallet"; Filename: "{app}\monero-wallet-cli.exe"; WorkingDir: "{userdocs}\Monero\wallets"
+Name: "{group}\Utilities\Textual (CLI) Wallet"; Filename: "{app}\intensecoin-wallet-cli.exe"; WorkingDir: "{userdocs}\Intensecoin\wallets"
 
 ; Icons for troubleshooting problems / testing / debugging
 ; To show that they are in some way different (not for everyday use), make them visually different
-; from the others by text, and make them sort at the end by the help of "x" in front 
+; from the others by text, and make them sort at the end by the help of "x" in front
 Name: "{group}\Utilities\x (Check Blockchain Folder)"; Filename: "{win}\Explorer.exe"; Parameters: {code:BlockChainDir}
 Name: "{group}\Utilities\x (Check Daemon Log)"; Filename: "Notepad"; Parameters: {code:DaemonLog}
-Name: "{group}\Utilities\x (Check Default Wallet Folder)"; Filename: "{win}\Explorer.exe"; Parameters: "{userdocs}\Monero\wallets"
-Name: "{group}\Utilities\x (Check GUI Wallet Log)"; Filename: "Notepad"; Parameters: "{app}\monero-wallet-gui.log"
-Name: "{group}\Utilities\x (Try Daemon, Exit Confirm)"; Filename: "{app}\monero-daemon.bat"
+Name: "{group}\Utilities\x (Check Default Wallet Folder)"; Filename: "{win}\Explorer.exe"; Parameters: "{userdocs}\Intensecoin\wallets"
+Name: "{group}\Utilities\x (Check GUI Wallet Log)"; Filename: "Notepad"; Parameters: "{app}\intensecoin-wallet-gui.log"
+Name: "{group}\Utilities\x (Try Daemon, Exit Confirm)"; Filename: "{app}\intensecoin-daemon.bat"
 Name: "{group}\Utilities\x (Try GUI Wallet Low Graphics Mode)"; Filename: "{app}\start-low-graphics-mode.bat"
-Name: "{group}\Utilities\x (Try Kill Daemon)"; Filename: "Taskkill.exe"; Parameters: "/IM monerod.exe /T /F"
+Name: "{group}\Utilities\x (Try Kill Daemon)"; Filename: "Taskkill.exe"; Parameters: "/IM intensecoind.exe /T /F"
 
 ; Desktop icons, optional with the help of the "Task" section
-Name: "{userdesktop}\GUI Wallet"; Filename: "{app}\monero-wallet-gui.exe"; Tasks: desktopicon
+Name: "{userdesktop}\GUI Wallet"; Filename: "{app}\intensecoin-wallet-gui.exe"; Tasks: desktopicon
 
 
 [Registry]
 ; Store any special flags for the daemon in the registry location where the GUI wallet will take it from
 ; So if the wallet is used to start the daemon instead of the separate icon the wallet will pass the correct flags
 ; Side effect, mostly positive: The uninstaller will clean the registry
-Root: HKCU; Subkey: "Software\monero-project"; Flags: uninsdeletekeyifempty
-Root: HKCU; Subkey: "Software\monero-project\monero-core"; Flags: uninsdeletekey
-Root: HKCU; Subkey: "Software\monero-project\monero-core"; ValueType: string; ValueName: "daemonFlags"; ValueData: {code:DaemonFlags};
+Root: HKCU; Subkey: "Software\intensecoin-project"; Flags: uninsdeletekeyifempty
+Root: HKCU; Subkey: "Software\intensecoin-project\intensecoin-core"; Flags: uninsdeletekey
+Root: HKCU; Subkey: "Software\intensecoin-project\intensecoin-core"; ValueType: string; ValueName: "daemonFlags"; ValueData: {code:DaemonFlags};
 
