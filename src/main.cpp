@@ -8,6 +8,7 @@
 #include <QTranslator>
 #include <QLockFile>
 #include <QMessageBox>
+#include <QProcess>
 #include <QSplashScreen>
 #include <QStyleFactory>
 #include <QSettings>
