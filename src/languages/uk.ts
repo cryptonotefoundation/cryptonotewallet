@@ -909,8 +909,8 @@ Please wait...</source>
         <translation>Завантажується ланцюжок блоків...</translation>
     </message>
     <message>
-        <source>%1 wallet already running</source>
-        <translation>Гаманець Карбованця вже працює</translation>
+        <source>%1 wallet already running or cannot create lock file %2. Check your permissions.</source>
+        <translation>Гаманець Карбованця вже працює, або не може створити файл блокування %2. Перевірте права на запис.</translation>
     </message>
     <message>
         <source>New version available</source>

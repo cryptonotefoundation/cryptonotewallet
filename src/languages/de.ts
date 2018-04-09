@@ -914,8 +914,8 @@ Bitte warten...</translation>
         <translation>Lade Blockchain...</translation>
     </message>
     <message>
-        <source>%1 wallet already running</source>
-        <translation>%1 Brieftasche läuft bereits</translation>
+        <source>%1 wallet already running or cannot create lock file %2. Check your permissions.</source>
+        <translation>%1 Brieftasche läuft bereits oder kann die Sperrdatei %2 nicht erstellen. Überprüfen Sie Ihre Berechtigungen.</translation>
     </message>
     <message>
         <source>New version available</source>

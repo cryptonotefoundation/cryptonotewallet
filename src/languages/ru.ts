@@ -909,8 +909,8 @@ Please wait...</source>
         <translation>Загружается блокчейн...</translation>
     </message>
     <message>
-        <source>%1 wallet already running</source>
-        <translation>Кошелек Карбованца уже запущен</translation>
+        <source>%1 wallet already running or cannot create lock file %2. Check your permissions.</source>
+        <translation>Кошелек Карбованца уже запущен либо не может создать файл блокировки %2. Проверьте права на запись.</translation>
     </message>
     <message>
         <source>New version available</source>

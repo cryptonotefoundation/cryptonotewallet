@@ -48,6 +48,10 @@ void ChangeLanguageDialog::initLangList() {
          {
              index = 7;
          }
+         else if(currentlang.compare("pt") == 0)
+         {
+             index = 8;
+         }
 
          m_ui->ChangeLangComboBox->setCurrentIndex(index);
 
@@ -84,6 +88,10 @@ QString ChangeLanguageDialog::getLang() const {
          else if (n == 7)
          {
              lang = "fr";
+         }
+         else if (n == 8)
+         {
+             lang = "pt";
          }
          else
          {

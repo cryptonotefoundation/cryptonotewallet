@@ -909,8 +909,8 @@ Proszę czekać...</translation>
         <translation>Ładowanie łańcucha bloków...</translation>
     </message>
     <message>
-        <source>%1 wallet already running</source>
-        <translation>Portfel %1wańca już uruchomiony</translation>
+        <source>%1 wallet already running or cannot create lock file %2. Check your permissions.</source>
+        <translation>Portfel %1wańca już jest uruchomiony lub nie może utworzyć pliku blokady %2. Sprawdź uprawnienia.</translation>
     </message>
     <message>
         <source>New version available</source>

@@ -909,8 +909,8 @@ Please wait...</source>
         <translation>Загружаецца ланцужок блокаў...</translation>
     </message>
     <message>
-        <source>%1 wallet already running</source>
-        <translation>%1 ужо адкрыты</translation>
+        <source>%1 wallet already running or cannot create lock file %2. Check your permissions.</source>
+        <translation>%1 ужо адкрыты ці не можа стварыць файл блакіроўкі %2. Праверце правы доступу.</translation>
     </message>
     <message>
         <source>New version available</source>

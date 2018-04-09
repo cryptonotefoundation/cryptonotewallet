@@ -918,8 +918,8 @@ Por favor, espera...</translation>
         <translation>Cargando blockchain...</translation>
     </message>
     <message>
-        <source>%1 wallet already running</source>
-        <translation>%1 el monederoya está ejecutándose</translation>
+        <source>%1 wallet already running or cannot create lock file %2. Check your permissions.</source>
+        <translation>El monederoya %1 está ejecutándose o no puede crear el archivo de bloqueo %2. Verifica tus permisos.</translation>
     </message>
     <message>
         <source>New version available</source>
@@ -1243,7 +1243,7 @@ Do you want to go to download page?</source>
     <name>WalletGui::AboutDialog</name>
     <message>
         <source>About %1 Wallet</source>
-        <translation>Sobre %1% Monedero</translation>
+        <translation>Sobre %1 Monedero</translation>
     </message>
 </context>
 <context>
