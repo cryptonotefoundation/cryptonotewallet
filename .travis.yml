@@ -1,7 +1,7 @@
 language: cpp
 branches:
   only:
-    - xmr
+    - master
 matrix:
   include:
 
