@@ -1,0 +1,8 @@
+# Hashes of file build rules.
+b2998dc8c90a54f51495f5c9bf51b3bc CMakeFiles/doc
+cd8a3d6d9c255c5001b2e85eed82c849 CMakeFiles/version
+842ff26c54239a65544b725a42c6c7bb src/blockchain_utilities/blocksdat.o
+ff008a4be32fbdf9afcd186f4c6d39e2 src/blocks/blocks.o
+49ffee0bf00c5d145dad80e598151eff src/blocks/testnet_blocks.o
+34979307eb9c9ff9ffabb47980d6312c src/daemon/blocksdat.o
+dd5e231b1a2cb05d0931d8bb15409512 version/version.h

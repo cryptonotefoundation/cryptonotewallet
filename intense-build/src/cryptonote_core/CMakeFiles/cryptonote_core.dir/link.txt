@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcryptonote_core.a  CMakeFiles/obj_cryptonote_core.dir/blockchain.cpp.o CMakeFiles/obj_cryptonote_core.dir/cryptonote_core.cpp.o CMakeFiles/obj_cryptonote_core.dir/tx_pool.cpp.o CMakeFiles/obj_cryptonote_core.dir/cryptonote_tx_utils.cpp.o
+/usr/bin/ranlib libcryptonote_core.a

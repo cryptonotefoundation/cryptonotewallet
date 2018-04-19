@@ -1,0 +1,17 @@
+[Unit]
+Description=Intense Coin Full Node
+After=network.target
+
+[Service]
+User=intense
+Group=intense
+WorkingDirectory=~
+
+Type=forking
+PIDFile=/var/run/intensecoind.pid
+
+ExecStart=/usr/bin/intensecoind --config-file /etc/intensecoind.conf \
+    --detach --pidfile /var/run/intensecoind.pid
+
+[Install]
+WantedBy=multi-user.target
