@@ -52,10 +52,9 @@ Rectangle {
 
     property Transfer transferView: Transfer { }
     property Receive receiveView: Receive { }
-<<<<<<< HEAD
+
     property Intense intenseView: Intense { }
-=======
->>>>>>> e384d4eced4d2f6a3b4774068bda77d441a50684
+
     property TxKey txkeyView: TxKey { }
     property History historyView: History { }
     property Sign signView: Sign { }
@@ -161,15 +160,13 @@ Rectangle {
                 name: "Mining"
                 PropertyChanges { target: root; currentView: miningView }
                 PropertyChanges { target: mainFlickable; contentHeight: minHeight  }
-<<<<<<< HEAD
+
             }, State {
                 name: "Intense"
                 PropertyChanges { target: root; currentView: intenseView }
                 PropertyChanges { target: mainFlickable; contentHeight: minHeight }
              }
-=======
-            }
->>>>>>> e384d4eced4d2f6a3b4774068bda77d441a50684
+
         ]
 
     // color stripe at the top

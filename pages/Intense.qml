@@ -55,7 +55,7 @@ Rectangle {
                 xmlhttp.send();
 
                 function myFunction(json) {
-                    //var obj = JSON.parse(json);
+                    var obj = JSON.parse(json);
                     console.log(json)
                 }
             }

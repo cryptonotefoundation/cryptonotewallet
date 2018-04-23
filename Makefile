@@ -723,7 +723,6 @@ qrc_qml.cpp: qml.qrc \
 		lang/flags/uk.png \
 		lang/flags/israel.png \
 		lang/flags/china.png \
-		lang/flags/south_korea.png \
 		lang/flags/poland.png \
 		lang/flags/sweden.png \
 		lang/flags/indonesia.png \
