@@ -409,7 +409,8 @@ OTHER_FILES += \
 DISTFILES += \
     notes.txt \
     intense/src/wallet/CMakeLists.txt \
-    components/MobileHeader.qml
+    components/MobileHeader.qml \
+    pages/intense.qml
 
 
 # windows application icon
