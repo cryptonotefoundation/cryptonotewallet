@@ -3,8 +3,6 @@ import QtQuick.Layouts 1.1
 import QtQuick.Dialogs 1.2
 import "../components"
 
-
-
 Rectangle {
     id: root
     color: "#F0EEEE"
@@ -16,7 +14,6 @@ Rectangle {
       anchors.right: parent.right
       anchors.topMargin: 20
       height: 400
-
 
     }
 
@@ -33,6 +30,7 @@ Rectangle {
         clip: false
         border.width: 0
 
+
         StandardButton {
             id: getAll
             width: 80
@@ -48,44 +46,35 @@ Rectangle {
 
                 xmlhttp.onreadystatechange=function() {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                        myFunction(xmlhttp.responseText);
+                        var obj = xmlhttp.responseText
+                        console.log("meu log: " + obj)
+
+                        //myFunction(xmlhttp.responseText);
                     }
                 }
                 xmlhttp.open("GET", url, true);
                 xmlhttp.send();
-
-                function myFunction(json) {
-                    var obj = JSON.parse(json);
-                    console.log(json)
-                }
             }
         }
-
 
     }
 
+    // fires on every page load
+    function onPageCompleted() {
+        console.log("Intense page loaded");
+        console.log("onLoad")
+        var xmlhttp = new XMLHttpRequest();
+        var url = "https://jhx4eq5ijc.execute-api.us-east-1.amazonaws.com/dev/v1/services/search";
 
-       /*
-        onClicked: {
-            var xmlhttp = new XMLHttpRequest();
-            var url = "https://jhx4eq5ijc.execute-api.us-east-1.amazonaws.com/dev/v1/services/search";
-
-            xmlhttp.onreadystatechange=function() {
-                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    myFunction(xmlhttp.responseText);
-                }
-            }
-            xmlhttp.open("GET", url, true);
-            xmlhttp.send();
-
-            function myFunction(json) {
-                var obj = JSON.parse(json);
-                listview.model.append( {jsondata: obj.first +" "+ obj.last })
+        xmlhttp.onreadystatechange=function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                console.log("meu log: " + xmlhttp.responseText)
+                //myFunction(xmlhttp.responseText);
             }
         }
-        */
-
-    // pageRoot
+        xmlhttp.open("GET", url, true);
+        xmlhttp.send();
+    }
 
 
 
