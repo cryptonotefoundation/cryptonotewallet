@@ -50,7 +50,10 @@ Rectangle {
     signal addressBookClicked()
     signal miningClicked()
     signal signClicked()
+<<<<<<< HEAD
     signal intenseClicked()
+=======
+>>>>>>> e384d4eced4d2f6a3b4774068bda77d441a50684
 
     function selectItem(pos) {
         menuColumn.previousButton.checked = false
@@ -63,7 +66,10 @@ Rectangle {
         else if(pos === "TxKey")  menuColumn.previousButton = txkeyButton
         else if(pos === "Sign") menuColumn.previousButton = signButton
         else if(pos === "Settings") menuColumn.previousButton = settingsButton
+<<<<<<< HEAD
         else if(pos === "Intense") menuColumn.previousButton = intenseButton
+=======
+>>>>>>> e384d4eced4d2f6a3b4774068bda77d441a50684
         else if(pos === "Advanced") menuColumn.previousButton = advancedButton
 
         menuColumn.previousButton.checked = true
@@ -486,6 +492,7 @@ Rectangle {
                 height: 1
             }
 
+<<<<<<< HEAD
             // ------------- Intese Coin tab ---------------
             MenuButton {
                 id: intenseButton
@@ -509,6 +516,8 @@ Rectangle {
                 height: 1
             }
 
+=======
+>>>>>>> e384d4eced4d2f6a3b4774068bda77d441a50684
         }
 
         }

@@ -120,7 +120,11 @@
         <file>lang/flags/uk.png</file>
         <file>lang/flags/usa.png</file>
         <file>lang/flags/israel.png</file>
+<<<<<<< HEAD
         <file>lang/flags/south_korea.png</file>
+=======
+        <file>lang/flags/south_korea.png</file>        
+>>>>>>> e384d4eced4d2f6a3b4774068bda77d441a50684
         <file>lang/flags/romania.png</file>
         <file>wizard/WizardManageWalletUI.qml</file>
         <file>wizard/WizardRecoveryWallet.qml</file>
@@ -143,6 +147,9 @@
         <file>components/Notifier.qml</file>
         <file>components/MobileHeader.qml</file>
         <file>components/TextBlock.qml</file>
+<<<<<<< HEAD
         <file>pages/Intense.qml</file>
+=======
+>>>>>>> e384d4eced4d2f6a3b4774068bda77d441a50684
     </qresource>
 </RCC>

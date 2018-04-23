@@ -1061,7 +1061,10 @@ ApplicationWindow {
             anchors.bottom: parent.bottom
             onDashboardClicked: {middlePanel.state = "Dashboard"; if(isMobile) hideMenu()}
             onTransferClicked: {middlePanel.state = "Transfer"; if(isMobile) hideMenu()}
+<<<<<<< HEAD
             onIntenseClicked: {middlePanel.state = "Intense"; if(isMobile) hideMenu()}
+=======
+>>>>>>> e384d4eced4d2f6a3b4774068bda77d441a50684
             onReceiveClicked: {middlePanel.state = "Receive"; if(isMobile) hideMenu()}
             onTxkeyClicked: {middlePanel.state = "TxKey"; if(isMobile) hideMenu()}
             onHistoryClicked: {middlePanel.state = "History"; if(isMobile) hideMenu()}

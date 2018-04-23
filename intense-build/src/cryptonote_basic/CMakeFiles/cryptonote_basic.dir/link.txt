@@ -1,0 +1,2 @@
+/usr/bin/ar qc libcryptonote_basic.a  CMakeFiles/obj_cryptonote_basic.dir/account.cpp.o CMakeFiles/obj_cryptonote_basic.dir/checkpoints.cpp.o CMakeFiles/obj_cryptonote_basic.dir/cryptonote_basic_impl.cpp.o CMakeFiles/obj_cryptonote_basic.dir/cryptonote_format_utils.cpp.o CMakeFiles/obj_cryptonote_basic.dir/difficulty.cpp.o CMakeFiles/obj_cryptonote_basic.dir/hardfork.cpp.o CMakeFiles/obj_cryptonote_basic.dir/miner.cpp.o
+/usr/bin/ranlib libcryptonote_basic.a

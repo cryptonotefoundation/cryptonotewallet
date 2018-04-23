@@ -1,0 +1,2 @@
+/usr/bin/ar qc libblockchain_db.a  CMakeFiles/obj_blockchain_db.dir/blockchain_db.cpp.o CMakeFiles/obj_blockchain_db.dir/lmdb/db_lmdb.cpp.o
+/usr/bin/ranlib libblockchain_db.a

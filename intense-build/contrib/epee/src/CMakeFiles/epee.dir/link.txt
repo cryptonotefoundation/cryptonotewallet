@@ -1,0 +1,2 @@
+/usr/bin/ar qc libepee.a  CMakeFiles/epee.dir/hex.cpp.o CMakeFiles/epee.dir/http_auth.cpp.o CMakeFiles/epee.dir/mlog.cpp.o CMakeFiles/epee.dir/string_tools.cpp.o
+/usr/bin/ranlib libepee.a
