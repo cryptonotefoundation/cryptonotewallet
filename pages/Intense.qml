@@ -38,9 +38,8 @@ Rectangle {
             shadowPressedColor: "#B32D00"
             releasedColor: "#813CFF"
             pressedColor: "#983CFF"
-            text: qsTr("Generate");
+            text: qsTr("Refresh");
             onClicked: {
-                console.log("wow")
                 var xmlhttp = new XMLHttpRequest();
                 var url = "https://jhx4eq5ijc.execute-api.us-east-1.amazonaws.com/dev/v1/services/search";
 
@@ -62,14 +61,12 @@ Rectangle {
     // fires on every page load
     function onPageCompleted() {
         console.log("Intense page loaded");
-        console.log("onLoad")
         var xmlhttp = new XMLHttpRequest();
         var url = "https://jhx4eq5ijc.execute-api.us-east-1.amazonaws.com/dev/v1/services/search";
 
         xmlhttp.onreadystatechange=function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 console.log("meu log: " + xmlhttp.responseText)
-                //myFunction(xmlhttp.responseText);
             }
         }
         xmlhttp.open("GET", url, true);
