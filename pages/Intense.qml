@@ -118,48 +118,7 @@ Rectangle {
         filterButton.enabled = datesValid && amountsValid
     }
 
-
-
-    LineEdit {
-        visible: !isMobile
-        id: searchLine
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.top: filterHeaderText.bottom
-        anchors.leftMargin: 17
-        anchors.rightMargin: 17
-        anchors.topMargin: 5
-        placeholderText: qsTr("Type for incremental search...") + translationManager.emptyString
-        onTextChanged:  {
-            model.searchFilter = searchLine.text
-            selectedAmount.text = getSelectedAmount()
-        }
-    }
-
-    // Filter by description input (not implemented yet)
-    /*
-    Label {
-        id: descriptionLabel
-        anchors.left: parent.left
-        anchors.top: searchLine.bottom
-        anchors.leftMargin: 17
-        anchors.topMargin: 17
-        text: qsTr("Description <font size='2'>(Local database)</font>") + translationManager.emptyString
-        fontSize: 14
-    }
-
-    LineEdit {
-        id: descriptionLine
-        anchors.left: parent.left
-        anchors.right: parent.right
-        anchors.top: descriptionLabel.bottom
-        anchors.leftMargin: 17
-        anchors.rightMargin: 17
-        anchors.topMargin: 5
-    }
-    */
-
-
+/*
     // DateFrom picker
     Label {
         visible: !isMobile
@@ -213,166 +172,161 @@ Rectangle {
         }
     }
 
-
-
-    StandardButton {
-        visible: !isMobile
-        id: filterButton
-        anchors.bottom: toDatePicker.bottom
-        anchors.left: toDatePicker.right
-        anchors.leftMargin: 17
-        width: 60
-        text: qsTr("Filter") + translationManager.emptyString
-        shadowReleasedColor: "#4D0051"
-        shadowPressedColor: "#2D002F"
-        releasedColor: "#6B0072"
-        pressedColor: "#4D0051"
-        onClicked:  {
-            // Apply filter here;
-
-            resetFilter(model)
-
-            if (fromDatePicker.currentDate > toDatePicker.currentDate) {
-                console.error("Invalid date filter set: ", fromDatePicker.currentDate, toDatePicker.currentDate)
-            } else {
-                model.dateFromFilter  = fromDatePicker.currentDate
-                model.dateToFilter    = toDatePicker.currentDate
-            }
-
-            if (advancedFilteringCheckBox.checked) {
-                if (amountFromLine.text.length) {
-                    model.amountFromFilter = parseFloat(amountFromLine.text)
-                }
-
-                if (amountToLine.text.length) {
-                    model.amountToFilter = parseFloat(amountToLine.text)
-                }
-
-                var directionFilter = transactionsModel.get(transactionTypeDropdown.currentIndex).value
-                console.log("Direction filter: " + directionFilter)
-                model.directionFilter = directionFilter
-            }
-
-            selectedAmount.text = getSelectedAmount()
-        }
-    }
-
-    CheckBox {
-        visible: !isMobile
-        id: advancedFilteringCheckBox
-        text: qsTr("Favorite") + translationManager.emptyString
-        anchors.left: filterButton.right
-        anchors.bottom: filterButton.bottom
-        anchors.leftMargin: 17
-        checkedIcon: "../images/checkedVioletIcon.png"
-        uncheckedIcon: "../images/uncheckedIcon.png"
-        onClicked: {
-            if(checked) tableRect.height = Qt.binding(function(){ return tableRect.collapsedHeight })
-            else tableRect.height = Qt.binding(function(){ return tableRect.middleHeight })
-        }
-    }
+    */
 
     Label {
-        visible: !isMobile
-        id: transactionTypeText
-        anchors.left: parent.left
-        anchors.top: fromDatePicker.bottom
-        anchors.leftMargin: 17
-        anchors.topMargin: 17
-        width: 156
-        text: qsTr("Type") + translationManager.emptyString
-        fontSize: 14
-    }
+          visible: !isMobile
+          id: typeText
+          anchors.left: parent.left
+          anchors.top:  parent.top
+          anchors.leftMargin: 17
+          anchors.topMargin: 17
+          width: 156
+          text: qsTr("Type") + translationManager.emptyString
+          fontSize: 14
+      }
 
-    ListModel {
-        id: transactionsModel
-        ListElement { column1: "VPN"; column2: ""; value: TransactionInfo.Direction_Both }
-        ListElement { column1: "PROXY"; column2: ""; value: TransactionInfo.Direction_Out }
-    }
+      ListModel {
+          id: typeTransaction
+          ListElement { column1: "VPN"; column2: ""; value: TransactionInfo.Direction_Both }
+          ListElement { column1: "PROXY"; column2: ""; value: TransactionInfo.Direction_Out }
+      }
 
-    StandardDropdown {
-        visible: !isMobile
-        id: transactionTypeDropdown
-        anchors.left: parent.left
-        anchors.top: transactionTypeText.bottom
-        anchors.leftMargin: 17
-        anchors.topMargin: 5
-        width: 156
-        shadowReleasedColor: "#4D0051"
-        shadowPressedColor: "#2D002F"
-        releasedColor: "#6B0072"
-        pressedColor: "#4D0051"
-        dataModel: transactionsModel
-        z: 1
-    }
+      StandardDropdown {
+          visible: !isMobile
+          id: typeDrop
+          anchors.left: parent.left
+          anchors.top: typeText.bottom
+          anchors.leftMargin: 17
+          anchors.topMargin: 5
+          width: 156
+          shadowReleasedColor: "#4D0051"
+          shadowPressedColor: "#2D002F"
+          releasedColor: "#6B0072"
+          pressedColor: "#4D0051"
+          dataModel: typeTransaction
+          z: 100
+      }
 
-    Label {
-        visible: !isMobile
-        id: amountFromText
-        anchors.left: transactionTypeText.right
-        anchors.top: fromDatePicker.bottom
-        anchors.leftMargin: 17
-        anchors.topMargin: 17
-        width: 156
-        text: qsTr("Max Price") + translationManager.emptyString
-        fontSize: 14
-    }
+      Label {
+          visible: !isMobile
+          id: maxPriceText
+          anchors.left: typeText.right
+          anchors.top:  parent.top
+          anchors.leftMargin: 17
+          anchors.topMargin: 17
+          width: 156
+          text: qsTr("Max Price") + translationManager.emptyString
+          fontSize: 14
+      }
 
-    LineEdit {
-        visible: !isMobile
-        id: amountFromLine
-        anchors.left: transactionTypeDropdown.right
-        anchors.top: amountFromText.bottom
-        anchors.leftMargin: 17
-        anchors.topMargin: 5
-        width: 156
-        validator: DoubleValidator {
-            locale: "C"
-            notation: DoubleValidator.StandardNotation
-            bottom: 0
-        }
-        onTextChanged: {
-            // indicating error
-            amountFromLine.error = amountFromLine.text === "" ? false : parseFloat(amountFromLine.text) > parseFloat(amountToLine.text)
-            onFilterChanged()
-        }
+      LineEdit {
+          visible: !isMobile
+          id: maxPriceLine
+          anchors.left: typeDrop.right
+          anchors.top: maxPriceText.bottom
+          anchors.leftMargin: 17
+          anchors.topMargin: 5
+          width: 156
+      }
 
-    }
+      Label {
+          visible: !isMobile
+          id: minSpeedText
+          anchors.left: maxPriceText.right
+          anchors.top: parent.top
+          anchors.leftMargin: 17
+          anchors.topMargin: 17
+          width: 156
+          text: qsTr("Min Speed") + translationManager.emptyString
+          fontSize: 14
+      }
 
-    Label {
-        visible: !isMobile
-        id: amountToText
-        anchors.left: amountFromText.right
-        anchors.top: fromDatePicker.bottom
-        anchors.leftMargin: 17
-        anchors.topMargin: 17
-        width: 156
-        text: qsTr("Min Speed") + translationManager.emptyString
-        fontSize: 14
-    }
+      LineEdit {
+          visible: !isMobile
+          id: minSpeedLine
+          anchors.left: maxPriceLine.right
+          anchors.top: minSpeedText.bottom
+          anchors.leftMargin: 17
+          anchors.topMargin: 5
+          width: 156
 
-    LineEdit {
-        visible: !isMobile
-        id: amountToLine
-        anchors.left: amountFromLine.right
-        anchors.top: amountToText.bottom
-        anchors.leftMargin: 17
-        anchors.topMargin: 5
-        width: 156
-        validator: DoubleValidator {
-            locale: "C"
-            notation: DoubleValidator.StandardNotation
-            bottom: 0.0
-        }
+      }
 
-        onTextChanged: {
-            // indicating error
-            amountToLine.error = amountToLine.text === "" ? false : parseFloat(amountFromLine.text) > parseFloat(amountToLine.text)
-            onFilterChanged()
-        }
+      CheckBox {
+          visible: !isMobile
+          id: favoriteFilter
+          text: qsTr("Favorite") + translationManager.emptyString
+          anchors.left: minSpeedLine.right
+          anchors.bottom: parent.top
+          anchors.leftMargin: 17
+          checkedIcon: "../images/checkedVioletIcon.png"
+          uncheckedIcon: "../images/uncheckedIcon.png"
+          onClicked: {
+          }
+      }
 
-    }
+/*
+      CheckBox {
+          visible: !isMobile
+          id: advancedFilter
+          text: qsTr("Advanced Search") + translationManager.emptyString
+          anchors.left: favoriteFilter.right
+          anchors.bottom: parent.top
+          anchors.leftMargin: 17
+          checkedIcon: "../images/checkedVioletIcon.png"
+          uncheckedIcon: "../images/uncheckedIcon.png"
+          onClicked: {
+              if(checked) tableRect.height = Qt.binding(function(){ return tableRect.collapsedHeight })
+              else tableRect.height = Qt.binding(function(){ return tableRect.middleHeight })
+          }
+      }
+*/
 
+      StandardButton {
+          visible: !isMobile
+          id: filterButton
+          anchors.bottom: parent.top
+          anchors.left: favoriteFilter.right
+          anchors.leftMargin: 17
+          width: 60
+          text: qsTr("Filter") + translationManager.emptyString
+          shadowReleasedColor: "#4D0051"
+          shadowPressedColor: "#2D002F"
+          releasedColor: "#6B0072"
+          pressedColor: "#4D0051"
+          onClicked:  {
+              // Apply filter here;
+
+              resetFilter(model)
+              /*
+              if (fromDatePicker.currentDate > toDatePicker.currentDate) {
+                  console.error("Invalid date filter set: ", fromDatePicker.currentDate, toDatePicker.currentDate)
+              } else {
+                  model.dateFromFilter  = fromDatePicker.currentDate
+                  model.dateToFilter    = toDatePicker.currentDate
+              }
+
+              if (advancedFilteringCheckBox.checked) {
+                  if (amountFromLine.text.length) {
+                      model.amountFromFilter = parseFloat(amountFromLine.text)
+                  }
+
+                  if (amountToLine.text.length) {
+                      model.amountToFilter = parseFloat(amountToLine.text)
+                  }
+
+                  var directionFilter = transactionsModel.get(transactionTypeDropdown.currentIndex).value
+                  console.log("Direction filter: " + directionFilter)
+                  model.directionFilter = directionFilter
+              }
+
+              selectedAmount.text = getSelectedAmount()
+              */
+          }
+      }
+
+/*
     Item {
         visible: !isMobile
         id: expandItem
@@ -401,12 +355,14 @@ Rectangle {
             }
         }
     }
+    */
+
 
     Rectangle {
         id: tableRect
-        property int expandedHeight: parent.height - filterHeaderText.y - filterHeaderText.height - 5
-        property int middleHeight: parent.height - fromDatePicker.y - fromDatePicker.height - 17
-        property int collapsedHeight: parent.height - transactionTypeDropdown.y - transactionTypeDropdown.height - 17
+        property int expandedHeight: parent.height - parent.y - parent.height - 5
+        property int middleHeight: parent.height - maxPriceLine.y - maxPriceLine.height - 17
+        property int collapsedHeight: parent.height - typeDrop.y - typeDrop.height - 17
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: parent.bottom
