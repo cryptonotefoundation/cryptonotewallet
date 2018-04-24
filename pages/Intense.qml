@@ -47,8 +47,6 @@ Rectangle {
                     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                         var obj = xmlhttp.responseText
                         console.log("meu log: " + obj)
-
-                        //myFunction(xmlhttp.responseText);
                     }
                 }
                 xmlhttp.open("GET", url, true);
