@@ -47,132 +47,7 @@ Rectangle {
 
     color: "#F0EEEE"
 
-    function getSelectedAmount() {
-      if (typeof model === 'undefined' || model == null)
-        return ""
-      var total = 0
-      var count = model.rowCount()
-      for (var i = 0; i < count; ++i) {
-          var idx = model.index(i, 0)
-          var isout = model.data(idx, TransactionHistoryModel.TransactionIsOutRole);
-          var amount = model.data(idx, TransactionHistoryModel.TransactionAtomicAmountRole);
-          if (isout)
-              total = walletManager.subi(total, amount)
-          else
-              total = walletManager.addi(total, amount)
-      }
 
-      var sign = ""
-      if (total < 0) {
-        total = -total
-        sign = "-"
-      }
-      return count + qsTr(" selected: ") + sign + walletManager.displayAmount(total);
-    }
-
-    function resetFilter(model) {
-        model.dateFromFilter = "2014-04-18" // genesis block
-        model.dateToFilter = "9999-09-09" // fix before september 9999
-        // negative values disable filters here;
-        model.amountFromFilter = -1;
-        model.amountToFilter = -1;
-        model.directionFilter = TransactionInfo.Direction_Both;
-    }
-
-    onModelChanged: {
-        if (typeof model !== 'undefined') {
-
-            selectedAmount.text = getSelectedAmount()
-
-            if (!d.initialized) {
-                // setup date filter scope according to real transactions
-                fromDatePicker.currentDate = model.transactionHistory.firstDateTime
-                toDatePicker.currentDate = model.transactionHistory.lastDateTime
-
-                /* Default sorting by timestamp desc */
-                /* Sort indicator on table header */
-                /* index of 'sort by blockheight' column */
-                header.activeSortColumn = 2
-                /* Sorting model */
-
-                model.sortRole = TransactionHistoryModel.TransactionBlockHeightRole
-                model.sort(0, Qt.DescendingOrder);
-                d.initialized = true
-                // TODO: public interface for 'Header' item that will cause 'sortRequest' signal
-            }
-
-        }
-    }
-
-    function onFilterChanged() {
-        var datesValid = fromDatePicker.currentDate <= toDatePicker.currentDate
-        var amountsValid = amountFromLine.text === "" ? true :
-                            amountToLine.text === "" ? true:
-                                parseFloat(amountFromLine.text) <= parseFloat(amountToLine.text)
-
-        // reset error state if amount filter valid
-        if (amountsValid) {
-            amountFromLine.error = amountToLine.error = false
-        }
-
-        filterButton.enabled = datesValid && amountsValid
-    }
-
-/*
-    // DateFrom picker
-    Label {
-        visible: !isMobile
-        id: dateFromText
-        anchors.left: parent.left
-        anchors.top:  searchLine.bottom // descriptionLine.bottom
-        anchors.leftMargin: 17
-        anchors.topMargin: 17
-        width: 156
-        text: qsTr("Date from") + translationManager.emptyString
-        fontSize: 14
-    }
-
-    DatePicker {
-        visible: !isMobile
-        id: fromDatePicker
-        anchors.left: parent.left
-        anchors.top: dateFromText.bottom
-        anchors.leftMargin: 17
-        anchors.topMargin: 5
-        z: 2
-        onCurrentDateChanged: {
-            error = currentDate > toDatePicker.currentDate
-            onFilterChanged()
-        }
-    }
-
-    // DateTo picker
-    Label {
-        visible: !isMobile
-        id: dateToText
-        anchors.left: dateFromText.right
-        anchors.top:  searchLine.bottom //descriptionLine.bottom
-        anchors.leftMargin: 17
-        anchors.topMargin: 17
-        text: qsTr("To") + translationManager.emptyString
-        fontSize: 14
-    }
-
-    DatePicker {
-        visible: !isMobile
-        id: toDatePicker
-        anchors.left: fromDatePicker.right
-        anchors.top: dateToText.bottom
-        anchors.leftMargin: 17
-        anchors.topMargin: 5
-        z: 2
-        onCurrentDateChanged: {
-            error = currentDate < fromDatePicker.currentDate
-            onFilterChanged()
-        }
-    }
-
-    */
 
     Label {
           visible: !isMobile
@@ -326,38 +201,6 @@ Rectangle {
           }
       }
 
-/*
-    Item {
-        visible: !isMobile
-        id: expandItem
-        property bool expanded: false
-
-        anchors.right: parent.right
-        anchors.bottom: tableRect.top
-        width: 34
-        height: 34
-
-        Image {
-            anchors.centerIn: parent
-            source: "../images/expandTable.png"
-            rotation: parent.expanded ? 180 : 0
-        }
-
-        MouseArea {
-            anchors.fill: parent
-            onClicked: {
-                parent.expanded = !parent.expanded
-                if (advancedFilteringCheckBox.checked) {
-                    tableRect.height = Qt.binding(function() { return parent.expanded ? tableRect.expandedHeight : tableRect.collapsedHeight })
-                } else {
-                    tableRect.height = Qt.binding(function() { return parent.expanded ? tableRect.expandedHeight : tableRect.middleHeight })
-                }
-            }
-        }
-    }
-    */
-
-
     Rectangle {
         id: tableRect
         property int expandedHeight: parent.height - parent.y - parent.height - 5
@@ -392,12 +235,15 @@ Rectangle {
         ListModel {
             id: columnsModel
 
-            ListElement { columnName: "Provider"; columnWidth: 127 }
-            ListElement { columnName: "Pan"; columnWidth: 100 }
-            ListElement { columnName: "Rating"; columnWidth: 40 }
-            ListElement { columnName: "Type"; columnWidth: 40 }
-            ListElement { columnName: "Price per minute"; columnWidth: 148 }
-            ListElement { columnName: "Speed"; columnWidth: 148 }
+            ListElement {
+                columnName: "Provider";
+                columnWidth: 127;
+            }
+            ListElement { columnName: "Plan"; columnWidth: 140 }
+            ListElement { columnName: "Rating"; columnWidth: 90 }
+            ListElement { columnName: "Type"; columnWidth: 90 }
+            ListElement { columnName: "Price per minute"; columnWidth: 178 }
+            ListElement { columnName: "Speed"; columnWidth: 178 }
             ListElement { columnName: "Favorite"; columnWidth: 148 }
             ListElement { columnName: "Action"; columnWidth: 148 }
 
