@@ -235,21 +235,18 @@ Rectangle {
         ListModel {
             id: columnsModel
 
-            ListElement {
-                columnName: "Provider";
-                columnWidth: 127;
-            }
+            ListElement { columnName: "Provider"; columnWidth: 127 }
             ListElement { columnName: "Plan"; columnWidth: 140 }
             ListElement { columnName: "Rating"; columnWidth: 90 }
             ListElement { columnName: "Type"; columnWidth: 90 }
             ListElement { columnName: "Price per minute"; columnWidth: 178 }
             ListElement { columnName: "Speed"; columnWidth: 178 }
             ListElement { columnName: "Favorite"; columnWidth: 148 }
-            ListElement { columnName: "Action"; columnWidth: 148 }
+            //ListElement { columnName: "Action"; columnWidth: 148 }
 
         }
 
-        TableHeader {
+        IntenseHeader {
             id: header
             anchors.left: parent.left
             anchors.right: parent.right
@@ -317,7 +314,7 @@ Rectangle {
             flickable: table
         }
 
-        HistoryTable {
+        IntenseTable {
             id: table
             anchors.left: parent.left
             anchors.right: parent.right

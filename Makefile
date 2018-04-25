@@ -743,6 +743,7 @@ qrc_qml.cpp: qml.qrc \
 		components/TableHeader.qml \
 		components/StandardDropdown.qml \
 		components/DatePicker.qml \
+		components/IntenseTable.qml \
 		components/DaemonManagerDialog.qml \
 		components/IconButton.qml \
 		components/DaemonConsole.qml \
@@ -756,6 +757,7 @@ qrc_qml.cpp: qml.qrc \
 		components/TableDropdown.qml \
 		components/DashboardTable.qml \
 		components/PasswordDialog.qml \
+		components/IntenseHeader.qml \
 		components/MobileHeader.qml \
 		components/Scroll.qml \
 		components/ProgressBar.qml \

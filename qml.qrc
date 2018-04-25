@@ -144,5 +144,7 @@
         <file>components/TextBlock.qml</file>
         <file>pages/Intense.qml</file>
         <file>lang/flags/south_korea.png</file>
+        <file>components/IntenseTable.qml</file>
+        <file>components/IntenseHeader.qml</file>
     </qresource>
 </RCC>
