@@ -179,7 +179,7 @@ ListView {
                 font.pixelSize: 14
                 color: "#545454"
                 text: hash
-                // visible: !descriptionArea.containsMouse
+                visible: !descriptionArea.containsMouse
             }
         }
 

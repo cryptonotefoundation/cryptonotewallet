@@ -232,6 +232,51 @@ Rectangle {
             color: "#DBDBDB"
         }
 
+        ListView {
+                id: listView
+                anchors.fill: parent
+                model: listModel
+                delegate: Rectangle {
+                    width: listView.width
+                    height: listView.height / 4
+
+                    Text {
+                        text: listdata
+                        anchors.centerIn: parent
+                    }
+                }
+            }
+
+            ListModel {
+                id: listModel
+
+                Component.onCompleted: {
+                    var xmlhttp = new XMLHttpRequest();
+                    var url = "https://jhx4eq5ijc.execute-api.us-east-1.amazonaws.com/dev/v1/services/search";
+
+                    xmlhttp.onreadystatechange=function() {
+                        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                            jsonParse(xmlhttp.responseText);
+                            function jsonParse(response) {
+                                console.log(response + "meu log")
+                                var arr = JSON.parse(response);
+                                console.log("numero de loop: " + arr.length)
+                                for(var i = 0; i < arr.length; i++) {
+                                    listView.model.append( {listdata: arr[i].provider +" "+ arr[i].name +" "+ arr[i].mStability +" "+ arr[i].vpn +" "+ arr[i].cost +" "+ arr[i].downloadSpeed})
+                                }
+                            }
+                        }
+                    }
+                    xmlhttp.open("GET", url, true);
+                    xmlhttp.send();
+                }
+
+            }
+
+
+
+
+/*
         ListModel {
             id: columnsModel
 
@@ -242,7 +287,7 @@ Rectangle {
             ListElement { columnName: "Price per minute"; columnWidth: 178 }
             ListElement { columnName: "Speed"; columnWidth: 178 }
             ListElement { columnName: "Favorite"; columnWidth: 148 }
-            //ListElement { columnName: "Action"; columnWidth: 148 }
+            ListElement { columnName: "Action"; columnWidth: 148 }
 
         }
 
@@ -304,7 +349,8 @@ Rectangle {
                 model.sort(0, desc ? Qt.DescendingOrder : Qt.AscendingOrder)
             }
         }
-
+        */
+ /*
         Scroll {
             id: flickableScroll
             anchors.right: table.right
@@ -313,6 +359,8 @@ Rectangle {
             anchors.bottom: table.bottom
             flickable: table
         }
+
+
 
         IntenseTable {
             id: table
@@ -326,21 +374,12 @@ Rectangle {
             model: root.model
             addressBookModel: null
         }
+        */
     }
 
     function onPageCompleted() {
-        console.log("Intense page loaded");
-        var xmlhttp = new XMLHttpRequest();
-        var url = "https://jhx4eq5ijc.execute-api.us-east-1.amazonaws.com/dev/v1/services/search";
 
-        xmlhttp.onreadystatechange=function() {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                console.log("meu log: " + xmlhttp.responseText)
-            }
-        }
-        xmlhttp.open("GET", url, true);
-        xmlhttp.send();
-        table.addressBookModel = appWindow.currentWallet ? appWindow.currentWallet.addressBookModel : null
+        //table.addressBookModel = appWindow.currentWallet ? appWindow.currentWallet.addressBookModel : null
     }
 }
 
