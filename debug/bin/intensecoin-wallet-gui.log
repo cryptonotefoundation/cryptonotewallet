@@ -4219,3 +4219,1106 @@
 2018-04-25 19:58:34.463	    7f8db16cc780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
 2018-04-25 19:58:34.826	    7f8d8ffff700	WARN 	wallet.wallet2	src/wallet/wallet2.cpp:2497	Loaded wallet keys file, with public address: iz45vcxKLtwg5oh228BZdMLLu1bTjZtQdTifKcjXE1bWGkFrtzmNfsE5DAKfC9CyPRSfxyeTjgLaDRWis3qf7sUR21VezCRaN
 2018-04-25 19:59:10.236	    7f8d8f7fe700	WARN 	net.dns	src/common/dns_utils.cpp:487	WARNING: no two valid MoneroPulse DNS checkpoint records were received
+2018-04-26 13:18:55.778	    7f31c4ddc780	INFO 	logging	contrib/epee/src/mlog.cpp:148	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:19:00.628	    7f31c4ddc780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:19:03.378	    7f31c4ddc780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:19:03.534	    7f31a37fe700	ERROR	net.http	contrib/epee/include/storages/portable_storage.h:161	portable_storage: wrong binary format - signature mismatch
+2018-04-26 13:19:03.534	    7f31a37fe700	ERROR	wallet.wallet2	src/wallet/wallet2.cpp:2128	!r. THROW EXCEPTION: error::invalid_password
+2018-04-26 13:19:03.534	    7f31a37fe700	WARN 	net.http	src/wallet/wallet_errors.h:707	/home/laion/Desktop/alfasoft/intensecoinwallet/intense/src/wallet/wallet2.cpp:2128:N5tools5error16invalid_passwordE: invalid password
+2018-04-26 13:19:03.570	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:120	Exception: tools::error::invalid_password
+2018-04-26 13:19:03.570	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:121	Unwound call stack:
+2018-04-26 13:19:03.597	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [1] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui:__cxa_throw+0x106 [0x592bf6]
+2018-04-26 13:19:03.597	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [2] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x614ccb]
+2018-04-26 13:19:03.597	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [3] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5b73ad]
+2018-04-26 13:19:03.597	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [4] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5ba246]
+2018-04-26 13:19:03.597	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [5] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x47b516]
+2018-04-26 13:19:03.597	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [6] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x4960d9]
+2018-04-26 13:19:03.597	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [7] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x43f695]
+2018-04-26 13:19:03.597	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [8] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446d1f]
+2018-04-26 13:19:03.597	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [9] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446ba3]
+2018-04-26 13:19:03.597	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [10] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa22d3 [0x7f31c1c232d3]
+2018-04-26 13:19:03.597	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [11] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa57be [0x7f31c1c267be]
+2018-04-26 13:19:03.597	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [12] /lib/x86_64-linux-gnu/libpthread.so.0+0x76ba [0x7f31c196b6ba]
+2018-04-26 13:19:03.597	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [13] /lib/x86_64-linux-gnu/libc.so.6:clone+0x6d [0x7f31c101641d]
+2018-04-26 13:19:03.597	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [14] [(nil)]
+2018-04-26 13:19:03.597	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	
+2018-04-26 13:19:03.598	    7f31a37fe700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:504	Error opening wallet: invalid password
+2018-04-26 13:19:04.156	    7f31a37fe700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:553	Status_Critical - not storing wallet
+2018-04-26 13:19:05.134	    7f31a2ffd700	WARN 	net.dns	src/common/dns_utils.cpp:487	WARNING: no two valid MoneroPulse DNS checkpoint records were received
+2018-04-26 13:19:07.798	    7f31c4ddc780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:19:07.966	    7f31a37fe700	ERROR	net.http	contrib/epee/include/storages/portable_storage.h:161	portable_storage: wrong binary format - signature mismatch
+2018-04-26 13:19:07.966	    7f31a37fe700	ERROR	wallet.wallet2	src/wallet/wallet2.cpp:2128	!r. THROW EXCEPTION: error::invalid_password
+2018-04-26 13:19:07.966	    7f31a37fe700	WARN 	net.http	src/wallet/wallet_errors.h:707	/home/laion/Desktop/alfasoft/intensecoinwallet/intense/src/wallet/wallet2.cpp:2128:N5tools5error16invalid_passwordE: invalid password
+2018-04-26 13:19:07.966	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:120	Exception: tools::error::invalid_password
+2018-04-26 13:19:07.966	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:121	Unwound call stack:
+2018-04-26 13:19:07.968	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [1] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui:__cxa_throw+0x106 [0x592bf6]
+2018-04-26 13:19:07.968	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [2] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x614ccb]
+2018-04-26 13:19:07.968	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [3] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5b73ad]
+2018-04-26 13:19:07.968	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [4] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5ba246]
+2018-04-26 13:19:07.968	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [5] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x47b516]
+2018-04-26 13:19:07.968	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [6] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x4960d9]
+2018-04-26 13:19:07.968	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [7] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x43f695]
+2018-04-26 13:19:07.968	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [8] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446d1f]
+2018-04-26 13:19:07.968	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [9] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446ba3]
+2018-04-26 13:19:07.968	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [10] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa22d3 [0x7f31c1c232d3]
+2018-04-26 13:19:07.968	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [11] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa57be [0x7f31c1c267be]
+2018-04-26 13:19:07.968	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [12] /lib/x86_64-linux-gnu/libpthread.so.0+0x76ba [0x7f31c196b6ba]
+2018-04-26 13:19:07.968	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [13] /lib/x86_64-linux-gnu/libc.so.6:clone+0x6d [0x7f31c101641d]
+2018-04-26 13:19:07.968	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [14] [(nil)]
+2018-04-26 13:19:07.968	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	
+2018-04-26 13:19:07.968	    7f31a37fe700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:504	Error opening wallet: invalid password
+2018-04-26 13:19:07.971	    7f31a2ffd700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:553	Status_Critical - not storing wallet
+2018-04-26 13:19:14.579	    7f31c4ddc780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:19:14.699	    7f31a37fe700	ERROR	net.http	contrib/epee/include/storages/portable_storage.h:161	portable_storage: wrong binary format - signature mismatch
+2018-04-26 13:19:14.699	    7f31a37fe700	ERROR	wallet.wallet2	src/wallet/wallet2.cpp:2128	!r. THROW EXCEPTION: error::invalid_password
+2018-04-26 13:19:14.699	    7f31a37fe700	WARN 	net.http	src/wallet/wallet_errors.h:707	/home/laion/Desktop/alfasoft/intensecoinwallet/intense/src/wallet/wallet2.cpp:2128:N5tools5error16invalid_passwordE: invalid password
+2018-04-26 13:19:14.700	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:120	Exception: tools::error::invalid_password
+2018-04-26 13:19:14.700	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:121	Unwound call stack:
+2018-04-26 13:19:14.701	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [1] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui:__cxa_throw+0x106 [0x592bf6]
+2018-04-26 13:19:14.701	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [2] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x614ccb]
+2018-04-26 13:19:14.701	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [3] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5b73ad]
+2018-04-26 13:19:14.701	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [4] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5ba246]
+2018-04-26 13:19:14.701	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [5] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x47b516]
+2018-04-26 13:19:14.701	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [6] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x4960d9]
+2018-04-26 13:19:14.701	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [7] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x43f695]
+2018-04-26 13:19:14.701	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [8] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446d1f]
+2018-04-26 13:19:14.701	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [9] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446ba3]
+2018-04-26 13:19:14.701	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [10] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa22d3 [0x7f31c1c232d3]
+2018-04-26 13:19:14.701	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [11] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa57be [0x7f31c1c267be]
+2018-04-26 13:19:14.701	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [12] /lib/x86_64-linux-gnu/libpthread.so.0+0x76ba [0x7f31c196b6ba]
+2018-04-26 13:19:14.701	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [13] /lib/x86_64-linux-gnu/libc.so.6:clone+0x6d [0x7f31c101641d]
+2018-04-26 13:19:14.701	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [14] [(nil)]
+2018-04-26 13:19:14.701	    7f31a37fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	
+2018-04-26 13:19:14.702	    7f31a37fe700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:504	Error opening wallet: invalid password
+2018-04-26 13:19:14.703	    7f31a2ffd700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:553	Status_Critical - not storing wallet
+2018-04-26 13:19:21.595	    7f31c4ddc780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:19:21.715	    7f31a37fe700	WARN 	wallet.wallet2	src/wallet/wallet2.cpp:2497	Loaded wallet keys file, with public address: iz45vcxKLtwg5oh228BZdMLLu1bTjZtQdTifKcjXE1bWGkFrtzmNfsE5DAKfC9CyPRSfxyeTjgLaDRWis3qf7sUR21VezCRaN
+2018-04-26 13:24:28.401	    7fd37952c780	INFO 	logging	contrib/epee/src/mlog.cpp:148	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:24:31.564	    7fd37952c780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:24:33.431	    7fd37952c780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:24:33.603	    7fd357fff700	ERROR	net.http	contrib/epee/include/storages/portable_storage.h:161	portable_storage: wrong binary format - signature mismatch
+2018-04-26 13:24:33.604	    7fd357fff700	ERROR	wallet.wallet2	src/wallet/wallet2.cpp:2128	!r. THROW EXCEPTION: error::invalid_password
+2018-04-26 13:24:33.604	    7fd357fff700	WARN 	net.http	src/wallet/wallet_errors.h:707	/home/laion/Desktop/alfasoft/intensecoinwallet/intense/src/wallet/wallet2.cpp:2128:N5tools5error16invalid_passwordE: invalid password
+2018-04-26 13:24:33.605	    7fd357fff700	INFO 	stacktrace	src/common/stack_trace.cpp:120	Exception: tools::error::invalid_password
+2018-04-26 13:24:33.605	    7fd357fff700	INFO 	stacktrace	src/common/stack_trace.cpp:121	Unwound call stack:
+2018-04-26 13:24:33.631	    7fd357fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [1] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui:__cxa_throw+0x106 [0x592bf6]
+2018-04-26 13:24:33.631	    7fd357fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [2] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x614ccb]
+2018-04-26 13:24:33.631	    7fd357fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [3] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5b73ad]
+2018-04-26 13:24:33.631	    7fd357fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [4] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5ba246]
+2018-04-26 13:24:33.631	    7fd357fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [5] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x47b516]
+2018-04-26 13:24:33.631	    7fd357fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [6] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x4960d9]
+2018-04-26 13:24:33.631	    7fd357fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [7] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x43f695]
+2018-04-26 13:24:33.631	    7fd357fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [8] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446d1f]
+2018-04-26 13:24:33.631	    7fd357fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [9] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446ba3]
+2018-04-26 13:24:33.631	    7fd357fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [10] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa22d3 [0x7fd3763732d3]
+2018-04-26 13:24:33.631	    7fd357fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [11] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa57be [0x7fd3763767be]
+2018-04-26 13:24:33.631	    7fd357fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [12] /lib/x86_64-linux-gnu/libpthread.so.0+0x76ba [0x7fd3760bb6ba]
+2018-04-26 13:24:33.631	    7fd357fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [13] /lib/x86_64-linux-gnu/libc.so.6:clone+0x6d [0x7fd37576641d]
+2018-04-26 13:24:33.631	    7fd357fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [14] [(nil)]
+2018-04-26 13:24:33.631	    7fd357fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	
+2018-04-26 13:24:33.631	    7fd357fff700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:504	Error opening wallet: invalid password
+2018-04-26 13:24:34.119	    7fd357fff700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:553	Status_Critical - not storing wallet
+2018-04-26 13:24:35.661	    7fd3577fe700	WARN 	net.dns	src/common/dns_utils.cpp:487	WARNING: no two valid MoneroPulse DNS checkpoint records were received
+2018-04-26 13:24:37.353	    7fd37952c780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:24:37.503	    7fd357fff700	WARN 	wallet.wallet2	src/wallet/wallet2.cpp:2497	Loaded wallet keys file, with public address: iz45vcxKLtwg5oh228BZdMLLu1bTjZtQdTifKcjXE1bWGkFrtzmNfsE5DAKfC9CyPRSfxyeTjgLaDRWis3qf7sUR21VezCRaN
+2018-04-26 13:27:34.108	    7f3f76d59780	INFO 	logging	contrib/epee/src/mlog.cpp:148	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:27:36.137	    7f3f76d59780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:27:37.422	    7f3f76d59780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:27:37.607	    7f3f5db5d700	ERROR	net.http	contrib/epee/include/storages/portable_storage.h:161	portable_storage: wrong binary format - signature mismatch
+2018-04-26 13:27:37.609	    7f3f5db5d700	ERROR	wallet.wallet2	src/wallet/wallet2.cpp:2128	!r. THROW EXCEPTION: error::invalid_password
+2018-04-26 13:27:37.609	    7f3f5db5d700	WARN 	net.http	src/wallet/wallet_errors.h:707	/home/laion/Desktop/alfasoft/intensecoinwallet/intense/src/wallet/wallet2.cpp:2128:N5tools5error16invalid_passwordE: invalid password
+2018-04-26 13:27:37.610	    7f3f5db5d700	INFO 	stacktrace	src/common/stack_trace.cpp:120	Exception: tools::error::invalid_password
+2018-04-26 13:27:37.610	    7f3f5db5d700	INFO 	stacktrace	src/common/stack_trace.cpp:121	Unwound call stack:
+2018-04-26 13:27:37.613	    7f3f5db5d700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [1] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui:__cxa_throw+0x106 [0x592bf6]
+2018-04-26 13:27:37.613	    7f3f5db5d700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [2] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x614ccb]
+2018-04-26 13:27:37.613	    7f3f5db5d700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [3] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5b73ad]
+2018-04-26 13:27:37.613	    7f3f5db5d700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [4] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5ba246]
+2018-04-26 13:27:37.613	    7f3f5db5d700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [5] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x47b516]
+2018-04-26 13:27:37.613	    7f3f5db5d700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [6] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x4960d9]
+2018-04-26 13:27:37.613	    7f3f5db5d700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [7] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x43f695]
+2018-04-26 13:27:37.613	    7f3f5db5d700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [8] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446d1f]
+2018-04-26 13:27:37.613	    7f3f5db5d700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [9] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446ba3]
+2018-04-26 13:27:37.613	    7f3f5db5d700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [10] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa22d3 [0x7f3f73ba02d3]
+2018-04-26 13:27:37.613	    7f3f5db5d700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [11] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa57be [0x7f3f73ba37be]
+2018-04-26 13:27:37.613	    7f3f5db5d700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [12] /lib/x86_64-linux-gnu/libpthread.so.0+0x76ba [0x7f3f738e86ba]
+2018-04-26 13:27:37.613	    7f3f5db5d700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [13] /lib/x86_64-linux-gnu/libc.so.6:clone+0x6d [0x7f3f72f9341d]
+2018-04-26 13:27:37.614	    7f3f5db5d700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [14] [(nil)]
+2018-04-26 13:27:37.614	    7f3f5db5d700	INFO 	stacktrace	src/common/stack_trace.cpp:159	
+2018-04-26 13:27:37.614	    7f3f5db5d700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:504	Error opening wallet: invalid password
+2018-04-26 13:27:37.751	    7f3f5db5d700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:553	Status_Critical - not storing wallet
+2018-04-26 13:27:38.809	    7f3f5d35c700	WARN 	net.dns	src/common/dns_utils.cpp:487	WARNING: no two valid MoneroPulse DNS checkpoint records were received
+2018-04-26 13:27:44.470	    7f3f76d59780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:27:44.668	    7f3f5db5d700	WARN 	wallet.wallet2	src/wallet/wallet2.cpp:2497	Loaded wallet keys file, with public address: iz45vcxKLtwg5oh228BZdMLLu1bTjZtQdTifKcjXE1bWGkFrtzmNfsE5DAKfC9CyPRSfxyeTjgLaDRWis3qf7sUR21VezCRaN
+2018-04-26 13:33:37.406	    7f02b5f7d780	INFO 	logging	contrib/epee/src/mlog.cpp:148	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:33:40.465	    7f02b5f7d780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:33:42.245	    7f02b5f7d780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:33:42.460	    7f029cd80700	ERROR	net.http	contrib/epee/include/storages/portable_storage.h:161	portable_storage: wrong binary format - signature mismatch
+2018-04-26 13:33:42.461	    7f029cd80700	ERROR	wallet.wallet2	src/wallet/wallet2.cpp:2128	!r. THROW EXCEPTION: error::invalid_password
+2018-04-26 13:33:42.461	    7f029cd80700	WARN 	net.http	src/wallet/wallet_errors.h:707	/home/laion/Desktop/alfasoft/intensecoinwallet/intense/src/wallet/wallet2.cpp:2128:N5tools5error16invalid_passwordE: invalid password
+2018-04-26 13:33:42.462	    7f029cd80700	INFO 	stacktrace	src/common/stack_trace.cpp:120	Exception: tools::error::invalid_password
+2018-04-26 13:33:42.462	    7f029cd80700	INFO 	stacktrace	src/common/stack_trace.cpp:121	Unwound call stack:
+2018-04-26 13:33:42.466	    7f029cd80700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [1] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui:__cxa_throw+0x106 [0x592bf6]
+2018-04-26 13:33:42.466	    7f029cd80700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [2] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x614ccb]
+2018-04-26 13:33:42.466	    7f029cd80700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [3] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5b73ad]
+2018-04-26 13:33:42.466	    7f029cd80700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [4] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5ba246]
+2018-04-26 13:33:42.466	    7f029cd80700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [5] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x47b516]
+2018-04-26 13:33:42.466	    7f029cd80700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [6] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x4960d9]
+2018-04-26 13:33:42.466	    7f029cd80700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [7] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x43f695]
+2018-04-26 13:33:42.466	    7f029cd80700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [8] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446d1f]
+2018-04-26 13:33:42.466	    7f029cd80700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [9] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446ba3]
+2018-04-26 13:33:42.466	    7f029cd80700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [10] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa22d3 [0x7f02b2dc42d3]
+2018-04-26 13:33:42.466	    7f029cd80700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [11] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa57be [0x7f02b2dc77be]
+2018-04-26 13:33:42.466	    7f029cd80700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [12] /lib/x86_64-linux-gnu/libpthread.so.0+0x76ba [0x7f02b2b0c6ba]
+2018-04-26 13:33:42.466	    7f029cd80700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [13] /lib/x86_64-linux-gnu/libc.so.6:clone+0x6d [0x7f02b21b741d]
+2018-04-26 13:33:42.466	    7f029cd80700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [14] [(nil)]
+2018-04-26 13:33:42.466	    7f029cd80700	INFO 	stacktrace	src/common/stack_trace.cpp:159	
+2018-04-26 13:33:42.467	    7f029cd80700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:504	Error opening wallet: invalid password
+2018-04-26 13:33:42.672	    7f029cd80700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:553	Status_Critical - not storing wallet
+2018-04-26 13:33:42.772	    7f0293fff700	WARN 	net.dns	src/common/dns_utils.cpp:487	WARNING: no two valid MoneroPulse DNS checkpoint records were received
+2018-04-26 13:33:46.655	    7f02b5f7d780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:33:46.813	    7f029cd80700	WARN 	wallet.wallet2	src/wallet/wallet2.cpp:2497	Loaded wallet keys file, with public address: iz45vcxKLtwg5oh228BZdMLLu1bTjZtQdTifKcjXE1bWGkFrtzmNfsE5DAKfC9CyPRSfxyeTjgLaDRWis3qf7sUR21VezCRaN
+2018-04-26 13:35:33.272	    7f443f997780	INFO 	logging	contrib/epee/src/mlog.cpp:148	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:35:35.414	    7f443f997780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:35:36.673	    7f443f997780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:35:36.874	    7f442279a700	ERROR	net.http	contrib/epee/include/storages/portable_storage.h:161	portable_storage: wrong binary format - signature mismatch
+2018-04-26 13:35:36.875	    7f442279a700	ERROR	wallet.wallet2	src/wallet/wallet2.cpp:2128	!r. THROW EXCEPTION: error::invalid_password
+2018-04-26 13:35:36.875	    7f442279a700	WARN 	net.http	src/wallet/wallet_errors.h:707	/home/laion/Desktop/alfasoft/intensecoinwallet/intense/src/wallet/wallet2.cpp:2128:N5tools5error16invalid_passwordE: invalid password
+2018-04-26 13:35:36.876	    7f442279a700	INFO 	stacktrace	src/common/stack_trace.cpp:120	Exception: tools::error::invalid_password
+2018-04-26 13:35:36.876	    7f442279a700	INFO 	stacktrace	src/common/stack_trace.cpp:121	Unwound call stack:
+2018-04-26 13:35:36.879	    7f442279a700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [1] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui:__cxa_throw+0x106 [0x592bf6]
+2018-04-26 13:35:36.879	    7f442279a700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [2] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x614ccb]
+2018-04-26 13:35:36.879	    7f442279a700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [3] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5b73ad]
+2018-04-26 13:35:36.879	    7f442279a700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [4] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5ba246]
+2018-04-26 13:35:36.879	    7f442279a700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [5] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x47b516]
+2018-04-26 13:35:36.879	    7f442279a700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [6] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x4960d9]
+2018-04-26 13:35:36.879	    7f442279a700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [7] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x43f695]
+2018-04-26 13:35:36.880	    7f442279a700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [8] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446d1f]
+2018-04-26 13:35:36.880	    7f442279a700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [9] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446ba3]
+2018-04-26 13:35:36.880	    7f442279a700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [10] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa22d3 [0x7f443c7de2d3]
+2018-04-26 13:35:36.880	    7f442279a700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [11] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa57be [0x7f443c7e17be]
+2018-04-26 13:35:36.880	    7f442279a700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [12] /lib/x86_64-linux-gnu/libpthread.so.0+0x76ba [0x7f443c5266ba]
+2018-04-26 13:35:36.880	    7f442279a700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [13] /lib/x86_64-linux-gnu/libc.so.6:clone+0x6d [0x7f443bbd141d]
+2018-04-26 13:35:36.880	    7f442279a700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [14] [(nil)]
+2018-04-26 13:35:36.880	    7f442279a700	INFO 	stacktrace	src/common/stack_trace.cpp:159	
+2018-04-26 13:35:36.880	    7f442279a700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:504	Error opening wallet: invalid password
+2018-04-26 13:35:37.026	    7f442279a700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:553	Status_Critical - not storing wallet
+2018-04-26 13:35:37.180	    7f4421f99700	WARN 	net.dns	src/common/dns_utils.cpp:487	WARNING: no two valid MoneroPulse DNS checkpoint records were received
+2018-04-26 13:35:40.602	    7f443f997780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:35:40.747	    7f442279a700	WARN 	wallet.wallet2	src/wallet/wallet2.cpp:2497	Loaded wallet keys file, with public address: iz45vcxKLtwg5oh228BZdMLLu1bTjZtQdTifKcjXE1bWGkFrtzmNfsE5DAKfC9CyPRSfxyeTjgLaDRWis3qf7sUR21VezCRaN
+2018-04-26 13:36:59.562	    7f68d7be1780	INFO 	logging	contrib/epee/src/mlog.cpp:148	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:37:01.356	    7f68d7be1780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:37:02.553	    7f68d7be1780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:37:02.742	    7f68ba9c9700	ERROR	net.http	contrib/epee/include/storages/portable_storage.h:161	portable_storage: wrong binary format - signature mismatch
+2018-04-26 13:37:02.743	    7f68ba9c9700	ERROR	wallet.wallet2	src/wallet/wallet2.cpp:2128	!r. THROW EXCEPTION: error::invalid_password
+2018-04-26 13:37:02.743	    7f68ba9c9700	WARN 	net.http	src/wallet/wallet_errors.h:707	/home/laion/Desktop/alfasoft/intensecoinwallet/intense/src/wallet/wallet2.cpp:2128:N5tools5error16invalid_passwordE: invalid password
+2018-04-26 13:37:02.744	    7f68ba9c9700	INFO 	stacktrace	src/common/stack_trace.cpp:120	Exception: tools::error::invalid_password
+2018-04-26 13:37:02.744	    7f68ba9c9700	INFO 	stacktrace	src/common/stack_trace.cpp:121	Unwound call stack:
+2018-04-26 13:37:02.748	    7f68ba9c9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [1] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui:__cxa_throw+0x106 [0x592bf6]
+2018-04-26 13:37:02.748	    7f68ba9c9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [2] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x614ccb]
+2018-04-26 13:37:02.748	    7f68ba9c9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [3] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5b73ad]
+2018-04-26 13:37:02.748	    7f68ba9c9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [4] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5ba246]
+2018-04-26 13:37:02.748	    7f68ba9c9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [5] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x47b516]
+2018-04-26 13:37:02.748	    7f68ba9c9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [6] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x4960d9]
+2018-04-26 13:37:02.748	    7f68ba9c9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [7] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x43f695]
+2018-04-26 13:37:02.748	    7f68ba9c9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [8] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446d1f]
+2018-04-26 13:37:02.748	    7f68ba9c9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [9] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446ba3]
+2018-04-26 13:37:02.748	    7f68ba9c9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [10] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa22d3 [0x7f68d4a282d3]
+2018-04-26 13:37:02.748	    7f68ba9c9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [11] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa57be [0x7f68d4a2b7be]
+2018-04-26 13:37:02.748	    7f68ba9c9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [12] /lib/x86_64-linux-gnu/libpthread.so.0+0x76ba [0x7f68d47706ba]
+2018-04-26 13:37:02.748	    7f68ba9c9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [13] /lib/x86_64-linux-gnu/libc.so.6:clone+0x6d [0x7f68d3e1b41d]
+2018-04-26 13:37:02.748	    7f68ba9c9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [14] [(nil)]
+2018-04-26 13:37:02.748	    7f68ba9c9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	
+2018-04-26 13:37:02.749	    7f68ba9c9700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:504	Error opening wallet: invalid password
+2018-04-26 13:37:02.927	    7f68ba9c9700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:553	Status_Critical - not storing wallet
+2018-04-26 13:37:03.022	    7f68ba1c8700	WARN 	net.dns	src/common/dns_utils.cpp:487	WARNING: no two valid MoneroPulse DNS checkpoint records were received
+2018-04-26 13:37:06.373	    7f68d7be1780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:37:06.542	    7f68ba9c9700	WARN 	wallet.wallet2	src/wallet/wallet2.cpp:2497	Loaded wallet keys file, with public address: iz45vcxKLtwg5oh228BZdMLLu1bTjZtQdTifKcjXE1bWGkFrtzmNfsE5DAKfC9CyPRSfxyeTjgLaDRWis3qf7sUR21VezCRaN
+2018-04-26 13:39:26.543	    7f072e268780	INFO 	logging	contrib/epee/src/mlog.cpp:148	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:39:28.325	    7f072e268780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:39:29.495	    7f072e268780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:39:29.669	    7f071506b700	ERROR	net.http	contrib/epee/include/storages/portable_storage.h:161	portable_storage: wrong binary format - signature mismatch
+2018-04-26 13:39:29.672	    7f071506b700	ERROR	wallet.wallet2	src/wallet/wallet2.cpp:2128	!r. THROW EXCEPTION: error::invalid_password
+2018-04-26 13:39:29.672	    7f071506b700	WARN 	net.http	src/wallet/wallet_errors.h:707	/home/laion/Desktop/alfasoft/intensecoinwallet/intense/src/wallet/wallet2.cpp:2128:N5tools5error16invalid_passwordE: invalid password
+2018-04-26 13:39:29.672	    7f071506b700	INFO 	stacktrace	src/common/stack_trace.cpp:120	Exception: tools::error::invalid_password
+2018-04-26 13:39:29.673	    7f071506b700	INFO 	stacktrace	src/common/stack_trace.cpp:121	Unwound call stack:
+2018-04-26 13:39:29.676	    7f071506b700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [1] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui:__cxa_throw+0x106 [0x592bf6]
+2018-04-26 13:39:29.676	    7f071506b700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [2] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x614ccb]
+2018-04-26 13:39:29.676	    7f071506b700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [3] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5b73ad]
+2018-04-26 13:39:29.676	    7f071506b700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [4] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5ba246]
+2018-04-26 13:39:29.676	    7f071506b700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [5] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x47b516]
+2018-04-26 13:39:29.676	    7f071506b700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [6] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x4960d9]
+2018-04-26 13:39:29.676	    7f071506b700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [7] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x43f695]
+2018-04-26 13:39:29.676	    7f071506b700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [8] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446d1f]
+2018-04-26 13:39:29.676	    7f071506b700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [9] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446ba3]
+2018-04-26 13:39:29.676	    7f071506b700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [10] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa22d3 [0x7f072b0af2d3]
+2018-04-26 13:39:29.677	    7f071506b700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [11] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa57be [0x7f072b0b27be]
+2018-04-26 13:39:29.677	    7f071506b700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [12] /lib/x86_64-linux-gnu/libpthread.so.0+0x76ba [0x7f072adf76ba]
+2018-04-26 13:39:29.677	    7f071506b700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [13] /lib/x86_64-linux-gnu/libc.so.6:clone+0x6d [0x7f072a4a241d]
+2018-04-26 13:39:29.677	    7f071506b700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [14] [(nil)]
+2018-04-26 13:39:29.677	    7f071506b700	INFO 	stacktrace	src/common/stack_trace.cpp:159	
+2018-04-26 13:39:29.677	    7f071506b700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:504	Error opening wallet: invalid password
+2018-04-26 13:39:29.852	    7f071506b700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:553	Status_Critical - not storing wallet
+2018-04-26 13:39:33.787	    7f072e268780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:39:33.924	    7f071506b700	WARN 	wallet.wallet2	src/wallet/wallet2.cpp:2497	Loaded wallet keys file, with public address: iz45vcxKLtwg5oh228BZdMLLu1bTjZtQdTifKcjXE1bWGkFrtzmNfsE5DAKfC9CyPRSfxyeTjgLaDRWis3qf7sUR21VezCRaN
+2018-04-26 13:39:39.234	    7f071486a700	WARN 	net.dns	src/common/dns_utils.cpp:487	WARNING: no two valid MoneroPulse DNS checkpoint records were received
+2018-04-26 13:40:34.902	    7fd7468f0780	INFO 	logging	contrib/epee/src/mlog.cpp:148	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:40:36.632	    7fd7468f0780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:40:37.809	    7fd7468f0780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:40:38.051	    7fd72d6f3700	ERROR	net.http	contrib/epee/include/storages/portable_storage.h:161	portable_storage: wrong binary format - signature mismatch
+2018-04-26 13:40:38.052	    7fd72d6f3700	ERROR	wallet.wallet2	src/wallet/wallet2.cpp:2128	!r. THROW EXCEPTION: error::invalid_password
+2018-04-26 13:40:38.052	    7fd72d6f3700	WARN 	net.http	src/wallet/wallet_errors.h:707	/home/laion/Desktop/alfasoft/intensecoinwallet/intense/src/wallet/wallet2.cpp:2128:N5tools5error16invalid_passwordE: invalid password
+2018-04-26 13:40:38.053	    7fd72d6f3700	INFO 	stacktrace	src/common/stack_trace.cpp:120	Exception: tools::error::invalid_password
+2018-04-26 13:40:38.053	    7fd72d6f3700	INFO 	stacktrace	src/common/stack_trace.cpp:121	Unwound call stack:
+2018-04-26 13:40:38.057	    7fd72d6f3700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [1] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui:__cxa_throw+0x106 [0x592bf6]
+2018-04-26 13:40:38.057	    7fd72d6f3700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [2] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x614ccb]
+2018-04-26 13:40:38.057	    7fd72d6f3700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [3] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5b73ad]
+2018-04-26 13:40:38.057	    7fd72d6f3700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [4] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5ba246]
+2018-04-26 13:40:38.057	    7fd72d6f3700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [5] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x47b516]
+2018-04-26 13:40:38.057	    7fd72d6f3700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [6] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x4960d9]
+2018-04-26 13:40:38.057	    7fd72d6f3700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [7] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x43f695]
+2018-04-26 13:40:38.057	    7fd72d6f3700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [8] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446d1f]
+2018-04-26 13:40:38.057	    7fd72d6f3700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [9] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446ba3]
+2018-04-26 13:40:38.057	    7fd72d6f3700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [10] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa22d3 [0x7fd7437372d3]
+2018-04-26 13:40:38.057	    7fd72d6f3700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [11] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa57be [0x7fd74373a7be]
+2018-04-26 13:40:38.057	    7fd72d6f3700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [12] /lib/x86_64-linux-gnu/libpthread.so.0+0x76ba [0x7fd74347f6ba]
+2018-04-26 13:40:38.057	    7fd72d6f3700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [13] /lib/x86_64-linux-gnu/libc.so.6:clone+0x6d [0x7fd742b2a41d]
+2018-04-26 13:40:38.057	    7fd72d6f3700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [14] [(nil)]
+2018-04-26 13:40:38.057	    7fd72d6f3700	INFO 	stacktrace	src/common/stack_trace.cpp:159	
+2018-04-26 13:40:38.058	    7fd72d6f3700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:504	Error opening wallet: invalid password
+2018-04-26 13:40:38.191	    7fd72d6f3700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:553	Status_Critical - not storing wallet
+2018-04-26 13:40:41.544	    7fd7468f0780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:40:41.702	    7fd72d6f3700	WARN 	wallet.wallet2	src/wallet/wallet2.cpp:2497	Loaded wallet keys file, with public address: iz45vcxKLtwg5oh228BZdMLLu1bTjZtQdTifKcjXE1bWGkFrtzmNfsE5DAKfC9CyPRSfxyeTjgLaDRWis3qf7sUR21VezCRaN
+2018-04-26 13:40:57.276	    7fd72cef2700	WARN 	net.dns	src/common/dns_utils.cpp:487	WARNING: no two valid MoneroPulse DNS checkpoint records were received
+2018-04-26 13:41:22.867	    7fda663d0780	INFO 	logging	contrib/epee/src/mlog.cpp:148	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:41:24.648	    7fda663d0780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:41:25.823	    7fda663d0780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:41:26.020	    7fda4d1d3700	ERROR	net.http	contrib/epee/include/storages/portable_storage.h:161	portable_storage: wrong binary format - signature mismatch
+2018-04-26 13:41:26.020	    7fda4d1d3700	ERROR	wallet.wallet2	src/wallet/wallet2.cpp:2128	!r. THROW EXCEPTION: error::invalid_password
+2018-04-26 13:41:26.021	    7fda4d1d3700	WARN 	net.http	src/wallet/wallet_errors.h:707	/home/laion/Desktop/alfasoft/intensecoinwallet/intense/src/wallet/wallet2.cpp:2128:N5tools5error16invalid_passwordE: invalid password
+2018-04-26 13:41:26.021	    7fda4d1d3700	INFO 	stacktrace	src/common/stack_trace.cpp:120	Exception: tools::error::invalid_password
+2018-04-26 13:41:26.021	    7fda4d1d3700	INFO 	stacktrace	src/common/stack_trace.cpp:121	Unwound call stack:
+2018-04-26 13:41:26.026	    7fda4d1d3700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [1] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui:__cxa_throw+0x106 [0x592bf6]
+2018-04-26 13:41:26.026	    7fda4d1d3700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [2] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x614ccb]
+2018-04-26 13:41:26.026	    7fda4d1d3700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [3] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5b73ad]
+2018-04-26 13:41:26.026	    7fda4d1d3700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [4] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5ba246]
+2018-04-26 13:41:26.026	    7fda4d1d3700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [5] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x47b516]
+2018-04-26 13:41:26.026	    7fda4d1d3700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [6] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x4960d9]
+2018-04-26 13:41:26.026	    7fda4d1d3700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [7] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x43f695]
+2018-04-26 13:41:26.026	    7fda4d1d3700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [8] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446d1f]
+2018-04-26 13:41:26.026	    7fda4d1d3700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [9] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446ba3]
+2018-04-26 13:41:26.026	    7fda4d1d3700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [10] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa22d3 [0x7fda632172d3]
+2018-04-26 13:41:26.026	    7fda4d1d3700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [11] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa57be [0x7fda6321a7be]
+2018-04-26 13:41:26.027	    7fda4d1d3700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [12] /lib/x86_64-linux-gnu/libpthread.so.0+0x76ba [0x7fda62f5f6ba]
+2018-04-26 13:41:26.027	    7fda4d1d3700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [13] /lib/x86_64-linux-gnu/libc.so.6:clone+0x6d [0x7fda6260a41d]
+2018-04-26 13:41:26.027	    7fda4d1d3700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [14] [(nil)]
+2018-04-26 13:41:26.027	    7fda4d1d3700	INFO 	stacktrace	src/common/stack_trace.cpp:159	
+2018-04-26 13:41:26.027	    7fda4d1d3700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:504	Error opening wallet: invalid password
+2018-04-26 13:41:26.203	    7fda4d1d3700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:553	Status_Critical - not storing wallet
+2018-04-26 13:41:26.304	    7fda4c9d2700	WARN 	net.dns	src/common/dns_utils.cpp:487	WARNING: no two valid MoneroPulse DNS checkpoint records were received
+2018-04-26 13:41:29.573	    7fda663d0780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:41:29.710	    7fda4d1d3700	WARN 	wallet.wallet2	src/wallet/wallet2.cpp:2497	Loaded wallet keys file, with public address: iz45vcxKLtwg5oh228BZdMLLu1bTjZtQdTifKcjXE1bWGkFrtzmNfsE5DAKfC9CyPRSfxyeTjgLaDRWis3qf7sUR21VezCRaN
+2018-04-26 13:45:41.510	    7f6d86bc7780	INFO 	logging	contrib/epee/src/mlog.cpp:148	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:45:43.402	    7f6d86bc7780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:45:44.566	    7f6d86bc7780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:45:44.747	    7f6d6d9c2700	ERROR	net.http	contrib/epee/include/storages/portable_storage.h:161	portable_storage: wrong binary format - signature mismatch
+2018-04-26 13:45:44.748	    7f6d6d9c2700	ERROR	wallet.wallet2	src/wallet/wallet2.cpp:2128	!r. THROW EXCEPTION: error::invalid_password
+2018-04-26 13:45:44.748	    7f6d6d9c2700	WARN 	net.http	src/wallet/wallet_errors.h:707	/home/laion/Desktop/alfasoft/intensecoinwallet/intense/src/wallet/wallet2.cpp:2128:N5tools5error16invalid_passwordE: invalid password
+2018-04-26 13:45:44.749	    7f6d6d9c2700	INFO 	stacktrace	src/common/stack_trace.cpp:120	Exception: tools::error::invalid_password
+2018-04-26 13:45:44.749	    7f6d6d9c2700	INFO 	stacktrace	src/common/stack_trace.cpp:121	Unwound call stack:
+2018-04-26 13:45:44.755	    7f6d6d9c2700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [1] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui:__cxa_throw+0x106 [0x592bf6]
+2018-04-26 13:45:44.755	    7f6d6d9c2700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [2] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x614ccb]
+2018-04-26 13:45:44.755	    7f6d6d9c2700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [3] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5b73ad]
+2018-04-26 13:45:44.755	    7f6d6d9c2700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [4] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5ba246]
+2018-04-26 13:45:44.755	    7f6d6d9c2700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [5] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x47b516]
+2018-04-26 13:45:44.755	    7f6d6d9c2700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [6] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x4960d9]
+2018-04-26 13:45:44.755	    7f6d6d9c2700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [7] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x43f695]
+2018-04-26 13:45:44.755	    7f6d6d9c2700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [8] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446d1f]
+2018-04-26 13:45:44.755	    7f6d6d9c2700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [9] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446ba3]
+2018-04-26 13:45:44.755	    7f6d6d9c2700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [10] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa22d3 [0x7f6d83a0e2d3]
+2018-04-26 13:45:44.755	    7f6d6d9c2700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [11] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa57be [0x7f6d83a117be]
+2018-04-26 13:45:44.756	    7f6d6d9c2700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [12] /lib/x86_64-linux-gnu/libpthread.so.0+0x76ba [0x7f6d837566ba]
+2018-04-26 13:45:44.756	    7f6d6d9c2700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [13] /lib/x86_64-linux-gnu/libc.so.6:clone+0x6d [0x7f6d82e0141d]
+2018-04-26 13:45:44.756	    7f6d6d9c2700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [14] [(nil)]
+2018-04-26 13:45:44.756	    7f6d6d9c2700	INFO 	stacktrace	src/common/stack_trace.cpp:159	
+2018-04-26 13:45:44.756	    7f6d6d9c2700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:504	Error opening wallet: invalid password
+2018-04-26 13:45:44.968	    7f6d6d9c2700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:553	Status_Critical - not storing wallet
+2018-04-26 13:45:45.086	    7f6d6d1c1700	WARN 	net.dns	src/common/dns_utils.cpp:487	WARNING: no two valid MoneroPulse DNS checkpoint records were received
+2018-04-26 13:45:48.593	    7f6d86bc7780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:45:48.752	    7f6d6d9c2700	WARN 	wallet.wallet2	src/wallet/wallet2.cpp:2497	Loaded wallet keys file, with public address: iz45vcxKLtwg5oh228BZdMLLu1bTjZtQdTifKcjXE1bWGkFrtzmNfsE5DAKfC9CyPRSfxyeTjgLaDRWis3qf7sUR21VezCRaN
+2018-04-26 13:48:03.392	    7f1a656fe780	INFO 	logging	contrib/epee/src/mlog.cpp:148	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:49:36.169	    7f857bccc780	INFO 	logging	contrib/epee/src/mlog.cpp:148	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:49:38.466	    7f857bccc780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:49:39.964	    7f857bccc780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:49:40.178	    7f855eac9700	ERROR	net.http	contrib/epee/include/storages/portable_storage.h:161	portable_storage: wrong binary format - signature mismatch
+2018-04-26 13:49:40.179	    7f855eac9700	ERROR	wallet.wallet2	src/wallet/wallet2.cpp:2128	!r. THROW EXCEPTION: error::invalid_password
+2018-04-26 13:49:40.179	    7f855eac9700	WARN 	net.http	src/wallet/wallet_errors.h:707	/home/laion/Desktop/alfasoft/intensecoinwallet/intense/src/wallet/wallet2.cpp:2128:N5tools5error16invalid_passwordE: invalid password
+2018-04-26 13:49:40.180	    7f855eac9700	INFO 	stacktrace	src/common/stack_trace.cpp:120	Exception: tools::error::invalid_password
+2018-04-26 13:49:40.180	    7f855eac9700	INFO 	stacktrace	src/common/stack_trace.cpp:121	Unwound call stack:
+2018-04-26 13:49:40.184	    7f855eac9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [1] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui:__cxa_throw+0x106 [0x592bf6]
+2018-04-26 13:49:40.184	    7f855eac9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [2] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x614ccb]
+2018-04-26 13:49:40.184	    7f855eac9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [3] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5b73ad]
+2018-04-26 13:49:40.184	    7f855eac9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [4] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5ba246]
+2018-04-26 13:49:40.184	    7f855eac9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [5] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x47b516]
+2018-04-26 13:49:40.184	    7f855eac9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [6] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x4960d9]
+2018-04-26 13:49:40.184	    7f855eac9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [7] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x43f695]
+2018-04-26 13:49:40.184	    7f855eac9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [8] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446d1f]
+2018-04-26 13:49:40.184	    7f855eac9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [9] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446ba3]
+2018-04-26 13:49:40.184	    7f855eac9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [10] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa22d3 [0x7f8578b132d3]
+2018-04-26 13:49:40.184	    7f855eac9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [11] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa57be [0x7f8578b167be]
+2018-04-26 13:49:40.184	    7f855eac9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [12] /lib/x86_64-linux-gnu/libpthread.so.0+0x76ba [0x7f857885b6ba]
+2018-04-26 13:49:40.184	    7f855eac9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [13] /lib/x86_64-linux-gnu/libc.so.6:clone+0x6d [0x7f8577f0641d]
+2018-04-26 13:49:40.184	    7f855eac9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [14] [(nil)]
+2018-04-26 13:49:40.185	    7f855eac9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	
+2018-04-26 13:49:40.185	    7f855eac9700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:504	Error opening wallet: invalid password
+2018-04-26 13:49:40.370	    7f855eac9700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:553	Status_Critical - not storing wallet
+2018-04-26 13:49:43.618	    7f857bccc780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:49:43.808	    7f855eac9700	WARN 	wallet.wallet2	src/wallet/wallet2.cpp:2497	Loaded wallet keys file, with public address: iz45vcxKLtwg5oh228BZdMLLu1bTjZtQdTifKcjXE1bWGkFrtzmNfsE5DAKfC9CyPRSfxyeTjgLaDRWis3qf7sUR21VezCRaN
+2018-04-26 13:50:11.099	    7f855e2c8700	WARN 	net.dns	src/common/dns_utils.cpp:487	WARNING: no two valid MoneroPulse DNS checkpoint records were received
+2018-04-26 13:50:14.767	    7f4be4217780	INFO 	logging	contrib/epee/src/mlog.cpp:148	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:50:16.657	    7f4be4217780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:50:17.968	    7f4be4217780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:50:18.173	    7f4bc3019700	ERROR	net.http	contrib/epee/include/storages/portable_storage.h:161	portable_storage: wrong binary format - signature mismatch
+2018-04-26 13:50:18.188	    7f4bc3019700	ERROR	wallet.wallet2	src/wallet/wallet2.cpp:2128	!r. THROW EXCEPTION: error::invalid_password
+2018-04-26 13:50:18.188	    7f4bc3019700	WARN 	net.http	src/wallet/wallet_errors.h:707	/home/laion/Desktop/alfasoft/intensecoinwallet/intense/src/wallet/wallet2.cpp:2128:N5tools5error16invalid_passwordE: invalid password
+2018-04-26 13:50:18.189	    7f4bc3019700	INFO 	stacktrace	src/common/stack_trace.cpp:120	Exception: tools::error::invalid_password
+2018-04-26 13:50:18.189	    7f4bc3019700	INFO 	stacktrace	src/common/stack_trace.cpp:121	Unwound call stack:
+2018-04-26 13:50:18.193	    7f4bc3019700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [1] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui:__cxa_throw+0x106 [0x592bf6]
+2018-04-26 13:50:18.193	    7f4bc3019700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [2] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x614ccb]
+2018-04-26 13:50:18.193	    7f4bc3019700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [3] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5b73ad]
+2018-04-26 13:50:18.193	    7f4bc3019700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [4] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5ba246]
+2018-04-26 13:50:18.193	    7f4bc3019700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [5] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x47b516]
+2018-04-26 13:50:18.193	    7f4bc3019700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [6] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x4960d9]
+2018-04-26 13:50:18.194	    7f4bc3019700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [7] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x43f695]
+2018-04-26 13:50:18.194	    7f4bc3019700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [8] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446d1f]
+2018-04-26 13:50:18.194	    7f4bc3019700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [9] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446ba3]
+2018-04-26 13:50:18.194	    7f4bc3019700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [10] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa22d3 [0x7f4be105e2d3]
+2018-04-26 13:50:18.194	    7f4bc3019700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [11] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa57be [0x7f4be10617be]
+2018-04-26 13:50:18.194	    7f4bc3019700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [12] /lib/x86_64-linux-gnu/libpthread.so.0+0x76ba [0x7f4be0da66ba]
+2018-04-26 13:50:18.194	    7f4bc3019700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [13] /lib/x86_64-linux-gnu/libc.so.6:clone+0x6d [0x7f4be045141d]
+2018-04-26 13:50:18.194	    7f4bc3019700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [14] [(nil)]
+2018-04-26 13:50:18.194	    7f4bc3019700	INFO 	stacktrace	src/common/stack_trace.cpp:159	
+2018-04-26 13:50:18.194	    7f4bc3019700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:504	Error opening wallet: invalid password
+2018-04-26 13:50:18.387	    7f4bc3019700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:553	Status_Critical - not storing wallet
+2018-04-26 13:50:18.442	    7f4bc2818700	WARN 	net.dns	src/common/dns_utils.cpp:487	WARNING: no two valid MoneroPulse DNS checkpoint records were received
+2018-04-26 13:50:21.677	    7f4be4217780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:50:21.831	    7f4bc3019700	WARN 	wallet.wallet2	src/wallet/wallet2.cpp:2497	Loaded wallet keys file, with public address: iz45vcxKLtwg5oh228BZdMLLu1bTjZtQdTifKcjXE1bWGkFrtzmNfsE5DAKfC9CyPRSfxyeTjgLaDRWis3qf7sUR21VezCRaN
+2018-04-26 13:52:29.009	    7fbe8fbc2780	INFO 	logging	contrib/epee/src/mlog.cpp:148	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:52:30.878	    7fbe8fbc2780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:52:32.057	    7fbe8fbc2780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:52:32.313	    7fbe729b9700	ERROR	net.http	contrib/epee/include/storages/portable_storage.h:161	portable_storage: wrong binary format - signature mismatch
+2018-04-26 13:52:32.313	    7fbe729b9700	ERROR	wallet.wallet2	src/wallet/wallet2.cpp:2128	!r. THROW EXCEPTION: error::invalid_password
+2018-04-26 13:52:32.314	    7fbe729b9700	WARN 	net.http	src/wallet/wallet_errors.h:707	/home/laion/Desktop/alfasoft/intensecoinwallet/intense/src/wallet/wallet2.cpp:2128:N5tools5error16invalid_passwordE: invalid password
+2018-04-26 13:52:32.314	    7fbe729b9700	INFO 	stacktrace	src/common/stack_trace.cpp:120	Exception: tools::error::invalid_password
+2018-04-26 13:52:32.314	    7fbe729b9700	INFO 	stacktrace	src/common/stack_trace.cpp:121	Unwound call stack:
+2018-04-26 13:52:32.318	    7fbe729b9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [1] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui:__cxa_throw+0x106 [0x592bf6]
+2018-04-26 13:52:32.318	    7fbe729b9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [2] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x614ccb]
+2018-04-26 13:52:32.318	    7fbe729b9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [3] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5b73ad]
+2018-04-26 13:52:32.318	    7fbe729b9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [4] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5ba246]
+2018-04-26 13:52:32.318	    7fbe729b9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [5] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x47b516]
+2018-04-26 13:52:32.318	    7fbe729b9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [6] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x4960d9]
+2018-04-26 13:52:32.318	    7fbe729b9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [7] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x43f695]
+2018-04-26 13:52:32.318	    7fbe729b9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [8] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446d1f]
+2018-04-26 13:52:32.318	    7fbe729b9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [9] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446ba3]
+2018-04-26 13:52:32.318	    7fbe729b9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [10] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa22d3 [0x7fbe8ca092d3]
+2018-04-26 13:52:32.318	    7fbe729b9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [11] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa57be [0x7fbe8ca0c7be]
+2018-04-26 13:52:32.318	    7fbe729b9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [12] /lib/x86_64-linux-gnu/libpthread.so.0+0x76ba [0x7fbe8c7516ba]
+2018-04-26 13:52:32.318	    7fbe729b9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [13] /lib/x86_64-linux-gnu/libc.so.6:clone+0x6d [0x7fbe8bdfc41d]
+2018-04-26 13:52:32.318	    7fbe729b9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [14] [(nil)]
+2018-04-26 13:52:32.318	    7fbe729b9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	
+2018-04-26 13:52:32.319	    7fbe729b9700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:504	Error opening wallet: invalid password
+2018-04-26 13:52:32.479	    7fbe729b9700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:553	Status_Critical - not storing wallet
+2018-04-26 13:52:34.502	    7fbe721b8700	WARN 	net.dns	src/common/dns_utils.cpp:487	WARNING: no two valid MoneroPulse DNS checkpoint records were received
+2018-04-26 13:52:35.849	    7fbe8fbc2780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:52:36.039	    7fbe729b9700	WARN 	wallet.wallet2	src/wallet/wallet2.cpp:2497	Loaded wallet keys file, with public address: iz45vcxKLtwg5oh228BZdMLLu1bTjZtQdTifKcjXE1bWGkFrtzmNfsE5DAKfC9CyPRSfxyeTjgLaDRWis3qf7sUR21VezCRaN
+2018-04-26 13:54:20.118	    7fe886b5e780	INFO 	logging	contrib/epee/src/mlog.cpp:148	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:54:22.160	    7fe886b5e780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:54:23.495	    7fe886b5e780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:54:23.690	    7fe86d95a700	ERROR	net.http	contrib/epee/include/storages/portable_storage.h:161	portable_storage: wrong binary format - signature mismatch
+2018-04-26 13:54:23.691	    7fe86d95a700	ERROR	wallet.wallet2	src/wallet/wallet2.cpp:2128	!r. THROW EXCEPTION: error::invalid_password
+2018-04-26 13:54:23.691	    7fe86d95a700	WARN 	net.http	src/wallet/wallet_errors.h:707	/home/laion/Desktop/alfasoft/intensecoinwallet/intense/src/wallet/wallet2.cpp:2128:N5tools5error16invalid_passwordE: invalid password
+2018-04-26 13:54:23.692	    7fe86d95a700	INFO 	stacktrace	src/common/stack_trace.cpp:120	Exception: tools::error::invalid_password
+2018-04-26 13:54:23.692	    7fe86d95a700	INFO 	stacktrace	src/common/stack_trace.cpp:121	Unwound call stack:
+2018-04-26 13:54:23.696	    7fe86d95a700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [1] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui:__cxa_throw+0x106 [0x592bf6]
+2018-04-26 13:54:23.696	    7fe86d95a700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [2] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x614ccb]
+2018-04-26 13:54:23.696	    7fe86d95a700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [3] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5b73ad]
+2018-04-26 13:54:23.696	    7fe86d95a700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [4] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5ba246]
+2018-04-26 13:54:23.696	    7fe86d95a700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [5] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x47b516]
+2018-04-26 13:54:23.696	    7fe86d95a700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [6] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x4960d9]
+2018-04-26 13:54:23.696	    7fe86d95a700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [7] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x43f695]
+2018-04-26 13:54:23.696	    7fe86d95a700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [8] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446d1f]
+2018-04-26 13:54:23.696	    7fe86d95a700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [9] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446ba3]
+2018-04-26 13:54:23.697	    7fe86d95a700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [10] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa22d3 [0x7fe8839a52d3]
+2018-04-26 13:54:23.697	    7fe86d95a700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [11] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa57be [0x7fe8839a87be]
+2018-04-26 13:54:23.697	    7fe86d95a700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [12] /lib/x86_64-linux-gnu/libpthread.so.0+0x76ba [0x7fe8836ed6ba]
+2018-04-26 13:54:23.697	    7fe86d95a700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [13] /lib/x86_64-linux-gnu/libc.so.6:clone+0x6d [0x7fe882d9841d]
+2018-04-26 13:54:23.697	    7fe86d95a700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [14] [(nil)]
+2018-04-26 13:54:23.697	    7fe86d95a700	INFO 	stacktrace	src/common/stack_trace.cpp:159	
+2018-04-26 13:54:23.697	    7fe86d95a700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:504	Error opening wallet: invalid password
+2018-04-26 13:54:23.897	    7fe86d95a700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:553	Status_Critical - not storing wallet
+2018-04-26 13:54:27.554	    7fe886b5e780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:54:27.692	    7fe86d95a700	WARN 	wallet.wallet2	src/wallet/wallet2.cpp:2497	Loaded wallet keys file, with public address: iz45vcxKLtwg5oh228BZdMLLu1bTjZtQdTifKcjXE1bWGkFrtzmNfsE5DAKfC9CyPRSfxyeTjgLaDRWis3qf7sUR21VezCRaN
+2018-04-26 13:54:39.170	    7fe86d159700	WARN 	net.dns	src/common/dns_utils.cpp:487	WARNING: no two valid MoneroPulse DNS checkpoint records were received
+2018-04-26 13:58:57.614	    7f8cec3b3780	INFO 	logging	contrib/epee/src/mlog.cpp:148	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:59:00.261	    7f8cec3b3780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:59:01.855	    7f8cec3b3780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:59:02.059	    7f8ccb1aa700	ERROR	net.http	contrib/epee/include/storages/portable_storage.h:161	portable_storage: wrong binary format - signature mismatch
+2018-04-26 13:59:02.068	    7f8ccb1aa700	ERROR	wallet.wallet2	src/wallet/wallet2.cpp:2128	!r. THROW EXCEPTION: error::invalid_password
+2018-04-26 13:59:02.068	    7f8ccb1aa700	WARN 	net.http	src/wallet/wallet_errors.h:707	/home/laion/Desktop/alfasoft/intensecoinwallet/intense/src/wallet/wallet2.cpp:2128:N5tools5error16invalid_passwordE: invalid password
+2018-04-26 13:59:02.069	    7f8ccb1aa700	INFO 	stacktrace	src/common/stack_trace.cpp:120	Exception: tools::error::invalid_password
+2018-04-26 13:59:02.069	    7f8ccb1aa700	INFO 	stacktrace	src/common/stack_trace.cpp:121	Unwound call stack:
+2018-04-26 13:59:02.073	    7f8ccb1aa700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [1] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui:__cxa_throw+0x106 [0x592bf6]
+2018-04-26 13:59:02.073	    7f8ccb1aa700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [2] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x614ccb]
+2018-04-26 13:59:02.073	    7f8ccb1aa700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [3] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5b73ad]
+2018-04-26 13:59:02.073	    7f8ccb1aa700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [4] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5ba246]
+2018-04-26 13:59:02.073	    7f8ccb1aa700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [5] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x47b516]
+2018-04-26 13:59:02.073	    7f8ccb1aa700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [6] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x4960d9]
+2018-04-26 13:59:02.073	    7f8ccb1aa700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [7] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x43f695]
+2018-04-26 13:59:02.073	    7f8ccb1aa700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [8] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446d1f]
+2018-04-26 13:59:02.073	    7f8ccb1aa700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [9] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446ba3]
+2018-04-26 13:59:02.073	    7f8ccb1aa700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [10] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa22d3 [0x7f8ce91fa2d3]
+2018-04-26 13:59:02.073	    7f8ccb1aa700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [11] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa57be [0x7f8ce91fd7be]
+2018-04-26 13:59:02.073	    7f8ccb1aa700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [12] /lib/x86_64-linux-gnu/libpthread.so.0+0x76ba [0x7f8ce8f426ba]
+2018-04-26 13:59:02.073	    7f8ccb1aa700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [13] /lib/x86_64-linux-gnu/libc.so.6:clone+0x6d [0x7f8ce85ed41d]
+2018-04-26 13:59:02.074	    7f8ccb1aa700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [14] [(nil)]
+2018-04-26 13:59:02.074	    7f8ccb1aa700	INFO 	stacktrace	src/common/stack_trace.cpp:159	
+2018-04-26 13:59:02.074	    7f8ccb1aa700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:504	Error opening wallet: invalid password
+2018-04-26 13:59:02.270	    7f8ccb1aa700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:553	Status_Critical - not storing wallet
+2018-04-26 13:59:05.946	    7f8cec3b3780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 13:59:06.207	    7f8ccb1aa700	WARN 	wallet.wallet2	src/wallet/wallet2.cpp:2497	Loaded wallet keys file, with public address: iz45vcxKLtwg5oh228BZdMLLu1bTjZtQdTifKcjXE1bWGkFrtzmNfsE5DAKfC9CyPRSfxyeTjgLaDRWis3qf7sUR21VezCRaN
+2018-04-26 13:59:09.026	    7f8cca9a9700	WARN 	net.dns	src/common/dns_utils.cpp:487	WARNING: no two valid MoneroPulse DNS checkpoint records were received
+2018-04-26 14:04:12.872	    7f07a1314780	INFO 	logging	contrib/epee/src/mlog.cpp:148	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:04:15.329	    7f07a1314780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:04:16.941	    7f07a1314780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:04:17.189	    7f077ffff700	ERROR	net.http	contrib/epee/include/storages/portable_storage.h:161	portable_storage: wrong binary format - signature mismatch
+2018-04-26 14:04:17.197	    7f077ffff700	ERROR	wallet.wallet2	src/wallet/wallet2.cpp:2128	!r. THROW EXCEPTION: error::invalid_password
+2018-04-26 14:04:17.197	    7f077ffff700	WARN 	net.http	src/wallet/wallet_errors.h:707	/home/laion/Desktop/alfasoft/intensecoinwallet/intense/src/wallet/wallet2.cpp:2128:N5tools5error16invalid_passwordE: invalid password
+2018-04-26 14:04:17.198	    7f077ffff700	INFO 	stacktrace	src/common/stack_trace.cpp:120	Exception: tools::error::invalid_password
+2018-04-26 14:04:17.198	    7f077ffff700	INFO 	stacktrace	src/common/stack_trace.cpp:121	Unwound call stack:
+2018-04-26 14:04:17.202	    7f077ffff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [1] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui:__cxa_throw+0x106 [0x592bf6]
+2018-04-26 14:04:17.202	    7f077ffff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [2] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x614ccb]
+2018-04-26 14:04:17.202	    7f077ffff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [3] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5b73ad]
+2018-04-26 14:04:17.202	    7f077ffff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [4] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5ba246]
+2018-04-26 14:04:17.202	    7f077ffff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [5] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x47b516]
+2018-04-26 14:04:17.202	    7f077ffff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [6] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x4960d9]
+2018-04-26 14:04:17.202	    7f077ffff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [7] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x43f695]
+2018-04-26 14:04:17.202	    7f077ffff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [8] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446d1f]
+2018-04-26 14:04:17.202	    7f077ffff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [9] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446ba3]
+2018-04-26 14:04:17.202	    7f077ffff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [10] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa22d3 [0x7f079e15b2d3]
+2018-04-26 14:04:17.202	    7f077ffff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [11] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa57be [0x7f079e15e7be]
+2018-04-26 14:04:17.202	    7f077ffff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [12] /lib/x86_64-linux-gnu/libpthread.so.0+0x76ba [0x7f079dea36ba]
+2018-04-26 14:04:17.202	    7f077ffff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [13] /lib/x86_64-linux-gnu/libc.so.6:clone+0x6d [0x7f079d54e41d]
+2018-04-26 14:04:17.202	    7f077ffff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [14] [(nil)]
+2018-04-26 14:04:17.202	    7f077ffff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	
+2018-04-26 14:04:17.203	    7f077ffff700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:504	Error opening wallet: invalid password
+2018-04-26 14:04:17.429	    7f077ffff700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:553	Status_Critical - not storing wallet
+2018-04-26 14:04:17.474	    7f077f7fe700	WARN 	net.dns	src/common/dns_utils.cpp:487	WARNING: no two valid MoneroPulse DNS checkpoint records were received
+2018-04-26 14:04:20.806	    7f07a1314780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:04:21.005	    7f077ffff700	WARN 	wallet.wallet2	src/wallet/wallet2.cpp:2497	Loaded wallet keys file, with public address: iz45vcxKLtwg5oh228BZdMLLu1bTjZtQdTifKcjXE1bWGkFrtzmNfsE5DAKfC9CyPRSfxyeTjgLaDRWis3qf7sUR21VezCRaN
+2018-04-26 14:06:38.237	    7fdc5c49b780	INFO 	logging	contrib/epee/src/mlog.cpp:148	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:06:40.427	    7fdc5c49b780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:06:41.828	    7fdc5c49b780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:06:42.077	    7fdc3b286700	ERROR	net.http	contrib/epee/include/storages/portable_storage.h:161	portable_storage: wrong binary format - signature mismatch
+2018-04-26 14:06:42.094	    7fdc3b286700	ERROR	wallet.wallet2	src/wallet/wallet2.cpp:2128	!r. THROW EXCEPTION: error::invalid_password
+2018-04-26 14:06:42.094	    7fdc3b286700	WARN 	net.http	src/wallet/wallet_errors.h:707	/home/laion/Desktop/alfasoft/intensecoinwallet/intense/src/wallet/wallet2.cpp:2128:N5tools5error16invalid_passwordE: invalid password
+2018-04-26 14:06:42.095	    7fdc3b286700	INFO 	stacktrace	src/common/stack_trace.cpp:120	Exception: tools::error::invalid_password
+2018-04-26 14:06:42.096	    7fdc3b286700	INFO 	stacktrace	src/common/stack_trace.cpp:121	Unwound call stack:
+2018-04-26 14:06:42.114	    7fdc3b286700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [1] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui:__cxa_throw+0x106 [0x592bf6]
+2018-04-26 14:06:42.114	    7fdc3b286700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [2] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x614ccb]
+2018-04-26 14:06:42.114	    7fdc3b286700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [3] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5b73ad]
+2018-04-26 14:06:42.114	    7fdc3b286700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [4] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5ba246]
+2018-04-26 14:06:42.114	    7fdc3b286700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [5] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x47b516]
+2018-04-26 14:06:42.114	    7fdc3b286700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [6] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x4960d9]
+2018-04-26 14:06:42.114	    7fdc3b286700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [7] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x43f695]
+2018-04-26 14:06:42.114	    7fdc3b286700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [8] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446d1f]
+2018-04-26 14:06:42.114	    7fdc3b286700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [9] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446ba3]
+2018-04-26 14:06:42.114	    7fdc3b286700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [10] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa22d3 [0x7fdc592e22d3]
+2018-04-26 14:06:42.114	    7fdc3b286700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [11] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa57be [0x7fdc592e57be]
+2018-04-26 14:06:42.114	    7fdc3b286700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [12] /lib/x86_64-linux-gnu/libpthread.so.0+0x76ba [0x7fdc5902a6ba]
+2018-04-26 14:06:42.114	    7fdc3b286700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [13] /lib/x86_64-linux-gnu/libc.so.6:clone+0x6d [0x7fdc586d541d]
+2018-04-26 14:06:42.114	    7fdc3b286700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [14] [(nil)]
+2018-04-26 14:06:42.114	    7fdc3b286700	INFO 	stacktrace	src/common/stack_trace.cpp:159	
+2018-04-26 14:06:42.115	    7fdc3b286700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:504	Error opening wallet: invalid password
+2018-04-26 14:06:42.309	    7fdc3b286700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:553	Status_Critical - not storing wallet
+2018-04-26 14:06:42.312	    7fdc3aa85700	WARN 	net.dns	src/common/dns_utils.cpp:487	WARNING: no two valid MoneroPulse DNS checkpoint records were received
+2018-04-26 14:06:45.682	    7fdc5c49b780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:06:45.871	    7fdc3b286700	ERROR	net.http	contrib/epee/include/storages/portable_storage.h:161	portable_storage: wrong binary format - signature mismatch
+2018-04-26 14:06:45.871	    7fdc3b286700	ERROR	wallet.wallet2	src/wallet/wallet2.cpp:2128	!r. THROW EXCEPTION: error::invalid_password
+2018-04-26 14:06:45.871	    7fdc3b286700	WARN 	net.http	src/wallet/wallet_errors.h:707	/home/laion/Desktop/alfasoft/intensecoinwallet/intense/src/wallet/wallet2.cpp:2128:N5tools5error16invalid_passwordE: invalid password
+2018-04-26 14:06:45.871	    7fdc3b286700	INFO 	stacktrace	src/common/stack_trace.cpp:120	Exception: tools::error::invalid_password
+2018-04-26 14:06:45.871	    7fdc3b286700	INFO 	stacktrace	src/common/stack_trace.cpp:121	Unwound call stack:
+2018-04-26 14:06:45.872	    7fdc3b286700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [1] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui:__cxa_throw+0x106 [0x592bf6]
+2018-04-26 14:06:45.872	    7fdc3b286700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [2] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x614ccb]
+2018-04-26 14:06:45.872	    7fdc3b286700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [3] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5b73ad]
+2018-04-26 14:06:45.872	    7fdc3b286700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [4] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5ba246]
+2018-04-26 14:06:45.872	    7fdc3b286700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [5] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x47b516]
+2018-04-26 14:06:45.873	    7fdc3b286700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [6] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x4960d9]
+2018-04-26 14:06:45.873	    7fdc3b286700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [7] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x43f695]
+2018-04-26 14:06:45.873	    7fdc3b286700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [8] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446d1f]
+2018-04-26 14:06:45.873	    7fdc3b286700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [9] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446ba3]
+2018-04-26 14:06:45.873	    7fdc3b286700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [10] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa22d3 [0x7fdc592e22d3]
+2018-04-26 14:06:45.873	    7fdc3b286700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [11] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa57be [0x7fdc592e57be]
+2018-04-26 14:06:45.873	    7fdc3b286700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [12] /lib/x86_64-linux-gnu/libpthread.so.0+0x76ba [0x7fdc5902a6ba]
+2018-04-26 14:06:45.873	    7fdc3b286700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [13] /lib/x86_64-linux-gnu/libc.so.6:clone+0x6d [0x7fdc586d541d]
+2018-04-26 14:06:45.873	    7fdc3b286700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [14] [(nil)]
+2018-04-26 14:06:45.873	    7fdc3b286700	INFO 	stacktrace	src/common/stack_trace.cpp:159	
+2018-04-26 14:06:45.873	    7fdc3b286700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:504	Error opening wallet: invalid password
+2018-04-26 14:06:45.876	    7fdc3aa85700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:553	Status_Critical - not storing wallet
+2018-04-26 14:06:53.299	    7fdc5c49b780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:06:53.463	    7fdc3b286700	WARN 	wallet.wallet2	src/wallet/wallet2.cpp:2497	Loaded wallet keys file, with public address: iz45vcxKLtwg5oh228BZdMLLu1bTjZtQdTifKcjXE1bWGkFrtzmNfsE5DAKfC9CyPRSfxyeTjgLaDRWis3qf7sUR21VezCRaN
+2018-04-26 14:07:46.840	    7f50d3aad780	INFO 	logging	contrib/epee/src/mlog.cpp:148	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:07:49.014	    7f50d3aad780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:07:50.430	    7f50d3aad780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:07:50.670	    7f50b68ac700	ERROR	net.http	contrib/epee/include/storages/portable_storage.h:161	portable_storage: wrong binary format - signature mismatch
+2018-04-26 14:07:50.671	    7f50b68ac700	ERROR	wallet.wallet2	src/wallet/wallet2.cpp:2128	!r. THROW EXCEPTION: error::invalid_password
+2018-04-26 14:07:50.671	    7f50b68ac700	WARN 	net.http	src/wallet/wallet_errors.h:707	/home/laion/Desktop/alfasoft/intensecoinwallet/intense/src/wallet/wallet2.cpp:2128:N5tools5error16invalid_passwordE: invalid password
+2018-04-26 14:07:50.672	    7f50b68ac700	INFO 	stacktrace	src/common/stack_trace.cpp:120	Exception: tools::error::invalid_password
+2018-04-26 14:07:50.672	    7f50b68ac700	INFO 	stacktrace	src/common/stack_trace.cpp:121	Unwound call stack:
+2018-04-26 14:07:50.676	    7f50b68ac700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [1] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui:__cxa_throw+0x106 [0x592bf6]
+2018-04-26 14:07:50.676	    7f50b68ac700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [2] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x614ccb]
+2018-04-26 14:07:50.676	    7f50b68ac700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [3] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5b73ad]
+2018-04-26 14:07:50.676	    7f50b68ac700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [4] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5ba246]
+2018-04-26 14:07:50.676	    7f50b68ac700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [5] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x47b516]
+2018-04-26 14:07:50.676	    7f50b68ac700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [6] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x4960d9]
+2018-04-26 14:07:50.676	    7f50b68ac700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [7] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x43f695]
+2018-04-26 14:07:50.676	    7f50b68ac700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [8] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446d1f]
+2018-04-26 14:07:50.676	    7f50b68ac700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [9] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446ba3]
+2018-04-26 14:07:50.676	    7f50b68ac700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [10] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa22d3 [0x7f50d08f42d3]
+2018-04-26 14:07:50.676	    7f50b68ac700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [11] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa57be [0x7f50d08f77be]
+2018-04-26 14:07:50.677	    7f50b68ac700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [12] /lib/x86_64-linux-gnu/libpthread.so.0+0x76ba [0x7f50d063c6ba]
+2018-04-26 14:07:50.677	    7f50b68ac700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [13] /lib/x86_64-linux-gnu/libc.so.6:clone+0x6d [0x7f50cfce741d]
+2018-04-26 14:07:50.677	    7f50b68ac700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [14] [(nil)]
+2018-04-26 14:07:50.677	    7f50b68ac700	INFO 	stacktrace	src/common/stack_trace.cpp:159	
+2018-04-26 14:07:50.677	    7f50b68ac700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:504	Error opening wallet: invalid password
+2018-04-26 14:07:50.865	    7f50b68ac700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:553	Status_Critical - not storing wallet
+2018-04-26 14:07:54.593	    7f50d3aad780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:07:54.755	    7f50b68ac700	WARN 	wallet.wallet2	src/wallet/wallet2.cpp:2497	Loaded wallet keys file, with public address: iz45vcxKLtwg5oh228BZdMLLu1bTjZtQdTifKcjXE1bWGkFrtzmNfsE5DAKfC9CyPRSfxyeTjgLaDRWis3qf7sUR21VezCRaN
+2018-04-26 14:08:00.667	    7f50b60ab700	WARN 	net.dns	src/common/dns_utils.cpp:487	WARNING: no two valid MoneroPulse DNS checkpoint records were received
+2018-04-26 14:09:13.394	    7f24bbac1780	INFO 	logging	contrib/epee/src/mlog.cpp:148	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:09:15.572	    7f24bbac1780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:09:16.997	    7f24bbac1780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:09:17.290	    7f249e8bc700	ERROR	net.http	contrib/epee/include/storages/portable_storage.h:161	portable_storage: wrong binary format - signature mismatch
+2018-04-26 14:09:17.312	    7f249e8bc700	ERROR	wallet.wallet2	src/wallet/wallet2.cpp:2128	!r. THROW EXCEPTION: error::invalid_password
+2018-04-26 14:09:17.312	    7f249e8bc700	WARN 	net.http	src/wallet/wallet_errors.h:707	/home/laion/Desktop/alfasoft/intensecoinwallet/intense/src/wallet/wallet2.cpp:2128:N5tools5error16invalid_passwordE: invalid password
+2018-04-26 14:09:17.313	    7f249e8bc700	INFO 	stacktrace	src/common/stack_trace.cpp:120	Exception: tools::error::invalid_password
+2018-04-26 14:09:17.313	    7f249e8bc700	INFO 	stacktrace	src/common/stack_trace.cpp:121	Unwound call stack:
+2018-04-26 14:09:17.325	    7f249e8bc700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [1] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui:__cxa_throw+0x106 [0x592bf6]
+2018-04-26 14:09:17.325	    7f249e8bc700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [2] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x614ccb]
+2018-04-26 14:09:17.325	    7f249e8bc700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [3] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5b73ad]
+2018-04-26 14:09:17.325	    7f249e8bc700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [4] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5ba246]
+2018-04-26 14:09:17.326	    7f249e8bc700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [5] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x47b516]
+2018-04-26 14:09:17.326	    7f249e8bc700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [6] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x4960d9]
+2018-04-26 14:09:17.326	    7f249e8bc700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [7] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x43f695]
+2018-04-26 14:09:17.326	    7f249e8bc700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [8] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446d1f]
+2018-04-26 14:09:17.326	    7f249e8bc700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [9] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446ba3]
+2018-04-26 14:09:17.326	    7f249e8bc700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [10] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa22d3 [0x7f24b89082d3]
+2018-04-26 14:09:17.326	    7f249e8bc700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [11] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa57be [0x7f24b890b7be]
+2018-04-26 14:09:17.326	    7f249e8bc700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [12] /lib/x86_64-linux-gnu/libpthread.so.0+0x76ba [0x7f24b86506ba]
+2018-04-26 14:09:17.326	    7f249e8bc700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [13] /lib/x86_64-linux-gnu/libc.so.6:clone+0x6d [0x7f24b7cfb41d]
+2018-04-26 14:09:17.326	    7f249e8bc700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [14] [(nil)]
+2018-04-26 14:09:17.326	    7f249e8bc700	INFO 	stacktrace	src/common/stack_trace.cpp:159	
+2018-04-26 14:09:17.326	    7f249e8bc700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:504	Error opening wallet: invalid password
+2018-04-26 14:09:17.575	    7f249e8bc700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:553	Status_Critical - not storing wallet
+2018-04-26 14:09:20.759	    7f24bbac1780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:09:20.975	    7f249e8bc700	WARN 	wallet.wallet2	src/wallet/wallet2.cpp:2497	Loaded wallet keys file, with public address: iz45vcxKLtwg5oh228BZdMLLu1bTjZtQdTifKcjXE1bWGkFrtzmNfsE5DAKfC9CyPRSfxyeTjgLaDRWis3qf7sUR21VezCRaN
+2018-04-26 14:09:40.246	    7f249e0bb700	WARN 	net.dns	src/common/dns_utils.cpp:487	WARNING: no two valid MoneroPulse DNS checkpoint records were received
+2018-04-26 14:09:48.017	    7f40a9362780	INFO 	logging	contrib/epee/src/mlog.cpp:148	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:09:50.333	    7f40a9362780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:09:51.779	    7f40a9362780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:09:52.047	    7f4087fff700	ERROR	net.http	contrib/epee/include/storages/portable_storage.h:161	portable_storage: wrong binary format - signature mismatch
+2018-04-26 14:09:52.058	    7f4087fff700	ERROR	wallet.wallet2	src/wallet/wallet2.cpp:2128	!r. THROW EXCEPTION: error::invalid_password
+2018-04-26 14:09:52.058	    7f4087fff700	WARN 	net.http	src/wallet/wallet_errors.h:707	/home/laion/Desktop/alfasoft/intensecoinwallet/intense/src/wallet/wallet2.cpp:2128:N5tools5error16invalid_passwordE: invalid password
+2018-04-26 14:09:52.059	    7f4087fff700	INFO 	stacktrace	src/common/stack_trace.cpp:120	Exception: tools::error::invalid_password
+2018-04-26 14:09:52.059	    7f4087fff700	INFO 	stacktrace	src/common/stack_trace.cpp:121	Unwound call stack:
+2018-04-26 14:09:52.063	    7f4087fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [1] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui:__cxa_throw+0x106 [0x592bf6]
+2018-04-26 14:09:52.063	    7f4087fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [2] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x614ccb]
+2018-04-26 14:09:52.063	    7f4087fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [3] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5b73ad]
+2018-04-26 14:09:52.063	    7f4087fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [4] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5ba246]
+2018-04-26 14:09:52.063	    7f4087fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [5] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x47b516]
+2018-04-26 14:09:52.063	    7f4087fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [6] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x4960d9]
+2018-04-26 14:09:52.063	    7f4087fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [7] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x43f695]
+2018-04-26 14:09:52.063	    7f4087fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [8] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446d1f]
+2018-04-26 14:09:52.063	    7f4087fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [9] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446ba3]
+2018-04-26 14:09:52.063	    7f4087fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [10] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa22d3 [0x7f40a61a92d3]
+2018-04-26 14:09:52.063	    7f4087fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [11] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa57be [0x7f40a61ac7be]
+2018-04-26 14:09:52.063	    7f4087fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [12] /lib/x86_64-linux-gnu/libpthread.so.0+0x76ba [0x7f40a5ef16ba]
+2018-04-26 14:09:52.063	    7f4087fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [13] /lib/x86_64-linux-gnu/libc.so.6:clone+0x6d [0x7f40a559c41d]
+2018-04-26 14:09:52.063	    7f4087fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [14] [(nil)]
+2018-04-26 14:09:52.063	    7f4087fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	
+2018-04-26 14:09:52.064	    7f4087fff700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:504	Error opening wallet: invalid password
+2018-04-26 14:09:52.243	    7f4087fff700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:553	Status_Critical - not storing wallet
+2018-04-26 14:09:52.295	    7f40877fe700	WARN 	net.dns	src/common/dns_utils.cpp:487	WARNING: no two valid MoneroPulse DNS checkpoint records were received
+2018-04-26 14:09:55.665	    7f40a9362780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:09:55.857	    7f4087fff700	WARN 	wallet.wallet2	src/wallet/wallet2.cpp:2497	Loaded wallet keys file, with public address: iz45vcxKLtwg5oh228BZdMLLu1bTjZtQdTifKcjXE1bWGkFrtzmNfsE5DAKfC9CyPRSfxyeTjgLaDRWis3qf7sUR21VezCRaN
+2018-04-26 14:11:51.967	    7f2312f41780	INFO 	logging	contrib/epee/src/mlog.cpp:148	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:11:54.103	    7f2312f41780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:11:55.556	    7f2312f41780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:11:55.796	    7f22f9d43700	ERROR	net.http	contrib/epee/include/storages/portable_storage.h:161	portable_storage: wrong binary format - signature mismatch
+2018-04-26 14:11:55.808	    7f22f9d43700	ERROR	wallet.wallet2	src/wallet/wallet2.cpp:2128	!r. THROW EXCEPTION: error::invalid_password
+2018-04-26 14:11:55.808	    7f22f9d43700	WARN 	net.http	src/wallet/wallet_errors.h:707	/home/laion/Desktop/alfasoft/intensecoinwallet/intense/src/wallet/wallet2.cpp:2128:N5tools5error16invalid_passwordE: invalid password
+2018-04-26 14:11:55.809	    7f22f9d43700	INFO 	stacktrace	src/common/stack_trace.cpp:120	Exception: tools::error::invalid_password
+2018-04-26 14:11:55.809	    7f22f9d43700	INFO 	stacktrace	src/common/stack_trace.cpp:121	Unwound call stack:
+2018-04-26 14:11:55.812	    7f22f9d43700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [1] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui:__cxa_throw+0x106 [0x592bf6]
+2018-04-26 14:11:55.812	    7f22f9d43700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [2] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x614ccb]
+2018-04-26 14:11:55.812	    7f22f9d43700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [3] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5b73ad]
+2018-04-26 14:11:55.812	    7f22f9d43700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [4] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5ba246]
+2018-04-26 14:11:55.812	    7f22f9d43700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [5] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x47b516]
+2018-04-26 14:11:55.812	    7f22f9d43700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [6] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x4960d9]
+2018-04-26 14:11:55.812	    7f22f9d43700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [7] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x43f695]
+2018-04-26 14:11:55.812	    7f22f9d43700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [8] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446d1f]
+2018-04-26 14:11:55.812	    7f22f9d43700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [9] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446ba3]
+2018-04-26 14:11:55.812	    7f22f9d43700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [10] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa22d3 [0x7f230fd882d3]
+2018-04-26 14:11:55.812	    7f22f9d43700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [11] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa57be [0x7f230fd8b7be]
+2018-04-26 14:11:55.812	    7f22f9d43700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [12] /lib/x86_64-linux-gnu/libpthread.so.0+0x76ba [0x7f230fad06ba]
+2018-04-26 14:11:55.812	    7f22f9d43700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [13] /lib/x86_64-linux-gnu/libc.so.6:clone+0x6d [0x7f230f17b41d]
+2018-04-26 14:11:55.812	    7f22f9d43700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [14] [(nil)]
+2018-04-26 14:11:55.812	    7f22f9d43700	INFO 	stacktrace	src/common/stack_trace.cpp:159	
+2018-04-26 14:11:55.813	    7f22f9d43700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:504	Error opening wallet: invalid password
+2018-04-26 14:11:55.964	    7f22f9d43700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:553	Status_Critical - not storing wallet
+2018-04-26 14:11:58.543	    7f22f9542700	WARN 	net.dns	src/common/dns_utils.cpp:487	WARNING: no two valid MoneroPulse DNS checkpoint records were received
+2018-04-26 14:11:59.231	    7f2312f41780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:11:59.424	    7f22f9d43700	WARN 	wallet.wallet2	src/wallet/wallet2.cpp:2497	Loaded wallet keys file, with public address: iz45vcxKLtwg5oh228BZdMLLu1bTjZtQdTifKcjXE1bWGkFrtzmNfsE5DAKfC9CyPRSfxyeTjgLaDRWis3qf7sUR21VezCRaN
+2018-04-26 14:13:14.211	    7fd49e84b780	INFO 	logging	contrib/epee/src/mlog.cpp:148	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:14:01.053	    7fe4846b4780	INFO 	logging	contrib/epee/src/mlog.cpp:148	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:14:03.208	    7fe4846b4780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:14:04.631	    7fe4846b4780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:14:04.900	    7fe4634ad700	ERROR	net.http	contrib/epee/include/storages/portable_storage.h:161	portable_storage: wrong binary format - signature mismatch
+2018-04-26 14:14:04.901	    7fe4634ad700	ERROR	wallet.wallet2	src/wallet/wallet2.cpp:2128	!r. THROW EXCEPTION: error::invalid_password
+2018-04-26 14:14:04.901	    7fe4634ad700	WARN 	net.http	src/wallet/wallet_errors.h:707	/home/laion/Desktop/alfasoft/intensecoinwallet/intense/src/wallet/wallet2.cpp:2128:N5tools5error16invalid_passwordE: invalid password
+2018-04-26 14:14:04.902	    7fe4634ad700	INFO 	stacktrace	src/common/stack_trace.cpp:120	Exception: tools::error::invalid_password
+2018-04-26 14:14:04.902	    7fe4634ad700	INFO 	stacktrace	src/common/stack_trace.cpp:121	Unwound call stack:
+2018-04-26 14:14:04.905	    7fe4634ad700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [1] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui:__cxa_throw+0x106 [0x592bf6]
+2018-04-26 14:14:04.905	    7fe4634ad700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [2] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x614ccb]
+2018-04-26 14:14:04.905	    7fe4634ad700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [3] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5b73ad]
+2018-04-26 14:14:04.905	    7fe4634ad700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [4] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5ba246]
+2018-04-26 14:14:04.906	    7fe4634ad700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [5] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x47b516]
+2018-04-26 14:14:04.906	    7fe4634ad700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [6] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x4960d9]
+2018-04-26 14:14:04.906	    7fe4634ad700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [7] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x43f695]
+2018-04-26 14:14:04.906	    7fe4634ad700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [8] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446d1f]
+2018-04-26 14:14:04.906	    7fe4634ad700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [9] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446ba3]
+2018-04-26 14:14:04.906	    7fe4634ad700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [10] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa22d3 [0x7fe4814fb2d3]
+2018-04-26 14:14:04.906	    7fe4634ad700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [11] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa57be [0x7fe4814fe7be]
+2018-04-26 14:14:04.906	    7fe4634ad700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [12] /lib/x86_64-linux-gnu/libpthread.so.0+0x76ba [0x7fe4812436ba]
+2018-04-26 14:14:04.906	    7fe4634ad700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [13] /lib/x86_64-linux-gnu/libc.so.6:clone+0x6d [0x7fe4808ee41d]
+2018-04-26 14:14:04.906	    7fe4634ad700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [14] [(nil)]
+2018-04-26 14:14:04.906	    7fe4634ad700	INFO 	stacktrace	src/common/stack_trace.cpp:159	
+2018-04-26 14:14:04.906	    7fe4634ad700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:504	Error opening wallet: invalid password
+2018-04-26 14:14:05.081	    7fe4634ad700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:553	Status_Critical - not storing wallet
+2018-04-26 14:14:05.591	    7fe462cac700	WARN 	net.dns	src/common/dns_utils.cpp:487	WARNING: no two valid MoneroPulse DNS checkpoint records were received
+2018-04-26 14:14:08.679	    7fe4846b4780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:14:08.852	    7fe4634ad700	WARN 	wallet.wallet2	src/wallet/wallet2.cpp:2497	Loaded wallet keys file, with public address: iz45vcxKLtwg5oh228BZdMLLu1bTjZtQdTifKcjXE1bWGkFrtzmNfsE5DAKfC9CyPRSfxyeTjgLaDRWis3qf7sUR21VezCRaN
+2018-04-26 14:15:11.316	    7f1ea9479780	INFO 	logging	contrib/epee/src/mlog.cpp:148	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:16:06.615	    7ff180ce7780	INFO 	logging	contrib/epee/src/mlog.cpp:148	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:16:08.839	    7ff180ce7780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:16:10.261	    7ff180ce7780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:16:10.464	    7ff15f7fe700	ERROR	net.http	contrib/epee/include/storages/portable_storage.h:161	portable_storage: wrong binary format - signature mismatch
+2018-04-26 14:16:10.465	    7ff15f7fe700	ERROR	wallet.wallet2	src/wallet/wallet2.cpp:2128	!r. THROW EXCEPTION: error::invalid_password
+2018-04-26 14:16:10.465	    7ff15f7fe700	WARN 	net.http	src/wallet/wallet_errors.h:707	/home/laion/Desktop/alfasoft/intensecoinwallet/intense/src/wallet/wallet2.cpp:2128:N5tools5error16invalid_passwordE: invalid password
+2018-04-26 14:16:10.466	    7ff15f7fe700	INFO 	stacktrace	src/common/stack_trace.cpp:120	Exception: tools::error::invalid_password
+2018-04-26 14:16:10.466	    7ff15f7fe700	INFO 	stacktrace	src/common/stack_trace.cpp:121	Unwound call stack:
+2018-04-26 14:16:10.469	    7ff15f7fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [1] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui:__cxa_throw+0x106 [0x592bf6]
+2018-04-26 14:16:10.469	    7ff15f7fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [2] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x614ccb]
+2018-04-26 14:16:10.469	    7ff15f7fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [3] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5b73ad]
+2018-04-26 14:16:10.469	    7ff15f7fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [4] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5ba246]
+2018-04-26 14:16:10.469	    7ff15f7fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [5] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x47b516]
+2018-04-26 14:16:10.469	    7ff15f7fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [6] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x4960d9]
+2018-04-26 14:16:10.469	    7ff15f7fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [7] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x43f695]
+2018-04-26 14:16:10.469	    7ff15f7fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [8] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446d1f]
+2018-04-26 14:16:10.469	    7ff15f7fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [9] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446ba3]
+2018-04-26 14:16:10.469	    7ff15f7fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [10] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa22d3 [0x7ff17db2e2d3]
+2018-04-26 14:16:10.469	    7ff15f7fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [11] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa57be [0x7ff17db317be]
+2018-04-26 14:16:10.469	    7ff15f7fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [12] /lib/x86_64-linux-gnu/libpthread.so.0+0x76ba [0x7ff17d8766ba]
+2018-04-26 14:16:10.470	    7ff15f7fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [13] /lib/x86_64-linux-gnu/libc.so.6:clone+0x6d [0x7ff17cf2141d]
+2018-04-26 14:16:10.470	    7ff15f7fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [14] [(nil)]
+2018-04-26 14:16:10.470	    7ff15f7fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	
+2018-04-26 14:16:10.470	    7ff15f7fe700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:504	Error opening wallet: invalid password
+2018-04-26 14:16:10.693	    7ff15f7fe700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:553	Status_Critical - not storing wallet
+2018-04-26 14:16:10.779	    7ff15effd700	WARN 	net.dns	src/common/dns_utils.cpp:487	WARNING: no two valid MoneroPulse DNS checkpoint records were received
+2018-04-26 14:16:16.323	    7ff180ce7780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:16:16.479	    7ff15f7fe700	WARN 	wallet.wallet2	src/wallet/wallet2.cpp:2497	Loaded wallet keys file, with public address: iz45vcxKLtwg5oh228BZdMLLu1bTjZtQdTifKcjXE1bWGkFrtzmNfsE5DAKfC9CyPRSfxyeTjgLaDRWis3qf7sUR21VezCRaN
+2018-04-26 14:17:48.291	    7f1f32d50780	INFO 	logging	contrib/epee/src/mlog.cpp:148	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:17:50.491	    7f1f32d50780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:17:51.996	    7f1f32d50780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:17:52.239	    7f1f19b52700	ERROR	net.http	contrib/epee/include/storages/portable_storage.h:161	portable_storage: wrong binary format - signature mismatch
+2018-04-26 14:17:52.255	    7f1f19b52700	ERROR	wallet.wallet2	src/wallet/wallet2.cpp:2128	!r. THROW EXCEPTION: error::invalid_password
+2018-04-26 14:17:52.255	    7f1f19b52700	WARN 	net.http	src/wallet/wallet_errors.h:707	/home/laion/Desktop/alfasoft/intensecoinwallet/intense/src/wallet/wallet2.cpp:2128:N5tools5error16invalid_passwordE: invalid password
+2018-04-26 14:17:52.256	    7f1f19b52700	INFO 	stacktrace	src/common/stack_trace.cpp:120	Exception: tools::error::invalid_password
+2018-04-26 14:17:52.256	    7f1f19b52700	INFO 	stacktrace	src/common/stack_trace.cpp:121	Unwound call stack:
+2018-04-26 14:17:52.259	    7f1f19b52700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [1] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui:__cxa_throw+0x106 [0x592bf6]
+2018-04-26 14:17:52.259	    7f1f19b52700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [2] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x614ccb]
+2018-04-26 14:17:52.260	    7f1f19b52700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [3] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5b73ad]
+2018-04-26 14:17:52.260	    7f1f19b52700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [4] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5ba246]
+2018-04-26 14:17:52.260	    7f1f19b52700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [5] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x47b516]
+2018-04-26 14:17:52.260	    7f1f19b52700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [6] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x4960d9]
+2018-04-26 14:17:52.260	    7f1f19b52700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [7] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x43f695]
+2018-04-26 14:17:52.260	    7f1f19b52700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [8] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446d1f]
+2018-04-26 14:17:52.260	    7f1f19b52700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [9] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446ba3]
+2018-04-26 14:17:52.266	    7f1f19b52700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [10] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa22d3 [0x7f1f2fb972d3]
+2018-04-26 14:17:52.266	    7f1f19b52700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [11] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa57be [0x7f1f2fb9a7be]
+2018-04-26 14:17:52.266	    7f1f19b52700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [12] /lib/x86_64-linux-gnu/libpthread.so.0+0x76ba [0x7f1f2f8df6ba]
+2018-04-26 14:17:52.266	    7f1f19b52700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [13] /lib/x86_64-linux-gnu/libc.so.6:clone+0x6d [0x7f1f2ef8a41d]
+2018-04-26 14:17:52.266	    7f1f19b52700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [14] [(nil)]
+2018-04-26 14:17:52.266	    7f1f19b52700	INFO 	stacktrace	src/common/stack_trace.cpp:159	
+2018-04-26 14:17:52.276	    7f1f19b52700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:504	Error opening wallet: invalid password
+2018-04-26 14:17:52.451	    7f1f19b52700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:553	Status_Critical - not storing wallet
+2018-04-26 14:17:55.817	    7f1f32d50780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:17:56.009	    7f1f19b52700	WARN 	wallet.wallet2	src/wallet/wallet2.cpp:2497	Loaded wallet keys file, with public address: iz45vcxKLtwg5oh228BZdMLLu1bTjZtQdTifKcjXE1bWGkFrtzmNfsE5DAKfC9CyPRSfxyeTjgLaDRWis3qf7sUR21VezCRaN
+2018-04-26 14:17:59.867	    7f1f19351700	WARN 	net.dns	src/common/dns_utils.cpp:487	WARNING: no two valid MoneroPulse DNS checkpoint records were received
+2018-04-26 14:18:53.538	    7f1134294780	INFO 	logging	contrib/epee/src/mlog.cpp:148	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:18:55.254	    7f1134294780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:18:56.431	    7f1134294780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:18:56.635	    7f1113092700	ERROR	net.http	contrib/epee/include/storages/portable_storage.h:161	portable_storage: wrong binary format - signature mismatch
+2018-04-26 14:18:56.635	    7f1113092700	ERROR	wallet.wallet2	src/wallet/wallet2.cpp:2128	!r. THROW EXCEPTION: error::invalid_password
+2018-04-26 14:18:56.636	    7f1113092700	WARN 	net.http	src/wallet/wallet_errors.h:707	/home/laion/Desktop/alfasoft/intensecoinwallet/intense/src/wallet/wallet2.cpp:2128:N5tools5error16invalid_passwordE: invalid password
+2018-04-26 14:18:56.636	    7f1113092700	INFO 	stacktrace	src/common/stack_trace.cpp:120	Exception: tools::error::invalid_password
+2018-04-26 14:18:56.636	    7f1113092700	INFO 	stacktrace	src/common/stack_trace.cpp:121	Unwound call stack:
+2018-04-26 14:18:56.640	    7f1113092700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [1] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui:__cxa_throw+0x106 [0x592bf6]
+2018-04-26 14:18:56.640	    7f1113092700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [2] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x614ccb]
+2018-04-26 14:18:56.640	    7f1113092700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [3] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5b73ad]
+2018-04-26 14:18:56.640	    7f1113092700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [4] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5ba246]
+2018-04-26 14:18:56.640	    7f1113092700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [5] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x47b516]
+2018-04-26 14:18:56.640	    7f1113092700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [6] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x4960d9]
+2018-04-26 14:18:56.640	    7f1113092700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [7] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x43f695]
+2018-04-26 14:18:56.640	    7f1113092700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [8] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446d1f]
+2018-04-26 14:18:56.640	    7f1113092700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [9] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446ba3]
+2018-04-26 14:18:56.640	    7f1113092700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [10] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa22d3 [0x7f11310db2d3]
+2018-04-26 14:18:56.640	    7f1113092700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [11] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa57be [0x7f11310de7be]
+2018-04-26 14:18:56.640	    7f1113092700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [12] /lib/x86_64-linux-gnu/libpthread.so.0+0x76ba [0x7f1130e236ba]
+2018-04-26 14:18:56.640	    7f1113092700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [13] /lib/x86_64-linux-gnu/libc.so.6:clone+0x6d [0x7f11304ce41d]
+2018-04-26 14:18:56.640	    7f1113092700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [14] [(nil)]
+2018-04-26 14:18:56.640	    7f1113092700	INFO 	stacktrace	src/common/stack_trace.cpp:159	
+2018-04-26 14:18:56.641	    7f1113092700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:504	Error opening wallet: invalid password
+2018-04-26 14:18:56.801	    7f1113092700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:553	Status_Critical - not storing wallet
+2018-04-26 14:18:56.921	    7f1112891700	WARN 	net.dns	src/common/dns_utils.cpp:487	WARNING: no two valid MoneroPulse DNS checkpoint records were received
+2018-04-26 14:19:00.073	    7f1134294780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:19:00.243	    7f1113092700	WARN 	wallet.wallet2	src/wallet/wallet2.cpp:2497	Loaded wallet keys file, with public address: iz45vcxKLtwg5oh228BZdMLLu1bTjZtQdTifKcjXE1bWGkFrtzmNfsE5DAKfC9CyPRSfxyeTjgLaDRWis3qf7sUR21VezCRaN
+2018-04-26 14:19:35.615	    7efc07ca3780	INFO 	logging	contrib/epee/src/mlog.cpp:148	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:19:37.336	    7efc07ca3780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:19:38.486	    7efc07ca3780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:19:38.665	    7efbea9c9700	ERROR	net.http	contrib/epee/include/storages/portable_storage.h:161	portable_storage: wrong binary format - signature mismatch
+2018-04-26 14:19:38.665	    7efbea9c9700	ERROR	wallet.wallet2	src/wallet/wallet2.cpp:2128	!r. THROW EXCEPTION: error::invalid_password
+2018-04-26 14:19:38.665	    7efbea9c9700	WARN 	net.http	src/wallet/wallet_errors.h:707	/home/laion/Desktop/alfasoft/intensecoinwallet/intense/src/wallet/wallet2.cpp:2128:N5tools5error16invalid_passwordE: invalid password
+2018-04-26 14:19:38.666	    7efbea9c9700	INFO 	stacktrace	src/common/stack_trace.cpp:120	Exception: tools::error::invalid_password
+2018-04-26 14:19:38.666	    7efbea9c9700	INFO 	stacktrace	src/common/stack_trace.cpp:121	Unwound call stack:
+2018-04-26 14:19:38.669	    7efbea9c9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [1] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui:__cxa_throw+0x106 [0x592bf6]
+2018-04-26 14:19:38.669	    7efbea9c9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [2] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x614ccb]
+2018-04-26 14:19:38.669	    7efbea9c9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [3] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5b73ad]
+2018-04-26 14:19:38.669	    7efbea9c9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [4] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5ba246]
+2018-04-26 14:19:38.669	    7efbea9c9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [5] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x47b516]
+2018-04-26 14:19:38.669	    7efbea9c9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [6] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x4960d9]
+2018-04-26 14:19:38.670	    7efbea9c9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [7] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x43f695]
+2018-04-26 14:19:38.670	    7efbea9c9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [8] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446d1f]
+2018-04-26 14:19:38.670	    7efbea9c9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [9] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446ba3]
+2018-04-26 14:19:38.670	    7efbea9c9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [10] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa22d3 [0x7efc04aea2d3]
+2018-04-26 14:19:38.670	    7efbea9c9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [11] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa57be [0x7efc04aed7be]
+2018-04-26 14:19:38.670	    7efbea9c9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [12] /lib/x86_64-linux-gnu/libpthread.so.0+0x76ba [0x7efc048326ba]
+2018-04-26 14:19:38.670	    7efbea9c9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [13] /lib/x86_64-linux-gnu/libc.so.6:clone+0x6d [0x7efc03edd41d]
+2018-04-26 14:19:38.670	    7efbea9c9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [14] [(nil)]
+2018-04-26 14:19:38.670	    7efbea9c9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	
+2018-04-26 14:19:38.670	    7efbea9c9700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:504	Error opening wallet: invalid password
+2018-04-26 14:19:38.858	    7efbea9c9700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:553	Status_Critical - not storing wallet
+2018-04-26 14:19:42.000	    7efc07ca3780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:19:42.195	    7efbea9c9700	WARN 	wallet.wallet2	src/wallet/wallet2.cpp:2497	Loaded wallet keys file, with public address: iz45vcxKLtwg5oh228BZdMLLu1bTjZtQdTifKcjXE1bWGkFrtzmNfsE5DAKfC9CyPRSfxyeTjgLaDRWis3qf7sUR21VezCRaN
+2018-04-26 14:19:59.257	    7efbea1c8700	WARN 	net.dns	src/common/dns_utils.cpp:487	WARNING: no two valid MoneroPulse DNS checkpoint records were received
+2018-04-26 14:20:51.767	    7fdcd919b780	INFO 	logging	contrib/epee/src/mlog.cpp:148	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:20:53.568	    7fdcd919b780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:20:54.732	    7fdcd919b780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:20:54.916	    7fdcb7dff700	ERROR	net.http	contrib/epee/include/storages/portable_storage.h:161	portable_storage: wrong binary format - signature mismatch
+2018-04-26 14:20:54.919	    7fdcb7dff700	ERROR	wallet.wallet2	src/wallet/wallet2.cpp:2128	!r. THROW EXCEPTION: error::invalid_password
+2018-04-26 14:20:54.919	    7fdcb7dff700	WARN 	net.http	src/wallet/wallet_errors.h:707	/home/laion/Desktop/alfasoft/intensecoinwallet/intense/src/wallet/wallet2.cpp:2128:N5tools5error16invalid_passwordE: invalid password
+2018-04-26 14:20:54.920	    7fdcb7dff700	INFO 	stacktrace	src/common/stack_trace.cpp:120	Exception: tools::error::invalid_password
+2018-04-26 14:20:54.920	    7fdcb7dff700	INFO 	stacktrace	src/common/stack_trace.cpp:121	Unwound call stack:
+2018-04-26 14:20:54.924	    7fdcb7dff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [1] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui:__cxa_throw+0x106 [0x592bf6]
+2018-04-26 14:20:54.924	    7fdcb7dff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [2] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x614ccb]
+2018-04-26 14:20:54.924	    7fdcb7dff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [3] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5b73ad]
+2018-04-26 14:20:54.924	    7fdcb7dff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [4] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5ba246]
+2018-04-26 14:20:54.924	    7fdcb7dff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [5] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x47b516]
+2018-04-26 14:20:54.924	    7fdcb7dff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [6] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x4960d9]
+2018-04-26 14:20:54.924	    7fdcb7dff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [7] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x43f695]
+2018-04-26 14:20:54.924	    7fdcb7dff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [8] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446d1f]
+2018-04-26 14:20:54.924	    7fdcb7dff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [9] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446ba3]
+2018-04-26 14:20:54.924	    7fdcb7dff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [10] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa22d3 [0x7fdcd5fe22d3]
+2018-04-26 14:20:54.924	    7fdcb7dff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [11] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa57be [0x7fdcd5fe57be]
+2018-04-26 14:20:54.924	    7fdcb7dff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [12] /lib/x86_64-linux-gnu/libpthread.so.0+0x76ba [0x7fdcd5d2a6ba]
+2018-04-26 14:20:54.924	    7fdcb7dff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [13] /lib/x86_64-linux-gnu/libc.so.6:clone+0x6d [0x7fdcd53d541d]
+2018-04-26 14:20:54.924	    7fdcb7dff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [14] [(nil)]
+2018-04-26 14:20:54.925	    7fdcb7dff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	
+2018-04-26 14:20:54.925	    7fdcb7dff700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:504	Error opening wallet: invalid password
+2018-04-26 14:20:55.094	    7fdcb7dff700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:553	Status_Critical - not storing wallet
+2018-04-26 14:20:58.161	    7fdcd919b780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:20:58.343	    7fdcb7dff700	WARN 	wallet.wallet2	src/wallet/wallet2.cpp:2497	Loaded wallet keys file, with public address: iz45vcxKLtwg5oh228BZdMLLu1bTjZtQdTifKcjXE1bWGkFrtzmNfsE5DAKfC9CyPRSfxyeTjgLaDRWis3qf7sUR21VezCRaN
+2018-04-26 14:21:16.806	    7fdcb75fe700	WARN 	net.dns	src/common/dns_utils.cpp:487	WARNING: no two valid MoneroPulse DNS checkpoint records were received
+2018-04-26 14:22:55.734	    7fa5596e3780	INFO 	logging	contrib/epee/src/mlog.cpp:148	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:22:57.557	    7fa5596e3780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:22:58.769	    7fa5596e3780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:22:59.010	    7fa537fff700	ERROR	net.http	contrib/epee/include/storages/portable_storage.h:161	portable_storage: wrong binary format - signature mismatch
+2018-04-26 14:22:59.011	    7fa537fff700	ERROR	wallet.wallet2	src/wallet/wallet2.cpp:2128	!r. THROW EXCEPTION: error::invalid_password
+2018-04-26 14:22:59.011	    7fa537fff700	WARN 	net.http	src/wallet/wallet_errors.h:707	/home/laion/Desktop/alfasoft/intensecoinwallet/intense/src/wallet/wallet2.cpp:2128:N5tools5error16invalid_passwordE: invalid password
+2018-04-26 14:22:59.012	    7fa537fff700	INFO 	stacktrace	src/common/stack_trace.cpp:120	Exception: tools::error::invalid_password
+2018-04-26 14:22:59.012	    7fa537fff700	INFO 	stacktrace	src/common/stack_trace.cpp:121	Unwound call stack:
+2018-04-26 14:22:59.015	    7fa537fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [1] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui:__cxa_throw+0x106 [0x592bf6]
+2018-04-26 14:22:59.015	    7fa537fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [2] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x614ccb]
+2018-04-26 14:22:59.015	    7fa537fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [3] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5b73ad]
+2018-04-26 14:22:59.015	    7fa537fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [4] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5ba246]
+2018-04-26 14:22:59.016	    7fa537fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [5] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x47b516]
+2018-04-26 14:22:59.016	    7fa537fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [6] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x4960d9]
+2018-04-26 14:22:59.016	    7fa537fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [7] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x43f695]
+2018-04-26 14:22:59.016	    7fa537fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [8] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446d1f]
+2018-04-26 14:22:59.016	    7fa537fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [9] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446ba3]
+2018-04-26 14:22:59.016	    7fa537fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [10] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa22d3 [0x7fa55652a2d3]
+2018-04-26 14:22:59.016	    7fa537fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [11] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa57be [0x7fa55652d7be]
+2018-04-26 14:22:59.016	    7fa537fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [12] /lib/x86_64-linux-gnu/libpthread.so.0+0x76ba [0x7fa5562726ba]
+2018-04-26 14:22:59.016	    7fa537fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [13] /lib/x86_64-linux-gnu/libc.so.6:clone+0x6d [0x7fa55591d41d]
+2018-04-26 14:22:59.016	    7fa537fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [14] [(nil)]
+2018-04-26 14:22:59.016	    7fa537fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	
+2018-04-26 14:22:59.017	    7fa537fff700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:504	Error opening wallet: invalid password
+2018-04-26 14:22:59.187	    7fa537fff700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:553	Status_Critical - not storing wallet
+2018-04-26 14:23:02.055	    7fa5596e3780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:23:02.198	    7fa537fff700	WARN 	wallet.wallet2	src/wallet/wallet2.cpp:2497	Loaded wallet keys file, with public address: iz45vcxKLtwg5oh228BZdMLLu1bTjZtQdTifKcjXE1bWGkFrtzmNfsE5DAKfC9CyPRSfxyeTjgLaDRWis3qf7sUR21VezCRaN
+2018-04-26 14:23:08.765	    7fa5377fe700	WARN 	net.dns	src/common/dns_utils.cpp:487	WARNING: no two valid MoneroPulse DNS checkpoint records were received
+2018-04-26 14:24:59.261	    7fe60973a780	INFO 	logging	contrib/epee/src/mlog.cpp:148	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:25:01.119	    7fe60973a780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:25:02.270	    7fe60973a780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:25:02.470	    7fe5e7fff700	ERROR	net.http	contrib/epee/include/storages/portable_storage.h:161	portable_storage: wrong binary format - signature mismatch
+2018-04-26 14:25:02.470	    7fe5e7fff700	ERROR	wallet.wallet2	src/wallet/wallet2.cpp:2128	!r. THROW EXCEPTION: error::invalid_password
+2018-04-26 14:25:02.471	    7fe5e7fff700	WARN 	net.http	src/wallet/wallet_errors.h:707	/home/laion/Desktop/alfasoft/intensecoinwallet/intense/src/wallet/wallet2.cpp:2128:N5tools5error16invalid_passwordE: invalid password
+2018-04-26 14:25:02.471	    7fe5e7fff700	INFO 	stacktrace	src/common/stack_trace.cpp:120	Exception: tools::error::invalid_password
+2018-04-26 14:25:02.471	    7fe5e7fff700	INFO 	stacktrace	src/common/stack_trace.cpp:121	Unwound call stack:
+2018-04-26 14:25:02.475	    7fe5e7fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [1] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui:__cxa_throw+0x106 [0x592bf6]
+2018-04-26 14:25:02.475	    7fe5e7fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [2] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x614ccb]
+2018-04-26 14:25:02.475	    7fe5e7fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [3] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5b73ad]
+2018-04-26 14:25:02.475	    7fe5e7fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [4] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5ba246]
+2018-04-26 14:25:02.475	    7fe5e7fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [5] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x47b516]
+2018-04-26 14:25:02.475	    7fe5e7fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [6] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x4960d9]
+2018-04-26 14:25:02.475	    7fe5e7fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [7] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x43f695]
+2018-04-26 14:25:02.475	    7fe5e7fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [8] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446d1f]
+2018-04-26 14:25:02.475	    7fe5e7fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [9] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446ba3]
+2018-04-26 14:25:02.475	    7fe5e7fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [10] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa22d3 [0x7fe6065812d3]
+2018-04-26 14:25:02.475	    7fe5e7fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [11] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa57be [0x7fe6065847be]
+2018-04-26 14:25:02.475	    7fe5e7fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [12] /lib/x86_64-linux-gnu/libpthread.so.0+0x76ba [0x7fe6062c96ba]
+2018-04-26 14:25:02.475	    7fe5e7fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [13] /lib/x86_64-linux-gnu/libc.so.6:clone+0x6d [0x7fe60597441d]
+2018-04-26 14:25:02.475	    7fe5e7fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [14] [(nil)]
+2018-04-26 14:25:02.475	    7fe5e7fff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	
+2018-04-26 14:25:02.476	    7fe5e7fff700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:504	Error opening wallet: invalid password
+2018-04-26 14:25:02.649	    7fe5e7fff700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:553	Status_Critical - not storing wallet
+2018-04-26 14:25:02.746	    7fe5e77fe700	WARN 	net.dns	src/common/dns_utils.cpp:487	WARNING: no two valid MoneroPulse DNS checkpoint records were received
+2018-04-26 14:25:05.910	    7fe60973a780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:25:06.067	    7fe5e7fff700	WARN 	wallet.wallet2	src/wallet/wallet2.cpp:2497	Loaded wallet keys file, with public address: iz45vcxKLtwg5oh228BZdMLLu1bTjZtQdTifKcjXE1bWGkFrtzmNfsE5DAKfC9CyPRSfxyeTjgLaDRWis3qf7sUR21VezCRaN
+2018-04-26 14:26:34.495	    7fb1bf2f7780	INFO 	logging	contrib/epee/src/mlog.cpp:148	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:26:36.255	    7fb1bf2f7780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:26:37.396	    7fb1bf2f7780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:26:37.583	    7fb1a20f9700	ERROR	net.http	contrib/epee/include/storages/portable_storage.h:161	portable_storage: wrong binary format - signature mismatch
+2018-04-26 14:26:37.584	    7fb1a20f9700	ERROR	wallet.wallet2	src/wallet/wallet2.cpp:2128	!r. THROW EXCEPTION: error::invalid_password
+2018-04-26 14:26:37.584	    7fb1a20f9700	WARN 	net.http	src/wallet/wallet_errors.h:707	/home/laion/Desktop/alfasoft/intensecoinwallet/intense/src/wallet/wallet2.cpp:2128:N5tools5error16invalid_passwordE: invalid password
+2018-04-26 14:26:37.585	    7fb1a20f9700	INFO 	stacktrace	src/common/stack_trace.cpp:120	Exception: tools::error::invalid_password
+2018-04-26 14:26:37.585	    7fb1a20f9700	INFO 	stacktrace	src/common/stack_trace.cpp:121	Unwound call stack:
+2018-04-26 14:26:37.588	    7fb1a20f9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [1] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui:__cxa_throw+0x106 [0x592bf6]
+2018-04-26 14:26:37.588	    7fb1a20f9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [2] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x614ccb]
+2018-04-26 14:26:37.589	    7fb1a20f9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [3] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5b73ad]
+2018-04-26 14:26:37.589	    7fb1a20f9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [4] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5ba246]
+2018-04-26 14:26:37.589	    7fb1a20f9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [5] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x47b516]
+2018-04-26 14:26:37.589	    7fb1a20f9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [6] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x4960d9]
+2018-04-26 14:26:37.589	    7fb1a20f9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [7] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x43f695]
+2018-04-26 14:26:37.589	    7fb1a20f9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [8] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446d1f]
+2018-04-26 14:26:37.589	    7fb1a20f9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [9] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446ba3]
+2018-04-26 14:26:37.589	    7fb1a20f9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [10] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa22d3 [0x7fb1bc13e2d3]
+2018-04-26 14:26:37.589	    7fb1a20f9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [11] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa57be [0x7fb1bc1417be]
+2018-04-26 14:26:37.589	    7fb1a20f9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [12] /lib/x86_64-linux-gnu/libpthread.so.0+0x76ba [0x7fb1bbe866ba]
+2018-04-26 14:26:37.589	    7fb1a20f9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [13] /lib/x86_64-linux-gnu/libc.so.6:clone+0x6d [0x7fb1bb53141d]
+2018-04-26 14:26:37.589	    7fb1a20f9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [14] [(nil)]
+2018-04-26 14:26:37.589	    7fb1a20f9700	INFO 	stacktrace	src/common/stack_trace.cpp:159	
+2018-04-26 14:26:37.590	    7fb1a20f9700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:504	Error opening wallet: invalid password
+2018-04-26 14:26:37.765	    7fb1a20f9700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:553	Status_Critical - not storing wallet
+2018-04-26 14:26:37.928	    7fb1a18f8700	WARN 	net.dns	src/common/dns_utils.cpp:487	WARNING: no two valid MoneroPulse DNS checkpoint records were received
+2018-04-26 14:26:40.908	    7fb1bf2f7780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:26:41.052	    7fb1a20f9700	WARN 	wallet.wallet2	src/wallet/wallet2.cpp:2497	Loaded wallet keys file, with public address: iz45vcxKLtwg5oh228BZdMLLu1bTjZtQdTifKcjXE1bWGkFrtzmNfsE5DAKfC9CyPRSfxyeTjgLaDRWis3qf7sUR21VezCRaN
+2018-04-26 14:27:22.942	    7f1ae0b12780	INFO 	logging	contrib/epee/src/mlog.cpp:148	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:27:24.692	    7f1ae0b12780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:27:25.869	    7f1ae0b12780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:27:26.062	    7f1abf7fe700	ERROR	net.http	contrib/epee/include/storages/portable_storage.h:161	portable_storage: wrong binary format - signature mismatch
+2018-04-26 14:27:26.063	    7f1abf7fe700	ERROR	wallet.wallet2	src/wallet/wallet2.cpp:2128	!r. THROW EXCEPTION: error::invalid_password
+2018-04-26 14:27:26.063	    7f1abf7fe700	WARN 	net.http	src/wallet/wallet_errors.h:707	/home/laion/Desktop/alfasoft/intensecoinwallet/intense/src/wallet/wallet2.cpp:2128:N5tools5error16invalid_passwordE: invalid password
+2018-04-26 14:27:26.064	    7f1abf7fe700	INFO 	stacktrace	src/common/stack_trace.cpp:120	Exception: tools::error::invalid_password
+2018-04-26 14:27:26.064	    7f1abf7fe700	INFO 	stacktrace	src/common/stack_trace.cpp:121	Unwound call stack:
+2018-04-26 14:27:26.067	    7f1abf7fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [1] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui:__cxa_throw+0x106 [0x592bf6]
+2018-04-26 14:27:26.067	    7f1abf7fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [2] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x614ccb]
+2018-04-26 14:27:26.067	    7f1abf7fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [3] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5b73ad]
+2018-04-26 14:27:26.067	    7f1abf7fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [4] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5ba246]
+2018-04-26 14:27:26.067	    7f1abf7fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [5] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x47b516]
+2018-04-26 14:27:26.067	    7f1abf7fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [6] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x4960d9]
+2018-04-26 14:27:26.068	    7f1abf7fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [7] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x43f695]
+2018-04-26 14:27:26.068	    7f1abf7fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [8] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446d1f]
+2018-04-26 14:27:26.068	    7f1abf7fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [9] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446ba3]
+2018-04-26 14:27:26.068	    7f1abf7fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [10] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa22d3 [0x7f1add9592d3]
+2018-04-26 14:27:26.068	    7f1abf7fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [11] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa57be [0x7f1add95c7be]
+2018-04-26 14:27:26.068	    7f1abf7fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [12] /lib/x86_64-linux-gnu/libpthread.so.0+0x76ba [0x7f1add6a16ba]
+2018-04-26 14:27:26.068	    7f1abf7fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [13] /lib/x86_64-linux-gnu/libc.so.6:clone+0x6d [0x7f1adcd4c41d]
+2018-04-26 14:27:26.068	    7f1abf7fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [14] [(nil)]
+2018-04-26 14:27:26.068	    7f1abf7fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	
+2018-04-26 14:27:26.068	    7f1abf7fe700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:504	Error opening wallet: invalid password
+2018-04-26 14:27:26.215	    7f1abf7fe700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:553	Status_Critical - not storing wallet
+2018-04-26 14:27:26.735	    7f1abeffd700	WARN 	net.dns	src/common/dns_utils.cpp:487	WARNING: no two valid MoneroPulse DNS checkpoint records were received
+2018-04-26 14:27:29.690	    7f1ae0b12780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:27:29.808	    7f1abf7fe700	WARN 	wallet.wallet2	src/wallet/wallet2.cpp:2497	Loaded wallet keys file, with public address: iz45vcxKLtwg5oh228BZdMLLu1bTjZtQdTifKcjXE1bWGkFrtzmNfsE5DAKfC9CyPRSfxyeTjgLaDRWis3qf7sUR21VezCRaN
+2018-04-26 14:28:07.459	    7f4507777780	INFO 	logging	contrib/epee/src/mlog.cpp:148	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:28:09.211	    7f4507777780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:28:10.374	    7f4507777780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:28:10.589	    7f44ea4f4700	ERROR	net.http	contrib/epee/include/storages/portable_storage.h:161	portable_storage: wrong binary format - signature mismatch
+2018-04-26 14:28:10.590	    7f44ea4f4700	ERROR	wallet.wallet2	src/wallet/wallet2.cpp:2128	!r. THROW EXCEPTION: error::invalid_password
+2018-04-26 14:28:10.590	    7f44ea4f4700	WARN 	net.http	src/wallet/wallet_errors.h:707	/home/laion/Desktop/alfasoft/intensecoinwallet/intense/src/wallet/wallet2.cpp:2128:N5tools5error16invalid_passwordE: invalid password
+2018-04-26 14:28:10.591	    7f44ea4f4700	INFO 	stacktrace	src/common/stack_trace.cpp:120	Exception: tools::error::invalid_password
+2018-04-26 14:28:10.591	    7f44ea4f4700	INFO 	stacktrace	src/common/stack_trace.cpp:121	Unwound call stack:
+2018-04-26 14:28:10.594	    7f44ea4f4700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [1] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui:__cxa_throw+0x106 [0x592bf6]
+2018-04-26 14:28:10.594	    7f44ea4f4700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [2] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x614ccb]
+2018-04-26 14:28:10.594	    7f44ea4f4700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [3] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5b73ad]
+2018-04-26 14:28:10.595	    7f44ea4f4700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [4] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5ba246]
+2018-04-26 14:28:10.595	    7f44ea4f4700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [5] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x47b516]
+2018-04-26 14:28:10.595	    7f44ea4f4700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [6] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x4960d9]
+2018-04-26 14:28:10.595	    7f44ea4f4700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [7] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x43f695]
+2018-04-26 14:28:10.595	    7f44ea4f4700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [8] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446d1f]
+2018-04-26 14:28:10.595	    7f44ea4f4700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [9] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446ba3]
+2018-04-26 14:28:10.595	    7f44ea4f4700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [10] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa22d3 [0x7f45045be2d3]
+2018-04-26 14:28:10.595	    7f44ea4f4700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [11] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa57be [0x7f45045c17be]
+2018-04-26 14:28:10.595	    7f44ea4f4700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [12] /lib/x86_64-linux-gnu/libpthread.so.0+0x76ba [0x7f45043066ba]
+2018-04-26 14:28:10.595	    7f44ea4f4700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [13] /lib/x86_64-linux-gnu/libc.so.6:clone+0x6d [0x7f45039b141d]
+2018-04-26 14:28:10.595	    7f44ea4f4700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [14] [(nil)]
+2018-04-26 14:28:10.595	    7f44ea4f4700	INFO 	stacktrace	src/common/stack_trace.cpp:159	
+2018-04-26 14:28:10.595	    7f44ea4f4700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:504	Error opening wallet: invalid password
+2018-04-26 14:28:10.737	    7f44ea4f4700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:553	Status_Critical - not storing wallet
+2018-04-26 14:28:10.854	    7f44e9cf3700	WARN 	net.dns	src/common/dns_utils.cpp:487	WARNING: no two valid MoneroPulse DNS checkpoint records were received
+2018-04-26 14:28:14.213	    7f4507777780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:28:14.378	    7f44ea4f4700	WARN 	wallet.wallet2	src/wallet/wallet2.cpp:2497	Loaded wallet keys file, with public address: iz45vcxKLtwg5oh228BZdMLLu1bTjZtQdTifKcjXE1bWGkFrtzmNfsE5DAKfC9CyPRSfxyeTjgLaDRWis3qf7sUR21VezCRaN
+2018-04-26 14:31:27.398	    7f1827098780	INFO 	logging	contrib/epee/src/mlog.cpp:148	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:31:29.411	    7f1827098780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:31:30.653	    7f1827098780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:31:30.828	    7f180de94700	ERROR	net.http	contrib/epee/include/storages/portable_storage.h:161	portable_storage: wrong binary format - signature mismatch
+2018-04-26 14:31:30.829	    7f180de94700	ERROR	wallet.wallet2	src/wallet/wallet2.cpp:2128	!r. THROW EXCEPTION: error::invalid_password
+2018-04-26 14:31:30.829	    7f180de94700	WARN 	net.http	src/wallet/wallet_errors.h:707	/home/laion/Desktop/alfasoft/intensecoinwallet/intense/src/wallet/wallet2.cpp:2128:N5tools5error16invalid_passwordE: invalid password
+2018-04-26 14:31:30.829	    7f180de94700	INFO 	stacktrace	src/common/stack_trace.cpp:120	Exception: tools::error::invalid_password
+2018-04-26 14:31:30.829	    7f180de94700	INFO 	stacktrace	src/common/stack_trace.cpp:121	Unwound call stack:
+2018-04-26 14:31:30.837	    7f180de94700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [1] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui:__cxa_throw+0x106 [0x592bf6]
+2018-04-26 14:31:30.837	    7f180de94700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [2] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x614ccb]
+2018-04-26 14:31:30.837	    7f180de94700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [3] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5b73ad]
+2018-04-26 14:31:30.837	    7f180de94700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [4] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5ba246]
+2018-04-26 14:31:30.837	    7f180de94700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [5] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x47b516]
+2018-04-26 14:31:30.837	    7f180de94700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [6] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x4960d9]
+2018-04-26 14:31:30.837	    7f180de94700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [7] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x43f695]
+2018-04-26 14:31:30.837	    7f180de94700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [8] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446d1f]
+2018-04-26 14:31:30.837	    7f180de94700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [9] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446ba3]
+2018-04-26 14:31:30.837	    7f180de94700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [10] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa22d3 [0x7f1823edf2d3]
+2018-04-26 14:31:30.837	    7f180de94700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [11] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa57be [0x7f1823ee27be]
+2018-04-26 14:31:30.837	    7f180de94700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [12] /lib/x86_64-linux-gnu/libpthread.so.0+0x76ba [0x7f1823c276ba]
+2018-04-26 14:31:30.837	    7f180de94700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [13] /lib/x86_64-linux-gnu/libc.so.6:clone+0x6d [0x7f18232d241d]
+2018-04-26 14:31:30.837	    7f180de94700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [14] [(nil)]
+2018-04-26 14:31:30.837	    7f180de94700	INFO 	stacktrace	src/common/stack_trace.cpp:159	
+2018-04-26 14:31:30.838	    7f180de94700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:504	Error opening wallet: invalid password
+2018-04-26 14:31:31.000	    7f180de94700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:553	Status_Critical - not storing wallet
+2018-04-26 14:31:34.213	    7f1827098780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:31:34.356	    7f180de94700	WARN 	wallet.wallet2	src/wallet/wallet2.cpp:2497	Loaded wallet keys file, with public address: iz45vcxKLtwg5oh228BZdMLLu1bTjZtQdTifKcjXE1bWGkFrtzmNfsE5DAKfC9CyPRSfxyeTjgLaDRWis3qf7sUR21VezCRaN
+2018-04-26 14:31:37.777	    7f180d693700	WARN 	net.dns	src/common/dns_utils.cpp:487	WARNING: no two valid MoneroPulse DNS checkpoint records were received
+2018-04-26 14:32:51.385	    7fe464ba6780	INFO 	logging	contrib/epee/src/mlog.cpp:148	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:32:53.116	    7fe464ba6780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:32:54.308	    7fe464ba6780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:32:54.550	    7fe4437fe700	ERROR	net.http	contrib/epee/include/storages/portable_storage.h:161	portable_storage: wrong binary format - signature mismatch
+2018-04-26 14:32:54.551	    7fe4437fe700	ERROR	wallet.wallet2	src/wallet/wallet2.cpp:2128	!r. THROW EXCEPTION: error::invalid_password
+2018-04-26 14:32:54.551	    7fe4437fe700	WARN 	net.http	src/wallet/wallet_errors.h:707	/home/laion/Desktop/alfasoft/intensecoinwallet/intense/src/wallet/wallet2.cpp:2128:N5tools5error16invalid_passwordE: invalid password
+2018-04-26 14:32:54.552	    7fe4437fe700	INFO 	stacktrace	src/common/stack_trace.cpp:120	Exception: tools::error::invalid_password
+2018-04-26 14:32:54.552	    7fe4437fe700	INFO 	stacktrace	src/common/stack_trace.cpp:121	Unwound call stack:
+2018-04-26 14:32:54.555	    7fe4437fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [1] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui:__cxa_throw+0x106 [0x592bf6]
+2018-04-26 14:32:54.555	    7fe4437fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [2] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x614ccb]
+2018-04-26 14:32:54.555	    7fe4437fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [3] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5b73ad]
+2018-04-26 14:32:54.555	    7fe4437fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [4] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5ba246]
+2018-04-26 14:32:54.555	    7fe4437fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [5] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x47b516]
+2018-04-26 14:32:54.555	    7fe4437fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [6] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x4960d9]
+2018-04-26 14:32:54.555	    7fe4437fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [7] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x43f695]
+2018-04-26 14:32:54.556	    7fe4437fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [8] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446d1f]
+2018-04-26 14:32:54.556	    7fe4437fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [9] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446ba3]
+2018-04-26 14:32:54.556	    7fe4437fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [10] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa22d3 [0x7fe4619ed2d3]
+2018-04-26 14:32:54.556	    7fe4437fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [11] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa57be [0x7fe4619f07be]
+2018-04-26 14:32:54.556	    7fe4437fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [12] /lib/x86_64-linux-gnu/libpthread.so.0+0x76ba [0x7fe4617356ba]
+2018-04-26 14:32:54.556	    7fe4437fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [13] /lib/x86_64-linux-gnu/libc.so.6:clone+0x6d [0x7fe460de041d]
+2018-04-26 14:32:54.556	    7fe4437fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [14] [(nil)]
+2018-04-26 14:32:54.556	    7fe4437fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	
+2018-04-26 14:32:54.556	    7fe4437fe700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:504	Error opening wallet: invalid password
+2018-04-26 14:32:54.686	    7fe4437fe700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:553	Status_Critical - not storing wallet
+2018-04-26 14:32:54.881	    7fe442ffd700	WARN 	net.dns	src/common/dns_utils.cpp:487	WARNING: no two valid MoneroPulse DNS checkpoint records were received
+2018-04-26 14:32:57.865	    7fe464ba6780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:32:58.041	    7fe4437fe700	ERROR	net.http	contrib/epee/include/storages/portable_storage.h:161	portable_storage: wrong binary format - signature mismatch
+2018-04-26 14:32:58.041	    7fe4437fe700	ERROR	wallet.wallet2	src/wallet/wallet2.cpp:2128	!r. THROW EXCEPTION: error::invalid_password
+2018-04-26 14:32:58.041	    7fe4437fe700	WARN 	net.http	src/wallet/wallet_errors.h:707	/home/laion/Desktop/alfasoft/intensecoinwallet/intense/src/wallet/wallet2.cpp:2128:N5tools5error16invalid_passwordE: invalid password
+2018-04-26 14:32:58.042	    7fe4437fe700	INFO 	stacktrace	src/common/stack_trace.cpp:120	Exception: tools::error::invalid_password
+2018-04-26 14:32:58.042	    7fe4437fe700	INFO 	stacktrace	src/common/stack_trace.cpp:121	Unwound call stack:
+2018-04-26 14:32:58.043	    7fe4437fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [1] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui:__cxa_throw+0x106 [0x592bf6]
+2018-04-26 14:32:58.043	    7fe4437fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [2] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x614ccb]
+2018-04-26 14:32:58.043	    7fe4437fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [3] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5b73ad]
+2018-04-26 14:32:58.043	    7fe4437fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [4] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5ba246]
+2018-04-26 14:32:58.043	    7fe4437fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [5] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x47b516]
+2018-04-26 14:32:58.043	    7fe4437fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [6] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x4960d9]
+2018-04-26 14:32:58.043	    7fe4437fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [7] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x43f695]
+2018-04-26 14:32:58.043	    7fe4437fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [8] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446d1f]
+2018-04-26 14:32:58.043	    7fe4437fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [9] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446ba3]
+2018-04-26 14:32:58.043	    7fe4437fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [10] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa22d3 [0x7fe4619ed2d3]
+2018-04-26 14:32:58.043	    7fe4437fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [11] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa57be [0x7fe4619f07be]
+2018-04-26 14:32:58.043	    7fe4437fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [12] /lib/x86_64-linux-gnu/libpthread.so.0+0x76ba [0x7fe4617356ba]
+2018-04-26 14:32:58.043	    7fe4437fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [13] /lib/x86_64-linux-gnu/libc.so.6:clone+0x6d [0x7fe460de041d]
+2018-04-26 14:32:58.043	    7fe4437fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [14] [(nil)]
+2018-04-26 14:32:58.043	    7fe4437fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	
+2018-04-26 14:32:58.043	    7fe4437fe700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:504	Error opening wallet: invalid password
+2018-04-26 14:32:58.046	    7fe442ffd700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:553	Status_Critical - not storing wallet
+2018-04-26 14:33:05.994	    7fe464ba6780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:33:06.131	    7fe4437fe700	WARN 	wallet.wallet2	src/wallet/wallet2.cpp:2497	Loaded wallet keys file, with public address: iz45vcxKLtwg5oh228BZdMLLu1bTjZtQdTifKcjXE1bWGkFrtzmNfsE5DAKfC9CyPRSfxyeTjgLaDRWis3qf7sUR21VezCRaN
+2018-04-26 14:34:50.769	    7ff448cf4780	INFO 	logging	contrib/epee/src/mlog.cpp:148	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:34:52.532	    7ff448cf4780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:34:53.767	    7ff448cf4780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:34:53.938	    7ff4277fe700	ERROR	net.http	contrib/epee/include/storages/portable_storage.h:161	portable_storage: wrong binary format - signature mismatch
+2018-04-26 14:34:53.939	    7ff4277fe700	ERROR	wallet.wallet2	src/wallet/wallet2.cpp:2128	!r. THROW EXCEPTION: error::invalid_password
+2018-04-26 14:34:53.939	    7ff4277fe700	WARN 	net.http	src/wallet/wallet_errors.h:707	/home/laion/Desktop/alfasoft/intensecoinwallet/intense/src/wallet/wallet2.cpp:2128:N5tools5error16invalid_passwordE: invalid password
+2018-04-26 14:34:53.940	    7ff4277fe700	INFO 	stacktrace	src/common/stack_trace.cpp:120	Exception: tools::error::invalid_password
+2018-04-26 14:34:53.940	    7ff4277fe700	INFO 	stacktrace	src/common/stack_trace.cpp:121	Unwound call stack:
+2018-04-26 14:34:53.943	    7ff4277fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [1] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui:__cxa_throw+0x106 [0x592bf6]
+2018-04-26 14:34:53.943	    7ff4277fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [2] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x614ccb]
+2018-04-26 14:34:53.943	    7ff4277fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [3] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5b73ad]
+2018-04-26 14:34:53.943	    7ff4277fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [4] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5ba246]
+2018-04-26 14:34:53.943	    7ff4277fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [5] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x47b516]
+2018-04-26 14:34:53.943	    7ff4277fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [6] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x4960d9]
+2018-04-26 14:34:53.943	    7ff4277fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [7] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x43f695]
+2018-04-26 14:34:53.943	    7ff4277fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [8] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446d1f]
+2018-04-26 14:34:53.943	    7ff4277fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [9] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446ba3]
+2018-04-26 14:34:53.943	    7ff4277fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [10] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa22d3 [0x7ff445b3b2d3]
+2018-04-26 14:34:53.944	    7ff4277fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [11] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa57be [0x7ff445b3e7be]
+2018-04-26 14:34:53.944	    7ff4277fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [12] /lib/x86_64-linux-gnu/libpthread.so.0+0x76ba [0x7ff4458836ba]
+2018-04-26 14:34:53.944	    7ff4277fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [13] /lib/x86_64-linux-gnu/libc.so.6:clone+0x6d [0x7ff444f2e41d]
+2018-04-26 14:34:53.944	    7ff4277fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [14] [(nil)]
+2018-04-26 14:34:53.944	    7ff4277fe700	INFO 	stacktrace	src/common/stack_trace.cpp:159	
+2018-04-26 14:34:53.944	    7ff4277fe700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:504	Error opening wallet: invalid password
+2018-04-26 14:34:54.102	    7ff4277fe700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:553	Status_Critical - not storing wallet
+2018-04-26 14:34:58.838	    7ff448cf4780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:34:59.041	    7ff4277fe700	WARN 	wallet.wallet2	src/wallet/wallet2.cpp:2497	Loaded wallet keys file, with public address: iz45vcxKLtwg5oh228BZdMLLu1bTjZtQdTifKcjXE1bWGkFrtzmNfsE5DAKfC9CyPRSfxyeTjgLaDRWis3qf7sUR21VezCRaN
+2018-04-26 14:35:09.352	    7ff426ffd700	WARN 	net.dns	src/common/dns_utils.cpp:487	WARNING: no two valid MoneroPulse DNS checkpoint records were received
+2018-04-26 14:39:44.581	    7faf4d57b780	INFO 	logging	contrib/epee/src/mlog.cpp:148	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:39:46.538	    7faf4d57b780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:39:47.690	    7faf4d57b780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:39:47.896	    7faf2bfff700	ERROR	net.http	contrib/epee/include/storages/portable_storage.h:161	portable_storage: wrong binary format - signature mismatch
+2018-04-26 14:39:47.897	    7faf2bfff700	ERROR	wallet.wallet2	src/wallet/wallet2.cpp:2128	!r. THROW EXCEPTION: error::invalid_password
+2018-04-26 14:39:47.897	    7faf2bfff700	WARN 	net.http	src/wallet/wallet_errors.h:707	/home/laion/Desktop/alfasoft/intensecoinwallet/intense/src/wallet/wallet2.cpp:2128:N5tools5error16invalid_passwordE: invalid password
+2018-04-26 14:39:47.898	    7faf2bfff700	INFO 	stacktrace	src/common/stack_trace.cpp:120	Exception: tools::error::invalid_password
+2018-04-26 14:39:47.898	    7faf2bfff700	INFO 	stacktrace	src/common/stack_trace.cpp:121	Unwound call stack:
+2018-04-26 14:39:47.901	    7faf2bfff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [1] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui:__cxa_throw+0x106 [0x592bf6]
+2018-04-26 14:39:47.902	    7faf2bfff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [2] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x614ccb]
+2018-04-26 14:39:47.902	    7faf2bfff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [3] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5b73ad]
+2018-04-26 14:39:47.902	    7faf2bfff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [4] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x5ba246]
+2018-04-26 14:39:47.902	    7faf2bfff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [5] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x47b516]
+2018-04-26 14:39:47.902	    7faf2bfff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [6] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x4960d9]
+2018-04-26 14:39:47.902	    7faf2bfff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [7] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x43f695]
+2018-04-26 14:39:47.902	    7faf2bfff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [8] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446d1f]
+2018-04-26 14:39:47.902	    7faf2bfff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [9] /home/laion/Desktop/alfasoft/intensecoinwallet/debug/bin/intensecoin-wallet-gui() [0x446ba3]
+2018-04-26 14:39:47.902	    7faf2bfff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [10] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa22d3 [0x7faf4a3c22d3]
+2018-04-26 14:39:47.902	    7faf2bfff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [11] /usr/lib/x86_64-linux-gnu/libQt5Core.so.5+0xa57be [0x7faf4a3c57be]
+2018-04-26 14:39:47.902	    7faf2bfff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [12] /lib/x86_64-linux-gnu/libpthread.so.0+0x76ba [0x7faf4a10a6ba]
+2018-04-26 14:39:47.902	    7faf2bfff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [13] /lib/x86_64-linux-gnu/libc.so.6:clone+0x6d [0x7faf497b541d]
+2018-04-26 14:39:47.902	    7faf2bfff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	    [14] [(nil)]
+2018-04-26 14:39:47.902	    7faf2bfff700	INFO 	stacktrace	src/common/stack_trace.cpp:159	
+2018-04-26 14:39:47.903	    7faf2bfff700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:504	Error opening wallet: invalid password
+2018-04-26 14:39:48.045	    7faf2bfff700	ERROR	WalletAPI	src/wallet/api/wallet.cpp:553	Status_Critical - not storing wallet
+2018-04-26 14:39:48.205	    7faf2b7fe700	WARN 	net.dns	src/common/dns_utils.cpp:487	WARNING: no two valid MoneroPulse DNS checkpoint records were received
+2018-04-26 14:39:51.350	    7faf4d57b780	INFO 	logging	contrib/epee/src/mlog.cpp:156	New log categories: *:WARNING,net:FATAL,net.p2p:FATAL,net.cn:FATAL,global:INFO,verify:FATAL,stacktrace:INFO,logging:INFO,msgwriter:INFO
+2018-04-26 14:39:51.489	    7faf2bfff700	WARN 	wallet.wallet2	src/wallet/wallet2.cpp:2497	Loaded wallet keys file, with public address: iz45vcxKLtwg5oh228BZdMLLu1bTjZtQdTifKcjXE1bWGkFrtzmNfsE5DAKfC9CyPRSfxyeTjgLaDRWis3qf7sUR21VezCRaN

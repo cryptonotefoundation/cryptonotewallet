@@ -238,11 +238,51 @@ Rectangle {
                 model: listModel
                 delegate: Rectangle {
                     width: listView.width
-                    height: listView.height / 4
+                    height: listView.height / 8
 
                     Text {
                         text: listdata
-                        anchors.centerIn: parent
+                        anchors.left: parent.left
+                        anchors.right: parent.right
+                        anchors.top: parent.top
+                        anchors.leftMargin: 17
+                        anchors.topMargin: 15
+
+                        StandardButton {
+                            visible: !isMobile
+                            id: subButton
+                            anchors.top: parent.top
+                            anchors.right: parent.right
+                            anchors.rightMargin: 17
+                            anchors.topMargin: 0
+                            width: 80
+                            text: qsTr("Connect") + translationManager.emptyString
+                            shadowReleasedColor: "#4D0051"
+                            shadowPressedColor: "#2D002F"
+                            releasedColor: "#6B0072"
+                            pressedColor: "#4D0051"
+                            onClicked:  {
+
+                            }
+                        }
+
+                        StandardButton {
+                            visible: !isMobile
+                            id: infoButton
+                            anchors.top: subButton.bottom
+                            anchors.right: parent.right
+                            anchors.rightMargin: 17
+                            anchors.topMargin: 2
+                            width: 80
+                            text: qsTr("Info") + translationManager.emptyString
+                            shadowReleasedColor: "#4D0051"
+                            shadowPressedColor: "#2D002F"
+                            releasedColor: "#6B0072"
+                            pressedColor: "#4D0051"
+                            onClicked:  {
+
+                            }
+                        }
                     }
                 }
             }
@@ -257,12 +297,34 @@ Rectangle {
                     xmlhttp.onreadystatechange=function() {
                         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                             jsonParse(xmlhttp.responseText);
+                            function formatBytes(bytes,decimals) {
+                               if(bytes == 0) return '0 Bytes';
+                               var k = 1024,
+                                   dm = decimals || 2,
+                                   sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
+                                   i = Math.floor(Math.log(bytes) / Math.log(k));
+                               return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+                            }
                             function jsonParse(response) {
                                 console.log(response + "meu log")
                                 var arr = JSON.parse(response);
                                 console.log("numero de loop: " + arr.length)
                                 for(var i = 0; i < arr.length; i++) {
-                                    listView.model.append( {listdata: arr[i].provider +" "+ arr[i].name +" "+ arr[i].mStability +" "+ arr[i].vpn +" "+ arr[i].cost +" "+ arr[i].downloadSpeed})
+                                    if(arr[i].mStability == null){
+                                        arr[i].mStability = 0
+                                    }
+                                    if(arr[i].mSpeed == null){
+                                        arr[i].mSpeed = 0
+                                    }
+                                    if(arr[i].vpn.length == 0){
+                                        var type = arr[i].proxy
+                                    }else{
+                                        var type = arr[i].vpn
+                                    }
+
+                                    var rank = (arr[i].mStability + arr[i].mSpeed)/2
+
+                                    listView.model.append( {listdata:"Provider: " + arr[i].provider +"<br />Plan: " + arr[i].name +" "+ rank +" <br /> "+ type +" "+ formatBytes(arr[i].downloadSpeed) +" - "+ arr[i].cost + "ITNS"})
                                 }
                             }
                         }
