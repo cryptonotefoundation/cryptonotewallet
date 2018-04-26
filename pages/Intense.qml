@@ -12,6 +12,30 @@ Rectangle {
     id: root
     property var model
 
+    function buildTxDetailsString(data, rank, type) {
+        var trStart = '<tr><td width="85" style="padding-top:5px"><b>',
+            trMiddle = '</b></td><td style="padding-left:10px;padding-top:5px;">',
+            trEnd = "</td></tr>";
+
+        return '<table border="0">'
+            + (data.id ? trStart + qsTr("ID: ") + trMiddle + data.id + trEnd : "")
+            + (data.provider ? trStart + qsTr("Provider: ") + trMiddle + data.provider  + trEnd : "")
+            + (data.name ? trStart + qsTr("Plan: ") + trMiddle + data.name + trEnd : "")
+            + (data.type ? trStart + qsTr("Type: ") + trMiddle + data.type  + trEnd : "")
+            + (data.cost ? trStart + qsTr("Cost:") + trMiddle + data.cost + trEnd : "")
+            + (data.firstPrePaidMinutes ? trStart + qsTr("First Pre Paid Minutes:") + trMiddle + data.firstPrePaidMinutes + trEnd : "")
+            + (data.firstVerificationsNeeded ? trStart + qsTr("First Verifications Needed:") + trMiddle + data.firstVerificationsNeeded + trEnd : "")
+            + (data.subsequentPrePaidMinutes ? trStart + qsTr("Subsequent Pre Paid Minutes:") + trMiddle + data.subsequentPrePaidMinutes + trEnd : "")
+            + (data.subsequentVerificationsNeeded ? trStart + qsTr("Subsequent Verifications Needed:") + trMiddle + data.subsequentVerificationsNeeded + trEnd : "")
+            + (data.allowRefunds ? trStart + qsTr("Allow Refunds:") + trMiddle + data.allowRefunds + trEnd : "")
+            + (data.downloadSpeed ? trStart + qsTr("Download Speed:") + trMiddle + data.downloadSpeed + trEnd : "")
+            + (data.uploadSpeed ? trStart + qsTr("Upload Speed:") + trMiddle + data.uploadSpeed + trEnd : "")
+            + (type ? trStart + qsTr("Type:") + trMiddle + type + trEnd : "")
+            + (rank ? trStart + qsTr("Rating:") + trMiddle + rank + trEnd : "")
+            + "</table>"
+            + translationManager.emptyString;
+    }
+
     QtObject {
         id: d
         property bool initialized: false
@@ -189,6 +213,13 @@ Rectangle {
             color: "#DBDBDB"
         }
 
+        StandardDialog {
+            id: detailsPopup
+            cancelVisible: false
+            okVisible: true
+            width:850
+        }
+
         ListView {
                 id: listView
                 anchors.fill: parent
@@ -214,10 +245,10 @@ Rectangle {
                             anchors.topMargin: 0
                             width: 80
                             text: qsTr("Connect") + translationManager.emptyString
-                            shadowReleasedColor: "#4D0051"
-                            shadowPressedColor: "#2D002F"
-                            releasedColor: "#6B0072"
-                            pressedColor: "#4D0051"
+                            shadowReleasedColor: "#983CFF"
+                            shadowPressedColor: "#B32D00"
+                            releasedColor: "#813CFF"
+                            pressedColor: "#983CFF"
                             onClicked:  {
 
                             }
@@ -231,13 +262,15 @@ Rectangle {
                             anchors.rightMargin: 17
                             anchors.topMargin: 2
                             width: 80
-                            text: qsTr("Info") + translationManager.emptyString
-                            shadowReleasedColor: "#4D0051"
-                            shadowPressedColor: "#2D002F"
-                            releasedColor: "#6B0072"
-                            pressedColor: "#4D0051"
-                            onClicked:  {
-
+                            text: qsTr("Details") + translationManager.emptyString
+                            shadowReleasedColor: "#983CFF"
+                            shadowPressedColor: "#B32D00"
+                            releasedColor: "#813CFF"
+                            pressedColor: "#983CFF"
+                            onClicked:  {    
+                                detailsPopup.title = "Services details";
+                                detailsPopup.content = buildTxDetailsString(obj,rank,type);
+                                detailsPopup.open();
                             }
                         }
                     }
@@ -275,13 +308,16 @@ Rectangle {
                                     }
                                     if(arr[i].vpn.length == 0){
                                         var type = arr[i].proxy
-                                    }else{
+                                    }else if(arr[i].proxy.length == 0){
                                         var type = arr[i].vpn
+                                    }else{
+                                        var type = null
                                     }
 
                                     var rank = (arr[i].mStability + arr[i].mSpeed)/2
 
-                                    listView.model.append( {listdata:"Provider: " + arr[i].provider +"<br />Plan: " + arr[i].name +" "+ rank +" <br /> "+ type +" "+ formatBytes(arr[i].downloadSpeed) +" - "+ arr[i].cost + "ITNS"})
+                                    listView.model.append( {listdata:"Provider: " + arr[i].provider +"<br />Plan: " + arr[i].name +" "+ rank +" <br /> "+ type +" "+ formatBytes(arr[i].downloadSpeed) +" - "+ arr[i].cost + "ITNS", obj: arr[i], rank: rank, type: type})
+
                                 }
                             }
                         }
