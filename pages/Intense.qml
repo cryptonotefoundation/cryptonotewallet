@@ -1,10 +1,10 @@
 import QtQuick 2.0
 
-import moneroComponents.Wallet 1.0
-import moneroComponents.WalletManager 1.0
-import moneroComponents.TransactionHistory 1.0
+//import moneroComponents.Wallet 1.0
+//import moneroComponents.WalletManager 1.0
+//import moneroComponents.TransactionHistory 1.0
 import moneroComponents.TransactionInfo 1.0
-import moneroComponents.TransactionHistoryModel 1.0
+//import moneroComponents.TransactionHistoryModel 1.0
 
 import "../components"
 
@@ -28,12 +28,77 @@ Rectangle {
             + (data.subsequentPrePaidMinutes ? trStart + qsTr("Subsequent Pre Paid Minutes:") + trMiddle + data.subsequentPrePaidMinutes + trEnd : "")
             + (data.subsequentVerificationsNeeded ? trStart + qsTr("Subsequent Verifications Needed:") + trMiddle + data.subsequentVerificationsNeeded + trEnd : "")
             + (data.allowRefunds ? trStart + qsTr("Allow Refunds:") + trMiddle + data.allowRefunds + trEnd : "")
-            + (data.downloadSpeed ? trStart + qsTr("Download Speed:") + trMiddle + data.downloadSpeed + trEnd : "")
-            + (data.uploadSpeed ? trStart + qsTr("Upload Speed:") + trMiddle + data.uploadSpeed + trEnd : "")
+            + (data.downloadSpeed ? trStart + qsTr("Download Speed:") + trMiddle + formatBytes(data.downloadSpeed) + trEnd : "")
+            + (data.uploadSpeed ? trStart + qsTr("Upload Speed:") + trMiddle + formatBytes(data.uploadSpeed) + trEnd : "")
             + (type ? trStart + qsTr("Type:") + trMiddle + type + trEnd : "")
             + (rank ? trStart + qsTr("Rating:") + trMiddle + rank + trEnd : "")
             + "</table>"
             + translationManager.emptyString;
+    }
+
+    function formatBytes(bytes,decimals) {
+       if(bytes == 0) return '0 Bytes';
+       var k = 1024,
+           dm = decimals || 2,
+           sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
+           i = Math.floor(Math.log(bytes) / Math.log(k));
+       return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+    }
+
+    function getColor(id){
+        if(id == 5){
+            id = 10
+        }else if(id < 5 && id > 4.5){
+            id = 9
+        }else if(id <= 4.5 && id > 4){
+            id = 7
+        }else if(id <= 4 && id > 3.5){
+            id = 6
+        }else if(id <= 3.5 && id > 2){
+            id = 5
+        }else if(id <= 2 && id > 1.5){
+            id = 4
+        }else if(id <= 1.5 && id > 1){
+            id = 3
+        }else if(id <= 1 && id > 0.5){
+            id = 2
+        }else{
+            id = 1
+        }
+
+        switch(id){
+        case 1:
+            return "#ee2c2c"
+            break;
+        case 2:
+            return "#ee6363"
+            break;
+        case 3:
+            return "#ff7f24"
+            break;
+        case 4:
+            return "#ffa54f"
+            break;
+        case 5:
+            return "#ffa500"
+            break;
+        case 6:
+            return "#ffff00"
+            break;
+        case 7:
+            return "#caff70"
+            break;
+        case 8:
+            return "#c0ff3e"
+            break;
+        case 9:
+            return "#66cd00"
+            break;
+        case 10:
+            return "#008b00"
+            break;
+        }
+
     }
 
     QtObject {
@@ -132,8 +197,8 @@ Rectangle {
           anchors.top: parent.top
           anchors.leftMargin: 17
           anchors.topMargin: 46
-          checkedIcon: "../images/checkedVioletIcon.png"
-          uncheckedIcon: "../images/uncheckedIcon.png"
+          checkedIcon: "../images/star.png"
+          uncheckedIcon: "../images/unstar.png"
           onClicked: {
           }
       }
@@ -233,8 +298,39 @@ Rectangle {
                         anchors.left: parent.left
                         anchors.right: parent.right
                         anchors.top: parent.top
-                        anchors.leftMargin: 17
+                        anchors.leftMargin: 55
                         anchors.topMargin: 15
+
+
+                        CheckBox {
+                            visible: !isMobile
+                            id: favoriteCheck
+                            //text: qsTr("Favorite") + translationManager.emptyString
+                            anchors.left: parent.left
+                            anchors.top: parent.top
+                            anchors.leftMargin: -35
+                            anchors.topMargin: 5
+                            checkedIcon: "../images/star.png"
+                            uncheckedIcon: "../images/unstar.png"
+                            onClicked: {
+                            }
+                        }
+
+                        StandardButton {
+                            visible: !isMobile
+                            id: rankButton
+                            anchors.top: parent.top
+                            anchors.left: parent.left
+                            anchors.leftMargin: -35
+                            anchors.topMargin: 35
+                            width: 25
+                            height: 25
+                            text: rank
+                            shadowReleasedColor: getColor(rank)
+                            shadowPressedColor: getColor(rank)
+                            releasedColor: getColor(rank)
+                            pressedColor: getColor(rank)
+                        }
 
                         StandardButton {
                             visible: !isMobile
@@ -287,14 +383,6 @@ Rectangle {
                     xmlhttp.onreadystatechange=function() {
                         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                             jsonParse(xmlhttp.responseText);
-                            function formatBytes(bytes,decimals) {
-                               if(bytes == 0) return '0 Bytes';
-                               var k = 1024,
-                                   dm = decimals || 2,
-                                   sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
-                                   i = Math.floor(Math.log(bytes) / Math.log(k));
-                               return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
-                            }
                             function jsonParse(response) {
                                 console.log(response + "meu log")
                                 var arr = JSON.parse(response);
@@ -316,7 +404,7 @@ Rectangle {
 
                                     var rank = (arr[i].mStability + arr[i].mSpeed)/2
 
-                                    listView.model.append( {listdata:"Provider: " + arr[i].provider +"<br />Plan: " + arr[i].name +" "+ rank +" <br /> "+ type +" "+ formatBytes(arr[i].downloadSpeed) +" - "+ arr[i].cost + "ITNS", obj: arr[i], rank: rank, type: type})
+                                    listView.model.append( {listdata:"Provider: " + arr[i].provider +"<br />Plan: " + arr[i].name +" "+ type +" "+ formatBytes(arr[i].downloadSpeed) +" - "+ arr[i].cost + "ITNS", obj: arr[i], rank: rank, type: type})
 
                                 }
                             }
@@ -328,108 +416,6 @@ Rectangle {
 
             }
 
-
-
-
-/*
-        ListModel {
-            id: columnsModel
-
-            ListElement { columnName: "Provider"; columnWidth: 127 }
-            ListElement { columnName: "Plan"; columnWidth: 140 }
-            ListElement { columnName: "Rating"; columnWidth: 90 }
-            ListElement { columnName: "Type"; columnWidth: 90 }
-            ListElement { columnName: "Price per minute"; columnWidth: 178 }
-            ListElement { columnName: "Speed"; columnWidth: 178 }
-            ListElement { columnName: "Favorite"; columnWidth: 148 }
-            ListElement { columnName: "Action"; columnWidth: 148 }
-
-        }
-
-        IntenseHeader {
-            id: header
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.top: parent.top
-            anchors.topMargin: 17
-            anchors.leftMargin: 14
-            anchors.rightMargin: 14
-            dataModel: columnsModel
-            offset: 20
-            onSortRequest: {
-                console.log("column: " + column + " desc: " + desc)
-                switch (column) {
-                case 0:
-                    // Payment ID
-                    model.sortRole = TransactionHistoryModel.TransactionPaymentIdRole
-                    break;
-                case 1:
-                    // Date (actually sort by timestamp as we want to have transactions sorted within one day as well);
-                    model.sortRole = TransactionHistoryModel.TransactionTimeStampRole
-                    break;
-                case 2:
-                    // BlockHeight;
-                    model.sortRole = TransactionHistoryModel.TransactionBlockHeightRole
-                    break;
-                case 3:
-                    // Amount;
-                    model.sortRole = TransactionHistoryModel.TransactionAmountRole
-                    break;
-
-                case 4:
-                    // Amount;
-                    model.sortRole = TransactionHistoryModel.TransactionAmountRole
-                    break;
-
-                case 5:
-                    // Amount;
-                    model.sortRole = TransactionHistoryModel.TransactionAmountRole
-                    break;
-
-                case 6:
-                    // Amount;
-                    model.sortRole = TransactionHistoryModel.TransactionAmountRole
-                    break;
-
-                case 7:
-                    // Amount;
-                    model.sortRole = TransactionHistoryModel.TransactionAmountRole
-                    break;
-
-                case 8:
-                    // Amount;
-                    model.sortRole = TransactionHistoryModel.TransactionAmountRole
-                    break;
-                }
-                model.sort(0, desc ? Qt.DescendingOrder : Qt.AscendingOrder)
-            }
-        }
-        */
- /*
-        Scroll {
-            id: flickableScroll
-            anchors.right: table.right
-            anchors.rightMargin: -14
-            anchors.top: table.top
-            anchors.bottom: table.bottom
-            flickable: table
-        }
-
-
-
-        IntenseTable {
-            id: table
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.top: header.bottom
-            anchors.bottom: parent.bottom
-            anchors.leftMargin: 14
-            anchors.rightMargin: 14
-            onContentYChanged: flickableScroll.flickableContentYChanged()
-            model: root.model
-            addressBookModel: null
-        }
-        */
     }
 
     function onPageCompleted() {

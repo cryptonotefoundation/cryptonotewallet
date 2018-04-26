@@ -641,6 +641,8 @@ qrc_qml.cpp: qml.qrc \
 		images/uncheckedIcon.png \
 		images/tip.png \
 		images/moneroLogo2.png \
+		images/star.png \
+		images/unstar.png \
 		images/statusConnected.png \
 		images/closeIcon.png \
 		images/moneroIcon.png \
