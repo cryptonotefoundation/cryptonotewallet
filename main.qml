@@ -1061,6 +1061,9 @@ ApplicationWindow {
             anchors.bottom: parent.bottom
             onDashboardClicked: {middlePanel.state = "Dashboard"; if(isMobile) hideMenu()}
             onTransferClicked: {middlePanel.state = "Transfer"; if(isMobile) hideMenu()}
+
+            onIntenseClicked: {middlePanel.state = "Intense"; if(isMobile) hideMenu()}
+
             onReceiveClicked: {middlePanel.state = "Receive"; if(isMobile) hideMenu()}
             onTxkeyClicked: {middlePanel.state = "TxKey"; if(isMobile) hideMenu()}
             onHistoryClicked: {middlePanel.state = "History"; if(isMobile) hideMenu()}

@@ -50,6 +50,8 @@ Rectangle {
     signal addressBookClicked()
     signal miningClicked()
     signal signClicked()
+    signal intenseClicked()
+
 
     function selectItem(pos) {
         menuColumn.previousButton.checked = false
@@ -62,6 +64,9 @@ Rectangle {
         else if(pos === "TxKey")  menuColumn.previousButton = txkeyButton
         else if(pos === "Sign") menuColumn.previousButton = signButton
         else if(pos === "Settings") menuColumn.previousButton = settingsButton
+
+        else if(pos === "Intense") menuColumn.previousButton = intenseButton
+
         else if(pos === "Advanced") menuColumn.previousButton = advancedButton
 
         menuColumn.previousButton.checked = true
@@ -483,6 +488,31 @@ Rectangle {
                 color: "#505050"
                 height: 1
             }
+
+
+            // ------------- Intese Coin tab ---------------
+            MenuButton {
+                id: intenseButton
+                anchors.left: parent.left
+                anchors.right: parent.right
+                text: qsTr("Intense") + translationManager.emptyString
+                symbol: qsTr("S") + translationManager.emptyString
+                dotColor: "#36B25C"
+                onClicked: {
+                    parent.previousButton.checked = false
+                    parent.previousButton = intenseButton
+                    panel.intenseClicked()
+                }
+            }
+            Rectangle {
+                visible: intenseButton.present
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.leftMargin: 16
+                color: "#505050"
+                height: 1
+            }
+
 
         }
 
