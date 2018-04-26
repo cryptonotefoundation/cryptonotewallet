@@ -101,6 +101,14 @@ Rectangle {
 
     }
 
+    function getBackgroundColor(id){
+        if(id & 1){
+            return "#f0f0f0"
+        } else {
+            return "#fafafa"
+        }
+    }
+
     QtObject {
         id: d
         property bool initialized: false
@@ -282,7 +290,8 @@ Rectangle {
             id: detailsPopup
             cancelVisible: false
             okVisible: true
-            width:850
+            width:900
+            height: 600
         }
 
         ListView {
@@ -291,15 +300,18 @@ Rectangle {
                 model: listModel
                 delegate: Rectangle {
                     width: listView.width
-                    height: listView.height / 8
+                    height: listView.height / 6.8
+                    color: getBackgroundColor(index)
 
                     Text {
                         text: listdata
                         anchors.left: parent.left
                         anchors.right: parent.right
                         anchors.top: parent.top
-                        anchors.leftMargin: 55
+                        anchors.leftMargin: 60
                         anchors.topMargin: 15
+                        color: "#171515"
+                        textFormat: Text.RichText
 
 
                         CheckBox {
@@ -322,7 +334,7 @@ Rectangle {
                             anchors.top: parent.top
                             anchors.left: parent.left
                             anchors.leftMargin: -35
-                            anchors.topMargin: 35
+                            anchors.topMargin: 40
                             width: 25
                             height: 25
                             text: rank
@@ -404,7 +416,7 @@ Rectangle {
 
                                     var rank = (arr[i].mStability + arr[i].mSpeed)/2
 
-                                    listView.model.append( {listdata:"Provider: " + arr[i].provider +"<br />Plan: " + arr[i].name +" "+ type +" "+ formatBytes(arr[i].downloadSpeed) +" - "+ arr[i].cost + "ITNS", obj: arr[i], rank: rank, type: type})
+                                    listView.model.append( {listdata:"Provider: <div style='font-size: 14px'>" + arr[i].provider +"</div><br /><br />Plan: " + arr[i].name +" "+ type +"<div style='font-weight: bold;'> "+ formatBytes(arr[i].downloadSpeed) +" </div>- "+ arr[i].cost + "ITNS", obj: arr[i], rank: rank, type: type, index: i})
 
                                 }
                             }
