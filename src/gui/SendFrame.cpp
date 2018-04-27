@@ -46,7 +46,11 @@ SendFrame::SendFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::SendFrame
   m_ui->m_tickerLabel->setText(CurrencyAdapter::instance().getCurrencyTicker().toUpper());
   m_ui->m_feeSpin->setSuffix(" " + CurrencyAdapter::instance().getCurrencyTicker().toUpper());
   m_ui->m_donateSpin->setSuffix(" " + CurrencyAdapter::instance().getCurrencyTicker().toUpper());
-  m_ui->m_feeSpin->setMinimum(CurrencyAdapter::instance().formatAmount(CurrencyAdapter::instance().getMinimumFee()).toDouble());
+
+  double fee = CurrencyAdapter::instance().formatAmount(NodeAdapter::instance().getMinimalFee()).toDouble();
+  double roundFee = ceil(fee * pow(10, 4)) / pow(10, 4);
+  m_ui->m_feeSpin->setMinimum(roundFee);
+
   m_ui->m_remote_label->hide();
   m_ui->m_sendButton->setEnabled(false);
 
@@ -139,11 +143,11 @@ void SendFrame::amountValueChange() {
         for(QVector<quint64>::iterator it = fees.begin(); it != fees.end(); ++it) {
             remote_node_fee += *it;
         }
-        if (remote_node_fee < CurrencyAdapter::instance().getMinimumFee()) {
-            remote_node_fee = CurrencyAdapter::instance().getMinimumFee();
+		if (remote_node_fee < NodeAdapter::instance().getMinimalFee()) {
+			remote_node_fee = NodeAdapter::instance().getMinimalFee();
         }
-        if (remote_node_fee > 10000000000000) {
-            remote_node_fee = 10000000000000;
+        if (remote_node_fee > 1000000000000) {
+            remote_node_fee = 1000000000000;
         }
     }
 
@@ -158,7 +162,7 @@ void SendFrame::amountValueChange() {
     for(QVector<float>::iterator it = donations.begin(); it != donations.end(); ++it) {
         donation_amount += *it;
     }
-    float min = CurrencyAdapter::instance().formatAmount(CurrencyAdapter::instance().getMinimumFee()).toFloat();
+	float min = CurrencyAdapter::instance().formatAmount(NodeAdapter::instance().getMinimalFee()).toFloat();
     if (donation_amount < min) {
         donation_amount = min;
     }
@@ -197,6 +201,7 @@ void SendFrame::openUriClicked() {
 }
 
 void SendFrame::parsePaymentRequest(QString _request) {
+    MainWindow::instance().showNormal(); //raise window if minimized
     if(_request.startsWith("karbowanec://", Qt::CaseInsensitive))
     {
        _request.replace(0, 13, "karbowanec:");
@@ -294,7 +299,7 @@ void SendFrame::sendClicked() {
 
       // Miners fee
       quint64 fee = CurrencyAdapter::instance().parseAmount(m_ui->m_feeSpin->cleanText());
-      if (fee < CurrencyAdapter::instance().getMinimumFee()) {
+	  if (fee < NodeAdapter::instance().getMinimalFee()) {
         QCoreApplication::postEvent(&MainWindow::instance(), new ShowMessageEvent(tr("Incorrect fee value"), QtCriticalMsg));
         return;
       }
