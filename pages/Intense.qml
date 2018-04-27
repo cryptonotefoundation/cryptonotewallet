@@ -109,6 +109,61 @@ Rectangle {
         }
     }
 
+    function getJson(speed, price, tp){
+        var url = "https://jhx4eq5ijc.execute-api.us-east-1.amazonaws.com/dev/v1/services/search"
+        var xmlhttp = new XMLHttpRequest();
+
+        xmlhttp.onreadystatechange=function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                var arr = JSON.parse(xmlhttp.responseText)
+                if(speed != undefined || tp != undefined || price != undefined){
+                    listView.model.clear()
+                }
+                for(var i = 0; i < arr.length; i++) {
+                    if(arr[i].mStability == null){
+                        arr[i].mStability = 0
+                    }
+                    if(arr[i].mSpeed == null){
+                        arr[i].mSpeed = 0
+                    }
+                    if(arr[i].vpn.length == 0){
+                        var type = arr[i].proxy
+                    }else if(arr[i].proxy.length == 0){
+                        var type = arr[i].vpn
+                    }else{
+                        var type = null
+                    }
+
+                    var rank = (arr[i].mStability + arr[i].mSpeed)/2
+                    if(speed == undefined && tp == undefined && price == undefined){
+                        listView.model.append( {listdata:"Provider: " + arr[i].providerName + "</div><br /><br />Plan: " + arr[i].name +" "+ type +"<div style='font-weight: bold;'> "+ formatBytes(arr[i].downloadSpeed) +" </div>- "+ arr[i].cost + "ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                    }
+
+                    if(speed == undefined && price == undefined && tp == "all"){
+
+                        listView.model.append( {listdata:"Provider: " + arr[i].providerName + "</div><br /><br />Plan: " + arr[i].name +" "+ type +"<div style='font-weight: bold;'> "+ formatBytes(arr[i].downloadSpeed) +" </div>- "+ arr[i].cost + "ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                    }
+
+                    if(speed <= arr[i].downloadSpeed && price == undefined && tp == "all"){
+                        console.log("my tp--------------" + tp)
+                        listView.model.append( {listdata:"Provider: " + arr[i].providerName + "</div><br /><br />Plan: " + arr[i].name +" "+ type +"<div style='font-weight: bold;'> "+ formatBytes(arr[i].downloadSpeed) +" </div>- "+ arr[i].cost + "ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                    }
+                }
+            }
+        }
+        /*
+            speed <= arr[i].downloadSpeed
+            price >= arr[i].cost
+            tp == type
+
+            listView.model.append( {listdata:"Provider: " + arr[i].providerName + "</div><br /><br />Plan: " + arr[i].name +" "+ type +"<div style='font-weight: bold;'> "+ formatBytes(arr[i].downloadSpeed) +" </div>- "+ arr[i].cost + "ITNS", obj: arr[i], rank: rank, type: type, index: i})
+           */
+
+
+        xmlhttp.open("GET", url, true);
+        xmlhttp.send();
+    }
+
     QtObject {
         id: d
         property bool initialized: false
@@ -132,8 +187,10 @@ Rectangle {
 
       ListModel {
           id: typeTransaction
-          ListElement { column1: "VPN"; column2: ""; value: TransactionInfo.Direction_Both }
-          ListElement { column1: "PROXY"; column2: ""; value: TransactionInfo.Direction_Out }
+          ListElement { column1: "ALL"; column2: ""; value: "all" }
+          ListElement { column1: "VPN"; column2: ""; value: "vpn" }
+          ListElement { column1: "PROXY"; column2: ""; value: "proxy" }
+
       }
 
       StandardDropdown {
@@ -225,33 +282,7 @@ Rectangle {
           releasedColor: "#6B0072"
           pressedColor: "#4D0051"
           onClicked:  {
-              // Apply filter here;
-
-              resetFilter(model)
-              /*
-              if (fromDatePicker.currentDate > toDatePicker.currentDate) {
-                  console.error("Invalid date filter set: ", fromDatePicker.currentDate, toDatePicker.currentDate)
-              } else {
-                  model.dateFromFilter  = fromDatePicker.currentDate
-                  model.dateToFilter    = toDatePicker.currentDate
-              }
-
-              if (advancedFilteringCheckBox.checked) {
-                  if (amountFromLine.text.length) {
-                      model.amountFromFilter = parseFloat(amountFromLine.text)
-                  }
-
-                  if (amountToLine.text.length) {
-                      model.amountToFilter = parseFloat(amountToLine.text)
-                  }
-
-                  var directionFilter = transactionsModel.get(transactionTypeDropdown.currentIndex).value
-                  console.log("Direction filter: " + directionFilter)
-                  model.directionFilter = directionFilter
-              }
-
-              selectedAmount.text = getSelectedAmount()
-              */
+              getJson(minSpeedLine.text, maxPriceLine.text, typeTransaction.get(typeDrop.currentIndex).value)
           }
       }
 
@@ -389,41 +420,8 @@ Rectangle {
                 id: listModel
 
                 Component.onCompleted: {
-                    var xmlhttp = new XMLHttpRequest();
-                    var url = "https://jhx4eq5ijc.execute-api.us-east-1.amazonaws.com/dev/v1/services/search";
+                    getJson()
 
-                    xmlhttp.onreadystatechange=function() {
-                        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                            jsonParse(xmlhttp.responseText);
-                            function jsonParse(response) {
-                                console.log(response + "meu log")
-                                var arr = JSON.parse(response);
-                                console.log("numero de loop: " + arr.length)
-                                for(var i = 0; i < arr.length; i++) {
-                                    if(arr[i].mStability == null){
-                                        arr[i].mStability = 0
-                                    }
-                                    if(arr[i].mSpeed == null){
-                                        arr[i].mSpeed = 0
-                                    }
-                                    if(arr[i].vpn.length == 0){
-                                        var type = arr[i].proxy
-                                    }else if(arr[i].proxy.length == 0){
-                                        var type = arr[i].vpn
-                                    }else{
-                                        var type = null
-                                    }
-
-                                    var rank = (arr[i].mStability + arr[i].mSpeed)/2
-
-                                    listView.model.append( {listdata:"Provider: <div style='font-size: 14px'>" + arr[i].provider +"</div><br /><br />Plan: " + arr[i].name +" "+ type +"<div style='font-weight: bold;'> "+ formatBytes(arr[i].downloadSpeed) +" </div>- "+ arr[i].cost + "ITNS", obj: arr[i], rank: rank, type: type, index: i})
-
-                                }
-                            }
-                        }
-                    }
-                    xmlhttp.open("GET", url, true);
-                    xmlhttp.send();
                 }
 
             }
