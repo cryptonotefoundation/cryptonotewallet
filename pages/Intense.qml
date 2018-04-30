@@ -101,6 +101,7 @@ Rectangle {
 
     }
 
+<<<<<<< HEAD
     function getBackgroundColor(id){
         if(id & 1){
             return "#f0f0f0"
@@ -164,6 +165,8 @@ Rectangle {
         xmlhttp.send();
     }
 
+=======
+>>>>>>> parent of 9ef3543... add style
     QtObject {
         id: d
         property bool initialized: false
@@ -321,8 +324,7 @@ Rectangle {
             id: detailsPopup
             cancelVisible: false
             okVisible: true
-            width:900
-            height: 600
+            width:850
         }
 
         ListView {
@@ -331,18 +333,15 @@ Rectangle {
                 model: listModel
                 delegate: Rectangle {
                     width: listView.width
-                    height: listView.height / 6.8
-                    color: getBackgroundColor(index)
+                    height: listView.height / 8
 
                     Text {
                         text: listdata
                         anchors.left: parent.left
                         anchors.right: parent.right
                         anchors.top: parent.top
-                        anchors.leftMargin: 60
+                        anchors.leftMargin: 55
                         anchors.topMargin: 15
-                        color: "#171515"
-                        textFormat: Text.RichText
 
 
                         CheckBox {
@@ -365,7 +364,7 @@ Rectangle {
                             anchors.top: parent.top
                             anchors.left: parent.left
                             anchors.leftMargin: -35
-                            anchors.topMargin: 40
+                            anchors.topMargin: 35
                             width: 25
                             height: 25
                             text: rank
@@ -420,8 +419,46 @@ Rectangle {
                 id: listModel
 
                 Component.onCompleted: {
+<<<<<<< HEAD
                     getJson()
 
+=======
+                    var xmlhttp = new XMLHttpRequest();
+                    var url = "https://jhx4eq5ijc.execute-api.us-east-1.amazonaws.com/dev/v1/services/search";
+
+                    xmlhttp.onreadystatechange=function() {
+                        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                            jsonParse(xmlhttp.responseText);
+                            function jsonParse(response) {
+                                console.log(response + "meu log")
+                                var arr = JSON.parse(response);
+                                console.log("numero de loop: " + arr.length)
+                                for(var i = 0; i < arr.length; i++) {
+                                    if(arr[i].mStability == null){
+                                        arr[i].mStability = 0
+                                    }
+                                    if(arr[i].mSpeed == null){
+                                        arr[i].mSpeed = 0
+                                    }
+                                    if(arr[i].vpn.length == 0){
+                                        var type = arr[i].proxy
+                                    }else if(arr[i].proxy.length == 0){
+                                        var type = arr[i].vpn
+                                    }else{
+                                        var type = null
+                                    }
+
+                                    var rank = (arr[i].mStability + arr[i].mSpeed)/2
+
+                                    listView.model.append( {listdata:"Provider: " + arr[i].provider +"<br />Plan: " + arr[i].name +" "+ type +" "+ formatBytes(arr[i].downloadSpeed) +" - "+ arr[i].cost + "ITNS", obj: arr[i], rank: rank, type: type})
+
+                                }
+                            }
+                        }
+                    }
+                    xmlhttp.open("GET", url, true);
+                    xmlhttp.send();
+>>>>>>> parent of 9ef3543... add style
                 }
 
             }
