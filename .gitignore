@@ -3,3 +3,4 @@
 translations/*.qm
 build
 intense-build
+debug

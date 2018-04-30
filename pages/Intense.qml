@@ -126,39 +126,85 @@ Rectangle {
                     if(arr[i].mSpeed == null){
                         arr[i].mSpeed = 0
                     }
-                    if(arr[i].vpn.length == 0){
+                    if(arr[i].type == "proxy"){
                         var type = arr[i].proxy
-                    }else if(arr[i].proxy.length == 0){
-                        var type = arr[i].vpn
                     }else{
-                        var type = null
+                        var type = arr[i].vpn
                     }
 
                     var rank = (arr[i].mStability + arr[i].mSpeed)/2
                     if(speed == undefined && tp == undefined && price == undefined){
-                        listView.model.append( {listdata:"Provider: " + arr[i].providerName + "</div><br /><br />Plan: " + arr[i].name +" "+ type +"<div style='font-weight: bold;'> "+ formatBytes(arr[i].downloadSpeed) +" </div>- "+ arr[i].cost + "ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                        listView.model.append( {listdata:"<div style='font-side: 16px; font-weight: bold;'> " + arr[i].providerName + "</div><br /><br />" + arr[i].name +"<br /> "+ type +"<div style='font-weight: bold;'> "+ formatBytes(arr[i].downloadSpeed) +" </div>- "+ arr[i].cost + "ITNS", obj: arr[i], rank: rank, type: type, index: i})
                     }
 
-                    if(speed == undefined && price == undefined && tp == "all"){
-
-                        listView.model.append( {listdata:"Provider: " + arr[i].providerName + "</div><br /><br />Plan: " + arr[i].name +" "+ type +"<div style='font-weight: bold;'> "+ formatBytes(arr[i].downloadSpeed) +" </div>- "+ arr[i].cost + "ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                    // C1
+                    if(speed == "" && price == "" && tp == "all"){
+                        listView.model.append( {listdata:"<div style='font-side: 16px; font-weight: bold;'> " + arr[i].providerName + "</div><br /><br />" + arr[i].name +"<br /> "+ type +"<div style='font-weight: bold;'> "+ formatBytes(arr[i].downloadSpeed) +" </div>- "+ arr[i].cost + "ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                    }
+                    // AC1
+                    else if(speed <= arr[i].downloadSpeed && price == "" && tp == "all"){
+                        listView.model.append( {listdata:"<div style='font-side: 16px; font-weight: bold;'> " + arr[i].providerName + "</div><br /><br />" + arr[i].name +"<br /> "+ type +"<div style='font-weight: bold;'> "+ formatBytes(arr[i].downloadSpeed) +" </div>- "+ arr[i].cost + "ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                    }
+                    // BC1
+                    else if(speed == "" && price >= arr[i].cost && tp == "all"){
+                        listView.model.append( {listdata:"<div style='font-side: 16px; font-weight: bold;'> " + arr[i].providerName + "</div><br /><br />" + arr[i].name +"<br /> "+ type +"<div style='font-weight: bold;'> "+ formatBytes(arr[i].downloadSpeed) +" </div>- "+ arr[i].cost + "ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                    }
+                    // C2
+                    else if(speed == "" && price == "" && tp == "vpn"){
+                        if(arr[i].vpn.length > 0 ){
+                            listView.model.append( {listdata:"<div style='font-side: 16px; font-weight: bold;'> " + arr[i].providerName + "</div><br /><br />" + arr[i].name +"<br /> "+ type +"<div style='font-weight: bold;'> "+ formatBytes(arr[i].downloadSpeed) +" </div>- "+ arr[i].cost + "ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                        }
+                    }
+                    // C3
+                    else if(speed == "" && price >= arr[i].cost && tp == "proxy"){
+                        if(arr[i].proxy.length > 0 ){
+                            listView.model.append( {listdata:"<div style='font-side: 16px; font-weight: bold;'> " + arr[i].providerName + "</div><br /><br />" + arr[i].name +"<br /> "+ type +"<div style='font-weight: bold;'> "+ formatBytes(arr[i].downloadSpeed) +" </div>- "+ arr[i].cost + "ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                        }
+                    }
+                    // ABC1
+                    else if(speed <= arr[i].downloadSpeed && price >= arr[i].cost && tp == "all"){
+                        listView.model.append( {listdata:"<div style='font-side: 16px; font-weight: bold;'> " + arr[i].providerName + "</div><br /><br />" + arr[i].name +"<br /> "+ type +"<div style='font-weight: bold;'> "+ formatBytes(arr[i].downloadSpeed) +" </div>- "+ arr[i].cost + "ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                    }
+                    // ABC2
+                    else if(speed <= arr[i].downloadSpeed && price >= arr[i].cost && tp == "vpn"){
+                        if(arr[i].vpn.length > 0 ){
+                            listView.model.append( {listdata:"<div style='font-side: 16px; font-weight: bold;'> " + arr[i].providerName + "</div><br /><br />" + arr[i].name +"<br /> "+ type +"<div style='font-weight: bold;'> "+ formatBytes(arr[i].downloadSpeed) +" </div>- "+ arr[i].cost + "ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                        }
+                    }
+                    // ABC3
+                    else if(speed <= arr[i].downloadSpeed && price >= arr[i].cost && tp == "proxy"){
+                        if(arr[i].proxy.length > 0 ){
+                            listView.model.append( {listdata:"<div style='font-side: 16px; font-weight: bold;'> " + arr[i].providerName + "</div><br /><br />" + arr[i].name +"<br /> "+ type +"<div style='font-weight: bold;'> "+ formatBytes(arr[i].downloadSpeed) +" </div>- "+ arr[i].cost + "ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                        }
+                    }
+                    // BC2
+                    else if(speed == "" && price >= arr[i].cost && tp == "vpn"){
+                        if(arr[i].vpn.length > 0 ){
+                            listView.model.append( {listdata:"<div style='font-side: 16px; font-weight: bold;'> " + arr[i].providerName + "</div><br /><br />" + arr[i].name +"<br /> "+ type +"<div style='font-weight: bold;'> "+ formatBytes(arr[i].downloadSpeed) +" </div>- "+ arr[i].cost + "ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                        }
+                    }
+                    // BC3
+                    else if(speed == "" && price >= arr[i].cost && tp == "proxy"){
+                        if(arr[i].proxy.length > 0 ){
+                            listView.model.append( {listdata:"<div style='font-side: 16px; font-weight: bold;'> " + arr[i].providerName + "</div><br /><br />" + arr[i].name +"<br /> "+ type +"<div style='font-weight: bold;'> "+ formatBytes(arr[i].downloadSpeed) +" </div>- "+ arr[i].cost + "ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                        }
+                    }
+                    // AC2
+                    else if(speed <= arr[i].downloadSpeed && price == "" && tp == "vpn"){
+                        if(arr[i].vpn.length > 0 ){
+                            listView.model.append( {listdata:"<div style='font-side: 16px; font-weight: bold;'> " + arr[i].providerName + "</div><br /><br />" + arr[i].name +"<br /> "+ type +"<div style='font-weight: bold;'> "+ formatBytes(arr[i].downloadSpeed) +" </div>- "+ arr[i].cost + "ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                        }
+                    }
+                    // AC3
+                    else if(speed <= arr[i].downloadSpeed && price == "" && tp == "proxy"){
+                        if(arr[i].proxy.length > 0 ){
+                            listView.model.append( {listdata:"<div style='font-side: 16px; font-weight: bold;'> " + arr[i].providerName + "</div><br /><br />" + arr[i].name +"<br /> "+ type +"<div style='font-weight: bold;'> "+ formatBytes(arr[i].downloadSpeed) +" </div>- "+ arr[i].cost + "ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                        }
                     }
 
-                    if(speed <= arr[i].downloadSpeed && price == undefined && tp == "all"){
-                        console.log("my tp--------------" + tp)
-                        listView.model.append( {listdata:"Provider: " + arr[i].providerName + "</div><br /><br />Plan: " + arr[i].name +" "+ type +"<div style='font-weight: bold;'> "+ formatBytes(arr[i].downloadSpeed) +" </div>- "+ arr[i].cost + "ITNS", obj: arr[i], rank: rank, type: type, index: i})
-                    }
                 }
             }
         }
-        /*
-            speed <= arr[i].downloadSpeed
-            price >= arr[i].cost
-            tp == type
-
-            listView.model.append( {listdata:"Provider: " + arr[i].providerName + "</div><br /><br />Plan: " + arr[i].name +" "+ type +"<div style='font-weight: bold;'> "+ formatBytes(arr[i].downloadSpeed) +" </div>- "+ arr[i].cost + "ITNS", obj: arr[i], rank: rank, type: type, index: i})
-           */
-
 
         xmlhttp.open("GET", url, true);
         xmlhttp.send();
@@ -339,7 +385,7 @@ Rectangle {
                         anchors.left: parent.left
                         anchors.right: parent.right
                         anchors.top: parent.top
-                        anchors.leftMargin: 60
+                        anchors.leftMargin: 70
                         anchors.topMargin: 15
                         color: "#171515"
                         textFormat: Text.RichText
@@ -351,7 +397,7 @@ Rectangle {
                             //text: qsTr("Favorite") + translationManager.emptyString
                             anchors.left: parent.left
                             anchors.top: parent.top
-                            anchors.leftMargin: -35
+                            anchors.leftMargin: -50
                             anchors.topMargin: 5
                             checkedIcon: "../images/star.png"
                             uncheckedIcon: "../images/unstar.png"
@@ -364,7 +410,7 @@ Rectangle {
                             id: rankButton
                             anchors.top: parent.top
                             anchors.left: parent.left
-                            anchors.leftMargin: -35
+                            anchors.leftMargin: -50
                             anchors.topMargin: 40
                             width: 25
                             height: 25
