@@ -383,11 +383,7 @@ Rectangle {
                         anchors.left: parent.left
                         anchors.right: parent.right
                         anchors.top: parent.top
-<<<<<<< HEAD
-                        anchors.leftMargin: 55
-=======
                         anchors.leftMargin: 70
->>>>>>> dev
                         anchors.topMargin: 15
 
 
@@ -410,13 +406,8 @@ Rectangle {
                             id: rankButton
                             anchors.top: parent.top
                             anchors.left: parent.left
-<<<<<<< HEAD
-                            anchors.leftMargin: -35
-                            anchors.topMargin: 35
-=======
                             anchors.leftMargin: -50
                             anchors.topMargin: 40
->>>>>>> dev
                             width: 25
                             height: 25
                             text: rank
