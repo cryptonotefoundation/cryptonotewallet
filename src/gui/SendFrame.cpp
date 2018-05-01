@@ -48,7 +48,7 @@ SendFrame::SendFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::SendFrame
   m_ui->m_donateSpin->setSuffix(" " + CurrencyAdapter::instance().getCurrencyTicker().toUpper());
 
   double fee = CurrencyAdapter::instance().formatAmount(NodeAdapter::instance().getMinimalFee()).toDouble();
-  double roundFee = ceil(fee * pow(10, 4)) / pow(10, 4);
+  double roundFee = ceil(fee * pow(10, 5)) / pow(10, 5);
   m_ui->m_feeSpin->setMinimum(roundFee);
 
   m_ui->m_remote_label->hide();
