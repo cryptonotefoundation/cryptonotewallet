@@ -274,6 +274,7 @@ macx {
         -lboost_filesystem \
         -lboost_regex \
         -lboost_chrono \
+        -lboost_chrono-mt \
         -lboost_program_options \
         -lssl \
         -lcrypto \
