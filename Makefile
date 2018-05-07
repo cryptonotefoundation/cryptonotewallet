@@ -135,6 +135,7 @@ DIST          = notes.txt \
 		intense/src/wallet/CMakeLists.txt \
 		components/MobileHeader.qml \
 		pages/intense.qml \
+		pages/IntenseDash.qml \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf \
@@ -773,6 +774,7 @@ qrc_qml.cpp: qml.qrc \
 		pages/History.qml \
 		pages/Receive.qml \
 		pages/Intense.qml \
+		pages/IntenseDash.qml \
 		pages/TxKey.qml
 	/usr/lib/x86_64-linux-gnu/qt5/bin/rcc -name qml qml.qrc -o qrc_qml.cpp
 

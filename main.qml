@@ -1062,7 +1062,9 @@ ApplicationWindow {
             onDashboardClicked: {middlePanel.state = "Dashboard"; if(isMobile) hideMenu()}
             onTransferClicked: {middlePanel.state = "Transfer"; if(isMobile) hideMenu()}
 
-            onIntenseClicked: {middlePanel.state = "Intense"; if(isMobile) hideMenu()}
+            //onIntenseClicked: {middlePanel.state = "Intense"; if(isMobile) hideMenu()}
+            onIntenseDashClicked: {middlePanel.state = "ITNS Dashboard"; if(isMobile) hideMenu()}
+            onIntenseProviderClicked: {middlePanel.state = "ITNS Provider"; if(isMobile) hideMenu()}
 
             onReceiveClicked: {middlePanel.state = "Receive"; if(isMobile) hideMenu()}
             onTxkeyClicked: {middlePanel.state = "TxKey"; if(isMobile) hideMenu()}
