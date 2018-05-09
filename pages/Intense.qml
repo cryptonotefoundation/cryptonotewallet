@@ -1,44 +1,213 @@
-// Copyright (c) 2014-2015, The Monero Project
-//
-// All rights reserved.
-//
-// Redistribution and use in source and binary forms, with or without modification, are
-// permitted provided that the following conditions are met:
-//
-// 1. Redistributions of source code must retain the above copyright notice, this list of
-//    conditions and the following disclaimer.
-//
-// 2. Redistributions in binary form must reproduce the above copyright notice, this list
-//    of conditions and the following disclaimer in the documentation and/or other
-//    materials provided with the distribution.
-//
-// 3. Neither the name of the copyright holder nor the names of its contributors may be
-//    used to endorse or promote products derived from this software without specific
-//    prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
-// EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
-// MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
-// THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
-// PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
-// STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF
-// THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
 import QtQuick 2.0
 
-import moneroComponents.Wallet 1.0
-import moneroComponents.WalletManager 1.0
-import moneroComponents.TransactionHistory 1.0
+//import moneroComponents.Wallet 1.0
+//import moneroComponents.WalletManager 1.0
+//import moneroComponents.TransactionHistory 1.0
 import moneroComponents.TransactionInfo 1.0
-import moneroComponents.TransactionHistoryModel 1.0
+//import moneroComponents.TransactionHistoryModel 1.0
 
 import "../components"
 
 Rectangle {
     id: root
     property var model
+
+    function buildTxDetailsString(data, rank, type) {
+        var trStart = '<tr><td width="85" style="padding-top:5px"><b>',
+            trMiddle = '</b></td><td style="padding-left:10px;padding-top:5px;">',
+            trEnd = "</td></tr>";
+
+        return '<table border="0">'
+            + (data.id ? trStart + qsTr("ID: ") + trMiddle + data.id + trEnd : "")
+            + (data.provider ? trStart + qsTr("Provider: ") + trMiddle + data.provider  + trEnd : "")
+            + (data.name ? trStart + qsTr("Plan: ") + trMiddle + data.name + trEnd : "")
+            + (data.type ? trStart + qsTr("Type: ") + trMiddle + data.type  + trEnd : "")
+            + (data.cost ? trStart + qsTr("Cost:") + trMiddle + data.cost + trEnd : "")
+            + (data.firstPrePaidMinutes ? trStart + qsTr("First Pre Paid Minutes:") + trMiddle + data.firstPrePaidMinutes + trEnd : "")
+            + (data.firstVerificationsNeeded ? trStart + qsTr("First Verifications Needed:") + trMiddle + data.firstVerificationsNeeded + trEnd : "")
+            + (data.subsequentPrePaidMinutes ? trStart + qsTr("Subsequent Pre Paid Minutes:") + trMiddle + data.subsequentPrePaidMinutes + trEnd : "")
+            + (data.subsequentVerificationsNeeded ? trStart + qsTr("Subsequent Verifications Needed:") + trMiddle + data.subsequentVerificationsNeeded + trEnd : "")
+            + (data.allowRefunds ? trStart + qsTr("Allow Refunds:") + trMiddle + data.allowRefunds + trEnd : "")
+            + (data.downloadSpeed ? trStart + qsTr("Download Speed:") + trMiddle + formatBytes(data.downloadSpeed) + trEnd : "")
+            + (data.uploadSpeed ? trStart + qsTr("Upload Speed:") + trMiddle + formatBytes(data.uploadSpeed) + trEnd : "")
+            + (rank ? trStart + qsTr("Rating:") + trMiddle + rank + trEnd : "")
+            + "</table>"
+            + translationManager.emptyString;
+    }
+
+    function formatBytes(bytes,decimals) {
+       if(bytes == 0) return '0 Bytes';
+       var k = 1024,
+           dm = decimals || 2,
+           sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
+           i = Math.floor(Math.log(bytes) / Math.log(k));
+       return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+    }
+
+    function getColor(id){
+        if(id == 5){
+            id = 10
+        }else if(id < 5 && id > 4.5){
+            id = 9
+        }else if(id <= 4.5 && id > 4){
+            id = 7
+        }else if(id <= 4 && id > 3.5){
+            id = 6
+        }else if(id <= 3.5 && id > 2){
+            id = 5
+        }else if(id <= 2 && id > 1.5){
+            id = 4
+        }else if(id <= 1.5 && id > 1){
+            id = 3
+        }else if(id <= 1 && id > 0.5){
+            id = 2
+        }else{
+            id = 1
+        }
+
+        switch(id){
+        case 1:
+            return "#ee2c2c"
+            break;
+        case 2:
+            return "#ee6363"
+            break;
+        case 3:
+            return "#ff7f24"
+            break;
+        case 4:
+            return "#ffa54f"
+            break;
+        case 5:
+            return "#ffa500"
+            break;
+        case 6:
+            return "#ffff00"
+            break;
+        case 7:
+            return "#caff70"
+            break;
+        case 8:
+            return "#c0ff3e"
+            break;
+        case 9:
+            return "#66cd00"
+            break;
+        case 10:
+            return "#008b00"
+            break;
+        }
+
+    }
+
+    function getBackgroundColor(id){
+        if(id & 1){
+            return "#f0f0f0"
+        } else {
+            return "#fafafa"
+        }
+    }
+
+    function getJson(speed, price, tp){
+        var url = "https://jhx4eq5ijc.execute-api.us-east-1.amazonaws.com/dev/v1/services/search"
+        var xmlhttp = new XMLHttpRequest();
+
+        xmlhttp.onreadystatechange=function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                var arr = JSON.parse(xmlhttp.responseText)
+                if(speed != undefined || tp != undefined || price != undefined){
+                    listView.model.clear()
+                }
+                for(var i = 0; i < arr.length; i++) {
+                    if(arr[i].mStability == null){
+                        arr[i].mStability = 0
+                    }
+                    if(arr[i].mSpeed == null){
+                        arr[i].mSpeed = 0
+                    }
+                    if(arr[i].type == "proxy"){
+                        var type = arr[i].proxy
+                    }else{
+                        var type = arr[i].vpn
+                    }
+
+                    var rank = (arr[i].mStability + arr[i].mSpeed)/2
+                    if(speed == undefined && tp == undefined && price == undefined){
+                        listView.model.append( {listdata:"<div style='font-side: 16px; font-weight: bold;'> " + arr[i].providerName + "</div><br /><br />" + arr[i].name +"<br /> "+ type +"<div style='font-weight: bold;'><br /> "+ formatBytes(arr[i].downloadSpeed) +" </div>- "+ arr[i].cost + "ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                    }
+
+                    // C1
+                    if(speed == "" && price == "" && tp == "all"){
+                        listView.model.append( {listdata:"<div style='font-side: 16px; font-weight: bold;'> " + arr[i].providerName + "</div><br /><br />" + arr[i].name +"<br /> "+ type +"<div style='font-weight: bold;'><br /> "+ formatBytes(arr[i].downloadSpeed) +" </div>- "+ arr[i].cost + "ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                    }
+                    // AC1
+                    else if(speed <= arr[i].downloadSpeed && price == "" && tp == "all"){
+                        listView.model.append( {listdata:"<div style='font-side: 16px; font-weight: bold;'> " + arr[i].providerName + "</div><br /><br />" + arr[i].name +"<br /> "+ type +"<div style='font-weight: bold;'><br /> "+ formatBytes(arr[i].downloadSpeed) +" </div>- "+ arr[i].cost + "ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                    }
+                    // BC1
+                    else if(speed == "" && price >= arr[i].cost && tp == "all"){
+                        listView.model.append( {listdata:"<div style='font-side: 16px; font-weight: bold;'> " + arr[i].providerName + "</div><br /><br />" + arr[i].name +"<br /> "+ type +"<div style='font-weight: bold;'><br /> "+ formatBytes(arr[i].downloadSpeed) +" </div>- "+ arr[i].cost + "ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                    }
+                    // C2
+                    else if(speed == "" && price == "" && tp == "vpn"){
+                        if(arr[i].vpn.length > 0 ){
+                            listView.model.append( {listdata:"<div style='font-side: 16px; font-weight: bold;'> " + arr[i].providerName + "</div><br /><br />" + arr[i].name +"<br /> "+ type +"<div style='font-weight: bold;'><br /> "+ formatBytes(arr[i].downloadSpeed) +" </div>- "+ arr[i].cost + "ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                        }
+                    }
+                    // C3
+                    else if(speed == "" && price >= arr[i].cost && tp == "proxy"){
+                        if(arr[i].proxy.length > 0 ){
+                            listView.model.append( {listdata:"<div style='font-side: 16px; font-weight: bold;'> " + arr[i].providerName + "</div><br /><br />" + arr[i].name +"<br /> "+ type +"<div style='font-weight: bold;'><br /> "+ formatBytes(arr[i].downloadSpeed) +" </div>- "+ arr[i].cost + "ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                        }
+                    }
+                    // ABC1
+                    else if(speed <= arr[i].downloadSpeed && price >= arr[i].cost && tp == "all"){
+                        listView.model.append( {listdata:"<div style='font-side: 16px; font-weight: bold;'> " + arr[i].providerName + "</div><br /><br />" + arr[i].name +"<br /> "+ type +"<div style='font-weight: bold;'><br /> "+ formatBytes(arr[i].downloadSpeed) +" </div>- "+ arr[i].cost + "ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                    }
+                    // ABC2
+                    else if(speed <= arr[i].downloadSpeed && price >= arr[i].cost && tp == "vpn"){
+                        if(arr[i].vpn.length > 0 ){
+                            listView.model.append( {listdata:"<div style='font-side: 16px; font-weight: bold;'> " + arr[i].providerName + "</div><br /><br />" + arr[i].name +"<br /> "+ type +"<div style='font-weight: bold;'><br /> "+ formatBytes(arr[i].downloadSpeed) +" </div>- "+ arr[i].cost + "ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                        }
+                    }
+                    // ABC3
+                    else if(speed <= arr[i].downloadSpeed && price >= arr[i].cost && tp == "proxy"){
+                        if(arr[i].proxy.length > 0 ){
+                            listView.model.append( {listdata:"<div style='font-side: 16px; font-weight: bold;'> " + arr[i].providerName + "</div><br /><br />" + arr[i].name +"<br /> "+ type +"<div style='font-weight: bold;'><br /> "+ formatBytes(arr[i].downloadSpeed) +" </div>- "+ arr[i].cost + "ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                        }
+                    }
+                    // BC2
+                    else if(speed == "" && price >= arr[i].cost && tp == "vpn"){
+                        if(arr[i].vpn.length > 0 ){
+                            listView.model.append( {listdata:"<div style='font-side: 16px; font-weight: bold;'> " + arr[i].providerName + "</div><br /><br />" + arr[i].name +"<br /> "+ type +"<div style='font-weight: bold;'><br /> "+ formatBytes(arr[i].downloadSpeed) +" </div>- "+ arr[i].cost + "ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                        }
+                    }
+                    // BC3
+                    else if(speed == "" && price >= arr[i].cost && tp == "proxy"){
+                        if(arr[i].proxy.length > 0 ){
+                            listView.model.append( {listdata:"<div style='font-side: 16px; font-weight: bold;'> " + arr[i].providerName + "</div><br /><br />" + arr[i].name +"<br /> "+ type +"<div style='font-weight: bold;'><br /> "+ formatBytes(arr[i].downloadSpeed) +" </div>- "+ arr[i].cost + "ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                        }
+                    }
+                    // AC2
+                    else if(speed <= arr[i].downloadSpeed && price == "" && tp == "vpn"){
+                        if(arr[i].vpn.length > 0 ){
+                            listView.model.append( {listdata:"<div style='font-side: 16px; font-weight: bold;'> " + arr[i].providerName + "</div><br /><br />" + arr[i].name +"<br /> "+ type +"<div style='font-weight: bold;'><br /> "+ formatBytes(arr[i].downloadSpeed) +" </div>- "+ arr[i].cost + "ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                        }
+                    }
+                    // AC3
+                    else if(speed <= arr[i].downloadSpeed && price == "" && tp == "proxy"){
+                        if(arr[i].proxy.length > 0 ){
+                            listView.model.append( {listdata:"<div style='font-side: 16px; font-weight: bold;'> " + arr[i].providerName + "</div><br /><br />" + arr[i].name +"<br /> "+ type +"<div style='font-weight: bold;'><br /> "+ formatBytes(arr[i].downloadSpeed) +" </div>- "+ arr[i].cost + "ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                        }
+                    }
+
+                }
+            }
+        }
+
+        xmlhttp.open("GET", url, true);
+        xmlhttp.send();
+    }
 
     QtObject {
         id: d
@@ -63,8 +232,10 @@ Rectangle {
 
       ListModel {
           id: typeTransaction
-          ListElement { column1: "VPN"; column2: ""; value: TransactionInfo.Direction_Both }
-          ListElement { column1: "PROXY"; column2: ""; value: TransactionInfo.Direction_Out }
+          ListElement { column1: "ALL"; column2: ""; value: "all" }
+          ListElement { column1: "VPN"; column2: ""; value: "vpn" }
+          ListElement { column1: "PROXY"; column2: ""; value: "proxy" }
+
       }
 
       StandardDropdown {
@@ -133,37 +304,22 @@ Rectangle {
           id: favoriteFilter
           text: qsTr("Favorite") + translationManager.emptyString
           anchors.left: minSpeedLine.right
-          anchors.bottom: parent.top
+          anchors.top: parent.top
           anchors.leftMargin: 17
-          checkedIcon: "../images/checkedVioletIcon.png"
-          uncheckedIcon: "../images/uncheckedIcon.png"
+          anchors.topMargin: 46
+          checkedIcon: "../images/star.png"
+          uncheckedIcon: "../images/unstar.png"
           onClicked: {
           }
       }
-
-/*
-      CheckBox {
-          visible: !isMobile
-          id: advancedFilter
-          text: qsTr("Advanced Search") + translationManager.emptyString
-          anchors.left: favoriteFilter.right
-          anchors.bottom: parent.top
-          anchors.leftMargin: 17
-          checkedIcon: "../images/checkedVioletIcon.png"
-          uncheckedIcon: "../images/uncheckedIcon.png"
-          onClicked: {
-              if(checked) tableRect.height = Qt.binding(function(){ return tableRect.collapsedHeight })
-              else tableRect.height = Qt.binding(function(){ return tableRect.middleHeight })
-          }
-      }
-*/
 
       StandardButton {
           visible: !isMobile
           id: filterButton
-          anchors.bottom: parent.top
+          anchors.top: parent.top
           anchors.left: favoriteFilter.right
           anchors.leftMargin: 17
+          anchors.topMargin: 40
           width: 60
           text: qsTr("Filter") + translationManager.emptyString
           shadowReleasedColor: "#4D0051"
@@ -171,33 +327,7 @@ Rectangle {
           releasedColor: "#6B0072"
           pressedColor: "#4D0051"
           onClicked:  {
-              // Apply filter here;
-
-              resetFilter(model)
-              /*
-              if (fromDatePicker.currentDate > toDatePicker.currentDate) {
-                  console.error("Invalid date filter set: ", fromDatePicker.currentDate, toDatePicker.currentDate)
-              } else {
-                  model.dateFromFilter  = fromDatePicker.currentDate
-                  model.dateToFilter    = toDatePicker.currentDate
-              }
-
-              if (advancedFilteringCheckBox.checked) {
-                  if (amountFromLine.text.length) {
-                      model.amountFromFilter = parseFloat(amountFromLine.text)
-                  }
-
-                  if (amountToLine.text.length) {
-                      model.amountToFilter = parseFloat(amountToLine.text)
-                  }
-
-                  var directionFilter = transactionsModel.get(transactionTypeDropdown.currentIndex).value
-                  console.log("Direction filter: " + directionFilter)
-                  model.directionFilter = directionFilter
-              }
-
-              selectedAmount.text = getSelectedAmount()
-              */
+              getJson(minSpeedLine.text, maxPriceLine.text, typeTransaction.get(typeDrop.currentIndex).value)
           }
       }
 
@@ -232,17 +362,99 @@ Rectangle {
             color: "#DBDBDB"
         }
 
+        StandardDialog {
+            id: detailsPopup
+            cancelVisible: false
+            okVisible: true
+            width:900
+            height: 600
+        }
+
         ListView {
                 id: listView
                 anchors.fill: parent
                 model: listModel
                 delegate: Rectangle {
                     width: listView.width
-                    height: listView.height / 4
+                    height: listView.height / 6.8
+                    color: getBackgroundColor(index)
 
                     Text {
                         text: listdata
-                        anchors.centerIn: parent
+                        anchors.left: parent.left
+                        anchors.right: parent.right
+                        anchors.top: parent.top
+                        anchors.leftMargin: 70
+                        anchors.topMargin: 15
+
+
+                        CheckBox {
+                            visible: !isMobile
+                            id: favoriteCheck
+                            //text: qsTr("Favorite") + translationManager.emptyString
+                            anchors.left: parent.left
+                            anchors.top: parent.top
+                            anchors.leftMargin: -50
+                            anchors.topMargin: 5
+                            checkedIcon: "../images/star.png"
+                            uncheckedIcon: "../images/unstar.png"
+                            onClicked: {
+                            }
+                        }
+
+                        StandardButton {
+                            visible: !isMobile
+                            id: rankButton
+                            anchors.top: parent.top
+                            anchors.left: parent.left
+                            anchors.leftMargin: -50
+                            anchors.topMargin: 40
+                            width: 25
+                            height: 25
+                            text: rank
+                            shadowReleasedColor: getColor(rank)
+                            shadowPressedColor: getColor(rank)
+                            releasedColor: getColor(rank)
+                            pressedColor: getColor(rank)
+                        }
+
+                        StandardButton {
+                            visible: !isMobile
+                            id: subButton
+                            anchors.top: parent.top
+                            anchors.right: parent.right
+                            anchors.rightMargin: 17
+                            anchors.topMargin: 0
+                            width: 80
+                            text: qsTr("Connect") + translationManager.emptyString
+                            shadowReleasedColor: "#983CFF"
+                            shadowPressedColor: "#B32D00"
+                            releasedColor: "#813CFF"
+                            pressedColor: "#983CFF"
+                            onClicked:  {
+
+                            }
+                        }
+
+                        StandardButton {
+                            visible: !isMobile
+                            id: infoButton
+                            anchors.top: subButton.bottom
+                            anchors.right: parent.right
+                            anchors.rightMargin: 17
+                            anchors.topMargin: 2
+                            width: 80
+                            text: qsTr("Details") + translationManager.emptyString
+                            shadowReleasedColor: "#983CFF"
+                            shadowPressedColor: "#B32D00"
+                            releasedColor: "#813CFF"
+                            pressedColor: "#983CFF"
+                            onClicked:  {    
+                                detailsPopup.title = "Services details";
+                                detailsPopup.content = buildTxDetailsString(obj,rank,type);
+                                detailsPopup.open();
+                            }
+                        }
                     }
                 }
             }
@@ -251,130 +463,13 @@ Rectangle {
                 id: listModel
 
                 Component.onCompleted: {
-                    var xmlhttp = new XMLHttpRequest();
-                    var url = "https://jhx4eq5ijc.execute-api.us-east-1.amazonaws.com/dev/v1/services/search";
 
-                    xmlhttp.onreadystatechange=function() {
-                        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                            jsonParse(xmlhttp.responseText);
-                            function jsonParse(response) {
-                                console.log(response + "meu log")
-                                var arr = JSON.parse(response);
-                                console.log("numero de loop: " + arr.length)
-                                for(var i = 0; i < arr.length; i++) {
-                                    listView.model.append( {listdata: arr[i].provider +" "+ arr[i].name +" "+ arr[i].mStability +" "+ arr[i].vpn +" "+ arr[i].cost +" "+ arr[i].downloadSpeed})
-                                }
-                            }
-                        }
-                    }
-                    xmlhttp.open("GET", url, true);
-                    xmlhttp.send();
+                    getJson()
+
                 }
 
             }
 
-
-
-
-/*
-        ListModel {
-            id: columnsModel
-
-            ListElement { columnName: "Provider"; columnWidth: 127 }
-            ListElement { columnName: "Plan"; columnWidth: 140 }
-            ListElement { columnName: "Rating"; columnWidth: 90 }
-            ListElement { columnName: "Type"; columnWidth: 90 }
-            ListElement { columnName: "Price per minute"; columnWidth: 178 }
-            ListElement { columnName: "Speed"; columnWidth: 178 }
-            ListElement { columnName: "Favorite"; columnWidth: 148 }
-            ListElement { columnName: "Action"; columnWidth: 148 }
-
-        }
-
-        IntenseHeader {
-            id: header
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.top: parent.top
-            anchors.topMargin: 17
-            anchors.leftMargin: 14
-            anchors.rightMargin: 14
-            dataModel: columnsModel
-            offset: 20
-            onSortRequest: {
-                console.log("column: " + column + " desc: " + desc)
-                switch (column) {
-                case 0:
-                    // Payment ID
-                    model.sortRole = TransactionHistoryModel.TransactionPaymentIdRole
-                    break;
-                case 1:
-                    // Date (actually sort by timestamp as we want to have transactions sorted within one day as well);
-                    model.sortRole = TransactionHistoryModel.TransactionTimeStampRole
-                    break;
-                case 2:
-                    // BlockHeight;
-                    model.sortRole = TransactionHistoryModel.TransactionBlockHeightRole
-                    break;
-                case 3:
-                    // Amount;
-                    model.sortRole = TransactionHistoryModel.TransactionAmountRole
-                    break;
-
-                case 4:
-                    // Amount;
-                    model.sortRole = TransactionHistoryModel.TransactionAmountRole
-                    break;
-
-                case 5:
-                    // Amount;
-                    model.sortRole = TransactionHistoryModel.TransactionAmountRole
-                    break;
-
-                case 6:
-                    // Amount;
-                    model.sortRole = TransactionHistoryModel.TransactionAmountRole
-                    break;
-
-                case 7:
-                    // Amount;
-                    model.sortRole = TransactionHistoryModel.TransactionAmountRole
-                    break;
-
-                case 8:
-                    // Amount;
-                    model.sortRole = TransactionHistoryModel.TransactionAmountRole
-                    break;
-                }
-                model.sort(0, desc ? Qt.DescendingOrder : Qt.AscendingOrder)
-            }
-        }
-        */
- /*
-        Scroll {
-            id: flickableScroll
-            anchors.right: table.right
-            anchors.rightMargin: -14
-            anchors.top: table.top
-            anchors.bottom: table.bottom
-            flickable: table
-        }
-
-
-
-        IntenseTable {
-            id: table
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.top: header.bottom
-            anchors.bottom: parent.bottom
-            anchors.leftMargin: 14
-            anchors.rightMargin: 14
-            onContentYChanged: flickableScroll.flickableContentYChanged()
-            model: root.model
-            addressBookModel: null
-        }
-        */
     }
 
     function onPageCompleted() {

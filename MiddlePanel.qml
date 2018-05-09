@@ -53,6 +53,7 @@ Rectangle {
     property Transfer transferView: Transfer { }
     property Receive receiveView: Receive { }
 
+    property IntenseDash intenseDashView: IntenseDash { }
     property Intense intenseView: Intense { }
 
     property TxKey txkeyView: TxKey { }
@@ -162,7 +163,11 @@ Rectangle {
                 PropertyChanges { target: mainFlickable; contentHeight: minHeight  }
 
             }, State {
-                name: "Intense"
+                name: "ITNS Dashboard"
+                PropertyChanges { target: root; currentView: intenseDashView }
+                PropertyChanges { target: mainFlickable; contentHeight: minHeight }
+             }, State {
+                name: "ITNS Provider"
                 PropertyChanges { target: root; currentView: intenseView }
                 PropertyChanges { target: mainFlickable; contentHeight: minHeight }
              }

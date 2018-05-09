@@ -146,5 +146,8 @@
         <file>lang/flags/south_korea.png</file>
         <file>components/IntenseTable.qml</file>
         <file>components/IntenseHeader.qml</file>
+        <file>images/star.png</file>
+        <file>images/unstar.png</file>
+        <file>pages/IntenseDash.qml</file>
     </qresource>
 </RCC>

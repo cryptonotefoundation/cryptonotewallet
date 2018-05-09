@@ -3,3 +3,6 @@
 translations/*.qm
 build
 intense-build
+*.o
+*.log
+debug
