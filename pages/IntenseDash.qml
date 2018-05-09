@@ -209,6 +209,22 @@ Rectangle {
         xmlhttp.send();
     }
 
+    function changeStatus(bt){
+        console.log(bt + "my buton path -------------------------------")
+        if (bt == "qrc:///images/pon.png"){
+            pon.source = "../images/poff.png"
+            shield.source = "../images/vgshield.png"
+            runningText.text = "Connected"
+            startText.text = "Click to Stop"
+        }else{
+            pon.source = "../images/pon.png"
+            shield.source = "../images/shield.png"
+            runningText.text = "Not running"
+            startText.text = "Click to Start"
+        }
+
+    }
+
     QtObject {
         id: d
         property bool initialized: false
@@ -217,259 +233,272 @@ Rectangle {
     color: "#F0EEEE"
 
 
+    Rectangle {
+        anchors.left: parent.left
+        //anchors.right: parent.right
+        anchors.top: parent.top
+        anchors.leftMargin: 27
+        anchors.topMargin: 27
+        height: 200
+        width: 170
+        color: "#ffffff"
 
-    Label {
-          visible: !isMobile
-          id: typeText
-          anchors.left: parent.left
-          anchors.top:  parent.top
-          anchors.leftMargin: 17
-          anchors.topMargin: 17
-          width: 156
-          text: qsTr("Type") + translationManager.emptyString
-          fontSize: 14
-      }
-
-      ListModel {
-          id: typeTransaction
-          ListElement { column1: "ALL"; column2: ""; value: "all" }
-          ListElement { column1: "VPN"; column2: ""; value: "vpn" }
-          ListElement { column1: "PROXY"; column2: ""; value: "proxy" }
-
-      }
-
-      StandardDropdown {
-          visible: !isMobile
-          id: typeDrop
-          anchors.left: parent.left
-          anchors.top: typeText.bottom
-          anchors.leftMargin: 17
-          anchors.topMargin: 5
-          width: 156
-          shadowReleasedColor: "#4D0051"
-          shadowPressedColor: "#2D002F"
-          releasedColor: "#6B0072"
-          pressedColor: "#4D0051"
-          dataModel: typeTransaction
-          z: 100
-      }
-
-      Label {
-          visible: !isMobile
-          id: maxPriceText
-          anchors.left: typeText.right
-          anchors.top:  parent.top
-          anchors.leftMargin: 17
-          anchors.topMargin: 17
-          width: 156
-          text: qsTr("Max Price") + translationManager.emptyString
-          fontSize: 14
-      }
-
-      LineEdit {
-          visible: !isMobile
-          id: maxPriceLine
-          anchors.left: typeDrop.right
-          anchors.top: maxPriceText.bottom
-          anchors.leftMargin: 17
-          anchors.topMargin: 5
-          width: 156
-      }
-
-      Label {
-          visible: !isMobile
-          id: minSpeedText
-          anchors.left: maxPriceText.right
-          anchors.top: parent.top
-          anchors.leftMargin: 17
-          anchors.topMargin: 17
-          width: 156
-          text: qsTr("Min Speed") + translationManager.emptyString
-          fontSize: 14
-      }
-
-      LineEdit {
-          visible: !isMobile
-          id: minSpeedLine
-          anchors.left: maxPriceLine.right
-          anchors.top: minSpeedText.bottom
-          anchors.leftMargin: 17
-          anchors.topMargin: 5
-          width: 156
-
-      }
-
-      CheckBox {
-          visible: !isMobile
-          id: favoriteFilter
-          text: qsTr("Favorite") + translationManager.emptyString
-          anchors.left: minSpeedLine.right
-          anchors.top: parent.top
-          anchors.leftMargin: 17
-          anchors.topMargin: 46
-          checkedIcon: "../images/star.png"
-          uncheckedIcon: "../images/unstar.png"
-          onClicked: {
+        Label {
+              visible: !isMobile
+              id: typeText
+              anchors.horizontalCenter: parent.horizontalCenter
+              anchors.top:  parent.top
+              anchors.topMargin: 27
+              //width: 156
+              text: qsTr("Status") + translationManager.emptyString
+              fontSize: 20
           }
-      }
 
-      StandardButton {
-          visible: !isMobile
-          id: filterButton
-          anchors.top: parent.top
-          anchors.left: favoriteFilter.right
-          anchors.leftMargin: 17
-          anchors.topMargin: 40
-          width: 60
-          text: qsTr("Filter") + translationManager.emptyString
-          shadowReleasedColor: "#4D0051"
-          shadowPressedColor: "#2D002F"
-          releasedColor: "#6B0072"
-          pressedColor: "#4D0051"
-          onClicked:  {
-              getJson(minSpeedLine.text, maxPriceLine.text, typeTransaction.get(typeDrop.currentIndex).value)
+          Image {
+              id: shield
+              anchors.horizontalCenter: parent.horizontalCenter
+              anchors.top:  typeText.top
+              anchors.topMargin: 37
+              width: 80; height: 80
+              fillMode: Image.PreserveAspectFit
+              source: "../images/shield.png"
           }
+    /*
+          Image {
+              id: wgshield
+              anchors.left: typeText.left
+              anchors.top:  typeText.top
+              anchors.leftMargin: -15
+              anchors.topMargin: 37
+              width: 80; height: 80
+              fillMode: Image.PreserveAspectFit
+              source: "../images/wgshield.png"
+          }
+    */
+
+          Label {
+                visible: !isMobile
+                id: runningText
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.top:  shield.top
+                anchors.topMargin: 100
+                //width: 156
+                text: qsTr("Not running") + translationManager.emptyString
+                fontSize: 20
+          }
+
       }
 
     Rectangle {
-        id: tableRect
-        property int expandedHeight: parent.height - parent.y - parent.height - 5
-        property int middleHeight: parent.height - maxPriceLine.y - maxPriceLine.height - 17
-        property int collapsedHeight: parent.height - typeDrop.y - typeDrop.height - 17
+        anchors.left: parent.left
+        //anchors.right: parent.right
+        anchors.top: parent.top
+        anchors.leftMargin: 207
+        anchors.topMargin: 27
+        height: 200
+        width: 190
+        color: "#ffffff"
+
+          Label {
+                visible: !isMobile
+                id: startText
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.top:  parent.top
+                anchors.topMargin: 27
+                //width: 156
+                text: qsTr("Click to Start") + translationManager.emptyString
+                fontSize: 20
+            }
+
+              Image {
+                  id: pon
+                  anchors.horizontalCenter: parent.horizontalCenter
+                  anchors.top:  startText.top
+                  anchors.topMargin: 47
+                  width: 70; height: 70
+                  fillMode: Image.PreserveAspectFit
+                  source: "../images/pon.png"
+                  MouseArea {
+                      anchors.fill: parent
+                      onClicked: {
+                          changeStatus(pon.source)
+                      }
+                  }
+              }
+        }
+
+    Rectangle {
         anchors.left: parent.left
         anchors.right: parent.right
-        anchors.bottom: parent.bottom
-//        anchors.top: parent.top
-        color: "#FFFFFF"
-        z: 1
+        anchors.top: parent.top
+        anchors.leftMargin: 407
+        anchors.topMargin: 27
+        anchors.rightMargin: 27
+        height: 200
+        //width: 280
+        color: "#ffffff"
 
-        height: (isMobile)? parent.height : middleHeight
-        onHeightChanged: {
-            if(height === middleHeight) z = 1
-            else if(height === collapsedHeight) z = 0
-            else z = 3
-        }
-
-        Behavior on height {
-            NumberAnimation { duration: 200; easing.type: Easing.InQuad }
-        }
-
-        Rectangle {
-            anchors.left: parent.left
-            anchors.right: parent.right
+        StandardButton {
+            visible: !isMobile
+            id: learnButton
             anchors.top: parent.top
-            height: 1
-            color: "#DBDBDB"
-        }
-
-        StandardDialog {
-            id: detailsPopup
-            cancelVisible: false
-            okVisible: true
-            width:900
-            height: 600
-        }
-
-        ListView {
-                id: listView
-                anchors.fill: parent
-                model: listModel
-                delegate: Rectangle {
-                    width: listView.width
-                    height: listView.height / 6.8
-                    color: getBackgroundColor(index)
-
-                    Text {
-                        text: listdata
-                        anchors.left: parent.left
-                        anchors.right: parent.right
-                        anchors.top: parent.top
-                        anchors.leftMargin: 70
-                        anchors.topMargin: 15
-
-
-                        CheckBox {
-                            visible: !isMobile
-                            id: favoriteCheck
-                            //text: qsTr("Favorite") + translationManager.emptyString
-                            anchors.left: parent.left
-                            anchors.top: parent.top
-                            anchors.leftMargin: -50
-                            anchors.topMargin: 5
-                            checkedIcon: "../images/star.png"
-                            uncheckedIcon: "../images/unstar.png"
-                            onClicked: {
-                            }
-                        }
-
-                        StandardButton {
-                            visible: !isMobile
-                            id: rankButton
-                            anchors.top: parent.top
-                            anchors.left: parent.left
-                            anchors.leftMargin: -50
-                            anchors.topMargin: 40
-                            width: 25
-                            height: 25
-                            text: rank
-                            shadowReleasedColor: getColor(rank)
-                            shadowPressedColor: getColor(rank)
-                            releasedColor: getColor(rank)
-                            pressedColor: getColor(rank)
-                        }
-
-                        StandardButton {
-                            visible: !isMobile
-                            id: subButton
-                            anchors.top: parent.top
-                            anchors.right: parent.right
-                            anchors.rightMargin: 17
-                            anchors.topMargin: 0
-                            width: 80
-                            text: qsTr("Connect") + translationManager.emptyString
-                            shadowReleasedColor: "#983CFF"
-                            shadowPressedColor: "#B32D00"
-                            releasedColor: "#813CFF"
-                            pressedColor: "#983CFF"
-                            onClicked:  {
-
-                            }
-                        }
-
-                        StandardButton {
-                            visible: !isMobile
-                            id: infoButton
-                            anchors.top: subButton.bottom
-                            anchors.right: parent.right
-                            anchors.rightMargin: 17
-                            anchors.topMargin: 2
-                            width: 80
-                            text: qsTr("Details") + translationManager.emptyString
-                            shadowReleasedColor: "#983CFF"
-                            shadowPressedColor: "#B32D00"
-                            releasedColor: "#813CFF"
-                            pressedColor: "#983CFF"
-                            onClicked:  {
-                                detailsPopup.title = "Services details";
-                                detailsPopup.content = buildTxDetailsString(obj,rank,type);
-                                detailsPopup.open();
-                            }
-                        }
-                    }
-                }
-            }
-
-            ListModel {
-                id: listModel
-
-                Component.onCompleted: {
-
-                    getJson()
-
-                }
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.topMargin: 27
+            width: 260
+            text: qsTr("Learn how to use the VPN services") + translationManager.emptyString
+            shadowReleasedColor: "#983CFF"
+            shadowPressedColor: "#B32D00"
+            releasedColor: "#813CFF"
+            pressedColor: "#983CFF"
+            onClicked:  {
 
             }
+        }
 
+        StandardButton {
+            visible: !isMobile
+            id: searchButton
+            anchors.top: learnButton.top
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.topMargin: 47
+            width: 260
+            text: qsTr("Search for provider") + translationManager.emptyString
+            shadowReleasedColor: "#983CFF"
+            shadowPressedColor: "#B32D00"
+            releasedColor: "#813CFF"
+            pressedColor: "#983CFF"
+            onClicked:  {
+
+            }
+        }
+    }
+
+    Rectangle {
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        anchors.leftMargin: 27
+        anchors.rightMargin: 27
+        anchors.bottomMargin: 27
+        anchors.topMargin: 234
+        height: 200
+        //width: 280
+        color: "#ffffff"
+
+        Label {
+              visible: !isMobile
+              id: detailsText
+              anchors.horizontalCenter: parent.horizontalCenter
+              anchors.top:  parent.top
+              anchors.topMargin: 27
+              //width: 156
+              text: qsTr("Details") + translationManager.emptyString
+              fontSize: 20
+              //fontWeight: bold
+          }
+
+        Label {
+              visible: !isMobile
+              id: timeonlineText
+              anchors.left: parent.left
+              anchors.top:  detailsText.top
+              anchors.topMargin: 47
+              anchors.leftMargin: 27
+              width: 200
+              //anchors.left: Text.AlignRight
+              text: qsTr("Time online:") + translationManager.emptyString
+              fontSize: 16
+          }
+        Label {
+              visible: !isMobile
+              id: transferredText
+              anchors.left: parent.left
+              anchors.top:  timeonlineText.top
+              anchors.topMargin: 27
+              anchors.leftMargin: 27
+              width: 200
+              text: qsTr("Transferred:") + translationManager.emptyString
+              fontSize: 16
+          }
+
+        Label {
+              visible: !isMobile
+              id: paiduntilnowText
+              anchors.left: parent.left
+              anchors.top:  transferredText.top
+              anchors.topMargin: 27
+              anchors.leftMargin: 27
+              width: 200
+              text: qsTr("Paid until now:") + translationManager.emptyString
+              fontSize: 16
+          }
+
+        Label {
+              visible: !isMobile
+              id: providerText
+              anchors.horizontalCenter: parent.horizontalCenter
+              anchors.top:  paiduntilnowText.top
+              anchors.topMargin: 37
+              //width: 156
+              text: qsTr("Provider") + translationManager.emptyString
+              fontSize: 20
+          }
+        Label {
+              visible: !isMobile
+              id: nameText
+              anchors.left: parent.left
+              anchors.top:  providerText.top
+              anchors.topMargin: 47
+              anchors.leftMargin: 27
+              width: 200
+              text: qsTr("Name:") + translationManager.emptyString
+              fontSize: 16
+          }
+        Label {
+              visible: !isMobile
+              id: planText
+              anchors.left: parent.left
+              anchors.top:  nameText.top
+              anchors.topMargin: 27
+              anchors.leftMargin: 27
+              width: 200
+              text: qsTr("Plan:") + translationManager.emptyString
+              fontSize: 16
+          }
+        Label {
+              visible: !isMobile
+              id: costText
+              anchors.left: parent.left
+              anchors.top:  planText.top
+              anchors.topMargin: 27
+              anchors.leftMargin: 27
+              width: 200
+              text: qsTr("Cost:") + translationManager.emptyString
+              fontSize: 16
+          }
+        Label {
+              visible: !isMobile
+              id: servercountryText
+              anchors.left: parent.left
+              anchors.top:  costText.top
+              anchors.topMargin: 27
+              anchors.leftMargin: 27
+              width: 200
+              text: qsTr("Server coutry:") + translationManager.emptyString
+              fontSize: 16
+          }
+        Label {
+              visible: !isMobile
+              id: serveripText
+              anchors.left: parent.left
+              anchors.top:  servercountryText.top
+              anchors.topMargin: 27
+              anchors.leftMargin: 27
+              width: 200
+              text: qsTr("Server IP:") + translationManager.emptyString
+              fontSize: 16
+          }
     }
 
     function onPageCompleted() {

@@ -636,6 +636,7 @@ qrc_qml.cpp: qml.qrc \
 		images/uncheckedIcon.png \
 		images/tip.png \
 		images/moneroLogo2.png \
+		images/wgshield.png \
 		images/star.png \
 		images/unstar.png \
 		images/statusConnected.png \
@@ -651,6 +652,7 @@ qrc_qml.cpp: qml.qrc \
 		images/maximizeIcon.png \
 		images/ascSortIndicatorActived.png \
 		images/descSortIndicatorActived.png \
+		images/vgshield.png \
 		images/recoverWallet.png \
 		images/expandTable.png \
 		images/dropdownCopy.png \
@@ -663,6 +665,7 @@ qrc_qml.cpp: qml.qrc \
 		images/dropdownAdd.png \
 		images/expandRightPanel.png \
 		images/hseparator.png \
+		images/poff.png \
 		images/menuIndicator.png \
 		images/privacyTick.png \
 		images/tableOptions.png \
@@ -685,6 +688,8 @@ qrc_qml.cpp: qml.qrc \
 		images/datePicker.png \
 		images/nextPage.png \
 		images/copyToClipboard.png \
+		images/shield.png \
+		images/pon.png \
 		images/whatIsIcon.png \
 		images/dropdownSend.png \
 		wizard/WizardConfigure.qml \
