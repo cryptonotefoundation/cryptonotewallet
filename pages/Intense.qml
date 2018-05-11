@@ -1,18 +1,12 @@
 import QtQuick 2.0
-
-//import moneroComponents.Wallet 1.0
-//import moneroComponents.WalletManager 1.0
-//import moneroComponents.TransactionHistory 1.0
 import moneroComponents.TransactionInfo 1.0
-//import moneroComponents.TransactionHistoryModel 1.0
-
 import "../components"
 
 Rectangle {
     id: root
     property var model
 
-    function buildTxDetailsString(data, rank, type) {
+    function buildTxDetailsString(data, rank) {
         var trStart = '<tr><td width="85" style="padding-top:5px"><b>',
             trMiddle = '</b></td><td style="padding-left:10px;padding-top:5px;">',
             trEnd = "</td></tr>";
@@ -31,6 +25,22 @@ Rectangle {
             + (data.downloadSpeed ? trStart + qsTr("Download Speed:") + trMiddle + formatBytes(data.downloadSpeed) + trEnd : "")
             + (data.uploadSpeed ? trStart + qsTr("Upload Speed:") + trMiddle + formatBytes(data.uploadSpeed) + trEnd : "")
             + (rank ? trStart + qsTr("Rating:") + trMiddle + rank + trEnd : "")
+            + "</table>"
+            + translationManager.emptyString;
+    }
+
+    function buildTxConnectionString(data) {
+        var trStart = '<tr><td width="85" style="padding-top:5px"><b>',
+            trMiddle = '</b></td><td style="padding-left:10px;padding-top:5px;">',
+            trEnd = "</td></tr>";
+
+        return '<table border="0">'
+            //+ (data.id ? trStart + qsTr("ID: ") + trMiddle + data.id + trEnd : "")
+            + (data.providerName ? trStart + qsTr("Provider: ") + trMiddle + data.providerName  + trEnd : "")
+            + (data.name ? trStart + qsTr("Plan: ") + trMiddle + data.name + trEnd : "")
+            + (data.type ? trStart + qsTr("Type: ") + trMiddle + data.type  + trEnd : "")
+            + (data.cost ? trStart + qsTr("Cost:") + trMiddle + data.cost + trEnd : "")
+            + (data.firstPrePaidMinutes ? trStart + qsTr("First Pre Paid Minutes:") + trMiddle + data.firstPrePaidMinutes + trEnd : "")
             + "</table>"
             + translationManager.emptyString;
     }
@@ -332,10 +342,12 @@ Rectangle {
       }
 
     Rectangle {
-        id: tableRect
+        //id: tableRect
         property int expandedHeight: parent.height - parent.y - parent.height - 5
         property int middleHeight: parent.height - maxPriceLine.y - maxPriceLine.height - 17
         property int collapsedHeight: parent.height - typeDrop.y - typeDrop.height - 17
+        //signal jsonService(variant item)
+
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: parent.bottom
@@ -370,10 +382,13 @@ Rectangle {
             height: 600
         }
 
+
+
         ListView {
                 id: listView
                 anchors.fill: parent
                 model: listModel
+
                 delegate: Rectangle {
                     width: listView.width
                     height: listView.height / 6.8
@@ -399,6 +414,23 @@ Rectangle {
                             checkedIcon: "../images/star.png"
                             uncheckedIcon: "../images/unstar.png"
                             onClicked: {
+                            }
+                        }
+
+                        StandardDialog {
+                            id: connectPopup
+                            cancelVisible: true
+                            okVisible: true
+                            width:400
+                            height: 380
+                            onAccepted:{
+
+                                intenseDashView.providerName = obj.providerName
+                                intenseDashView.name = obj.name
+                                intenseDashView.type = obj.type
+                                intenseDashView.cost = obj.cost
+                                intenseDashView.firstPrePaidMinutes = obj.firstPrePaidMinutes
+                                middlePanel.state = "ITNS Dashboard"
                             }
                         }
 
@@ -431,10 +463,18 @@ Rectangle {
                             shadowPressedColor: "#B32D00"
                             releasedColor: "#813CFF"
                             pressedColor: "#983CFF"
-                            onClicked:  {
+
+
+
+                            onClicked:{
+                                connectPopup.title = "Connection Confirmation";
+                                connectPopup.content = buildTxConnectionString(obj);
+                                connectPopup.open();
 
                             }
                         }
+
+
 
                         StandardButton {
                             visible: !isMobile
@@ -451,7 +491,7 @@ Rectangle {
                             pressedColor: "#983CFF"
                             onClicked:  {    
                                 detailsPopup.title = "Services details";
-                                detailsPopup.content = buildTxDetailsString(obj,rank,type);
+                                detailsPopup.content = buildTxDetailsString(obj,rank);
                                 detailsPopup.open();
                             }
                         }
