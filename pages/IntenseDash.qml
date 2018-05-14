@@ -12,18 +12,43 @@ Rectangle {
     property string type
     property string cost
     property string firstPrePaidMinutes
+    property string feedback
+    property string bton
+
+    function createJsonFeedback(fbId){
+        var url = "https://jhx4eq5ijc.execute-api.us-east-1.amazonaws.com/dev/v1/feedback/add"
+        var xmlhttpPost = new XMLHttpRequest();
+        xmlhttpPost.onreadystatechange=function() {
+            if (xmlhttpPost.readyState == 4 && xmlhttpPost.status == 200) {
+                var feed = JSON.parse(xmlhttpPost.responseText)
+            }
+        }
+        var data = {"id":fbId, "speed":1, "stability":4}
+        data = JSON.stringify(data)
+        xmlhttpPost.open("POST", url, true);
+        xmlhttpPost.setRequestHeader("Content-type", "application/json");
+        xmlhttpPost.send(data);
+
+    }
 
     function changeStatus(bt){
-        if (bt == "qrc:///images/pon.png"){
-            pon.source = "../images/poff.png"
-            shield.source = "../images/vgshield.png"
+        if (bt == "qrc:///images/poff.png"){
+            pon.source = "../images/pon.png"
+            if(type == "openvpn"){
+                shield.source = "../images/vgshield.png"
+            }else{
+                shield.source = "../images/wgshield.png"
+            }
             runningText.text = "Connected"
             startText.text = "Click to Stop"
+
         }else{
-            pon.source = "../images/pon.png"
+            pon.source = "../images/poff.png"
             shield.source = "../images/shield.png"
             runningText.text = "Not running"
             startText.text = "Click to Start"
+            bton = ""
+            createJsonFeedback(feedback)
         }
 
     }
@@ -66,18 +91,6 @@ Rectangle {
               fillMode: Image.PreserveAspectFit
               source: if(type == "openvpn"){"../images/vgshield.png"}else if(type == "proxy"){"../images/wgshield.png"}else{"../images/shield.png"}
           }
-    /*
-          Image {
-              id: wgshield
-              anchors.left: typeText.left
-              anchors.top:  typeText.top
-              anchors.leftMargin: -15
-              anchors.topMargin: 37
-              width: 80; height: 80
-              fillMode: Image.PreserveAspectFit
-              source: "../images/wgshield.png"
-          }
-    */
 
           Label {
                 visible: !isMobile
@@ -86,7 +99,7 @@ Rectangle {
                 anchors.top:  shield.top
                 anchors.topMargin: 100
                 //width: 156
-                text: qsTr("Not running") + translationManager.emptyString
+                text: if(feedback.length != 36){qsTr("Not running")+ translationManager.emptyString}else{ qsTr("Connected")+ translationManager.emptyString}
                 fontSize: 20
           }
 
@@ -109,7 +122,7 @@ Rectangle {
                 anchors.top:  parent.top
                 anchors.topMargin: 27
                 //width: 156
-                text: qsTr("Click to Start") + translationManager.emptyString
+                text: if(feedback.length != 36){qsTr("Click to Start")+ translationManager.emptyString}else{qsTr("Click to Stop")+ translationManager.emptyString}
                 fontSize: 20
             }
 
@@ -120,7 +133,7 @@ Rectangle {
                   anchors.topMargin: 47
                   width: 70; height: 70
                   fillMode: Image.PreserveAspectFit
-                  source: if(providerName){"../images/poff.png"}else{"../images/pon.png"}
+                  source: if(feedback.length != 36){"../images/poff.png"}else{"../images/pon.png"}
                   MouseArea {
                       anchors.fill: parent
                       onClicked: {
@@ -343,7 +356,9 @@ Rectangle {
 
 
     function onPageCompleted() {
-
+        if(bton == "qrc:///images/poff.png"){
+            changeStatus("qrc:///images/poff.png")
+        }
     }
 }
 

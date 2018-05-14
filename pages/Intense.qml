@@ -118,16 +118,45 @@ Rectangle {
         }
     }
 
+    function createJsonFeedback(obj){
+        var url = "https://jhx4eq5ijc.execute-api.us-east-1.amazonaws.com/dev/v1/feedback/setup"
+        var xmlhttpPost = new XMLHttpRequest();
+        xmlhttpPost.onreadystatechange=function() {
+            if (xmlhttpPost.readyState == 4 && xmlhttpPost.status == 200) {
+
+                var feed = JSON.parse(xmlhttpPost.responseText)
+
+                intenseDashView.feedback = feed.id
+                intenseDashView.providerName = obj.providerName
+                intenseDashView.name = obj.name
+                intenseDashView.type = obj.type
+                intenseDashView.cost = obj.cost
+                intenseDashView.firstPrePaidMinutes = obj.firstPrePaidMinutes
+                intenseDashView.bton = "qrc:///images/poff.png"
+                middlePanel.state = "ITNS Dashboard"
+            }
+        }
+        var data = {"id":obj.providerWallet, "provider":obj.provider, "services":obj.id}
+        data = JSON.stringify(data)
+        xmlhttpPost.open("POST", url, true);
+        xmlhttpPost.setRequestHeader("Content-type", "application/json");
+        xmlhttpPost.send(data);
+
+    }
+
     function getJson(speed, price, tp){
         var url = "https://jhx4eq5ijc.execute-api.us-east-1.amazonaws.com/dev/v1/services/search"
         var xmlhttp = new XMLHttpRequest();
-
+        listView.model.clear()
+        /*
+        if(speed != undefined || tp != undefined || price != undefined){
+            listView.model.clear()
+        }
+        */
         xmlhttp.onreadystatechange=function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 var arr = JSON.parse(xmlhttp.responseText)
-                if(speed != undefined || tp != undefined || price != undefined){
-                    listView.model.clear()
-                }
+
                 for(var i = 0; i < arr.length; i++) {
                     if(arr[i].mStability == null){
                         arr[i].mStability = 0
@@ -424,13 +453,7 @@ Rectangle {
                             width:400
                             height: 380
                             onAccepted:{
-
-                                intenseDashView.providerName = obj.providerName
-                                intenseDashView.name = obj.name
-                                intenseDashView.type = obj.type
-                                intenseDashView.cost = obj.cost
-                                intenseDashView.firstPrePaidMinutes = obj.firstPrePaidMinutes
-                                middlePanel.state = "ITNS Dashboard"
+                                createJsonFeedback(obj)
                             }
                         }
 
@@ -510,10 +533,11 @@ Rectangle {
 
             }
 
+
     }
 
     function onPageCompleted() {
-
+        getJson()
         //table.addressBookModel = appWindow.currentWallet ? appWindow.currentWallet.addressBookModel : null
     }
 }
