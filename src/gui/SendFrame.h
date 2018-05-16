@@ -48,6 +48,7 @@ private:
   void insertPaymentID(QString _paymentid);
   static bool isValidPaymentId(const QByteArray& _paymentIdString);
   void onAddressFound(const QString& _address);
+  double getMinimalFee();
   void reset();
 
   Q_SLOT void addRecipientClicked();
