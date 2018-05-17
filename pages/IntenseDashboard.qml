@@ -1,6 +1,6 @@
 import QtQuick 2.0
 import moneroComponents.TransactionInfo 1.0
-
+import QtQml 2.2
 
 import "../components"
 import "../IntenseConfig.js" as Config
@@ -197,6 +197,20 @@ Rectangle {
                 font.bold: true
             }
 
+          Text {
+                visible: !isMobile
+                id: historicalConnectionLabel
+                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.top:  startText.top
+                anchors.topMargin: 65
+                text: qsTr("No Historical Connection:") + translationManager.emptyString
+                font.pixelSize: 19
+                color: "#535353"
+                font.family: "Arial"
+                font.bold: true
+            }
+
+          /* Just to show the simple Dashboard !! Dont remove
           Text {
                 visible: !isMobile
                 id: lastRankLabel
@@ -459,8 +473,9 @@ Rectangle {
                   source: if(feedback.length != 36){"../images/poff.png"}else{"../images/pon.png"}
               }
           }
-
+        */
         }
+
 
     Rectangle {
         id: providerTable
@@ -475,6 +490,65 @@ Rectangle {
         height: 200
         //width: 280
         color: "#ffffff"
+
+
+        Text {
+              visible: !isMobile
+              id: howToUseText
+              anchors.horizontalCenter: parent.horizontalCenter
+              anchors.top:  parent.top
+              anchors.topMargin: 100
+              //width: 156
+              text: qsTr("Lean how to use the VPN service") + translationManager.emptyString
+              font.pixelSize: 22
+              font.bold: true
+              color: "#0645AD"
+              font.family: "Arial"
+              //fontWeight: bold
+              MouseArea{
+                  anchors.fill: parent
+                  onClicked:Qt.openUrlExternally("https://intensecoin.com/");
+              }
+          }
+
+        Text {
+              visible: !isMobile
+              id: orText
+              anchors.horizontalCenter: parent.horizontalCenter
+              anchors.top:  howToUseText.top
+              anchors.topMargin: 70
+              //width: 156
+              text: qsTr("or") + translationManager.emptyString
+              font.pixelSize: 18
+              font.bold: true
+              color: "#535353"
+              font.family: "Arial"
+              //fontWeight: bold
+          }
+
+
+        Text {
+              visible: !isMobile
+              id: searchForProviderText
+              anchors.horizontalCenter: parent.horizontalCenter
+              anchors.top:  orText.top
+              anchors.topMargin: 70
+              //width: 156
+              text: qsTr("Search for provider") + translationManager.emptyString
+              font.pixelSize: 22
+              font.bold: true
+              color: "#0645AD"
+              font.family: "Arial"
+              //fontWeight: bold
+              MouseArea {
+                  anchors.fill: parent
+                  onClicked: {
+                      middlePanel.state = "ITNS Provider"
+                  }
+              }
+          }
+
+        /* Just to show de simple Dashboard !! Dont remove
 
         Text {
               visible: !isMobile
@@ -638,6 +712,8 @@ Rectangle {
               font.pixelSize: 14
               horizontalAlignment: Text.AlignRight
           }
+
+          */
     }
 
     //onJsonService:console.debug(item + "------------------------------------")
