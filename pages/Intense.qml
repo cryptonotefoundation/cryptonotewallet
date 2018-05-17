@@ -1,6 +1,8 @@
 import QtQuick 2.0
 import moneroComponents.TransactionInfo 1.0
+import QtQuick.Controls 1.4
 import "../components"
+import "../IntenseConfig.js" as Config
 
 Rectangle {
     id: root
@@ -118,21 +120,23 @@ Rectangle {
         }
     }
 
-    function createJsonFeedback(obj){
-        var url = "https://jhx4eq5ijc.execute-api.us-east-1.amazonaws.com/dev/v1/feedback/setup"
+    function createJsonFeedback(obj, rank){
+        var url = Config.url+Config.stage+Config.version+Config.feedback+Config.setup
         var xmlhttpPost = new XMLHttpRequest();
         xmlhttpPost.onreadystatechange=function() {
             if (xmlhttpPost.readyState == 4 && xmlhttpPost.status == 200) {
 
                 var feed = JSON.parse(xmlhttpPost.responseText)
 
-                intenseDashView.feedback = feed.id
-                intenseDashView.providerName = obj.providerName
-                intenseDashView.name = obj.name
-                intenseDashView.type = obj.type
-                intenseDashView.cost = obj.cost
-                intenseDashView.firstPrePaidMinutes = obj.firstPrePaidMinutes
-                intenseDashView.bton = "qrc:///images/poff.png"
+                intenseDashboardView.feedback = feed.id
+                intenseDashboardView.providerName = obj.providerName
+                intenseDashboardView.name = obj.name
+                intenseDashboardView.type = obj.type
+                intenseDashboardView.cost = obj.cost
+                intenseDashboardView.rank = rank
+                intenseDashboardView.speed = formatBytes(obj.downloadSpeed)
+                intenseDashboardView.firstPrePaidMinutes = obj.firstPrePaidMinutes
+                intenseDashboardView.bton = "qrc:///images/poff.png"
                 middlePanel.state = "ITNS Dashboard"
             }
         }
@@ -145,14 +149,9 @@ Rectangle {
     }
 
     function getJson(speed, price, tp){
-        var url = "https://jhx4eq5ijc.execute-api.us-east-1.amazonaws.com/dev/v1/services/search"
+        var url = Config.url+Config.stage+Config.version+Config.services+Config.search
         var xmlhttp = new XMLHttpRequest();
         listView.model.clear()
-        /*
-        if(speed != undefined || tp != undefined || price != undefined){
-            listView.model.clear()
-        }
-        */
         xmlhttp.onreadystatechange=function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 var arr = JSON.parse(xmlhttp.responseText)
@@ -403,13 +402,7 @@ Rectangle {
             color: "#DBDBDB"
         }
 
-        StandardDialog {
-            id: detailsPopup
-            cancelVisible: false
-            okVisible: true
-            width:900
-            height: 600
-        }
+
 
 
 
@@ -453,8 +446,43 @@ Rectangle {
                             width:400
                             height: 380
                             onAccepted:{
-                                createJsonFeedback(obj)
+                                createJsonFeedback(obj, rank)
                             }
+
+                            GroupBox {
+                                anchors.top: parent.top
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                anchors.topMargin: 215
+                                height: 70
+                                ExclusiveGroup { id: tabPositionGroup }
+                                Column {
+                                    anchors.top: parent.top
+                                    anchors.topMargin: 20
+                                    RadioButton {
+                                        id: radioRenew
+                                        text: "Auto Renew Connection"
+                                        checked: true
+                                        exclusiveGroup: tabPositionGroup
+                                    }
+                                    RadioButton {
+                                        id: radioClose
+                                        text: "Close after time expired"
+                                        exclusiveGroup: tabPositionGroup
+                                    }
+                                }
+
+                            }
+                        }
+
+
+
+                        StandardDialog {
+                            id: detailsPopup
+                            cancelVisible: false
+                            okVisible: true
+                            width:900
+                            height: 600
+
                         }
 
                         StandardButton {
@@ -512,7 +540,7 @@ Rectangle {
                             shadowPressedColor: "#B32D00"
                             releasedColor: "#813CFF"
                             pressedColor: "#983CFF"
-                            onClicked:  {    
+                            onClicked:  {
                                 detailsPopup.title = "Services details";
                                 detailsPopup.content = buildTxDetailsString(obj,rank);
                                 detailsPopup.open();
@@ -538,34 +566,5 @@ Rectangle {
 
     function onPageCompleted() {
         getJson()
-        //table.addressBookModel = appWindow.currentWallet ? appWindow.currentWallet.addressBookModel : null
     }
 }
-
-
-/*
-
-        StandardButton {
-            id: getAll
-            width: 80
-            shadowReleasedColor: "#983CFF"
-            shadowPressedColor: "#B32D00"
-            releasedColor: "#813CFF"
-            pressedColor: "#983CFF"
-            text: qsTr("Refresh");
-            onClicked: {
-                var xmlhttp = new XMLHttpRequest();
-                var url = "https://jhx4eq5ijc.execute-api.us-east-1.amazonaws.com/dev/v1/services/search";
-
-                xmlhttp.onreadystatechange=function() {
-                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                        var obj = xmlhttp.responseText
-                        console.log("meu log: " + obj)
-                    }
-                }
-                xmlhttp.open("GET", url, true);
-                xmlhttp.send();
-            }
-        }
-
-        */

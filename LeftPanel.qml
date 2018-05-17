@@ -1,21 +1,23 @@
+
+
 // Copyright (c) 2014-2015, The Monero Project
-// 
+//
 // All rights reserved.
-// 
+//
 // Redistribution and use in source and binary forms, with or without modification, are
 // permitted provided that the following conditions are met:
-// 
+//
 // 1. Redistributions of source code must retain the above copyright notice, this list of
 //    conditions and the following disclaimer.
-// 
+//
 // 2. Redistributions in binary form must reproduce the above copyright notice, this list
 //    of conditions and the following disclaimer in the documentation and/or other
 //    materials provided with the distribution.
-// 
+//
 // 3. Neither the name of the copyright holder nor the names of its contributors may be
 //    used to endorse or promote products derived from this software without specific
 //    prior written permission.
-// 
+//
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
 // MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
@@ -51,7 +53,7 @@ Rectangle {
     signal miningClicked()
     signal signClicked()
     //signal intenseClicked()
-    signal intenseDashClicked()
+    signal intenseDashboardClicked()
     signal intenseProviderClicked()
 
     function selectItem(pos) {
@@ -67,7 +69,7 @@ Rectangle {
         else if(pos === "Settings") menuColumn.previousButton = settingsButton
 
         else if(pos === "Intense") menuColumn.previousButton = intenseButton
-        else if(pos === "ITNS Dashboard") menuColumn.previousButton = intenseDashButton
+        else if(pos === "ITNS Dashboard") menuColumn.previousButton = intenseDashboardButton
         else if(pos === "ITNS Provider") menuColumn.previousButton = intenseProviderButton
         else if(pos === "Advanced") menuColumn.previousButton = advancedButton
 
@@ -497,7 +499,7 @@ Rectangle {
                 id: intenseButton
                 anchors.left: parent.left
                 anchors.right: parent.right
-                text: qsTr("Intense") + translationManager.emptyString
+                text: qsTr("VPN + Proxy") + translationManager.emptyString
                 symbol: qsTr("S") + translationManager.emptyString
                 dotColor: "#36B25C"
                 onClicked: {
@@ -516,26 +518,26 @@ Rectangle {
             }
 
             MenuButton {
-                id: intenseDashButton
+                id: intenseDashboardButton
                 anchors.left: parent.left
                 anchors.right: parent.right
-                text: qsTr("ITNS Dashboard") + translationManager.emptyString
+                text: qsTr("Dashboard") + translationManager.emptyString
                 symbol: qsTr("D") + translationManager.emptyString
                 dotColor: "#FFD781"
                 under: intenseButton
                 onClicked: {
                     parent.previousButton.checked = false
-                    parent.previousButton = intenseDashButton
-                    panel.intenseDashClicked()
+                    parent.previousButton = intenseDashboardButton
+                    panel.intenseDashboardClicked()
                 }
             }
 
             Rectangle {
-                visible: intenseDashButton.present
+                visible: intenseDashboardButton.present
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.leftMargin: 16
-                color: intenseDashButton.checked || intenseButton.checked ? "#1C1C1C" : "#505050"
+                color: intenseDashboardButton.checked || intenseButton.checked ? "#1C1C1C" : "#505050"
                 height: 1
             }
 
@@ -543,7 +545,7 @@ Rectangle {
                 id: intenseProviderButton
                 anchors.left: parent.left
                 anchors.right: parent.right
-                text: qsTr("ITNS Provider") + translationManager.emptyString
+                text: qsTr("Provider") + translationManager.emptyString
                 symbol: qsTr("P") + translationManager.emptyString
                 dotColor: "#36B25C"
                 under: intenseButton
