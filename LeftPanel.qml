@@ -50,6 +50,9 @@ Rectangle {
     signal addressBookClicked()
     signal miningClicked()
     signal signClicked()
+    //signal intenseClicked()
+    signal intenseDashClicked()
+    signal intenseProviderClicked()
 
     function selectItem(pos) {
         menuColumn.previousButton.checked = false
@@ -62,6 +65,10 @@ Rectangle {
         else if(pos === "TxKey")  menuColumn.previousButton = txkeyButton
         else if(pos === "Sign") menuColumn.previousButton = signButton
         else if(pos === "Settings") menuColumn.previousButton = settingsButton
+
+        else if(pos === "Intense") menuColumn.previousButton = intenseButton
+        else if(pos === "ITNS Dashboard") menuColumn.previousButton = intenseDashButton
+        else if(pos === "ITNS Provider") menuColumn.previousButton = intenseProviderButton
         else if(pos === "Advanced") menuColumn.previousButton = advancedButton
 
         menuColumn.previousButton.checked = true
@@ -481,6 +488,77 @@ Rectangle {
                 anchors.right: parent.right
                 anchors.leftMargin: 16
                 color: "#505050"
+                height: 1
+            }
+
+
+            // ------------- Intese Coin tab ---------------
+            MenuButton {
+                id: intenseButton
+                anchors.left: parent.left
+                anchors.right: parent.right
+                text: qsTr("Intense") + translationManager.emptyString
+                symbol: qsTr("S") + translationManager.emptyString
+                dotColor: "#36B25C"
+                onClicked: {
+                    parent.previousButton.checked = false
+                    parent.previousButton = intenseButton
+                    //panel.intenseClicked()
+                }
+            }
+            Rectangle {
+                visible: intenseButton.present
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.leftMargin: 16
+                color: "#505050"
+                height: 1
+            }
+
+            MenuButton {
+                id: intenseDashButton
+                anchors.left: parent.left
+                anchors.right: parent.right
+                text: qsTr("ITNS Dashboard") + translationManager.emptyString
+                symbol: qsTr("D") + translationManager.emptyString
+                dotColor: "#FFD781"
+                under: intenseButton
+                onClicked: {
+                    parent.previousButton.checked = false
+                    parent.previousButton = intenseDashButton
+                    panel.intenseDashClicked()
+                }
+            }
+
+            Rectangle {
+                visible: intenseDashButton.present
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.leftMargin: 16
+                color: intenseDashButton.checked || intenseButton.checked ? "#1C1C1C" : "#505050"
+                height: 1
+            }
+
+            MenuButton {
+                id: intenseProviderButton
+                anchors.left: parent.left
+                anchors.right: parent.right
+                text: qsTr("ITNS Provider") + translationManager.emptyString
+                symbol: qsTr("P") + translationManager.emptyString
+                dotColor: "#36B25C"
+                under: intenseButton
+                onClicked: {
+                    parent.previousButton.checked = false
+                    parent.previousButton = intenseProviderButton
+                    panel.intenseProviderClicked()
+                }
+            }
+            Rectangle {
+                visible: intenseProviderButton.present
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.leftMargin: 16
+                color: intenseProviderButton.checked || intenseButton.checked ? "#1C1C1C" : "#505050"
                 height: 1
             }
 
