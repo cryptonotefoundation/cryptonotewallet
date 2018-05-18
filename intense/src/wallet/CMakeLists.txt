@@ -76,6 +76,7 @@ target_link_libraries(wallet
     cryptonote_core
     mnemonics
     p2p
+    legacy
     ${Boost_CHRONO_LIBRARY}
     ${Boost_SERIALIZATION_LIBRARY}
     ${Boost_FILESYSTEM_LIBRARY}
@@ -126,7 +127,7 @@ endif()
 
 # build and install libwallet_merged only if we building for GUI
 if (BUILD_GUI_DEPS)
-    set(libs_to_merge wallet cryptonote_core cryptonote_basic mnemonics common cncrypto ringct)
+    set(libs_to_merge wallet cryptonote_core cryptonote_basic mnemonics legacy common cncrypto ringct)
 
     foreach(lib ${libs_to_merge})
         list(APPEND objlibs $<TARGET_OBJECTS:obj_${lib}>) # matches naming convention in src/CMakeLists.txt

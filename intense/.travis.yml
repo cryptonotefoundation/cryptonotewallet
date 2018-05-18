@@ -1,7 +1,4 @@
 language: cpp
-branches:
-  only:
-    - master
 matrix:
   include:
 
@@ -192,4 +189,4 @@ before_install:
  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install libboost-thread1.58-dev          ; fi
 
 script:
-  - make -j2 release
+  - make -j2

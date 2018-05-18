@@ -195,7 +195,7 @@ namespace cryptonote {
 				// Next line not required if coin uses BTC's MTP of 11 blocks & FTL=500 to 1000. 
 				solveTime = std::min<int64_t>((T * 6), std::max<int64_t>(solveTime, (-6 * T)));
 				difficulty = cumulativeDifficulties[i] - cumulativeDifficulties[i - 1];
-				LWMA += solveTime * i / k;
+				LWMA += (int64_t)(solveTime * i) / k;
 				sum_inverse_D += 1 / static_cast<double>(difficulty);
 			}
 			harmonic_mean_D = N / sum_inverse_D;

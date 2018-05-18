@@ -48,6 +48,7 @@
 #define BLOCK_MAJOR_VERSION_2                           2
 #define BLOCK_MAJOR_VERSION_3                           3
 #define BLOCK_MAJOR_VERSION_4							4
+#define BLOCK_MAJOR_VERSION_5							5
 #define CRYPTONOTE_BLOCK_FUTURE_TIME_LIMIT              500
 #define CRYPTONOTE_DEFAULT_TX_SPENDABLE_AGE             0
 
@@ -71,7 +72,6 @@
 #define FEE_PER_KB                                      ((uint64_t)100000)
 #define DYNAMIC_FEE_PER_KB_BASE_FEE                     ((uint64_t)200000) // 2 * pow(10,5)
 #define DYNAMIC_FEE_PER_KB_BASE_BLOCK_REWARD            ((uint64_t)100000000000) // 10 * pow(10,10)
-#define DYNAMIC_FEE_PER_KB_BASE_FEE_V5                  ((uint64_t)2000000000 * (uint64_t)CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V2 / CRYPTONOTE_BLOCK_GRANTED_FULL_REWARD_ZONE_V5)
 
 #define ORPHANED_BLOCKS_MAX_COUNT                       100
 

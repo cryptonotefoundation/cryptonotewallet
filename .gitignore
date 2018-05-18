@@ -5,4 +5,8 @@ build
 intense-build
 *.o
 *.log
+version.js
 debug
+IntenseConfig.js
+release
+qrc_qml.cpp

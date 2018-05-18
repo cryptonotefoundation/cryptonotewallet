@@ -1,18 +1,14 @@
 import QtQuick 2.0
-
-//import moneroComponents.Wallet 1.0
-//import moneroComponents.WalletManager 1.0
-//import moneroComponents.TransactionHistory 1.0
 import moneroComponents.TransactionInfo 1.0
-//import moneroComponents.TransactionHistoryModel 1.0
-
+import QtQuick.Controls 1.4
 import "../components"
+import "../IntenseConfig.js" as Config
 
 Rectangle {
     id: root
     property var model
 
-    function buildTxDetailsString(data, rank, type) {
+    function buildTxDetailsString(data, rank) {
         var trStart = '<tr><td width="85" style="padding-top:5px"><b>',
             trMiddle = '</b></td><td style="padding-left:10px;padding-top:5px;">',
             trEnd = "</td></tr>";
@@ -31,6 +27,22 @@ Rectangle {
             + (data.downloadSpeed ? trStart + qsTr("Download Speed:") + trMiddle + formatBytes(data.downloadSpeed) + trEnd : "")
             + (data.uploadSpeed ? trStart + qsTr("Upload Speed:") + trMiddle + formatBytes(data.uploadSpeed) + trEnd : "")
             + (rank ? trStart + qsTr("Rating:") + trMiddle + rank + trEnd : "")
+            + "</table>"
+            + translationManager.emptyString;
+    }
+
+    function buildTxConnectionString(data) {
+        var trStart = '<tr><td width="85" style="padding-top:5px"><b>',
+            trMiddle = '</b></td><td style="padding-left:10px;padding-top:5px;">',
+            trEnd = "</td></tr>";
+
+        return '<table border="0">'
+            //+ (data.id ? trStart + qsTr("ID: ") + trMiddle + data.id + trEnd : "")
+            + (data.providerName ? trStart + qsTr("Provider: ") + trMiddle + data.providerName  + trEnd : "")
+            + (data.name ? trStart + qsTr("Plan: ") + trMiddle + data.name + trEnd : "")
+            + (data.type ? trStart + qsTr("Type: ") + trMiddle + data.type  + trEnd : "")
+            + (data.cost ? trStart + qsTr("Cost:") + trMiddle + data.cost + trEnd : "")
+            + (data.firstPrePaidMinutes ? trStart + qsTr("First Pre Paid Minutes:") + trMiddle + data.firstPrePaidMinutes + trEnd : "")
             + "</table>"
             + translationManager.emptyString;
     }
@@ -108,16 +120,42 @@ Rectangle {
         }
     }
 
-    function getJson(speed, price, tp){
-        var url = "https://jhx4eq5ijc.execute-api.us-east-1.amazonaws.com/dev/v1/services/search"
-        var xmlhttp = new XMLHttpRequest();
+    function createJsonFeedback(obj, rank){
+        var url = Config.url+Config.stage+Config.version+Config.feedback+Config.setup
+        var xmlhttpPost = new XMLHttpRequest();
+        xmlhttpPost.onreadystatechange=function() {
+            if (xmlhttpPost.readyState == 4 && xmlhttpPost.status == 200) {
 
+                var feed = JSON.parse(xmlhttpPost.responseText)
+
+                intenseDashboardView.feedback = feed.id
+                intenseDashboardView.providerName = obj.providerName
+                intenseDashboardView.name = obj.name
+                intenseDashboardView.type = obj.type
+                intenseDashboardView.cost = obj.cost
+                intenseDashboardView.rank = rank
+                intenseDashboardView.speed = formatBytes(obj.downloadSpeed)
+                intenseDashboardView.firstPrePaidMinutes = obj.firstPrePaidMinutes
+                intenseDashboardView.bton = "qrc:///images/poff.png"
+                middlePanel.state = "ITNS Dashboard"
+            }
+        }
+        var data = {"id":obj.providerWallet, "provider":obj.provider, "services":obj.id}
+        data = JSON.stringify(data)
+        xmlhttpPost.open("POST", url, true);
+        xmlhttpPost.setRequestHeader("Content-type", "application/json");
+        xmlhttpPost.send(data);
+
+    }
+
+    function getJson(speed, price, tp){
+        var url = Config.url+Config.stage+Config.version+Config.services+Config.search
+        var xmlhttp = new XMLHttpRequest();
+        listView.model.clear()
         xmlhttp.onreadystatechange=function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 var arr = JSON.parse(xmlhttp.responseText)
-                if(speed != undefined || tp != undefined || price != undefined){
-                    listView.model.clear()
-                }
+
                 for(var i = 0; i < arr.length; i++) {
                     if(arr[i].mStability == null){
                         arr[i].mStability = 0
@@ -332,10 +370,12 @@ Rectangle {
       }
 
     Rectangle {
-        id: tableRect
+        //id: tableRect
         property int expandedHeight: parent.height - parent.y - parent.height - 5
         property int middleHeight: parent.height - maxPriceLine.y - maxPriceLine.height - 17
         property int collapsedHeight: parent.height - typeDrop.y - typeDrop.height - 17
+        //signal jsonService(variant item)
+
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: parent.bottom
@@ -362,18 +402,15 @@ Rectangle {
             color: "#DBDBDB"
         }
 
-        StandardDialog {
-            id: detailsPopup
-            cancelVisible: false
-            okVisible: true
-            width:900
-            height: 600
-        }
+
+
+
 
         ListView {
                 id: listView
                 anchors.fill: parent
                 model: listModel
+
                 delegate: Rectangle {
                     width: listView.width
                     height: listView.height / 6.8
@@ -400,6 +437,52 @@ Rectangle {
                             uncheckedIcon: "../images/unstar.png"
                             onClicked: {
                             }
+                        }
+
+                        StandardDialog {
+                            id: connectPopup
+                            cancelVisible: true
+                            okVisible: true
+                            width:400
+                            height: 380
+                            onAccepted:{
+                                createJsonFeedback(obj, rank)
+                            }
+
+                            GroupBox {
+                                anchors.top: parent.top
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                anchors.topMargin: 215
+                                height: 70
+                                ExclusiveGroup { id: tabPositionGroup }
+                                Column {
+                                    anchors.top: parent.top
+                                    anchors.topMargin: 20
+                                    RadioButton {
+                                        id: radioRenew
+                                        text: "Auto Renew Connection"
+                                        checked: true
+                                        exclusiveGroup: tabPositionGroup
+                                    }
+                                    RadioButton {
+                                        id: radioClose
+                                        text: "Close after time expired"
+                                        exclusiveGroup: tabPositionGroup
+                                    }
+                                }
+
+                            }
+                        }
+
+
+
+                        StandardDialog {
+                            id: detailsPopup
+                            cancelVisible: false
+                            okVisible: true
+                            width:900
+                            height: 600
+
                         }
 
                         StandardButton {
@@ -431,10 +514,18 @@ Rectangle {
                             shadowPressedColor: "#B32D00"
                             releasedColor: "#813CFF"
                             pressedColor: "#983CFF"
-                            onClicked:  {
+
+
+
+                            onClicked:{
+                                connectPopup.title = "Connection Confirmation";
+                                connectPopup.content = buildTxConnectionString(obj);
+                                connectPopup.open();
 
                             }
                         }
+
+
 
                         StandardButton {
                             visible: !isMobile
@@ -449,9 +540,9 @@ Rectangle {
                             shadowPressedColor: "#B32D00"
                             releasedColor: "#813CFF"
                             pressedColor: "#983CFF"
-                            onClicked:  {    
+                            onClicked:  {
                                 detailsPopup.title = "Services details";
-                                detailsPopup.content = buildTxDetailsString(obj,rank,type);
+                                detailsPopup.content = buildTxDetailsString(obj,rank);
                                 detailsPopup.open();
                             }
                         }
@@ -470,38 +561,10 @@ Rectangle {
 
             }
 
+
     }
 
     function onPageCompleted() {
-
-        //table.addressBookModel = appWindow.currentWallet ? appWindow.currentWallet.addressBookModel : null
+        getJson()
     }
 }
-
-
-/*
-
-        StandardButton {
-            id: getAll
-            width: 80
-            shadowReleasedColor: "#983CFF"
-            shadowPressedColor: "#B32D00"
-            releasedColor: "#813CFF"
-            pressedColor: "#983CFF"
-            text: qsTr("Refresh");
-            onClicked: {
-                var xmlhttp = new XMLHttpRequest();
-                var url = "https://jhx4eq5ijc.execute-api.us-east-1.amazonaws.com/dev/v1/services/search";
-
-                xmlhttp.onreadystatechange=function() {
-                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                        var obj = xmlhttp.responseText
-                        console.log("meu log: " + obj)
-                    }
-                }
-                xmlhttp.open("GET", url, true);
-                xmlhttp.send();
-            }
-        }
-
-        */

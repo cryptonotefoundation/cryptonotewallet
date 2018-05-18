@@ -123,6 +123,10 @@ namespace tools
     static std::pair<std::unique_ptr<wallet2>, password_container>
       make_from_file(const boost::program_options::variables_map& vm, const std::string& wallet_file);
 
+	//! Uses stdin and stdout. Upgrades legacy .wallet file to .keys. Returns true if keys file successfully generated.
+	static bool make_from_legacy(
+		const boost::program_options::variables_map& vm, const std::string& wallet_file);
+
     //! Uses stdin and stdout. Returns a wallet2 and password for wallet with no file if no errors.
     static std::pair<std::unique_ptr<wallet2>, password_container> make_new(const boost::program_options::variables_map& vm);
 
@@ -132,6 +136,11 @@ namespace tools
     static bool verify_password(const std::string& keys_file_name, const std::string& password, bool watch_only);
 
     wallet2(bool testnet = false, bool restricted = false) : m_run(true), m_callback(0), m_testnet(testnet), m_always_confirm_transfers(true), m_print_ring_members(false), m_store_tx_info(true), m_default_mixin(0), m_default_priority(0), m_refresh_type(RefreshOptimizeCoinbase), m_auto_refresh(true), m_refresh_from_block_height(0), m_confirm_missing_payment_id(true), m_ask_password(true), m_min_output_count(0), m_min_output_value(0), m_merge_destinations(false), m_confirm_backlog(true), m_is_initialized(false), m_restricted(restricted), is_old_file_format(false), m_node_rpc_proxy(m_http_client, m_daemon_rpc_mutex) {}
+
+	struct CryptoContext {
+		crypto::chacha8_key key;
+		crypto::chacha8_iv iv;
+	};
 
     struct transfer_details
     {
@@ -624,6 +633,7 @@ namespace tools
      * \param password       Password of wallet file
      */
     bool load_keys(const std::string& keys_file_name, const std::string& password);
+	bool upgrade_legacy_wallet(const std::string& wallet_file_name, const std::string& password);
     void process_new_transaction(const crypto::hash &txid, const cryptonote::transaction& tx, const std::vector<uint64_t> &o_indices, uint64_t height, uint64_t ts, bool miner_tx, bool pool);
     void process_new_blockchain_entry(const cryptonote::block& b, const cryptonote::block_complete_entry& bche, const crypto::hash& bl_id, uint64_t height, const cryptonote::COMMAND_RPC_GET_BLOCKS_FAST::block_output_indices &o_indices);
     void detach_blockchain(uint64_t height);

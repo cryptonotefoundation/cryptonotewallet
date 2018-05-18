@@ -114,6 +114,7 @@ namespace
   const command_line::arg_descriptor<std::string> arg_generate_from_keys = {"generate-from-keys", sw::tr("Generate wallet from private keys"), ""};
   const command_line::arg_descriptor<std::string> arg_generate_from_multisig_keys = {"generate-from-multisig-keys", sw::tr("Generate a master wallet from multisig wallet keys"), ""};
   const auto arg_generate_from_json = wallet_args::arg_generate_from_json();
+  const command_line::arg_descriptor<std::string> arg_upgrade_legacy_wallet = { "upgrade-legacy", "Upgrade a pre-rebase .wallet file <arg> to the new format which is compatible with this wallet", "" };
   const command_line::arg_descriptor<std::string> arg_mnemonic_language = {"mnemonic-language", sw::tr("Language for mnemonic"), ""};
   const command_line::arg_descriptor<std::string> arg_electrum_seed = {"electrum-seed", sw::tr("Specify Electrum seed for wallet recovery/creation"), ""};
   const command_line::arg_descriptor<bool> arg_restore_deterministic_wallet = {"restore-deterministic-wallet", sw::tr("Recover wallet using Electrum-style mnemonic seed"), false};
@@ -929,7 +930,7 @@ bool simple_wallet::ask_wallet_create_if_needed()
         }
         else if(wallet_file_exists && !keys_file_exists) //Yes wallet, no keys
         {
-          fail_msg_writer() << tr("Key file not found. Failed to open wallet: ") << "\"" << wallet_path << "\". Exiting.";
+          fail_msg_writer() << tr("Key file not found. Use --wallet-file or --upgrade-legacy if opening a legacy (pre-rebase) wallet. Failed to open wallet: ") << "\"" << wallet_path << "\". Exiting.";
           return false;
         }
         else if(!wallet_file_exists && !keys_file_exists) //No wallet, no keys
@@ -994,7 +995,7 @@ bool simple_wallet::init(const boost::program_options::variables_map& vm)
     fail_msg_writer() << tr("can't specify more than one of --generate-new-wallet=\"wallet_name\", --wallet-file=\"wallet_name\", --generate-from-view-key=\"wallet_name\", --generate-from-keys=\"wallet_name\", --generate-from-multisig-keys=\"wallet_name\" and --generate-from-json=\"jsonfilename\"");
     return false;
   }
-  else if (m_generate_new.empty() && m_wallet_file.empty() && m_generate_from_view_key.empty() && m_generate_from_keys.empty() && m_generate_from_multisig_keys.empty() && m_generate_from_json.empty())
+  else if (m_generate_new.empty() && m_wallet_file.empty() && m_generate_from_view_key.empty() && m_generate_from_keys.empty() && m_generate_from_multisig_keys.empty() && m_generate_from_json.empty() && m_upgrade_legacy_wallet.empty())
   {
     if(!ask_wallet_create_if_needed()) return false;
   }
@@ -1040,7 +1041,22 @@ bool simple_wallet::init(const boost::program_options::variables_map& vm)
         return false;
       }
     }
-    if (!m_generate_from_view_key.empty())
+	if (!m_upgrade_legacy_wallet.empty()) {
+		bool wallet_file_exists = false, keys_file_exists = false;
+		tools::wallet2::wallet_exists(m_upgrade_legacy_wallet, keys_file_exists, wallet_file_exists);
+		if (!wallet_file_exists) {
+			fail_msg_writer() << tr("Failed to find an existing wallet file with that name. Make sure you use the full file name (eg file.wallet).");
+			return false;
+		}
+		if (keys_file_exists) {
+			fail_msg_writer() << tr("Keys file already exists for this wallet. Are you sure it needs to be converted?");
+			return false;
+		}
+
+		bool r = tools::wallet2::make_from_legacy(vm, m_upgrade_legacy_wallet);
+		CHECK_AND_ASSERT_MES(r, false, tr("legacy restoration failed"));
+	}
+	else if (!m_generate_from_view_key.empty())
     {
       m_wallet_file = m_generate_from_view_key;
       // parse address
@@ -1431,6 +1447,7 @@ bool simple_wallet::handle_command_line(const boost::program_options::variables_
   m_generate_from_keys            = command_line::get_arg(vm, arg_generate_from_keys);
   m_generate_from_multisig_keys   = command_line::get_arg(vm, arg_generate_from_multisig_keys);
   m_generate_from_json            = command_line::get_arg(vm, arg_generate_from_json);
+  m_upgrade_legacy_wallet		  = command_line::get_arg(vm, arg_upgrade_legacy_wallet);
   m_mnemonic_language             = command_line::get_arg(vm, arg_mnemonic_language);
   m_electrum_seed                 = command_line::get_arg(vm, arg_electrum_seed);
   m_restore_deterministic_wallet  = command_line::get_arg(vm, arg_restore_deterministic_wallet);
@@ -1442,6 +1459,7 @@ bool simple_wallet::handle_command_line(const boost::program_options::variables_
                                     !m_generate_from_keys.empty() ||
                                     !m_generate_from_multisig_keys.empty() ||
                                     !m_generate_from_json.empty() ||
+									!m_upgrade_legacy_wallet.empty() ||
                                     m_restore_deterministic_wallet;
 
   return true;
@@ -4998,6 +5016,7 @@ int main(int argc, char* argv[])
   command_line::add_arg(desc_params, arg_generate_from_keys);
   command_line::add_arg(desc_params, arg_generate_from_multisig_keys);
   command_line::add_arg(desc_params, arg_generate_from_json);
+  command_line::add_arg(desc_params, arg_upgrade_legacy_wallet);
   command_line::add_arg(desc_params, arg_mnemonic_language);
   command_line::add_arg(desc_params, arg_command);
 

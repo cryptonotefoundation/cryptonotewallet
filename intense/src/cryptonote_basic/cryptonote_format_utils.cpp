@@ -783,33 +783,6 @@ namespace cryptonote
     return true;
   }
   //---------------------------------------------------------------
-  bool generate_genesis_block(block& bl)
-  {
-    //genesis block
-    bl = boost::value_initialized<block>();
-
-
-    account_public_address ac = boost::value_initialized<account_public_address>();
-    std::vector<size_t> sz;
-    cryptonote::construct_miner_tx(0, 0, 0, 0, 0, ac, bl.miner_tx); // zero fee in genesis
-    blobdata txb = tx_to_blob(bl.miner_tx);
-    std::string hex_tx_represent = string_tools::buff_to_hex_nodelimer(txb);
-
-    //hard code coinbase tx in genesis block, because "tru" generating tx use random, but genesis should be always the same
-    std::string genesis_coinbase_tx_hex = config::GENESIS_TX;
-
-    blobdata tx_bl;
-    string_tools::parse_hexstr_to_binbuff(genesis_coinbase_tx_hex, tx_bl);
-    bool r = parse_and_validate_tx_from_blob(tx_bl, bl.miner_tx);
-    CHECK_AND_ASSERT_MES(r, false, "failed to parse coinbase tx from hard coded blob");
-    bl.major_version = CURRENT_BLOCK_MAJOR_VERSION;
-    bl.minor_version = CURRENT_BLOCK_MINOR_VERSION;
-    bl.timestamp = 0;
-    bl.nonce = config::GENESIS_NONCE;
-    miner::find_nonce_for_given_block(bl, 1, 0);
-    return true;
-  }
-  //---------------------------------------------------------------
   bool get_genesis_block_hash(crypto::hash& h)
   {
 	  static std::atomic<bool> cached(false);
@@ -821,7 +794,7 @@ namespace cryptonote
 		  if (!cached)
 		  {
 			  block genesis_block;
-			  if (!generate_genesis_block(genesis_block))
+			  if (!generate_genesis_block(genesis_block, config::GENESIS_TX, config::GENESIS_NONCE))
 				  return false;
 
 			  if (!get_block_hash(genesis_block, genesis_block_hash))

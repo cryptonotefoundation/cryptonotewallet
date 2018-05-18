@@ -954,7 +954,7 @@ ApplicationWindow {
         id: fileDialog
         title: "Please choose a file"
         folder: "file://" +moneroAccountsDir
-        nameFilters: [ "Wallet files (*.keys)"]
+        nameFilters: [ "Wallet files (*.keys *.wallet)"]
 
         onAccepted: {
             persistentSettings.wallet_path = walletManager.urlToLocalPath(fileDialog.fileUrl)
@@ -1063,7 +1063,7 @@ ApplicationWindow {
             onTransferClicked: {middlePanel.state = "Transfer"; if(isMobile) hideMenu()}
 
             //onIntenseClicked: {middlePanel.state = "Intense"; if(isMobile) hideMenu()}
-            onIntenseDashClicked: {middlePanel.state = "ITNS Dashboard"; if(isMobile) hideMenu()}
+            onIntenseDashboardClicked: {middlePanel.state = "ITNS Dashboard"; if(isMobile) hideMenu()}
             onIntenseProviderClicked: {middlePanel.state = "ITNS Provider"; if(isMobile) hideMenu()}
 
             onReceiveClicked: {middlePanel.state = "Receive"; if(isMobile) hideMenu()}
@@ -1368,6 +1368,11 @@ ApplicationWindow {
     }
 
     function closeAccepted(){
+        //if legacy wallet was initially loaded, remove .wallet extension so it loads properly next time
+        if (persistentSettings.wallet_path.length > 7 &&
+                persistentSettings.wallet_path.substring(persistentSettings.wallet_path.length - 7) === ".wallet")
+            persistentSettings.wallet_path = persistentSettings.wallet_path.substring(0, persistentSettings.wallet_path.length - 7)
+
         // Close wallet non async on exit
         daemonManager.exit();
         walletManager.closeWallet();

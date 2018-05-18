@@ -274,6 +274,7 @@ macx {
         -lboost_filesystem \
         -lboost_regex \
         -lboost_chrono \
+        -lboost_chrono-mt \
         -lboost_program_options \
         -lssl \
         -lcrypto \
@@ -411,7 +412,8 @@ DISTFILES += \
     intense/src/wallet/CMakeLists.txt \
     components/MobileHeader.qml \
     pages/intense.qml \
-    pages/IntenseDash.qml
+    pages/IntenseDashboard.qml \
+    IntenseConfig.js
     components/MobileHeader.qml
 
 

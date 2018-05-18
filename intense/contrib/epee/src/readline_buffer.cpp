@@ -1,7 +1,9 @@
 #include "readline_buffer.h"
 #include <readline/readline.h>
 #include <readline/history.h>
+#if !defined(__MINGW32__) && !defined(__MINGW64__)
 #include <sys/select.h>
+#endif
 #include <unistd.h>
 #include <boost/thread.hpp>
 #include <boost/algorithm/string.hpp>

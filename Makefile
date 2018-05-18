@@ -135,7 +135,8 @@ DIST          = notes.txt \
 		intense/src/wallet/CMakeLists.txt \
 		components/MobileHeader.qml \
 		pages/intense.qml \
-		pages/IntenseDash.qml \
+		pages/IntenseDashboard.qml \
+		IntenseConfig.js \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf \
@@ -628,6 +629,7 @@ compiler_rcc_clean:
 	-$(DEL_FILE) qrc_qml.cpp
 qrc_qml.cpp: qml.qrc \
 		RightPanel.qml \
+		IntenseConfig.js \
 		LeftPanel.qml \
 		version.js \
 		MiddlePanel.qml \
@@ -636,6 +638,7 @@ qrc_qml.cpp: qml.qrc \
 		images/uncheckedIcon.png \
 		images/tip.png \
 		images/moneroLogo2.png \
+		images/wgshield.png \
 		images/star.png \
 		images/unstar.png \
 		images/statusConnected.png \
@@ -651,6 +654,7 @@ qrc_qml.cpp: qml.qrc \
 		images/maximizeIcon.png \
 		images/ascSortIndicatorActived.png \
 		images/descSortIndicatorActived.png \
+		images/vgshield.png \
 		images/recoverWallet.png \
 		images/expandTable.png \
 		images/dropdownCopy.png \
@@ -663,6 +667,7 @@ qrc_qml.cpp: qml.qrc \
 		images/dropdownAdd.png \
 		images/expandRightPanel.png \
 		images/hseparator.png \
+		images/poff.png \
 		images/menuIndicator.png \
 		images/privacyTick.png \
 		images/tableOptions.png \
@@ -685,6 +690,8 @@ qrc_qml.cpp: qml.qrc \
 		images/datePicker.png \
 		images/nextPage.png \
 		images/copyToClipboard.png \
+		images/shield.png \
+		images/pon.png \
 		images/whatIsIcon.png \
 		images/dropdownSend.png \
 		wizard/WizardConfigure.qml \
@@ -772,9 +779,9 @@ qrc_qml.cpp: qml.qrc \
 		pages/Dashboard.qml \
 		pages/Settings.qml \
 		pages/History.qml \
+		pages/IntenseDashboard.qml \
 		pages/Receive.qml \
 		pages/Intense.qml \
-		pages/IntenseDash.qml \
 		pages/TxKey.qml
 	/usr/lib/x86_64-linux-gnu/qt5/bin/rcc -name qml qml.qrc -o qrc_qml.cpp
 
