@@ -8,4 +8,5 @@ intense-build
 version.js
 debug
 IntenseConfig.js
-release/bin/intensecoin-wallet-gui
+release
+qrc_qml.cpp
