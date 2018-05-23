@@ -170,6 +170,7 @@ Rectangle {
                     }
 
                     var rank = (arr[i].mStability + arr[i].mSpeed)/2
+                    rank = parseFloat(rank).toFixed(1)
                     if(speed == undefined && tp == undefined && price == undefined){
                         listView.model.append( {listdata:"<div style='font-side: 16px; font-weight: bold;'> " + arr[i].providerName + "</div><br /><br />" + arr[i].name +"<br /> "+ type +"<div style='font-weight: bold;'><br /> "+ formatBytes(arr[i].downloadSpeed) +" </div>- "+ arr[i].cost + "ITNS", obj: arr[i], rank: rank, type: type, index: i})
                     }
