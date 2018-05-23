@@ -2,4 +2,11 @@
 *.user.*
 translations/*.qm
 build
+intense-build
+*.o
+*.log
 version.js
+debug
+IntenseConfig.js
+release/bin/intensecoin-wallet-gui
+qrc_qml.cpp
