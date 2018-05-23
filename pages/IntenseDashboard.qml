@@ -51,7 +51,7 @@ Rectangle {
         xmlhttpPost.send(data);
     }
 
-    function createJsonFeedback(fbId){
+    function postJsonFeedback(fbId){
         var url = Config.url+Config.stage+Config.version+Config.feedback+Config.add
         var xmlhttpPost = new XMLHttpRequest();
         xmlhttpPost.onreadystatechange=function() {
@@ -59,7 +59,26 @@ Rectangle {
                 var feed = JSON.parse(xmlhttpPost.responseText)
             }
         }
-        var data = {"id":fbId, "speed":1, "stability":4}
+
+        var sp = 0
+        var st = 0
+        var i = 0
+        var arrRank = [rank1, rank2, rank3, rank4, rank5]
+        var arrRankText = [rText1, rText2, rText3, rText4, rText5]
+        var arrQRank = [rankQ1, rankQ2, rankQ3, rankQ4, rankQ5]
+        var arrQRankText = [rqText1, rqText2, rqText3, rqText4, rqText5]
+        for(i = 0; i < 5; i++){
+            if(arrRank[i].color == '#4d0051'){
+                sp = parseInt(arrRankText[i].text)
+                console.log(sp + "-------------------")
+            }
+            if(arrQRank[i].color == '#4d0051'){
+                st = parseInt(arrQRankText[i].text)
+                console.log(st + "-------------------")
+            }
+        }
+
+        var data = {"id":fbId, "speed":sp, "stability":st}
         data = JSON.stringify(data)
         xmlhttpPost.open("POST", url, true);
         xmlhttpPost.setRequestHeader("Content-type", "application/json");
@@ -84,7 +103,6 @@ Rectangle {
             runningText.text = "Not running"
             subButtonText.text = "Connect"
             bton = ""
-            createJsonFeedback(feedback)
         }
 
     }
@@ -244,7 +262,7 @@ Rectangle {
                 font.bold: true
             }
 
-          /* Just to show the simple Dashboard !! Dont remove
+          // Just to show the simple Dashboard !! Dont remove
           Text {
                 visible: !isMobile
                 id: lastRankLabel
@@ -259,6 +277,8 @@ Rectangle {
                 color: "#535353"
                 font.family: "Arial"
             }
+
+
 
           Rectangle {
               visible: !isMobile
@@ -282,6 +302,7 @@ Rectangle {
                   font.bold: true
               }
           }
+
 
           Text {
                 visible: !isMobile
@@ -320,6 +341,7 @@ Rectangle {
                   font.bold: true
               }
           }
+
 
           Text {
                 visible: !isMobile
@@ -382,6 +404,8 @@ Rectangle {
                 font.family: "Arial"
             }
 
+
+
           Text {
                 visible: !isMobile
                 id: lastPlanLabel
@@ -410,6 +434,8 @@ Rectangle {
                 color: "#535353"
                 font.family: "Arial"
             }
+
+
           Text {
                 visible: !isMobile
                 id: lastCostText
@@ -432,12 +458,13 @@ Rectangle {
                 anchors.topMargin: 21
                 anchors.leftMargin: 90
                 width: 70
-                text: qsTr(cost) + translationManager.emptyString
+                text: cost
                 font.pixelSize: 12
                 horizontalAlignment: Text.AlignLeft
                 color: "#535353"
                 font.family: "Arial"
             }
+
           Text {
                 visible: !isMobile
                 id: lastSpeedLabel
@@ -468,6 +495,413 @@ Rectangle {
                 font.family: "Arial"
             }
 
+          StandardDialog {
+              id: connectPopup
+              cancelVisible: true
+              okVisible: true
+              width:400
+              height: 420
+              onAccepted:{
+                  postJsonFeedback(feedback)
+              }
+
+              Text {
+                    visible: !isMobile
+                    id: providerFeedback
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.top:  parent.top
+                    anchors.topMargin: 100
+                    //width: 156
+                    text: qsTr(providerName) + translationManager.emptyString
+                    font.pixelSize: 18
+                    font.bold: true
+                    color: "#6b0072"
+                    //fontWeight: bold
+                }
+
+              Text {
+                    visible: !isMobile
+                    id: nameFeedback
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.top:  providerFeedback.top
+                    anchors.topMargin: 37
+                    //width: 156
+                    text: qsTr(name) + translationManager.emptyString
+                    font.pixelSize: 16
+                    font.bold: true
+                    color: "#6b0072"
+                    //fontWeight: bold
+                }
+
+              Text {
+                    visible: !isMobile
+                    id: speedFeedback
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.top:  nameFeedback.top
+                    anchors.topMargin: 47
+                    //width: 156
+                    text: qsTr("Speed") + translationManager.emptyString
+                    font.pixelSize: 14
+                    font.bold: false
+                    color: "#000000"
+                    //fontWeight: bold
+                }
+
+              Rectangle {
+                  visible: !isMobile
+                  id: rank1
+                  anchors.top: speedFeedback.top
+                  anchors.right: rank2.right
+                  anchors.rightMargin: 47
+                  anchors.topMargin: 27
+                  width: 35
+                  height: 25
+                  color: "#c4c4c4"
+                  radius: 4
+                  MouseArea {
+                      anchors.fill: parent
+                      onClicked: {
+                          parent.color = '#4D0051'
+                          rank2.color = "#c4c4c4"
+                          rank3.color = "#c4c4c4"
+                          rank4.color = "#c4c4c4"
+                          rank5.color = "#c4c4c4"
+                      }
+                  }
+
+                  Text {
+                      id: rText1
+                      text: "1"
+                      font.pixelSize: 13
+                      anchors.horizontalCenter: parent.horizontalCenter
+                      anchors.verticalCenter: parent.verticalCenter
+                      color: "#ffffff"
+                      font.family: "Arial"
+                      font.bold: true
+                  }
+              }
+
+              Rectangle {
+                  visible: !isMobile
+                  id: rank2
+                  anchors.top: speedFeedback.top
+                  anchors.right: rank3.right
+                  anchors.rightMargin: 47
+                  anchors.topMargin: 27
+                  width: 35
+                  height: 25
+                  color: "#c4c4c4"
+                  radius: 4
+                  MouseArea {
+                      anchors.fill: parent
+                      onClicked: {
+                          parent.color = '#4D0051'
+                          rank1.color = "#c4c4c4"
+                          rank3.color = "#c4c4c4"
+                          rank4.color = "#c4c4c4"
+                          rank5.color = "#c4c4c4"
+                      }
+                  }
+
+                  Text {
+                      id: rText2
+                      text: "2"
+                      font.pixelSize: 13
+                      anchors.horizontalCenter: parent.horizontalCenter
+                      anchors.verticalCenter: parent.verticalCenter
+                      color: "#ffffff"
+                      font.family: "Arial"
+                      font.bold: true
+                  }
+              }
+
+              Rectangle {
+                  visible: !isMobile
+                  id: rank3
+                  anchors.top: speedFeedback.top
+                  anchors.horizontalCenter: parent.horizontalCenter
+                  anchors.topMargin: 27
+                  width: 35
+                  height: 25
+                  color: "#c4c4c4"
+                  radius: 4
+                  MouseArea {
+                      anchors.fill: parent
+                      onClicked: {
+                          parent.color = '#4D0051'
+                          rank2.color = "#c4c4c4"
+                          rank1.color = "#c4c4c4"
+                          rank4.color = "#c4c4c4"
+                          rank5.color = "#c4c4c4"
+                      }
+                  }
+
+                  Text {
+                      id: rText3
+                      text: "3"
+                      font.pixelSize: 13
+                      anchors.horizontalCenter: parent.horizontalCenter
+                      anchors.verticalCenter: parent.verticalCenter
+                      color: "#ffffff"
+                      font.family: "Arial"
+                      font.bold: true
+                  }
+              }
+
+              Rectangle {
+                  visible: !isMobile
+                  id: rank4
+                  anchors.top: speedFeedback.top
+                  anchors.left: rank3.left
+                  anchors.topMargin: 27
+                  anchors.leftMargin: 47
+                  width: 35
+                  height: 25
+                  color: "#c4c4c4"
+                  radius: 4
+                  MouseArea {
+                      anchors.fill: parent
+                      onClicked: {
+                          parent.color = '#4D0051'
+                          rank2.color = "#c4c4c4"
+                          rank3.color = "#c4c4c4"
+                          rank1.color = "#c4c4c4"
+                          rank5.color = "#c4c4c4"
+                      }
+                  }
+
+                  Text {
+                      id: rText4
+                      text: "4"
+                      font.pixelSize: 13
+                      anchors.horizontalCenter: parent.horizontalCenter
+                      anchors.verticalCenter: parent.verticalCenter
+                      color: "#ffffff"
+                      font.family: "Arial"
+                      font.bold: true
+                  }
+              }
+
+              Rectangle {
+                  visible: !isMobile
+                  id: rank5
+                  anchors.top: speedFeedback.top
+                  anchors.left: rank4.left
+                  anchors.topMargin: 27
+                  anchors.leftMargin: 47
+                  width: 35
+                  height: 25
+                  color: "#c4c4c4"
+                  radius: 4
+                  MouseArea {
+                      anchors.fill: parent
+                      onClicked: {
+                          parent.color = '#4D0051'
+                          rank2.color = "#c4c4c4"
+                          rank3.color = "#c4c4c4"
+                          rank4.color = "#c4c4c4"
+                          rank1.color = "#c4c4c4"
+                      }
+                  }
+
+                  Text {
+                      id: rText5
+                      text: "5"
+                      font.pixelSize: 13
+                      anchors.horizontalCenter: parent.horizontalCenter
+                      anchors.verticalCenter: parent.verticalCenter
+                      color: "#ffffff"
+                      font.family: "Arial"
+                      font.bold: true
+                  }
+              }
+
+              Text {
+                    visible: !isMobile
+                    id: qualityFeedback
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.top:  rank3.top
+                    anchors.topMargin: 47
+                    //width: 156
+                    text: qsTr("Quality") + translationManager.emptyString
+                    font.pixelSize: 14
+                    font.bold: false
+                    color: "#000000"
+                    //fontWeight: bold
+                }
+
+              Rectangle {
+                  visible: !isMobile
+                  id: rankQ1
+                  anchors.top: qualityFeedback.top
+                  anchors.right: rankQ2.right
+                  anchors.rightMargin: 47
+                  anchors.topMargin: 27
+                  width: 35
+                  height: 25
+                  color: "#c4c4c4"
+                  radius: 4
+                  MouseArea {
+                      anchors.fill: parent
+                      onClicked: {
+                          parent.color = '#4D0051'
+                          rankQ2.color = "#c4c4c4"
+                          rankQ3.color = "#c4c4c4"
+                          rankQ4.color = "#c4c4c4"
+                          rankQ5.color = "#c4c4c4"
+                      }
+                  }
+
+                  Text {
+                      id: rqText1
+                      text: "1"
+                      font.pixelSize: 13
+                      anchors.horizontalCenter: parent.horizontalCenter
+                      anchors.verticalCenter: parent.verticalCenter
+                      color: "#ffffff"
+                      font.family: "Arial"
+                      font.bold: true
+                  }
+              }
+
+              Rectangle {
+                  visible: !isMobile
+                  id: rankQ2
+                  anchors.top: qualityFeedback.top
+                  anchors.right: rankQ3.right
+                  anchors.rightMargin: 47
+                  anchors.topMargin: 27
+                  width: 35
+                  height: 25
+                  color: "#c4c4c4"
+                  radius: 4
+                  MouseArea {
+                      anchors.fill: parent
+                      onClicked: {
+                          parent.color = '#4D0051'
+                          rankQ1.color = "#c4c4c4"
+                          rankQ3.color = "#c4c4c4"
+                          rankQ4.color = "#c4c4c4"
+                          rankQ5.color = "#c4c4c4"
+                      }
+                  }
+
+                  Text {
+                      id: rqText2
+                      text: "2"
+                      font.pixelSize: 13
+                      anchors.horizontalCenter: parent.horizontalCenter
+                      anchors.verticalCenter: parent.verticalCenter
+                      color: "#ffffff"
+                      font.family: "Arial"
+                      font.bold: true
+                  }
+              }
+
+              Rectangle {
+                  visible: !isMobile
+                  id: rankQ3
+                  anchors.top: qualityFeedback.top
+                  anchors.horizontalCenter: parent.horizontalCenter
+                  anchors.topMargin: 27
+                  width: 35
+                  height: 25
+                  color: "#c4c4c4"
+                  radius: 4
+                  MouseArea {
+                      anchors.fill: parent
+                      onClicked: {
+                          parent.color = '#4D0051'
+                          rankQ2.color = "#c4c4c4"
+                          rankQ1.color = "#c4c4c4"
+                          rankQ4.color = "#c4c4c4"
+                          rankQ5.color = "#c4c4c4"
+                      }
+                  }
+
+                  Text {
+                      id: rqText3
+                      text: "3"
+                      font.pixelSize: 13
+                      anchors.horizontalCenter: parent.horizontalCenter
+                      anchors.verticalCenter: parent.verticalCenter
+                      color: "#ffffff"
+                      font.family: "Arial"
+                      font.bold: true
+                  }
+              }
+
+              Rectangle {
+                  visible: !isMobile
+                  id: rankQ4
+                  anchors.top: qualityFeedback.top
+                  anchors.left: rankQ3.left
+                  anchors.topMargin: 27
+                  anchors.leftMargin: 47
+                  width: 35
+                  height: 25
+                  color: "#c4c4c4"
+                  radius: 4
+                  MouseArea {
+                      anchors.fill: parent
+                      onClicked: {
+                          parent.color = '#4D0051'
+                          rankQ2.color = "#c4c4c4"
+                          rankQ3.color = "#c4c4c4"
+                          rankQ1.color = "#c4c4c4"
+                          rankQ5.color = "#c4c4c4"
+                      }
+                  }
+
+                  Text {
+                      id: rqText4
+                      text: "4"
+                      font.pixelSize: 13
+                      anchors.horizontalCenter: parent.horizontalCenter
+                      anchors.verticalCenter: parent.verticalCenter
+                      color: "#ffffff"
+                      font.family: "Arial"
+                      font.bold: true
+                  }
+              }
+
+              Rectangle {
+                  visible: !isMobile
+                  id: rankQ5
+                  anchors.top: qualityFeedback.top
+                  anchors.left: rankQ4.left
+                  anchors.topMargin: 27
+                  anchors.leftMargin: 47
+                  width: 35
+                  height: 25
+                  color: "#c4c4c4"
+                  radius: 4
+                  MouseArea {
+                      anchors.fill: parent
+                      onClicked: {
+                          parent.color = '#4D0051'
+                          rankQ2.color = "#c4c4c4"
+                          rankQ3.color = "#c4c4c4"
+                          rankQ4.color = "#c4c4c4"
+                          rankQ1.color = "#c4c4c4"
+                      }
+                  }
+
+                  Text {
+                      id: rqText5
+                      text: "5"
+                      font.pixelSize: 13
+                      anchors.horizontalCenter: parent.horizontalCenter
+                      anchors.verticalCenter: parent.verticalCenter
+                      color: "#ffffff"
+                      font.family: "Arial"
+                      font.bold: true
+                  }
+              }
+
+
+          }
+
 
           StandardButton {
               visible: !isMobile
@@ -483,6 +917,11 @@ Rectangle {
               pressedColor: "#983CFF"
               onClicked:{
                   changeStatus(pon.source)
+
+                  connectPopup.title = "Provider Feedback";
+                  connectPopup.open();
+
+
               }
 
               Text {
@@ -507,7 +946,6 @@ Rectangle {
                   source: if(feedback.length != 36){"../images/poff.png"}else{"../images/pon.png"}
               }
           }
-        */
         }
 
 
@@ -732,7 +1170,7 @@ Rectangle {
               anchors.topMargin: 27
               anchors.leftMargin: 147
               width: 140
-              text: qsTr(cost) + translationManager.emptyString
+              text: cost
               font.pixelSize: 14
               horizontalAlignment: Text.AlignRight
           }
@@ -787,6 +1225,7 @@ Rectangle {
             howToUseText.visible = false
             orText.visible = false
             searchForProviderText.visible = false
+            historicalConnectionLabel.visible = false
 
             detailsText.visible = true
             timeonlineText.visible = true
@@ -801,11 +1240,27 @@ Rectangle {
             costIntenseText.visible = true
             servercountryText.visible = true
             serveripText.visible = true
+            lastRankLabel.visible = true
+            rankRectangle.visible = true
+            lastMyRankLabel.visible = true
+            myRankRectangle.visible = true
+            lastTypeLabel.visible = true
+            lastTypeText.visible = true
+            lastProviderNameLabel.visible = true
+            lastProviderNameText.visible = true
+            lastPlanLabel.visible = true
+            lastNameIntenseText.visible = true
+            lastCostText.visible = true
+            lastCostIntenseText.visible = true
+            lastSpeedLabel.visible = true
+            lastSpeedText.visible = true
+            subButton.visible = true
 
         }else{
             howToUseText.visible = true
             orText.visible = true
             searchForProviderText.visible = true
+            historicalConnectionLabel.visible = true
 
             detailsText.visible = false
             timeonlineText.visible = false
@@ -820,6 +1275,21 @@ Rectangle {
             costIntenseText.visible = false
             servercountryText.visible = false
             serveripText.visible = false
+            lastRankLabel.visible = false
+            rankRectangle.visible = false
+            lastMyRankLabel.visible = false
+            myRankRectangle.visible = false
+            lastTypeLabel.visible = false
+            lastTypeText.visible = false
+            lastProviderNameLabel.visible = false
+            lastProviderNameText.visible = false
+            lastPlanLabel.visible = false
+            lastNameIntenseText.visible = false
+            lastCostText.visible = false
+            lastCostIntenseText.visible = false
+            lastSpeedLabel.visible = false
+            lastSpeedText.visible = false
+            subButton.visible = false
         }
 
         if(bton == "qrc:///images/poff.png"){
