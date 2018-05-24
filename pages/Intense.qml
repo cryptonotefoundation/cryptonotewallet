@@ -1,6 +1,8 @@
 import QtQuick 2.0
 import moneroComponents.TransactionInfo 1.0
 import QtQuick.Controls 1.4
+import moneroComponents.Wallet 1.0
+import moneroComponents.WalletManager 1.0
 import "../components"
 import "../IntenseConfig.js" as Config
 
@@ -127,6 +129,7 @@ Rectangle {
             if (xmlhttpPost.readyState == 4 && xmlhttpPost.status == 200) {
 
                 var feed = JSON.parse(xmlhttpPost.responseText)
+                console.log(feed + "----------------------------")
 
                 intenseDashboardView.feedback = feed.id
                 intenseDashboardView.providerName = obj.providerName
@@ -140,8 +143,10 @@ Rectangle {
                 middlePanel.state = "ITNS Dashboard"
             }
         }
-        var data = {"id":obj.providerWallet, "provider":obj.provider, "services":obj.id}
+
+        var data = {"id":obj.providerWallet, "provider":obj.provider, "services":obj.id, "client":appWindow.currentWallet.address}
         data = JSON.stringify(data)
+        console.log(data + "data -------------------------------------------")
         xmlhttpPost.open("POST", url, true);
         xmlhttpPost.setRequestHeader("Content-type", "application/json");
         xmlhttpPost.send(data);
