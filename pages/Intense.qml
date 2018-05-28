@@ -129,8 +129,7 @@ Rectangle {
             if (xmlhttpPost.readyState == 4 && xmlhttpPost.status == 200) {
 
                 var feed = JSON.parse(xmlhttpPost.responseText)
-                console.log(feed + "----------------------------")
-
+                intenseDashboardView.idService = obj.id
                 intenseDashboardView.feedback = feed.id
                 intenseDashboardView.providerName = obj.providerName
                 intenseDashboardView.name = obj.name
@@ -146,7 +145,6 @@ Rectangle {
 
         var data = {"id":obj.providerWallet, "provider":obj.provider, "services":obj.id, "client":appWindow.currentWallet.address}
         data = JSON.stringify(data)
-        console.log(data + "data -------------------------------------------")
         xmlhttpPost.open("POST", url, true);
         xmlhttpPost.setRequestHeader("Content-type", "application/json");
         xmlhttpPost.send(data);

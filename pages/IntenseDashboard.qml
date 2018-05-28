@@ -10,6 +10,7 @@ import "../IntenseConfig.js" as Config
 Rectangle {
     id: root
     property var model
+    property string idService
     property string providerName
     property string name
     property string type
@@ -84,6 +85,28 @@ Rectangle {
         xmlhttpPost.setRequestHeader("Content-type", "application/json");
         xmlhttpPost.send(data);
 
+    }
+
+    function getMyFeedJson(){
+        var url = Config.url+Config.stage+Config.version+Config.feedback+Config.get+"/"+appWindow.currentWallet.address+"/"+idService
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange=function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                var mFeed = JSON.parse(xmlhttp.responseText)
+                if(mFeed[0].mStability == null){
+                    mFeed[0].mStability = 0
+                }
+                if(mFeed[0].mSpeed == null){
+                    mFeed[0].mSpeed = 0
+                }
+                var myRank = (mFeed[0].mStability + mFeed[0].mSpeed)/2
+                myRank = parseFloat(myRank).toFixed(1)
+                myRankText.text =  myRank
+            }
+        }
+
+        xmlhttp.open("GET", url, true);
+        xmlhttp.send();
     }
 
     function changeStatus(bt){
@@ -328,11 +351,11 @@ Rectangle {
               anchors.topMargin: 31
               width: 35
               height: 25
-              color: getColor(rank)
+              color: getColor(myRank)
               radius: 4
 
               Text {
-                  text: rank
+                  id: myRankText
                   font.pixelSize: 13
                   anchors.horizontalCenter: parent.horizontalCenter
                   anchors.verticalCenter: parent.verticalCenter
@@ -1221,6 +1244,7 @@ Rectangle {
     }
 
     function onPageCompleted() {
+        getMyFeedJson()
         if(providerName != ""){
             howToUseText.visible = false
             orText.visible = false
