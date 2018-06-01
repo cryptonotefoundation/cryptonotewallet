@@ -892,6 +892,7 @@ ApplicationWindow {
         property string daemonPassword: ""
         property bool transferShowAdvanced: false
         property string blockchainDataDir: ""
+        property variant favorite
     }
 
     // Information dialog

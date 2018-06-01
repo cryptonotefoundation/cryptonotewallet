@@ -440,6 +440,23 @@ Rectangle {
                             checkedIcon: "../images/star.png"
                             uncheckedIcon: "../images/unstar.png"
                             onClicked: {
+
+                                getFavorite(favoriteCheck.checked)
+
+                                function getFavorite(checked){
+                                    if(checked == true){
+                                        appWindow.persistentSettings.favorite.push({id:obj.id, provider:obj.provider})
+                                        console.log(appWindow.persistentSettings.favorite.length + "---------- PS Favorite")
+                                    }else{
+                                        for(var i = appWindow.persistentSettings.favorite.length - 1; i >= 0; i--) {
+                                            if(appWindow.persistentSettings.favorite[i].id == obj.id && appWindow.persistentSettings.favorite[i].provider == obj.provider) {
+                                               appWindow.persistentSettings.favorite.splice(i, 1);
+                                               console.log(appWindow.persistentSettings.favorite.length)
+                                            }
+                                        }
+                                    }
+                                    //walletManager.persistentSettings(fav);
+                                }
                             }
                         }
 
@@ -570,5 +587,6 @@ Rectangle {
 
     function onPageCompleted() {
         getJson()
+        console.log(appWindow.persistentSettings.favorite.length + "------- wow that wa saved !!")
     }
 }
