@@ -251,6 +251,34 @@ Rectangle {
         xmlhttp.send();
     }
 
+    function getCheckedFavorite(data){
+        //console.log(data.id + " my id ----------------")
+        //console.log(data.provider + " my provider ----------------")
+        for(var i = 0; i < appWindow.persistentSettings.favorite.length; i++) {
+            console.log(appWindow.persistentSettings.favorite[1].id + " IN my id ----------------")
+            console.log(appWindow.persistentSettings.favorite.length + " loop")
+            if(appWindow.persistentSettings.favorite[i].id == data.id && appWindow.persistentSettings.favorite[i].provider == data.provider) {
+               return true
+            }
+        }
+        return false
+    }
+
+    function getFavorite(checked){
+        if(checked == true){
+            appWindow.persistentSettings.favorite.push({id:checked.id, provider:checked.provider})
+            console.log(appWindow.persistentSettings.favorite.length + "---------- PS Favorite")
+        }else{
+            for(var i = appWindow.persistentSettings.favorite.length - 1; i >= 0; i--) {
+                if(appWindow.persistentSettings.favorite[i].id == checked.id && appWindow.persistentSettings.favorite[i].provider == checked.provider) {
+                   appWindow.persistentSettings.favorite.splice(i, 1);
+                   console.log(appWindow.persistentSettings.favorite.length)
+                }
+            }
+        }
+        //walletManager.persistentSettings(fav);
+    }
+
     QtObject {
         id: d
         property bool initialized: false
@@ -439,24 +467,9 @@ Rectangle {
                             anchors.topMargin: 5
                             checkedIcon: "../images/star.png"
                             uncheckedIcon: "../images/unstar.png"
+                            checked: getCheckedFavorite(obj)
                             onClicked: {
-
                                 getFavorite(favoriteCheck.checked)
-
-                                function getFavorite(checked){
-                                    if(checked == true){
-                                        appWindow.persistentSettings.favorite.push({id:obj.id, provider:obj.provider})
-                                        console.log(appWindow.persistentSettings.favorite.length + "---------- PS Favorite")
-                                    }else{
-                                        for(var i = appWindow.persistentSettings.favorite.length - 1; i >= 0; i--) {
-                                            if(appWindow.persistentSettings.favorite[i].id == obj.id && appWindow.persistentSettings.favorite[i].provider == obj.provider) {
-                                               appWindow.persistentSettings.favorite.splice(i, 1);
-                                               console.log(appWindow.persistentSettings.favorite.length)
-                                            }
-                                        }
-                                    }
-                                    //walletManager.persistentSettings(fav);
-                                }
                             }
                         }
 
@@ -587,6 +600,5 @@ Rectangle {
 
     function onPageCompleted() {
         getJson()
-        console.log(appWindow.persistentSettings.favorite.length + "------- wow that wa saved !!")
     }
 }
