@@ -140,6 +140,13 @@ Rectangle {
                 intenseDashboardView.firstPrePaidMinutes = obj.firstPrePaidMinutes
                 intenseDashboardView.bton = "qrc:///images/poff.png"
                 middlePanel.state = "ITNS Dashboard"
+
+                leftPanel.selectItem("ITNS Dashboard")
+                //leftPanel.panel.menuRect.menuColumn.previousButton.checked = false
+                //leftPanel.panel.menuRect.menuColumn.previousButton = transferButton
+
+                //leftPanel.menuRect.menuColumn.intenseProviderButton.checked = false
+                //leftPanel.menuRect.menuColumn.intenseDashboardButton.checked = true
             }
         }
 
@@ -251,28 +258,33 @@ Rectangle {
         xmlhttp.send();
     }
 
-    function getCheckedFavorite(data){
-        //console.log(data.id + " my id ----------------")
-        //console.log(data.provider + " my provider ----------------")
-        for(var i = 0; i < appWindow.persistentSettings.favorite.length; i++) {
-            console.log(appWindow.persistentSettings.favorite[1].id + " IN my id ----------------")
-            console.log(appWindow.persistentSettings.favorite.length + " loop")
-            if(appWindow.persistentSettings.favorite[i].id == data.id && appWindow.persistentSettings.favorite[i].provider == data.provider) {
-               return true
+    function getCheckedFavorite(obj){
+        console.log(obj.id + "------- obj id")
+        console.log(obj.provider + "------- obj provider")
+        console.log(appWindow.persistentSettings.favorite.length-1 + " ----- -1")
+        console.log(appWindow.persistentSettings.favorite.length-2 + " ------ -2")
+        console.log(appWindow.persistentSettings.favorite.length + " -------- null")
+        for(var iCheckedFavorite = 0; iCheckedFavorite < appWindow.persistentSettings.favorite.length-1; iCheckedFavorite++) {
+            if(appWindow.persistentSettings.favorite[iCheckedFavorite].id == obj.id && appWindow.persistentSettings.favorite[iCheckedFavorite].provider == obj.provider) {
+                console.log(appWindow.persistentSettings.favorite[iCheckedFavorite].id)
+
+                return true
             }
         }
         return false
     }
 
-    function getFavorite(checked){
+    function getFavorite(checked, obj){
+        console.log(obj.id + "------- obj id get favorite")
+        console.log(obj.provider + "------- obj provider get favorite")
         if(checked == true){
-            appWindow.persistentSettings.favorite.push({id:checked.id, provider:checked.provider})
-            console.log(appWindow.persistentSettings.favorite.length + "---------- PS Favorite")
+            appWindow.persistentSettings.favorite.push({id:obj.id, provider:obj.provider})
+            console.log((appWindow.persistentSettings.favorite.length-1) + "---------- PS Favorite")
         }else{
-            for(var i = appWindow.persistentSettings.favorite.length - 1; i >= 0; i--) {
-                if(appWindow.persistentSettings.favorite[i].id == checked.id && appWindow.persistentSettings.favorite[i].provider == checked.provider) {
-                   appWindow.persistentSettings.favorite.splice(i, 1);
-                   console.log(appWindow.persistentSettings.favorite.length)
+            for(var iFavorite = 0; iFavorite < appWindow.persistentSettings.favorite.length - 1; iFavorite++) {
+                if(appWindow.persistentSettings.favorite[iFavorite].id == obj.id && appWindow.persistentSettings.favorite[iFavorite].provider == obj.provider) {
+                   appWindow.persistentSettings.favorite.splice(iFavorite, 1);
+                   console.log(appWindow.persistentSettings.favorite.length-1)
                 }
             }
         }
@@ -469,7 +481,7 @@ Rectangle {
                             uncheckedIcon: "../images/unstar.png"
                             checked: getCheckedFavorite(obj)
                             onClicked: {
-                                getFavorite(favoriteCheck.checked)
+                                getFavorite(this.checked, obj)
                             }
                         }
 
