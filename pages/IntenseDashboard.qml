@@ -71,11 +71,9 @@ Rectangle {
         for(i = 0; i < 5; i++){
             if(arrRank[i].color == '#4d0051'){
                 sp = parseInt(arrRankText[i].text)
-                console.log(sp + "-------------------")
             }
             if(arrQRank[i].color == '#4d0051'){
                 st = parseInt(arrQRankText[i].text)
-                console.log(st + "-------------------")
             }
         }
 
@@ -88,20 +86,25 @@ Rectangle {
     }
 
     function getMyFeedJson(){
+        var myRank = 0
         var url = Config.url+Config.stage+Config.version+Config.feedback+Config.get+"/"+appWindow.currentWallet.address+"/"+idService
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange=function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 var mFeed = JSON.parse(xmlhttp.responseText)
-                if(mFeed[0].mStability == null){
-                    mFeed[0].mStability = 0
+                for(var i = 0; i < mFeed.length; i++){
+                    if(mFeed[i].mStability == null){
+                        mFeed[i].mStability = 0
+                    }
+                    if(mFeed[i].mSpeed == null){
+                        mFeed[i].mSpeed = 0
+                    }
+                    myRank = (myRank + (mFeed[i].mStability + mFeed[i].mSpeed))/(mFeed.length)
                 }
-                if(mFeed[0].mSpeed == null){
-                    mFeed[0].mSpeed = 0
-                }
-                var myRank = (mFeed[0].mStability + mFeed[0].mSpeed)/2
                 myRank = parseFloat(myRank).toFixed(1)
                 myRankText.text =  myRank
+                getColor(myRank, myRankRectangle)
+
             }
         }
 
@@ -130,7 +133,7 @@ Rectangle {
 
     }
 
-    function getColor(id){
+    function getColor(id, idRank){
         if(id == 5){
             id = 10
         }else if(id < 5 && id > 4.5){
@@ -153,34 +156,34 @@ Rectangle {
 
         switch(id){
         case 1:
-            return "#ee2c2c"
+            idRank.color = "#ee2c2c"
             break;
         case 2:
-            return "#ee6363"
+            idRank.color = "#ee6363"
             break;
         case 3:
-            return "#ff7f24"
+            idRank.color = "#ff7f24"
             break;
         case 4:
-            return "#ffa54f"
+            idRank.color = "#ffa54f"
             break;
         case 5:
-            return "#ffa500"
+            idRank.color = "#ffa500"
             break;
         case 6:
-            return "#ffff00"
+            idRank.color = "#ffff00"
             break;
         case 7:
-            return "#caff70"
+            idRank.color = "#caff70"
             break;
         case 8:
-            return "#c0ff3e"
+            idRank.color = "#c0ff3e"
             break;
         case 9:
-            return "#66cd00"
+            idRank.color = "#66cd00"
             break;
         case 10:
-            return "#008b00"
+            idRank.color = "#008b00"
             break;
         }
 
@@ -312,7 +315,6 @@ Rectangle {
               anchors.topMargin: 24
               width: 35
               height: 25
-              color: getColor(rank)
               radius: 4
 
               Text {
@@ -351,7 +353,6 @@ Rectangle {
               anchors.topMargin: 31
               width: 35
               height: 25
-              color: getColor(myRank)
               radius: 4
 
               Text {
@@ -1238,12 +1239,12 @@ Rectangle {
 
         onTriggered:
         {
-            console.log(getTime() + '----------------------')
             setPayment(appWindow.currentWallet.address)
         }
     }
 
     function onPageCompleted() {
+        getColor(rank, rankRectangle)
         getMyFeedJson()
         if(providerName != ""){
             howToUseText.visible = false

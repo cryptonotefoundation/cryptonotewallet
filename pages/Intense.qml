@@ -142,11 +142,6 @@ Rectangle {
                 middlePanel.state = "ITNS Dashboard"
 
                 leftPanel.selectItem("ITNS Dashboard")
-                //leftPanel.panel.menuRect.menuColumn.previousButton.checked = false
-                //leftPanel.panel.menuRect.menuColumn.previousButton = transferButton
-
-                //leftPanel.menuRect.menuColumn.intenseProviderButton.checked = false
-                //leftPanel.menuRect.menuColumn.intenseDashboardButton.checked = true
             }
         }
 
