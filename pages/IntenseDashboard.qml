@@ -21,6 +21,7 @@ Rectangle {
     property string feedback
     property string bton
     property string rank
+    //property string flag
 
     function getTime(){
         var value =  (firstPrePaidMinutes*10000) - Config.payTimer
@@ -113,18 +114,18 @@ Rectangle {
     }
 
     function changeStatus(bt){
-        if (bt == "qrc:///images/poff.png"){
-            pon.source = "../images/pon.png"
+        if (bt == "qrc:///images/power_off.png"){
+            powerOn.source = "../images/power_on.png"
             if(type == "openvpn"){
-                shield.source = "../images/vgshield.png"
+                shield.source = "../images/shield_vpn_on.png"
             }else{
-                shield.source = "../images/wgshield.png"
+                shield.source = "../images/shield_proxy_on.png"
             }
             runningText.text = "Connected"
             subButtonText.text = "Disconnect"
 
         }else{
-            pon.source = "../images/poff.png"
+            powerOn.source = "../images/power_off.png"
             shield.source = "../images/shield.png"
             runningText.text = "Not running"
             subButtonText.text = "Connect"
@@ -231,7 +232,7 @@ Rectangle {
               anchors.leftMargin: 17
               width: 72; height: 87
               fillMode: Image.PreserveAspectFit
-              source: if(type == "openvpn"){"../images/vgshield.png"}else if(type == "proxy"){"../images/wgshield.png"}else{"../images/shield.png"}
+              source: if(type == "openvpn"){"../images/shield_vpn_on.png"}else if(type == "proxy"){"../images/shield_proxy_on.png"}else{"../images/shield.png"}
           }
 
           Text {
@@ -940,7 +941,7 @@ Rectangle {
               releasedColor: "#813CFF"
               pressedColor: "#983CFF"
               onClicked:{
-                  changeStatus(pon.source)
+                  changeStatus(powerOn.source)
 
                   connectPopup.title = "Provider Feedback";
                   connectPopup.open();
@@ -960,14 +961,14 @@ Rectangle {
               }
 
               Image {
-                  id: pon
+                  id: powerOn
                   anchors.left: parent.left
                   anchors.top:  startText.top
                   anchors.verticalCenter: parent.verticalCenter
                   anchors.leftMargin: 10
                   width: 25; height: 25
                   fillMode: Image.PreserveAspectFit
-                  source: if(feedback.length != 36){"../images/poff.png"}else{"../images/pon.png"}
+                  source: if(feedback.length != 36){"../images/power_off.png"}else{"../images/power_on.png"}
               }
           }
         }
@@ -1317,8 +1318,8 @@ Rectangle {
             subButton.visible = false
         }
 
-        if(bton == "qrc:///images/poff.png"){
-            changeStatus("qrc:///images/poff.png")
+        if(bton == "qrc:///images/power_off.png"){
+            changeStatus("qrc:///images/power_off.png")
         }
     }
 }

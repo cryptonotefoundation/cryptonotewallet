@@ -644,7 +644,6 @@ qrc_qml.cpp: qml.qrc \
 		images/uncheckedIcon.png \
 		images/tip.png \
 		images/moneroLogo2.png \
-		images/wgshield.png \
 		images/star.png \
 		images/unstar.png \
 		images/statusConnected.png \
@@ -660,7 +659,6 @@ qrc_qml.cpp: qml.qrc \
 		images/maximizeIcon.png \
 		images/ascSortIndicatorActived.png \
 		images/descSortIndicatorActived.png \
-		images/vgshield.png \
 		images/recoverWallet.png \
 		images/expandTable.png \
 		images/dropdownCopy.png \
@@ -672,9 +670,10 @@ qrc_qml.cpp: qml.qrc \
 		images/whiteDropIndicator.png \
 		images/dropdownAdd.png \
 		images/expandRightPanel.png \
+		images/power_on.png \
 		images/hseparator.png \
-		images/poff.png \
 		images/menuIndicator.png \
+		images/power_off.png \
 		images/privacyTick.png \
 		images/tableOptions.png \
 		images/checkedVioletIcon.png \
@@ -689,6 +688,7 @@ qrc_qml.cpp: qml.qrc \
 		images/prevMonth.png \
 		images/resizeHovered.png \
 		images/gotoBasicVersion.png \
+		images/shield_proxy_on.png \
 		images/dropdownSearch.png \
 		images/moneroLogo.png \
 		images/greyTriangle.png \
@@ -697,9 +697,9 @@ qrc_qml.cpp: qml.qrc \
 		images/nextPage.png \
 		images/copyToClipboard.png \
 		images/shield.png \
-		images/pon.png \
 		images/whatIsIcon.png \
 		images/dropdownSend.png \
+		images/shield_vpn_on.png \
 		wizard/WizardConfigure.qml \
 		wizard/WizardCreateViewOnlyWallet.qml \
 		wizard/WizardPassword.qml \

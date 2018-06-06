@@ -138,7 +138,7 @@ Rectangle {
                 intenseDashboardView.rank = rank
                 intenseDashboardView.speed = formatBytes(obj.downloadSpeed)
                 intenseDashboardView.firstPrePaidMinutes = obj.firstPrePaidMinutes
-                intenseDashboardView.bton = "qrc:///images/poff.png"
+                intenseDashboardView.bton = "qrc:///images/power_off.png"
                 middlePanel.state = "ITNS Dashboard"
 
                 leftPanel.selectItem("ITNS Dashboard")
