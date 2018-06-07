@@ -7,6 +7,8 @@ intense-build
 *.log
 version.js
 debug
+qrc_qml.cpp
+moc*
+android*
 IntenseConfig.js
 release
-qrc_qml.cpp

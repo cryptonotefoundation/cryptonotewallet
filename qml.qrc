@@ -149,11 +149,11 @@
         <file>images/star.png</file>
         <file>images/unstar.png</file>
         <file>pages/IntenseDashboard.qml</file>
-        <file>images/vgshield.png</file>
-        <file>images/wgshield.png</file>
-        <file>images/poff.png</file>
+        <file>images/shield_vpn_on.png</file>
+        <file>images/shield_proxy_on.png</file>
+        <file>images/power_off.png</file>
         <file>images/shield.png</file>
-        <file>images/pon.png</file>
+        <file>images/power_on.png</file>
         <file>IntenseConfig.js</file>
     </qresource>
 </RCC>

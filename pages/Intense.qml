@@ -1,6 +1,8 @@
 import QtQuick 2.0
 import moneroComponents.TransactionInfo 1.0
 import QtQuick.Controls 1.4
+import moneroComponents.Wallet 1.0
+import moneroComponents.WalletManager 1.0
 import "../components"
 import "../IntenseConfig.js" as Config
 
@@ -127,7 +129,7 @@ Rectangle {
             if (xmlhttpPost.readyState == 4 && xmlhttpPost.status == 200) {
 
                 var feed = JSON.parse(xmlhttpPost.responseText)
-
+                intenseDashboardView.idService = obj.id
                 intenseDashboardView.feedback = feed.id
                 intenseDashboardView.providerName = obj.providerName
                 intenseDashboardView.name = obj.name
@@ -136,11 +138,14 @@ Rectangle {
                 intenseDashboardView.rank = rank
                 intenseDashboardView.speed = formatBytes(obj.downloadSpeed)
                 intenseDashboardView.firstPrePaidMinutes = obj.firstPrePaidMinutes
-                intenseDashboardView.bton = "qrc:///images/poff.png"
+                intenseDashboardView.bton = "qrc:///images/power_off.png"
                 middlePanel.state = "ITNS Dashboard"
+
+                leftPanel.selectItem("ITNS Dashboard")
             }
         }
-        var data = {"id":obj.providerWallet, "provider":obj.provider, "services":obj.id}
+
+        var data = {"id":obj.providerWallet, "provider":obj.provider, "services":obj.id, "client":appWindow.currentWallet.address}
         data = JSON.stringify(data)
         xmlhttpPost.open("POST", url, true);
         xmlhttpPost.setRequestHeader("Content-type", "application/json");
@@ -170,6 +175,7 @@ Rectangle {
                     }
 
                     var rank = (arr[i].mStability + arr[i].mSpeed)/2
+                    rank = parseFloat(rank).toFixed(1)
                     if(speed == undefined && tp == undefined && price == undefined){
                         listView.model.append( {listdata:"<div style='font-side: 16px; font-weight: bold;'> " + arr[i].providerName + "</div><br /><br />" + arr[i].name +"<br /> "+ type +"<div style='font-weight: bold;'><br /> "+ formatBytes(arr[i].downloadSpeed) +" </div>- "+ arr[i].cost + "ITNS", obj: arr[i], rank: rank, type: type, index: i})
                     }
@@ -245,6 +251,39 @@ Rectangle {
 
         xmlhttp.open("GET", url, true);
         xmlhttp.send();
+    }
+
+    function getCheckedFavorite(obj){
+        console.log(obj.id + "------- obj id")
+        console.log(obj.provider + "------- obj provider")
+        console.log(appWindow.persistentSettings.favorite.length-1 + " ----- -1")
+        console.log(appWindow.persistentSettings.favorite.length-2 + " ------ -2")
+        console.log(appWindow.persistentSettings.favorite.length + " -------- null")
+        for(var iCheckedFavorite = 0; iCheckedFavorite < appWindow.persistentSettings.favorite.length-1; iCheckedFavorite++) {
+            if(appWindow.persistentSettings.favorite[iCheckedFavorite].id == obj.id && appWindow.persistentSettings.favorite[iCheckedFavorite].provider == obj.provider) {
+                console.log(appWindow.persistentSettings.favorite[iCheckedFavorite].id)
+
+                return true
+            }
+        }
+        return false
+    }
+
+    function getFavorite(checked, obj){
+        console.log(obj.id + "------- obj id get favorite")
+        console.log(obj.provider + "------- obj provider get favorite")
+        if(checked == true){
+            appWindow.persistentSettings.favorite.push({id:obj.id, provider:obj.provider})
+            console.log((appWindow.persistentSettings.favorite.length-1) + "---------- PS Favorite")
+        }else{
+            for(var iFavorite = 0; iFavorite < appWindow.persistentSettings.favorite.length - 1; iFavorite++) {
+                if(appWindow.persistentSettings.favorite[iFavorite].id == obj.id && appWindow.persistentSettings.favorite[iFavorite].provider == obj.provider) {
+                   appWindow.persistentSettings.favorite.splice(iFavorite, 1);
+                   console.log(appWindow.persistentSettings.favorite.length-1)
+                }
+            }
+        }
+        //walletManager.persistentSettings(fav);
     }
 
     QtObject {
@@ -435,7 +474,9 @@ Rectangle {
                             anchors.topMargin: 5
                             checkedIcon: "../images/star.png"
                             uncheckedIcon: "../images/unstar.png"
+                            checked: getCheckedFavorite(obj)
                             onClicked: {
+                                getFavorite(this.checked, obj)
                             }
                         }
 
