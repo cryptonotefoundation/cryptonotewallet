@@ -7,7 +7,8 @@ intense-build
 *.log
 version.js
 debug
-release/bin/intensecoin-wallet-gui
 qrc_qml.cpp
 moc*
 android*
+IntenseConfig.js
+release
