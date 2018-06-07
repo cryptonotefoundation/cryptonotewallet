@@ -23,6 +23,12 @@ function get_platform {
         platform="mingw64"
     elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
         platform="mingw32"
+    elif [ "$(expr substr $(uname -s) 1 10)" == "MSYS_NT-10" ]; then
+        if [ "$(expr substr $(uname -m) 1 6)" == "x86_64" ]; then
+            platform="mingw64"
+        elif [ "$(expr substr $(uname -m) 1 4)" == "i686" ]; then
+            platform="mingw32"
+        fi
     fi
     echo "$platform"
 
