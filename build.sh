@@ -89,7 +89,8 @@ qmake ../intensecoin-wallet-gui.pro "$CONFIG" || exit
 $MAKE || exit
 
 # Copy monerod to bin folder
-if [ "$platform" != "mingw32" ] && [ "$ANDROID" != true ]; then
+#if [ "$platform" != "mingw32" ] && [ "$ANDROID" != true ]; then
+if [ "$ANDROID" != true ]; then
 cp ../$MONERO_DIR/bin/$MONEROD_EXEC $BIN_PATH
 fi
 
