@@ -84,6 +84,7 @@ private:
   void onUriOpenSignal();
   void adjustForCurrentFile(const QString& filePath);
   void updateRecentActionList();
+  void updateUnmixableBalance(quint64 _balance);
 
   Q_SLOT void createWallet();
   Q_SLOT void createNonDeterministicWallet();
@@ -112,6 +113,7 @@ private:
   Q_SLOT void showNormalIfMinimized(bool fToggleHidden = false);
   Q_SLOT void showMnemonicSeed();
   Q_SLOT void restoreFromMnemonicSeed();
+  Q_SLOT void sweepUnmixable();
 
   bool isObscured(QWidget *w);
   bool checkPoint(const QPoint &p, const QWidget *w);
