@@ -139,11 +139,11 @@ void SendFrame::amountValueChange() {
         for(QVector<quint64>::iterator it = fees.begin(); it != fees.end(); ++it) {
             remote_node_fee += *it;
         }
-        if (remote_node_fee < CurrencyAdapter::instance().getMinimumFee()) {
-            remote_node_fee = CurrencyAdapter::instance().getMinimumFee();
-        }
-        if (remote_node_fee > 10000000000000) {
-            remote_node_fee = 10000000000000;
+        //if (remote_node_fee < CurrencyAdapter::instance().getMinimumFee()) {
+        //    remote_node_fee = CurrencyAdapter::instance().getMinimumFee();
+        //}
+        if (remote_node_fee > 1000000000000) {
+            remote_node_fee = 1000000000000;
         }
     }
 
