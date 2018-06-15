@@ -42,6 +42,8 @@ OverviewFrame::OverviewFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::O
     Qt::QueuedConnection);
   connect(&WalletAdapter::instance(), &WalletAdapter::walletPendingBalanceUpdatedSignal, this, &OverviewFrame::updatePendingBalance,
     Qt::QueuedConnection);
+  connect(&WalletAdapter::instance(), &WalletAdapter::walletUnmixableBalanceUpdatedSignal, this, &OverviewFrame::updateUnmixableBalance,
+    Qt::QueuedConnection);
   connect(&WalletAdapter::instance(), &WalletAdapter::walletCloseCompletedSignal, this, &OverviewFrame::reset,
     Qt::QueuedConnection);
   connect(m_transactionModel.data(), &QAbstractItemModel::rowsInserted, this, &OverviewFrame::transactionsInserted);
@@ -50,6 +52,7 @@ OverviewFrame::OverviewFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::O
   m_ui->m_tickerLabel1->setText(CurrencyAdapter::instance().getCurrencyTicker().toUpper());
   m_ui->m_tickerLabel2->setText(CurrencyAdapter::instance().getCurrencyTicker().toUpper());
   m_ui->m_tickerLabel3->setText(CurrencyAdapter::instance().getCurrencyTicker().toUpper());
+  m_ui->m_tickerLabel4->setText(CurrencyAdapter::instance().getCurrencyTicker().toUpper());
 
   m_ui->m_recentTransactionsView->setItemDelegate(new RecentTransactionsDelegate(this));
   m_ui->m_recentTransactionsView->setModel(m_transactionModel.data());
@@ -85,9 +88,14 @@ void OverviewFrame::updatePendingBalance(quint64 _balance) {
   m_ui->m_totalBalanceLabel->setText(CurrencyAdapter::instance().formatAmount(_balance + actualBalance).remove(','));
 }
 
+void OverviewFrame::updateUnmixableBalance(quint64 _balance) {
+  m_ui->m_unmixableBalanceLabel->setText(CurrencyAdapter::instance().formatAmount(_balance).remove(','));
+}
+
 void OverviewFrame::reset() {
   updateActualBalance(0);
   updatePendingBalance(0);
+  updateUnmixableBalance(0);
 }
 
 }

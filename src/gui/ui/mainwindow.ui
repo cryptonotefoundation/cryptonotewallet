@@ -63,7 +63,7 @@
     <property name="spacing">
      <number>0</number>
     </property>
-    <item row="0" column="0" colspan="6">
+    <item row="0" column="0" colspan="7">
      <widget class="WalletGui::AccountFrame" name="m_accountFrame">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
@@ -110,8 +110,8 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="3">
-     <widget class="WalletGui::TransactionsFrame" name="m_transactionsFrame">
+    <item row="1" column="1">
+     <widget class="WalletGui::SendFrame" name="m_sendFrame">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
         <horstretch>0</horstretch>
@@ -126,8 +126,24 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="1">
-     <widget class="WalletGui::SendFrame" name="m_sendFrame">
+    <item row="1" column="2">
+     <widget class="WalletGui::ReceiveFrame" name="m_receiveFrame">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="3">
+     <widget class="WalletGui::TransactionsFrame" name="m_transactionsFrame">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
         <horstretch>0</horstretch>
@@ -174,19 +190,13 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="2">
-     <widget class="WalletGui::ReceiveFrame" name="m_receiveFrame">
+    <item row="1" column="6">
+     <widget class="WalletGui::NoWalletFrame" name="m_noWalletFrame" native="true">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
       </property>
      </widget>
     </item>
@@ -198,7 +208,7 @@
      <x>0</x>
      <y>0</y>
      <width>980</width>
-     <height>21</height>
+     <height>20</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -214,20 +224,18 @@
     <addaction name="m_createNondeterministicWalletAction"/>
     <addaction name="m_openWalletAction"/>
     <addaction name="menuRecent_wallets"/>
-    <addaction name="m_backupWalletAction"/>
-    <addaction name="m_resetAction"/>
     <addaction name="m_closeWalletAction"/>
     <addaction name="separator"/>
     <addaction name="m_openUriAction"/>
     <addaction name="m_openLogFileAction"/>
     <addaction name="separator"/>
+    <addaction name="m_backupWalletAction"/>
     <addaction name="m_showMnemonicSeedAction"/>
-    <addaction name="m_restoreFromMnemonicSeedAction"/>
-    <addaction name="separator"/>
     <addaction name="m_showPrivateKey"/>
-    <addaction name="m_importKeyAction"/>
-    <addaction name="separator"/>
     <addaction name="m_exportTrackingKeyAction"/>
+    <addaction name="separator"/>
+    <addaction name="m_restoreFromMnemonicSeedAction"/>
+    <addaction name="m_importKeyAction"/>
     <addaction name="m_importTrackingKeyAction"/>
     <addaction name="separator"/>
     <addaction name="m_exitAction"/>
@@ -236,8 +244,6 @@
     <property name="title">
      <string>Settings</string>
     </property>
-    <addaction name="m_encryptWalletAction"/>
-    <addaction name="m_changePasswordAction"/>
     <addaction name="m_changeLanguageAction"/>
     <addaction name="m_connectionSettingsAction"/>
     <addaction name="separator"/>
@@ -254,7 +260,17 @@
     <addaction name="m_aboutQtAction"/>
     <addaction name="actionHelp"/>
    </widget>
+   <widget class="QMenu" name="menuWallet">
+    <property name="title">
+     <string>Wallet</string>
+    </property>
+    <addaction name="m_encryptWalletAction"/>
+    <addaction name="m_changePasswordAction"/>
+    <addaction name="m_sweepUnmixableAction"/>
+    <addaction name="m_resetAction"/>
+   </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuWallet"/>
    <addaction name="menuSettings"/>
    <addaction name="menuHelp"/>
   </widget>
@@ -591,7 +607,7 @@
   </action>
   <action name="m_showMnemonicSeedAction">
    <property name="enabled">
-    <bool>false</bool>
+    <bool>true</bool>
    </property>
    <property name="text">
     <string>Show mnemonic seed</string>
@@ -613,6 +629,11 @@
    </property>
    <property name="text">
     <string>Start pool mining automatically</string>
+   </property>
+  </action>
+  <action name="m_sweepUnmixableAction">
+   <property name="text">
+    <string>Sweep unmixable</string>
    </property>
   </action>
  </widget>
@@ -657,6 +678,12 @@
    <class>WalletGui::ReceiveFrame</class>
    <extends>QFrame</extends>
    <header>gui/ReceiveFrame.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>WalletGui::NoWalletFrame</class>
+   <extends>QWidget</extends>
+   <header>gui/NoWalletFrame.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>
@@ -1157,6 +1184,22 @@
     <hint type="destinationlabel">
      <x>489</x>
      <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_miningAction</sender>
+   <signal>triggered()</signal>
+   <receiver>m_noWalletFrame</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>917</x>
+     <y>317</y>
     </hint>
    </hints>
   </connection>

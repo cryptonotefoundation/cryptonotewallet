@@ -44,6 +44,7 @@
 #include "InfoDialog.h"
 #include "ui_mainwindow.h"
 #include "MnemonicSeedDialog.h"
+#include "ConfirmSendDialog.h"
 
 #ifdef Q_OS_MAC
 #include "macdockiconhandler.h"
@@ -108,11 +109,14 @@ void MainWindow::connectToSignals() {
   connect(&WalletAdapter::instance(), &WalletAdapter::walletTransactionCreatedSignal, this, [this]() {
       QApplication::alert(this);
   });
-  
+  connect(&WalletAdapter::instance(), &WalletAdapter::walletUnmixableBalanceUpdatedSignal, this, &MainWindow::updateUnmixableBalance,
+    Qt::QueuedConnection);
   connect(&NodeAdapter::instance(), &NodeAdapter::peerCountUpdatedSignal, this, &MainWindow::peerCountUpdated, Qt::QueuedConnection);
   connect(m_ui->m_exitAction, &QAction::triggered, qApp, &QApplication::quit);
   connect(m_ui->m_accountFrame, &AccountFrame::showQRcodeSignal, this, &MainWindow::onShowQR, Qt::QueuedConnection);
   connect(m_ui->m_sendFrame, &SendFrame::uriOpenSignal, this, &MainWindow::onUriOpenSignal, Qt::QueuedConnection);
+  connect(m_ui->m_noWalletFrame, &NoWalletFrame::createWalletClickedSignal, this, &MainWindow::createWallet, Qt::QueuedConnection);
+  connect(m_ui->m_noWalletFrame, &NoWalletFrame::openWalletClickedSignal, this, &MainWindow::openWallet, Qt::QueuedConnection);
   connect(m_connectionStateIconLabel, SIGNAL(clicked()), this, SLOT(showStatusInfo()));
 }
 
@@ -505,6 +509,7 @@ void MainWindow::isTrackingMode() {
   m_ui->m_sendAction->setEnabled(false);
   m_ui->m_openUriAction->setEnabled(false);
   m_ui->m_showMnemonicSeedAction->setEnabled(false);
+  m_ui->m_sweepUnmixableAction->setEnabled(false);
   m_trackingModeIconLabel->show();
 }
 
@@ -538,6 +543,22 @@ void MainWindow::restoreFromMnemonicSeed() {
       QMessageBox::critical(nullptr, tr("Mnemonic seed is not correct"), tr("There must be an error in mnemonic seed. Make sure you entered it correctly."), QMessageBox::Ok);
       return;
     }
+  }
+}
+
+void MainWindow::sweepUnmixable() {
+  quint64 dust = WalletAdapter::instance().getUnmixableBalance();
+  ConfirmSendDialog dlg(&MainWindow::instance());
+  dlg.showPasymentDetails(dust);
+  if (dlg.exec() == QDialog::Accepted) {
+    quint64 fee = CurrencyAdapter::instance().getMinimumFee();
+    QVector<CryptoNote::WalletLegacyTransfer> walletTransfers;
+    CryptoNote::WalletLegacyTransfer walletTransfer;
+    walletTransfer.address = WalletAdapter::instance().getAddress().toStdString();
+    walletTransfer.amount = dust;
+    walletTransfers.push_back(walletTransfer);
+
+    WalletAdapter::instance().sweepDust(walletTransfers, fee, "", 0);
   }
 }
 
@@ -815,7 +836,8 @@ void MainWindow::walletSynchronized(int _error, const QString& _error_text) {
 
 void MainWindow::walletOpened(bool _error, const QString& _error_text) {
   if (!_error) {
-    m_ui->accountToolBar->show();
+    m_ui->m_noWalletFrame->hide();
+	m_ui->accountToolBar->show();
     m_ui->m_closeWalletAction->setEnabled(true);
     m_ui->m_exportTrackingKeyAction->setEnabled(true);
     m_encryptionStateIconLabel->show();
@@ -824,6 +846,7 @@ void MainWindow::walletOpened(bool _error, const QString& _error_text) {
     m_ui->m_showPrivateKey->setEnabled(true);
     m_ui->m_resetAction->setEnabled(true);
     m_ui->m_openUriAction->setEnabled(true);
+    m_ui->m_sweepUnmixableAction->setEnabled(true);
     if(WalletAdapter::instance().isDeterministic()) {
        m_ui->m_showMnemonicSeedAction->setEnabled(true);
     }
@@ -863,6 +886,7 @@ void MainWindow::walletClosed() {
   m_ui->m_showPrivateKey->setEnabled(false);
   m_ui->m_resetAction->setEnabled(false);
   m_ui->m_showMnemonicSeedAction->setEnabled(false);
+  m_ui->m_sweepUnmixableAction->setEnabled(false);
   m_ui->m_overviewFrame->hide();
   accountWidget->setVisible(false);
   m_ui->m_receiveFrame->hide();
@@ -870,6 +894,7 @@ void MainWindow::walletClosed() {
   m_ui->m_transactionsFrame->hide();
   m_ui->m_addressBookFrame->hide();
   //m_ui->m_miningFrame->hide();
+  m_ui->m_noWalletFrame->show();
   m_encryptionStateIconLabel->hide();
   m_trackingModeIconLabel->hide();
   m_synchronizationStateIconLabel->hide();
@@ -889,6 +914,14 @@ void MainWindow::checkTrackingMode() {
     Settings::instance().setTrackingMode(true);
   } else {
     Settings::instance().setTrackingMode(false);
+  }
+}
+
+void MainWindow::updateUnmixableBalance(quint64 _balance) {
+  if (_balance != 0) {
+      m_ui->m_sweepUnmixableAction->setEnabled(true);
+  } else {
+      m_ui->m_sweepUnmixableAction->setEnabled(false);
   }
 }
 
