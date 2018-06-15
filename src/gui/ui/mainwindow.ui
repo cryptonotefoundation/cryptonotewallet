@@ -229,6 +229,11 @@
     <addaction name="m_openUriAction"/>
     <addaction name="m_openLogFileAction"/>
     <addaction name="separator"/>
+    <addaction name="m_backupWalletAction"/>
+    <addaction name="m_showMnemonicSeedAction"/>
+    <addaction name="m_showPrivateKey"/>
+    <addaction name="m_exportTrackingKeyAction"/>
+    <addaction name="separator"/>
     <addaction name="m_restoreFromMnemonicSeedAction"/>
     <addaction name="m_importKeyAction"/>
     <addaction name="m_importTrackingKeyAction"/>
@@ -263,10 +268,6 @@
     <addaction name="m_changePasswordAction"/>
     <addaction name="m_sweepUnmixableAction"/>
     <addaction name="m_resetAction"/>
-    <addaction name="m_backupWalletAction"/>
-    <addaction name="m_showMnemonicSeedAction"/>
-    <addaction name="m_showPrivateKey"/>
-    <addaction name="m_exportTrackingKeyAction"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuWallet"/>
