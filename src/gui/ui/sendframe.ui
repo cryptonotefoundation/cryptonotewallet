@@ -34,7 +34,7 @@
         <x>0</x>
         <y>0</y>
         <width>846</width>
-        <height>439</height>
+        <height>444</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="m_send_frame_layout">
@@ -86,17 +86,17 @@
          <height>0</height>
         </size>
        </property>
-       <property name="maximum">
-        <number>20</number>
+       <property name="minimum">
+        <number>2</number>
        </property>
-        <property name="minimum">
-          <number>2</number>
-        </property>
-        <property name="pageStep">
+       <property name="maximum">
+        <number>19</number>
+       </property>
+       <property name="pageStep">
         <number>1</number>
        </property>
        <property name="value">
-        <number>1</number>
+        <number>5</number>
        </property>
        <property name="sliderPosition">
         <number>5</number>
