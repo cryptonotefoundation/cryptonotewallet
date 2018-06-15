@@ -29,6 +29,7 @@ public:
   SendFrame(QWidget* _parent);
   ~SendFrame();
 
+  void setAddress(const QString& _address);
   Q_SLOT void parsePaymentRequest(QString _request);
 
 private:

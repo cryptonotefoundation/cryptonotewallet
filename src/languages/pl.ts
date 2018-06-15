@@ -1363,6 +1363,10 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
         <source>Contact with such label already exists.</source>
         <translation></translation>
     </message>
+    <message>
+        <source>&amp;Pay to</source>
+        <translation>&amp;Zapłacić</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::AddressBookModel</name>

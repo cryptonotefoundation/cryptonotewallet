@@ -85,6 +85,7 @@ private:
   void adjustForCurrentFile(const QString& filePath);
   void updateRecentActionList();
   void updateUnmixableBalance(quint64 _balance);
+  void payTo(const QModelIndex& _index);
 
   Q_SLOT void createWallet();
   Q_SLOT void createNonDeterministicWallet();

@@ -1352,6 +1352,10 @@ Do you want to go to download page?</source>
         <source>Contact with such label already exists.</source>
         <translation>Контакт с таким названием уже есть.</translation>
     </message>
+    <message>
+        <source>&amp;Pay to</source>
+        <translation>&amp;Заплатить этому контакту</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::AddressBookModel</name>
