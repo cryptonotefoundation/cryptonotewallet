@@ -161,8 +161,8 @@ int main(int argc, char* argv[]) {
     return 0;
   }
   splash->finish(&MainWindow::instance());
-  Updater d;
-    d.checkForUpdate();
+  Updater *d = new Updater();
+  d->checkForUpdate();
   MainWindow::instance().show();
   WalletAdapter::instance().open("");
 
