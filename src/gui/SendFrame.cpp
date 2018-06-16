@@ -209,6 +209,7 @@ void SendFrame::openUriClicked() {
 }
 
 void SendFrame::parsePaymentRequest(QString _request) {
+    MainWindow::instance().showNormal();
     if(_request.startsWith("karbowanec://", Qt::CaseInsensitive))
     {
        _request.replace(0, 13, "karbowanec:");
@@ -251,7 +252,6 @@ void SendFrame::parsePaymentRequest(QString _request) {
     if(!payment_id.isEmpty()){
         SendFrame::insertPaymentID(payment_id);
     }
-
 }
 
 void SendFrame::sendClicked() {
