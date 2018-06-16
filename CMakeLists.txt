@@ -246,7 +246,12 @@ set(CRYPTONOTE_SOURCES ${CRYPTONOTE_SOURCES} ${PLATFORM_SOURCES})
 add_library(${CRYPTONOTE_LIB} STATIC ${CRYPTONOTE_SOURCES})
 add_library(Mnemonics ${Mnemonics})
 set_target_properties(${CRYPTONOTE_LIB} PROPERTIES COMPILE_DEFINITIONS _GNU_SOURCE)
+
+#if (${CMAKE_SYSTEM_NAME} STREQUAL "Linux" OR APPLE)
+target_link_libraries(${CRYPTONOTE_LIB} ${Boost_LIBRARIES} -lresolv)
+#else
 target_link_libraries(${CRYPTONOTE_LIB} ${Boost_LIBRARIES})
+#endif ()
 set_target_properties(Mnemonics PROPERTIES COMPILE_DEFINITIONS _GNU_SOURCE)
 target_link_libraries(Mnemonics ${Boost_LIBRARIES})
 
