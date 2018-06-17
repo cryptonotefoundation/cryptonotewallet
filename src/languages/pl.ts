@@ -554,7 +554,7 @@ Proszę czekać...</translation>
     </message>
     <message>
         <source>Change language</source>
-        <translation>Zmienić język</translation>
+        <translation type="vanished">Zmienić język</translation>
     </message>
     <message>
         <source>Show private key</source>
@@ -1606,7 +1606,7 @@ Jesteś pewien?</translation>
     </message>
     <message>
         <source>The language will be changed after restarting the wallet.</source>
-        <translation>Język będzie zmieniony po następnym uruchomieniu portfela.</translation>
+        <translation type="vanished">Język będzie zmieniony po następnym uruchomieniu portfela.</translation>
     </message>
     <message>
         <source>Language was changed</source>
@@ -1732,6 +1732,14 @@ Jesteś pewien?</translation>
         <source>Wrong wallet file extension, wallet file should have &quot;.wallet&quot;, &quot;.keys&quot; or &quot;.trackingwallet&quot; extension.</source>
         <translation>Nieprawidłowe rozszerzenie pliku portfela, portfel powinien mieć rozszerzenie &quot;.wallet&quot;, &quot;.keys&quot; lub &quot;.trackingwallet&quot;.</translation>
     </message>
+    <message>
+        <source>Language changed to %1. The change will take effect after restarting the wallet.</source>
+        <translation>Język zmieniony na %1. Zmiana nastąpi po następnym uruchomieniu portfela.</translation>
+    </message>
+    <message>
+        <source>Language changed to %1</source>
+        <translation>Język zmieniony na %1</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::MiningFrame</name>
@@ -1847,6 +1855,19 @@ Jesteś pewien?</translation>
     <message>
         <source>Available balance is insufficient to send this transaction. Have you excluded a fee?</source>
         <translation>Dostępne saldo jest niewystarczające, aby wysłać tę transakcję. Czy prowizja była odliczona?</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui::SendGlassFrame</name>
+    <message>
+        <source>Synchronizing</source>
+        <translation>Trwa synchronizowanie</translation>
+    </message>
+    <message>
+        <source>You will be able to send %1
+when the wallet is synchronized</source>
+        <translation>Będziesz mógł wysłać %1
+kiedy portfel skończy synchronizowanie</translation>
     </message>
 </context>
 <context>

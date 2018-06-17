@@ -208,7 +208,7 @@
      <x>0</x>
      <y>0</y>
      <width>980</width>
-     <height>20</height>
+     <height>19</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -244,7 +244,12 @@
     <property name="title">
      <string>Settings</string>
     </property>
-    <addaction name="m_changeLanguageAction"/>
+    <widget class="QMenu" name="menuLanguage">
+     <property name="title">
+      <string>Language</string>
+     </property>
+    </widget>
+    <addaction name="menuLanguage"/>
     <addaction name="m_connectionSettingsAction"/>
     <addaction name="separator"/>
     <addaction name="m_startOnLoginAction"/>
@@ -544,14 +549,6 @@
     <string>Reset wallet</string>
    </property>
   </action>
-  <action name="m_changeLanguageAction">
-   <property name="text">
-    <string>Language</string>
-   </property>
-   <property name="toolTip">
-    <string>Change language</string>
-   </property>
-  </action>
   <action name="m_showPrivateKey">
    <property name="text">
     <string>Export private key</string>
@@ -744,22 +741,6 @@
    <signal>triggered()</signal>
    <receiver>MainWindow</receiver>
    <slot>encryptWallet()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>449</x>
-     <y>299</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>m_changeLanguageAction</sender>
-   <signal>triggered()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>ChangeLanguage()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>-1</x>

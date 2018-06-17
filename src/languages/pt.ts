@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="pt_PT">
+<TS version="2.1" language="pt_PT" sourcelanguage="en">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -570,7 +570,7 @@ Por favor aguarde...</translation>
     </message>
     <message>
         <source>Change language</source>
-        <translation>Mudar idioma</translation>
+        <translation type="vanished">Mudar idioma</translation>
     </message>
     <message>
         <source>Show private key</source>
@@ -642,7 +642,7 @@ Por favor aguarde...</translation>
     </message>
     <message>
         <source>Start pool mining automatically</source>
-        <translation>Iniciar mineração na pool automaticamente </translation>
+        <translation>Iniciar mineração na pool automaticamente</translation>
     </message>
     <message>
         <source>About</source>
@@ -1623,7 +1623,7 @@ Você tem certeza?</translation>
     </message>
     <message>
         <source>The language will be changed after restarting the wallet.</source>
-        <translation>O idioma será alterado após a carteira ser reiniciada.</translation>
+        <translation type="vanished">O idioma será alterado após a carteira ser reiniciada.</translation>
     </message>
     <message>
         <source>Language was changed</source>
@@ -1740,6 +1740,14 @@ Você tem certeza?</translation>
         <source>Wrong wallet file extension, wallet file should have &quot;.wallet&quot;, &quot;.keys&quot; or &quot;.trackingwallet&quot; extension.</source>
         <translation>A extensão de arquivo inválida, o arquivo de carteira deve ter extensões &quot;.wallet&quot;, &quot;.keys&quot; or &quot;.trackingwallet&quot; extension.</translation>
     </message>
+    <message>
+        <source>Language changed to %1. The change will take effect after restarting the wallet.</source>
+        <translation>Idioma alterado para %1. O idioma será alterado após a carteira ser reiniciada.</translation>
+    </message>
+    <message>
+        <source>Language changed to %1</source>
+        <translation>Idioma alterado para %1</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::MiningFrame</name>
@@ -1855,6 +1863,19 @@ Você tem certeza?</translation>
     <message>
         <source>Available balance is insufficient to send this transaction. Have you excluded a fee?</source>
         <translation>O saldo disponível não é suficiente para enviar esta transação. Você esqueceu de retirar uma taxa?</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui::SendGlassFrame</name>
+    <message>
+        <source>Synchronizing</source>
+        <translation type="unfinished">A sincronização está em andamento</translation>
+    </message>
+    <message>
+        <source>You will be able to send %1
+when the wallet is synchronized</source>
+        <translation>Você será capaz de enviar %1
+quando a carteira vai terminar de sincronizar</translation>
     </message>
 </context>
 <context>

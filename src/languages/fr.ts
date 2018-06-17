@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="fr_FR">
+<TS version="2.1" language="fr_FR" sourcelanguage="en">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -574,7 +574,7 @@ S&apos;il vous plaît, patientez...</translation>
     </message>
     <message>
         <source>Change language</source>
-        <translation>Changer la langue</translation>
+        <translation type="vanished">Changer la langue</translation>
     </message>
     <message>
         <source>Show private key</source>
@@ -1623,7 +1623,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>The language will be changed after restarting the wallet.</source>
-        <translation>La langue changera après le redémarrage du portefeuille.</translation>
+        <translation type="vanished">La langue changera après le redémarrage du portefeuille.</translation>
     </message>
     <message>
         <source>Language was changed</source>
@@ -1740,6 +1740,14 @@ Are you sure?</source>
         <source>Wrong wallet file extension, wallet file should have &quot;.wallet&quot;, &quot;.keys&quot; or &quot;.trackingwallet&quot; extension.</source>
         <translation>L&apos;extension de fichier du portefeuille est incorrect, le fichier du portefeuille doit avoir l&apos;extension &quot;.wallet&quot;,  &quot;.keys&quot; ou &quot;.trackingwallet&quot;.</translation>
     </message>
+    <message>
+        <source>Language changed to %1. The change will take effect after restarting the wallet.</source>
+        <translation>Langue changée en %1.  La langue sera changé après le redémarrage du portefeuille.</translation>
+    </message>
+    <message>
+        <source>Language changed to %1</source>
+        <translation>Langue changée en %1</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::MiningFrame</name>
@@ -1855,6 +1863,19 @@ Are you sure?</source>
     <message>
         <source>Available balance is insufficient to send this transaction. Have you excluded a fee?</source>
         <translation>La balance disponible est insuffisant pour envoyer cette transaction. Avez-vous exclu des frais?</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui::SendGlassFrame</name>
+    <message>
+        <source>Synchronizing</source>
+        <translation>Synchronisation</translation>
+    </message>
+    <message>
+        <source>You will be able to send %1
+when the wallet is synchronized</source>
+        <translation>Vous pourrez envoyer %1
+quand le portefeuille aura terminé la synchronisation</translation>
     </message>
 </context>
 <context>

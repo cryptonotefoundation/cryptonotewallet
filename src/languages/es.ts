@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="es_ES">
+<TS version="2.1" language="es_ES" sourcelanguage="en">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -560,7 +560,7 @@ Por favor, espera...</translation>
     </message>
     <message>
         <source>Change language</source>
-        <translation>Cambiar el idioma</translation>
+        <translation type="vanished">Cambiar el idioma</translation>
     </message>
     <message>
         <source>Show private key</source>
@@ -1611,7 +1611,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>The language will be changed after restarting the wallet.</source>
-        <translation>El idioma se cambiará después de reiniciar el monedero.</translation>
+        <translation type="vanished">El idioma se cambiará después de reiniciar el monedero.</translation>
     </message>
     <message>
         <source>Language was changed</source>
@@ -1728,6 +1728,14 @@ Are you sure?</source>
         <source>Wrong wallet file extension, wallet file should have &quot;.wallet&quot;, &quot;.keys&quot; or &quot;.trackingwallet&quot; extension.</source>
         <translation>La extensión incorrecta del archivo del monedero, el archivo del monedero debe tener la extensión &quot;.wallet&quot;, &quot;.keys&quot; o &quot;.trackingwallet&quot;.</translation>
     </message>
+    <message>
+        <source>Language changed to %1. The change will take effect after restarting the wallet.</source>
+        <translation>El idioma cambió a %1. El idioma se cambiará después de reiniciar el monedero.</translation>
+    </message>
+    <message>
+        <source>Language changed to %1</source>
+        <translation>El idioma cambió a %1</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::MiningFrame</name>
@@ -1843,6 +1851,19 @@ Are you sure?</source>
     <message>
         <source>Available balance is insufficient to send this transaction. Have you excluded a fee?</source>
         <translation>El saldo disponible no es suficiente para enviar esta transacción. ¿Ha excluido una tasa?</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui::SendGlassFrame</name>
+    <message>
+        <source>Synchronizing</source>
+        <translation>Sincronizando</translation>
+    </message>
+    <message>
+        <source>You will be able to send %1
+when the wallet is synchronized</source>
+        <translation>Podrás enviar %1
+cuando la cartera termine de sincronizar</translation>
     </message>
 </context>
 <context>
@@ -2003,7 +2024,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>Incoming transaction, unconfirmed</source>
-        <translation>Transacción entrante, inconfirmado</translation>
+        <translation>Transacción entrante, sin confirmar</translation>
     </message>
     <message>
         <source>Mined, confirmations</source>
@@ -2011,11 +2032,11 @@ Are you sure?</source>
     </message>
     <message>
         <source>Sent to yourself, unconfirmed</source>
-        <translation>Enviado a ti mismo, inconfirmado</translation>
+        <translation>Enviado a ti mismo, sin confirmar</translation>
     </message>
     <message>
         <source>Outgoing transaction, unconfirmed</source>
-        <translation>Transacción saliente, inconfirmado</translation>
+        <translation>Transacción saliente, sin confirmar</translation>
     </message>
     <message numerus="yes">
         <source>Incoming transaction, %n confirmation(s)</source>

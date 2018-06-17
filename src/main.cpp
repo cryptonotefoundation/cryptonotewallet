@@ -12,6 +12,7 @@
 #include <QSplashScreen>
 #include <QStyleFactory>
 #include <QSettings>
+#include <QTextCodec>
 
 #include "CommandLineParser.h"
 #include "CurrencyAdapter.h"
@@ -22,8 +23,8 @@
 #include "WalletAdapter.h"
 #include "gui/MainWindow.h"
 #include "Update.h"
-#include <QTextCodec>
 #include "PaymentServer.h"
+#include "TranslatorManager.h"
 
 #define DEBUG 1
 
@@ -44,47 +45,10 @@ int main(int argc, char* argv[]) {
   Settings::instance().setCommandLineParser(&cmdLineParser);
   bool cmdLineParseResult = cmdLineParser.process(app.arguments());
   Settings::instance().load();
-  QTranslator translator;
-  QTranslator translatorQt;
 
-  QString lng = Settings::instance().getLanguage();
-
-  if(!lng.isEmpty()) {
-      translator.load(":/languages/" + lng + ".qm");
-      translatorQt.load(":/languages/qt_" + lng + ".qm");
-
-      if(lng == "uk") {
-            QLocale::setDefault(QLocale("uk_UA"));
-        } else if(lng == "ru") {
-            QLocale::setDefault(QLocale("ru_RU"));
-        } else if(lng == "pl") {
-            QLocale::setDefault(QLocale("pl_PL"));
-        } else if(lng == "be") {
-            QLocale::setDefault(QLocale("be_BY"));
-        } else if(lng == "de") {
-            QLocale::setDefault(QLocale("de_DE"));
-        } else if(lng == "es") {
-            QLocale::setDefault(QLocale("es_ES"));
-        } else if(lng == "fr") {
-            QLocale::setDefault(QLocale("fr_FR"));
-        } else if(lng == "pt") {
-            QLocale::setDefault(QLocale("pt_BR"));
-        } else {
-            QLocale::setDefault(QLocale::c());
-        }
-
-    } else {
-      translator.load(":/languages/" + QLocale::system().name());
-      translatorQt.load(":/languages/qt_" +  QLocale::system().name());
-      QLocale::setDefault(QLocale::system().name());
-  }
-  app.installTranslator(&translator);
-  app.installTranslator(&translatorQt);
-
-  //QLocale::setDefault(QLocale::c());
-
-  //QLocale locale = QLocale("uk_UA");
-  //QLocale::setDefault(locale);
+  //Translator must be created before the application's widgets.
+  TranslatorManager* tmanager = TranslatorManager::instance();
+  Q_UNUSED(tmanager)
 
   setlocale(LC_ALL, "");
 

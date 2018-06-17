@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="de_DE">
+<TS version="2.1" language="de_DE" sourcelanguage="en">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -224,7 +224,7 @@
     </message>
     <message>
         <source>Confirm sending %1 KRB</source>
-        <translation type="unfinished">Bestätige senden %1 KRB</translation>
+        <translation>Bestätige senden %1 KRB</translation>
     </message>
 </context>
 <context>
@@ -303,11 +303,11 @@ Bitte warten...</translation>
     <name>ExportTrackingKeyDialog</name>
     <message>
         <source>Export tracking key</source>
-        <translation>Tracking key exportieren</translation>
+        <translation>Tracking Schlüssel exportieren</translation>
     </message>
     <message>
         <source>Tracking key allows to see all incoming transactions of this wallet. It does not allow to spend funds.</source>
-        <translation>Mit dem Tracking keyl können Sie alle eingehenden Transaktionen dieser Brieftasche sehen. Es wird nicht erlaubt Beträge auszugeben.</translation>
+        <translation>Mit dem Tracking Schlüssel können Sie alle eingehenden Transaktionen dieser Brieftasche sehen. Es wird nicht erlaubt Beträge auszugeben.</translation>
     </message>
     <message>
         <source>Save to file</source>
@@ -559,7 +559,7 @@ Bitte warten...</translation>
     </message>
     <message>
         <source>Change language</source>
-        <translation>Sprache ändern</translation>
+        <translation type="vanished">Sprache ändern</translation>
     </message>
     <message>
         <source>Show private key</source>
@@ -1489,11 +1489,11 @@ Externer Port für das P2P-Netzwerkprotokoll (wenn Portweiterleitung mit NAT ver
     <name>WalletGui::ExportTrackingKeyDialog</name>
     <message>
         <source>Save tracking key to...</source>
-        <translation>Tracking Key speichern unter...</translation>
+        <translation>Tracking Schlüssel speichern unter...</translation>
     </message>
     <message>
         <source>Tracking key (*.trackingkey)</source>
-        <translation>Tracking key (*.trackingkey)</translation>
+        <translation>Tracking Schlüssel (*.trackingkey)</translation>
     </message>
 </context>
 <context>
@@ -1611,7 +1611,7 @@ Bist du sicher?</translation>
     </message>
     <message>
         <source>The language will be changed after restarting the wallet.</source>
-        <translation>Die Sprache wird nach neustart des Wallets geändert.</translation>
+        <translation type="vanished">Die Sprache wird nach neustart des Wallets geändert.</translation>
     </message>
     <message>
         <source>Language was changed</source>
@@ -1728,6 +1728,18 @@ Bist du sicher?</translation>
         <source>Wrong wallet file extension, wallet file should have &quot;.wallet&quot;, &quot;.keys&quot; or &quot;.trackingwallet&quot; extension.</source>
         <translation>Falsche Wallet-Dateierweiterung, Wallet-Datei sollte die Erweiterung &quot;.wallet&quot;, &quot;.keys&quot; oder &quot;.trackingwallet&quot; haben.</translation>
     </message>
+    <message>
+        <source>Current Language changed to %1</source>
+        <translation type="obsolete">Aktuelle Sprache wurde in %1 geändert</translation>
+    </message>
+    <message>
+        <source>Language changed to %1. The change will take effect after restarting the wallet.</source>
+        <translation>Die Sprache wurde in %1 geändert. Die Änderung wird nach dem Neustart der Brieftasche wirksam.</translation>
+    </message>
+    <message>
+        <source>Language changed to %1</source>
+        <translation>Die Sprache wurde in %1 geändert</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::MiningFrame</name>
@@ -1843,6 +1855,19 @@ Bist du sicher?</translation>
     <message>
         <source>Available balance is insufficient to send this transaction. Have you excluded a fee?</source>
         <translation>Der verfügbare Kontostand reicht nicht aus, um diese Transaktion zu senden. Haben Sie die Gebühr ausgeschlossen?</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui::SendGlassFrame</name>
+    <message>
+        <source>Synchronizing</source>
+        <translation>Synchronisieren</translation>
+    </message>
+    <message>
+        <source>You will be able to send %1
+when the wallet is synchronized</source>
+        <translation>Sie können  %1 senden
+wenn die Brieftasche die Synchronisation beendet</translation>
     </message>
 </context>
 <context>

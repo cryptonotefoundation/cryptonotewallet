@@ -554,7 +554,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Change language</source>
-        <translation>Изменить язык</translation>
+        <translation type="vanished">Изменить язык</translation>
     </message>
     <message>
         <source>Show private key</source>
@@ -1595,7 +1595,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>The language will be changed after restarting the wallet.</source>
-        <translation>Язык будет изменен после перезапуска кошелька.</translation>
+        <translation type="vanished">Язык будет изменен после перезапуска кошелька.</translation>
     </message>
     <message>
         <source>Language was changed</source>
@@ -1721,6 +1721,18 @@ Are you sure?</source>
         <source>Wrong wallet file extension, wallet file should have &quot;.wallet&quot;, &quot;.keys&quot; or &quot;.trackingwallet&quot; extension.</source>
         <translation>Неверное расширение файла, файл кошелька должен иметь расширение &quot;.wallet&quot;, &quot;.keys&quot; или &quot;.trackingwallet&quot;.</translation>
     </message>
+    <message>
+        <source>Current Language changed to %1</source>
+        <translation type="obsolete">Текущий язык изменен на %1</translation>
+    </message>
+    <message>
+        <source>Language changed to %1. The change will take effect after restarting the wallet.</source>
+        <translation>Язык изменен на %1. Изменение вступит в силу после перезапуска кошелька.</translation>
+    </message>
+    <message>
+        <source>Language changed to %1</source>
+        <translation>Язык изменен на %1</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::MiningFrame</name>
@@ -1836,6 +1848,19 @@ Are you sure?</source>
     <message>
         <source>Available balance is insufficient to send this transaction. Have you excluded a fee?</source>
         <translation>Доступного баланса недостаточно для отправки этой транзакции. Вы не забыли отнять комиссию?</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui::SendGlassFrame</name>
+    <message>
+        <source>Synchronizing</source>
+        <translation>Идет синхронизация</translation>
+    </message>
+    <message>
+        <source>You will be able to send %1
+when the wallet is synchronized</source>
+        <translation>Вы сможете отправлять %1
+когда кошелек завершит синхронизацию</translation>
     </message>
 </context>
 <context>

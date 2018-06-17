@@ -51,23 +51,6 @@
     <qresource prefix="/skin">
         <file>default.qss</file>
     </qresource>
-    <qresource prefix="/">
-        <file>languages/be.qm</file>
-        <file>languages/pl.qm</file>
-        <file>languages/qt_pl.qm</file>
-        <file>languages/qt_ru.qm</file>
-        <file>languages/qt_uk.qm</file>
-        <file>languages/ru.qm</file>
-        <file>languages/uk.qm</file>
-        <file>languages/de.qm</file>
-        <file>languages/qt_de.qm</file>
-        <file>languages/es.qm</file>
-        <file>languages/qt_es.qm</file>
-        <file>languages/fr.qm</file>
-        <file>languages/qt_fr.qm</file>
-        <file>languages/pt.qm</file>
-        <file>languages/qt_pt.qm</file>
-    </qresource>
     <qresource prefix="/fonts">
         <file alias="mplusm">fonts/mplus-1m-medium.ttf</file>
     </qresource>

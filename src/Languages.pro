@@ -68,6 +68,7 @@ gui/MnemonicSeedDialog.cpp \
 gui/RestoreFromMnemonicSeedDialog.cpp \
 gui/VerifyMnemonicSeedDialog.cpp \
 gui/NoWalletFrame.cpp \
+gui/SendGlassFrame.cpp \
  
 
 HEADERS = CommandLineParser.h \
@@ -125,6 +126,7 @@ gui/MnemonicSeedDialog.h \
 gui/RestoreFromMnemonicSeedDialog.h \
 gui/VerifyMnemonicSeedDialog.h \
 gui/NoWalletFrame.h \
+gui/SendGlassFrame.h \
 
 
 FORMS = gui/ui/aboutdialog.ui \

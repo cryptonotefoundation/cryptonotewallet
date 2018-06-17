@@ -13,19 +13,19 @@
 #include <QSystemTrayIcon>
 #include <QDesktopServices>
 #include <QTimer>
-#include <QDebug>
+#include <QLocale>
 #include <QDateTime>
+#include <QTranslator>
+#include <QToolButton>
+#include <QPushButton>
 #include <QFontDatabase>
 #include <Common/Base58.h>
 #include <Common/StringTools.h>
 #include <Common/Util.h>
-#include <QToolButton>
-#include <QPushButton>
 #include "AboutDialog.h"
 #include "AnimatedLabel.h"
 #include "AddressBookModel.h"
 #include "ChangePasswordDialog.h"
-#include "ChangeLanguageDialog.h"
 #include "ConnectionSettings.h"
 #include "PrivateKeysDialog.h"
 #include "ExportTrackingKeyDialog.h"
@@ -46,6 +46,7 @@
 #include "ui_mainwindow.h"
 #include "MnemonicSeedDialog.h"
 #include "ConfirmSendDialog.h"
+#include "TranslatorManager.h"
 
 #ifdef Q_OS_MAC
 #include "macdockiconhandler.h"
@@ -83,7 +84,9 @@ MainWindow::MainWindow() : QMainWindow(), m_ui(new Ui::MainWindow), m_trayIcon(n
   m_remoteModeIconLabel = new QLabel(this);
   m_synchronizationStateIconLabel = new AnimatedLabel(this);
   connectToSignals();
+  createLanguageMenu();
   initUi();
+
   walletClosed();
 }
 
@@ -127,8 +130,11 @@ void MainWindow::connectToSignals() {
   connect(m_connectionStateIconLabel, SIGNAL(clicked()), this, SLOT(showStatusInfo()));
 }
 
-void MainWindow::initUi() {
+void MainWindow::setMainWindowTitle() {
   setWindowTitle(QString(tr("Karbo Wallet %1")).arg(Settings::instance().getVersion()));
+}
+void MainWindow::initUi() {
+  setMainWindowTitle();
 #ifdef Q_OS_WIN32
   createTrayIcon();
 #endif
@@ -218,7 +224,6 @@ void MainWindow::initUi() {
 #endif
 
   createTrayIconMenu();
-
 }
 
 void MainWindow::scrollToTransaction(const QModelIndex& _index) {
@@ -270,35 +275,51 @@ void MainWindow::closeEvent(QCloseEvent* _event) {
 
 }
 
-#ifdef Q_OS_WIN
 void MainWindow::changeEvent(QEvent* _event) {
-  QMainWindow::changeEvent(_event);
+#ifdef Q_OS_WIN
   if (!QSystemTrayIcon::isSystemTrayAvailable()) {
     QMainWindow::changeEvent(_event);
     return;
   }
-
+#endif
   switch (_event->type()) {
+  // this event is send if a translator is loaded
+  case QEvent::LanguageChange:
+  {
+    //m_ui->retranslateUi(this);
+    setMainWindowTitle();
+    break;
+  }
+  // this event is send, if the system language changes
+  case QEvent::LocaleChange:
+  {
+    QString locale = QLocale::system().name();
+    locale.truncate(locale.lastIndexOf('_'));
+    loadLanguage(locale);
+  }
   case QEvent::WindowStateChange:
+  {
 #ifdef Q_OS_WIN
     if(Settings::instance().isMinimizeToTrayEnabled()) {
       minimizeToTray(isMinimized());
     }
     break;
 #endif
+  }
   default:
     break;
   }
-
+  QWidget::changeEvent(_event);
   QMainWindow::changeEvent(_event);
 }
-#endif
 
 bool MainWindow::event(QEvent* _event) {
   switch (static_cast<WalletEventType>(_event->type())) {
     case WalletEventType::ShowMessage:
-    showMessage(static_cast<ShowMessageEvent*>(_event)->messageText(), static_cast<ShowMessageEvent*>(_event)->messageType());
-    return true;
+    {
+      showMessage(static_cast<ShowMessageEvent*>(_event)->messageText(), static_cast<ShowMessageEvent*>(_event)->messageType());
+      return true;
+    }
   }
 
   return QMainWindow::event(_event);
@@ -569,13 +590,62 @@ void MainWindow::sweepUnmixable() {
   }
 }
 
-void MainWindow::ChangeLanguage() {
-  ChangeLanguageDialog dlg(&MainWindow::instance());
-  dlg.initLangList();
-  if (dlg.exec() == QDialog::Accepted) {
-    QString language = dlg.getLang();
-    Settings::instance().setLanguage((language));
-    QMessageBox::information(this, tr("Language was changed"), tr("The language will be changed after restarting the wallet."), QMessageBox::Ok);
+void MainWindow::createLanguageMenu(void)
+{
+  QActionGroup* langGroup = new QActionGroup(m_ui->menuLanguage);
+  langGroup->setExclusive(true);
+  connect(langGroup, SIGNAL (triggered(QAction *)), this, SLOT (slotLanguageChanged(QAction *)));
+  QString defaultLocale = Settings::instance().getLanguage();
+  if(defaultLocale.isEmpty())
+     defaultLocale = QLocale::system().name();
+  defaultLocale.truncate(defaultLocale.lastIndexOf('_'));
+  m_langPath = QApplication::applicationDirPath();
+  m_langPath.append("/languages");
+  QDir dir(m_langPath);
+  QStringList fileNames = dir.entryList(QStringList("??.qm"));
+  for (int i = 0; i < fileNames.size(); ++i) {
+    QString locale;
+    locale = fileNames[i];
+    locale.truncate(locale.lastIndexOf('.'));
+    QString lang = QLocale(locale).nativeLanguageName();
+    QAction *action = new QAction(lang, this);
+    action->setCheckable(true);
+    action->setData(locale);
+    m_ui->menuLanguage->addAction(action);
+    langGroup->addAction(action);
+
+    // set default translators and language checked
+    if (defaultLocale == locale)
+    {
+      action->setChecked(true);
+    }
+  }
+}
+
+void MainWindow::slotLanguageChanged(QAction* action)
+{
+  if(0 != action) {
+    // load the language dependant on the action content
+    QString lang = action->data().toString();
+    loadLanguage(lang);
+    // save is in settings
+    Settings::instance().setLanguage((lang));
+  }
+}
+
+void MainWindow::loadLanguage(const QString& rLanguage)
+{
+  if(m_currLang != rLanguage) {
+    m_currLang = rLanguage;
+    QLocale locale = QLocale(m_currLang);
+    QLocale::setDefault(locale);
+    QString languageName = QLocale::languageToString(locale.language());
+    //TranslatorManager::instance()->switchTranslator(m_translator, QString("%1.qm").arg(rLanguage));
+    //TranslatorManager::instance()->switchTranslator(m_translatorQt, QString("qt_%1.qm").arg(rLanguage));
+    Settings::instance().setLanguage((m_currLang));
+    m_ui->statusBar->showMessage(tr("Language changed to %1").arg(languageName));
+    QMessageBox::information(this, tr("Language was changed"),
+       tr("Language changed to %1. The change will take effect after restarting the wallet.").arg(languageName), QMessageBox::Ok);
   }
 }
 

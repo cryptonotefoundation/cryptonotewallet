@@ -18,7 +18,7 @@
 #include <QApplication>
 #include <QPainter>
 #include <QScreen>
-
+#include "CurrencyAdapter.h"
 #include "SendGlassFrame.h"
 #include "Settings.h"
 
@@ -131,7 +131,7 @@ void SendGlassFrame::drawProgressLabel(QPainter &_painter) {
   QFont font;
   font.setBold(true);
   font.setPixelSize(14);
-  QString msg = tr("You will be able to send KRB\nwhen the wallet is synchronized");
+  QString msg = tr("You will be able to send %1\nwhen the wallet is synchronized").arg(CurrencyAdapter::instance().getCurrencyTicker().toUpper());
   QFontMetrics fm(font);
   QRect messageRect = fm.boundingRect(QRect(), Qt::AlignCenter, msg);
   messageRect.moveCenter(QPoint(m_pixmapBuffer.width() / 2, 163));

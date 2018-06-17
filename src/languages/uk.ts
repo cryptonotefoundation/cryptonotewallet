@@ -554,7 +554,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Change language</source>
-        <translation>Змінити мову</translation>
+        <translation type="vanished">Змінити мову</translation>
     </message>
     <message>
         <source>Show private key</source>
@@ -634,7 +634,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Sweep unmixable</source>
-        <translation type="unfinished">Прибрати незмішуване</translation>
+        <translation>Прибрати незмішуване</translation>
     </message>
 </context>
 <context>
@@ -1599,7 +1599,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>The language will be changed after restarting the wallet.</source>
-        <translation>Мова буде змінена після перезапуску гаманця.</translation>
+        <translation type="vanished">Мова буде змінена після перезапуску гаманця.</translation>
     </message>
     <message>
         <source>Language was changed</source>
@@ -1717,6 +1717,18 @@ Are you sure?</source>
         <source>Wrong wallet file extension, wallet file should have &quot;.wallet&quot;, &quot;.keys&quot; or &quot;.trackingwallet&quot; extension.</source>
         <translation>Неправильне розширення файлу, файл гаманця мусить мати розширення &quot;.wallet&quot;, &quot;.keys&quot; або &quot;.trackingwallet&quot;.</translation>
     </message>
+    <message>
+        <source>Current Language changed to %1</source>
+        <translation type="obsolete">Поточна мова змінена на %1</translation>
+    </message>
+    <message>
+        <source>Language changed to %1. The change will take effect after restarting the wallet.</source>
+        <translation>Мова змінена на %1. Вона стане активна після перезапуску гаманця.</translation>
+    </message>
+    <message>
+        <source>Language changed to %1</source>
+        <translation>Мова змінена на %1</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::MiningFrame</name>
@@ -1832,6 +1844,19 @@ Are you sure?</source>
     <message>
         <source>Available balance is insufficient to send this transaction. Have you excluded a fee?</source>
         <translation>Доступного балансу недостатньо щоб вислати цю транзакцію. Ви не забули відняти комісію?</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui::SendGlassFrame</name>
+    <message>
+        <source>Synchronizing</source>
+        <translation>Триває синхронізація</translation>
+    </message>
+    <message>
+        <source>You will be able to send %1
+when the wallet is synchronized</source>
+        <translation>Ви зможете надсилати %1
+коли гаманець завершить синхронізацію</translation>
     </message>
 </context>
 <context>
