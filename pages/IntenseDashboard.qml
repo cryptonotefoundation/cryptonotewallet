@@ -9,6 +9,10 @@ import "../IntenseConfig.js" as Config
 
 Rectangle {
     id: root
+
+    signal paymentClicked(string address, string paymentId, string amount, int mixinCount,
+                          int priority, string description)
+
     property var model
     property string idService
     property string providerName
@@ -28,7 +32,17 @@ Rectangle {
         return value
     }
 
+
     function setPayment(){
+        console.log("Transfer: paymentClicked")
+        var priority = priorityModel.get(priorityDropdown.currentIndex).priority
+        console.log("priority: " + priority)
+        console.log("amount: " + amountLine.text)
+        //addressLine.text = addressLine.text.trim()
+        //paymentIdLine.text = paymentIdLine.text.trim()
+        //root.paymentClicked(addressLine.text, paymentIdLine.text, amountLine.text, scaleValueToMixinCount(privacyLevelItem.fillLevel),
+        //               priority, descriptionLine.text)
+    /*
         var url = Config.jsonRpcURL
         var value = cost*firstPrePaidMinutes
         var xmlhttpPost = new XMLHttpRequest();
@@ -51,7 +65,9 @@ Rectangle {
         xmlhttpPost.open("POST", url, true);
         xmlhttpPost.setRequestHeader("Content-type", "application/json");
         xmlhttpPost.send(data);
+        */
     }
+
 
     function postJsonFeedback(fbId){
         var url = Config.url+Config.stage+Config.version+Config.feedback+Config.add
@@ -1240,7 +1256,7 @@ Rectangle {
 
         onTriggered:
         {
-            setPayment(appWindow.currentWallet.address)
+            setPayment()
         }
     }
 
