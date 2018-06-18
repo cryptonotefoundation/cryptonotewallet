@@ -16,8 +16,14 @@ TranslatorManager::TranslatorManager()
         lang.truncate(lang.lastIndexOf('_'));
     }
 
+#if defined(_MSC_VER)
     m_langPath = QApplication::applicationDirPath();
     m_langPath.append("/languages");
+#else
+    m_langPath = "/opt/karbo/languages";
+    //m_langPath = "/usr/lib/karbo/languages";
+#endif
+
     QDir dir(m_langPath);
     QStringList resources = dir.entryList(QStringList("??.qm"));
     for (int j = 0; j < resources.size(); j++)

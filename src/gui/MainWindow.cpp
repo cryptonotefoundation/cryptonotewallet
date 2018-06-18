@@ -596,11 +596,17 @@ void MainWindow::createLanguageMenu(void)
   langGroup->setExclusive(true);
   connect(langGroup, SIGNAL (triggered(QAction *)), this, SLOT (slotLanguageChanged(QAction *)));
   QString defaultLocale = Settings::instance().getLanguage();
-  if(defaultLocale.isEmpty())
-     defaultLocale = QLocale::system().name();
-  defaultLocale.truncate(defaultLocale.lastIndexOf('_'));
-  m_langPath = QApplication::applicationDirPath();
-  m_langPath.append("/languages");
+  if (defaultLocale.isEmpty()){
+    defaultLocale = QLocale::system().name();
+    defaultLocale.truncate(defaultLocale.lastIndexOf('_'));
+  }
+#if defined(_MSC_VER)
+    m_langPath = QApplication::applicationDirPath();
+    m_langPath.append("/languages");
+#else
+    m_langPath = "/opt/karbo/languages";
+    //m_langPath = "/usr/lib/karbo/languages";
+#endif
   QDir dir(m_langPath);
   QStringList fileNames = dir.entryList(QStringList("??.qm"));
   for (int i = 0; i < fileNames.size(); ++i) {
