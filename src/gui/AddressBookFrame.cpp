@@ -44,6 +44,8 @@ AddressBookFrame::~AddressBookFrame() {
 
 void AddressBookFrame::onCustomContextMenu(const QPoint &point) {
   index = m_ui->m_addressBookView->indexAt(point);
+  if (!index.isValid())
+     return;
   contextMenu->exec(m_ui->m_addressBookView->mapToGlobal(point));
 }
 
