@@ -1264,7 +1264,7 @@
     </message>
     <message>
         <location filename="../pages/Transfer.qml" line="719"/>
-        <source>Connected daemon is not compatible with GUI.
+        <source>Connected daemon is not compatible with GUI. 
 Please upgrade or connect to another daemon</source>
         <translation>Połączony proces nie jest kompatybilny z interfejsem graficznym.
 Uaktualnij go lub podłącz się do innego procesu</translation>
@@ -1733,7 +1733,7 @@ Ringsize: </source>
     <message>
         <location filename="../wizard/WizardMain.qml" line="366"/>
         <source>USE INTENSECOIN</source>
-        <translation>UŻYJ INTENSECOIN</translation>
+        <translation>UŻYJ MONERO</translation>
     </message>
     <message>
         <location filename="../wizard/WizardMain.qml" line="383"/>
@@ -1747,7 +1747,7 @@ Ringsize: </source>
     </message>
     <message>
         <location filename="../wizard/WizardMain.qml" line="394"/>
-        <source>The view only wallet has been created. You can open it by closing this current wallet, clicking the &quot;Open wallet from file&quot; option, and selecting the view wallet in:
+        <source>The view only wallet has been created. You can open it by closing this current wallet, clicking the &quot;Open wallet from file&quot; option, and selecting the view wallet in: 
 %1</source>
         <translation type="unfinished"></translation>
     </message>

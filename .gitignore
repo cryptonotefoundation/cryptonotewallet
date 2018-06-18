@@ -2,4 +2,14 @@
 *.user.*
 translations/*.qm
 build
+intense-build
+*.o
+*.log
 version.js
+debug
+qrc_qml.cpp
+moc*
+android*
+IntenseConfig.js
+release
+intense/

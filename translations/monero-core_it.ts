@@ -1274,7 +1274,7 @@
     </message>
     <message>
         <location filename="../pages/Transfer.qml" line="719"/>
-        <source>Connected daemon is not compatible with GUI.
+        <source>Connected daemon is not compatible with GUI. 
 Please upgrade or connect to another daemon</source>
         <translation>Il daemon connesso non è compatibile con l&apos;interfaccia grafica. Aggiorna o connetti a un altro daemon</translation>
     </message>
@@ -1731,7 +1731,7 @@ Ringsize: </source>
     <message>
         <location filename="../wizard/WizardMain.qml" line="366"/>
         <source>USE INTENSECOIN</source>
-        <translation>USA INTENSECOIN</translation>
+        <translation>USA MONERO</translation>
     </message>
     <message>
         <location filename="../wizard/WizardMain.qml" line="383"/>
@@ -1745,9 +1745,9 @@ Ringsize: </source>
     </message>
     <message>
         <location filename="../wizard/WizardMain.qml" line="394"/>
-        <source>The view only wallet has been created. You can open it by closing this current wallet, clicking the &quot;Open wallet from file&quot; option, and selecting the view wallet in:
+        <source>The view only wallet has been created. You can open it by closing this current wallet, clicking the &quot;Open wallet from file&quot; option, and selecting the view wallet in: 
 %1</source>
-        <translation type="unfinished">Il portafoglio solo-vista è stato creato. Puoi aprirlo chiudendo il portafoglio corrente, cliccando su &quot;Apri portafoglio dall&apos;opzione file&quot; e selezionando il portafoglio solo-vista in:
+        <translation type="unfinished">Il portafoglio solo-vista è stato creato. Puoi aprirlo chiudendo il portafoglio corrente, cliccando su &quot;Apri portafoglio dall&apos;opzione file&quot; e selezionando il portafoglio solo-vista in: 
         %1</translation>
     </message>
     <message>

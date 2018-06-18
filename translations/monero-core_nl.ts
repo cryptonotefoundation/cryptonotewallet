@@ -1371,7 +1371,7 @@
     </message>
     <message>
         <location filename="../pages/Transfer.qml" line="719"/>
-        <source>Connected daemon is not compatible with GUI.
+        <source>Connected daemon is not compatible with GUI. 
 Please upgrade or connect to another daemon</source>
         <translation>Verbonden node is niet compatibel met de GUI.
 Upgrade of maak verbinding met een andere node</translation>
@@ -1741,7 +1741,7 @@ Ringgrootte: </translation>
     <message>
         <location filename="../wizard/WizardMain.qml" line="366"/>
         <source>USE INTENSECOIN</source>
-        <translation>GEBRUIK INTENSECOIN</translation>
+        <translation>GEBRUIK MONERO</translation>
     </message>
     <message>
         <location filename="../wizard/WizardMain.qml" line="383"/>
@@ -1755,7 +1755,7 @@ Ringgrootte: </translation>
     </message>
     <message>
         <location filename="../wizard/WizardMain.qml" line="394"/>
-        <source>The view only wallet has been created. You can open it by closing this current wallet, clicking the &quot;Open wallet from file&quot; option, and selecting the view wallet in:
+        <source>The view only wallet has been created. You can open it by closing this current wallet, clicking the &quot;Open wallet from file&quot; option, and selecting the view wallet in: 
 %1</source>
         <translatorcomment>The exact option text is: Open a wallet from file</translatorcomment>
         <translation>De alleen-lezen portemonnee is aangemaakt. U opent deze als volgt: sluit de huidige portemonnee, klik vervolgens op &quot;Open een portemonnee vanuit een bestand&quot; en selecteer de alleen-lezen portemonnee in:

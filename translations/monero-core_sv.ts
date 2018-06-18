@@ -1486,7 +1486,7 @@ Ringstorlek:</translation>
     </message>
     <message>
         <location filename="../pages/Transfer.qml" line="714"/>
-        <source>Connected daemon is not compatible with GUI.
+        <source>Connected daemon is not compatible with GUI. 
 Please upgrade or connect to another daemon</source>
         <translation>Ansluten nod är inte kompatibel med GUI.
 Uppgradera eller anslut till en annan nod</translation>
@@ -1742,7 +1742,7 @@ Uppgradera eller anslut till en annan nod</translation>
     <message>
         <location filename="../wizard/WizardMain.qml" line="366"/>
         <source>USE INTENSECOIN</source>
-        <translation>ANVÄND INTENSECOIN</translation>
+        <translation>ANVÄND MONERO</translation>
     </message>
     <message>
         <location filename="../wizard/WizardMain.qml" line="184"/>
@@ -1761,9 +1761,9 @@ Uppgradera eller anslut till en annan nod</translation>
     </message>
     <message>
         <location filename="../wizard/WizardMain.qml" line="394"/>
-        <source>The view only wallet has been created. You can open it by closing this current wallet, clicking the &quot;Open wallet from file&quot; option, and selecting the view wallet in:
+        <source>The view only wallet has been created. You can open it by closing this current wallet, clicking the &quot;Open wallet from file&quot; option, and selecting the view wallet in: 
 %1</source>
-        <translation>Plånboken för endast läsning har skapats. Du kan öppna den genom att stänga den nuvarande plånboken, klicka på &quot;Öppna en plånbok från fil&quot; alternativet, och välja plånboken:
+        <translation>Plånboken för endast läsning har skapats. Du kan öppna den genom att stänga den nuvarande plånboken, klicka på &quot;Öppna en plånbok från fil&quot; alternativet, och välja plånboken: 
 %1</translation>
     </message>
     <message>
