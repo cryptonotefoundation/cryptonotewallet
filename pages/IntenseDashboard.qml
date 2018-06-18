@@ -9,7 +9,6 @@ import "../IntenseConfig.js" as Config
 
 Rectangle {
     id: root
-
     signal paymentClicked(string address, string paymentId, string amount, int mixinCount,
                           int priority, string description)
 
@@ -31,7 +30,6 @@ Rectangle {
         var value =  (firstPrePaidMinutes*10000) - Config.payTimer
         return value
     }
-
 
     function setPayment(){
         console.log("Transfer: paymentClicked")
@@ -67,7 +65,6 @@ Rectangle {
         xmlhttpPost.send(data);
         */
     }
-
 
     function postJsonFeedback(fbId){
         var url = Config.url+Config.stage+Config.version+Config.feedback+Config.add

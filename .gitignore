@@ -1,3 +1,4 @@
+intense/
 *.user
 *.user.*
 translations/*.qm
@@ -12,4 +13,3 @@ moc*
 android*
 IntenseConfig.js
 release
-intense/
