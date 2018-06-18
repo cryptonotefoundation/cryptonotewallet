@@ -10,6 +10,7 @@
 
 #include <IWallet.h>
 #include <IWalletLegacy.h>
+#include "SendGlassFrame.h"
 
 namespace Ui {
   class SendFrame;
@@ -28,12 +29,14 @@ public:
   SendFrame(QWidget* _parent);
   ~SendFrame();
 
+  void setAddress(const QString& _address);
   Q_SLOT void parsePaymentRequest(QString _request);
 
 private:
   QScopedPointer<Ui::SendFrame> m_ui;
   QList<TransferFrame*> m_transfers;
   AddressProvider* m_addressProvider;
+  SendGlassFrame* m_glassFrame;
 
   QString remote_node_fee_address;
   quint64 remote_node_fee;
@@ -41,6 +44,8 @@ private:
 
   void sendTransactionCompleted(CryptoNote::TransactionId _id, bool _error, const QString& _error_text);
   void walletActualBalanceUpdated(quint64 _balance);
+  void walletSynchronized(int _error, const QString& _error_text);
+  void walletSynchronizationInProgress(quint64 _current, quint64 _total);
   void insertPaymentID(QString _paymentid);
   static bool isValidPaymentId(const QByteArray& _paymentIdString);
   void onAddressFound(const QString& _address);

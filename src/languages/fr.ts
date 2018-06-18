@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="fr_FR">
+<TS version="2.1" language="fr_FR" sourcelanguage="en">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -17,7 +17,7 @@
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Karbo v. %1&lt;/p&gt;&lt;p&gt;This is the next generation anonymous cryptocurrency based on CryptoNote.&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2015. CryptoNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2016. Bytecoin Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2015-2016. DigitalNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2016-2018. Karbo (Karbowanec) Developers&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://opensource.org/licenses/MIT&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://cryptonote.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://cryptonote.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://karbo.io/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://karbo.io/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;THE SOFTWARE IS PROVIDED &amp;quot;AS IS&amp;quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Karbo v. %1&lt;/p&gt;&lt;p&gt;Ceci est la crypto-monnaie anonyme de la prochaine génération basée sur CryptoNote.&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2015. CryptoNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2016. Bytecoin Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2015-2016. DigitalNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2016-2018. Karbo (Karbowanec) Developers&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://opensource.org/licenses/MIT&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://cryptonote.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://cryptonote.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://karbo.io/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://karbo.io/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;LA SOFTWARE EST FOURNIE &amp;quot;TELLE QUELLE&amp;quot;, SANS GARANTIE D'AUCUNE SORTE, EXPLICITE OU IMPLICITE, NOTAMMENT SANS GARANTIE DE QUALITÉ MARCHANDE, D’ADÉQUATION À UN USAGE PARTICULIER ET D'ABSENCE DE CONTREFAÇON. EN AUCUN CAS, LES AUTEURS OU TITULAIRES DU DROIT D'AUTEUR NE SERONT RESPONSABLES DE TOUT DOMMAGE, RÉCLAMATION OU AUTRE RESPONSABILITÉ, QUE CE SOIT DANS LE CADRE D'UN CONTRAT, D'UN DÉLIT OU AUTRE, EN PROVENANCE DE, CONSÉCUTIF À OU EN RELATION AVEC LA SOFTWARE OU SON UTILISATION, OU AVEC D'AUTRES ÉLÉMENTS DE LA SOFTWARE.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Karbo v. %1&lt;/p&gt;&lt;p&gt;Ceci est la crypto-monnaie anonyme de la prochaine génération basée sur CryptoNote.&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2015. CryptoNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2016. Bytecoin Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2015-2016. DigitalNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2016-2018. Karbo (Karbowanec) Developers&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://opensource.org/licenses/MIT&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://cryptonote.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://cryptonote.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://karbo.io/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://karbo.io/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;LA SOFTWARE EST FOURNIE &amp;quot;TELLE QUELLE&amp;quot;, SANS GARANTIE D&apos;AUCUNE SORTE, EXPLICITE OU IMPLICITE, NOTAMMENT SANS GARANTIE DE QUALITÉ MARCHANDE, D’ADÉQUATION À UN USAGE PARTICULIER ET D&apos;ABSENCE DE CONTREFAÇON. EN AUCUN CAS, LES AUTEURS OU TITULAIRES DU DROIT D&apos;AUTEUR NE SERONT RESPONSABLES DE TOUT DOMMAGE, RÉCLAMATION OU AUTRE RESPONSABILITÉ, QUE CE SOIT DANS LE CADRE D&apos;UN CONTRAT, D&apos;UN DÉLIT OU AUTRE, EN PROVENANCE DE, CONSÉCUTIF À OU EN RELATION AVEC LA SOFTWARE OU SON UTILISATION, OU AVEC D&apos;AUTRES ÉLÉMENTS DE LA SOFTWARE.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -183,6 +183,10 @@
         <source>Français</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Português</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ChangePasswordDialog</name>
@@ -289,12 +293,12 @@
         <translation>Ajouter un noeud</translation>
     </message>
     <message>
-        <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet sends 0.25% fee from each transaction to the node, but no more than 10 KRB.</source>
-        <translation>Le portefeuille se connecte au noeud distant en cours d&apos;exécution sur un réseau local ou global. Veuillez sélectionner un noeud ou spécifier une adresse IP ou un nom de domaine et un port. Dans ce mode, le portefeuille envoie des frais de 0,25% de chaque transaction au nœud, mais pas plus de 10 KRB.</translation>
-    </message>
-    <message>
         <source>Remove node</source>
         <translation>Supprimer le noeud</translation>
+    </message>
+    <message>
+        <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet sends 0.25% fee from each transaction to the node, but no more than 1 KRB.</source>
+        <translation>Le portefeuille se connecte au noeud distant en cours d&apos;exécution sur un réseau local ou global. Veuillez sélectionner un noeud ou spécifier une adresse IP ou un nom de domaine et un port. Dans ce mode, le portefeuille envoie des frais de 0,25% de chaque transaction au nœud, mais pas plus de 1 KRB.</translation>
     </message>
 </context>
 <context>
@@ -345,11 +349,11 @@ S&apos;il vous plaît, patientez...</translation>
     </message>
     <message>
         <source>Wallet path:</source>
-        <translation>Chemin du portefeuille:</translation>
+        <translation type="vanished">Chemin du portefeuille:</translation>
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="vanished">...</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -358,6 +362,14 @@ S&apos;il vous plaît, patientez...</translation>
     <message>
         <source>OK</source>
         <translation>OK</translation>
+    </message>
+    <message>
+        <source>Where to save new wallet file:</source>
+        <translation>Où sauvegarder le nouveau fichier de portefeuille:</translation>
+    </message>
+    <message>
+        <source>Select folder</source>
+        <translation>Choisir le dossier</translation>
     </message>
 </context>
 <context>
@@ -368,7 +380,7 @@ S&apos;il vous plaît, patientez...</translation>
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="vanished">...</translation>
     </message>
     <message>
         <source>Key:</source>
@@ -376,7 +388,7 @@ S&apos;il vous plaît, patientez...</translation>
     </message>
     <message>
         <source>Wallet path:</source>
-        <translation>Chemin du portefeuille:</translation>
+        <translation type="vanished">Chemin du portefeuille:</translation>
     </message>
     <message>
         <source>Import a tracking key of a wallet to see all its incoming transactions. It doesn&apos;t allow spending funds.</source>
@@ -389,6 +401,14 @@ S&apos;il vous plaît, patientez...</translation>
     <message>
         <source>OK</source>
         <translation>OK</translation>
+    </message>
+    <message>
+        <source>Where to save new wallet file:</source>
+        <translation>Où sauvegarder le nouveau fichier de portefeuille:</translation>
+    </message>
+    <message>
+        <source>Select folder</source>
+        <translation>Choisir le dossier</translation>
     </message>
 </context>
 <context>
@@ -554,7 +574,7 @@ S&apos;il vous plaît, patientez...</translation>
     </message>
     <message>
         <source>Change language</source>
-        <translation>Changer la langue</translation>
+        <translation type="vanished">Changer la langue</translation>
     </message>
     <message>
         <source>Show private key</source>
@@ -627,6 +647,14 @@ S&apos;il vous plaît, patientez...</translation>
     <message>
         <source>Start pool mining automatically</source>
         <translation>Démarrer l&apos;exploration de la piscine automatiquement</translation>
+    </message>
+    <message>
+        <source>Wallet</source>
+        <translation>Portefeuille</translation>
+    </message>
+    <message>
+        <source>Sweep unmixable</source>
+        <translation>Balayer Non Mélangeables</translation>
     </message>
 </context>
 <context>
@@ -808,6 +836,25 @@ S&apos;il vous plaît, patientez...</translation>
     </message>
 </context>
 <context>
+    <name>NoWalletFrame</name>
+    <message>
+        <source>Frame</source>
+        <translation type="unfinished">Cadre</translation>
+    </message>
+    <message>
+        <source>Welcome to Karbo Wallet!</source>
+        <translation>Bienvenue sur Karbo Wallet!</translation>
+    </message>
+    <message>
+        <source>Create wallet</source>
+        <translation>Créer un portefeuille</translation>
+    </message>
+    <message>
+        <source>Open wallet</source>
+        <translation>Ouvrir un portefeuille</translation>
+    </message>
+</context>
+<context>
     <name>OpenUriDialog</name>
     <message>
         <source>Open payment request</source>
@@ -859,6 +906,14 @@ S&apos;il vous plaît, patientez...</translation>
     <message>
         <source>Available balance:</source>
         <translation>Balance disponible:</translation>
+    </message>
+    <message>
+        <source>Unmixable dust:</source>
+        <translation>Non Mélangeables:</translation>
+    </message>
+    <message>
+        <source>0.00</source>
+        <translation>0.00</translation>
     </message>
 </context>
 <context>
@@ -929,8 +984,8 @@ S&apos;il vous plaît, patientez...</translation>
         <translation>Chargement de blockchain ...</translation>
     </message>
     <message>
-        <source>%1 wallet already running</source>
-        <translation>%1 portefeuille en cours d&apos;exécution</translation>
+        <source>%1 wallet already running or cannot create lock file %2. Check your permissions.</source>
+        <translation>%1 portefeuille en cours d&apos;exécution ou ne peut pas créer le fichier de verrouillage %2. Vérifiez vos autorisations.</translation>
     </message>
     <message>
         <source>New version available</source>
@@ -1014,11 +1069,11 @@ Voulez-vous aller à la page de téléchargement?</translation>
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="vanished">...</translation>
     </message>
     <message>
         <source>Wallet path:</source>
-        <translation>Chemin du portefeuille:</translation>
+        <translation type="vanished">Chemin du portefeuille:</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1027,6 +1082,14 @@ Voulez-vous aller à la page de téléchargement?</translation>
     <message>
         <source>OK</source>
         <translation>OK</translation>
+    </message>
+    <message>
+        <source>Where to save new wallet file:</source>
+        <translation>Où sauvegarder le nouveau fichier de portefeuille:</translation>
+    </message>
+    <message>
+        <source>Select folder</source>
+        <translation>Choisir le dossier</translation>
     </message>
 </context>
 <context>
@@ -1089,7 +1152,7 @@ Voulez-vous aller à la page de téléchargement?</translation>
     </message>
     <message>
         <source>Anonymity level:</source>
-        <translation type="unfinished"></translation>
+        <translation>Niveau de confidentialité:</translation>
     </message>
 </context>
 <context>
@@ -1317,6 +1380,10 @@ Voulez-vous aller à la page de téléchargement?</translation>
         <source>Contact with such label already exists.</source>
         <translation>Le contact avec cet label existe déjà.</translation>
     </message>
+    <message>
+        <source>&amp;Pay to</source>
+        <translation>&amp;Payer ce destinataire</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::AddressBookModel</name>
@@ -1460,7 +1527,11 @@ Voulez-vous aller à la page de téléchargement?</translation>
     </message>
     <message>
         <source>Tracking wallets (*.trackingwallet)</source>
-        <translation>Suivi des portefeuilles (*.trackingwallet)</translation>
+        <translation type="vanished">Suivi des portefeuilles (*.trackingwallet)</translation>
+    </message>
+    <message>
+        <source>Tracking wallets (*.wallet)</source>
+        <translation>Suivi des portefeuilles (*.wallet)</translation>
     </message>
 </context>
 <context>
@@ -1552,7 +1623,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>The language will be changed after restarting the wallet.</source>
-        <translation>La langue changera après le redémarrage du portefeuille.</translation>
+        <translation type="vanished">La langue changera après le redémarrage du portefeuille.</translation>
     </message>
     <message>
         <source>Language was changed</source>
@@ -1669,6 +1740,14 @@ Are you sure?</source>
         <source>Wrong wallet file extension, wallet file should have &quot;.wallet&quot;, &quot;.keys&quot; or &quot;.trackingwallet&quot; extension.</source>
         <translation>L&apos;extension de fichier du portefeuille est incorrect, le fichier du portefeuille doit avoir l&apos;extension &quot;.wallet&quot;,  &quot;.keys&quot; ou &quot;.trackingwallet&quot;.</translation>
     </message>
+    <message>
+        <source>Language changed to %1. The change will take effect after restarting the wallet.</source>
+        <translation>Langue changée en %1.  La langue sera changé après le redémarrage du portefeuille.</translation>
+    </message>
+    <message>
+        <source>Language changed to %1</source>
+        <translation>Langue changée en %1</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::MiningFrame</name>
@@ -1784,6 +1863,19 @@ Are you sure?</source>
     <message>
         <source>Available balance is insufficient to send this transaction. Have you excluded a fee?</source>
         <translation>La balance disponible est insuffisant pour envoyer cette transaction. Avez-vous exclu des frais?</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui::SendGlassFrame</name>
+    <message>
+        <source>Synchronizing</source>
+        <translation>Synchronisation</translation>
+    </message>
+    <message>
+        <source>You will be able to send %1
+when the wallet is synchronized</source>
+        <translation>Vous pourrez envoyer %1
+quand le portefeuille aura terminé la synchronisation</translation>
     </message>
 </context>
 <context>
@@ -2151,6 +2243,10 @@ Are you sure?</source>
     <message>
         <source>There must be an error in mnemonic seed. Make sure you entered it correctly.</source>
         <translation>Il doit y avoir une erreur dans la graine mnémotechnique. Assurez-vous que vous l&apos;avez entré correctement.</translation>
+    </message>
+    <message>
+        <source>Sweeping unmixable dust</source>
+        <translation>Balayer non mélangeable</translation>
     </message>
 </context>
 </TS>

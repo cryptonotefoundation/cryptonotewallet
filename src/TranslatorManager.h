@@ -14,7 +14,7 @@ public:
     static TranslatorManager* instance();
     ~TranslatorManager();
 
-     bool setTranslator(QString& lang);
+     void switchTranslator(QTranslator& translator, const QString& filename);
      inline QString getCurrentLang()  { return m_keyLang; }
 
 private:
@@ -29,6 +29,7 @@ private:
 
     TranslatorMap   m_translators;
     QString         m_keyLang;
+    QString         m_langPath;
 };
 
 #endif // TRANSLATORMANAGER_H

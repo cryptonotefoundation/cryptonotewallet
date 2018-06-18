@@ -32,6 +32,7 @@ private:
   void layoutChanged();
   void updateActualBalance(quint64 _balance);
   void updatePendingBalance(quint64 _balance);
+  void updateUnmixableBalance(quint64 _balance);
   void reset();
 };
 

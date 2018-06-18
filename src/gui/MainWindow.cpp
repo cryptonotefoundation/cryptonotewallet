@@ -13,18 +13,19 @@
 #include <QSystemTrayIcon>
 #include <QDesktopServices>
 #include <QTimer>
-#include <QDebug>
+#include <QLocale>
 #include <QDateTime>
+#include <QTranslator>
+#include <QToolButton>
+#include <QPushButton>
 #include <QFontDatabase>
 #include <Common/Base58.h>
 #include <Common/StringTools.h>
 #include <Common/Util.h>
-#include <QToolButton>
-#include <QPushButton>
 #include "AboutDialog.h"
 #include "AnimatedLabel.h"
+#include "AddressBookModel.h"
 #include "ChangePasswordDialog.h"
-#include "ChangeLanguageDialog.h"
 #include "ConnectionSettings.h"
 #include "PrivateKeysDialog.h"
 #include "ExportTrackingKeyDialog.h"
@@ -44,6 +45,8 @@
 #include "InfoDialog.h"
 #include "ui_mainwindow.h"
 #include "MnemonicSeedDialog.h"
+#include "ConfirmSendDialog.h"
+#include "TranslatorManager.h"
 
 #ifdef Q_OS_MAC
 #include "macdockiconhandler.h"
@@ -81,7 +84,9 @@ MainWindow::MainWindow() : QMainWindow(), m_ui(new Ui::MainWindow), m_trayIcon(n
   m_remoteModeIconLabel = new QLabel(this);
   m_synchronizationStateIconLabel = new AnimatedLabel(this);
   connectToSignals();
+  createLanguageMenu();
   initUi();
+
   walletClosed();
 }
 
@@ -108,16 +113,28 @@ void MainWindow::connectToSignals() {
   connect(&WalletAdapter::instance(), &WalletAdapter::walletTransactionCreatedSignal, this, [this]() {
       QApplication::alert(this);
   });
-  
+  connect(&WalletAdapter::instance(), &WalletAdapter::walletUnmixableBalanceUpdatedSignal, this, &MainWindow::updateUnmixableBalance,
+    Qt::QueuedConnection);
+  connect(&WalletAdapter::instance(), &WalletAdapter::walletSendTransactionCompletedSignal, this, [this](CryptoNote::TransactionId _transactionId, int _error, const QString& _errorString) {
+    if (_error == 0) {
+      m_ui->m_transactionsAction->setChecked(true);
+    }
+  });
   connect(&NodeAdapter::instance(), &NodeAdapter::peerCountUpdatedSignal, this, &MainWindow::peerCountUpdated, Qt::QueuedConnection);
   connect(m_ui->m_exitAction, &QAction::triggered, qApp, &QApplication::quit);
   connect(m_ui->m_accountFrame, &AccountFrame::showQRcodeSignal, this, &MainWindow::onShowQR, Qt::QueuedConnection);
   connect(m_ui->m_sendFrame, &SendFrame::uriOpenSignal, this, &MainWindow::onUriOpenSignal, Qt::QueuedConnection);
+  connect(m_ui->m_noWalletFrame, &NoWalletFrame::createWalletClickedSignal, this, &MainWindow::createWallet, Qt::QueuedConnection);
+  connect(m_ui->m_noWalletFrame, &NoWalletFrame::openWalletClickedSignal, this, &MainWindow::openWallet, Qt::QueuedConnection);
+  connect(m_ui->m_addressBookFrame, &AddressBookFrame::payToSignal, this, &MainWindow::payTo);
   connect(m_connectionStateIconLabel, SIGNAL(clicked()), this, SLOT(showStatusInfo()));
 }
 
-void MainWindow::initUi() {
+void MainWindow::setMainWindowTitle() {
   setWindowTitle(QString(tr("Karbo Wallet %1")).arg(Settings::instance().getVersion()));
+}
+void MainWindow::initUi() {
+  setMainWindowTitle();
 #ifdef Q_OS_WIN32
   createTrayIcon();
 #endif
@@ -207,7 +224,6 @@ void MainWindow::initUi() {
 #endif
 
   createTrayIconMenu();
-
 }
 
 void MainWindow::scrollToTransaction(const QModelIndex& _index) {
@@ -259,35 +275,51 @@ void MainWindow::closeEvent(QCloseEvent* _event) {
 
 }
 
-#ifdef Q_OS_WIN
 void MainWindow::changeEvent(QEvent* _event) {
-  QMainWindow::changeEvent(_event);
+#ifdef Q_OS_WIN
   if (!QSystemTrayIcon::isSystemTrayAvailable()) {
     QMainWindow::changeEvent(_event);
     return;
   }
-
+#endif
   switch (_event->type()) {
+  // this event is send if a translator is loaded
+  case QEvent::LanguageChange:
+  {
+    //m_ui->retranslateUi(this);
+    setMainWindowTitle();
+    break;
+  }
+  // this event is send, if the system language changes
+  case QEvent::LocaleChange:
+  {
+    QString locale = QLocale::system().name();
+    locale.truncate(locale.lastIndexOf('_'));
+    loadLanguage(locale);
+  }
   case QEvent::WindowStateChange:
+  {
 #ifdef Q_OS_WIN
     if(Settings::instance().isMinimizeToTrayEnabled()) {
       minimizeToTray(isMinimized());
     }
     break;
 #endif
+  }
   default:
     break;
   }
-
+  QWidget::changeEvent(_event);
   QMainWindow::changeEvent(_event);
 }
-#endif
 
 bool MainWindow::event(QEvent* _event) {
   switch (static_cast<WalletEventType>(_event->type())) {
     case WalletEventType::ShowMessage:
-    showMessage(static_cast<ShowMessageEvent*>(_event)->messageText(), static_cast<ShowMessageEvent*>(_event)->messageType());
-    return true;
+    {
+      showMessage(static_cast<ShowMessageEvent*>(_event)->messageText(), static_cast<ShowMessageEvent*>(_event)->messageType());
+      return true;
+    }
   }
 
   return QMainWindow::event(_event);
@@ -505,6 +537,7 @@ void MainWindow::isTrackingMode() {
   m_ui->m_sendAction->setEnabled(false);
   m_ui->m_openUriAction->setEnabled(false);
   m_ui->m_showMnemonicSeedAction->setEnabled(false);
+  m_ui->m_sweepUnmixableAction->setEnabled(false);
   m_trackingModeIconLabel->show();
 }
 
@@ -541,13 +574,78 @@ void MainWindow::restoreFromMnemonicSeed() {
   }
 }
 
-void MainWindow::ChangeLanguage() {
-  ChangeLanguageDialog dlg(&MainWindow::instance());
-  dlg.initLangList();
+void MainWindow::sweepUnmixable() {
+  quint64 dust = WalletAdapter::instance().getUnmixableBalance();
+  ConfirmSendDialog dlg(&MainWindow::instance());
+  dlg.showPasymentDetails(dust);
   if (dlg.exec() == QDialog::Accepted) {
-    QString language = dlg.getLang();
-    Settings::instance().setLanguage((language));
-    QMessageBox::information(this, tr("Language was changed"), tr("The language will be changed after restarting the wallet."), QMessageBox::Ok);
+    quint64 fee = CurrencyAdapter::instance().getMinimumFee();
+    QVector<CryptoNote::WalletLegacyTransfer> walletTransfers;
+    CryptoNote::WalletLegacyTransfer walletTransfer;
+    walletTransfer.address = WalletAdapter::instance().getAddress().toStdString();
+    walletTransfer.amount = dust;
+    walletTransfers.push_back(walletTransfer);
+
+    WalletAdapter::instance().sweepDust(walletTransfers, fee, "", 0);
+  }
+}
+
+void MainWindow::createLanguageMenu(void)
+{
+  QActionGroup* langGroup = new QActionGroup(m_ui->menuLanguage);
+  langGroup->setExclusive(true);
+  connect(langGroup, SIGNAL (triggered(QAction *)), this, SLOT (slotLanguageChanged(QAction *)));
+  QString defaultLocale = Settings::instance().getLanguage();
+  if(defaultLocale.isEmpty())
+     defaultLocale = QLocale::system().name();
+  defaultLocale.truncate(defaultLocale.lastIndexOf('_'));
+  m_langPath = QApplication::applicationDirPath();
+  m_langPath.append("/languages");
+  QDir dir(m_langPath);
+  QStringList fileNames = dir.entryList(QStringList("??.qm"));
+  for (int i = 0; i < fileNames.size(); ++i) {
+    QString locale;
+    locale = fileNames[i];
+    locale.truncate(locale.lastIndexOf('.'));
+    QString lang = QLocale(locale).nativeLanguageName();
+    QAction *action = new QAction(lang, this);
+    action->setCheckable(true);
+    action->setData(locale);
+    m_ui->menuLanguage->addAction(action);
+    langGroup->addAction(action);
+
+    // set default translators and language checked
+    if (defaultLocale == locale)
+    {
+      action->setChecked(true);
+    }
+  }
+}
+
+void MainWindow::slotLanguageChanged(QAction* action)
+{
+  if(0 != action) {
+    // load the language dependant on the action content
+    QString lang = action->data().toString();
+    loadLanguage(lang);
+    // save is in settings
+    Settings::instance().setLanguage((lang));
+  }
+}
+
+void MainWindow::loadLanguage(const QString& rLanguage)
+{
+  if(m_currLang != rLanguage) {
+    m_currLang = rLanguage;
+    QLocale locale = QLocale(m_currLang);
+    QLocale::setDefault(locale);
+    QString languageName = QLocale::languageToString(locale.language());
+    //TranslatorManager::instance()->switchTranslator(m_translator, QString("%1.qm").arg(rLanguage));
+    //TranslatorManager::instance()->switchTranslator(m_translatorQt, QString("qt_%1.qm").arg(rLanguage));
+    Settings::instance().setLanguage((m_currLang));
+    m_ui->statusBar->showMessage(tr("Language changed to %1").arg(languageName));
+    QMessageBox::information(this, tr("Language was changed"),
+       tr("Language changed to %1. The change will take effect after restarting the wallet.").arg(languageName), QMessageBox::Ok);
   }
 }
 
@@ -815,7 +913,8 @@ void MainWindow::walletSynchronized(int _error, const QString& _error_text) {
 
 void MainWindow::walletOpened(bool _error, const QString& _error_text) {
   if (!_error) {
-    m_ui->accountToolBar->show();
+    m_ui->m_noWalletFrame->hide();
+	m_ui->accountToolBar->show();
     m_ui->m_closeWalletAction->setEnabled(true);
     m_ui->m_exportTrackingKeyAction->setEnabled(true);
     m_encryptionStateIconLabel->show();
@@ -824,6 +923,7 @@ void MainWindow::walletOpened(bool _error, const QString& _error_text) {
     m_ui->m_showPrivateKey->setEnabled(true);
     m_ui->m_resetAction->setEnabled(true);
     m_ui->m_openUriAction->setEnabled(true);
+    m_ui->m_sweepUnmixableAction->setEnabled(true);
     if(WalletAdapter::instance().isDeterministic()) {
        m_ui->m_showMnemonicSeedAction->setEnabled(true);
     }
@@ -863,6 +963,7 @@ void MainWindow::walletClosed() {
   m_ui->m_showPrivateKey->setEnabled(false);
   m_ui->m_resetAction->setEnabled(false);
   m_ui->m_showMnemonicSeedAction->setEnabled(false);
+  m_ui->m_sweepUnmixableAction->setEnabled(false);
   m_ui->m_overviewFrame->hide();
   accountWidget->setVisible(false);
   m_ui->m_receiveFrame->hide();
@@ -870,6 +971,7 @@ void MainWindow::walletClosed() {
   m_ui->m_transactionsFrame->hide();
   m_ui->m_addressBookFrame->hide();
   //m_ui->m_miningFrame->hide();
+  m_ui->m_noWalletFrame->show();
   m_encryptionStateIconLabel->hide();
   m_trackingModeIconLabel->hide();
   m_synchronizationStateIconLabel->hide();
@@ -889,6 +991,14 @@ void MainWindow::checkTrackingMode() {
     Settings::instance().setTrackingMode(true);
   } else {
     Settings::instance().setTrackingMode(false);
+  }
+}
+
+void MainWindow::updateUnmixableBalance(quint64 _balance) {
+  if (_balance != 0) {
+      m_ui->m_sweepUnmixableAction->setEnabled(true);
+  } else {
+      m_ui->m_sweepUnmixableAction->setEnabled(false);
   }
 }
 
@@ -942,6 +1052,11 @@ void MainWindow::createTrayIconMenu()
     trayIconMenu->addSeparator();
     trayIconMenu->addAction(m_ui->m_exitAction);
 #endif
+}
+
+void MainWindow::payTo(const QModelIndex& _index) {
+  m_ui->m_sendFrame->setAddress(_index.data(AddressBookModel::ROLE_ADDRESS).toString());
+  m_ui->m_sendAction->trigger();
 }
 
 #ifdef Q_OS_WIN

@@ -26,8 +26,9 @@
 
 namespace WalletGui {
 
-SendFrame::SendFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::SendFrame), m_addressProvider(new AddressProvider(this)) {
+SendFrame::SendFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::SendFrame), m_addressProvider(new AddressProvider(this)), m_glassFrame(new SendGlassFrame(nullptr)) {
   m_ui->setupUi(this);
+  m_glassFrame->setObjectName("m_sendGlassFrame");
   clearAllClicked();
   mixinValueChanged(m_ui->m_mixinSlider->value());
   remote_node_fee = 0;
@@ -37,12 +38,17 @@ SendFrame::SendFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::SendFrame
   connect(&WalletAdapter::instance(), &WalletAdapter::walletActualBalanceUpdatedSignal, this, &SendFrame::walletActualBalanceUpdated,
     Qt::QueuedConnection);
   connect(&WalletAdapter::instance(), &WalletAdapter::walletCloseCompletedSignal, this, &SendFrame::reset);
+  connect(&WalletAdapter::instance(), &WalletAdapter::walletSynchronizationCompletedSignal, this, &SendFrame::walletSynchronized
+    , Qt::QueuedConnection);
+  connect(&WalletAdapter::instance(), &WalletAdapter::walletSynchronizationProgressUpdatedSignal,
+    this, &SendFrame::walletSynchronizationInProgress, Qt::QueuedConnection);
 
   m_ui->m_tickerLabel->setText(CurrencyAdapter::instance().getCurrencyTicker().toUpper());
   m_ui->m_feeSpin->setSuffix(" " + CurrencyAdapter::instance().getCurrencyTicker().toUpper());
   m_ui->m_donateSpin->setSuffix(" " + CurrencyAdapter::instance().getCurrencyTicker().toUpper());
   m_ui->m_feeSpin->setMinimum(CurrencyAdapter::instance().formatAmount(CurrencyAdapter::instance().getMinimumFee()).toDouble());
   m_ui->m_remote_label->hide();
+  m_ui->m_sendButton->setEnabled(false);
 
   QRegExp hexMatcher("^[0-9A-F]{64}$", Qt::CaseInsensitive);
   QValidator *validator = new QRegExpValidator(hexMatcher, this);
@@ -58,6 +64,30 @@ SendFrame::SendFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::SendFrame
 }
 
 SendFrame::~SendFrame() {
+    m_transfers.clear();
+    m_glassFrame->deleteLater();
+}
+
+void SendFrame::walletSynchronized(int _error, const QString& _error_text) {
+  m_ui->m_sendButton->setEnabled(true);
+  m_glassFrame->remove();
+}
+
+void SendFrame::walletSynchronizationInProgress(quint64 _current, quint64 _total) {
+  m_glassFrame->install(this);
+  m_glassFrame->updateSynchronizationState(_current, _total);
+}
+
+void SendFrame::setAddress(const QString& _address) {
+  Q_FOREACH (TransferFrame* transfer, m_transfers) {
+    if (transfer->getAddress().isEmpty()) {
+      transfer->setAddress(_address);
+      return;
+    }
+  }
+
+  addRecipientClicked();
+  m_transfers.last()->setAddress(_address);
 }
 
 void SendFrame::addRecipientClicked() {
@@ -121,11 +151,11 @@ void SendFrame::amountValueChange() {
         for(QVector<quint64>::iterator it = fees.begin(); it != fees.end(); ++it) {
             remote_node_fee += *it;
         }
-        if (remote_node_fee < CurrencyAdapter::instance().getMinimumFee()) {
-            remote_node_fee = CurrencyAdapter::instance().getMinimumFee();
-        }
-        if (remote_node_fee > 10000000000000) {
-            remote_node_fee = 10000000000000;
+        //if (remote_node_fee < CurrencyAdapter::instance().getMinimumFee()) {
+        //    remote_node_fee = CurrencyAdapter::instance().getMinimumFee();
+        //}
+        if (remote_node_fee > 1000000000000) {
+            remote_node_fee = 1000000000000;
         }
     }
 
@@ -179,6 +209,7 @@ void SendFrame::openUriClicked() {
 }
 
 void SendFrame::parsePaymentRequest(QString _request) {
+    MainWindow::instance().showNormal();
     if(_request.startsWith("karbowanec://", Qt::CaseInsensitive))
     {
        _request.replace(0, 13, "karbowanec:");
@@ -221,7 +252,6 @@ void SendFrame::parsePaymentRequest(QString _request) {
     if(!payment_id.isEmpty()){
         SendFrame::insertPaymentID(payment_id);
     }
-
 }
 
 void SendFrame::sendClicked() {

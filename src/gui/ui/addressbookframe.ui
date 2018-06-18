@@ -211,10 +211,27 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>m_addressBookView</sender>
+   <signal>doubleClicked(QModelIndex)</signal>
+   <receiver>AddressBookFrame</receiver>
+   <slot>addressDoubleClicked(QModelIndex)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>436</x>
+     <y>271</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>436</x>
+     <y>292</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>addClicked()</slot>
   <slot>deleteClicked()</slot>
   <slot>copyClicked()</slot>
+  <slot>addressDoubleClicked(QModelIndex)</slot>
  </slots>
 </ui>

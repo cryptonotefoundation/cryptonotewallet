@@ -68,7 +68,7 @@
     </message>
     <message>
         <source>0.00</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">0.00</translation>
     </message>
 </context>
 <context>
@@ -165,6 +165,10 @@
     </message>
     <message>
         <source>Français</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Português</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -269,12 +273,12 @@
         <translation>Wbudowany</translation>
     </message>
     <message>
-        <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet sends 0.25% fee from each transaction to the node, but no more than 10 KRB.</source>
-        <translation>Portfel będzie łączyć się ze zdalnym węzłem w sieci lokalnej lub globalnej. Wybierz węzeł lub kliknij &quot;Dodaj węzeł&quot; i podaj adres IP czy nazwę domeny i port. W tym trybie portfel płaci prowizję dla węzła w rozmiarze 0,25% od sumy transakcji, ale nie więcej niż 10 krb.</translation>
-    </message>
-    <message>
         <source>Remove node</source>
         <translation>Usuń węzeł</translation>
+    </message>
+    <message>
+        <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet sends 0.25% fee from each transaction to the node, but no more than 1 KRB.</source>
+        <translation>Portfel będzie łączyć się ze zdalnym węzłem w sieci lokalnej lub globalnej. Wybierz węzeł lub kliknij &quot;Dodaj węzeł&quot; i podaj adres IP czy nazwę domeny i port. W tym trybie portfel płaci prowizję dla węzła w rozmiarze 0,25% od sumy transakcji, ale nie więcej niż 1 krb.</translation>
     </message>
 </context>
 <context>
@@ -325,11 +329,11 @@ Proszę czekać...</translation>
     </message>
     <message>
         <source>Wallet path:</source>
-        <translation>Ścieżka do portfela:</translation>
+        <translation type="vanished">Ścieżka do portfela:</translation>
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="vanished">...</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -338,6 +342,14 @@ Proszę czekać...</translation>
     <message>
         <source>OK</source>
         <translation>OK</translation>
+    </message>
+    <message>
+        <source>Where to save new wallet file:</source>
+        <translation>Gdzie zapisać nowy plik portfela:</translation>
+    </message>
+    <message>
+        <source>Select folder</source>
+        <translation>Wybierz katalog</translation>
     </message>
 </context>
 <context>
@@ -348,7 +360,7 @@ Proszę czekać...</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation type="obsolete">...</translation>
     </message>
     <message>
         <source>Key:</source>
@@ -356,7 +368,7 @@ Proszę czekać...</translation>
     </message>
     <message>
         <source>Wallet path:</source>
-        <translation>Ścieżka do portfela:</translation>
+        <translation type="vanished">Ścieżka do portfela:</translation>
     </message>
     <message>
         <source>Import a tracking key of a wallet to see all its incoming transactions. It doesn&apos;t allow spending funds.</source>
@@ -369,6 +381,14 @@ Proszę czekać...</translation>
     <message>
         <source>OK</source>
         <translation>OK</translation>
+    </message>
+    <message>
+        <source>Where to save new wallet file:</source>
+        <translation>Gdzie zapisać nowy plik portfela:</translation>
+    </message>
+    <message>
+        <source>Select folder</source>
+        <translation>Wybierz katalog</translation>
     </message>
 </context>
 <context>
@@ -534,7 +554,7 @@ Proszę czekać...</translation>
     </message>
     <message>
         <source>Change language</source>
-        <translation>Zmienić język</translation>
+        <translation type="vanished">Zmienić język</translation>
     </message>
     <message>
         <source>Show private key</source>
@@ -607,6 +627,14 @@ Proszę czekać...</translation>
     <message>
         <source>Start pool mining automatically</source>
         <translation>Uruchamiać karbowanie automatycznie</translation>
+    </message>
+    <message>
+        <source>Wallet</source>
+        <translation>Portfel</translation>
+    </message>
+    <message>
+        <source>Sweep unmixable</source>
+        <translation>Zmieszaj nieosiągalne wyjścia</translation>
     </message>
 </context>
 <context>
@@ -788,6 +816,25 @@ Proszę czekać...</translation>
     </message>
 </context>
 <context>
+    <name>NoWalletFrame</name>
+    <message>
+        <source>Frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Welcome to Karbo Wallet!</source>
+        <translation>Witaj w portfelu Karbowańca!</translation>
+    </message>
+    <message>
+        <source>Create wallet</source>
+        <translation>Utwórz portfel</translation>
+    </message>
+    <message>
+        <source>Open wallet</source>
+        <translation>Otwórz portfel</translation>
+    </message>
+</context>
+<context>
     <name>OpenUriDialog</name>
     <message>
         <source>Open payment request</source>
@@ -795,7 +842,7 @@ Proszę czekać...</translation>
     </message>
     <message>
         <source>URI:</source>
-        <translation type="unfinished"></translation>
+        <translation>URI:</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -839,6 +886,14 @@ Proszę czekać...</translation>
     <message>
         <source>Available balance:</source>
         <translation>Dostępne saldo:</translation>
+    </message>
+    <message>
+        <source>Unmixable dust:</source>
+        <translation>Nieosiągalne:</translation>
+    </message>
+    <message>
+        <source>0.00</source>
+        <translation>0.00</translation>
     </message>
 </context>
 <context>
@@ -909,8 +964,8 @@ Proszę czekać...</translation>
         <translation>Ładowanie łańcucha bloków...</translation>
     </message>
     <message>
-        <source>%1 wallet already running</source>
-        <translation>Portfel %1wańca już uruchomiony</translation>
+        <source>%1 wallet already running or cannot create lock file %2. Check your permissions.</source>
+        <translation>Portfel %1wańca już jest uruchomiony lub nie może utworzyć pliku blokady %2. Sprawdź uprawnienia.</translation>
     </message>
     <message>
         <source>New version available</source>
@@ -943,7 +998,7 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
     </message>
     <message>
         <source>Use this form to request payment.</source>
-        <translation>Użyj tego formularza do stworzenia wniosku o zapłatę</translation>
+        <translation>Użyj tego formularza do stworzenia wniosku o zapłatę.</translation>
     </message>
     <message>
         <source>Label:</source>
@@ -990,11 +1045,11 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation type="obsolete">...</translation>
     </message>
     <message>
         <source>Wallet path:</source>
-        <translation>Ścieżka do portfela:</translation>
+        <translation type="vanished">Ścieżka do portfela:</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1003,6 +1058,14 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
     <message>
         <source>OK</source>
         <translation>OK</translation>
+    </message>
+    <message>
+        <source>Where to save new wallet file:</source>
+        <translation>Gdzie zapisać nowy plik portfela:</translation>
+    </message>
+    <message>
+        <source>Select folder</source>
+        <translation>Wybierz katalog</translation>
     </message>
 </context>
 <context>
@@ -1300,6 +1363,10 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
         <source>Contact with such label already exists.</source>
         <translation></translation>
     </message>
+    <message>
+        <source>&amp;Pay to</source>
+        <translation>&amp;Zapłacić</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::AddressBookModel</name>
@@ -1443,7 +1510,11 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
     </message>
     <message>
         <source>Tracking wallets (*.trackingwallet)</source>
-        <translation>Porfel śledzenia (*.trackingwallet)</translation>
+        <translation type="vanished">Porfel śledzenia (*.trackingwallet)</translation>
+    </message>
+    <message>
+        <source>Tracking wallets (*.wallet)</source>
+        <translation>Porfel śledzenia (*.wallet)</translation>
     </message>
 </context>
 <context>
@@ -1535,7 +1606,7 @@ Jesteś pewien?</translation>
     </message>
     <message>
         <source>The language will be changed after restarting the wallet.</source>
-        <translation>Język będzie zmieniony po następnym uruchomieniu portfela.</translation>
+        <translation type="vanished">Język będzie zmieniony po następnym uruchomieniu portfela.</translation>
     </message>
     <message>
         <source>Language was changed</source>
@@ -1661,6 +1732,14 @@ Jesteś pewien?</translation>
         <source>Wrong wallet file extension, wallet file should have &quot;.wallet&quot;, &quot;.keys&quot; or &quot;.trackingwallet&quot; extension.</source>
         <translation>Nieprawidłowe rozszerzenie pliku portfela, portfel powinien mieć rozszerzenie &quot;.wallet&quot;, &quot;.keys&quot; lub &quot;.trackingwallet&quot;.</translation>
     </message>
+    <message>
+        <source>Language changed to %1. The change will take effect after restarting the wallet.</source>
+        <translation>Język zmieniony na %1. Zmiana nastąpi po następnym uruchomieniu portfela.</translation>
+    </message>
+    <message>
+        <source>Language changed to %1</source>
+        <translation>Język zmieniony na %1</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::MiningFrame</name>
@@ -1776,6 +1855,19 @@ Jesteś pewien?</translation>
     <message>
         <source>Available balance is insufficient to send this transaction. Have you excluded a fee?</source>
         <translation>Dostępne saldo jest niewystarczające, aby wysłać tę transakcję. Czy prowizja była odliczona?</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui::SendGlassFrame</name>
+    <message>
+        <source>Synchronizing</source>
+        <translation>Trwa synchronizowanie</translation>
+    </message>
+    <message>
+        <source>You will be able to send %1
+when the wallet is synchronized</source>
+        <translation>Będziesz mógł wysłać %1
+kiedy portfel skończy synchronizowanie</translation>
     </message>
 </context>
 <context>
@@ -2148,6 +2240,10 @@ Jesteś pewien?</translation>
     <message>
         <source>There must be an error in mnemonic seed. Make sure you entered it correctly.</source>
         <translation>Musi istnieć błąd w mnemoniku. Upewnij się, że został prawidłowo wprowadzony.</translation>
+    </message>
+    <message>
+        <source>Sweeping unmixable dust</source>
+        <translation>Optymizacja nieosiągalnych wyjść</translation>
     </message>
 </context>
 </TS>

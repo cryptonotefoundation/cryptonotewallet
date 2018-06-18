@@ -65,6 +65,7 @@ set(CRYPTONOTE_SOURCES
   cryptonote/src/Common/ConsoleTools.cpp
   cryptonote/src/Common/MemoryInputStream.cpp
   cryptonote/src/Common/PathTools.cpp
+  cryptonote/src/Common/DnsTools.cpp
   cryptonote/src/Common/StdInputStream.cpp
   cryptonote/src/Common/StdOutputStream.cpp
   cryptonote/src/Common/StreamTools.cpp
@@ -193,7 +194,7 @@ if (WIN32)
   endif ()
   add_definitions(/D_CRT_SECURE_NO_WARNINGS /D_WIN32_WINNT=0x0600 /DSTATICLIB)
   include_directories(cryptonote/src/platform/msc)
-
+  set( CMAKE_CXX_FLAGS "-bigobj -EHsc")
   set(PLATFORM_DIR Windows)
   set(BUILD_PLATFORM WIN32)
   set(BUILD_RESOURCES src/cryptonotewallet.rc)
@@ -245,7 +246,12 @@ set(CRYPTONOTE_SOURCES ${CRYPTONOTE_SOURCES} ${PLATFORM_SOURCES})
 add_library(${CRYPTONOTE_LIB} STATIC ${CRYPTONOTE_SOURCES})
 add_library(Mnemonics ${Mnemonics})
 set_target_properties(${CRYPTONOTE_LIB} PROPERTIES COMPILE_DEFINITIONS _GNU_SOURCE)
+
+if (APPLE OR ${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
+target_link_libraries(${CRYPTONOTE_LIB} ${Boost_LIBRARIES} -lresolv)
+else ()
 target_link_libraries(${CRYPTONOTE_LIB} ${Boost_LIBRARIES})
+endif ()
 set_target_properties(Mnemonics PROPERTIES COMPILE_DEFINITIONS _GNU_SOURCE)
 target_link_libraries(Mnemonics ${Boost_LIBRARIES})
 
@@ -283,6 +289,9 @@ elseif (UNIX)
     install(FILES src/karbowanecwallet.desktop DESTINATION share/applications)
     install(FILES src/images/karbowanez.png DESTINATION share/pixmaps RENAME karbowanec.png)
     install(FILES copyright DESTINATION share/doc/karbowanecwallet)
+    install(DIRECTORY src/languages DESTINATION /opt/karbo/ FILES_MATCHING PATTERN "*.qm")
+    execute_process(COMMAND ln -s /opt/karbo/languages languages)
+    install(FILES ${CMAKE_BINARY_DIR}/languages DESTINATION bin)
 
     if (NOT RPMBUILD)
         set(CPACK_GENERATOR DEB)

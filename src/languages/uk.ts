@@ -17,7 +17,7 @@
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Karbo v. %1&lt;/p&gt;&lt;p&gt;This is the next generation anonymous cryptocurrency based on CryptoNote.&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2015. CryptoNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2016. Bytecoin Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2015-2016. DigitalNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2016-2018. Karbo (Karbowanec) Developers&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://opensource.org/licenses/MIT&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://cryptonote.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://cryptonote.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://karbo.io/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://karbo.io/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;THE SOFTWARE IS PROVIDED &amp;quot;AS IS&amp;quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Карбованець в. %1&lt;/p&gt;&lt;p&gt;Це криптовалюта нового покоління на основі CryptoNote.&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2015. CryptoNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2016. Bytecoin Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2015-2016. DigitalNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2016-2018. Karbo (Karbowanec) Developers&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://opensource.org/licenses/MIT&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://cryptonote.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://cryptonote.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://karbo.io/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://karbo.io/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;ЦЕ ПРОГРАМНЕ ЗАБЕЗПЕЧЕННЯ НАДАЄТЬСЯ &amp;quot;ЯК Є&amp;quot;, БЕЗ ГАРАНТІЙ БУДЬ-ЯКОГО ВИДУ, ПРЯМИХ АБО НЕПРЯМИХ, ВКЛЮЧАЮЧИ, АЛЕ НЕ ОБМЕЖУЮЧИСЬ, ГАРАНТІЯМИ КОМЕРЦІЙНОЇ ВИГОДИ, ВІДПОВІДНОСТІ ЙОГО КОНКРЕТНОМУ ПРИЗНАЧЕННЮ Й ВІДСУТНОСТІ ПОРУШЕННЯ ПРАВ. У ЖОДНОМУ РАЗІ АВТОРИ АБО ВЛАСНИКИ АВТОРСЬКИХ ПРАВ НЕ ВІДПОВІДАЮТЬ ЗА БУДЬ-ЯКИМИ СУДОВИМИ ПОЗОВАМИ, ЩОДО ЗБИТКІВ АБО ІНШИХ ПРЕТЕНЗІЙ, ЧИ ДІЙ ДОГОВОРУ, ЦИВІЛЬНОГО ПРАВОПОРУШЕННЯ АБО ІНШИХ, ЩО ВИНИКАЮТЬ ПОЗА, АБО У ЗВ'ЯЗКУ З ПРОГРАМНИМ ЗАБЕЗПЕЧЕННЯМ АБО ВИКОРИСТАННЯМ ЧИ ІНШИМИ ДІЯМИ ПРОГРАМНОГО ЗАБЕЗПЕЧЕННЯ.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Карбованець в. %1&lt;/p&gt;&lt;p&gt;Це криптовалюта нового покоління на основі CryptoNote.&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2015. CryptoNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2016. Bytecoin Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2015-2016. DigitalNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2016-2018. Karbo (Karbowanec) Developers&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://opensource.org/licenses/MIT&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://cryptonote.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://cryptonote.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://karbo.io/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://karbo.io/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;ЦЕ ПРОГРАМНЕ ЗАБЕЗПЕЧЕННЯ НАДАЄТЬСЯ &amp;quot;ЯК Є&amp;quot;, БЕЗ ГАРАНТІЙ БУДЬ-ЯКОГО ВИДУ, ПРЯМИХ АБО НЕПРЯМИХ, ВКЛЮЧАЮЧИ, АЛЕ НЕ ОБМЕЖУЮЧИСЬ, ГАРАНТІЯМИ КОМЕРЦІЙНОЇ ВИГОДИ, ВІДПОВІДНОСТІ ЙОГО КОНКРЕТНОМУ ПРИЗНАЧЕННЮ Й ВІДСУТНОСТІ ПОРУШЕННЯ ПРАВ. У ЖОДНОМУ РАЗІ АВТОРИ АБО ВЛАСНИКИ АВТОРСЬКИХ ПРАВ НЕ ВІДПОВІДАЮТЬ ЗА БУДЬ-ЯКИМИ СУДОВИМИ ПОЗОВАМИ, ЩОДО ЗБИТКІВ АБО ІНШИХ ПРЕТЕНЗІЙ, ЧИ ДІЙ ДОГОВОРУ, ЦИВІЛЬНОГО ПРАВОПОРУШЕННЯ АБО ІНШИХ, ЩО ВИНИКАЮТЬ ПОЗА, АБО У ЗВ&apos;ЯЗКУ З ПРОГРАМНИМ ЗАБЕЗПЕЧЕННЯМ АБО ВИКОРИСТАННЯМ ЧИ ІНШИМИ ДІЯМИ ПРОГРАМНОГО ЗАБЕЗПЕЧЕННЯ.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
 </context>
 <context>
@@ -68,7 +68,7 @@
     </message>
     <message>
         <source>0.00</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">0.00</translation>
     </message>
 </context>
 <context>
@@ -165,6 +165,10 @@
     </message>
     <message>
         <source>Français</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Português</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -269,12 +273,12 @@
         <translation>Додати вузол</translation>
     </message>
     <message>
-        <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet sends 0.25% fee from each transaction to the node, but no more than 10 KRB.</source>
-        <translation>Гаманець підключатиметься до віддаленого вузла, що запущений у локальній або глобальній мережі. Виберіть вузол, або вкажіть IP адресу чи домен та порт нового вузла. У цьому режимі він сплачує комісію для вузла в розмірі 0,25% від суми переказу, але не більше 10 крб.</translation>
-    </message>
-    <message>
         <source>Remove node</source>
         <translation>Видалити вузол</translation>
+    </message>
+    <message>
+        <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet sends 0.25% fee from each transaction to the node, but no more than 1 KRB.</source>
+        <translation>Гаманець підключатиметься до віддаленого вузла, що запущений у локальній або глобальній мережі. Виберіть вузол, або вкажіть IP адресу чи домен та порт нового вузла. У цьому режимі він сплачує комісію для вузла в розмірі 0,25% від суми переказу, але не більше 1 крб.</translation>
     </message>
 </context>
 <context>
@@ -286,7 +290,7 @@
     <message>
         <source>%1 wallet is saving data.
 Please wait...</source>
-        <translation>Гаманець записує дані.
+        <translation>Гаманець %1 записує дані.
 Зачекайте будь-ласка...</translation>
     </message>
 </context>
@@ -325,11 +329,11 @@ Please wait...</source>
     </message>
     <message>
         <source>Wallet path:</source>
-        <translation>Шлях до гаманця:</translation>
+        <translation type="vanished">Шлях до гаманця:</translation>
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="vanished">...</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -338,6 +342,14 @@ Please wait...</source>
     <message>
         <source>OK</source>
         <translation>Гаразд</translation>
+    </message>
+    <message>
+        <source>Where to save new wallet file:</source>
+        <translation>Куди зберегти файл  нового гаманця:</translation>
+    </message>
+    <message>
+        <source>Select folder</source>
+        <translation>Вибрати каталог</translation>
     </message>
 </context>
 <context>
@@ -348,7 +360,7 @@ Please wait...</source>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation type="obsolete">...</translation>
     </message>
     <message>
         <source>Key:</source>
@@ -356,7 +368,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Wallet path:</source>
-        <translation>Шлях до гаманця:</translation>
+        <translation type="vanished">Шлях до гаманця:</translation>
     </message>
     <message>
         <source>Import a tracking key of a wallet to see all its incoming transactions. It doesn&apos;t allow spending funds.</source>
@@ -369,6 +381,14 @@ Please wait...</source>
     <message>
         <source>OK</source>
         <translation>Гаразд</translation>
+    </message>
+    <message>
+        <source>Where to save new wallet file:</source>
+        <translation>Куди зберегти файл вашого нового гаманця:</translation>
+    </message>
+    <message>
+        <source>Select folder</source>
+        <translation>Вибрати каталог</translation>
     </message>
 </context>
 <context>
@@ -534,7 +554,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Change language</source>
-        <translation>Змінити мову</translation>
+        <translation type="vanished">Змінити мову</translation>
     </message>
     <message>
         <source>Show private key</source>
@@ -607,6 +627,14 @@ Please wait...</source>
     <message>
         <source>Start pool mining automatically</source>
         <translation>Запускати карбування при старті</translation>
+    </message>
+    <message>
+        <source>Wallet</source>
+        <translation>Гаманець</translation>
+    </message>
+    <message>
+        <source>Sweep unmixable</source>
+        <translation>Прибрати незмішуване</translation>
     </message>
 </context>
 <context>
@@ -788,6 +816,25 @@ Please wait...</source>
     </message>
 </context>
 <context>
+    <name>NoWalletFrame</name>
+    <message>
+        <source>Frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Welcome to Karbo Wallet!</source>
+        <translation>Вітаємо в гаманці Карбованця!</translation>
+    </message>
+    <message>
+        <source>Create wallet</source>
+        <translation>Створити гаманець</translation>
+    </message>
+    <message>
+        <source>Open wallet</source>
+        <translation>Відкрити гаманець</translation>
+    </message>
+</context>
+<context>
     <name>OpenUriDialog</name>
     <message>
         <source>Open payment request</source>
@@ -795,7 +842,7 @@ Please wait...</source>
     </message>
     <message>
         <source>URI:</source>
-        <translation type="unfinished"></translation>
+        <translation>URI:</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -839,6 +886,14 @@ Please wait...</source>
     <message>
         <source>Available balance:</source>
         <translation>Доступний баланс:</translation>
+    </message>
+    <message>
+        <source>Unmixable dust:</source>
+        <translation>Незмішуване:</translation>
+    </message>
+    <message>
+        <source>0.00</source>
+        <translation>0.00</translation>
     </message>
 </context>
 <context>
@@ -909,8 +964,8 @@ Please wait...</source>
         <translation>Завантажується ланцюжок блоків...</translation>
     </message>
     <message>
-        <source>%1 wallet already running</source>
-        <translation>Гаманець Карбованця вже працює</translation>
+        <source>%1 wallet already running or cannot create lock file %2. Check your permissions.</source>
+        <translation>Гаманець Карбованця вже працює, або не може створити файл блокування %2. Перевірте права на запис.</translation>
     </message>
     <message>
         <source>New version available</source>
@@ -994,11 +1049,11 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished">...</translation>
+        <translation type="obsolete">...</translation>
     </message>
     <message>
         <source>Wallet path:</source>
-        <translation>Шлях до гаманця:</translation>
+        <translation type="vanished">Шлях до гаманця:</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1007,6 +1062,14 @@ Do you want to go to download page?</source>
     <message>
         <source>OK</source>
         <translation>Гаразд</translation>
+    </message>
+    <message>
+        <source>Where to save new wallet file:</source>
+        <translation>Куди зберегти файл вашого нового гаманця:</translation>
+    </message>
+    <message>
+        <source>Select folder</source>
+        <translation>Вибрати каталог</translation>
     </message>
 </context>
 <context>
@@ -1293,6 +1356,10 @@ Do you want to go to download page?</source>
         <source>Contact with such label already exists.</source>
         <translation>Контакт з такою назвою вже є.</translation>
     </message>
+    <message>
+        <source>&amp;Pay to</source>
+        <translation>&amp;Заплатити цьому контакту</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::AddressBookModel</name>
@@ -1436,7 +1503,11 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>Tracking wallets (*.trackingwallet)</source>
-        <translation>Гаманці стеження (*.trackingwallet)</translation>
+        <translation type="vanished">Гаманці стеження (*.trackingwallet)</translation>
+    </message>
+    <message>
+        <source>Tracking wallets (*.wallet)</source>
+        <translation>Гаманці стеження (*.wallet)</translation>
     </message>
 </context>
 <context>
@@ -1528,7 +1599,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>The language will be changed after restarting the wallet.</source>
-        <translation>Мова буде змінена після перезапуску гаманця.</translation>
+        <translation type="vanished">Мова буде змінена після перезапуску гаманця.</translation>
     </message>
     <message>
         <source>Language was changed</source>
@@ -1646,6 +1717,18 @@ Are you sure?</source>
         <source>Wrong wallet file extension, wallet file should have &quot;.wallet&quot;, &quot;.keys&quot; or &quot;.trackingwallet&quot; extension.</source>
         <translation>Неправильне розширення файлу, файл гаманця мусить мати розширення &quot;.wallet&quot;, &quot;.keys&quot; або &quot;.trackingwallet&quot;.</translation>
     </message>
+    <message>
+        <source>Current Language changed to %1</source>
+        <translation type="obsolete">Поточна мова змінена на %1</translation>
+    </message>
+    <message>
+        <source>Language changed to %1. The change will take effect after restarting the wallet.</source>
+        <translation>Мова змінена на %1. Вона стане активна після перезапуску гаманця.</translation>
+    </message>
+    <message>
+        <source>Language changed to %1</source>
+        <translation>Мова змінена на %1</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::MiningFrame</name>
@@ -1761,6 +1844,19 @@ Are you sure?</source>
     <message>
         <source>Available balance is insufficient to send this transaction. Have you excluded a fee?</source>
         <translation>Доступного балансу недостатньо щоб вислати цю транзакцію. Ви не забули відняти комісію?</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui::SendGlassFrame</name>
+    <message>
+        <source>Synchronizing</source>
+        <translation>Триває синхронізація</translation>
+    </message>
+    <message>
+        <source>You will be able to send %1
+when the wallet is synchronized</source>
+        <translation>Ви зможете надсилати %1
+коли гаманець завершить синхронізацію</translation>
     </message>
 </context>
 <context>
@@ -2133,6 +2229,10 @@ Are you sure?</source>
     <message>
         <source>There must be an error in mnemonic seed. Make sure you entered it correctly.</source>
         <translation>У мнемомічній фразі є помилка. Перевірте чи ви ввели її правильно.</translation>
+    </message>
+    <message>
+        <source>Sweeping unmixable dust</source>
+        <translation type="unfinished">Триває оптимізація незмішуваних виходів</translation>
     </message>
 </context>
 </TS>
