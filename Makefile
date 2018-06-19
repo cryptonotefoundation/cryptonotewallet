@@ -70,6 +70,7 @@ SOURCES       = main.cpp \
 		src/zxcvbn-c/zxcvbn.c \
 		src/libwalletqt/UnsignedTransaction.cpp \
 		MainApp.cpp \
+		haproxy.cpp \
 		src/daemon/DaemonManager.cpp qrc_qml.cpp \
 		moc_filter.cpp \
 		moc_clipboardAdapter.cpp \
@@ -88,6 +89,7 @@ SOURCES       = main.cpp \
 		moc_AddressBook.cpp \
 		moc_UnsignedTransaction.cpp \
 		moc_MainApp.cpp \
+		moc_haproxy.cpp \
 		moc_DaemonManager.cpp
 OBJECTS       = main.o \
 		filter.o \
@@ -111,6 +113,7 @@ OBJECTS       = main.o \
 		zxcvbn.o \
 		UnsignedTransaction.o \
 		MainApp.o \
+		haproxy.o \
 		DaemonManager.o \
 		qrc_qml.o \
 		moc_filter.o \
@@ -130,13 +133,13 @@ OBJECTS       = main.o \
 		moc_AddressBook.o \
 		moc_UnsignedTransaction.o \
 		moc_MainApp.o \
+		moc_haproxy.o \
 		moc_DaemonManager.o
 DIST          = notes.txt \
 		intense/src/wallet/CMakeLists.txt \
 		components/MobileHeader.qml \
 		pages/intense.qml \
 		pages/IntenseDashboard.qml \
-		IntenseConfig.js \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf \
@@ -246,6 +249,7 @@ DIST          = notes.txt \
 		src/zxcvbn-c/zxcvbn.h \
 		src/libwalletqt/UnsignedTransaction.h \
 		MainApp.h \
+		haproxy.h \
 		src/daemon/DaemonManager.h main.cpp \
 		filter.cpp \
 		clipboardAdapter.cpp \
@@ -268,6 +272,7 @@ DIST          = notes.txt \
 		src/zxcvbn-c/zxcvbn.c \
 		src/libwalletqt/UnsignedTransaction.cpp \
 		MainApp.cpp \
+		haproxy.cpp \
 		src/daemon/DaemonManager.cpp
 QMAKE_TARGET  = intensecoin-wallet-gui
 DESTDIR       = debug/bin/#avoid trailing-slash linebreak
@@ -507,8 +512,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents translations/monero-core.ts translations/monero-core_ar.ts translations/monero-core_pt-br.ts translations/monero-core_de.ts translations/monero-core_eo.ts translations/monero-core_es.ts translations/monero-core_fi.ts translations/monero-core_fr.ts translations/monero-core_hr.ts translations/monero-core_id.ts translations/monero-core_hi.ts translations/monero-core_it.ts translations/monero-core_ja.ts translations/monero-core_nl.ts translations/monero-core_pl.ts translations/monero-core_ru.ts translations/monero-core_sv.ts translations/monero-core_zh-cn.ts translations/monero-core_zh-tw.ts translations/monero-core_he.ts translations/monero-core_ko.ts translations/monero-core_ro.ts $(DISTDIR)/
 	$(COPY_FILE) --parents qml.qrc $(DISTDIR)/
-	$(COPY_FILE) --parents filter.h clipboardAdapter.h oscursor.h src/libwalletqt/WalletManager.h src/libwalletqt/Wallet.h src/libwalletqt/PendingTransaction.h src/libwalletqt/TransactionHistory.h src/libwalletqt/TransactionInfo.h src/libwalletqt/QRCodeImageProvider.h src/libwalletqt/Transfer.h oshelper.h TranslationManager.h src/model/TransactionHistoryModel.h src/model/TransactionHistorySortFilterModel.h src/QR-Code-generator/BitBuffer.hpp src/QR-Code-generator/QrCode.hpp src/QR-Code-generator/QrSegment.hpp src/model/AddressBookModel.h src/libwalletqt/AddressBook.h src/zxcvbn-c/zxcvbn.h src/libwalletqt/UnsignedTransaction.h MainApp.h src/daemon/DaemonManager.h $(DISTDIR)/
-	$(COPY_FILE) --parents main.cpp filter.cpp clipboardAdapter.cpp oscursor.cpp src/libwalletqt/WalletManager.cpp src/libwalletqt/Wallet.cpp src/libwalletqt/PendingTransaction.cpp src/libwalletqt/TransactionHistory.cpp src/libwalletqt/TransactionInfo.cpp src/libwalletqt/QRCodeImageProvider.cpp oshelper.cpp TranslationManager.cpp src/model/TransactionHistoryModel.cpp src/model/TransactionHistorySortFilterModel.cpp src/QR-Code-generator/BitBuffer.cpp src/QR-Code-generator/QrCode.cpp src/QR-Code-generator/QrSegment.cpp src/model/AddressBookModel.cpp src/libwalletqt/AddressBook.cpp src/zxcvbn-c/zxcvbn.c src/libwalletqt/UnsignedTransaction.cpp MainApp.cpp src/daemon/DaemonManager.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents filter.h clipboardAdapter.h oscursor.h src/libwalletqt/WalletManager.h src/libwalletqt/Wallet.h src/libwalletqt/PendingTransaction.h src/libwalletqt/TransactionHistory.h src/libwalletqt/TransactionInfo.h src/libwalletqt/QRCodeImageProvider.h src/libwalletqt/Transfer.h oshelper.h TranslationManager.h src/model/TransactionHistoryModel.h src/model/TransactionHistorySortFilterModel.h src/QR-Code-generator/BitBuffer.hpp src/QR-Code-generator/QrCode.hpp src/QR-Code-generator/QrSegment.hpp src/model/AddressBookModel.h src/libwalletqt/AddressBook.h src/zxcvbn-c/zxcvbn.h src/libwalletqt/UnsignedTransaction.h MainApp.h haproxy.h src/daemon/DaemonManager.h $(DISTDIR)/
+	$(COPY_FILE) --parents main.cpp filter.cpp clipboardAdapter.cpp oscursor.cpp src/libwalletqt/WalletManager.cpp src/libwalletqt/Wallet.cpp src/libwalletqt/PendingTransaction.cpp src/libwalletqt/TransactionHistory.cpp src/libwalletqt/TransactionInfo.cpp src/libwalletqt/QRCodeImageProvider.cpp oshelper.cpp TranslationManager.cpp src/model/TransactionHistoryModel.cpp src/model/TransactionHistorySortFilterModel.cpp src/QR-Code-generator/BitBuffer.cpp src/QR-Code-generator/QrCode.cpp src/QR-Code-generator/QrSegment.cpp src/model/AddressBookModel.cpp src/libwalletqt/AddressBook.cpp src/zxcvbn-c/zxcvbn.c src/libwalletqt/UnsignedTransaction.cpp MainApp.cpp haproxy.cpp src/daemon/DaemonManager.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents translations/monero-core.ts translations/monero-core_ar.ts translations/monero-core_pt-br.ts translations/monero-core_de.ts translations/monero-core_eo.ts translations/monero-core_es.ts translations/monero-core_fi.ts translations/monero-core_fr.ts translations/monero-core_hr.ts translations/monero-core_id.ts translations/monero-core_hi.ts translations/monero-core_it.ts translations/monero-core_ja.ts translations/monero-core_nl.ts translations/monero-core_pl.ts translations/monero-core_ru.ts translations/monero-core_sv.ts translations/monero-core_zh-cn.ts translations/monero-core_zh-tw.ts translations/monero-core_he.ts translations/monero-core_ko.ts translations/monero-core_ro.ts $(DISTDIR)/
 
 
@@ -791,11 +796,10 @@ qrc_qml.cpp: qml.qrc \
 		pages/TxKey.qml
 	/usr/lib/x86_64-linux-gnu/qt5/bin/rcc -name qml qml.qrc -o qrc_qml.cpp
 
-compiler_moc_header_make_all: moc_filter.cpp moc_clipboardAdapter.cpp moc_oscursor.cpp moc_WalletManager.cpp moc_Wallet.cpp moc_PendingTransaction.cpp moc_TransactionHistory.cpp moc_TransactionInfo.cpp moc_Transfer.cpp moc_oshelper.cpp moc_TranslationManager.cpp moc_TransactionHistoryModel.cpp moc_TransactionHistorySortFilterModel.cpp moc_AddressBookModel.cpp moc_AddressBook.cpp moc_UnsignedTransaction.cpp moc_MainApp.cpp moc_DaemonManager.cpp
+compiler_moc_header_make_all: moc_filter.cpp moc_clipboardAdapter.cpp moc_oscursor.cpp moc_WalletManager.cpp moc_Wallet.cpp moc_PendingTransaction.cpp moc_TransactionHistory.cpp moc_TransactionInfo.cpp moc_Transfer.cpp moc_oshelper.cpp moc_TranslationManager.cpp moc_TransactionHistoryModel.cpp moc_TransactionHistorySortFilterModel.cpp moc_AddressBookModel.cpp moc_AddressBook.cpp moc_UnsignedTransaction.cpp moc_MainApp.cpp moc_haproxy.cpp moc_DaemonManager.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_filter.cpp moc_clipboardAdapter.cpp moc_oscursor.cpp moc_WalletManager.cpp moc_Wallet.cpp moc_PendingTransaction.cpp moc_TransactionHistory.cpp moc_TransactionInfo.cpp moc_Transfer.cpp moc_oshelper.cpp moc_TranslationManager.cpp moc_TransactionHistoryModel.cpp moc_TransactionHistorySortFilterModel.cpp moc_AddressBookModel.cpp moc_AddressBook.cpp moc_UnsignedTransaction.cpp moc_MainApp.cpp moc_DaemonManager.cpp
+	-$(DEL_FILE) moc_filter.cpp moc_clipboardAdapter.cpp moc_oscursor.cpp moc_WalletManager.cpp moc_Wallet.cpp moc_PendingTransaction.cpp moc_TransactionHistory.cpp moc_TransactionInfo.cpp moc_Transfer.cpp moc_oshelper.cpp moc_TranslationManager.cpp moc_TransactionHistoryModel.cpp moc_TransactionHistorySortFilterModel.cpp moc_AddressBookModel.cpp moc_AddressBook.cpp moc_UnsignedTransaction.cpp moc_MainApp.cpp moc_haproxy.cpp moc_DaemonManager.cpp
 moc_filter.cpp: filter.h
-
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet/intense/include -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet/src/libwalletqt -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet/src/QR-Code-generator -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet/src -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet/intense/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtQuick -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtQml -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include filter.h -o moc_filter.cpp
 
 moc_clipboardAdapter.cpp: clipboardAdapter.h
@@ -808,12 +812,10 @@ moc_WalletManager.cpp: intense/include/wallet/wallet2_api.h \
 		src/libwalletqt/WalletManager.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet/intense/include -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet/src/libwalletqt -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet/src/QR-Code-generator -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet/src -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet/intense/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtQuick -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtQml -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include src/libwalletqt/WalletManager.h -o moc_WalletManager.cpp
 
-
 moc_Wallet.cpp: intense/include/wallet/wallet2_api.h \
 		src/libwalletqt/PendingTransaction.h \
 		src/libwalletqt/UnsignedTransaction.h \
 		src/libwalletqt/Wallet.h
-
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet/intense/include -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet/src/libwalletqt -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet/src/QR-Code-generator -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet/src -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet/intense/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtQuick -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtQml -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include src/libwalletqt/Wallet.h -o moc_Wallet.cpp
 
 moc_PendingTransaction.cpp: intense/include/wallet/wallet2_api.h \
@@ -840,11 +842,9 @@ moc_TranslationManager.cpp: TranslationManager.h
 moc_TransactionHistoryModel.cpp: src/model/TransactionHistoryModel.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet/intense/include -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet/src/libwalletqt -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet/src/QR-Code-generator -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet/src -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet/intense/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtQuick -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtQml -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include src/model/TransactionHistoryModel.h -o moc_TransactionHistoryModel.cpp
 
-
 moc_TransactionHistorySortFilterModel.cpp: src/libwalletqt/TransactionInfo.h \
 		intense/include/wallet/wallet2_api.h \
 		src/model/TransactionHistorySortFilterModel.h
-
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet/intense/include -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet/src/libwalletqt -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet/src/QR-Code-generator -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet/src -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet/intense/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtQuick -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtQml -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include src/model/TransactionHistorySortFilterModel.h -o moc_TransactionHistorySortFilterModel.cpp
 
 moc_AddressBookModel.cpp: src/model/AddressBookModel.h
@@ -861,9 +861,11 @@ moc_UnsignedTransaction.cpp: intense/include/wallet/wallet2_api.h \
 moc_MainApp.cpp: MainApp.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet/intense/include -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet/src/libwalletqt -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet/src/QR-Code-generator -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet/src -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet/intense/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtQuick -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtQml -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include MainApp.h -o moc_MainApp.cpp
 
+moc_haproxy.cpp: haproxy.h
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet/intense/include -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet/src/libwalletqt -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet/src/QR-Code-generator -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet/src -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet/intense/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtQuick -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtQml -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include haproxy.h -o moc_haproxy.cpp
+
 moc_DaemonManager.cpp: src/daemon/DaemonManager.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet/intense/include -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet/src/libwalletqt -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet/src/QR-Code-generator -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet/src -I/home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet/intense/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtQuick -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtQml -I/usr/include/x86_64-linux-gnu/qt5/QtNetwork -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include src/daemon/DaemonManager.h -o moc_DaemonManager.cpp
-
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -897,6 +899,7 @@ main.o: main.cpp clipboardAdapter.h \
 		src/libwalletqt/AddressBook.h \
 		src/model/AddressBookModel.h \
 		MainApp.h \
+		haproxy.h \
 		src/daemon/DaemonManager.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
@@ -1001,6 +1004,9 @@ UnsignedTransaction.o: src/libwalletqt/UnsignedTransaction.cpp src/libwalletqt/U
 MainApp.o: MainApp.cpp MainApp.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MainApp.o MainApp.cpp
 
+haproxy.o: haproxy.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o haproxy.o haproxy.cpp
+
 DaemonManager.o: src/daemon/DaemonManager.cpp src/daemon/DaemonManager.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o DaemonManager.o src/daemon/DaemonManager.cpp
 
@@ -1057,6 +1063,9 @@ moc_UnsignedTransaction.o: moc_UnsignedTransaction.cpp
 
 moc_MainApp.o: moc_MainApp.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_MainApp.o moc_MainApp.cpp
+
+moc_haproxy.o: moc_haproxy.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_haproxy.o moc_haproxy.cpp
 
 moc_DaemonManager.o: moc_DaemonManager.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_DaemonManager.o moc_DaemonManager.cpp

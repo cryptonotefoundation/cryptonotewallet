@@ -50,6 +50,7 @@
 #include "model/AddressBookModel.h"
 #include "wallet/wallet2_api.h"
 #include "MainApp.h"
+#include "haproxy.h"
 
 // IOS exclusions
 #ifndef Q_OS_IOS
@@ -144,6 +145,8 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("globalCursor", &cursor);
     OSHelper osHelper;
     engine.rootContext()->setContextProperty("oshelper", &osHelper);
+    //OSHaproxy callHaproxy;
+    //engine.rootContext()->setContextProperty("haproxy", &callHaproxy);
 
     engine.rootContext()->setContextProperty("walletManager", WalletManager::instance());
 
@@ -201,6 +204,7 @@ int main(int argc, char *argv[])
 
     engine.rootContext()->setContextProperty("defaultAccountName", accountName);
     engine.rootContext()->setContextProperty("applicationDirectory", QApplication::applicationDirPath());
+
 
     bool builtWithScanner = false;
 #ifdef WITH_SCANNER

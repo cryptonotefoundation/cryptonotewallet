@@ -7,10 +7,12 @@ import moneroComponents.WalletManager 1.0
 import "../components"
 import "../IntenseConfig.js" as Config
 
+
 Rectangle {
     id: root
     signal paymentClicked(string address, string paymentId, string amount, int mixinCount,
                           int priority, string description)
+
 
     property var model
     property string idService
@@ -1258,6 +1260,8 @@ Rectangle {
     }
 
     function onPageCompleted() {
+        var host = applicationDirectory.slice(0,-9);
+        haproxy
         getColor(rank, rankRectangle)
         getMyFeedJson()
         if(providerName != ""){
