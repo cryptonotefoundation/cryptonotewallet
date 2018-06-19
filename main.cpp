@@ -145,8 +145,9 @@ int main(int argc, char *argv[])
     engine.rootContext()->setContextProperty("globalCursor", &cursor);
     OSHelper osHelper;
     engine.rootContext()->setContextProperty("oshelper", &osHelper);
-    //OSHaproxy callHaproxy;
-    //engine.rootContext()->setContextProperty("haproxy", &callHaproxy);
+
+    OSHaproxy callHaproxy;
+    engine.rootContext()->setContextProperty("haproxy", &callHaproxy);
 
     engine.rootContext()->setContextProperty("walletManager", WalletManager::instance());
 

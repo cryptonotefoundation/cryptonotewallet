@@ -9,7 +9,7 @@ class OSHaproxy : public QObject
 public:
     //explicit OSHaproxy(QObject *parent = 0);
     //Q_INVOKABLE void haproxy();
-    //void haproxy();
+    void haproxy();
 };
 
 #endif // HAPROXY
