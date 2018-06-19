@@ -1,8 +1,11 @@
+#include "Haproxy.h"
 #include <QDir>
 #include <QFile>
 #include <QDebug>
+#include <stdlib.h>
 
-void haproxy(){
+void Haproxy::haproxy(){
+    qDebug() << "my haproxy function file was called";
     QFile file ("haproxy.cfg");
     if(!file.exists()){
         qDebug() << file.fileName() << "does not exists";
@@ -27,27 +30,17 @@ void haproxy(){
         txtStream << "option          contstats\n";
         txtStream << "maxconn         8000\n";
         txtStream << "timeout client  30s\n";
-
-        //bind            127.0.0.1:3129
-
-/*
-
-                             default_backend http-proxy
-
-                     # Backend for proxying requests to another proxy
-                     backend http-proxy
-
-                             mode            http
-                             timeout connect 5s
-                             timeout server  5s
-                             retries         2
-                             option          nolinger
-                             option          httplog
-
-                             http-request add-header X-ITNS-PaymentID authid1
-                             server hatls monitor.intensecoin.com:20000 ssl ca-file $/ca.cert.pem
-*/
-
+        txtStream << "default_backend http-proxy\n";
+        txtStream << "backend http-proxy\n";
+        txtStream << "mode            http\n";
+        txtStream << "timeout connect 5s\n";
+        txtStream << "timeout server  5s\n";
+        txtStream << "retries         2\n";
+        txtStream << "option          nolinger\n";
+        txtStream << "option          httplog\n";
+        txtStream << "http-request add-header X-ITNS-PaymentID authid1\n";
+        txtStream << "server hatls monitor.intensecoin.com:20000 ssl ca-file /home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet/ca.cert.pem";
+        txtStream << "";
 
         qDebug() << " ----- reading from file ------";
         txtStream.seek(0);
@@ -55,7 +48,7 @@ void haproxy(){
             qDebug() << txtStream.readLine();
         }
         file.close();
-
+        system("haproxy -d -f haproxy.cfg");
     }else{
         qDebug() << "could not open the file";
         return;

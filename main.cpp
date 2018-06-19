@@ -50,7 +50,7 @@
 #include "model/AddressBookModel.h"
 #include "wallet/wallet2_api.h"
 #include "MainApp.h"
-#include "haproxy.h"
+#include "Haproxy.h"
 
 // IOS exclusions
 #ifndef Q_OS_IOS
@@ -146,8 +146,8 @@ int main(int argc, char *argv[])
     OSHelper osHelper;
     engine.rootContext()->setContextProperty("oshelper", &osHelper);
 
-    OSHaproxy callHaproxy;
-    engine.rootContext()->setContextProperty("haproxy", &callHaproxy);
+    //OSHaproxy callHaproxy;
+    engine.rootContext()->setContextProperty("haproxy", Haproxy::haproxy());
 
     engine.rootContext()->setContextProperty("walletManager", WalletManager::instance());
 

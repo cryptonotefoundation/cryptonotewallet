@@ -13,3 +13,4 @@ moc*
 android*
 IntenseConfig.js
 release
+ca.cert.pem
