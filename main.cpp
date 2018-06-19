@@ -146,8 +146,8 @@ int main(int argc, char *argv[])
     OSHelper osHelper;
     engine.rootContext()->setContextProperty("oshelper", &osHelper);
 
-    //OSHaproxy callHaproxy;
-    engine.rootContext()->setContextProperty("haproxy", Haproxy::haproxy());
+    Haproxy haproxy;
+    engine.rootContext()->setContextProperty("callhaproxy", &haproxy);
 
     engine.rootContext()->setContextProperty("walletManager", WalletManager::instance());
 

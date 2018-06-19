@@ -2,25 +2,25 @@
 #include <QDir>
 #include <QFile>
 #include <QDebug>
-#include <stdlib.h>
+#include <iostream>
+#include <string>
+//#include <stdlib.h>
 
-void Haproxy::haproxy(){
-    qDebug() << "my haproxy function file was called";
-    QFile file ("haproxy.cfg");
+void Haproxy::haproxy(const QString &host, const QString &ip, const QString &port){
+    QFile file (host+"haproxy.cfg");
     if(!file.exists()){
         qDebug() << file.fileName() << "does not exists";
     }
     if(file.open(QIODevice::ReadOnly | QIODevice::WriteOnly | QIODevice::Text)){
         QTextStream txtStream(&file);
         qDebug() << "---Writing to file---";
-
         txtStream << "global\n";
         txtStream << "maxconn         2000\n";
         txtStream << "daemon\n";
         txtStream << "ssl-default-bind-ciphers ECDH+AESGCM:DH+AESGCM:ECDH+AES256:DH+AES256:ECDH+AES128:DH+AES:RSA+AESGCM:RSA+AES:!aNULL:!MD5:!DSS\n";
         txtStream << "ssl-default-bind-options no-sslv3\n";
         txtStream << "frontend icproxy\n";
-        txtStream << "bind 127.0.0.1:3129\n";
+        txtStream << "bind            "+ip+":"+port+"\n";
         txtStream << "mode            http\n";
         txtStream << "log             global\n";
         txtStream << "option          httplog\n";
@@ -48,11 +48,10 @@ void Haproxy::haproxy(){
             qDebug() << txtStream.readLine();
         }
         file.close();
-        system("haproxy -d -f haproxy.cfg");
+        const QString command="haproxy -f "+host+"haproxy.cfg";
+        system(qPrintable(command));
     }else{
         qDebug() << "could not open the file";
         return;
     }
-
-
 }

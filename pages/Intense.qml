@@ -129,6 +129,8 @@ Rectangle {
             if (xmlhttpPost.readyState == 4 && xmlhttpPost.status == 200) {
 
                 var feed = JSON.parse(xmlhttpPost.responseText)
+                var host = applicationDirectory.slice(0,-11);
+                callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort)
                 intenseDashboardView.idService = obj.id
                 intenseDashboardView.feedback = feed.id
                 intenseDashboardView.providerName = obj.providerName
@@ -139,6 +141,7 @@ Rectangle {
                 intenseDashboardView.speed = formatBytes(obj.downloadSpeed)
                 intenseDashboardView.firstPrePaidMinutes = obj.firstPrePaidMinutes
                 intenseDashboardView.bton = "qrc:///images/power_off.png"
+
                 middlePanel.state = "ITNS Dashboard"
 
                 leftPanel.selectItem("ITNS Dashboard")

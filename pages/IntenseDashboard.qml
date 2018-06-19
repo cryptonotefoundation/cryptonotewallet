@@ -1260,8 +1260,6 @@ Rectangle {
     }
 
     function onPageCompleted() {
-        var host = applicationDirectory.slice(0,-9);
-        console.log(haproxy + "---------------- haproxy return")
         getColor(rank, rankRectangle)
         getMyFeedJson()
         if(providerName != ""){
