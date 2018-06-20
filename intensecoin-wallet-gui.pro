@@ -37,7 +37,8 @@ HEADERS += \
     src/libwalletqt/AddressBook.h \
     src/zxcvbn-c/zxcvbn.h \
     src/libwalletqt/UnsignedTransaction.h \
-    MainApp.h
+    MainApp.h \
+    src/libwalletqt/Haproxy.h
 
 SOURCES += main.cpp \
     filter.cpp \
@@ -60,7 +61,8 @@ SOURCES += main.cpp \
     src/libwalletqt/AddressBook.cpp \
     src/zxcvbn-c/zxcvbn.c \
     src/libwalletqt/UnsignedTransaction.cpp \
-    MainApp.cpp
+    MainApp.cpp \
+    src/libwalletqt/Haproxy.cpp
 
 !ios {
     HEADERS += src/daemon/DaemonManager.h
@@ -412,8 +414,7 @@ DISTFILES += \
     intense/src/wallet/CMakeLists.txt \
     components/MobileHeader.qml \
     pages/intense.qml \
-    pages/IntenseDashboard.qml \
-    IntenseConfig.js
+    pages/IntenseDashboard.qml
     components/MobileHeader.qml
 
 
