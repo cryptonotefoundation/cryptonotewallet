@@ -290,8 +290,6 @@ elseif (UNIX)
     install(FILES src/images/karbowanez.png DESTINATION share/pixmaps RENAME karbowanec.png)
     install(FILES copyright DESTINATION share/doc/karbowanecwallet)
     install(DIRECTORY src/languages DESTINATION /opt/karbo/ FILES_MATCHING PATTERN "*.qm")
-    #execute_process(COMMAND ln -s /opt/karbo/languages languages)
-    install(FILES ${CMAKE_BINARY_DIR}/languages DESTINATION bin)
 
     if (NOT RPMBUILD)
         set(CPACK_GENERATOR DEB)
