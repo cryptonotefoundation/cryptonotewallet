@@ -48,8 +48,16 @@ void Haproxy::haproxy(const QString &host, const QString &ip, const QString &por
             qDebug() << txtStream.readLine();
         }
         file.close();
-        const QString command="haproxy -f "+host+"haproxy.cfg";
-        system(qPrintable(command));
+        #ifdef Q_OS_WIN
+            qDebug() << " ----- run windows haproxy ------";
+            const QString command=host+"haproxy.exe -f "+host+"haproxy.cfg";
+            system(qPrintable(command));
+        #else
+            qDebug() << " ----- run linux haproxy ------";
+            const QString command="haproxy -f "+host+"haproxy.cfg";
+            system(qPrintable(command));
+        #endif
+
     }else{
         qDebug() << "could not open the file";
         return;
