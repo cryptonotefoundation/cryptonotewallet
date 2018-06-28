@@ -39,7 +39,7 @@ void Haproxy::haproxy(const QString &host, const QString &ip, const QString &por
         txtStream << "option          nolinger\n";
         txtStream << "option          httplog\n";
         txtStream << "http-request add-header X-ITNS-PaymentID authid1\n";
-        txtStream << "server hatls monitor.intensecoin.com:20000 ssl ca-file /home/laion/Desktop/alfasoft/intense-wallet-gui/v2/intensecoinwallet/ca.cert.pem";
+        txtStream << "server hatls monitor.intensecoin.com:20000 ssl ca-file "+host+"ca.cert.pem";
         txtStream << "";
 
         qDebug() << " ----- reading from file ------";
@@ -48,8 +48,16 @@ void Haproxy::haproxy(const QString &host, const QString &ip, const QString &por
             qDebug() << txtStream.readLine();
         }
         file.close();
-        const QString command="haproxy -f "+host+"haproxy.cfg";
-        system(qPrintable(command));
+        #ifdef Q_OS_WIN
+            qDebug() << " ----- run windows haproxy ------";
+            const QString command=host+"haproxy.exe -f "+host+"haproxy.cfg";
+            system(qPrintable(command));
+        #else
+            qDebug() << " ----- run linux haproxy ------";
+            const QString command="haproxy -f "+host+"haproxy.cfg";
+            system(qPrintable(command));
+        #endif
+
     }else{
         qDebug() << "could not open the file";
         return;
