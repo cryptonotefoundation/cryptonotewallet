@@ -115,7 +115,7 @@ Rectangle {
                     if(mFeed[i].mSpeed == null){
                         mFeed[i].mSpeed = 0
                     }
-                    myRank = (myRank + (mFeed[i].mStability + mFeed[i].mSpeed))/(mFeed.length)
+                    myRank = (mFeed[i].mStability + mFeed[i].mSpeed)/2
                 }
                 myRank = parseFloat(myRank).toFixed(1)
                 myRankText.text =  myRank
@@ -1224,7 +1224,7 @@ Rectangle {
               anchors.topMargin: 27
               anchors.leftMargin: 27
               width: 90
-              text: qsTr("Server coutry:") + translationManager.emptyString
+              text: qsTr("Country:") + translationManager.emptyString
               font.pixelSize: 14
               horizontalAlignment: Text.AlignRight
           }
