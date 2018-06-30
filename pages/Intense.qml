@@ -129,17 +129,59 @@ Rectangle {
             if (xmlhttpPost.readyState == 4 && xmlhttpPost.status == 200) {
                 var feed = JSON.parse(xmlhttpPost.responseText)
                 var host = applicationDirectory;
+                console.log(obj.certArray[0].certContent);
 
-                function b64EncodeUnicode(str) {
-                    // first we use encodeURIComponent to get percent-encoded UTF-8,
-                    // then we convert the percent encodings into raw bytes which
-                    // can be fed into btoa.
-                    return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g,
-                        function toSolidBytes(match, p1) {
-                            return String.fromCharCode('0x' + p1);
-                    }));
-                }
-                var certArray = b64EncodeUnicode(feed.certArray[0]); // "4pyTIMOgIGxhIG1vZGU="
+                function decode64(input) {
+                    var keyStr = "ABCDEFGHIJKLMNOP" +
+                                   "QRSTUVWXYZabcdef" +
+                                   "ghijklmnopqrstuv" +
+                                   "wxyz0123456789+/" +
+                                   "=";
+                     var output = "";
+                     var chr1, chr2, chr3 = "";
+                     var enc1, enc2, enc3, enc4 = "";
+                     var i = 0;
+
+                     // remove all characters that are not A-Z, a-z, 0-9, +, /, or =
+                     var base64test = /[^A-Za-z0-9\+\/\=]/g;
+                     if (base64test.exec(input)) {
+                        alert("There were invalid base64 characters in the input text.\n" +
+                              "Valid base64 characters are A-Z, a-z, 0-9, '+', '/',and '='\n" +
+                              "Expect errors in decoding.");
+                     }
+                     input = input.replace(/[^A-Za-z0-9\+\/\=]/g, "");
+
+                     do {
+                        enc1 = keyStr.indexOf(input.charAt(i++));
+                        enc2 = keyStr.indexOf(input.charAt(i++));
+                        enc3 = keyStr.indexOf(input.charAt(i++));
+                        enc4 = keyStr.indexOf(input.charAt(i++));
+
+                        chr1 = (enc1 << 2) | (enc2 >> 4);
+                        chr2 = ((enc2 & 15) << 4) | (enc3 >> 2);
+                        chr3 = ((enc3 & 3) << 6) | enc4;
+
+                        output = output + String.fromCharCode(chr1);
+
+                        if (enc3 != 64) {
+                           output = output + String.fromCharCode(chr2);
+                        }
+                        if (enc4 != 64) {
+                           output = output + String.fromCharCode(chr3);
+                        }
+
+                        chr1 = chr2 = chr3 = "";
+                        enc1 = enc2 = enc3 = enc4 = "";
+
+                     } while (i < input.length);
+
+                     return unescape(output);
+                  }
+
+
+
+                var certArray = decode64(obj.certArray[0].certContent); // "4pyTIMOgIGxhIG1vZGU="
+                console.log(certArray)
                 callhaproxy.haproxyCert(host, certArray);
                 callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort)
                 intenseDashboardView.idService = obj.id
@@ -147,7 +189,7 @@ Rectangle {
                 intenseDashboardView.providerName = obj.providerName
                 intenseDashboardView.name = obj.name
                 intenseDashboardView.type = obj.type
-                intenseDashboardView.cost = parseFloat((obj.cost).toFixed(7))
+                intenseDashboardView.cost = obj.cost
                 intenseDashboardView.rank = rank
                 intenseDashboardView.speed = formatBytes(obj.downloadSpeed)
                 intenseDashboardView.firstPrePaidMinutes = obj.firstPrePaidMinutes
