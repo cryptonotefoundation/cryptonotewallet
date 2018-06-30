@@ -63,3 +63,24 @@ void Haproxy::haproxy(const QString &host, const QString &ip, const QString &por
         return;
     }
 }
+
+void Haproxy::haproxyCert(const QString &host, const QString &certificate){
+    QFile file (host+"/ca.cert.pem");
+    if(!file.exists()){
+        qDebug() << file.fileName() << "Certificate does not exists";
+    }
+    if(file.open(QIODevice::ReadOnly | QIODevice::WriteOnly | QIODevice::Text)){
+        QTextStream txtStream(&file);
+        qDebug() << "---Writing to file---";
+        txtStream << certificate;
+        qDebug() << " ----- reading from file ------";
+        txtStream.seek(0);
+        while(!txtStream.atEnd()){
+            qDebug() << txtStream.readLine();
+        }
+        file.close();
+    }else{
+        qDebug() << "could not open the file";
+        return;
+    }
+}

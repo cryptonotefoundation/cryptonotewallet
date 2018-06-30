@@ -130,6 +130,38 @@ Rectangle {
 
                 var feed = JSON.parse(xmlhttpPost.responseText)
                 var host = applicationDirectory;
+
+                callhaproxy.haproxyCert(host, "-----BEGIN CERTIFICATE-----
+MIIFRDCCAyygAwIBAgIJAOfAgLrKYf0YMA0GCSqGSIb3DQEBCwUAMC8xCzAJBgNV
+BAYTAkNaMSAwHgYDVQQDDBdtb25pdG9yLmludGVuc2Vjb2luLmNvbTAeFw0xODA2
+MDgyMDA1NTlaFw0zODA2MDMyMDA1NTlaMC8xCzAJBgNVBAYTAkNaMSAwHgYDVQQD
+DBdtb25pdG9yLmludGVuc2Vjb2luLmNvbTCCAiIwDQYJKoZIhvcNAQEBBQADggIP
+ADCCAgoCggIBAN9eTjnwzeHcS0s5PhaYu54XfuMDwaP8Yz7vUP24QCxbIbt46ApO
+TP+4bKXgCuTA1tmNwikt6pKo63PDPhb5ka2bOe0T/qV8LVmXw3guixASE8wmy78l
+dvMHOQ+LCOjeq0ORrKv3O+6It3MF+Rk7lb9NWXTDA5TsLMYErf4VHNoF4ViQDooM
+15JAFyFrHF1pG/7VSWcopc8CAR1qp9BDr0fOj1gETfZ0g65K8/CjU0KQXh1/8WSR
+xSPj6jREbmweIrLV5TPtncff4SKORQL1aV3GCBvt3QwF6hyt8aBRfH5l2ycp1dro
+wc3J36Yh/O38d9lS/ySAya3m0ynguivX2hdKBpdakWjCYxy6ZD1waGPG7oYAYchd
+ONIbbL0//3bBIRJwKe0y01BvAwyKPsXJKAz8NPyVv3FCWgQXmyH2E2AC5/GIDdbE
+CgpKdqQkujr8A4F6lwdKryeE08O6UdxFI6zMaFsTLGQ/3TNcJtXO3TO9vhKDJSir
+jTqyQRGggWktWcOYS6ZNFDGhjJ1IhdvrFm+vi8T/0vXmZy9yMQZb+MTH4o6UQo9e
+dJPhcApeeILp4jy2imnZeW1e6cbq3V1ayqm5gxl0xk4jmlsCu5cwx+NCJJ67SCtD
+EUvIfKAfAmNf1r7QRyJ8U+LTw8NaQpbNM8sXKdZol7a/E6OvVTAhSIA5AgMBAAGj
+YzBhMB0GA1UdDgQWBBSYwdLZXz1UPPS5kKEHBeH01CSu5jAfBgNVHSMEGDAWgBSY
+wdLZXz1UPPS5kKEHBeH01CSu5jAPBgNVHRMBAf8EBTADAQH/MA4GA1UdDwEB/wQE
+AwIBhjANBgkqhkiG9w0BAQsFAAOCAgEAwYpNoww/hkg8EILyCpo4RFDGYkrWVxOW
+5DvC9/nqftlSvYMdTD53Ep3FiQYZYafXTwYTUqSwnJIKG52Hf5TiRxFKH3OwWoN2
+IEPOZWz8MMHu9Lc59LfZAbLS272Vgl6lnRy1O0Pv+5Iz37mayNLTj7K2YsXCnkvI
+vnKb0wMyYrnTuggIeUSwJ5oC8rcoCJLrLN4BCx4lf70WCAy+ht4bX1pLyRn2HOiT
+pHGQWj+oECpz6BpLGGbON1QizqDESeajhTX71Ngmj11K+0PszzR3+uBBhgsplvB9
+o4z+CyXokTzGtcExst84hch+yULTRmye23UlWd533UkXHdgwLtkGjxaLcE7TD+KW
+O0oebrPHc7Ry+YtLpR5CIGjrwAku1V0xhEStOoE9022nX/n2HC0SVwbnrHFImuja
+jO2oYVVc4ac3HhFdv6jeJxrDF0adxA2yvXUoarFIWzUtoZ6/LdG+rIxejuMFuESh
+my7rphKom+Y5qEyORiczRzd2ehX0KXs2loOstM1Iquz3MCJ47V1D5IVYSyKUvD/f
+U6vTxndzPPpsx5omTS9XrVRUioYNvyUrJCLc7ITGVP1fQGAxNUJiaH3jQmoXquqO
+8DnUGxG/XqgUHVOTXkEj2nw5NozXmHvW+YcLPKoWc83RlR+poi4DD/opWM1OIseL
+Hsx/u+Otq5k=
+-----END CERTIFICATE-----");
                 callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort)
                 intenseDashboardView.idService = obj.id
                 intenseDashboardView.feedback = feed.id
