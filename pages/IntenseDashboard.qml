@@ -960,6 +960,7 @@ Rectangle {
               onClicked:{
                   flag = 0
                   changeStatus()
+                  callhaproxy.killHAproxy();
                   connectPopup.title = "Provider Feedback";
                   connectPopup.open();
 

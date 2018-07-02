@@ -84,3 +84,9 @@ void Haproxy::haproxyCert(const QString &host, const QString &certificate){
         return;
     }
 }
+
+
+
+void Haproxy::killHAproxy(){
+   system("pkill -f haproxy");
+}
