@@ -179,10 +179,11 @@ void SendFrame::amountValueChange() {
 
     if( !remote_node_fee_address.isEmpty() ) {
         quint64 actualBalance = WalletAdapter::instance().getActualBalance();
+        quint64 dustBalance = WalletAdapter::instance().getUnmixableBalance();
         if(actualBalance > remote_node_fee) {
-            m_ui->m_balanceLabel->setText(CurrencyAdapter::instance().formatAmount(actualBalance - remote_node_fee));
+            m_ui->m_balanceLabel->setText(CurrencyAdapter::instance().formatAmount(actualBalance - remote_node_fee - dustBalance));
         } else {
-            m_ui->m_balanceLabel->setText(CurrencyAdapter::instance().formatAmount(actualBalance));
+            m_ui->m_balanceLabel->setText(CurrencyAdapter::instance().formatAmount(actualBalance - dustBalance));
         }
     }
 }
@@ -348,10 +349,11 @@ void SendFrame::sendTransactionCompleted(CryptoNote::TransactionId _id, bool _er
 }
 
 void SendFrame::walletActualBalanceUpdated(quint64 _balance) {
+  quint64 dustBalance = WalletAdapter::instance().getUnmixableBalance();
   if(!remote_node_fee_address.isEmpty() && _balance > remote_node_fee) {
-    m_ui->m_balanceLabel->setText(CurrencyAdapter::instance().formatAmount(_balance - remote_node_fee));
+    m_ui->m_balanceLabel->setText(CurrencyAdapter::instance().formatAmount(_balance - remote_node_fee - dustBalance));
   } else {
-    m_ui->m_balanceLabel->setText(CurrencyAdapter::instance().formatAmount(_balance));
+    m_ui->m_balanceLabel->setText(CurrencyAdapter::instance().formatAmount(_balance - dustBalance));
   }
 }
 

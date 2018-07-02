@@ -34,7 +34,7 @@
         <x>0</x>
         <y>0</y>
         <width>846</width>
-        <height>444</height>
+        <height>439</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="m_send_frame_layout">
@@ -382,6 +382,9 @@
       <widget class="QLabel" name="m_balanceLabel">
        <property name="text">
         <string notr="true">0.00 </string>
+       </property>
+       <property name="textInteractionFlags">
+        <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
        </property>
       </widget>
      </item>
