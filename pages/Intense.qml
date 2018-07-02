@@ -194,6 +194,7 @@ Rectangle {
                 intenseDashboardView.speed = formatBytes(obj.downloadSpeed)
                 intenseDashboardView.firstPrePaidMinutes = obj.firstPrePaidMinutes
                 intenseDashboardView.bton = "qrc:///images/power_off.png"
+                intenseDashboardView.flag = 1
 
                 middlePanel.state = "ITNS Dashboard"
 

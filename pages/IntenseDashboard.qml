@@ -26,7 +26,7 @@ Rectangle {
     property string feedback
     property string bton
     property string rank
-    //property string flag
+    property int flag
 
     function getTime(){
         var value =  (firstPrePaidMinutes*10000) - Config.payTimer
@@ -128,8 +128,9 @@ Rectangle {
         xmlhttp.send();
     }
 
-    function changeStatus(bt){
-        if (bt == "qrc:///images/power_off.png"){
+    function changeStatus(){
+        if (flag == 1){
+            subButton.visible = true
             powerOn.source = "../images/power_on.png"
             if(type == "openvpn"){
                 shield.source = "../images/shield_vpn_on.png"
@@ -140,7 +141,7 @@ Rectangle {
             subButtonText.text = "Disconnect"
 
         }else{
-            powerOn.source = "../images/power_off.png"
+            subButton.visible = false
             shield.source = "../images/shield.png"
             runningText.text = "Not running"
             subButtonText.text = "Connect"
@@ -537,7 +538,7 @@ Rectangle {
 
           StandardDialog {
               id: connectPopup
-              cancelVisible: true
+              cancelVisible: false
               okVisible: true
               width:400
               height: 420
@@ -944,7 +945,7 @@ Rectangle {
 
 
           StandardButton {
-              visible: !isMobile
+              visible: false
               id: subButton
               anchors.bottom: parent.bottom
               anchors.right: parent.right
@@ -955,9 +956,10 @@ Rectangle {
               shadowPressedColor: "#B32D00"
               releasedColor: "#813CFF"
               pressedColor: "#983CFF"
-              onClicked:{
-                  changeStatus(powerOn.source)
 
+              onClicked:{
+                  flag = 0
+                  changeStatus()
                   connectPopup.title = "Provider Feedback";
                   connectPopup.open();
 
@@ -971,7 +973,7 @@ Rectangle {
                   anchors.leftMargin: 37
                   color: "#ffffff"
                   font.bold: true
-                  text: if(feedback.length != 36){qsTr("Connect") + translationManager.emptyString}else{qsTr("Disconnect") + translationManager.emptyString}
+                  text: qsTr("Disconnect") + translationManager.emptyString
 
               }
 
@@ -983,7 +985,6 @@ Rectangle {
                   anchors.leftMargin: 10
                   width: 25; height: 25
                   fillMode: Image.PreserveAspectFit
-                  source: if(feedback.length != 36){"../images/power_off.png"}else{"../images/power_on.png"}
               }
           }
         }
@@ -1260,8 +1261,10 @@ Rectangle {
     }
 
     function onPageCompleted() {
+        console.log(flag)
         getColor(rank, rankRectangle)
         getMyFeedJson()
+        changeStatus()
         if(providerName != ""){
             howToUseText.visible = false
             orText.visible = false
@@ -1295,7 +1298,6 @@ Rectangle {
             lastCostIntenseText.visible = true
             lastSpeedLabel.visible = true
             lastSpeedText.visible = true
-            subButton.visible = true
 
         }else{
             howToUseText.visible = true
@@ -1330,11 +1332,6 @@ Rectangle {
             lastCostIntenseText.visible = false
             lastSpeedLabel.visible = false
             lastSpeedText.visible = false
-            subButton.visible = false
-        }
-
-        if(bton == "qrc:///images/power_off.png"){
-            changeStatus("qrc:///images/power_off.png")
         }
     }
 }
