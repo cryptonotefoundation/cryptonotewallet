@@ -19,9 +19,9 @@ Rectangle {
     property string providerName
     property string name
     property string type
-    property int cost
+    property string cost
     property int firstPrePaidMinutes
-    property int subsequentPrePaidMinutes
+    property string subsequentPrePaidMinutes
     property string speed
     property string feedback
     property string bton
@@ -498,7 +498,7 @@ Rectangle {
                 anchors.topMargin: 21
                 anchors.leftMargin: 90
                 width: 70
-                text: cost
+                text: cost + " ITNS"
                 font.pixelSize: 12
                 horizontalAlignment: Text.AlignLeft
                 color: "#535353"
@@ -528,7 +528,7 @@ Rectangle {
                 anchors.topMargin: 21
                 anchors.leftMargin: 90
                 width: 70
-                text: qsTr(speed) + translationManager.emptyString
+                text: qsTr(speed)+"/s"
                 font.pixelSize: 12
                 horizontalAlignment: Text.AlignLeft
                 color: "#535353"
@@ -1196,7 +1196,7 @@ Rectangle {
               anchors.topMargin: 27
               anchors.leftMargin: 27
               width: 90
-              text: qsTr("Cost:") + translationManager.emptyString
+              text: qsTr("Price:") + translationManager.emptyString
               font.pixelSize: 14
               horizontalAlignment: Text.AlignRight
           }
@@ -1210,7 +1210,7 @@ Rectangle {
               anchors.topMargin: 27
               anchors.leftMargin: 147
               width: 140
-              text: cost
+              text: cost + (" ITNS")
               font.pixelSize: 14
               horizontalAlignment: Text.AlignRight
           }
