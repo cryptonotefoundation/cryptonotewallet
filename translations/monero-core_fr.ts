@@ -1476,9 +1476,9 @@ Taille du cercle : </translation>
     </message>
     <message>
         <location filename="../pages/Transfer.qml" line="719"/>
-        <source>Connected daemon is not compatible with GUI. 
+        <source>Connected daemon is not compatible with GUI.
 Please upgrade or connect to another daemon</source>
-        <translation>Le démon connecté n&apos;est pas compatible avec l&apos;interface graphique. 
+        <translation>Le démon connecté n&apos;est pas compatible avec l&apos;interface graphique.
 Veuillez mettre à jour ou vous connecter à un autre démon</translation>
     </message>
     <message>
@@ -1739,7 +1739,7 @@ Veuillez mettre à jour ou vous connecter à un autre démon</translation>
     <message>
         <location filename="../wizard/WizardMain.qml" line="366"/>
         <source>USE INTENSECOIN</source>
-        <translation>UTILISER MONERO</translation>
+        <translation>UTILISER INTENSECOIN</translation>
     </message>
     <message>
         <location filename="../wizard/WizardMain.qml" line="383"/>
@@ -1753,9 +1753,9 @@ Veuillez mettre à jour ou vous connecter à un autre démon</translation>
     </message>
     <message>
         <location filename="../wizard/WizardMain.qml" line="394"/>
-        <source>The view only wallet has been created. You can open it by closing this current wallet, clicking the &quot;Open wallet from file&quot; option, and selecting the view wallet in: 
+        <source>The view only wallet has been created. You can open it by closing this current wallet, clicking the &quot;Open wallet from file&quot; option, and selecting the view wallet in:
 %1</source>
-        <translation>Le portefeuille en vue seule a été créé. Vous pouvez l&apos;ouvrir en fermant le portefeuille actuel, puis en cliquant sur l&apos;option &quot;Ouvrir un fichier portefeuille&quot; et en sélectionnant le portefeuille en vue seule dans : 
+        <translation>Le portefeuille en vue seule a été créé. Vous pouvez l&apos;ouvrir en fermant le portefeuille actuel, puis en cliquant sur l&apos;option &quot;Ouvrir un fichier portefeuille&quot; et en sélectionnant le portefeuille en vue seule dans :
 %1</translation>
     </message>
     <message>

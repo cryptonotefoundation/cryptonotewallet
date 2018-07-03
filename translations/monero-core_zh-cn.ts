@@ -1476,7 +1476,7 @@ Ringsize: </source>
     </message>
     <message>
         <location filename="../pages/Transfer.qml" line="719"/>
-        <source>Connected daemon is not compatible with GUI. 
+        <source>Connected daemon is not compatible with GUI.
 Please upgrade or connect to another daemon</source>
         <translation>已连接的区块同步程序与此GUI钱包不兼容
 请升级区块同步程序或是连接至另一个区块同步程序</translation>
@@ -1739,7 +1739,7 @@ Please upgrade or connect to another daemon</source>
     <message>
         <location filename="../wizard/WizardMain.qml" line="366"/>
         <source>USE INTENSECOIN</source>
-        <translation>使用 MONERO</translation>
+        <translation>使用 INTENSECOIN</translation>
     </message>
     <message>
         <location filename="../wizard/WizardMain.qml" line="383"/>
@@ -1753,9 +1753,9 @@ Please upgrade or connect to another daemon</source>
     </message>
     <message>
         <location filename="../wizard/WizardMain.qml" line="394"/>
-        <source>The view only wallet has been created. You can open it by closing this current wallet, clicking the &quot;Open wallet from file&quot; option, and selecting the view wallet in: 
+        <source>The view only wallet has been created. You can open it by closing this current wallet, clicking the &quot;Open wallet from file&quot; option, and selecting the view wallet in:
 %1</source>
-        <translation>只读钱包已被创建，您可以在关闭此钱包后使用&quot;以文件打开钱包&quot;的选项，并选择以下的文件: 
+        <translation>只读钱包已被创建，您可以在关闭此钱包后使用&quot;以文件打开钱包&quot;的选项，并选择以下的文件:
 %1</translation>
     </message>
     <message>
