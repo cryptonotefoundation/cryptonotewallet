@@ -178,12 +178,19 @@ Rectangle {
                      return unescape(output);
                   }
 
-
+                var endpoint = ''
+                var port = ''
+                if(obj.proxy.length > 0){
+                    endpoint = obj.proxy[0].endpoint
+                    port = obj.proxy[0].port
+                }else{
+                    endpoint = obj.vpn[0].endpoint
+                    port = obj.vpn[0].port
+                }
 
                 var certArray = decode64(obj.certArray[0].certContent); // "4pyTIMOgIGxhIG1vZGU="
-                console.log(certArray)
                 callhaproxy.haproxyCert(host, certArray);
-                callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort)
+                callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4))
                 intenseDashboardView.idService = obj.id
                 intenseDashboardView.feedback = feed.id
                 intenseDashboardView.providerName = obj.providerName
@@ -228,9 +235,9 @@ Rectangle {
                         arr[i].mSpeed = 0
                     }
                     if(arr[i].type == "proxy"){
-                        var type = arr[i].proxy
+                        var type = arr[i].proxy[0].endpoint +":"+arr[i].proxy[0].port
                     }else{
-                        var type = arr[i].vpn
+                        var type = arr[i].vpn[0].endpoint +":"+arr[i].vpn[0].port
                     }
 
                     var rank = (arr[i].mStability + arr[i].mSpeed)/2

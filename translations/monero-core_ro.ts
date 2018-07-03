@@ -1476,9 +1476,9 @@ Ringsize: </translation>
     </message>
     <message>
         <location filename="../pages/Transfer.qml" line="719"/>
-        <source>Connected daemon is not compatible with GUI. 
+        <source>Connected daemon is not compatible with GUI.
 Please upgrade or connect to another daemon</source>
-        <translation>Servicul conectat nu este compatibil cu interfața grafică. 
+        <translation>Servicul conectat nu este compatibil cu interfața grafică.
 Actualizează sau conectează-te la un alt serviciu</translation>
     </message>
     <message>
@@ -1739,7 +1739,7 @@ Actualizează sau conectează-te la un alt serviciu</translation>
     <message>
         <location filename="../wizard/WizardMain.qml" line="366"/>
         <source>USE INTENSECOIN</source>
-        <translation>FOLOSEȘTE MONERO</translation>
+        <translation>FOLOSEȘTE INTENSECOIN</translation>
     </message>
     <message>
         <location filename="../wizard/WizardMain.qml" line="383"/>
@@ -1753,9 +1753,9 @@ Actualizează sau conectează-te la un alt serviciu</translation>
     </message>
     <message>
         <location filename="../wizard/WizardMain.qml" line="394"/>
-        <source>The view only wallet has been created. You can open it by closing this current wallet, clicking the &quot;Open wallet from file&quot; option, and selecting the view wallet in: 
+        <source>The view only wallet has been created. You can open it by closing this current wallet, clicking the &quot;Open wallet from file&quot; option, and selecting the view wallet in:
 %1</source>
-        <translation type="unfinished">Portofelul doar pentru citire a fost creat. Poți să-l accesezi închizând portofelul curent, apăsând pe opțiunea &quot;Deschide portofel din fișier&quot; și alegând portofelul doar pentru citire din: 
+        <translation type="unfinished">Portofelul doar pentru citire a fost creat. Poți să-l accesezi închizând portofelul curent, apăsând pe opțiunea &quot;Deschide portofel din fișier&quot; și alegând portofelul doar pentru citire din:
 %1</translation>
     </message>
     <message>
