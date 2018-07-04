@@ -143,5 +143,17 @@
         <file>components/Notifier.qml</file>
         <file>components/MobileHeader.qml</file>
         <file>components/TextBlock.qml</file>
+        <file>pages/Intense.qml</file>
+        <file>components/IntenseTable.qml</file>
+        <file>components/IntenseHeader.qml</file>
+        <file>images/star.png</file>
+        <file>images/unstar.png</file>
+        <file>pages/IntenseDashboard.qml</file>
+        <file>images/shield_vpn_on.png</file>
+        <file>images/shield_proxy_on.png</file>
+        <file>images/power_off.png</file>
+        <file>images/shield.png</file>
+        <file>images/power_on.png</file>
+        <file>IntenseConfig.js</file>
     </qresource>
 </RCC>

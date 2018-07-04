@@ -892,6 +892,7 @@ ApplicationWindow {
         property string daemonPassword: ""
         property bool transferShowAdvanced: false
         property string blockchainDataDir: ""
+        property variant favorite
     }
 
     // Information dialog
@@ -1061,6 +1062,11 @@ ApplicationWindow {
             anchors.bottom: parent.bottom
             onDashboardClicked: {middlePanel.state = "Dashboard"; if(isMobile) hideMenu()}
             onTransferClicked: {middlePanel.state = "Transfer"; if(isMobile) hideMenu()}
+
+            //onIntenseClicked: {middlePanel.state = "Intense"; if(isMobile) hideMenu()}
+            onIntenseDashboardClicked: {middlePanel.state = "ITNS Dashboard"; if(isMobile) hideMenu()}
+            onIntenseProviderClicked: {middlePanel.state = "ITNS Provider"; if(isMobile) hideMenu()}
+
             onReceiveClicked: {middlePanel.state = "Receive"; if(isMobile) hideMenu()}
             onTxkeyClicked: {middlePanel.state = "TxKey"; if(isMobile) hideMenu()}
             onHistoryClicked: {middlePanel.state = "History"; if(isMobile) hideMenu()}
