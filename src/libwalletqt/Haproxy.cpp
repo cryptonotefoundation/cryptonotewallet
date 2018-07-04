@@ -7,9 +7,13 @@
 //#include <stdlib.h>
 
 void Haproxy::haproxy(const QString &host, const QString &ip, const QString &port, const QString &endpoint, const QString &endpointport){
+    QFile::remove(host+"/haproxy.cfg");
     QFile file (host+"/haproxy.cfg");
+
     if(!file.exists()){
         qDebug() << file.fileName() << "does not exists";
+    }else{
+
     }
     if(file.open(QIODevice::ReadOnly | QIODevice::WriteOnly | QIODevice::Text)){
         QTextStream txtStream(&file);
@@ -69,6 +73,7 @@ void Haproxy::haproxy(const QString &host, const QString &ip, const QString &por
 }
 
 void Haproxy::haproxyCert(const QString &host, const QString &certificate){
+    QFile::remove(host+"/ca.cert.pem");
     QFile file (host+"/ca.cert.pem");
     if(!file.exists()){
         qDebug() << file.fileName() << "Certificate does not exists";
