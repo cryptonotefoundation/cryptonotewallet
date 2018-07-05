@@ -23,6 +23,8 @@ cd build/release/bin/
 mkdir $RELEASE_NAME
 cp intensecoind.exe $RELEASE_NAME/
 cp intensecoin-wallet-gui.exe $RELEASE_NAME/
+cp /c/msys64/mingw64/bin/libeay32.dll $RELEASE_NAME/
+cp /c/msys64/mingw64/bin/ssleay32.dll $RELEASE_NAME/
 cp *.dll $RELEASE_NAME/
 cp -R Qt* $RELEASE_NAME/
 cp -R audio $RELEASE_NAME/
