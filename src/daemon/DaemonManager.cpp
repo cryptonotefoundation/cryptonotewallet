@@ -249,7 +249,6 @@ void DaemonManager::exit()
 {
     qDebug("DaemonManager: exit()");
     m_app_exit = true;
-    callhaproxy.killHAproxy();
 }
 
 QVariantMap DaemonManager::validateDataDir(const QString &dataDir) const
