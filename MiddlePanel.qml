@@ -170,8 +170,7 @@ Rectangle {
                 name: "ITNS Provider"
                 PropertyChanges { target: root; currentView: intenseView }
                 PropertyChanges { target: mainFlickable; contentHeight: minHeight }
-             }
-
+            }
         ]
 
     // color stripe at the top

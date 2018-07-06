@@ -30,7 +30,7 @@ if [ -z "$QTXML_DIR" ]; then
 fi
 
 # Copy dependencies
-EXCLUDE='libstdc++|libgcc_s.so|libc.so|libpthread|libdl.so|libm.so|libGL.so'
+EXCLUDE='libstdc++|libgcc_s.so|libc.so|libpthread|libdl.so|libm.so|libGL.so|libGLX.so|libGLdispatch.so|libEGL.so|libdrm.so|libresolv.so'
 INCLUDE='libunbound'
 cp -rv $QT_DIR/qml $TARGET || exit
 cp -rv $QT_DIR/plugins $TARGET || exit

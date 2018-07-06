@@ -222,6 +222,7 @@ ApplicationWindow {
     }
     function closeWallet() {
 
+
         // Disconnect all listeners
         if (typeof currentWallet !== "undefined" && currentWallet !== null) {
             currentWallet.refreshed.disconnect(onWalletRefresh)
@@ -235,6 +236,7 @@ ApplicationWindow {
             middlePanel.paymentClicked.disconnect(handlePayment);
             middlePanel.sweepUnmixableClicked.disconnect(handleSweepUnmixable);
             middlePanel.checkPaymentClicked.disconnect(handleCheckPayment);
+
         }
         currentWallet = undefined;
         if (isIOS) {

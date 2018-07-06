@@ -339,7 +339,7 @@ Rectangle {
                   font.pixelSize: 13
                   anchors.horizontalCenter: parent.horizontalCenter
                   anchors.verticalCenter: parent.verticalCenter
-                  color: "#ffffff"
+                  color: "#000000"
                   font.family: "Arial"
                   font.bold: true
               }
@@ -377,7 +377,7 @@ Rectangle {
                   font.pixelSize: 13
                   anchors.horizontalCenter: parent.horizontalCenter
                   anchors.verticalCenter: parent.verticalCenter
-                  color: "#ffffff"
+                  color: "#000000"
                   font.family: "Arial"
                   font.bold: true
               }
