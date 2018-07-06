@@ -143,7 +143,10 @@
         <file>components/MobileHeader.qml</file>
         <file>components/TextBlock.qml</file>
         <file>pages/Intense.qml</file>
+<<<<<<< HEAD
         <file>lang/flags/south_korea.png</file>
+=======
+>>>>>>> origin/proxy-release-stage
         <file>components/IntenseTable.qml</file>
         <file>components/IntenseHeader.qml</file>
         <file>images/star.png</file>
