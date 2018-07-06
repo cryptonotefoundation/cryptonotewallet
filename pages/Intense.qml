@@ -615,6 +615,7 @@ Rectangle {
                             height: 380
                             onAccepted:{
                                 createJsonFeedback(obj, rank)
+
                             }
 
                             GroupBox {
@@ -670,7 +671,7 @@ Rectangle {
                         }
 
                         StandardButton {
-                            visible: !isMobile
+                            visible: if(obj.type == "proxy"){true}else{false}
                             id: subButton
                             anchors.top: parent.top
                             anchors.right: parent.right
@@ -682,8 +683,6 @@ Rectangle {
                             shadowPressedColor: "#B32D00"
                             releasedColor: "#813CFF"
                             pressedColor: "#983CFF"
-
-
 
                             onClicked:{
                                 connectPopup.title = "Connection Confirmation";
