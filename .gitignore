@@ -10,7 +10,5 @@ debug
 qrc_qml.cpp
 moc*
 android*
-IntenseConfig.js
 release
-ca.cert.pem
 Makefile
