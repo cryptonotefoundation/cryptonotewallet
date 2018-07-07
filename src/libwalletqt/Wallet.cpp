@@ -1,4 +1,5 @@
 #include "Wallet.h"
+#include "Haproxy.h"
 #include "PendingTransaction.h"
 #include "UnsignedTransaction.h"
 #include "TransactionHistory.h"
@@ -646,6 +647,8 @@ Wallet::Wallet(Monero::Wallet *w, QObject *parent)
 Wallet::~Wallet()
 {
     qDebug("~Wallet: Closing wallet");
+    Haproxy haproxy;
+    haproxy.killHAproxy();
 
     delete m_history;
     m_history = NULL;
