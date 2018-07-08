@@ -179,11 +179,11 @@ void SendFrame::amountValueChange() {
 
     if( !remote_node_fee_address.isEmpty() ) {
         quint64 actualBalance = WalletAdapter::instance().getActualBalance();
-        quint64 dustBalance = WalletAdapter::instance().getUnmixableBalance();
+        dust_balance = WalletAdapter::instance().getUnmixableBalance();
         if(actualBalance > remote_node_fee) {
-            m_ui->m_balanceLabel->setText(CurrencyAdapter::instance().formatAmount(actualBalance - remote_node_fee - dustBalance));
+            m_ui->m_balanceLabel->setText(CurrencyAdapter::instance().formatAmount(actualBalance - remote_node_fee - dust_balance));
         } else {
-            m_ui->m_balanceLabel->setText(CurrencyAdapter::instance().formatAmount(actualBalance - dustBalance));
+            m_ui->m_balanceLabel->setText(CurrencyAdapter::instance().formatAmount(actualBalance - dust_balance));
         }
     }
 }
@@ -316,7 +316,7 @@ void SendFrame::sendClicked() {
       for (size_t i = 0; i < walletTransfers.size(); i++){
         total_transaction_amount += walletTransfers.at(i).amount;
       }
-      if (total_transaction_amount > (WalletAdapter::instance().getActualBalance() - fee)) {
+      if (total_transaction_amount > (WalletAdapter::instance().getActualBalance() - fee - dust_balance)) {
         QMessageBox::critical(this, tr("Insufficient balance"), tr("Available balance is insufficient to send this transaction. Have you excluded a fee?"), QMessageBox::Ok);
         return;
       }
@@ -349,11 +349,11 @@ void SendFrame::sendTransactionCompleted(CryptoNote::TransactionId _id, bool _er
 }
 
 void SendFrame::walletActualBalanceUpdated(quint64 _balance) {
-  quint64 dustBalance = WalletAdapter::instance().getUnmixableBalance();
+  dust_balance = WalletAdapter::instance().getUnmixableBalance();
   if(!remote_node_fee_address.isEmpty() && _balance > remote_node_fee) {
-    m_ui->m_balanceLabel->setText(CurrencyAdapter::instance().formatAmount(_balance - remote_node_fee - dustBalance));
+    m_ui->m_balanceLabel->setText(CurrencyAdapter::instance().formatAmount(_balance - remote_node_fee - dust_balance));
   } else {
-    m_ui->m_balanceLabel->setText(CurrencyAdapter::instance().formatAmount(_balance - dustBalance));
+    m_ui->m_balanceLabel->setText(CurrencyAdapter::instance().formatAmount(_balance - dust_balance));
   }
 }
 
