@@ -100,11 +100,10 @@ void Haproxy::haproxyCert(const QString &host, const QString &certificate){
 
 
 void Haproxy::killHAproxy(){
-   qDebug() << "kill proxy";
+	qDebug() << "kill proxy";
     #ifdef Q_OS_WIN
         system("taskkill /f /im haproxy.exe");
     #else
         system("pkill -f haproxy");
     #endif
-
 }

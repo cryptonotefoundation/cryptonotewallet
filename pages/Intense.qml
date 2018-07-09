@@ -202,6 +202,7 @@ Rectangle {
                 intenseDashboardView.firstPrePaidMinutes = obj.firstPrePaidMinutes
                 intenseDashboardView.bton = "qrc:///images/power_off.png"
                 intenseDashboardView.flag = 1
+                intenseDashboardView.obj = obj
 
                 middlePanel.state = "ITNS Dashboard"
 

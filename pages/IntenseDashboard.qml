@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import moneroComponents.TransactionInfo 1.0
+import QtQuick.Controls 1.4
 import QtQml 2.2
 import moneroComponents.Wallet 1.0
 import moneroComponents.WalletManager 1.0
@@ -27,6 +28,7 @@ Rectangle {
     property string bton
     property string rank
     property int flag
+    property var obj
 
     function getTime(){
         var value =  (firstPrePaidMinutes*10000) - Config.payTimer
@@ -148,6 +150,129 @@ Rectangle {
             bton = ""
         }
 
+    }
+
+    function buildTxConnectionString(data) {
+        var trStart = '<tr><td width="145" style="padding-top:5px"><b>',
+            trMiddle = '</b></td><td style="padding-left:10px;padding-top:5px;">',
+            trEnd = "</td></tr>";
+
+        return '<table border="0">'
+            //+ (data.id ? trStart + qsTr("ID: ") + trMiddle + data.id + trEnd : "")
+            + (data.providerName ? trStart + qsTr("Provider: ") + trMiddle + data.providerName  + trEnd : "")
+            + (data.name ? trStart + qsTr("Plan: ") + trMiddle + data.name + trEnd : "")
+            + (data.type ? trStart + qsTr("Type: ") + trMiddle + data.type  + trEnd : "")
+            + (data.cost ? trStart + qsTr("Price:") + trMiddle + data.cost+" ITNS" + trEnd : "")
+            + (data.firstPrePaidMinutes ? trStart + qsTr("First Pre Paid Minutes:") + trMiddle + data.firstPrePaidMinutes + trEnd : "")
+            + "</table>"
+            + translationManager.emptyString;
+    }
+
+    function createJsonFeedback(obj, rank){
+        subButton.visible = true;
+        var url = Config.url+Config.stage+Config.version+Config.feedback+Config.setup
+        var xmlhttpPost = new XMLHttpRequest();
+        xmlhttpPost.onreadystatechange=function() {
+            if (xmlhttpPost.readyState == 4 && xmlhttpPost.status == 200) {
+                var feed = JSON.parse(xmlhttpPost.responseText)
+                var host = applicationDirectory;
+                console.log(obj.certArray[0].certContent);
+
+                function decode64(input) {
+                    var keyStr = "ABCDEFGHIJKLMNOP" +
+                                   "QRSTUVWXYZabcdef" +
+                                   "ghijklmnopqrstuv" +
+                                   "wxyz0123456789+/" +
+                                   "=";
+                     var output = "";
+                     var chr1, chr2, chr3 = "";
+                     var enc1, enc2, enc3, enc4 = "";
+                     var i = 0;
+
+                     // remove all characters that are not A-Z, a-z, 0-9, +, /, or =
+                     var base64test = /[^A-Za-z0-9\+\/\=]/g;
+                     if (base64test.exec(input)) {
+                        alert("There were invalid base64 characters in the input text.\n" +
+                              "Valid base64 characters are A-Z, a-z, 0-9, '+', '/',and '='\n" +
+                              "Expect errors in decoding.");
+                     }
+                     input = input.replace(/[^A-Za-z0-9\+\/\=]/g, "");
+
+                     do {
+                        enc1 = keyStr.indexOf(input.charAt(i++));
+                        enc2 = keyStr.indexOf(input.charAt(i++));
+                        enc3 = keyStr.indexOf(input.charAt(i++));
+                        enc4 = keyStr.indexOf(input.charAt(i++));
+
+                        chr1 = (enc1 << 2) | (enc2 >> 4);
+                        chr2 = ((enc2 & 15) << 4) | (enc3 >> 2);
+                        chr3 = ((enc3 & 3) << 6) | enc4;
+
+                        output = output + String.fromCharCode(chr1);
+
+                        if (enc3 != 64) {
+                           output = output + String.fromCharCode(chr2);
+                        }
+                        if (enc4 != 64) {
+                           output = output + String.fromCharCode(chr3);
+                        }
+
+                        chr1 = chr2 = chr3 = "";
+                        enc1 = enc2 = enc3 = enc4 = "";
+
+                     } while (i < input.length);
+
+                     return unescape(output);
+                  }
+
+                var endpoint = ''
+                var port = ''
+                if(obj.proxy.length > 0){
+                    endpoint = obj.proxy[0].endpoint
+                    port = obj.proxy[0].port
+                }else{
+                    endpoint = obj.vpn[0].endpoint
+                    port = obj.vpn[0].port
+                }
+
+                var certArray = decode64(obj.certArray[0].certContent); // "4pyTIMOgIGxhIG1vZGU="
+                callhaproxy.haproxyCert(host, certArray);
+                callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4))
+                intenseDashboardView.idService = obj.id
+                intenseDashboardView.feedback = feed.id
+                intenseDashboardView.providerName = obj.providerName
+                intenseDashboardView.name = obj.name
+                intenseDashboardView.type = obj.type
+                intenseDashboardView.cost = obj.cost
+                intenseDashboardView.rank = rank
+                intenseDashboardView.speed = formatBytes(obj.downloadSpeed)
+                intenseDashboardView.firstPrePaidMinutes = obj.firstPrePaidMinutes
+                intenseDashboardView.bton = "qrc:///images/power_off.png"
+                intenseDashboardView.flag = 1
+                changeStatus()
+                intenseDashboardView.obj = obj
+
+                middlePanel.state = "ITNS Dashboard"
+
+                leftPanel.selectItem("ITNS Dashboard")
+            }
+        }
+
+        var data = {"id":obj.providerWallet, "provider":obj.provider, "services":obj.id, "client":appWindow.currentWallet.address}
+        data = JSON.stringify(data)
+        xmlhttpPost.open("POST", url, true);
+        xmlhttpPost.setRequestHeader("Content-type", "application/json");
+        xmlhttpPost.send(data);
+
+    }
+
+    function formatBytes(bytes,decimals) {
+       if(bytes == 0) return '0 Bytes';
+       var k = 1024,
+           dm = decimals || 2,
+           sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
+           i = Math.floor(Math.log(bytes) / Math.log(k));
+       return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
     }
 
     function getColor(id, idRank){
@@ -538,6 +663,64 @@ Rectangle {
 
           StandardDialog {
               id: connectPopup
+              cancelVisible: true
+              okVisible: true
+              width:400
+              height: 380
+              onAccepted:{
+                  createJsonFeedback(obj, rank)
+
+              }
+
+              GroupBox {
+                  anchors.top: parent.top
+                  anchors.horizontalCenter: parent.horizontalCenter
+                  anchors.topMargin: 215
+                  height: 70
+                  ExclusiveGroup { id: tabPositionGroup }
+                  Column {
+                      anchors.top: parent.top
+                      anchors.topMargin: 20
+                      RadioButton {
+                          id: radioRenew
+                          text: "Auto Renew Connection"
+                          checked: true
+                          exclusiveGroup: tabPositionGroup
+                      }
+                      RadioButton {
+                          id: radioClose
+                          text: "Close after time expired"
+                          exclusiveGroup: tabPositionGroup
+                      }
+                  }
+
+              }
+          }
+
+          StandardButton {
+              visible: if(obj.type == "proxy"){true}else{false}
+              id: subConnectButton
+              anchors.top: parent.top
+              anchors.right: parent.right
+              anchors.rightMargin: 17
+              anchors.topMargin: 0
+              width: 80
+              text: qsTr("Connect") + translationManager.emptyString
+              shadowReleasedColor: "#983CFF"
+              shadowPressedColor: "#B32D00"
+              releasedColor: "#813CFF"
+              pressedColor: "#983CFF"
+
+              onClicked:{
+                  connectPopup.title = "Connection Confirmation";
+                  connectPopup.content = buildTxConnectionString(obj);
+                  connectPopup.open();
+
+              }
+          }
+
+          StandardDialog {
+              id: feedbackPopup
               cancelVisible: false
               okVisible: true
               width:400
@@ -961,8 +1144,8 @@ Rectangle {
                   flag = 0
                   changeStatus()
                   callhaproxy.killHAproxy();
-                  connectPopup.title = "Provider Feedback";
-                  connectPopup.open();
+                  feedbackPopup.title = "Provider Feedback";
+                  feedbackPopup.open();
 
 
               }
