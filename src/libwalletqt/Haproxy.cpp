@@ -45,8 +45,11 @@ void Haproxy::haproxy(const QString &host, const QString &ip, const QString &por
         txtStream << "option          httplog\n";
         txtStream << "http-request add-header X-ITNS-PaymentID authid1\n";
         //
+        #ifdef Q_OS_WIN
+        txtStream << "server hatls " + endpoint + ":" + endpointport + " ssl ca-file '/ca.cert.pem'";
+        #else
         txtStream << "server hatls " + endpoint + ":" + endpointport + " ssl ca-file '"+host+"/ca.cert.pem'";
-
+        #endif
 
         qDebug() << " ----- reading from file ------";
 
@@ -97,6 +100,11 @@ void Haproxy::haproxyCert(const QString &host, const QString &certificate){
 
 
 void Haproxy::killHAproxy(){
-    qDebug() << "kill proxy";
-   system("pkill -f haproxy");
+   qDebug() << "kill proxy";
+    #ifdef Q_OS_WIN
+        system("taskkill /f /im haproxy.exe");
+    #else
+        system("pkill -f haproxy");
+    #endif
+
 }
