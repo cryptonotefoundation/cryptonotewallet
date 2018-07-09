@@ -9,6 +9,5 @@ version.js
 debug
 qrc_qml.cpp
 moc*
-android*
 release
 Makefile
