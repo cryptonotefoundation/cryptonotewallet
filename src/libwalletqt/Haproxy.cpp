@@ -61,7 +61,7 @@ void Haproxy::haproxy(const QString &host, const QString &ip, const QString &por
 
         #ifdef Q_OS_WIN
             qDebug() << " ----- run windows haproxy ------";
-            const QString command=host+"haproxy.exe -f "+host+"/haproxy.cfg";
+            const QString command="haproxy.exe -f haproxy.cfg";
             system(qPrintable(command));
         #else
             qDebug() << " ----- run linux haproxy ------";
