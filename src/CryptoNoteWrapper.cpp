@@ -199,6 +199,10 @@ public:
     return m_node.getPeerCount();
   }
 
+  uint64_t getMinimalFee() {
+    return m_node.getMinimalFee();
+  }
+
   uint64_t getDifficulty() {
     try {
         CryptoNote::COMMAND_RPC_GET_INFO::request req;
@@ -553,6 +557,10 @@ public:
 
   uint64_t getGreyPeerlistSize() {
     return m_nodeServer.getPeerlistManager().get_gray_peers_count();
+  }
+
+  uint64_t getMinimalFee() {
+    return m_core.getMinimalFee();
   }
 
   CryptoNote::IWalletLegacy* createWallet() override {

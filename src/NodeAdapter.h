@@ -52,6 +52,7 @@ public:
   quint64 getIncomingConnectionsCount();
   quint64 getWhitePeerlistSize();
   quint64 getGreyPeerlistSize();
+  quint64 getMinimalFee() const;
   void peerCountUpdated(Node& _node, size_t _count) Q_DECL_OVERRIDE;
   void localBlockchainUpdated(Node& _node, uint64_t _height) Q_DECL_OVERRIDE;
   void lastKnownBlockHeightUpdated(Node& _node, uint64_t _height) Q_DECL_OVERRIDE;
