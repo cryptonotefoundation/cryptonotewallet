@@ -189,14 +189,14 @@ win32 {
 
     LIBS+= \
         -Wl,-Bstatic \
-        -lboost_serialization-mt-s \
-        -lboost_thread-mt-s \
-        -lboost_system-mt-s \
-        -lboost_date_time-mt-s \
-        -lboost_filesystem-mt-s \
-        -lboost_regex-mt-s \
-        -lboost_chrono-mt-s \
-        -lboost_program_options-mt-s \
+        -lboost_serialization-mt \
+        -lboost_thread-mt \
+        -lboost_system-mt \
+        -lboost_date_time-mt \
+        -lboost_filesystem-mt \
+        -lboost_regex-mt \
+        -lboost_chrono-mt \
+        -lboost_program_options-mt \
         -lssl \
         -lcrypto \
         -Wl,-Bdynamic \
@@ -391,9 +391,9 @@ macx {
 win32 {
     deploy.commands += windeployqt $$sprintf("%1/%2/%3.exe", $$OUT_PWD, $$DESTDIR, $$TARGET) -release -qmldir=$$PWD
     # Win64 msys2 deploy settings
-    contains(QMAKE_HOST.arch, x86_64) {
+    #contains(QMAKE_HOST.arch, x86_64) {
         deploy.commands += $$escape_expand(\n\t) $$PWD/windeploy_helper.sh $$DESTDIR
-    }
+    #}
 }
 
 linux:!android {
