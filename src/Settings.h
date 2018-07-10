@@ -40,19 +40,16 @@ public:
   QStringList getRecentWalletsList() const;
   QString getAddressBookFile() const;
   QString getVersion() const;
-  QStringList getMiningPoolList() const;
   QString getLanguage() const;
   QString getConnection() const;
   QStringList getRpcNodesList() const;
   quint16 getCurrentLocalDaemonPort() const;
   QString getCurrentRemoteNode() const;
   QString getCurrentPool() const;
-  quint16 getMiningThreads() const;
   QString getCurrentTheme() const;
 
   bool isEncrypted() const;
   bool isStartOnLoginEnabled() const;
-  bool isMiningOnLaunchEnabled() const;
   bool isTrackingMode() const;
 
 #ifdef Q_OS_WIN
@@ -66,14 +63,10 @@ public:
   void setCurrentTheme(const QString& _theme);
   void setLanguage(const QString& _language);
   void setStartOnLoginEnabled(bool _enable);
-  void setMiningOnLaunchEnabled(bool _enable);
-  void setMiningPoolList(const QStringList& _miningPoolList);
   void setConnection(const QString& _connection);
   void setCurrentLocalDaemonPort(const quint16& _daemonPort);
   void setCurrentRemoteNode(const QString& _remoteNode);
   void setRpcNodesList(const QStringList& _RpcNodesList);
-  void setCurrentPool(const QString& _pool);
-  void setMiningThreads(const quint16& _threads);
 #ifdef Q_OS_WIN
   void setMinimizeToTrayEnabled(bool _enable);
   void setCloseToTrayEnabled(bool _enable);

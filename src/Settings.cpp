@@ -20,7 +20,6 @@ namespace WalletGui {
 
 Q_DECL_CONSTEXPR char OPTION_WALLET_FILE[] = "walletFile";
 Q_DECL_CONSTEXPR char OPTION_ENCRYPTED[] = "encrypted";
-Q_DECL_CONSTEXPR char OPTION_MINING_POOLS[] = "miningPools";
 Q_DECL_CONSTEXPR char OPTION_LANGUAGE[] = "Language";
 Q_DECL_CONSTEXPR char OPTION_CONNECTION[] = "connectionMode";
 Q_DECL_CONSTEXPR char OPTION_RPCNODES[] = "remoteNodes";
@@ -87,20 +86,6 @@ void Settings::load() {
 
   if (!m_settings.contains("tracking")) {
        m_settings.insert("tracking", false);
-  }
-
-  QStringList defaultPoolList;
-  defaultPoolList << "pool.karbowanec.com:3333" << "pool2.democats.org:45570" << "krb.sberex.com:3333" << "mine.krb.mypool.online:32350";
-  if (!m_settings.contains(OPTION_MINING_POOLS)) {
-    setMiningPoolList(QStringList() << defaultPoolList);
-  } else {
-    QStringList poolList = getMiningPoolList();
-    Q_FOREACH (const QString& pool, defaultPoolList) {
-      if (!poolList.contains(pool)) {
-        poolList << pool;
-      }
-    }
-    setMiningPoolList(poolList);
   }
 
   QStringList defaultNodesList;
@@ -212,14 +197,6 @@ QString Settings::getVersion() const {
   return VERSION;
 }
 
-QStringList Settings::getMiningPoolList() const {
-  QStringList res;
-  if (m_settings.contains(OPTION_MINING_POOLS)) {
-    res << m_settings.value(OPTION_MINING_POOLS).toVariant().toStringList();
-  }
-  return res;
-}
-
 QString Settings::getCurrentTheme() const {
   return m_settings.contains(OPTION_WALLET_THEME) ? m_settings.value(OPTION_WALLET_THEME).toString() : "light";
 }
@@ -274,18 +251,6 @@ QString Settings::getCurrentPool() const {
     pool = m_settings.value(OPTION_CURRENT_POOL).toString();
   }
   return pool;
-}
-
-quint16 Settings::getMiningThreads() const {
-  if (m_settings.contains("miningThreads")) {
-    return m_settings.value("miningThreads").toVariant().toInt();
-  } else {
-    return 0;
-  }
-}
-
-bool Settings::isMiningOnLaunchEnabled() const {
-  return m_settings.contains("autostartMininig") ? m_settings.value("autostartMininig").toBool() : false;
 }
 
 bool Settings::isStartOnLoginEnabled() const {
@@ -392,13 +357,6 @@ void Settings::setTrackingMode(bool _tracking) {
   }
 }
 
-void Settings::setMiningOnLaunchEnabled(bool _automining) {
-  if (isMiningOnLaunchEnabled() != _automining) {
-    m_settings.insert("autostartMininig", _automining);
-    saveSettings();
-  }
-}
-
 void Settings::setCurrentTheme(const QString& _theme) {
 }
 
@@ -463,13 +421,6 @@ void Settings::setStartOnLoginEnabled(bool _enable) {
 #endif
 }
 
-void Settings::setMiningPoolList(const QStringList &_miningPoolList) {
-  if (getMiningPoolList() != _miningPoolList) {
-    m_settings.insert(OPTION_MINING_POOLS, QJsonArray::fromStringList(_miningPoolList));
-  }
-  saveSettings();
-}
-
 void Settings::setConnection(const QString& _connection) {
     m_settings.insert(OPTION_CONNECTION, _connection);
     saveSettings();
@@ -490,20 +441,6 @@ void Settings::setCurrentRemoteNode(const QString& _remoteNode) {
 void Settings::setRpcNodesList(const QStringList &_RpcNodesList) {
   if (getRpcNodesList() != _RpcNodesList) {
     m_settings.insert(OPTION_RPCNODES, QJsonArray::fromStringList(_RpcNodesList));
-  }
-  saveSettings();
-}
-
-void Settings::setCurrentPool(const QString& _pool) {
-  if (!_pool.isEmpty()) {
-    m_settings.insert(OPTION_CURRENT_POOL, _pool);
-  }
-  saveSettings();
-}
-
-void Settings::setMiningThreads(const quint16& _threads) {
-  if (_threads != 0) {
-    m_settings.insert("miningThreads", _threads);
   }
   saveSettings();
 }

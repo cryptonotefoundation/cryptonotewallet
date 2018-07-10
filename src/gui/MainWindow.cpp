@@ -157,14 +157,12 @@ void MainWindow::initUi() {
   m_ui->m_receiveFrame->hide();
   m_ui->m_transactionsFrame->hide();
   m_ui->m_addressBookFrame->hide();
-  m_ui->m_miningFrame->hide();
 
   m_tabActionGroup->addAction(m_ui->m_overviewAction);
   m_tabActionGroup->addAction(m_ui->m_sendAction);
   m_tabActionGroup->addAction(m_ui->m_receiveAction);
   m_tabActionGroup->addAction(m_ui->m_transactionsAction);
   m_tabActionGroup->addAction(m_ui->m_addressBookAction);
-  m_tabActionGroup->addAction(m_ui->m_miningAction);
 
   m_ui->m_overviewAction->toggle();
   encryptedFlagChanged(false);
@@ -189,7 +187,6 @@ void MainWindow::initUi() {
 
   m_ui->m_showMnemonicSeedAction->setEnabled(false);
 
-  m_ui->m_miningOnLaunchAction->setChecked(Settings::instance().isMiningOnLaunchEnabled());
   m_ui->m_startOnLoginAction->setChecked(Settings::instance().isStartOnLoginEnabled());
 
   m_ui->menuRecent_wallets->setVisible(false);
@@ -233,7 +230,6 @@ void MainWindow::scrollToTransaction(const QModelIndex& _index) {
 
 void MainWindow::quit() {
   if (!m_isAboutToQuit) {
-    //NodeAdapter::instance().stopSoloMining();
     ExitWidget* exitWidget = new ExitWidget(nullptr);
     exitWidget->show();
     m_isAboutToQuit = true;
@@ -840,11 +836,6 @@ void MainWindow::setStartOnLogin(bool _on) {
   m_ui->m_startOnLoginAction->setChecked(Settings::instance().isStartOnLoginEnabled());
 }
 
-void MainWindow::setMiningOnLaunch(bool _on) {
-  Settings::instance().setMiningOnLaunchEnabled(_on);
-  m_ui->m_miningOnLaunchAction->setChecked(Settings::instance().isMiningOnLaunchEnabled());
-}
-
 void MainWindow::setMinimizeToTray(bool _on) {
 #ifdef Q_OS_WIN
   Settings::instance().setMinimizeToTrayEnabled(_on);
@@ -978,7 +969,6 @@ void MainWindow::walletClosed() {
   m_ui->m_sendFrame->hide();
   m_ui->m_transactionsFrame->hide();
   m_ui->m_addressBookFrame->hide();
-  //m_ui->m_miningFrame->hide();
   m_ui->m_noWalletFrame->show();
   m_encryptionStateIconLabel->hide();
   m_trackingModeIconLabel->hide();
@@ -987,7 +977,6 @@ void MainWindow::walletClosed() {
   Q_FOREACH(auto action, tabActions) {
     action->setEnabled(false);
   }
-  m_ui->m_miningAction->setEnabled(true);
   Settings::instance().setTrackingMode(false);
   updateRecentActionList();
 }
@@ -1050,7 +1039,6 @@ void MainWindow::createTrayIconMenu()
     trayIconMenu->addAction(m_ui->m_receiveAction);
     trayIconMenu->addAction(m_ui->m_transactionsAction);
     trayIconMenu->addAction(m_ui->m_addressBookAction);
-    trayIconMenu->addAction(m_ui->m_miningAction);
     trayIconMenu->addSeparator();
     trayIconMenu->addAction(m_ui->m_openWalletAction);
     trayIconMenu->addAction(m_ui->m_closeWalletAction);

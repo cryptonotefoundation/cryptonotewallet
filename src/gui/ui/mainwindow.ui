@@ -63,7 +63,7 @@
     <property name="spacing">
      <number>0</number>
     </property>
-    <item row="0" column="0" colspan="7">
+    <item row="0" column="0" colspan="6">
      <widget class="WalletGui::AccountFrame" name="m_accountFrame">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
@@ -94,8 +94,50 @@
       </property>
      </widget>
     </item>
+    <item row="1" column="3">
+     <widget class="WalletGui::TransactionsFrame" name="m_transactionsFrame">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+     </widget>
+    </item>
     <item row="1" column="0">
      <widget class="WalletGui::OverviewFrame" name="m_overviewFrame">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="5">
+     <widget class="WalletGui::NoWalletFrame" name="m_noWalletFrame" native="true">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="4">
+     <widget class="WalletGui::AddressBookFrame" name="m_addressBookFrame">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
         <horstretch>0</horstretch>
@@ -142,64 +184,6 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="3">
-     <widget class="WalletGui::TransactionsFrame" name="m_transactionsFrame">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="4">
-     <widget class="WalletGui::AddressBookFrame" name="m_addressBookFrame">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="5">
-     <widget class="WalletGui::MiningFrame" name="m_miningFrame">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="6">
-     <widget class="WalletGui::NoWalletFrame" name="m_noWalletFrame" native="true">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-     </widget>
-    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -208,7 +192,7 @@
      <x>0</x>
      <y>0</y>
      <width>980</width>
-     <height>19</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -255,7 +239,6 @@
     <addaction name="m_startOnLoginAction"/>
     <addaction name="m_minimizeToTrayAction"/>
     <addaction name="m_closeToTrayAction"/>
-    <addaction name="m_miningOnLaunchAction"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -341,7 +324,6 @@
    <addaction name="m_receiveAction"/>
    <addaction name="m_transactionsAction"/>
    <addaction name="m_addressBookAction"/>
-   <addaction name="m_miningAction"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <widget class="QToolBar" name="accountToolBar">
@@ -529,18 +511,6 @@
     <string>Import private key</string>
    </property>
   </action>
-  <action name="m_miningAction">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="icon">
-    <iconset resource="../../resources.qrc">
-     <normaloff>:/icons/mining</normaloff>:/icons/mining</iconset>
-   </property>
-   <property name="text">
-    <string>Mining</string>
-   </property>
-  </action>
   <action name="m_resetAction">
    <property name="text">
     <string>Reset wallet</string>
@@ -620,14 +590,6 @@
     <string>Create nondeterministic wallet</string>
    </property>
   </action>
-  <action name="m_miningOnLaunchAction">
-   <property name="checkable">
-    <bool>true</bool>
-   </property>
-   <property name="text">
-    <string>Start pool mining automatically</string>
-   </property>
-  </action>
   <action name="m_sweepUnmixableAction">
    <property name="text">
     <string>Sweep unmixable</string>
@@ -663,12 +625,6 @@
    <class>WalletGui::AddressBookFrame</class>
    <extends>QFrame</extends>
    <header>gui/AddressBookFrame.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
-   <class>WalletGui::MiningFrame</class>
-   <extends>QFrame</extends>
-   <header>gui/MiningFrame.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
@@ -977,22 +933,6 @@
    </hints>
   </connection>
   <connection>
-   <sender>m_miningAction</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>m_miningFrame</receiver>
-   <slot>setVisible(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>862</x>
-     <y>322</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>m_addressBookAction</sender>
    <signal>toggled(bool)</signal>
    <receiver>m_addressBookFrame</receiver>
@@ -1149,38 +1089,6 @@
     <hint type="destinationlabel">
      <x>489</x>
      <y>274</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>m_miningOnLaunchAction</sender>
-   <signal>triggered(bool)</signal>
-   <receiver>MainWindow</receiver>
-   <slot>setMiningOnLaunch(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>489</x>
-     <y>274</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>m_miningAction</sender>
-   <signal>triggered()</signal>
-   <receiver>m_noWalletFrame</receiver>
-   <slot>hide()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>917</x>
-     <y>317</y>
     </hint>
    </hints>
   </connection>
