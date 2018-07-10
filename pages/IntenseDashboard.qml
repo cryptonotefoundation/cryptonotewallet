@@ -141,12 +141,14 @@ Rectangle {
             }
             runningText.text = "Connected"
             subButtonText.text = "Disconnect"
+            subConnectButton.visible = false
 
         }else{
             subButton.visible = false
             shield.source = "../images/shield.png"
             runningText.text = "Not running"
-            subButtonText.text = "Connect"
+            subConnectButton.visible = true
+            //subButtonText.text = "Connect"
             bton = ""
         }
 
@@ -700,10 +702,10 @@ Rectangle {
           StandardButton {
               visible: if(obj.type == "proxy"){true}else{false}
               id: subConnectButton
-              anchors.top: parent.top
+              anchors.bottom: parent.bottom
               anchors.right: parent.right
               anchors.rightMargin: 17
-              anchors.topMargin: 0
+              anchors.bottomMargin: 17
               width: 80
               text: qsTr("Connect") + translationManager.emptyString
               shadowReleasedColor: "#983CFF"
@@ -1516,6 +1518,7 @@ Rectangle {
             lastCostIntenseText.visible = false
             lastSpeedLabel.visible = false
             lastSpeedText.visible = false
+            subConnectButton.visible = false
         }
     }
 }

@@ -46,7 +46,7 @@ void Haproxy::haproxy(const QString &host, const QString &ip, const QString &por
         txtStream << "http-request add-header X-ITNS-PaymentID authid1\n";
         //
         #ifdef Q_OS_WIN
-        txtStream << "server hatls " + endpoint + ":" + endpointport + " ssl ca-file '/ca.cert.pem'";
+        txtStream << "server hatls " + endpoint + ":" + endpointport + " ssl ca-file 'ca.cert.pem'";
         #else
         txtStream << "server hatls " + endpoint + ":" + endpointport + " ssl ca-file '"+host+"/ca.cert.pem'";
         #endif
