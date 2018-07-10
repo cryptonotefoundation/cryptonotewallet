@@ -21,12 +21,15 @@ void Haproxy::haproxy(const QString &host, const QString &ip, const QString &por
         txtStream << "global\n";
         txtStream << "maxconn         2000\n";
         txtStream << "daemon\n";
-        txtStream << "ssl-default-bind-ciphers ECDH+AESGCM:DH+AESGCM:ECDH+AES256:DH+AES256:ECDH+AES128:DH+AES:RSA+AESGCM:RSA+AES:!aNULL:!MD5:!DSS\n";
+        txtStream << "ssl-default-bind-ciphers ECDH+AESGCM:DH+AESGCM:ECDH+AES256:DH+AES256:ECDH+AES128:DH+AES:!aNULL:!MD5:!DSS\n";
         txtStream << "ssl-default-bind-options no-sslv3\n";
         txtStream << "frontend icproxy"
                      "\n";
         txtStream << "bind            "+ip+":"+port+"\n";
         txtStream << "mode            http\n";
+        txtStream << "stats           enable  # Enable stats page\n";
+        txtStream << "stats           hide-version  # Hide HAProxy version\n";
+        txtStream << "stats           uri /haproxy_stats  # Stats URI\n";
         txtStream << "log             global\n";
         txtStream << "option          httplog\n";
         txtStream << "option          dontlognull\n";

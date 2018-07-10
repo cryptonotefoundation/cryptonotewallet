@@ -103,6 +103,70 @@ Rectangle {
 
     }
 
+    function csvToArray( strData, strDelimiter ){
+            strDelimiter = (strDelimiter || ",");
+            var objPattern = new RegExp(
+                (
+                    // Delimiters.
+                    "(\\" + strDelimiter + "|\\r?\\n|\\r|^)" +
+
+                    // Quoted fields.
+                    "(?:\"([^\"]*(?:\"\"[^\"]*)*)\"|" +
+
+                    // Standard fields.
+                    "([^\"\\" + strDelimiter + "\\r\\n]*))"
+                ),
+                "gi"
+                );
+
+            var arrData = [[]];
+
+            var arrMatches = null;
+            while (arrMatches = objPattern.exec( strData )){
+
+                var strMatchedDelimiter = arrMatches[ 1 ];
+                if (
+                    strMatchedDelimiter.length &&
+                    strMatchedDelimiter !== strDelimiter
+                    ){
+                    arrData.push( [] );
+
+                }
+
+                var strMatchedValue;
+                if (arrMatches[ 2 ]){
+                    strMatchedValue = arrMatches[ 2 ].replace(
+                        new RegExp( "\"\"", "g" ),
+                        "\""
+                        );
+
+                } else {
+                    strMatchedValue = arrMatches[ 3 ];
+                }
+
+                arrData[ arrData.length - 1 ].push( strMatchedValue );
+            }
+            return( arrData );
+        }
+
+    function getHaproxyStats(){
+        var url = "http://"+Config.haproxyIp+":"+Config.haproxyPort+"/haproxy_stats;csv"
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange=function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                var haproxyStats = csvToArray(xmlhttp.responseText)
+                haproxyStats = JSON.stringify(haproxyStats[1]);
+                var haproxyStats = haproxyStats.split(',')
+                haproxyStats[8] = haproxyStats[8].replace('"', '')
+                haproxyStats[9] = haproxyStats[9].replace('"', '')
+                transferredTextLine.text = "Download: "+formatBytes(parseInt(haproxyStats[8]))+" / Upload: "+ formatBytes(parseInt(haproxyStats[9]))
+            }
+        }
+
+        xmlhttp.open("GET", url, true);
+        xmlhttp.send();
+    }
+
     function getMyFeedJson(){
         var myRank = 0
         var url = Config.url+Config.stage+Config.version+Config.feedback+Config.get+"/"+appWindow.currentWallet.address+"/"+idService
@@ -1290,6 +1354,18 @@ Rectangle {
               horizontalAlignment: Text.AlignRight
           }
 
+        Text {
+              visible: !isMobile
+              id: transferredTextLine
+              anchors.left: transferredText.right
+              anchors.top:  transferredText.top
+              anchors.topMargin: 27
+              anchors.leftMargin: 180
+              width: 180
+              font.pixelSize: 14
+              horizontalAlignment: Text.AlignRight
+          }
+
 
         Text {
               visible: !isMobile
@@ -1442,9 +1518,25 @@ Rectangle {
 
         onTriggered:
         {
-            setPayment()
+            //setPayment()
+            getHaproxyStats()
         }
     }
+    Timer {
+        id: timerHaproxy
+        interval: 1000
+        repeat: true
+        running: true
+
+        onTriggered:
+        {
+            //setPayment()
+            getHaproxyStats()
+        }
+    }
+
+
+
 
     function onPageCompleted() {
         console.log(flag)
@@ -1452,6 +1544,7 @@ Rectangle {
         getMyFeedJson()
         changeStatus()
         if(providerName != ""){
+            getHaproxyStats()
             howToUseText.visible = false
             orText.visible = false
             searchForProviderText.visible = false
