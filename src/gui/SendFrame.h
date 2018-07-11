@@ -56,6 +56,7 @@ private:
   Q_SLOT void addRecipientClicked();
   Q_SLOT void clearAllClicked();
   Q_SLOT void mixinValueChanged(int _value);
+  Q_SLOT void priorityValueChanged(int _value);
   Q_SLOT void amountValueChange();
   Q_SLOT void sendClicked();
   Q_SLOT void openUriClicked();

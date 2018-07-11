@@ -31,6 +31,7 @@ SendFrame::SendFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::SendFrame
   m_glassFrame->setObjectName("m_sendGlassFrame");
   clearAllClicked();
   mixinValueChanged(m_ui->m_mixinSlider->value());
+  priorityValueChanged(m_ui->m_prioritySlider->value());
   remote_node_fee = 0;
 
   connect(&WalletAdapter::instance(), &WalletAdapter::walletSendTransactionCompletedSignal, this, &SendFrame::sendTransactionCompleted,
@@ -46,9 +47,25 @@ SendFrame::SendFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::SendFrame
   m_ui->m_tickerLabel->setText(CurrencyAdapter::instance().getCurrencyTicker().toUpper());
   m_ui->m_feeSpin->setSuffix(" " + CurrencyAdapter::instance().getCurrencyTicker().toUpper());
   m_ui->m_donateSpin->setSuffix(" " + CurrencyAdapter::instance().getCurrencyTicker().toUpper());
-  m_ui->m_feeSpin->setMinimum(getMinimalFee());
   m_ui->m_remote_label->hide();
   m_ui->m_sendButton->setEnabled(false);
+  m_ui->m_feeSpin->setMinimum(getMinimalFee());
+
+  QLabel *label1 = new QLabel(tr("Low"), this);
+  QLabel *label2 = new QLabel(tr("Normal"), this);
+  QLabel *label3 = new QLabel(tr("High"), this);
+  QLabel *label4 = new QLabel(tr("Highest"), this);
+  label1->setStyleSheet(".QLabel { margin: 0; padding: 0;}");
+  label2->setStyleSheet(".QLabel { margin: 0; padding: 0;}");
+  label2->setStyleSheet(".QLabel { margin: 0; padding: 0;}");
+  label4->setStyleSheet(".QLabel { margin: 0; padding: 0;}");
+  m_ui->m_priorityGridLayout->addWidget(m_ui->m_prioritySlider, 0, 0, 1, 4);
+  m_ui->m_priorityGridLayout->addWidget(label1, 1, 0, 1, 1, Qt::AlignHCenter);
+  m_ui->m_priorityGridLayout->addWidget(label2, 1, 1, 1, 1, Qt::AlignHCenter);
+  m_ui->m_priorityGridLayout->addWidget(label3, 1, 2, 1, 1, Qt::AlignHCenter);
+  m_ui->m_priorityGridLayout->addWidget(label4, 1, 3, 1, 1, Qt::AlignHCenter);
+  m_ui->m_prioritySlider->setStyleSheet(".QSlider { margin: 0 10px; padding: 0;}");
+  m_ui->m_mixinSlider->setStyleSheet(".QSlider { margin: 0 10px; padding: 0;}");
 
   QRegExp hexMatcher("^[0-9A-F]{64}$", Qt::CaseInsensitive);
   QValidator *validator = new QRegExpValidator(hexMatcher, this);
@@ -128,8 +145,10 @@ void SendFrame::clearAllClicked() {
   addRecipientClicked();
   amountValueChange();
   m_ui->m_paymentIdEdit->clear();
-  m_ui->m_mixinSlider->setValue(5);
-  m_ui->m_feeSpin->setValue(getMinimalFee());
+  m_ui->m_mixinSlider->setValue(7);
+  m_ui->m_prioritySlider->setValue(2);
+  //m_ui->m_feeSpin->setValue(getMinimalFee());
+  priorityValueChanged(m_ui->m_prioritySlider->value());
 }
 
 void SendFrame::reset() {
@@ -314,7 +333,9 @@ void SendFrame::sendClicked() {
       }
 
       // Miners fee
+      priorityValueChanged(m_ui->m_prioritySlider->value());
       quint64 fee = CurrencyAdapter::instance().parseAmount(m_ui->m_feeSpin->cleanText());
+
 	  if (fee < NodeAdapter::instance().getMinimalFee()) {
         QCoreApplication::postEvent(&MainWindow::instance(), new ShowMessageEvent(tr("Incorrect fee value"), QtCriticalMsg));
         return;
@@ -342,7 +363,12 @@ void SendFrame::sendClicked() {
 }
 
 void SendFrame::mixinValueChanged(int _value) {
-  m_ui->m_mixinEdit->setText(QString::number(_value));
+  m_ui->m_mixinLabel->setText(QString::number(_value));
+}
+
+void SendFrame::priorityValueChanged(int _value) {
+  double send_fee = getMinimalFee() * _value;
+  m_ui->m_feeSpin->setValue(send_fee);
 }
 
 void SendFrame::sendTransactionCompleted(CryptoNote::TransactionId _id, bool _error, const QString& _errorText) {
