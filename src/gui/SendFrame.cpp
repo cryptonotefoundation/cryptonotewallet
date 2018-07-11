@@ -131,15 +131,16 @@ void SendFrame::addRecipientClicked() {
 
   connect(newTransfer, &TransferFrame::amountValueChangedSignal, this, &SendFrame::amountValueChange, Qt::QueuedConnection);
   connect(newTransfer, &TransferFrame::insertPaymentIDSignal, this, &SendFrame::insertPaymentID, Qt::QueuedConnection);
-
 }
 
 double SendFrame::getMinimalFee() {
-  double fee = CurrencyAdapter::instance().formatAmount(NodeAdapter::instance().getMinimalFee()).toDouble();
-  if (fee == 0)
-      fee = CurrencyAdapter::instance().formatAmount(CurrencyAdapter::instance().getMinimumFee()).toDouble();
-
-  int digits = 2; // round fee to 2 digits after leading zeroes
+  double fee(0);
+  if (NodeAdapter::instance().getCurrentBlockMajorVersion() < CryptoNote::BLOCK_MAJOR_VERSION_4) {
+    fee = CurrencyAdapter::instance().formatAmount(CurrencyAdapter::instance().getMinimumFee()).toDouble();
+  } else {
+    fee = CurrencyAdapter::instance().formatAmount(NodeAdapter::instance().getMinimalFee()).toDouble();
+  }
+  int digits = 2; // round up fee to 2 digits after leading zeroes
   double scale = pow(10., floor(log10(fabs(fee))) + (1 - digits));
   double roundedFee = ceil(fee / scale) * scale;
   return roundedFee;
