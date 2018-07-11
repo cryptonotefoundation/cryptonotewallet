@@ -68,14 +68,14 @@
          <property name="topMargin">
           <number>5</number>
          </property>
-         <item row="5" column="0">
+         <item row="2" column="0">
           <widget class="QLabel" name="label_2">
            <property name="text">
             <string>Anonymity level:</string>
            </property>
           </widget>
          </item>
-         <item row="5" column="4">
+         <item row="2" column="4">
           <widget class="QCheckBox" name="donateCheckBox">
            <property name="text">
             <string>Donate 0.1% to development fund:</string>
@@ -85,25 +85,25 @@
            </property>
           </widget>
          </item>
-         <item row="3" column="0">
+         <item row="1" column="0">
           <widget class="QLabel" name="label_3">
            <property name="text">
             <string>Priority:</string>
            </property>
           </widget>
          </item>
-         <item row="1" column="0">
+         <item row="0" column="0">
           <widget class="QLabel" name="label_6">
            <property name="text">
             <string>PaymentID:</string>
            </property>
           </widget>
          </item>
-         <item row="5" column="1">
+         <item row="2" column="1">
           <widget class="QSlider" name="m_mixinSlider">
            <property name="maximumSize">
             <size>
-             <width>150</width>
+             <width>200</width>
              <height>16777215</height>
             </size>
            </property>
@@ -142,7 +142,7 @@
            </property>
           </widget>
          </item>
-         <item row="1" column="5">
+         <item row="0" column="5">
           <widget class="QPushButton" name="m_generatePaymentIdButton">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
@@ -161,7 +161,7 @@
            </property>
           </widget>
          </item>
-         <item row="1" column="1" colspan="4">
+         <item row="0" column="1" colspan="4">
           <widget class="QLineEdit" name="m_paymentIdEdit">
            <property name="maxLength">
             <number>64</number>
@@ -171,8 +171,11 @@
            </property>
           </widget>
          </item>
-         <item row="3" column="5">
+         <item row="1" column="5">
           <widget class="QDoubleSpinBox" name="m_feeSpin">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
            <property name="minimumSize">
             <size>
              <width>150</width>
@@ -190,6 +193,9 @@
            </property>
            <property name="locale">
             <locale language="English" country="UnitedStates"/>
+           </property>
+           <property name="readOnly">
+            <bool>false</bool>
            </property>
            <property name="suffix">
             <string/>
@@ -211,17 +217,7 @@
            </property>
           </widget>
          </item>
-         <item row="3" column="4">
-          <widget class="QLabel" name="label">
-           <property name="text">
-            <string>Fee:</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="5">
+         <item row="2" column="5">
           <widget class="QDoubleSpinBox" name="m_donateSpin">
            <property name="minimumSize">
             <size>
@@ -258,7 +254,7 @@
            </property>
           </widget>
          </item>
-         <item row="5" column="3">
+         <item row="2" column="3">
           <spacer name="horizontalSpacer">
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
@@ -274,7 +270,7 @@
            </property>
           </spacer>
          </item>
-         <item row="3" column="1">
+         <item row="1" column="1">
           <layout class="QGridLayout" name="m_priorityGridLayout">
            <property name="verticalSpacing">
             <number>0</number>
@@ -283,7 +279,7 @@
             <widget class="QSlider" name="m_prioritySlider">
              <property name="maximumSize">
               <size>
-               <width>150</width>
+               <width>200</width>
                <height>16777215</height>
               </size>
              </property>
@@ -321,10 +317,17 @@
            </item>
           </layout>
          </item>
-         <item row="5" column="2">
+         <item row="2" column="2">
           <widget class="QLabel" name="m_mixinLabel">
            <property name="text">
             <string/>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="4">
+          <widget class="QCheckBox" name="m_manualFeeCheckBox">
+           <property name="text">
+            <string>Manual fee override</string>
            </property>
           </widget>
          </item>
@@ -539,6 +542,22 @@
     <hint type="destinationlabel">
      <x>432</x>
      <y>294</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_manualFeeCheckBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>m_feeSpin</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>601</x>
+     <y>494</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>779</x>
+     <y>493</y>
     </hint>
    </hints>
   </connection>
