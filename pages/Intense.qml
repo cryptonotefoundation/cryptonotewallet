@@ -203,6 +203,7 @@ Rectangle {
                 intenseDashboardView.bton = "qrc:///images/power_off.png"
                 intenseDashboardView.flag = 1
                 intenseDashboardView.obj = obj
+                intenseDashboardView.secs = 0
 
                 middlePanel.state = "ITNS Dashboard"
 
