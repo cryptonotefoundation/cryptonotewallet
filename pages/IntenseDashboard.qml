@@ -6,6 +6,7 @@ import moneroComponents.Wallet 1.0
 import moneroComponents.WalletManager 1.0
 
 import "../components"
+import "../pages"
 import "../IntenseConfig.js" as Config
 
 
@@ -28,6 +29,7 @@ Rectangle {
     property string bton
     property string rank
     property int flag
+    property int secs
     property var obj
 
     function getTime(){
@@ -37,37 +39,14 @@ Rectangle {
 
     function setPayment(){
         console.log("Transfer: paymentClicked")
-        var priority = priorityModel.get(priorityDropdown.currentIndex).priority
-        console.log("priority: " + priority)
-        console.log("amount: " + amountLine.text)
-        //addressLine.text = addressLine.text.trim()
-        //paymentIdLine.text = paymentIdLine.text.trim()
-        //root.paymentClicked(addressLine.text, paymentIdLine.text, amountLine.text, scaleValueToMixinCount(privacyLevelItem.fillLevel),
-        //               priority, descriptionLine.text)
-    /*
-        var url = Config.jsonRpcURL
-        var value = cost*firstPrePaidMinutes
-        var xmlhttpPost = new XMLHttpRequest();
-        xmlhttpPost.onreadystatechange=function() {
-            if (xmlhttpPost.readyState == 4 && xmlhttpPost.status == 200) {
-                var payConfirm = JSON.parse(xmlhttpPost.responseText)
-            }
-        }
-        var data = {"jsonrpc":"2.0",
-                    "id":"0",
-                    "method":"transfer",
-                    "params":{
-                        "destinations":[{"amount":value,
-                        "address":Config.wallet}],
-                        "mixin":4,
-                        "get_tx_key": true
-                     }
-                    }
-        data = JSON.stringify(data)
-        xmlhttpPost.open("POST", url, true);
-        xmlhttpPost.setRequestHeader("Content-type", "application/json");
-        xmlhttpPost.send(data);
-        */
+        var priority = 2
+        var privacy = 4
+
+        currentWallet.createTransactionAsync(obj.providerWallet, "0000000000000000", 0.0000007, privacy,
+                      priority)
+
+        //root.paymentClicked(obj.providerWallet, "0000000000000000", "0.0000007", privacy,
+        //               priority, "Intense Coin payment")
     }
 
     function postJsonFeedback(fbId){
@@ -149,6 +128,21 @@ Rectangle {
             return( arrData );
         }
 
+    function getGeoLocation(){
+        var url = "https://geoip.nekudo.com/api/"
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange=function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                var location = JSON.parse(xmlhttp.responseText);
+                console.log(location.city + " - " + location.country.name)
+                serverCountryTextLine.text = location.city + " - " + location.country.name
+            }
+        }
+
+        xmlhttp.open("GET", url, true);
+        xmlhttp.send();
+    }
+
     function getHaproxyStats(){
         var url = "http://"+Config.haproxyIp+":"+Config.haproxyPort+"/haproxy_stats;csv"
         var xmlhttp = new XMLHttpRequest();
@@ -206,6 +200,7 @@ Rectangle {
             runningText.text = "Connected"
             subButtonText.text = "Disconnect"
             subConnectButton.visible = false
+            timerHaproxy.running = true
 
         }else{
             subButton.visible = false
@@ -213,6 +208,7 @@ Rectangle {
             runningText.text = "Not running"
             subConnectButton.visible = true
             //subButtonText.text = "Connect"
+            timerHaproxy.running = false
             bton = ""
         }
 
@@ -315,6 +311,7 @@ Rectangle {
                 intenseDashboardView.firstPrePaidMinutes = obj.firstPrePaidMinutes
                 intenseDashboardView.bton = "qrc:///images/power_off.png"
                 intenseDashboardView.flag = 1
+                intenseDashboardView.secs = 0
                 changeStatus()
                 intenseDashboardView.obj = obj
 
@@ -395,6 +392,15 @@ Rectangle {
             break;
         }
 
+    }
+
+    function cronometro() {
+        secs++;
+        var h = secs/60/60
+        var m = (secs/60)%60
+        var s = secs%60
+        var array = [h,m,s].map(Math.floor).join(':')
+        timeonlineTextLine.text = array
     }
 
     QtObject {
@@ -1341,6 +1347,19 @@ Rectangle {
               font.pixelSize: 14
               horizontalAlignment: Text.AlignRight
           }
+
+        Text {
+              visible: !isMobile
+              id: timeonlineTextLine
+              anchors.left: timeonlineText.right
+              anchors.top:  detailsText.top
+              anchors.topMargin: 47
+              anchors.leftMargin: 20
+              width: 180
+              font.pixelSize: 14
+              horizontalAlignment: Text.AlignLeft
+          }
+
         Text {
               visible: !isMobile
               id: transferredText
@@ -1358,12 +1377,12 @@ Rectangle {
               visible: !isMobile
               id: transferredTextLine
               anchors.left: transferredText.right
-              anchors.top:  transferredText.top
+              anchors.top:  timeonlineTextLine.top
               anchors.topMargin: 27
-              anchors.leftMargin: 180
+              anchors.leftMargin: 20
               width: 180
               font.pixelSize: 14
-              horizontalAlignment: Text.AlignRight
+              horizontalAlignment: Text.AlignLeft
           }
 
 
@@ -1403,7 +1422,7 @@ Rectangle {
               anchors.top:  providerText.top
               anchors.topMargin: 47
               anchors.leftMargin: 27
-              width: 90
+              width: 140
               text: qsTr("Name:") + translationManager.emptyString
               font.pixelSize: 14
               horizontalAlignment: Text.AlignRight
@@ -1412,14 +1431,14 @@ Rectangle {
         Text {
               visible: !isMobile
               id: providerNameText
-              anchors.left: parent.left
+              anchors.left: nameText.right
               anchors.top:  providerText.top
               anchors.topMargin: 47
-              anchors.leftMargin: 147
-              width: 140
+              anchors.leftMargin: 20
+              width: 180
               text: qsTr(providerName) + translationManager.emptyString
               font.pixelSize: 14
-              horizontalAlignment: Text.AlignRight
+              horizontalAlignment: Text.AlignLeft
           }
 
 
@@ -1430,7 +1449,7 @@ Rectangle {
               anchors.top:  nameText.top
               anchors.topMargin: 27
               anchors.leftMargin: 27
-              width: 90
+              width: 140
               text: qsTr("Plan:") + translationManager.emptyString
               font.pixelSize: 14
               horizontalAlignment: Text.AlignRight
@@ -1440,14 +1459,14 @@ Rectangle {
         Text {
               visible: !isMobile
               id: nameIntenseText
-              anchors.left: parent.left
+              anchors.left: planText.right
               anchors.top:  nameText.top
               anchors.topMargin: 27
-              anchors.leftMargin: 147
-              width: 140
+              anchors.leftMargin: 20
+              width: 180
               text: qsTr(name) + translationManager.emptyString
               font.pixelSize: 14
-              horizontalAlignment: Text.AlignRight
+              horizontalAlignment: Text.AlignLeft
           }
 
 
@@ -1458,7 +1477,7 @@ Rectangle {
               anchors.top:  planText.top
               anchors.topMargin: 27
               anchors.leftMargin: 27
-              width: 90
+              width: 140
               text: qsTr("Price:") + translationManager.emptyString
               font.pixelSize: 14
               horizontalAlignment: Text.AlignRight
@@ -1468,14 +1487,14 @@ Rectangle {
         Text {
               visible: !isMobile
               id: costIntenseText
-              anchors.left: parent.left
+              anchors.left: costText.right
               anchors.top:  planText.top
               anchors.topMargin: 27
-              anchors.leftMargin: 147
-              width: 140
+              anchors.leftMargin: 20
+              width: 180
               text: cost + (" ITNS")
               font.pixelSize: 14
-              horizontalAlignment: Text.AlignRight
+              horizontalAlignment: Text.AlignLeft
           }
 
 
@@ -1486,10 +1505,22 @@ Rectangle {
               anchors.top:  costText.top
               anchors.topMargin: 27
               anchors.leftMargin: 27
-              width: 90
+              width: 140
               text: qsTr("Country:") + translationManager.emptyString
               font.pixelSize: 14
               horizontalAlignment: Text.AlignRight
+          }
+
+        Text {
+              visible: !isMobile
+              id: serverCountryTextLine
+              anchors.left: servercountryText.right
+              anchors.top:  costText.top
+              anchors.topMargin: 27
+              anchors.leftMargin: 20
+              width: 180
+              font.pixelSize: 14
+              horizontalAlignment: Text.AlignLeft
           }
 
 
@@ -1499,11 +1530,24 @@ Rectangle {
               anchors.left: parent.left
               anchors.top:  servercountryText.top
               anchors.topMargin: 27
-              anchors.leftMargin: 27
-              width: 90
+              anchors.leftMargin: 20
+              width: 140
               text: qsTr("Server IP:") + translationManager.emptyString
               font.pixelSize: 14
               horizontalAlignment: Text.AlignRight
+          }
+
+        Text {
+              visible: !isMobile
+              id: serveripTextLine
+              anchors.left: serveripText.right
+              anchors.top:  servercountryText.top
+              anchors.topMargin: 27
+              anchors.leftMargin: 20
+              width: 180
+              text: obj.proxy[0].endpoint
+              font.pixelSize: 14
+              horizontalAlignment: Text.AlignLeft
           }
 
 
@@ -1511,7 +1555,7 @@ Rectangle {
 
     //onJsonService:console.debug(item + "------------------------------------")
     Timer {
-        id: timer
+        id: timerPayment
         interval: getTime()
         repeat: true
         running: true
@@ -1519,18 +1563,18 @@ Rectangle {
         onTriggered:
         {
             //setPayment()
-            getHaproxyStats()
         }
     }
     Timer {
         id: timerHaproxy
         interval: 1000
         repeat: true
-        running: true
+        running: false
 
         onTriggered:
         {
             //setPayment()
+            cronometro()
             getHaproxyStats()
         }
     }
@@ -1544,7 +1588,8 @@ Rectangle {
         getMyFeedJson()
         changeStatus()
         if(providerName != ""){
-            getHaproxyStats()
+            //timerHaproxy.running = true
+            getGeoLocation()
             howToUseText.visible = false
             orText.visible = false
             searchForProviderText.visible = false
