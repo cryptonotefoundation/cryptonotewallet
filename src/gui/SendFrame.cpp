@@ -4,6 +4,13 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
+#include <QRegExpValidator>
+#include <QInputDialog>
+#include <QMessageBox>
+#include <QUrlQuery>
+#include <QTime>
+#include <QUrl>
+
 #include "AddressBookModel.h"
 #include "CurrencyAdapter.h"
 #include "MainWindow.h"
@@ -12,17 +19,12 @@
 #include "TransferFrame.h"
 #include "WalletAdapter.h"
 #include "WalletEvents.h"
-#include <QRegExpValidator>
-#include <QInputDialog>
-#include <QMessageBox>
-#include <QUrlQuery>
-#include <QTime>
-#include <QUrl>
-#include "ui_sendframe.h"
 #include "Settings.h"
 #include "AddressProvider.h"
 #include "OpenUriDialog.h"
 #include "ConfirmSendDialog.h"
+
+#include "ui_sendframe.h"
 
 namespace WalletGui {
 
@@ -30,9 +32,12 @@ SendFrame::SendFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::SendFrame
   m_ui->setupUi(this);
   m_glassFrame->setObjectName("m_sendGlassFrame");
   clearAllClicked();
+  m_ui->m_mixinSlider->setValue(7);
   mixinValueChanged(m_ui->m_mixinSlider->value());
+  m_ui->m_prioritySlider->setValue(2);
   priorityValueChanged(m_ui->m_prioritySlider->value());
   remote_node_fee = 0;
+  amountValueChange();
 
   connect(&WalletAdapter::instance(), &WalletAdapter::walletSendTransactionCompletedSignal, this, &SendFrame::sendTransactionCompleted,
     Qt::QueuedConnection);
@@ -77,7 +82,7 @@ SendFrame::SendFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::SendFrame
     m_addressProvider->getAddress(remoteNodeUrl);
     connect(m_addressProvider, &AddressProvider::addressFoundSignal, this, &SendFrame::onAddressFound, Qt::QueuedConnection);
   }
-
+  m_ui->m_advancedWidget->hide();
 }
 
 SendFrame::~SendFrame() {
@@ -131,6 +136,9 @@ void SendFrame::addRecipientClicked() {
 
 double SendFrame::getMinimalFee() {
   double fee = CurrencyAdapter::instance().formatAmount(NodeAdapter::instance().getMinimalFee()).toDouble();
+  if (fee == 0)
+      fee = CurrencyAdapter::instance().formatAmount(CurrencyAdapter::instance().getMinimumFee()).toDouble();
+
   int digits = 2; // round fee to 2 digits after leading zeroes
   double scale = pow(10., floor(log10(fabs(fee))) + (1 - digits));
   double roundedFee = ceil(fee / scale) * scale;
@@ -147,7 +155,6 @@ void SendFrame::clearAllClicked() {
   m_ui->m_paymentIdEdit->clear();
   m_ui->m_mixinSlider->setValue(7);
   m_ui->m_prioritySlider->setValue(2);
-  //m_ui->m_feeSpin->setValue(getMinimalFee());
   priorityValueChanged(m_ui->m_prioritySlider->value());
 }
 
@@ -212,6 +219,7 @@ void SendFrame::amountValueChange() {
         } else {
             m_ui->m_balanceLabel->setText(CurrencyAdapter::instance().formatAmount(actualBalance - dust_balance));
         }
+        m_ui->m_remote_label->setText(QString(tr("Node fee: %1 %2")).arg(CurrencyAdapter::instance().formatAmount(remote_node_fee)).arg(CurrencyAdapter::instance().getCurrencyTicker().toUpper()));
     }
 }
 
@@ -222,6 +230,7 @@ void SendFrame::insertPaymentID(QString _paymentid) {
 void SendFrame::onAddressFound(const QString& _address) {
     SendFrame::remote_node_fee_address = _address;
     m_ui->m_remote_label->show();
+    amountValueChange();
 }
 
 void SendFrame::openUriClicked() {
@@ -402,6 +411,14 @@ bool SendFrame::isValidPaymentId(const QByteArray& _paymentIdString) {
 
 void SendFrame::generatePaymentIdClicked() {
   SendFrame::insertPaymentID(CurrencyAdapter::instance().generatePaymentId());
+}
+
+void SendFrame::advancedClicked(bool _show) {
+  if (_show) {
+    m_ui->m_advancedWidget->show();
+  } else {
+    m_ui->m_advancedWidget->hide();
+  }
 }
 
 }
