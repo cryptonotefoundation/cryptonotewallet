@@ -71,7 +71,7 @@
          <item row="2" column="0">
           <widget class="QLabel" name="label_2">
            <property name="text">
-            <string>Anonymity level:</string>
+            <string>Anonymity:</string>
            </property>
           </widget>
          </item>
@@ -327,7 +327,7 @@
          <item row="1" column="4">
           <widget class="QCheckBox" name="m_manualFeeCheckBox">
            <property name="text">
-            <string>Manual fee override</string>
+            <string>Manual fee override:</string>
            </property>
           </widget>
          </item>
@@ -412,6 +412,12 @@
      </item>
      <item>
       <widget class="QLabel" name="label_4">
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="text">
         <string>Available balance:</string>
        </property>
@@ -419,6 +425,12 @@
      </item>
      <item>
       <widget class="QLabel" name="m_balanceLabel">
+       <property name="font">
+        <font>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
        <property name="text">
         <string notr="true">0.00 </string>
        </property>
