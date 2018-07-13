@@ -399,7 +399,12 @@ Rectangle {
         var h = secs/60/60
         var m = (secs/60)%60
         var s = secs%60
-        var array = [h,m,s].map(Math.floor).join(':')
+        var array = [h,m,s].map(Math.floor).join(':');
+        for(x = 0; x < array.length; x++){
+            if(array[x] < 10){
+                array[x] = "0" + String(array[x])
+            }
+        }
         timeonlineTextLine.text = array
     }
 
@@ -1530,7 +1535,7 @@ Rectangle {
               anchors.left: parent.left
               anchors.top:  servercountryText.top
               anchors.topMargin: 27
-              anchors.leftMargin: 20
+              anchors.leftMargin: 27
               width: 140
               text: qsTr("Server IP:") + translationManager.emptyString
               font.pixelSize: 14
