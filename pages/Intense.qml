@@ -232,8 +232,8 @@ Rectangle {
         listView.model.clear()
         xmlhttp.onreadystatechange=function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                getJsonFail.visible = false
                 var arr = JSON.parse(xmlhttp.responseText)
-
                 for(var i = 0; i < arr.length; i++) {
                     if(arr[i].mStability == null){
 
@@ -801,6 +801,19 @@ Rectangle {
                 }
 
             }
+
+            Text {
+                  visible: true
+                  id: getJsonFail
+                  anchors.horizontalCenter: parent.horizontalCenter
+                  anchors.top:  parent.top
+                  anchors.topMargin: 75
+                  text: qsTr("Connection Error") + translationManager.emptyString
+                  font.pixelSize: 19
+                  color: "#535353"
+                  font.family: "Arial"
+                  font.bold: true
+              }
 
 
     }
