@@ -394,7 +394,7 @@ Rectangle {
 
     }
 
-    function cronometro() {
+    function timer() {
         secs++;
         var h = secs/60/60
         var m = (secs/60)%60
@@ -1574,7 +1574,7 @@ Rectangle {
         onTriggered:
         {
             //setPayment()
-            cronometro()
+            timer()
             getHaproxyStats()
         }
     }
