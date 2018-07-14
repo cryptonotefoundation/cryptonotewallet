@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="en" sourcelanguage="en">
+<TS version="2.0" language="en" sourcelanguage="en">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -1941,7 +1941,6 @@ Are you sure?</source>
         <source>%n active connection(s)</source>
         <translation type="unfinished">
             <numerusform></numerusform>
-            <numerusform></numerusform>
         </translation>
     </message>
     <message>
@@ -2135,7 +2134,6 @@ when the wallet is synchronized</source>
         <source>%n confirmation(s)</source>
         <translation type="unfinished">
             <numerusform></numerusform>
-            <numerusform></numerusform>
         </translation>
     </message>
 </context>
@@ -2317,14 +2315,12 @@ when the wallet is synchronized</source>
         <source>Incoming transaction, %n confirmation(s)</source>
         <translation type="unfinished">
             <numerusform></numerusform>
-            <numerusform></numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <location filename="../gui/TransactionsModel.cpp" line="335"/>
         <source>Mined, %n confirmation(s)</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
             <numerusform></numerusform>
         </translation>
     </message>
@@ -2333,14 +2329,12 @@ when the wallet is synchronized</source>
         <source>Sent to yourself, %n confirmation(s)</source>
         <translation type="unfinished">
             <numerusform></numerusform>
-            <numerusform></numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <location filename="../gui/TransactionsModel.cpp" line="341"/>
         <source>Outgoing transaction, %n confirmation(s)</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
             <numerusform></numerusform>
         </translation>
     </message>

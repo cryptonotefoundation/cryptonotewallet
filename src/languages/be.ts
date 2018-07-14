@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="be_BY" sourcelanguage="en">
+<TS version="2.0" language="be_BY" sourcelanguage="en">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -13,7 +13,7 @@
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Karbowanec v. %1&lt;/p&gt;&lt;p&gt;This is the next generation anonymous cryptocurrency based on CryptoNote.&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2015. CryptoNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2015-2016. DigitalNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2016-2017. Karbowanec Developers&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://opensource.org/licenses/MIT&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://cryptonote.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://cryptonote.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://karbowanec.com/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://karbowanec.com/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Карбованець версія %1&lt;/p&gt;&lt;p&gt;Гэта криптовалюта новага пакалення на аснове CryptoNote.&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2015. CryptoNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2015-2016. DigitalNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2016-2017. Karbowanec Developers&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://opensource.org/licenses/MIT&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://cryptonote.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://cryptonote.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://karbowanec.com/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://karbowanec.com/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Карбованець версія %1&lt;/p&gt;&lt;p&gt;Гэта криптовалюта новага пакалення на аснове CryptoNote.&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2015. CryptoNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2015-2016. DigitalNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2016-2017. Karbowanec Developers&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://opensource.org/licenses/MIT&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://cryptonote.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://cryptonote.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://karbowanec.com/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://karbowanec.com/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Karbo v. %1&lt;/p&gt;&lt;p&gt;This is the next generation anonymous cryptocurrency based on CryptoNote.&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2015. CryptoNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2016. Bytecoin Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2015-2016. DigitalNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2016-2018. Karbo (Karbowanec) Developers&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://opensource.org/licenses/MIT&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://cryptonote.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://cryptonote.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://karbo.io/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://karbo.io/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;THE SOFTWARE IS PROVIDED &amp;quot;AS IS&amp;quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
@@ -24,7 +24,7 @@
     <name>AccountFrame</name>
     <message>
         <source>Address:</source>
-        <translation type="vanished">Адрас:</translation>
+        <translation>Адрас:</translation>
     </message>
     <message>
         <source>...</source>
@@ -32,7 +32,7 @@
     </message>
     <message>
         <source>Show private key</source>
-        <translation type="vanished">Паказаць прыватны ключ</translation>
+        <translation>Паказаць прыватны ключ</translation>
     </message>
     <message>
         <source>Your account:</source>
@@ -90,11 +90,11 @@
     </message>
     <message>
         <source>New address</source>
-        <translation type="vanished">Дадаць адрас</translation>
+        <translation>Дадаць адрас</translation>
     </message>
     <message>
         <source>Delete address</source>
-        <translation type="vanished">Выдаліць адрас</translation>
+        <translation>Выдаліць адрас</translation>
     </message>
     <message>
         <source>Copy address</source>
@@ -274,7 +274,7 @@
     </message>
     <message>
         <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet sends 0.25% fee from each transaction to the node, but no more than 10 KRB.</source>
-        <translation type="vanished">Гаманец будзе падлучацца да вузла ў лакальнай або глабальнай сеткі. Выберыце вузел або пакажыце IP адрас або дамен і порт каб дадаць новы. У гэтым рэжыме гаманец плаціць камісію вузлу ў памеры 0,25% ад сумы транзакцыі, але не больш за 10 крб.</translation>
+        <translation>Гаманец будзе падлучацца да вузла ў лакальнай або глабальнай сеткі. Выберыце вузел або пакажыце IP адрас або дамен і порт каб дадаць новы. У гэтым рэжыме гаманец плаціць камісію вузлу ў памеры 0,25% ад сумы транзакцыі, але не больш за 10 крб.</translation>
     </message>
     <message>
         <source>Remove node</source>
@@ -333,11 +333,11 @@ Please wait...</source>
     </message>
     <message>
         <source>Wallet path:</source>
-        <translation type="vanished">Шлях да гаманца:</translation>
+        <translation>Шлях да гаманца:</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="vanished">...</translation>
+        <translation>...</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -372,7 +372,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Wallet path:</source>
-        <translation type="vanished">Шлях да гаманца:</translation>
+        <translation>Шлях да гаманца:</translation>
     </message>
     <message>
         <source>Import a tracking key of a wallet to see all its incoming transactions. It doesn&apos;t allow spending funds.</source>
@@ -494,7 +494,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Address Book</source>
-        <translation type="vanished">Адрасная кніга</translation>
+        <translation>Адрасная кніга</translation>
     </message>
     <message>
         <source>Create wallet</source>
@@ -558,11 +558,11 @@ Please wait...</source>
     </message>
     <message>
         <source>Change language</source>
-        <translation type="vanished">Змяніць мову</translation>
+        <translation>Змяніць мову</translation>
     </message>
     <message>
         <source>Show private key</source>
-        <translation type="vanished">Паказаць прыватны ключ</translation>
+        <translation>Паказаць прыватны ключ</translation>
     </message>
     <message>
         <source>F1</source>
@@ -606,11 +606,11 @@ Please wait...</source>
     </message>
     <message>
         <source>Status</source>
-        <translation type="vanished">Стан</translation>
+        <translation>Стан</translation>
     </message>
     <message>
         <source>Tools</source>
-        <translation type="vanished">Інструменты</translation>
+        <translation>Інструменты</translation>
     </message>
     <message>
         <source>Open log file</source>
@@ -644,12 +644,8 @@ Please wait...</source>
 <context>
     <name>MiningFrame</name>
     <message>
-        <source>Frame</source>
-        <translation></translation>
-    </message>
-    <message>
         <source>Mining status</source>
-        <translation type="vanished">Стан чаканкі</translation>
+        <translation>Стан чаканкі</translation>
     </message>
     <message>
         <source>CPU cores</source>
@@ -673,7 +669,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Pause mining</source>
-        <translation type="vanished">Прыпыніць чаканку</translation>
+        <translation>Прыпыніць чаканку</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -693,7 +689,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Status</source>
-        <translation type="vanished">Стан</translation>
+        <translation>Стан</translation>
     </message>
     <message>
         <source>Remove pool</source>
@@ -869,7 +865,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Wallet</source>
-        <translation type="vanished">гаманец</translation>
+        <translation>гаманец</translation>
     </message>
     <message>
         <source>Unconfirmed:</source>
@@ -877,7 +873,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Balance:</source>
-        <translation type="vanished">Баланс:</translation>
+        <translation>Баланс:</translation>
     </message>
     <message>
         <source>Recent transactions</source>
@@ -1053,7 +1049,7 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>Wallet path:</source>
-        <translation type="vanished">Шлях да гаманца:</translation>
+        <translation>Шлях да гаманца:</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1100,7 +1096,7 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>Balance:</source>
-        <translation type="vanished">Баланс:</translation>
+        <translation>Баланс:</translation>
     </message>
     <message>
         <source>Fee:</source>
@@ -1129,6 +1125,30 @@ Do you want to go to download page?</source>
     <message>
         <source>Available balance:</source>
         <translation>Даступны баланс:</translation>
+    </message>
+    <message>
+        <source>Payment ID:</source>
+        <translation>Ідэнтыфікатар:</translation>
+    </message>
+    <message>
+        <source>Anonymity:</source>
+        <translation>Прыватнасць:</translation>
+    </message>
+    <message>
+        <source>Priority:</source>
+        <translation>Прыярытэт:</translation>
+    </message>
+    <message>
+        <source>Manual fee override:</source>
+        <translation>Ручная карэкціроўка поплаткі:</translation>
+    </message>
+    <message>
+        <source>Advanced</source>
+        <translation>Прасунуты</translation>
+    </message>
+    <message>
+        <source>Remote mode</source>
+        <translation>Аддалены рэжым</translation>
     </message>
 </context>
 <context>
@@ -1227,11 +1247,11 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>Label:</source>
-        <translation type="vanished">Пазнака:</translation>
+        <translation>Пазнака:</translation>
     </message>
     <message>
         <source>Add to Contacts:</source>
-        <translation type="vanished">Дадаць у спіс кантактаў:</translation>
+        <translation>Дадаць у спіс кантактаў:</translation>
     </message>
     <message>
         <source>Select recipient from Address Book</source>
@@ -1243,7 +1263,7 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>Save to Contacts:</source>
-        <translation type="vanished">Захаваць у спіс кантактаў:</translation>
+        <translation>Захаваць у спіс кантактаў:</translation>
     </message>
     <message>
         <source>Save to Contacts as:</source>
@@ -1318,11 +1338,11 @@ Do you want to go to download page?</source>
     <name>WalletGui::AccountFrame</name>
     <message>
         <source>Hide private keys</source>
-        <translation type="vanished">Схаваць прыватныя ключы</translation>
+        <translation>Схаваць прыватныя ключы</translation>
     </message>
     <message>
         <source>Show private keys</source>
-        <translation type="vanished">Паказаць прыватныя ключы</translation>
+        <translation>Паказаць прыватныя ключы</translation>
     </message>
     <message>
         <source>Copied to clipboard</source>
@@ -1514,7 +1534,7 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>Tracking wallets (*.trackingwallet)</source>
-        <translation type="vanished">Гаманцы адсочвання (*.trackingwallet)</translation>
+        <translation>Гаманцы адсочвання (*.trackingwallet)</translation>
     </message>
     <message>
         <source>Tracking wallets (*.wallet)</source>
@@ -1594,7 +1614,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>%1 peers</source>
-        <translation type="vanished">%1 піраў</translation>
+        <translation>%1 піраў</translation>
     </message>
     <message>
         <source>Synchronization in progress</source>
@@ -1610,7 +1630,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>The language will be changed after restarting the wallet.</source>
-        <translation type="vanished">Мова будзе зменена пасля перазапуску гаманца.</translation>
+        <translation>Мова будзе зменена пасля перазапуску гаманца.</translation>
     </message>
     <message>
         <source>Language was changed</source>
@@ -1618,7 +1638,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>%1 Wallet %2</source>
-        <translation type="vanished">Карбованець в. %2 (%1)</translation>
+        <translation>Карбованець в. %2 (%1)</translation>
     </message>
     <message>
         <source>More info can be found at www.karbowanec.com in Documentation section</source>
@@ -1634,7 +1654,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>Account toolbar</source>
-        <translation type="vanished">Рахунак</translation>
+        <translation>Рахунак</translation>
     </message>
     <message>
         <source>Tracking wallet. Spending unawailable</source>
@@ -1646,7 +1666,7 @@ Are you sure?</source>
     </message>
     <message numerus="yes">
         <source>%n peer(s)</source>
-        <translation type="vanished">
+        <translation>
             <numerusform>%n пір</numerusform>
             <numerusform>%n піра</numerusform>
             <numerusform>%n піраў</numerusform>
@@ -1674,15 +1694,15 @@ Are you sure?</source>
     </message>
     <message>
         <source>Total amount: %1, hash: %2</source>
-        <translation type="vanished">Сума: %1, хэш: %2</translation>
+        <translation>Сума: %1, хэш: %2</translation>
     </message>
     <message>
         <source>Karbo Wallet</source>
-        <translation type="vanished">Карбованець</translation>
+        <translation>Карбованець</translation>
     </message>
     <message>
         <source>New transaction received</source>
-        <translation type="vanished">Атрымана новая транзакцыя</translation>
+        <translation>Атрымана новая транзакцыя</translation>
     </message>
     <message>
         <source>Mnemonic seed is not correct</source>
@@ -1749,7 +1769,7 @@ Are you sure?</source>
     <name>WalletGui::MiningFrame</name>
     <message>
         <source>Mining. Hashrate: %1 H/s</source>
-        <translation type="vanished">Чаканка. Хешрейт: %1 H/s</translation>
+        <translation>Чаканка. Хешрейт: %1 H/s</translation>
     </message>
     <message>
         <source>Error: %1</source>
@@ -1816,7 +1836,7 @@ Are you sure?</source>
     <name>WalletGui::ReceiveFrame</name>
     <message>
         <source>New PNG file</source>
-        <translation type="vanished">Новы файл PNG</translation>
+        <translation>Новы файл PNG</translation>
     </message>
     <message>
         <source>Save QR Code</source>
@@ -1859,6 +1879,26 @@ Are you sure?</source>
     <message>
         <source>Available balance is insufficient to send this transaction. Have you excluded a fee?</source>
         <translation>Даступнага балансу нядосыць для адпраўкі гэтай транзакцыі. Вы не забыліся адняць камісію?</translation>
+    </message>
+    <message>
+        <source>Low</source>
+        <translation>Нізкі</translation>
+    </message>
+    <message>
+        <source>Normal</source>
+        <translation>Нармальны</translation>
+    </message>
+    <message>
+        <source>High</source>
+        <translation>Высокі</translation>
+    </message>
+    <message>
+        <source>Highest</source>
+        <translation>Найвышэйшы</translation>
+    </message>
+    <message>
+        <source>Node fee: %1 %2</source>
+        <translation>Паплатак вузла: %1 %2</translation>
     </message>
 </context>
 <context>
