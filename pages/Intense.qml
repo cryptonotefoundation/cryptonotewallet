@@ -428,11 +428,31 @@ Rectangle {
 
                 }
             }else{
-                getJsonFail.text = "Erros status: " + xmlhttp.status + "<br />Error readyState: " + xmlhttp.readyState + "<br />" + xmlhttp.responseText + "<br />"// + xmlhttp.getAllResponseHeaders()
+
+                function getGeoLocation(){
+                    var urlGEO = "https://geoip.nekudo.com/api/"
+                    var xmlGEOhttp = new XMLHttpRequest();
+
+                    xmlGEOhttp.onreadystatechange=function() {
+                        if (xmlGEOhttp.readyState == 4 && xmlGEOhttp.status == 200) {
+                            getJsonFail.text = "Error status - SDP: " + xmlhttp.status + "<br />Error readyState - SDP: " + xmlhttp.readyState + "<br />" + xmlhttp.responseText + "<br /><br />"+
+                                                    "Status - GEO: " + xmlGEOhttp.status
+                        }else{
+                            getJsonFail.text = "Error status - SDP: " + xmlhttp.status + "<br />Error readyState - SDP: " + xmlhttp.readyState + "<br />" + xmlhttp.responseText + "<br /><br />"+
+                                                    "Status - GEO: " + xmlGEOhttp.status
+                        }
+                    }
+
+                    xmlGEOhttp.open("GET", urlGEO, true);
+                    xmlGEOhttp.setRequestHeader("Access-Control-Allow-Origin","*")
+                    xmlGEOhttp.send();
+                }
+                getGeoLocation()
             }
         }
 
         xmlhttp.open("GET", url, true);
+        xmlhttp.setRequestHeader("Access-Control-Allow-Origin","*")
         xmlhttp.send();
     }
 
