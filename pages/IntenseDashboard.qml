@@ -140,6 +140,7 @@ Rectangle {
         }
 
         xmlhttp.open("GET", url, true);
+        xmlhttp.setRequestHeader("Access-Control-Allow-Origin","*")
         xmlhttp.send();
     }
 
@@ -158,6 +159,7 @@ Rectangle {
         }
 
         xmlhttp.open("GET", url, true);
+        xmlhttp.setRequestHeader("Access-Control-Allow-Origin","*")
         xmlhttp.send();
     }
 
@@ -185,7 +187,9 @@ Rectangle {
         }
 
         xmlhttp.open("GET", url, true);
+        xmlhttp.setRequestHeader("Access-Control-Allow-Origin","*")
         xmlhttp.send();
+
     }
 
     function changeStatus(){
@@ -399,13 +403,21 @@ Rectangle {
         var h = secs/60/60
         var m = (secs/60)%60
         var s = secs%60
-        var array = [h,m,s].map(Math.floor).join(':');
+        var array = [h,m,s].map(Math.floor)
+        var value = ''
         for(x = 0; x < array.length; x++){
-            if(array[x] < 10){
-                array[x] = "0" + String(array[x])
+            if(array[x] < 10){ 
+                array[x] = "0" + array[x]
+            }else{
+                array[x] = array[x]
             }
+            function getCom(y){
+                if(y < 2){return ":"}else{return ""}
+            }
+            var c = getCom(x)
+            value = value + array[x] + c
         }
-        timeonlineTextLine.text = array
+        timeonlineTextLine.text = value
     }
 
     QtObject {
