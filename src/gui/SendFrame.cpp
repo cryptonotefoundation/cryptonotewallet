@@ -62,7 +62,7 @@ SendFrame::SendFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::SendFrame
   QLabel *label4 = new QLabel(tr("Highest"), this);
   label1->setStyleSheet(".QLabel { margin: 0; padding: 0;}");
   label2->setStyleSheet(".QLabel { margin: 0; padding: 0;}");
-  label2->setStyleSheet(".QLabel { margin: 0; padding: 0;}");
+  label3->setStyleSheet(".QLabel { margin: 0; padding: 0;}");
   label4->setStyleSheet(".QLabel { margin: 0; padding: 0;}");
   m_ui->m_priorityGridLayout->addWidget(m_ui->m_prioritySlider, 0, 0, 1, 4);
   m_ui->m_priorityGridLayout->addWidget(label1, 1, 0, 1, 1, Qt::AlignHCenter);
