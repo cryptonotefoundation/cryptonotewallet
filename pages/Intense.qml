@@ -204,6 +204,7 @@ Rectangle {
                 intenseDashboardView.flag = 1
                 intenseDashboardView.obj = obj
                 intenseDashboardView.secs = 0
+                intenseDashboardView.itnsStart = parseFloat(obj.cost)
 
                 middlePanel.state = "ITNS Dashboard"
 
