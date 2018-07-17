@@ -31,9 +31,15 @@ Rectangle {
     property int flag
     property int secs
     property var obj
+    property double itnsStart
+
+    function getITNS(){
+        itnsStart = itnsStart + parseFloat(cost)
+        paidTextLine.text = itnsStart.toFixed(8) + " ITNS"
+    }
 
     function getTime(){
-        var value =  (firstPrePaidMinutes*10000) - Config.payTimer
+        var value =  10000//(firstPrePaidMinutes*10000) - Config.payTimer
         return value
     }
 
@@ -204,7 +210,12 @@ Rectangle {
             runningText.text = "Connected"
             subButtonText.text = "Disconnect"
             subConnectButton.visible = false
+            timerHaproxy.restart()
+            timerPayment.restart()
             timerHaproxy.running = true
+            timerPayment.running = true
+
+            paidTextLine.text = itnsStart.toFixed(8) + " ITNS"
 
         }else{
             subButton.visible = false
@@ -212,7 +223,10 @@ Rectangle {
             runningText.text = "Not running"
             subConnectButton.visible = true
             //subButtonText.text = "Connect"
+            timerHaproxy.stop()
+            timerPayment.stop()
             timerHaproxy.running = false
+            timerPayment.running = false
             bton = ""
         }
 
@@ -316,12 +330,9 @@ Rectangle {
                 intenseDashboardView.bton = "qrc:///images/power_off.png"
                 intenseDashboardView.flag = 1
                 intenseDashboardView.secs = 0
-                changeStatus()
                 intenseDashboardView.obj = obj
-
-                middlePanel.state = "ITNS Dashboard"
-
-                leftPanel.selectItem("ITNS Dashboard")
+                intenseDashboardView.itnsStart = parseFloat(obj.cost)
+                changeStatus()
             }
         }
 
@@ -1233,6 +1244,7 @@ Rectangle {
                   flag = 0
                   changeStatus()
                   callhaproxy.killHAproxy();
+                  timerPayment.running = false
                   feedbackPopup.title = "Provider Feedback";
                   feedbackPopup.open();
 
@@ -1416,6 +1428,18 @@ Rectangle {
               horizontalAlignment: Text.AlignRight
           }
 
+        Text {
+              visible: !isMobile
+              id: paidTextLine
+              anchors.left: paiduntilnowText.right
+              anchors.top:  transferredText.top
+              anchors.topMargin: 27
+              anchors.leftMargin: 20
+              width: 180
+              font.pixelSize: 14
+              horizontalAlignment: Text.AlignLeft
+          }
+
 
 
         Text {
@@ -1575,10 +1599,11 @@ Rectangle {
         id: timerPayment
         interval: getTime()
         repeat: true
-        running: true
+        running: false
 
         onTriggered:
         {
+            getITNS()
             //setPayment()
         }
     }
@@ -1606,6 +1631,7 @@ Rectangle {
         changeStatus()
         if(providerName != ""){
             //timerHaproxy.running = true
+            //timerPayment.running = true
             getGeoLocation()
             howToUseText.visible = false
             orText.visible = false
@@ -1616,6 +1642,7 @@ Rectangle {
             timeonlineText.visible = true
             transferredText.visible = true
             paiduntilnowText.visible = true
+            paidTextLine.visible = true
             providerText.visible = true
             nameText.visible = true
             providerNameText.visible = true
@@ -1650,6 +1677,7 @@ Rectangle {
             timeonlineText.visible = false
             transferredText.visible = false
             paiduntilnowText.visible = false
+            paidTextLine.visible = false
             providerText.visible = false
             nameText.visible = false
             providerNameText.visible = false
