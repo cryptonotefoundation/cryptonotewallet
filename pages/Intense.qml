@@ -20,7 +20,7 @@ Rectangle {
             + (data.provider ? trStart + qsTr("Provider: ") + trMiddle + data.provider  + trEnd : "")
             + (data.name ? trStart + qsTr("Plan: ") + trMiddle + data.name + trEnd : "")
             + (data.type ? trStart + qsTr("Type: ") + trMiddle + data.type  + trEnd : "")
-            + (data.cost ? trStart + qsTr("Price:") + trMiddle + data.cost + " ITNS" + trEnd : "")
+            + (data.cost ? trStart + qsTr("Price:") + trMiddle + data.cost + " ITNS/min" + trEnd : "")
             + (data.firstPrePaidMinutes ? trStart + qsTr("First Pre Paid Minutes:") + trMiddle + data.firstPrePaidMinutes + trEnd : "")
             + (data.firstVerificationsNeeded ? trStart + qsTr("First Verifications Needed:") + trMiddle + data.firstVerificationsNeeded + trEnd : "")
             + (data.subsequentPrePaidMinutes ? trStart + qsTr("Subsequent Pre Paid Minutes:") + trMiddle + data.subsequentPrePaidMinutes + trEnd : "")
@@ -28,7 +28,7 @@ Rectangle {
             + (data.allowRefunds ? trStart + qsTr("Allow Refunds:") + trMiddle + data.allowRefunds + trEnd : "")
             + (data.downloadSpeed ? trStart + qsTr("Download Speed:") + trMiddle + formatBytes(data.downloadSpeed)+"/s" + trEnd : "")
             + (data.uploadSpeed ? trStart + qsTr("Upload Speed:") + trMiddle + formatBytes(data.uploadSpeed)+"/s" + trEnd : "")
-            + (rank ? trStart + qsTr("Rating:") + trMiddle + rank + trEnd : "")
+            + (rank ? trStart + qsTr("Rating:") + trMiddle + rank + " of 5" + trEnd : "")
             + "</table>"
             + translationManager.emptyString;
     }
@@ -43,7 +43,7 @@ Rectangle {
             + (data.providerName ? trStart + qsTr("Provider: ") + trMiddle + data.providerName  + trEnd : "")
             + (data.name ? trStart + qsTr("Plan: ") + trMiddle + data.name + trEnd : "")
             + (data.type ? trStart + qsTr("Type: ") + trMiddle + data.type  + trEnd : "")
-            + (data.cost ? trStart + qsTr("Price:") + trMiddle + data.cost+" ITNS" + trEnd : "")
+            + (data.cost ? trStart + qsTr("Price:") + trMiddle + data.cost+" ITNS/min" + trEnd : "")
             + (data.firstPrePaidMinutes ? trStart + qsTr("First Pre Paid Minutes:") + trMiddle + data.firstPrePaidMinutes + trEnd : "")
             + "</table>"
             + translationManager.emptyString;
@@ -252,31 +252,31 @@ Rectangle {
                     var rank = (arr[i].mStability + arr[i].mSpeed)/2
                     rank = parseFloat(rank).toFixed(1)
                     if(speed == undefined && tp == undefined && price == undefined){
-                        listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                        listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS/min", obj: arr[i], rank: rank, type: type, index: i})
                     }else
 
                     // C1
                     if(speed == "" && isNaN(price) && tp == "all" && favorite == true){
                         for(var showFav = 0; showFav < appWindow.persistentSettings.favorite.length-1; showFav++) {
                             if(appWindow.persistentSettings.favorite[showFav].id == arr[i].id && appWindow.persistentSettings.favorite[showFav].provider == arr[i].provider) {
-                                listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                                listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS/min", obj: arr[i], rank: rank, type: type, index: i})
                             }
                         }
                     }
 
                     // C1
                     if(speed == "" && isNaN(price) && tp == "all" && favorite == false){
-                        listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                        listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS/min", obj: arr[i], rank: rank, type: type, index: i})
                     }
                     // AC1
                     else if(speed <= arr[i].downloadSpeed && isNaN(price) && tp == "all" && favorite == false){
-                        listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                        listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS/min", obj: arr[i], rank: rank, type: type, index: i})
                     }
 
                     else if(speed <= arr[i].downloadSpeed && isNaN(price) && tp == "all" && favorite == true){
                         for(var showFav = 0; showFav < appWindow.persistentSettings.favorite.length-1; showFav++) {
                             if(appWindow.persistentSettings.favorite[showFav].id == arr[i].id && appWindow.persistentSettings.favorite[showFav].provider == arr[i].provider) {
-                                listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                                listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS/min", obj: arr[i], rank: rank, type: type, index: i})
                             }
                         }
                     }
@@ -284,20 +284,20 @@ Rectangle {
 
                     // BC1
                     else if(speed == "" && price >= arr[i].cost && tp == "all" && favorite == false){
-                        listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                        listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS/min", obj: arr[i], rank: rank, type: type, index: i})
                     }
 
                     else if(speed == "" && price >= arr[i].cost && tp == "all" && favorite == true){
                         for(var showFav = 0; showFav < appWindow.persistentSettings.favorite.length-1; showFav++) {
                             if(appWindow.persistentSettings.favorite[showFav].id == arr[i].id && appWindow.persistentSettings.favorite[showFav].provider == arr[i].provider) {
-                                listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                                listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS/min", obj: arr[i], rank: rank, type: type, index: i})
                             }
                         }
                     }
                     // C2
                     else if(speed == "" && isNaN(price) && tp == "vpn" && favorite == false){
                         if(arr[i].vpn.length > 0 ){
-                            listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                            listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS/min", obj: arr[i], rank: rank, type: type, index: i})
                         }
                     }
 
@@ -305,7 +305,7 @@ Rectangle {
                         if(arr[i].vpn.length > 0 ){
                             for(var showFav = 0; showFav < appWindow.persistentSettings.favorite.length-1; showFav++) {
                                 if(appWindow.persistentSettings.favorite[showFav].id == arr[i].id && appWindow.persistentSettings.favorite[showFav].provider == arr[i].provider) {
-                                    listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                                    listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS/min", obj: arr[i], rank: rank, type: type, index: i})
                                 }
                             }
                         }
@@ -313,40 +313,40 @@ Rectangle {
                     // C3
                     else if(speed == "" && price >= arr[i].cost && tp == "proxy" && favorite == false){
                         if(arr[i].proxy.length > 0 ){
-                            listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                            listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS/min", obj: arr[i], rank: rank, type: type, index: i})
                         }
                     }
                     else if(speed == "" && price >= arr[i].cost && tp == "proxy" && favorite == true){
                         if(arr[i].proxy.length > 0 ){
                             for(var showFav = 0; showFav < appWindow.persistentSettings.favorite.length-1; showFav++) {
                                 if(appWindow.persistentSettings.favorite[showFav].id == arr[i].id && appWindow.persistentSettings.favorite[showFav].provider == arr[i].provider) {
-                                    listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                                    listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS/min", obj: arr[i], rank: rank, type: type, index: i})
                                 }
                             }
                         }
                     }
                     // ABC1
                     else if(speed <= arr[i].downloadSpeed && price >= arr[i].cost && tp == "all" && favorite == false){
-                        listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                        listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS/min", obj: arr[i], rank: rank, type: type, index: i})
                     }
                     else if(speed <= arr[i].downloadSpeed && price >= arr[i].cost && tp == "all" && favorite == true){
                         for(var showFav = 0; showFav < appWindow.persistentSettings.favorite.length-1; showFav++) {
                             if(appWindow.persistentSettings.favorite[showFav].id == arr[i].id && appWindow.persistentSettings.favorite[showFav].provider == arr[i].provider) {
-                                listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                                listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS/min", obj: arr[i], rank: rank, type: type, index: i})
                             }
                         }
                     }
                     // ABC2
                     else if(speed <= arr[i].downloadSpeed && price >= arr[i].cost && tp == "vpn" && favorite == false){
                         if(arr[i].vpn.length > 0 ){
-                            listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                            listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS/min", obj: arr[i], rank: rank, type: type, index: i})
                         }
                     }
                     else if(speed <= arr[i].downloadSpeed && price >= arr[i].cost && tp == "vpn" && favorite == true){
                         if(arr[i].vpn.length > 0 ){
                             for(var showFav = 0; showFav < appWindow.persistentSettings.favorite.length-1; showFav++) {
                                 if(appWindow.persistentSettings.favorite[showFav].id == arr[i].id && appWindow.persistentSettings.favorite[showFav].provider == arr[i].provider) {
-                                    listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                                    listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS/min", obj: arr[i], rank: rank, type: type, index: i})
                                 }
                             }
                         }
@@ -354,14 +354,14 @@ Rectangle {
                     // ABC3
                     else if(speed <= arr[i].downloadSpeed && price >= arr[i].cost && tp == "proxy" && favorite == false){
                         if(arr[i].proxy.length > 0 ){
-                            listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                            listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS/min", obj: arr[i], rank: rank, type: type, index: i})
                         }
                     }
                     else if(speed <= arr[i].downloadSpeed && price >= arr[i].cost && tp == "proxy" && favorite == true){
                         if(arr[i].proxy.length > 0 ){
                             for(var showFav = 0; showFav < appWindow.persistentSettings.favorite.length-1; showFav++) {
                                 if(appWindow.persistentSettings.favorite[showFav].id == arr[i].id && appWindow.persistentSettings.favorite[showFav].provider == arr[i].provider) {
-                                    listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                                    listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS/min", obj: arr[i], rank: rank, type: type, index: i})
                                 }
                             }
                         }
@@ -369,14 +369,14 @@ Rectangle {
                     // BC2
                     else if(speed == "" && price >= arr[i].cost && tp == "vpn" && favorite == false ){
                         if(arr[i].vpn.length > 0 ){
-                            listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                            listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS/min", obj: arr[i], rank: rank, type: type, index: i})
                         }
                     }
                     else if(speed == "" && price >= arr[i].cost && tp == "vpn" && favorite == true ){
                         if(arr[i].vpn.length > 0 ){
                             for(var showFav = 0; showFav < appWindow.persistentSettings.favorite.length-1; showFav++) {
                                 if(appWindow.persistentSettings.favorite[showFav].id == arr[i].id && appWindow.persistentSettings.favorite[showFav].provider == arr[i].provider) {
-                                    listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                                    listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS/min", obj: arr[i], rank: rank, type: type, index: i})
                                 }
                             }
                         }
@@ -384,14 +384,14 @@ Rectangle {
                     // BC3
                     else if(speed == "" && price >= arr[i].cost && tp == "proxy" && favorite == false){
                         if(arr[i].proxy.length > 0 ){
-                            listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                            listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS/min", obj: arr[i], rank: rank, type: type, index: i})
                         }
                     }
                     else if(speed == "" && price >= arr[i].cost && tp == "proxy" && favorite == true){
                         if(arr[i].proxy.length > 0 ){
                             for(var showFav = 0; showFav < appWindow.persistentSettings.favorite.length-1; showFav++) {
                                 if(appWindow.persistentSettings.favorite[showFav].id == arr[i].id && appWindow.persistentSettings.favorite[showFav].provider == arr[i].provider) {
-                                    listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                                    listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS/min", obj: arr[i], rank: rank, type: type, index: i})
                                 }
                             }
                         }
@@ -399,14 +399,14 @@ Rectangle {
                     // AC2
                     else if(speed <= arr[i].downloadSpeed && isNaN(price) && tp == "vpn" && favorite == false){
                         if(arr[i].vpn.length > 0 ){
-                            listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                            listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS/min", obj: arr[i], rank: rank, type: type, index: i})
                         }
                     }
                     else if(speed <= arr[i].downloadSpeed && isNaN(price) && tp == "vpn" && favorite == true){
                         if(arr[i].vpn.length > 0 ){
                             for(var showFav = 0; showFav < appWindow.persistentSettings.favorite.length-1; showFav++) {
                                 if(appWindow.persistentSettings.favorite[showFav].id == arr[i].id && appWindow.persistentSettings.favorite[showFav].provider == arr[i].provider) {
-                                    listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                                    listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS/min", obj: arr[i], rank: rank, type: type, index: i})
                                 }
                             }
                         }
@@ -414,14 +414,14 @@ Rectangle {
                     // AC3
                     else if(speed <= arr[i].downloadSpeed && isNaN(price) && tp == "proxy" && favorite == false){
                         if(arr[i].proxy.length > 0 ){
-                            listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                            listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS/min", obj: arr[i], rank: rank, type: type, index: i})
                         }
                     }
                     else if(speed <= arr[i].downloadSpeed && isNaN(price) && tp == "proxy" && favorite == true){
                         if(arr[i].proxy.length > 0 ){
                             for(var showFav = 0; showFav < appWindow.persistentSettings.favorite.length-1; showFav++) {
                                 if(appWindow.persistentSettings.favorite[showFav].id == arr[i].id && appWindow.persistentSettings.favorite[showFav].provider == arr[i].provider) {
-                                    listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS", obj: arr[i], rank: rank, type: type, index: i})
+                                    listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[i].providerName + "</div><br />" + arr[i].name +"<br /> "+ type + " - "+ arr[i].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[i].downloadSpeed) +"/s </div>- "+ arr[i].cost + " ITNS/min", obj: arr[i], rank: rank, type: type, index: i})
                                 }
                             }
                         }
