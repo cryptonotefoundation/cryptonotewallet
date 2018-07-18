@@ -160,7 +160,15 @@ Rectangle {
                 var haproxyStats = haproxyStats.split(',')
                 haproxyStats[8] = haproxyStats[8].replace('"', '')
                 haproxyStats[9] = haproxyStats[9].replace('"', '')
+                transferredTextLine.color = "#000000"
+                transferredTextLine.font.bold = false
                 transferredTextLine.text = "Download: "+formatBytes(parseInt(haproxyStats[8]))+" / Upload: "+ formatBytes(parseInt(haproxyStats[9]))
+            }else if(xmlhttp.status != 200){
+                flag = 0
+                transferredTextLine.text = "Proxy not running!"
+                transferredTextLine.color = "#FF4500"
+                transferredTextLine.font.bold = true
+                changeStatus()
             }
         }
 
@@ -242,7 +250,7 @@ Rectangle {
             + (data.providerName ? trStart + qsTr("Provider: ") + trMiddle + data.providerName  + trEnd : "")
             + (data.name ? trStart + qsTr("Plan: ") + trMiddle + data.name + trEnd : "")
             + (data.type ? trStart + qsTr("Type: ") + trMiddle + data.type  + trEnd : "")
-            + (data.cost ? trStart + qsTr("Price:") + trMiddle + data.cost+" ITNS" + trEnd : "")
+            + (data.cost ? trStart + qsTr("Price:") + trMiddle + data.cost+" ITNS/min" + trEnd : "")
             + (data.firstPrePaidMinutes ? trStart + qsTr("First Pre Paid Minutes:") + trMiddle + data.firstPrePaidMinutes + trEnd : "")
             + "</table>"
             + translationManager.emptyString;
@@ -724,7 +732,7 @@ Rectangle {
                 anchors.topMargin: 21
                 anchors.leftMargin: 90
                 width: 70
-                text: cost + " ITNS"
+                text: cost + " ITNS/min"
                 font.pixelSize: 12
                 horizontalAlignment: Text.AlignLeft
                 color: "#535353"
@@ -1341,6 +1349,7 @@ Rectangle {
                   anchors.fill: parent
                   onClicked: {
                       middlePanel.state = "ITNS Provider"
+                      leftPanel.selectItem("ITNS Provider")
                   }
               }
           }
@@ -1533,7 +1542,7 @@ Rectangle {
               anchors.topMargin: 27
               anchors.leftMargin: 20
               width: 180
-              text: cost + (" ITNS")
+              text: cost + (" ITNS/min")
               font.pixelSize: 14
               horizontalAlignment: Text.AlignLeft
           }
