@@ -160,7 +160,15 @@ Rectangle {
                 var haproxyStats = haproxyStats.split(',')
                 haproxyStats[8] = haproxyStats[8].replace('"', '')
                 haproxyStats[9] = haproxyStats[9].replace('"', '')
+                transferredTextLine.color = "#000000"
+                transferredTextLine.font.bold = false
                 transferredTextLine.text = "Download: "+formatBytes(parseInt(haproxyStats[8]))+" / Upload: "+ formatBytes(parseInt(haproxyStats[9]))
+            }else if(xmlhttp.status != 200){
+                flag = 0
+                transferredTextLine.text = "Proxy not running!"
+                transferredTextLine.color = "#FF4500"
+                transferredTextLine.font.bold = true
+                changeStatus()
             }
         }
 
