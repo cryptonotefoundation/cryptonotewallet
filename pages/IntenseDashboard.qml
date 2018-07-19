@@ -151,7 +151,7 @@ Rectangle {
     }
 
     function getHaproxyStats(obj){
-        var url = "http://"+Config.haproxyIp+":"//+Config.haproxyPort+"/haproxy_stats;csv"
+        var url = "http://"+Config.haproxyIp+":"+Config.haproxyPort+"/haproxy_stats;csv"
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange=function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
