@@ -150,8 +150,8 @@ Rectangle {
         xmlhttp.send();
     }
 
-    function getHaproxyStats(){
-        var url = "http://"+Config.haproxyIp+":"+Config.haproxyPort+"/haproxy_stats;csv"
+    function getHaproxyStats(obj){
+        var url = "http://"+Config.haproxyIp+":"//+Config.haproxyPort+"/haproxy_stats;csv"
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange=function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -164,10 +164,25 @@ Rectangle {
                 transferredTextLine.font.bold = false
                 transferredTextLine.text = "Download: "+formatBytes(parseInt(haproxyStats[8]))+" / Upload: "+ formatBytes(parseInt(haproxyStats[9]))
             }else if(xmlhttp.status != 200){
+                var host = applicationDirectory;
+                var endpoint = ''
+                var port = ''
+                if(obj.proxy.length > 0){
+                    endpoint = obj.proxy[0].endpoint
+                    port = obj.proxy[0].port
+                }else{
+                    endpoint = obj.vpn[0].endpoint
+                    port = obj.vpn[0].port
+                }
+
+                var certArray = decode64(obj.certArray[0].certContent); // "4pyTIMOgIGxhIG1vZGU="
+
                 flag = 0
                 transferredTextLine.text = "Proxy not running!"
                 transferredTextLine.color = "#FF4500"
                 transferredTextLine.font.bold = true
+                callhaproxy.haproxyCert(host, certArray);
+                callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), Config.localHostHaproxy, Config.localHostHaproxy)
                 changeStatus()
             }
         }
@@ -256,6 +271,53 @@ Rectangle {
             + translationManager.emptyString;
     }
 
+    function decode64(input) {
+        var keyStr = "ABCDEFGHIJKLMNOP" +
+                       "QRSTUVWXYZabcdef" +
+                       "ghijklmnopqrstuv" +
+                       "wxyz0123456789+/" +
+                       "=";
+         var output = "";
+         var chr1, chr2, chr3 = "";
+         var enc1, enc2, enc3, enc4 = "";
+         var i = 0;
+
+         // remove all characters that are not A-Z, a-z, 0-9, +, /, or =
+         var base64test = /[^A-Za-z0-9\+\/\=]/g;
+         if (base64test.exec(input)) {
+            alert("There were invalid base64 characters in the input text.\n" +
+                  "Valid base64 characters are A-Z, a-z, 0-9, '+', '/',and '='\n" +
+                  "Expect errors in decoding.");
+         }
+         input = input.replace(/[^A-Za-z0-9\+\/\=]/g, "");
+
+         do {
+            enc1 = keyStr.indexOf(input.charAt(i++));
+            enc2 = keyStr.indexOf(input.charAt(i++));
+            enc3 = keyStr.indexOf(input.charAt(i++));
+            enc4 = keyStr.indexOf(input.charAt(i++));
+
+            chr1 = (enc1 << 2) | (enc2 >> 4);
+            chr2 = ((enc2 & 15) << 4) | (enc3 >> 2);
+            chr3 = ((enc3 & 3) << 6) | enc4;
+
+            output = output + String.fromCharCode(chr1);
+
+            if (enc3 != 64) {
+               output = output + String.fromCharCode(chr2);
+            }
+            if (enc4 != 64) {
+               output = output + String.fromCharCode(chr3);
+            }
+
+            chr1 = chr2 = chr3 = "";
+            enc1 = enc2 = enc3 = enc4 = "";
+
+         } while (i < input.length);
+
+         return unescape(output);
+      }
+
     function createJsonFeedback(obj, rank){
         subButton.visible = true;
         var url = Config.url+Config.stage+Config.version+Config.feedback+Config.setup
@@ -265,53 +327,6 @@ Rectangle {
                 var feed = JSON.parse(xmlhttpPost.responseText)
                 var host = applicationDirectory;
                 console.log(obj.certArray[0].certContent);
-
-                function decode64(input) {
-                    var keyStr = "ABCDEFGHIJKLMNOP" +
-                                   "QRSTUVWXYZabcdef" +
-                                   "ghijklmnopqrstuv" +
-                                   "wxyz0123456789+/" +
-                                   "=";
-                     var output = "";
-                     var chr1, chr2, chr3 = "";
-                     var enc1, enc2, enc3, enc4 = "";
-                     var i = 0;
-
-                     // remove all characters that are not A-Z, a-z, 0-9, +, /, or =
-                     var base64test = /[^A-Za-z0-9\+\/\=]/g;
-                     if (base64test.exec(input)) {
-                        alert("There were invalid base64 characters in the input text.\n" +
-                              "Valid base64 characters are A-Z, a-z, 0-9, '+', '/',and '='\n" +
-                              "Expect errors in decoding.");
-                     }
-                     input = input.replace(/[^A-Za-z0-9\+\/\=]/g, "");
-
-                     do {
-                        enc1 = keyStr.indexOf(input.charAt(i++));
-                        enc2 = keyStr.indexOf(input.charAt(i++));
-                        enc3 = keyStr.indexOf(input.charAt(i++));
-                        enc4 = keyStr.indexOf(input.charAt(i++));
-
-                        chr1 = (enc1 << 2) | (enc2 >> 4);
-                        chr2 = ((enc2 & 15) << 4) | (enc3 >> 2);
-                        chr3 = ((enc3 & 3) << 6) | enc4;
-
-                        output = output + String.fromCharCode(chr1);
-
-                        if (enc3 != 64) {
-                           output = output + String.fromCharCode(chr2);
-                        }
-                        if (enc4 != 64) {
-                           output = output + String.fromCharCode(chr3);
-                        }
-
-                        chr1 = chr2 = chr3 = "";
-                        enc1 = enc2 = enc3 = enc4 = "";
-
-                     } while (i < input.length);
-
-                     return unescape(output);
-                  }
 
                 var endpoint = ''
                 var port = ''
@@ -325,7 +340,7 @@ Rectangle {
 
                 var certArray = decode64(obj.certArray[0].certContent); // "4pyTIMOgIGxhIG1vZGU="
                 callhaproxy.haproxyCert(host, certArray);
-                callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4))
+                callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), 'null', Config.localHostHaproxy)
                 intenseDashboardView.idService = obj.id
                 intenseDashboardView.feedback = feed.id
                 intenseDashboardView.providerName = obj.providerName
@@ -1626,7 +1641,7 @@ Rectangle {
         {
             //setPayment()
             timer()
-            getHaproxyStats()
+            getHaproxyStats(obj)
         }
     }
 
