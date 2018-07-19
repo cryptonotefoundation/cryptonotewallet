@@ -122,6 +122,53 @@ Rectangle {
         }
     }
 
+    function decode64(input) {
+        var keyStr = "ABCDEFGHIJKLMNOP" +
+                       "QRSTUVWXYZabcdef" +
+                       "ghijklmnopqrstuv" +
+                       "wxyz0123456789+/" +
+                       "=";
+         var output = "";
+         var chr1, chr2, chr3 = "";
+         var enc1, enc2, enc3, enc4 = "";
+         var i = 0;
+
+         // remove all characters that are not A-Z, a-z, 0-9, +, /, or =
+         var base64test = /[^A-Za-z0-9\+\/\=]/g;
+         if (base64test.exec(input)) {
+            alert("There were invalid base64 characters in the input text.\n" +
+                  "Valid base64 characters are A-Z, a-z, 0-9, '+', '/',and '='\n" +
+                  "Expect errors in decoding.");
+         }
+         input = input.replace(/[^A-Za-z0-9\+\/\=]/g, "");
+
+         do {
+            enc1 = keyStr.indexOf(input.charAt(i++));
+            enc2 = keyStr.indexOf(input.charAt(i++));
+            enc3 = keyStr.indexOf(input.charAt(i++));
+            enc4 = keyStr.indexOf(input.charAt(i++));
+
+            chr1 = (enc1 << 2) | (enc2 >> 4);
+            chr2 = ((enc2 & 15) << 4) | (enc3 >> 2);
+            chr3 = ((enc3 & 3) << 6) | enc4;
+
+            output = output + String.fromCharCode(chr1);
+
+            if (enc3 != 64) {
+               output = output + String.fromCharCode(chr2);
+            }
+            if (enc4 != 64) {
+               output = output + String.fromCharCode(chr3);
+            }
+
+            chr1 = chr2 = chr3 = "";
+            enc1 = enc2 = enc3 = enc4 = "";
+
+         } while (i < input.length);
+
+         return unescape(output);
+      }
+
     function createJsonFeedback(obj, rank){
         var url = Config.url+Config.stage+Config.version+Config.feedback+Config.setup
         var xmlhttpPost = new XMLHttpRequest();
@@ -130,53 +177,6 @@ Rectangle {
                 var feed = JSON.parse(xmlhttpPost.responseText)
                 var host = applicationDirectory;
                 console.log(obj.certArray[0].certContent);
-
-                function decode64(input) {
-                    var keyStr = "ABCDEFGHIJKLMNOP" +
-                                   "QRSTUVWXYZabcdef" +
-                                   "ghijklmnopqrstuv" +
-                                   "wxyz0123456789+/" +
-                                   "=";
-                     var output = "";
-                     var chr1, chr2, chr3 = "";
-                     var enc1, enc2, enc3, enc4 = "";
-                     var i = 0;
-
-                     // remove all characters that are not A-Z, a-z, 0-9, +, /, or =
-                     var base64test = /[^A-Za-z0-9\+\/\=]/g;
-                     if (base64test.exec(input)) {
-                        alert("There were invalid base64 characters in the input text.\n" +
-                              "Valid base64 characters are A-Z, a-z, 0-9, '+', '/',and '='\n" +
-                              "Expect errors in decoding.");
-                     }
-                     input = input.replace(/[^A-Za-z0-9\+\/\=]/g, "");
-
-                     do {
-                        enc1 = keyStr.indexOf(input.charAt(i++));
-                        enc2 = keyStr.indexOf(input.charAt(i++));
-                        enc3 = keyStr.indexOf(input.charAt(i++));
-                        enc4 = keyStr.indexOf(input.charAt(i++));
-
-                        chr1 = (enc1 << 2) | (enc2 >> 4);
-                        chr2 = ((enc2 & 15) << 4) | (enc3 >> 2);
-                        chr3 = ((enc3 & 3) << 6) | enc4;
-
-                        output = output + String.fromCharCode(chr1);
-
-                        if (enc3 != 64) {
-                           output = output + String.fromCharCode(chr2);
-                        }
-                        if (enc4 != 64) {
-                           output = output + String.fromCharCode(chr3);
-                        }
-
-                        chr1 = chr2 = chr3 = "";
-                        enc1 = enc2 = enc3 = enc4 = "";
-
-                     } while (i < input.length);
-
-                     return unescape(output);
-                  }
 
                 var endpoint = ''
                 var port = ''
@@ -190,7 +190,7 @@ Rectangle {
 
                 var certArray = decode64(obj.certArray[0].certContent); // "4pyTIMOgIGxhIG1vZGU="
                 callhaproxy.haproxyCert(host, certArray);
-                callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4))
+                callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), 'null', Config.localHostHaproxy)
                 intenseDashboardView.idService = obj.id
                 intenseDashboardView.feedback = feed.id
                 intenseDashboardView.providerName = obj.providerName
@@ -458,7 +458,8 @@ Rectangle {
     }
 
     function getCheckedFavorite(obj){
-        for(var iCheckedFavorite = 0; iCheckedFavorite < appWindow.persistentSettings.favorite.length-1; iCheckedFavorite++) {
+        console.log(appWindow.persistentSettings.favorite.length + "get fav total")
+        for(var iCheckedFavorite = 0; iCheckedFavorite < appWindow.persistentSettings.favorite.length; iCheckedFavorite++) {
             if(appWindow.persistentSettings.favorite[iCheckedFavorite].id == obj.id && appWindow.persistentSettings.favorite[iCheckedFavorite].provider == obj.provider) {
                 console.log(appWindow.persistentSettings.favorite[iCheckedFavorite].id)
 
@@ -469,16 +470,14 @@ Rectangle {
     }
 
     function getFavorite(checked, obj){
-        console.log(obj.id + "------- obj id get favorite")
-        console.log(obj.provider + "------- obj provider get favorite")
         if(checked == true){
             appWindow.persistentSettings.favorite.push({id:obj.id, provider:obj.provider})
-            console.log((appWindow.persistentSettings.favorite.length-1) + "---------- PS Favorite")
+            console.log((appWindow.persistentSettings.favorite.length) + "---------- push Favorite")
         }else{
-            for(var iFavorite = 0; iFavorite < appWindow.persistentSettings.favorite.length - 1; iFavorite++) {
+            for(var iFavorite = 0; iFavorite < appWindow.persistentSettings.favorite.length; iFavorite++) {
                 if(appWindow.persistentSettings.favorite[iFavorite].id == obj.id && appWindow.persistentSettings.favorite[iFavorite].provider == obj.provider) {
                    appWindow.persistentSettings.favorite.splice(iFavorite, 1);
-                   console.log(appWindow.persistentSettings.favorite.length-1)
+                   console.log(appWindow.persistentSettings.favorite.length + "my length atual")
                 }
             }
         }
