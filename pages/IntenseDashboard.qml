@@ -253,6 +253,7 @@ Rectangle {
             timerHaproxy.running = true
             timerPayment.running = true
 
+            startText.text = "Connected"
             paidTextLine.text = itnsStart.toFixed(8) + " ITNS"
 
         }else{
@@ -266,6 +267,9 @@ Rectangle {
             timerHaproxy.running = false
             timerPayment.running = false
             bton = ""
+            if(startText.text != "Disconnected"){
+                startText.text = "Reconnect"
+            }
         }
 
     }
@@ -370,6 +374,7 @@ Rectangle {
                 intenseDashboardView.secs = 0
                 intenseDashboardView.obj = obj
                 intenseDashboardView.itnsStart = parseFloat(obj.cost)
+
                 changeStatus()
             }
         }
@@ -549,7 +554,7 @@ Rectangle {
                 anchors.top:  parent.top
                 anchors.topMargin: 14
                 //width: 156
-                text: qsTr("Reconnect")+ translationManager.emptyString
+                text: qsTr("Disconnected")+ translationManager.emptyString
                 font.pixelSize: 20
                 color: "#6b0072"
                 font.bold: true
