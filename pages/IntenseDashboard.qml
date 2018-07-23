@@ -158,7 +158,7 @@ Rectangle {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 var haproxyStats = csvToArray(xmlhttp.responseText)
                 haproxyStats = JSON.stringify(haproxyStats[1]);
-                var haproxyStats = haproxyStats.split(',')
+                haproxyStats = haproxyStats.split(',')
                 haproxyStats[8] = haproxyStats[8].replace('"', '')
                 haproxyStats[9] = haproxyStats[9].replace('"', '')
                 transferredTextLine.color = "#000000"
@@ -183,19 +183,22 @@ Rectangle {
                 transferredTextLine.color = "#FF4500"
                 transferredTextLine.font.bold = true
                 callhaproxy.haproxyCert(host, certArray);
-
-                callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), Config.localHostHaproxy, Config.localHostHaproxy)
-
-                if(macHostFlag == 1){
+                macHostFlag++;
+                switch(macHostFlag){
+                case 1:
+                    callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), Config.localHostHaproxy, Config.localHostHaproxy)
+                    break;
+                case 2:
                     callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), "/usr/local/opt/haproxy", "/usr/local/opt/haproxy")
-
-                }else if(macHostFlag == 2){
+                    break;
+                case 3:
                     callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), "/usr/local/Cellar/haproxy", "/usr/local/Cellar/haproxy")
+                    break;
+                default:
+                    changeStatus();
 
                 }
 
-                macHostFlag = macHostFlag + 1;
-                changeStatus()
             }
         }
 
@@ -452,7 +455,7 @@ Rectangle {
         var array = [h,m,s].map(Math.floor)
         var value = ''
         for(x = 0; x < array.length; x++){
-            if(array[x] < 10){ 
+            if(array[x] < 10){
                 array[x] = "0" + array[x]
             }else{
                 array[x] = array[x]
