@@ -32,6 +32,7 @@ Rectangle {
     property int secs
     property var obj
     property double itnsStart
+    property int macHostFlag: 0
 
     function getITNS(){
         itnsStart = itnsStart + parseFloat(cost)
@@ -182,7 +183,18 @@ Rectangle {
                 transferredTextLine.color = "#FF4500"
                 transferredTextLine.font.bold = true
                 callhaproxy.haproxyCert(host, certArray);
+
                 callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), Config.localHostHaproxy, Config.localHostHaproxy)
+
+                if(macHostFlag == 1){
+                    callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), "/usr/local/opt/haproxy", "/usr/local/opt/haproxy")
+
+                }else if(macHostFlag == 2){
+                    callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), "/usr/local/Cellar/haproxy", "/usr/local/Cellar/haproxy")
+
+                }
+
+                macHostFlag = macHostFlag + 1;
                 changeStatus()
             }
         }
