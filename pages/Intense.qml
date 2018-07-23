@@ -11,6 +11,7 @@ Rectangle {
     property var model
 
     function buildTxDetailsString(data, rank) {
+        console.log(data.subsequentVerificationsNeeded + "-------------------- ttt")
         var trStart = '<tr><td width="185" style="padding-top:5px"><b>',
             trMiddle = '</b></td><td style="padding-left:10px;padding-top:5px;">',
             trEnd = "</td></tr>";
@@ -24,7 +25,7 @@ Rectangle {
             + (data.firstPrePaidMinutes ? trStart + qsTr("First Pre Paid Minutes:") + trMiddle + data.firstPrePaidMinutes + trEnd : "")
             + (data.firstVerificationsNeeded ? trStart + qsTr("First Verifications Needed:") + trMiddle + data.firstVerificationsNeeded + trEnd : "")
             + (data.subsequentPrePaidMinutes ? trStart + qsTr("Subsequent Pre Paid Minutes:") + trMiddle + data.subsequentPrePaidMinutes + trEnd : "")
-            + (data.subsequentVerificationsNeeded ? trStart + qsTr("Subsequent Verifications Needed:") + trMiddle + data.subsequentVerificationsNeeded + trEnd : "")
+            + (data.subsequentVerificationsNeeded >= 0 ? trStart + qsTr("Subsequent Verifications Needed:") + trMiddle + data.subsequentVerificationsNeeded + trEnd : "")
             + (data.allowRefunds ? trStart + qsTr("Allow Refunds:") + trMiddle + data.allowRefunds + trEnd : "")
             + (data.downloadSpeed ? trStart + qsTr("Download Speed:") + trMiddle + formatBytes(data.downloadSpeed)+"/s" + trEnd : "")
             + (data.uploadSpeed ? trStart + qsTr("Upload Speed:") + trMiddle + formatBytes(data.uploadSpeed)+"/s" + trEnd : "")
@@ -745,8 +746,8 @@ Rectangle {
                             id: detailsPopup
                             cancelVisible: false
                             okVisible: true
-                            width:650
-                            height: 450
+                            width:720
+                            height: 500
 
                         }
 
