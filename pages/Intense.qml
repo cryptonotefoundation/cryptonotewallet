@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import moneroComponents.TransactionInfo 1.0
 import QtQuick.Controls 1.4
+import QtQml 2.2
 import moneroComponents.Wallet 1.0
 import moneroComponents.WalletManager 1.0
 import "../components"
@@ -222,6 +223,7 @@ Rectangle {
     }
 
     function getJson(speed, speedType, price, tp, favorite){
+
         if(speed != undefined){
             speed = speed * 1024
             if(speedType == "mb"){
@@ -235,6 +237,7 @@ Rectangle {
         xmlhttp.onreadystatechange=function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 getJsonFail.visible = false
+                loading.visible = false
                 var arr = JSON.parse(xmlhttp.responseText)
                 for(var i = 0; i < arr.length; i++) {
                     if(arr[i].mStability == null){
@@ -429,27 +432,22 @@ Rectangle {
                     }
 
                 }
-            }else{
+            }else if(xmlhttp.status != 200 && xmlhttp.readyState == 4){
+                var urlGEO = "https://geoip.nekudo.com/api/"
+                var xmlGEOhttp = new XMLHttpRequest();
 
-                function getGeoLocation(){
-                    var urlGEO = "https://geoip.nekudo.com/api/"
-                    var xmlGEOhttp = new XMLHttpRequest();
-
-                    xmlGEOhttp.onreadystatechange=function() {
-                        if (xmlGEOhttp.readyState == 4 && xmlGEOhttp.status == 200) {
-                            getJsonFail.text = "Error status - SDP: " + xmlhttp.status + "<br />Error readyState - SDP: " + xmlhttp.readyState + "<br />" + xmlhttp.responseText + "<br /><br />"+
-                                                    "Status - GEO: " + xmlGEOhttp.status
-                        }else{
-                            getJsonFail.text = "Error status - SDP: " + xmlhttp.status + "<br />Error readyState - SDP: " + xmlhttp.readyState + "<br />" + xmlhttp.responseText + "<br /><br />"+
-                                                    "Status - GEO: " + xmlGEOhttp.status
-                        }
+                xmlGEOhttp.onreadystatechange=function() {
+                    getJsonFail.visible = true;
+                    loading.visible = false
+                    if (xmlGEOhttp.readyState == 4 && xmlGEOhttp.status == 200) {
+                        getJsonFail.text = "Error status - SDP: " + xmlhttp.status + "<br />Error readyState - SDP: " + xmlhttp.readyState + "<br />" + xmlhttp.responseText + "<br /><br />" + "Status - GEO: " + xmlGEOhttp.status
+                    }else if(xmlGEOhttp.status != 200 && xmlGEOhttp.readyState == 4){
+                        getJsonFail.text = "Error status - SDP: " + xmlhttp.status + "<br />Error readyState - SDP: " + xmlhttp.readyState + "<br />" + xmlhttp.responseText + "<br /><br />" + "Error Status - GEO: " + xmlGEOhttp.status
                     }
-
-                    xmlGEOhttp.open("GET", urlGEO, true);
-                    xmlGEOhttp.setRequestHeader("Access-Control-Allow-Origin","*")
-                    xmlGEOhttp.send();
                 }
-                getGeoLocation()
+                xmlGEOhttp.open("GET", urlGEO, true);
+                xmlGEOhttp.setRequestHeader("Access-Control-Allow-Origin","*")
+                xmlGEOhttp.send();
             }
         }
 
@@ -665,7 +663,29 @@ Rectangle {
         }
 
 
+        Text {
+          visible: false
+          id: getJsonFail
+          anchors.horizontalCenter: parent.horizontalCenter
+          anchors.top:  parent.top
+          anchors.topMargin: 75
+          font.pixelSize: 16
+          width: 400
+          height: 800
+          color: "#535353"
+          font.family: "Arial"
+        }
 
+        Text {
+          id: loading
+          anchors.horizontalCenter: parent.horizontalCenter
+          anchors.top:  parent.top
+          anchors.topMargin: 75
+          text: qsTr("Loading services ...") + translationManager.emptyString
+          font.pixelSize: 20
+          color: "#535353"
+          font.family: "Arial"
+        }
 
 
         ListView {
@@ -827,24 +847,13 @@ Rectangle {
 
             }
 
-            Text {
-                  visible: true
-                  id: getJsonFail
-                  anchors.horizontalCenter: parent.horizontalCenter
-                  anchors.top:  parent.top
-                  anchors.topMargin: 75
-                  text: qsTr("Connection Error") + translationManager.emptyString
-                  font.pixelSize: 16
-                  width: 400
-                  height: 800
-                  color: "#535353"
-                  font.family: "Arial"
-              }
+
 
 
     }
 
     function onPageCompleted() {
+        loading.visible = true
         getJson()
     }
 }
