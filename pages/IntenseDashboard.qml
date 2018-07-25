@@ -1339,16 +1339,17 @@ Rectangle {
               anchors.top:  parent.top
               anchors.topMargin: 100
               //width: 156
-              text: qsTr("Lean how to use the VPN service") + translationManager.emptyString
+              text: qsTr("<a href='https://intensecoin.com/' target='_blank'>Lean how to use the VPN service</a>") + translationManager.emptyString
               font.pixelSize: 22
               font.bold: true
               color: "#0645AD"
               font.family: "Arial"
+              textFormat: Text.RichText
               //fontWeight: bold
-              MouseArea{
-                  anchors.fill: parent
-                  onClicked:Qt.openUrlExternally("https://intensecoin.com/");
-              }
+              //MouseArea{
+              //    anchors.fill: parent
+              //    onClicked:Qt.openUrlExternally("https://intensecoin.com/");
+              //}
           }
 
         Text {
