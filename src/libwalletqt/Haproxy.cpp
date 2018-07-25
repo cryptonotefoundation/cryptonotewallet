@@ -71,11 +71,11 @@ void Haproxy::haproxy(const QString &host, const QString &ip, const QString &por
             qDebug() << " ----- run macos x ------";
             if(QString::compare(fixedHost, "/usr/local/Cellar/haproxy", Qt::CaseInsensitive) == 0){
                 qDebug() << "------- run mac with fixed Path number one ------";
-                const QString command="/usr/local/Cellar/haproxy/haproxy -f "+host+"/haproxy.cfg";
+                const QString command="/usr/local/Cellar/haproxy -f "+host+"/haproxy.cfg";
                 system(qPrintable(command));
             }else if(QString::compare(fixedHost, "/usr/local/opt/haproxy", Qt::CaseInsensitive) == 0){
                 qDebug() << "------- run mac with fixed Path number two ------";
-                const QString command="/usr/local/opt/haproxy/haproxy -f "+host+"/haproxy.cfg";
+                const QString command="/usr/local/opt/haproxy -f "+host+"/haproxy.cfg";
                 system(qPrintable(command));
             }else{
                 const QString command="/usr/local/bin/haproxy -f "+host+"/haproxy.cfg";
@@ -85,7 +85,7 @@ void Haproxy::haproxy(const QString &host, const QString &ip, const QString &por
             qDebug() << " ----- run linux haproxy ------";
             if(QString::compare(fixedHost, localHost, Qt::CaseInsensitive) == 0){
                 qDebug() << "------- run linux with fixed Path ------";
-                const QString command=fixedHost+"haproxy -f "+host+"/haproxy.cfg";
+                const QString command=fixedHost+" -f "+host+"/haproxy.cfg";
                 system(qPrintable(command));
             }else{
                 const QString command="haproxy -f "+host+"/haproxy.cfg";
