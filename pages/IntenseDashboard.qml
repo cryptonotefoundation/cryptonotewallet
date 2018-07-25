@@ -1344,6 +1344,7 @@ Rectangle {
               font.bold: true
               color: "#0645AD"
               font.family: "Arial"
+              textFormat: Text.RichText
               //fontWeight: bold
               MouseArea{
                   anchors.fill: parent
