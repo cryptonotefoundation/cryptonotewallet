@@ -164,7 +164,7 @@ Rectangle {
                 transferredTextLine.color = "#000000"
                 transferredTextLine.font.bold = false
                 transferredTextLine.text = "Download: "+formatBytes(parseInt(haproxyStats[8]))+" / Upload: "+ formatBytes(parseInt(haproxyStats[9]))
-            }else if(xmlhttp.status != 200){
+            }else if(xmlhttp.readyState == 4){
                 var host = applicationDirectory;
                 var endpoint = ''
                 var port = ''
@@ -397,57 +397,27 @@ Rectangle {
     }
 
     function getColor(id, idRank){
-        if(id == 5){
-            id = 10
-        }else if(id < 5 && id > 4.5){
-            id = 9
-        }else if(id <= 4.5 && id > 4){
-            id = 7
-        }else if(id <= 4 && id > 3.5){
-            id = 6
-        }else if(id <= 3.5 && id > 2){
-            id = 5
-        }else if(id <= 2 && id > 1.5){
-            id = 4
-        }else if(id <= 1.5 && id > 1){
-            id = 3
-        }else if(id <= 1 && id > 0.5){
-            id = 2
-        }else{
-            id = 1
-        }
 
-        switch(id){
-        case 1:
-            idRank.color = "#ee2c2c"
-            break;
-        case 2:
-            idRank.color = "#ee6363"
-            break;
-        case 3:
-            idRank.color = "#ff7f24"
-            break;
-        case 4:
-            idRank.color = "#ffa54f"
-            break;
-        case 5:
-            idRank.color = "#ffa500"
-            break;
-        case 6:
-            idRank.color = "#ffff00"
-            break;
-        case 7:
-            idRank.color = "#caff70"
-            break;
-        case 8:
-            idRank.color = "#c0ff3e"
-            break;
-        case 9:
-            idRank.color = "#66cd00"
-            break;
-        case 10:
+        if(id == 5){
             idRank.color = "#008b00"
-            break;
+        }else if(id < 5 && id > 4.5){
+            idRank.color = "#66cd00"
+        }else if(id <= 4.5 && id > 4){
+            idRank.color = "#c0ff3e"
+        }else if(id <= 4 && id > 3.5){
+            idRank.color = "#caff70"
+        }else if(id <= 3.5 && id > 3){
+            idRank.color = "#ffff00"
+        }else if(id <= 3 && id > 2.5){
+            idRank.color = "#ffa500"
+        }else if(id <= 2.5 && id > 2){
+            idRank.color = "#ffa54f"
+        }else if(id <= 2 && id > 1.5){
+            idRank.color = "#ff7f24"
+        }else if(id <= 1.5 && id > 1){
+            idRank.color = "#ee6363"
+        }else{
+            idRank.color = "#ee2c2c"
         }
 
     }

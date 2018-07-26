@@ -61,57 +61,27 @@ Rectangle {
     }
 
     function getColor(id){
+        console.log(id + "--------------")
         if(id == 5){
-            id = 10
-        }else if(id < 5 && id > 4.5){
-            id = 9
-        }else if(id <= 4.5 && id > 4){
-            id = 7
-        }else if(id <= 4 && id > 3.5){
-            id = 6
-        }else if(id <= 3.5 && id > 2){
-            id = 5
-        }else if(id <= 2 && id > 1.5){
-            id = 4
-        }else if(id <= 1.5 && id > 1){
-            id = 3
-        }else if(id <= 1 && id > 0.5){
-            id = 2
-        }else{
-            id = 1
-        }
-
-        switch(id){
-        case 1:
-            return "#ee2c2c"
-            break;
-        case 2:
-            return "#ee6363"
-            break;
-        case 3:
-            return "#ff7f24"
-            break;
-        case 4:
-            return "#ffa54f"
-            break;
-        case 5:
-            return "#ffa500"
-            break;
-        case 6:
-            return "#ffff00"
-            break;
-        case 7:
-            return "#caff70"
-            break;
-        case 8:
-            return "#c0ff3e"
-            break;
-        case 9:
-            return "#66cd00"
-            break;
-        case 10:
             return "#008b00"
-            break;
+        }else if(id < 5 && id > 4.5){
+            return "#66cd00"
+        }else if(id <= 4.5 && id > 4){
+            return "#c0ff3e"
+        }else if(id <= 4 && id > 3.5){
+            return "#caff70"
+        }else if(id <= 3.5 && id > 3){
+            return "#ffff00"
+        }else if(id <= 3 && id > 2.5){
+            return "#ffa500"
+        }else if(id <= 2.5 && id > 2){
+            return "#ffa54f"
+        }else if(id <= 2 && id > 1.5){
+            return "#ff7f24"
+        }else if(id <= 1.5 && id > 1){
+            return "#ee6363"
+        }else{
+            return "#ee2c2c"
         }
 
     }
@@ -432,7 +402,7 @@ Rectangle {
                     }
 
                 }
-            }else if(xmlhttp.status != 200 && xmlhttp.readyState == 4){
+            }else if(xmlhttp.readyState == 4){
                 var urlGEO = "https://geoip.nekudo.com/api/"
                 var xmlGEOhttp = new XMLHttpRequest();
 
@@ -441,7 +411,7 @@ Rectangle {
                     loading.visible = false
                     if (xmlGEOhttp.readyState == 4 && xmlGEOhttp.status == 200) {
                         getJsonFail.text = "Error status - SDP: " + xmlhttp.status + "<br />Error readyState - SDP: " + xmlhttp.readyState + "<br />" + xmlhttp.responseText + "<br /><br />" + "Status - GEO: " + xmlGEOhttp.status
-                    }else if(xmlGEOhttp.status != 200 && xmlGEOhttp.readyState == 4){
+                    }else if(xmlGEOhttp.readyState == 4){
                         getJsonFail.text = "Error status - SDP: " + xmlhttp.status + "<br />Error readyState - SDP: " + xmlhttp.readyState + "<br />" + xmlhttp.responseText + "<br /><br />" + "Error Status - GEO: " + xmlGEOhttp.status
                     }
                 }
