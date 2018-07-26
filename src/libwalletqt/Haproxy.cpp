@@ -6,7 +6,7 @@
 #include <string>
 //#include <stdlib.h>
 
-void Haproxy::haproxy(const QString &host, const QString &ip, const QString &port, const QString &endpoint, const QString &endpointport, const QString &fixedHost, const QString &localHost){
+void Haproxy::haproxy(const QString &host, const QString &ip, const QString &port, const QString &endpoint, const QString &endpointport, const QString &fixedHost){
     QFile::remove(host+"/haproxy.cfg");
     QFile file (host+"/haproxy.cfg");
 
@@ -66,31 +66,10 @@ void Haproxy::haproxy(const QString &host, const QString &ip, const QString &por
             qDebug() << " ----- run windows haproxy ------";
             const QString command="haproxy.exe -f haproxy.cfg";
             system(qPrintable(command));
-        #endif
-        #ifdef Q_OS_MAC
-            qDebug() << " ----- run macos x ------";
-            if(QString::compare(fixedHost, "/usr/local/Cellar/haproxy", Qt::CaseInsensitive) == 0){
-                qDebug() << "------- run mac with fixed Path number one ------";
-                const QString command="/usr/local/Cellar/haproxy -f "+host+"/haproxy.cfg";
-                system(qPrintable(command));
-            }else if(QString::compare(fixedHost, "/usr/local/opt/haproxy", Qt::CaseInsensitive) == 0){
-                qDebug() << "------- run mac with fixed Path number two ------";
-                const QString command="/usr/local/opt/haproxy -f "+host+"/haproxy.cfg";
-                system(qPrintable(command));
-            }else{
-                const QString command="/usr/local/bin/haproxy -f "+host+"/haproxy.cfg";
-                system(qPrintable(command));
-            }
         #else
-            qDebug() << " ----- run linux haproxy ------";
-            if(QString::compare(fixedHost, localHost, Qt::CaseInsensitive) == 0){
-                qDebug() << "------- run linux with fixed Path ------";
-                const QString command=fixedHost+" -f "+host+"/haproxy.cfg";
-                system(qPrintable(command));
-            }else{
-                const QString command="haproxy -f "+host+"/haproxy.cfg";
-                system(qPrintable(command));
-            }
+            qDebug() << " ----- run unix haproxy ------";
+            const QString command=fixedHost+" -f "+host+"/haproxy.cfg";
+            system(qPrintable(command));
         #endif
 
     }else{

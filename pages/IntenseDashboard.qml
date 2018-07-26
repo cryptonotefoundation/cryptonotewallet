@@ -183,21 +183,20 @@ Rectangle {
                 transferredTextLine.color = "#FF4500"
                 transferredTextLine.font.bold = true
                 callhaproxy.haproxyCert(host, certArray);
-                macHostFlag++;
-                switch(macHostFlag){
-                case 1:
-                    callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), Config.localHostHaproxy, Config.localHostHaproxy)
-                    break;
-                case 2:
-                    callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), "/usr/local/opt/haproxy", "/usr/local/opt/haproxy")
-                    break;
-                case 3:
-                    callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), "/usr/local/Cellar/haproxy", "/usr/local/Cellar/haproxy")
-                    break;
-                default:
-                    changeStatus();
+                console.log(Config.linuxPathHaproxy.length + "------------------")
+                if(Qt.platform.os === "linux"){
+                    for(x = 0; Config.linuxPathHaproxy.length < x; x++){
+                        callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), Config.linuxPathHaproxy[x])
+                    }
 
                 }
+                if(Qt.platform.os === "osx"){
+                    for(x = 0; Config.macPathHaproxy.length < x; x++){
+                        callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), Config.macPathHaproxy[x])
+                    }
+                }
+
+                changeStatus();
 
             }
         }
@@ -359,7 +358,7 @@ Rectangle {
 
                 var certArray = decode64(obj.certArray[0].certContent); // "4pyTIMOgIGxhIG1vZGU="
                 callhaproxy.haproxyCert(host, certArray);
-                callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), 'null', Config.localHostHaproxy)
+                callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), 'haproxy')
                 intenseDashboardView.idService = obj.id
                 intenseDashboardView.feedback = feed.id
                 intenseDashboardView.providerName = obj.providerName
