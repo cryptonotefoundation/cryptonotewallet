@@ -72,7 +72,7 @@ Rectangle {
     }
 
     function makeQRCodeString() {
-        var s = "monero:"
+        var s = "intensecoin:"
         var nfields = 0
         s += addressLine.text
         var amount = amountLine.text.trim()

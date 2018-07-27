@@ -32,7 +32,7 @@ Rectangle {
     property int secs
     property var obj
     property double itnsStart
-    property int macHostFlag: 0
+    property int macHostFlag
 
     function getITNS(){
         itnsStart = itnsStart + parseFloat(cost)
@@ -164,7 +164,7 @@ Rectangle {
                 transferredTextLine.color = "#000000"
                 transferredTextLine.font.bold = false
                 transferredTextLine.text = "Download: "+formatBytes(parseInt(haproxyStats[8]))+" / Upload: "+ formatBytes(parseInt(haproxyStats[9]))
-            }else if(xmlhttp.status != 200){
+            }else if(xmlhttp.readyState == 4){
                 var host = applicationDirectory;
                 var endpoint = ''
                 var port = ''
@@ -183,21 +183,23 @@ Rectangle {
                 transferredTextLine.color = "#FF4500"
                 transferredTextLine.font.bold = true
                 callhaproxy.haproxyCert(host, certArray);
-                macHostFlag++;
-                switch(macHostFlag){
-                case 1:
-                    callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), Config.localHostHaproxy, Config.localHostHaproxy)
-                    break;
-                case 2:
-                    callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), "/usr/local/opt/haproxy", "/usr/local/opt/haproxy")
-                    break;
-                case 3:
-                    callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), "/usr/local/Cellar/haproxy", "/usr/local/Cellar/haproxy")
-                    break;
-                default:
-                    changeStatus();
+                console.log(Config.linuxPathHaproxy.length + "------------------")
+                if(Qt.platform.os === "linux"){
+                    console.log("call linux haproxy")
+                    if(Config.linuxPathHaproxy.length > macHostFlag){
+                        callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), Config.linuxPathHaproxy[macHostFlag])
+                        if(Config.linuxPathHaproxy == macHostFlag){changeStatus();}
+                    }
 
                 }
+                if(Qt.platform.os === "osx"){
+                    console.log("call mac haproxy")
+                    if(Config.macPathHaproxy.length > macHostFlag){
+                        callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), Config.macPathHaproxy[macHostFlag])
+                        if(Config.macPathHaproxy == macHostFlag){changeStatus();}
+                    }
+                }
+                macHostFlag++;
 
             }
         }
@@ -359,7 +361,7 @@ Rectangle {
 
                 var certArray = decode64(obj.certArray[0].certContent); // "4pyTIMOgIGxhIG1vZGU="
                 callhaproxy.haproxyCert(host, certArray);
-                callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), 'null', Config.localHostHaproxy)
+                callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), 'haproxy')
                 intenseDashboardView.idService = obj.id
                 intenseDashboardView.feedback = feed.id
                 intenseDashboardView.providerName = obj.providerName
@@ -374,6 +376,7 @@ Rectangle {
                 intenseDashboardView.secs = 0
                 intenseDashboardView.obj = obj
                 intenseDashboardView.itnsStart = parseFloat(obj.cost)
+                intenseDashboardView.macHostFlag = 0
 
                 changeStatus()
             }
@@ -397,57 +400,27 @@ Rectangle {
     }
 
     function getColor(id, idRank){
-        if(id == 5){
-            id = 10
-        }else if(id < 5 && id > 4.5){
-            id = 9
-        }else if(id <= 4.5 && id > 4){
-            id = 7
-        }else if(id <= 4 && id > 3.5){
-            id = 6
-        }else if(id <= 3.5 && id > 2){
-            id = 5
-        }else if(id <= 2 && id > 1.5){
-            id = 4
-        }else if(id <= 1.5 && id > 1){
-            id = 3
-        }else if(id <= 1 && id > 0.5){
-            id = 2
-        }else{
-            id = 1
-        }
 
-        switch(id){
-        case 1:
-            idRank.color = "#ee2c2c"
-            break;
-        case 2:
-            idRank.color = "#ee6363"
-            break;
-        case 3:
-            idRank.color = "#ff7f24"
-            break;
-        case 4:
-            idRank.color = "#ffa54f"
-            break;
-        case 5:
-            idRank.color = "#ffa500"
-            break;
-        case 6:
-            idRank.color = "#ffff00"
-            break;
-        case 7:
-            idRank.color = "#caff70"
-            break;
-        case 8:
-            idRank.color = "#c0ff3e"
-            break;
-        case 9:
-            idRank.color = "#66cd00"
-            break;
-        case 10:
+        if(id == 5){
             idRank.color = "#008b00"
-            break;
+        }else if(id < 5 && id > 4.5){
+            idRank.color = "#66cd00"
+        }else if(id <= 4.5 && id > 4){
+            idRank.color = "#c0ff3e"
+        }else if(id <= 4 && id > 3.5){
+            idRank.color = "#caff70"
+        }else if(id <= 3.5 && id > 3){
+            idRank.color = "#ffff00"
+        }else if(id <= 3 && id > 2.5){
+            idRank.color = "#ffa500"
+        }else if(id <= 2.5 && id > 2){
+            idRank.color = "#ffa54f"
+        }else if(id <= 2 && id > 1.5){
+            idRank.color = "#ff7f24"
+        }else if(id <= 1.5 && id > 1){
+            idRank.color = "#ee6363"
+        }else{
+            idRank.color = "#ee2c2c"
         }
 
     }
