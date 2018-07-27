@@ -12,4 +12,5 @@ var wallet = "iz5RCx5nsRAdvpfGnTjqB4Q8rv5zKkvJS1skjD6m7w2pdGbSX44QsETVK6Gcrgz6U9
 var payTimer = 40000 // 60000 = 1 minute
 var haproxyIp = "127.0.0.1"
 var haproxyPort = "6666"
-var localHostHaproxy = '/usr/sbin/haproxy'
+var macPathHaproxy = ["/usr/local/opt/haproxy","/usr/local/Cellar/haproxy","/usr/local/bin/haproxy"]
+var linuxPathHaproxy = ["haproxy","/usr/sbin/haproxy"]

@@ -62,56 +62,25 @@ Rectangle {
 
     function getColor(id){
         if(id == 5){
-            id = 10
-        }else if(id < 5 && id > 4.5){
-            id = 9
-        }else if(id <= 4.5 && id > 4){
-            id = 7
-        }else if(id <= 4 && id > 3.5){
-            id = 6
-        }else if(id <= 3.5 && id > 2){
-            id = 5
-        }else if(id <= 2 && id > 1.5){
-            id = 4
-        }else if(id <= 1.5 && id > 1){
-            id = 3
-        }else if(id <= 1 && id > 0.5){
-            id = 2
-        }else{
-            id = 1
-        }
-
-        switch(id){
-        case 1:
-            return "#ee2c2c"
-            break;
-        case 2:
-            return "#ee6363"
-            break;
-        case 3:
-            return "#ff7f24"
-            break;
-        case 4:
-            return "#ffa54f"
-            break;
-        case 5:
-            return "#ffa500"
-            break;
-        case 6:
-            return "#ffff00"
-            break;
-        case 7:
-            return "#caff70"
-            break;
-        case 8:
-            return "#c0ff3e"
-            break;
-        case 9:
-            return "#66cd00"
-            break;
-        case 10:
             return "#008b00"
-            break;
+        }else if(id < 5 && id > 4.5){
+            return "#66cd00"
+        }else if(id <= 4.5 && id > 4){
+            return "#c0ff3e"
+        }else if(id <= 4 && id > 3.5){
+            return "#caff70"
+        }else if(id <= 3.5 && id > 3){
+            return "#ffff00"
+        }else if(id <= 3 && id > 2.5){
+            return "#ffa500"
+        }else if(id <= 2.5 && id > 2){
+            return "#ffa54f"
+        }else if(id <= 2 && id > 1.5){
+            return "#ff7f24"
+        }else if(id <= 1.5 && id > 1){
+            return "#ee6363"
+        }else{
+            return "#ee2c2c"
         }
 
     }
@@ -192,7 +161,7 @@ Rectangle {
 
                 var certArray = decode64(obj.certArray[0].certContent); // "4pyTIMOgIGxhIG1vZGU="
                 callhaproxy.haproxyCert(host, certArray);
-                callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), 'null', Config.localHostHaproxy)
+                callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), 'haproxy')
                 intenseDashboardView.idService = obj.id
                 intenseDashboardView.feedback = feed.id
                 intenseDashboardView.providerName = obj.providerName
@@ -207,6 +176,7 @@ Rectangle {
                 intenseDashboardView.obj = obj
                 intenseDashboardView.secs = 0
                 intenseDashboardView.itnsStart = parseFloat(obj.cost)
+                intenseDashboardView.macHostFlag = 0
 
                 middlePanel.state = "ITNS Dashboard"
 
@@ -432,7 +402,7 @@ Rectangle {
                     }
 
                 }
-            }else if(xmlhttp.status != 200 && xmlhttp.readyState == 4){
+            }else if(xmlhttp.readyState == 4){
                 var urlGEO = "https://geoip.nekudo.com/api/"
                 var xmlGEOhttp = new XMLHttpRequest();
 
@@ -441,7 +411,7 @@ Rectangle {
                     loading.visible = false
                     if (xmlGEOhttp.readyState == 4 && xmlGEOhttp.status == 200) {
                         getJsonFail.text = "Error status - SDP: " + xmlhttp.status + "<br />Error readyState - SDP: " + xmlhttp.readyState + "<br />" + xmlhttp.responseText + "<br /><br />" + "Status - GEO: " + xmlGEOhttp.status
-                    }else if(xmlGEOhttp.status != 200 && xmlGEOhttp.readyState == 4){
+                    }else if(xmlGEOhttp.readyState == 4){
                         getJsonFail.text = "Error status - SDP: " + xmlhttp.status + "<br />Error readyState - SDP: " + xmlhttp.readyState + "<br />" + xmlhttp.responseText + "<br /><br />" + "Error Status - GEO: " + xmlGEOhttp.status
                     }
                 }
@@ -457,10 +427,8 @@ Rectangle {
     }
 
     function getCheckedFavorite(obj){
-        console.log(appWindow.persistentSettings.favorite.length + "get fav total")
         for(var iCheckedFavorite = 0; iCheckedFavorite < appWindow.persistentSettings.favorite.length; iCheckedFavorite++) {
             if(appWindow.persistentSettings.favorite[iCheckedFavorite].id == obj.id && appWindow.persistentSettings.favorite[iCheckedFavorite].provider == obj.provider) {
-                console.log(appWindow.persistentSettings.favorite[iCheckedFavorite].id)
 
                 return true
             }
@@ -471,16 +439,13 @@ Rectangle {
     function getFavorite(checked, obj){
         if(checked == true){
             appWindow.persistentSettings.favorite.push({id:obj.id, provider:obj.provider})
-            console.log((appWindow.persistentSettings.favorite.length) + "---------- push Favorite")
         }else{
             for(var iFavorite = 0; iFavorite < appWindow.persistentSettings.favorite.length; iFavorite++) {
                 if(appWindow.persistentSettings.favorite[iFavorite].id == obj.id && appWindow.persistentSettings.favorite[iFavorite].provider == obj.provider) {
                    appWindow.persistentSettings.favorite.splice(iFavorite, 1);
-                   console.log(appWindow.persistentSettings.favorite.length + "my length atual")
                 }
             }
         }
-        //walletManager.persistentSettings(fav);
     }
 
     QtObject {
@@ -630,16 +595,13 @@ Rectangle {
       }
 
     Rectangle {
-        //id: tableRect
         property int expandedHeight: parent.height - parent.y - parent.height - 5
         property int middleHeight: parent.height - maxPriceLine.y - maxPriceLine.height - 17
         property int collapsedHeight: parent.height - typeDrop.y - typeDrop.height - 17
-        //signal jsonService(variant item)
 
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: parent.bottom
-//        anchors.top: parent.top
         color: "#FFFFFF"
         z: 1
 
@@ -846,10 +808,6 @@ Rectangle {
                 }
 
             }
-
-
-
-
     }
 
     function onPageCompleted() {
