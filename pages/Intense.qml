@@ -176,6 +176,7 @@ Rectangle {
                 intenseDashboardView.obj = obj
                 intenseDashboardView.secs = 0
                 intenseDashboardView.itnsStart = parseFloat(obj.cost)
+                intenseDashboardView.macHostFlag = 0
 
                 middlePanel.state = "ITNS Dashboard"
 
@@ -426,10 +427,8 @@ Rectangle {
     }
 
     function getCheckedFavorite(obj){
-        console.log(appWindow.persistentSettings.favorite.length + "get fav total")
         for(var iCheckedFavorite = 0; iCheckedFavorite < appWindow.persistentSettings.favorite.length; iCheckedFavorite++) {
             if(appWindow.persistentSettings.favorite[iCheckedFavorite].id == obj.id && appWindow.persistentSettings.favorite[iCheckedFavorite].provider == obj.provider) {
-                console.log(appWindow.persistentSettings.favorite[iCheckedFavorite].id)
 
                 return true
             }
@@ -440,16 +439,13 @@ Rectangle {
     function getFavorite(checked, obj){
         if(checked == true){
             appWindow.persistentSettings.favorite.push({id:obj.id, provider:obj.provider})
-            console.log((appWindow.persistentSettings.favorite.length) + "---------- push Favorite")
         }else{
             for(var iFavorite = 0; iFavorite < appWindow.persistentSettings.favorite.length; iFavorite++) {
                 if(appWindow.persistentSettings.favorite[iFavorite].id == obj.id && appWindow.persistentSettings.favorite[iFavorite].provider == obj.provider) {
                    appWindow.persistentSettings.favorite.splice(iFavorite, 1);
-                   console.log(appWindow.persistentSettings.favorite.length + "my length atual")
                 }
             }
         }
-        //walletManager.persistentSettings(fav);
     }
 
     QtObject {
@@ -599,16 +595,13 @@ Rectangle {
       }
 
     Rectangle {
-        //id: tableRect
         property int expandedHeight: parent.height - parent.y - parent.height - 5
         property int middleHeight: parent.height - maxPriceLine.y - maxPriceLine.height - 17
         property int collapsedHeight: parent.height - typeDrop.y - typeDrop.height - 17
-        //signal jsonService(variant item)
 
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: parent.bottom
-//        anchors.top: parent.top
         color: "#FFFFFF"
         z: 1
 
@@ -815,10 +808,6 @@ Rectangle {
                 }
 
             }
-
-
-
-
     }
 
     function onPageCompleted() {

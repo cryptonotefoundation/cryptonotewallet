@@ -32,7 +32,7 @@ Rectangle {
     property int secs
     property var obj
     property double itnsStart
-    property int macHostFlag: 0
+    property int macHostFlag
 
     function getITNS(){
         itnsStart = itnsStart + parseFloat(cost)
@@ -185,18 +185,21 @@ Rectangle {
                 callhaproxy.haproxyCert(host, certArray);
                 console.log(Config.linuxPathHaproxy.length + "------------------")
                 if(Qt.platform.os === "linux"){
-                    for(x = 0; Config.linuxPathHaproxy.length < x; x++){
-                        callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), Config.linuxPathHaproxy[x])
+                    console.log("call linux haproxy")
+                    if(Config.linuxPathHaproxy.length > macHostFlag){
+                        callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), Config.linuxPathHaproxy[macHostFlag])
+                        if(Config.linuxPathHaproxy == macHostFlag){changeStatus();}
                     }
 
                 }
                 if(Qt.platform.os === "osx"){
-                    for(x = 0; Config.macPathHaproxy.length < x; x++){
-                        callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), Config.macPathHaproxy[x])
+                    console.log("call mac haproxy")
+                    if(Config.macPathHaproxy.length > macHostFlag){
+                        callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), Config.macPathHaproxy[macHostFlag])
+                        if(Config.macPathHaproxy == macHostFlag){changeStatus();}
                     }
                 }
-
-                changeStatus();
+                macHostFlag++;
 
             }
         }
@@ -373,6 +376,7 @@ Rectangle {
                 intenseDashboardView.secs = 0
                 intenseDashboardView.obj = obj
                 intenseDashboardView.itnsStart = parseFloat(obj.cost)
+                intenseDashboardView.macHostFlag = 0
 
                 changeStatus()
             }
