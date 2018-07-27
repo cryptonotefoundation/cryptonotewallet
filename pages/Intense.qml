@@ -176,7 +176,6 @@ Rectangle {
                 intenseDashboardView.obj = obj
                 intenseDashboardView.secs = 0
                 intenseDashboardView.itnsStart = parseFloat(obj.cost)
-                intenseDashboardView.macHostFlag = 0
 
                 middlePanel.state = "ITNS Dashboard"
 
