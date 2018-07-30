@@ -59,6 +59,7 @@ private:
   Q_SLOT void priorityValueChanged(int _value);
   Q_SLOT void amountValueChange();
   Q_SLOT void sendClicked();
+  Q_SLOT void sendAllClicked();
   Q_SLOT void openUriClicked();
   Q_SLOT void generatePaymentIdClicked();
   Q_SLOT void advancedClicked(bool _show);

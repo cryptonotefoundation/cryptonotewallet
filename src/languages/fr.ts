@@ -1178,6 +1178,10 @@ Voulez-vous aller à la page de téléchargement?</translation>
         <source>Remote mode</source>
         <translation>Mode à distance</translation>
     </message>
+    <message>
+        <source>Send All</source>
+        <translation>Envoyer tout</translation>
+    </message>
 </context>
 <context>
     <name>ShowPaymentRequestDialog</name>
@@ -1907,6 +1911,10 @@ Are you sure?</source>
     <message>
         <source>Node fee: %1 %2</source>
         <translation>Frais de noeud: %1 %2</translation>
+    </message>
+    <message>
+        <source>You have unmixable dust on balance. Use menu &apos;Wallet -&gt; Sweep unmixable&apos; first.</source>
+        <translation>Vous avez un équilibre immiscible. Utilisez d&apos;abord le menu &apos;Portefeuille -&gt; Balayer Non Mélangeables&apos;.</translation>
     </message>
 </context>
 <context>

@@ -1170,6 +1170,10 @@ Você quer ir à página de dowload?</translation>
         <source>Remote mode</source>
         <translation>Modo remoto</translation>
     </message>
+    <message>
+        <source>Send All</source>
+        <translation>Enviar tudo</translation>
+    </message>
 </context>
 <context>
     <name>ShowPaymentRequestDialog</name>
@@ -1903,6 +1907,10 @@ Você tem certeza?</translation>
     <message>
         <source>Node fee: %1 %2</source>
         <translation>Taxa do nó: %1 %2</translation>
+    </message>
+    <message>
+        <source>You have unmixable dust on balance. Use menu &apos;Wallet -&gt; Sweep unmixable&apos; first.</source>
+        <translation>Você tem poeira não-misturável no balanço. Utilize o menu &apos;Carteira -&gt; Limpar não-misturável&apos; primeiro.</translation>
     </message>
 </context>
 <context>

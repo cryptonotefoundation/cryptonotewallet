@@ -1164,6 +1164,10 @@ Do you want to go to download page?</source>
         <source>Remote mode</source>
         <translation>Modo remoto</translation>
     </message>
+    <message>
+        <source>Send All</source>
+        <translation>Enviar todo</translation>
+    </message>
 </context>
 <context>
     <name>ShowPaymentRequestDialog</name>
@@ -1895,6 +1899,10 @@ Are you sure?</source>
     <message>
         <source>Node fee: %1 %2</source>
         <translation>Tasa de nodo: %1 %2</translation>
+    </message>
+    <message>
+        <source>You have unmixable dust on balance. Use menu &apos;Wallet -&gt; Sweep unmixable&apos; first.</source>
+        <translation>Hay un inmezclable en saldo. Primero use el menú &apos;Monedero -&gt; Barrer no-mezclables&apos;.</translation>
     </message>
 </context>
 <context>

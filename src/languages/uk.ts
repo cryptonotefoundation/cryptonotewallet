@@ -1150,6 +1150,10 @@ Do you want to go to download page?</source>
         <source>Remote mode</source>
         <translation>Віддалений режим</translation>
     </message>
+    <message>
+        <source>Send All</source>
+        <translation>Вислати все</translation>
+    </message>
 </context>
 <context>
     <name>ShowPaymentRequestDialog</name>
@@ -1884,6 +1888,10 @@ Are you sure?</source>
     <message>
         <source>Node fee: %1 %2</source>
         <translation>Комісія вузла: %1 %2</translation>
+    </message>
+    <message>
+        <source>You have unmixable dust on balance. Use menu &apos;Wallet -&gt; Sweep unmixable&apos; first.</source>
+        <translation>У вас є незмішуваний баланс. Спершу скористайтесь меню “Гаманець -&gt; Прибрати незмішуване&quot;.</translation>
     </message>
 </context>
 <context>

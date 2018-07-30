@@ -420,6 +420,17 @@
       </widget>
      </item>
      <item>
+      <widget class="QPushButton" name="m_sendAllButton">
+       <property name="text">
+        <string>Send All</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../../resources.qrc">
+         <normaloff>:/icons/sweep</normaloff>:/icons/sweep</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QPushButton" name="m_clearAllButton">
        <property name="text">
         <string>Clear All</string>
@@ -525,11 +536,20 @@
   </layout>
  </widget>
  <tabstops>
+  <tabstop>m_transfersScrollarea</tabstop>
+  <tabstop>m_paymentIdEdit</tabstop>
+  <tabstop>m_generatePaymentIdButton</tabstop>
+  <tabstop>m_prioritySlider</tabstop>
+  <tabstop>m_manualFeeCheckBox</tabstop>
+  <tabstop>m_feeSpin</tabstop>
   <tabstop>m_mixinSlider</tabstop>
+  <tabstop>donateCheckBox</tabstop>
+  <tabstop>m_donateSpin</tabstop>
   <tabstop>m_sendButton</tabstop>
+  <tabstop>m_sendAllButton</tabstop>
   <tabstop>m_clearAllButton</tabstop>
   <tabstop>m_addRecipientButton</tabstop>
-  <tabstop>m_transfersScrollarea</tabstop>
+  <tabstop>m_advancedButton</tabstop>
  </tabstops>
  <resources>
   <include location="../../resources.qrc"/>
@@ -663,9 +683,26 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>m_sendAllButton</sender>
+   <signal>clicked()</signal>
+   <receiver>SendFrame</receiver>
+   <slot>sendAllClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>154</x>
+     <y>566</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>432</x>
+     <y>294</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>sendClicked()</slot>
+  <slot>sendAllClicked()</slot>
   <slot>clearAllClicked()</slot>
   <slot>addRecipientClicked()</slot>
   <slot>mixinValueChanged(int)</slot>

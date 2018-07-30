@@ -1146,6 +1146,10 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
         <source>Remote mode</source>
         <translation>Tryb zdalny</translation>
     </message>
+    <message>
+        <source>Send All</source>
+        <translation>Wyślij wszystko</translation>
+    </message>
 </context>
 <context>
     <name>ShowPaymentRequestDialog</name>
@@ -1895,6 +1899,10 @@ Jesteś pewien?</translation>
     <message>
         <source>Node fee: %1 %2</source>
         <translation>Prowizja węzła: %1 %2</translation>
+    </message>
+    <message>
+        <source>You have unmixable dust on balance. Use menu &apos;Wallet -&gt; Sweep unmixable&apos; first.</source>
+        <translation>Masz nieosiągalne wyjścia.Proszę najpierw użyć menu &apos;Portfel -&gt; Zmieszaj nieosiągalne wyjścia&apos;.</translation>
     </message>
 </context>
 <context>

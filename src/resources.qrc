@@ -39,6 +39,7 @@
         <file alias="cancel">icons/cancel.png</file>
         <file alias="remote_mode">icons/remote_mode.png</file>
         <file alias="tracking">icons/tracking_mode.png</file>
+        <file alias="sweep">icons/broom.png</file>
     </qresource>
     <qresource prefix="/images">
         <file alias="splash">images/splash.png</file>

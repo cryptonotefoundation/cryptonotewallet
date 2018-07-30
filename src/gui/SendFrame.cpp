@@ -118,14 +118,17 @@ void SendFrame::addRecipientClicked() {
   m_transfers.append(newTransfer);
   if (m_transfers.size() == 1) {
     newTransfer->disableRemoveButton(true);
+    m_ui->m_sendAllButton->setEnabled(true);
   } else {
     m_transfers[0]->disableRemoveButton(false);
+    m_ui->m_sendAllButton->setEnabled(false);
   }
 
   connect(newTransfer, &TransferFrame::destroyed, [this](QObject* _obj) {
       m_transfers.removeOne(static_cast<TransferFrame*>(_obj));
       if (m_transfers.size() == 1) {
         m_transfers[0]->disableRemoveButton(true);
+        m_ui->m_sendAllButton->setEnabled(true);
       }
     });
 
@@ -186,8 +189,8 @@ void SendFrame::amountValueChange() {
         for(QVector<quint64>::iterator it = fees.begin(); it != fees.end(); ++it) {
             remote_node_fee += *it;
         }
-		if (remote_node_fee < NodeAdapter::instance().getMinimalFee()) {
-			remote_node_fee = NodeAdapter::instance().getMinimalFee();
+        if (remote_node_fee < NodeAdapter::instance().getMinimalFee()) {
+            remote_node_fee = NodeAdapter::instance().getMinimalFee();
         }
         if (remote_node_fee > 1000000000000) {
             remote_node_fee = 1000000000000;
@@ -420,6 +423,30 @@ void SendFrame::advancedClicked(bool _show) {
   } else {
     m_ui->m_advancedWidget->hide();
   }
+}
+
+void SendFrame::sendAllClicked() {
+  dust_balance = WalletAdapter::instance().getUnmixableBalance();
+  if (dust_balance != 0) {
+    QCoreApplication::postEvent(
+      &MainWindow::instance(),
+      new ShowMessageEvent(tr("You have unmixable dust on balance. Use menu 'Wallet -> Sweep unmixable' first."), QtCriticalMsg));
+    return;
+  }
+  quint64 actualBalance = WalletAdapter::instance().getActualBalance();
+  remote_node_fee = 0;
+  if(!remote_node_fee_address.isEmpty()) {
+    remote_node_fee = static_cast<qint64>(actualBalance * 0.0025); // fee is 0.25%
+    if (remote_node_fee < NodeAdapter::instance().getMinimalFee()) {
+        remote_node_fee = NodeAdapter::instance().getMinimalFee();
+    }
+    if (remote_node_fee > 1000000000000) {
+        remote_node_fee = 1000000000000;
+    }
+  }
+  quint64 priorityFee = CurrencyAdapter::instance().parseAmount(QString::number(getMinimalFee() * m_ui->m_prioritySlider->value()));
+  quint64 amount = actualBalance - (priorityFee + remote_node_fee);
+  m_transfers[0]->setAmount(amount);
 }
 
 }
