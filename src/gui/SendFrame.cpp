@@ -426,6 +426,9 @@ void SendFrame::advancedClicked(bool _show) {
 }
 
 void SendFrame::sendAllClicked() {
+  quint64 actualBalance = WalletAdapter::instance().getActualBalance();
+  if (actualBalance == 0)
+      return;
   dust_balance = WalletAdapter::instance().getUnmixableBalance();
   if (dust_balance != 0) {
     QCoreApplication::postEvent(
@@ -433,7 +436,6 @@ void SendFrame::sendAllClicked() {
       new ShowMessageEvent(tr("You have unmixable dust on balance. Use menu 'Wallet -> Sweep unmixable' first."), QtCriticalMsg));
     return;
   }
-  quint64 actualBalance = WalletAdapter::instance().getActualBalance();
   remote_node_fee = 0;
   if(!remote_node_fee_address.isEmpty()) {
     remote_node_fee = static_cast<qint64>(actualBalance * 0.0025); // fee is 0.25%
