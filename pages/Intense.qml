@@ -171,6 +171,7 @@ Rectangle {
                 intenseDashboardView.rank = rank
                 intenseDashboardView.speed = formatBytes(obj.downloadSpeed)
                 intenseDashboardView.firstPrePaidMinutes = obj.firstPrePaidMinutes
+                intenseDashboardView.subsequentPrePaidMinutes = obj.subsequentPrePaidMinutes
                 intenseDashboardView.bton = "qrc:///images/power_off.png"
                 intenseDashboardView.flag = 1
                 intenseDashboardView.obj = obj

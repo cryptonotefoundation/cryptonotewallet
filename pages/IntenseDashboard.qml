@@ -33,15 +33,36 @@ Rectangle {
     property var obj
     property double itnsStart
     property int macHostFlag
+    property var timerPayment
 
     function getITNS(){
         itnsStart = itnsStart + parseFloat(cost)
         paidTextLine.text = itnsStart.toFixed(8) + " ITNS"
+        getTime()
+    }
+
+
+    Timer{
+        id: delayTimer
+        onTriggered:{
+            getITNS()
+        }
+    }
+
+
+    function delay(inter) {
+        delayTimer.interval = inter;
+        delayTimer.repeat = false;
+        delayTimer.start();
     }
 
     function getTime(){
-        var value =  10000//(firstPrePaidMinutes*10000) - Config.payTimer
-        return value
+        var value =  (subsequentPrePaidMinutes*60000) - Config.payTimer
+        if(flag != 0){
+            delay(value
+                //setPayment()
+            )
+        }
     }
 
     function setPayment(){
@@ -251,9 +272,7 @@ Rectangle {
             subButtonText.text = "Disconnect"
             subConnectButton.visible = false
             timerHaproxy.restart()
-            timerPayment.restart()
             timerHaproxy.running = true
-            timerPayment.running = true
 
             startText.text = "Connected"
             paidTextLine.text = itnsStart.toFixed(8) + " ITNS"
@@ -265,9 +284,7 @@ Rectangle {
             subConnectButton.visible = true
             //subButtonText.text = "Connect"
             timerHaproxy.stop()
-            timerPayment.stop()
             timerHaproxy.running = false
-            timerPayment.running = false
             bton = ""
             if(startText.text != "Disconnected"){
                 startText.text = "Reconnect"
@@ -371,13 +388,14 @@ Rectangle {
                 intenseDashboardView.rank = rank
                 intenseDashboardView.speed = formatBytes(obj.downloadSpeed)
                 intenseDashboardView.firstPrePaidMinutes = obj.firstPrePaidMinutes
+                intenseDashboardView.subsequentPrePaidMinutes = obj.subsequentPrePaidMinutes
                 intenseDashboardView.bton = "qrc:///images/power_off.png"
                 intenseDashboardView.flag = 1
                 intenseDashboardView.secs = 0
                 intenseDashboardView.obj = obj
                 intenseDashboardView.itnsStart = parseFloat(obj.cost)
                 intenseDashboardView.macHostFlag = 0
-
+                getTime()
                 changeStatus()
             }
         }
@@ -1260,7 +1278,7 @@ Rectangle {
                   flag = 0
                   changeStatus()
                   callhaproxy.killHAproxy();
-                  timerPayment.running = false
+                  delayTimer.stop();
                   feedbackPopup.title = "Provider Feedback";
                   feedbackPopup.open();
 
@@ -1612,19 +1630,7 @@ Rectangle {
 
     }
 
-    //onJsonService:console.debug(item + "------------------------------------")
-    Timer {
-        id: timerPayment
-        interval: getTime()
-        repeat: true
-        running: false
 
-        onTriggered:
-        {
-            getITNS()
-            //setPayment()
-        }
-    }
     Timer {
         id: timerHaproxy
         interval: 1000
@@ -1633,7 +1639,6 @@ Rectangle {
 
         onTriggered:
         {
-            //setPayment()
             timer()
             getHaproxyStats(obj)
         }
@@ -1648,8 +1653,9 @@ Rectangle {
         getMyFeedJson()
         changeStatus()
         if(providerName != ""){
-            //timerHaproxy.running = true
-            //timerPayment.running = true
+            if(firstPrePaidMinutes != 0){
+                getTime()
+            }
             getGeoLocation()
             howToUseText.visible = false
             orText.visible = false
