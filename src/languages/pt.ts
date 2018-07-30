@@ -145,7 +145,7 @@
     </message>
     <message>
         <source>OK</source>
-        <translation>Concluído</translation>
+        <translation>OK</translation>
     </message>
     <message>
         <source>Belarusian</source>
@@ -192,7 +192,7 @@
     </message>
     <message>
         <source>Ok</source>
-        <translation>Concluído</translation>
+        <translation>OK</translation>
     </message>
     <message>
         <source>Old password:</source>
@@ -318,7 +318,7 @@ Por favor aguarde...</translation>
     </message>
     <message>
         <source>Tracking key allows to see all incoming transactions of this wallet. It does not allow to spend funds.</source>
-        <translation>A chave de rastreamento permite que você veja todas as transações recebidas desta carteira, mas você não pode gastar dinheiro.</translation>
+        <translation>A chave de rastreamento permite que você veja todas as transações recebidas desta carteira, mas você não pode enviar moedas.</translation>
     </message>
     <message>
         <source>Save to file</source>
@@ -357,7 +357,7 @@ Por favor aguarde...</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation>Concluído</translation>
+        <translation>OK</translation>
     </message>
     <message>
         <source>Where to save new wallet file:</source>
@@ -396,7 +396,7 @@ Por favor aguarde...</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation>Concluído</translation>
+        <translation>OK</translation>
     </message>
     <message>
         <source>Where to save new wallet file:</source>
@@ -586,7 +586,7 @@ Por favor aguarde...</translation>
     </message>
     <message>
         <source>Open payment request</source>
-        <translation>Abrir requerimento de pagamento</translation>
+        <translation>Abrir requisição de pagamento</translation>
     </message>
     <message>
         <source>Export tracking key</source>
@@ -747,7 +747,7 @@ Por favor aguarde...</translation>
     </message>
     <message>
         <source>Ok</source>
-        <translation>Concluído</translation>
+        <translation>OK</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -778,7 +778,7 @@ Por favor aguarde...</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation>Concluído</translation>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -789,7 +789,7 @@ Por favor aguarde...</translation>
     </message>
     <message>
         <source>Ok</source>
-        <translation>Concluído</translation>
+        <translation>OK</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -828,7 +828,7 @@ Por favor aguarde...</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation>Concluído</translation>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -866,7 +866,7 @@ Por favor aguarde...</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation>Concluído</translation>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -885,7 +885,7 @@ Por favor aguarde...</translation>
     </message>
     <message>
         <source>Unconfirmed:</source>
-        <translation>Não confirmado:</translation>
+        <translation>A confirmar:</translation>
     </message>
     <message>
         <source>Balance:</source>
@@ -928,7 +928,7 @@ Por favor aguarde...</translation>
     </message>
     <message>
         <source>Ok</source>
-        <translation>Concluído</translation>
+        <translation>OK</translation>
     </message>
     <message>
         <source>Wrong password</source>
@@ -1236,7 +1236,7 @@ Você quer ir à página de dowload?</translation>
     </message>
     <message>
         <source>Selected amount: </source>
-        <translation>Juntos em Favoritos: </translation>
+        <translation>Total selecionado: </translation>
     </message>
     <message>
         <source>Search for address, amount, transaction hash or Payment ID</source>
@@ -1941,8 +1941,8 @@ quando a carteira vai terminar de sincronizar</translation>
         <translation>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Cantarell&apos;; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;span style=&quot; font-weight:600;&quot;&gt;Condição: &lt;/span&gt;%1&lt;/p&gt;&lt;br&gt;
-&lt;span style=&quot; font-weight:600;&quot;&gt;Data:&lt;/span&gt;%2&lt;/p&gt;&lt;br&gt;
-&lt;span style=&quot; font-weight:600;&quot;&gt;Para: &lt;/span&gt;%4&lt;/p&gt;&lt;br&gt;
+&lt;span style=&quot; font-weight:600;&quot;&gt;Data: &lt;/span&gt;%2&lt;/p&gt;&lt;br&gt;
+&lt;span style=&quot; font-weight:600;&quot;&gt;Destinatário: &lt;/span&gt;%4&lt;/p&gt;&lt;br&gt;
 &lt;span style=&quot; font-weight:600;&quot;&gt;Montante: &lt;/span&gt;%5&lt;/p&gt;&lt;br&gt;
 &lt;span style=&quot; font-weight:600;&quot;&gt;Taxa: &lt;/span&gt;%6&lt;/p&gt;&lt;br&gt;
 &lt;span style=&quot; font-weight:600;&quot;&gt;ID de pagamento: &lt;/span&gt;%7&lt;/p&gt;&lt;br&gt;
@@ -1960,7 +1960,7 @@ quando a carteira vai terminar de sincronizar</translation>
         <source>%n confirmation(s)</source>
         <translation>
             <numerusform>%n confirmação</numerusform>
-            <numerusform>%n confirmação</numerusform>
+            <numerusform>%n confirmações</numerusform>
         </translation>
     </message>
 </context>
@@ -1988,7 +1988,7 @@ quando a carteira vai terminar de sincronizar</translation>
     </message>
     <message>
         <source>Unconfirmed</source>
-        <translation>Não confirmado</translation>
+        <translation>A confirmar</translation>
     </message>
     <message>
         <source>All</source>
@@ -2016,7 +2016,7 @@ quando a carteira vai terminar de sincronizar</translation>
     </message>
     <message>
         <source>Range...</source>
-        <translation>Range...</translation>
+        <translation>Período...</translation>
     </message>
     <message>
         <source>to</source>
@@ -2032,19 +2032,19 @@ quando a carteira vai terminar de sincronizar</translation>
     </message>
     <message>
         <source>Incoming</source>
-        <translation>Incoming</translation>
+        <translation>Recebimentos</translation>
     </message>
     <message>
         <source>Outgoing</source>
-        <translation>Fim de semana</translation>
+        <translation>Envios</translation>
     </message>
     <message>
         <source>Mined</source>
-        <translation>Mined</translation>
+        <translation>Minerados</translation>
     </message>
     <message>
         <source>Sent to myself</source>
-        <translation>Enviado para mim</translation>
+        <translation>Envios para mim</translation>
     </message>
 </context>
 <context>
@@ -2083,15 +2083,15 @@ quando a carteira vai terminar de sincronizar</translation>
     </message>
     <message>
         <source>Incoming transaction, unconfirmed</source>
-        <translation>Transação de entrada, não confirmada</translation>
+        <translation>Transação de entrada, a confirmar</translation>
     </message>
     <message>
         <source>Mined, confirmations</source>
-        <translation>Concebido, não confirmado</translation>
+        <translation>Minerado, a confirmar</translation>
     </message>
     <message>
         <source>Sent to yourself, unconfirmed</source>
-        <translation>Transação de saída, não verificada</translation>
+        <translation>Enviado para você mesmo, a confirmar</translation>
     </message>
     <message>
         <source>Outgoing transaction, unconfirmed</source>
@@ -2100,22 +2100,22 @@ quando a carteira vai terminar de sincronizar</translation>
     <message numerus="yes">
         <source>Incoming transaction, %n confirmation(s)</source>
         <translation>
-            <numerusform>Transação de entrada, %n de confirmação</numerusform>
-            <numerusform>Transação de entrada, %n de confirmações</numerusform>
+            <numerusform>Transação de entrada, %n confirmação</numerusform>
+            <numerusform>Transação de entrada, %n confirmações</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>Mined, %n confirmation(s)</source>
         <translation>
-            <numerusform>Construído, %n confirmação</numerusform>
-            <numerusform>Construído, %n confirmações</numerusform>
+            <numerusform>Minerado, %n confirmação</numerusform>
+            <numerusform>Minerado, %n confirmações</numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <source>Sent to yourself, %n confirmation(s)</source>
         <translation>
-            <numerusform>Excluído para si mesmo, %n confirmação</numerusform>
-            <numerusform>Excluído para si mesmo, %n confirmações</numerusform>
+            <numerusform>Enviado para você mesmo, %n confirmação</numerusform>
+            <numerusform>Enviado para você mesmo, %n confirmações</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -2138,7 +2138,7 @@ quando a carteira vai terminar de sincronizar</translation>
     </message>
     <message>
         <source>Saving data</source>
-        <translation>Os dados são gravados</translation>
+        <translation>Salvando dados</translation>
     </message>
     <message>
         <source>Sending transaction</source>
@@ -2150,19 +2150,19 @@ quando a carteira vai terminar de sincronizar</translation>
     </message>
     <message>
         <source>Synchronizing</source>
-        <translation>A sincronização está em andamento</translation>
+        <translation>Sincronizando</translation>
     </message>
     <message>
         <source>Wallet synchronized. Height: %1  |  Time (UTC): %2%3</source>
-        <translation>Sincronizado. Altura: %1 | Data e hora do último bloco (UTC): %2%3</translation>
+        <translation>Sincronizado. Altura: %1 | Data (UTC): %2%3</translation>
     </message>
     <message>
         <source>  Warning: last block was received %1 hours %2 minutes ago</source>
-        <translation>  Atenção: o último bloco recebeu %1 hora. %2 min então</translation>
+        <translation>  | Último bloco recebido gerado há %1 hora(s) e %2 minuto(s) atrás</translation>
     </message>
     <message>
         <source>Object was not initialized</source>
-        <translation>Object não foi inicializado</translation>
+        <translation>Objeto não foi inicializado</translation>
     </message>
     <message>
         <source>The password is wrong</source>
@@ -2178,7 +2178,7 @@ quando a carteira vai terminar de sincronizar</translation>
     </message>
     <message>
         <source>MixIn count is too big</source>
-        <translation> número de confusões é muito grande</translation>
+        <translation>Fator de anonimato muito alto</translation>
     </message>
     <message>
         <source>Bad address</source>
@@ -2194,11 +2194,11 @@ quando a carteira vai terminar de sincronizar</translation>
     </message>
     <message>
         <source>Sum overflow</source>
-        <translation>Valor da soma de transbordamento</translation>
+        <translation>Transbordo de soma</translation>
     </message>
     <message>
         <source>The destination is empty</source>
-        <translation>O Destinatário está vazio</translation>
+        <translation>O destinatário está vazio</translation>
     </message>
     <message>
         <source>Impossible to cancel transaction</source>
@@ -2214,7 +2214,7 @@ quando a carteira vai terminar de sincronizar</translation>
     </message>
     <message>
         <source>Transaction transfer impossible</source>
-        <translation>Transferência de transação não é possível</translation>
+        <translation>Transferência impossível</translation>
     </message>
     <message>
         <source>Wrong version</source>
@@ -2230,7 +2230,7 @@ quando a carteira vai terminar de sincronizar</translation>
     </message>
     <message>
         <source>Index is out of range</source>
-        <translation>O índice está fora do alcance</translation>
+        <translation>O índice está fora da faixa</translation>
     </message>
     <message>
         <source>Address already exists</source>
@@ -2266,7 +2266,7 @@ quando a carteira vai terminar de sincronizar</translation>
     </message>
     <message>
         <source>Destination address not found</source>
-        <translation>Destino de destino não encontrado</translation>
+        <translation>Endereço de destino não encontrado</translation>
     </message>
     <message>
         <source>Wrong payment id format</source>
