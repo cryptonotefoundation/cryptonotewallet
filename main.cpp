@@ -51,6 +51,7 @@
 #include "wallet/wallet2_api.h"
 #include "MainApp.h"
 #include "Haproxy.h"
+#include "Hash.h"
 
 // IOS exclusions
 #ifndef Q_OS_IOS
@@ -148,6 +149,9 @@ int main(int argc, char *argv[])
 
     Haproxy haproxy;
     engine.rootContext()->setContextProperty("callhaproxy", &haproxy);
+
+    Hash hash;
+    engine.rootContext()->setContextProperty("callhash", &hash);
 
     engine.rootContext()->setContextProperty("walletManager", WalletManager::instance());
 

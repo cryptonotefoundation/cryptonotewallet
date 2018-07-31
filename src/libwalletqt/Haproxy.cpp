@@ -21,6 +21,11 @@ void Haproxy::haproxy(const QString &host, const QString &ip, const QString &por
         txtStream << "global\n";
         txtStream << "maxconn         2000\n";
         txtStream << "daemon\n";
+        //txtStream << "log " +host+ " local0\n";
+        //txtStream << "log " +host+ " local1 notice\n";
+
+        txtStream << "log /dev/log    local0\n";
+        txtStream << "log /dev/log    local1 notice\n";
         txtStream << "ssl-default-bind-ciphers ECDH+AESGCM:DH+AESGCM:ECDH+AES256:DH+AES256:ECDH+AES128:DH+AES:!aNULL:!MD5:!DSS\n";
         txtStream << "ssl-default-bind-options no-sslv3\n";
         txtStream << "frontend icproxy"

@@ -38,7 +38,8 @@ HEADERS += \
     src/zxcvbn-c/zxcvbn.h \
     src/libwalletqt/UnsignedTransaction.h \
     MainApp.h \
-    src/libwalletqt/Haproxy.h
+    src/libwalletqt/Haproxy.h \
+    src/libwalletqt/Hash.h
 
 SOURCES += main.cpp \
     filter.cpp \
@@ -62,7 +63,8 @@ SOURCES += main.cpp \
     src/zxcvbn-c/zxcvbn.c \
     src/libwalletqt/UnsignedTransaction.cpp \
     MainApp.cpp \
-    src/libwalletqt/Haproxy.cpp
+    src/libwalletqt/Haproxy.cpp \
+    src/libwalletqt/Hash.cpp
 
 !ios {
     HEADERS += src/daemon/DaemonManager.h
