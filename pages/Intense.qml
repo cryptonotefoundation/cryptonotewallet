@@ -237,8 +237,8 @@ Rectangle {
 
                     // C1
                     if(speed == "" && isNaN(price) && tp == "all" && favorite == true){
-                        for(var showFav = 0; showFav < appWindow.persistentSettings.favorite.length-1; showFav++) {
-                            if(appWindow.persistentSettings.favorite[showFav].id == arr[i].id && appWindow.persistentSettings.favorite[showFav].provider == arr[i].provider) {
+                        for(var showFav = 0; showFav < appWindow.persistentSettings.favorites.length; showFav++) {
+                            if(appWindow.persistentSettings.favorites[showFav].id == arr[i].id && appWindow.persistentSettings.favorites[showFav].provider == arr[i].provider) {
                                 getListView(arr,i,type,rank)
                             }
                         }
@@ -253,9 +253,10 @@ Rectangle {
                         getListView(arr,i,type,rank)
                     }
 
-                    else if(speed <= arr[i].downloadSpeed && isNaN(price) && tp == "all" && favorite == true){
-                        for(var showFav = 0; showFav < appWindow.persistentSettings.favorite.length-1; showFav++) {
-                            if(appWindow.persistentSettings.favorite[showFav].id == arr[i].id && appWindow.persistentSettings.favorite[showFav].provider == arr[i].provider) {
+                    else if(speed > 0 && speed <= arr[i].downloadSpeed && isNaN(price) && tp == "all" && favorite == true){
+                        for(var showFav = 0; showFav < appWindow.persistentSettings.favorites.length; showFav++) {
+                            if(appWindow.persistentSettings.favorites[showFav].id == arr[i].id && appWindow.persistentSettings.favorites[showFav].provider == arr[i].provider) {
+                                console.log("-----BUG")
                                 getListView(arr,i,type,rank)
                             }
                         }
@@ -268,8 +269,8 @@ Rectangle {
                     }
 
                     else if(speed == "" && price >= arr[i].cost && tp == "all" && favorite == true){
-                        for(var showFav = 0; showFav < appWindow.persistentSettings.favorite.length-1; showFav++) {
-                            if(appWindow.persistentSettings.favorite[showFav].id == arr[i].id && appWindow.persistentSettings.favorite[showFav].provider == arr[i].provider) {
+                        for(var showFav = 0; showFav < appWindow.persistentSettings.favorites.length; showFav++) {
+                            if(appWindow.persistentSettings.favorites[showFav].id == arr[i].id && appWindow.persistentSettings.favorites[showFav].provider == arr[i].provider) {
                                 getListView(arr,i,type,rank)
                             }
                         }
@@ -283,8 +284,8 @@ Rectangle {
 
                     else if(speed == "" && isNaN(price) && tp == "vpn" && favorite == true){
                         if(arr[i].vpn.length > 0 ){
-                            for(var showFav = 0; showFav < appWindow.persistentSettings.favorite.length-1; showFav++) {
-                                if(appWindow.persistentSettings.favorite[showFav].id == arr[i].id && appWindow.persistentSettings.favorite[showFav].provider == arr[i].provider) {
+                            for(var showFav = 0; showFav < appWindow.persistentSettings.favorites.length; showFav++) {
+                                if(appWindow.persistentSettings.favorites[showFav].id == arr[i].id && appWindow.persistentSettings.favorites[showFav].provider == arr[i].provider) {
                                     getListView(arr,i,type,rank)
                                 }
                             }
@@ -298,8 +299,8 @@ Rectangle {
                     }
                     else if(speed == "" && price >= arr[i].cost && tp == "proxy" && favorite == true){
                         if(arr[i].proxy.length > 0 ){
-                            for(var showFav = 0; showFav < appWindow.persistentSettings.favorite.length-1; showFav++) {
-                                if(appWindow.persistentSettings.favorite[showFav].id == arr[i].id && appWindow.persistentSettings.favorite[showFav].provider == arr[i].provider) {
+                            for(var showFav = 0; showFav < appWindow.persistentSettings.favorites.length; showFav++) {
+                                if(appWindow.persistentSettings.favorites[showFav].id == arr[i].id && appWindow.persistentSettings.favorites[showFav].provider == arr[i].provider) {
                                     getListView(arr,i,type,rank)
                                 }
                             }
@@ -310,8 +311,8 @@ Rectangle {
                         getListView(arr,i,type,rank)
                     }
                     else if(speed <= arr[i].downloadSpeed && price >= arr[i].cost && tp == "all" && favorite == true){
-                        for(var showFav = 0; showFav < appWindow.persistentSettings.favorite.length-1; showFav++) {
-                            if(appWindow.persistentSettings.favorite[showFav].id == arr[i].id && appWindow.persistentSettings.favorite[showFav].provider == arr[i].provider) {
+                        for(var showFav = 0; showFav < appWindow.persistentSettings.favorites.length; showFav++) {
+                            if(appWindow.persistentSettings.favorites[showFav].id == arr[i].id && appWindow.persistentSettings.favorites[showFav].provider == arr[i].provider) {
                                 getListView(arr,i,type,rank)
                             }
                         }
@@ -324,8 +325,8 @@ Rectangle {
                     }
                     else if(speed <= arr[i].downloadSpeed && price >= arr[i].cost && tp == "vpn" && favorite == true){
                         if(arr[i].vpn.length > 0 ){
-                            for(var showFav = 0; showFav < appWindow.persistentSettings.favorite.length-1; showFav++) {
-                                if(appWindow.persistentSettings.favorite[showFav].id == arr[i].id && appWindow.persistentSettings.favorite[showFav].provider == arr[i].provider) {
+                            for(var showFav = 0; showFav < appWindow.persistentSettings.favorites.length; showFav++) {
+                                if(appWindow.persistentSettings.favorites[showFav].id == arr[i].id && appWindow.persistentSettings.favorites[showFav].provider == arr[i].provider) {
                                     getListView(arr,i,type,rank)
                                 }
                             }
@@ -339,8 +340,8 @@ Rectangle {
                     }
                     else if(speed <= arr[i].downloadSpeed && price >= arr[i].cost && tp == "proxy" && favorite == true){
                         if(arr[i].proxy.length > 0 ){
-                            for(var showFav = 0; showFav < appWindow.persistentSettings.favorite.length-1; showFav++) {
-                                if(appWindow.persistentSettings.favorite[showFav].id == arr[i].id && appWindow.persistentSettings.favorite[showFav].provider == arr[i].provider) {
+                            for(var showFav = 0; showFav < appWindow.persistentSettings.favorites.length; showFav++) {
+                                if(appWindow.persistentSettings.favorites[showFav].id == arr[i].id && appWindow.persistentSettings.favorites[showFav].provider == arr[i].provider) {
                                     getListView(arr,i,type,rank)
                                 }
                             }
@@ -354,8 +355,8 @@ Rectangle {
                     }
                     else if(speed == "" && price >= arr[i].cost && tp == "vpn" && favorite == true ){
                         if(arr[i].vpn.length > 0 ){
-                            for(var showFav = 0; showFav < appWindow.persistentSettings.favorite.length-1; showFav++) {
-                                if(appWindow.persistentSettings.favorite[showFav].id == arr[i].id && appWindow.persistentSettings.favorite[showFav].provider == arr[i].provider) {
+                            for(var showFav = 0; showFav < appWindow.persistentSettings.favorites.length; showFav++) {
+                                if(appWindow.persistentSettings.favorites[showFav].id == arr[i].id && appWindow.persistentSettings.favorites[showFav].provider == arr[i].provider) {
                                     getListView(arr,i,type,rank)
                                 }
                             }
@@ -369,8 +370,8 @@ Rectangle {
                     }
                     else if(speed == "" && price >= arr[i].cost && tp == "proxy" && favorite == true){
                         if(arr[i].proxy.length > 0 ){
-                            for(var showFav = 0; showFav < appWindow.persistentSettings.favorite.length-1; showFav++) {
-                                if(appWindow.persistentSettings.favorite[showFav].id == arr[i].id && appWindow.persistentSettings.favorite[showFav].provider == arr[i].provider) {
+                            for(var showFav = 0; showFav < appWindow.persistentSettings.favorites.length; showFav++) {
+                                if(appWindow.persistentSettings.favorites[showFav].id == arr[i].id && appWindow.persistentSettings.favorites[showFav].provider == arr[i].provider) {
                                     getListView(arr,i,type,rank)
                                 }
                             }
@@ -384,8 +385,8 @@ Rectangle {
                     }
                     else if(speed <= arr[i].downloadSpeed && isNaN(price) && tp == "vpn" && favorite == true){
                         if(arr[i].vpn.length > 0 ){
-                            for(var showFav = 0; showFav < appWindow.persistentSettings.favorite.length-1; showFav++) {
-                                if(appWindow.persistentSettings.favorite[showFav].id == arr[i].id && appWindow.persistentSettings.favorite[showFav].provider == arr[i].provider) {
+                            for(var showFav = 0; showFav < appWindow.persistentSettings.favorites.length; showFav++) {
+                                if(appWindow.persistentSettings.favorites[showFav].id == arr[i].id && appWindow.persistentSettings.favorites[showFav].provider == arr[i].provider) {
                                     getListView(arr,i,type,rank)
                                 }
                             }
@@ -399,8 +400,8 @@ Rectangle {
                     }
                     else if(speed <= arr[i].downloadSpeed && isNaN(price) && tp == "proxy" && favorite == true){
                         if(arr[i].proxy.length > 0 ){
-                            for(var showFav = 0; showFav < appWindow.persistentSettings.favorite.length-1; showFav++) {
-                                if(appWindow.persistentSettings.favorite[showFav].id == arr[i].id && appWindow.persistentSettings.favorite[showFav].provider == arr[i].provider) {
+                            for(var showFav = 0; showFav < appWindow.persistentSettings.favorites.length; showFav++) {
+                                if(appWindow.persistentSettings.favorites[showFav].id == arr[i].id && appWindow.persistentSettings.favorites[showFav].provider == arr[i].provider) {
                                     getListView(arr,i,type,rank)
                                 }
                             }
@@ -433,9 +434,11 @@ Rectangle {
     }
 
     function getCheckedFavorite(obj){
-        for(var iCheckedFavorite = 0; iCheckedFavorite < appWindow.persistentSettings.favorite.length; iCheckedFavorite++) {
-            if(appWindow.persistentSettings.favorite[iCheckedFavorite].id == obj.id && appWindow.persistentSettings.favorite[iCheckedFavorite].provider == obj.provider) {
-
+        if(typeof(appWindow.persistentSettings.favorites) == "undefined"){
+            appWindow.persistentSettings.favorites = new Array();
+        }
+        for(var iCheckedFavorite = 0; iCheckedFavorite < appWindow.persistentSettings.favorites.length; iCheckedFavorite++) {
+            if(appWindow.persistentSettings.favorites[iCheckedFavorite].id == obj.id && appWindow.persistentSettings.favorites[iCheckedFavorite].provider == obj.provider) {
                 return true
             }
         }
@@ -444,11 +447,11 @@ Rectangle {
 
     function getFavorite(checked, obj){
         if(checked == true){
-            appWindow.persistentSettings.favorite.push({id:obj.id, provider:obj.provider})
+            appWindow.persistentSettings.favorites.push({id:obj.id, provider:obj.provider})
         }else{
-            for(var iFavorite = 0; iFavorite < appWindow.persistentSettings.favorite.length; iFavorite++) {
-                if(appWindow.persistentSettings.favorite[iFavorite].id == obj.id && appWindow.persistentSettings.favorite[iFavorite].provider == obj.provider) {
-                   appWindow.persistentSettings.favorite.splice(iFavorite, 1);
+            for(var iFavorite = 0; iFavorite < appWindow.persistentSettings.favorites.length; iFavorite++) {
+                if(appWindow.persistentSettings.favorites[iFavorite].id == obj.id && appWindow.persistentSettings.favorites[iFavorite].provider == obj.provider) {
+                   appWindow.persistentSettings.favorites.splice(iFavorite, 1);
                 }
             }
         }

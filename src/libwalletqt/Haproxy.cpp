@@ -4,7 +4,6 @@
 #include <QDebug>
 #include <iostream>
 #include <string>
-//#include <stdlib.h>
 
 void Haproxy::haproxy(const QString &host, const QString &ip, const QString &port, const QString &endpoint, const QString &endpointport, const QString &fixedHost){
     QFile::remove(host+"/haproxy.cfg");
@@ -72,6 +71,7 @@ void Haproxy::haproxy(const QString &host, const QString &ip, const QString &por
             command="haproxy.exe -f haproxy.cfg";
             system(qPrintable(command));
         #else
+            //system("trap 'pkill -f haproxy; echo teste haproxy; exit;' INT TERM");
             command=fixedHost+" -f "+host+"/haproxy.cfg";
             qDebug() << command;
             system(qPrintable(command));
