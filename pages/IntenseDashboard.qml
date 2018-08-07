@@ -49,6 +49,19 @@ Rectangle {
         }
     }
 
+    // Information dialog
+    StandardDialog {
+        // dynamically change onclose handler
+        property var onCloseCallback
+        id: informationPopup
+        cancelVisible: false
+        onAccepted:  {
+            if (onCloseCallback) {
+                onCloseCallback()
+            }
+        }
+    }
+
 
     function delay(inter) {
         delayTimer.interval = inter;
@@ -57,11 +70,10 @@ Rectangle {
     }
 
     function getTime(){
+        setPayment();
         var value =  (subsequentPrePaidMinutes*60000) - Config.payTimer
         if(flag != 0){
-            delay(value
-                //setPayment()
-            )
+            delay(value)
         }
     }
 
@@ -69,12 +81,32 @@ Rectangle {
         console.log("Transfer: paymentClicked")
         var priority = 2
         var privacy = 4
+        var amountxmr = walletManager.amountFromString(parseFloat(cost).toFixed(8));
 
-        currentWallet.createTransactionAsync(obj.providerWallet, "0000000000000000", 0.0000007, privacy,
-                      priority)
+        //currentWallet.createTransaction("iz5RCx5nsRAdvpfGnTjqB4Q8rv5zKkvJS1skjD6m7w2pdGbSX44QsETVK6Gcrgz6U99Ar4o3a8SMFQPzzC7tJ64H1bZcfgYAJ", "0000000000000000", "0.00000008", privacy, priority)
+        if (amountxmr > currentWallet.unlockedBalance) {
+            console.log("amout > lockedBalance")
+            flag = 0
+            changeStatus()
+            callhaproxy.killHAproxy();
+            delayTimer.stop();
+            informationPopup.title = qsTr("Error") + translationManager.emptyString;
+            informationPopup.text  = qsTr("Insufficient funds. Unlocked balance: %1")
+                    .arg(walletManager.displayAmount(currentWallet.unlockedBalance))
+                    + translationManager.emptyString
 
-        //root.paymentClicked(obj.providerWallet, "0000000000000000", "0.0000007", privacy,
-        //               priority, "Intense Coin payment")
+            //informationPopup.icon  = StandardIcon.Critical
+            informationPopup.onCloseCallback = null
+            informationPopup.open()
+        }else{
+            root.paymentClicked(obj.providerWallet, "0000000000000000", cost, privacy,
+                       priority, "Intense Coin payment")
+
+            // refresh transaction history here
+            currentWallet.refresh()
+            currentWallet.history.refresh() // this will refresh model
+        }
+
     }
 
     function postJsonFeedback(fbId){
@@ -1653,9 +1685,6 @@ Rectangle {
         getMyFeedJson()
         changeStatus()
         if(providerName != ""){
-            if(firstPrePaidMinutes != 0){
-                getTime()
-            }
             getGeoLocation()
             howToUseText.visible = false
             orText.visible = false
