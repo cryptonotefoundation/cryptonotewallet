@@ -89,6 +89,7 @@ Rectangle {
 
     function updateStatus(){
         transferView.updateStatus();
+        intenseView.updateStatus();
     }
 
     // send from AddressBook
