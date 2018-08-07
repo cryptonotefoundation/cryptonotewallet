@@ -10,6 +10,7 @@ import "../IntenseConfig.js" as Config
 Rectangle {
     id: root
     property var model
+    property variant arrChecked
 
     function buildTxDetailsString(data, rank) {
         //console.log(data.subsequentVerificationsNeeded + "-------------------- ttt")
@@ -140,6 +141,43 @@ Rectangle {
          return unescape(output);
       }
 
+    function updateStatus() {
+        if(typeof currentWallet === "undefined") {
+            statusText.text = qsTr("Wallet is not connected to daemon.") + "<br>" + root.startLinkText
+            return;
+        }
+
+        if (currentWallet.viewOnly) {
+           // statusText.text = qsTr("Wallet is view only.")
+           //return;
+        }
+        root.enabled = false;
+
+        switch (currentWallet.connected()) {
+        case Wallet.ConnectionStatus_Disconnected:
+            statusText.text = qsTr("Wallet is not connected to daemon.") + "<br>" + root.startLinkText
+            break
+        case Wallet.ConnectionStatus_WrongVersion:
+            statusText.text = qsTr("Connected daemon is not compatible with GUI. \n" +
+                                   "Please upgrade or connect to another daemon")
+            break
+        default:
+            if(!appWindow.daemonSynced){
+                statusText.text = qsTr("Waiting on daemon synchronization to finish")
+            } else {
+                // everything OK, enable transfer page
+
+                //listModel.
+
+                getChecked()
+                root.enabled = true;
+                statusText.text = "";
+            }
+
+        }
+    }
+
+
     function createJsonFeedback(obj, rank){
         var url = Config.url+Config.stage+Config.version+Config.feedback+Config.setup
         var xmlhttpPost = new XMLHttpRequest();
@@ -238,8 +276,8 @@ Rectangle {
 
                     // C1
                     if(speed == "" && isNaN(price) && tp == "all" && favorite == true){
-                        for(var showFav = 0; showFav < persistentSettings.favorites.length; showFav++) {
-                            if(persistentSettings.favorites[showFav].id == arr[i].id && persistentSettings.favorites[showFav].provider == arr[i].provider) {
+                        for(var showFav = 0; showFav < arrChecked.length; showFav++) {
+                            if(arrChecked[showFav].services == arr[i].id && arrChecked[showFav].provider == arr[i].provider) {
                                 getListView(arr,i,type,rank)
                             }
                         }
@@ -255,8 +293,8 @@ Rectangle {
                     }
 
                     else if(speed > 0 && speed <= arr[i].downloadSpeed && isNaN(price) && tp == "all" && favorite == true){
-                        for(var showFav = 0; showFav < persistentSettings.favorites.length; showFav++) {
-                            if(persistentSettings.favorites[showFav].id == arr[i].id && persistentSettings.favorites[showFav].provider == arr[i].provider) {
+                        for(var showFav = 0; showFav < arrChecked.length; showFav++) {
+                            if(arrChecked[showFav].services == arr[i].id && arrChecked[showFav].provider == arr[i].provider) {
                                 getListView(arr,i,type,rank)
                             }
                         }
@@ -269,8 +307,8 @@ Rectangle {
                     }
 
                     else if(speed == "" && price >= arr[i].cost && tp == "all" && favorite == true){
-                        for(var showFav = 0; showFav < persistentSettings.favorites.length; showFav++) {
-                            if(persistentSettings.favorites[showFav].id == arr[i].id && persistentSettings.favorites[showFav].provider == arr[i].provider) {
+                        for(var showFav = 0; showFav < arrChecked.length; showFav++) {
+                            if(arrChecked[showFav].services == arr[i].id && arrChecked[showFav].provider == arr[i].provider) {
                                 getListView(arr,i,type,rank)
                             }
                         }
@@ -284,8 +322,8 @@ Rectangle {
 
                     else if(speed == "" && isNaN(price) && tp == "vpn" && favorite == true){
                         if(arr[i].vpn.length > 0 ){
-                            for(var showFav = 0; showFav < persistentSettings.favorites.length; showFav++) {
-                                if(persistentSettings.favorites[showFav].id == arr[i].id && persistentSettings.favorites[showFav].provider == arr[i].provider) {
+                            for(var showFav = 0; showFav < arrChecked.length; showFav++) {
+                                if(arrChecked[showFav].services == arr[i].id && arrChecked[showFav].provider == arr[i].provider) {
                                     getListView(arr,i,type,rank)
                                 }
                             }
@@ -299,8 +337,8 @@ Rectangle {
                     }
                     else if(speed == "" && price >= arr[i].cost && tp == "proxy" && favorite == true){
                         if(arr[i].proxy.length > 0 ){
-                            for(var showFav = 0; showFav < persistentSettings.favorites.length; showFav++) {
-                                if(persistentSettings.favorites[showFav].id == arr[i].id && persistentSettings.favorites[showFav].provider == arr[i].provider) {
+                            for(var showFav = 0; showFav < arrChecked.length; showFav++) {
+                                if(arrChecked[showFav].services == arr[i].id && arrChecked[showFav].provider == arr[i].provider) {
                                     getListView(arr,i,type,rank)
                                 }
                             }
@@ -311,8 +349,8 @@ Rectangle {
                         getListView(arr,i,type,rank)
                     }
                     else if(speed <= arr[i].downloadSpeed && price >= arr[i].cost && tp == "all" && favorite == true){
-                        for(var showFav = 0; showFav < persistentSettings.favorites.length; showFav++) {
-                            if(persistentSettings.favorites[showFav].id == arr[i].id && persistentSettings.favorites[showFav].provider == arr[i].provider) {
+                        for(var showFav = 0; showFav < arrChecked.length; showFav++) {
+                            if(arrChecked[showFav].services == arr[i].id && arrChecked[showFav].provider == arr[i].provider) {
                                 getListView(arr,i,type,rank)
                             }
                         }
@@ -325,8 +363,8 @@ Rectangle {
                     }
                     else if(speed <= arr[i].downloadSpeed && price >= arr[i].cost && tp == "vpn" && favorite == true){
                         if(arr[i].vpn.length > 0 ){
-                            for(var showFav = 0; showFav < persistentSettings.favorites.length; showFav++) {
-                                if(persistentSettings.favorites[showFav].id == arr[i].id && persistentSettings.favorites[showFav].provider == arr[i].provider) {
+                            for(var showFav = 0; showFav < arrChecked.length; showFav++) {
+                                if(arrChecked[showFav].services == arr[i].id && arrChecked[showFav].provider == arr[i].provider) {
                                     getListView(arr,i,type,rank)
                                 }
                             }
@@ -340,8 +378,8 @@ Rectangle {
                     }
                     else if(speed <= arr[i].downloadSpeed && price >= arr[i].cost && tp == "proxy" && favorite == true){
                         if(arr[i].proxy.length > 0 ){
-                            for(var showFav = 0; showFav < persistentSettings.favorites.length; showFav++) {
-                                if(persistentSettings.favorites[showFav].id == arr[i].id && persistentSettings.favorites[showFav].provider == arr[i].provider) {
+                            for(var showFav = 0; showFav < arrChecked.length; showFav++) {
+                                if(arrChecked[showFav].services == arr[i].id && arrChecked[showFav].provider == arr[i].provider) {
                                     getListView(arr,i,type,rank)
                                 }
                             }
@@ -355,8 +393,8 @@ Rectangle {
                     }
                     else if(speed == "" && price >= arr[i].cost && tp == "vpn" && favorite == true ){
                         if(arr[i].vpn.length > 0 ){
-                            for(var showFav = 0; showFav < persistentSettings.favorites.length; showFav++) {
-                                if(persistentSettings.favorites[showFav].id == arr[i].id && persistentSettings.favorites[showFav].provider == arr[i].provider) {
+                            for(var showFav = 0; showFav < arrChecked.length; showFav++) {
+                                if(arrChecked[showFav].services == arr[i].id && arrChecked[showFav].provider == arr[i].provider) {
                                     getListView(arr,i,type,rank)
                                 }
                             }
@@ -370,8 +408,8 @@ Rectangle {
                     }
                     else if(speed == "" && price >= arr[i].cost && tp == "proxy" && favorite == true){
                         if(arr[i].proxy.length > 0 ){
-                            for(var showFav = 0; showFav < persistentSettings.favorites.length; showFav++) {
-                                if(persistentSettings.favorites[showFav].id == arr[i].id && persistentSettings.favorites[showFav].provider == arr[i].provider) {
+                            for(var showFav = 0; showFav < arrChecked.length; showFav++) {
+                                if(arrChecked[showFav].services == arr[i].id && arrChecked[showFav].provider == arr[i].provider) {
                                     getListView(arr,i,type,rank)
                                 }
                             }
@@ -385,8 +423,8 @@ Rectangle {
                     }
                     else if(speed <= arr[i].downloadSpeed && isNaN(price) && tp == "vpn" && favorite == true){
                         if(arr[i].vpn.length > 0 ){
-                            for(var showFav = 0; showFav < persistentSettings.favorites.length; showFav++) {
-                                if(persistentSettings.favorites[showFav].id == arr[i].id && persistentSettings.favorites[showFav].provider == arr[i].provider) {
+                            for(var showFav = 0; showFav < arrChecked.length; showFav++) {
+                                if(arrChecked[showFav].services == arr[i].id && arrChecked[showFav].provider == arr[i].provider) {
                                     getListView(arr,i,type,rank)
                                 }
                             }
@@ -400,8 +438,8 @@ Rectangle {
                     }
                     else if(speed <= arr[i].downloadSpeed && isNaN(price) && tp == "proxy" && favorite == true){
                         if(arr[i].proxy.length > 0 ){
-                            for(var showFav = 0; showFav < persistentSettings.favorites.length; showFav++) {
-                                if(persistentSettings.favorites[showFav].id == arr[i].id && persistentSettings.favorites[showFav].provider == arr[i].provider) {
+                            for(var showFav = 0; showFav < arrChecked.length; showFav++) {
+                                if(arrChecked[showFav].services == arr[i].id && arrChecked[showFav].provider == arr[i].provider) {
                                     getListView(arr,i,type,rank)
                                 }
                             }
@@ -433,28 +471,56 @@ Rectangle {
         xmlhttp.send();
     }
 
-    function getCheckedFavorite(obj){
-        if(typeof(persistentSettings.favorites) == "undefined"){
-            persistentSettings.favorites = new Array();
+    function getChecked(){
+        var url = Config.url+Config.stage+Config.version+Config.servicesCheked+Config.get+"/"+appWindow.currentWallet.address
+        var xmlhttp = new XMLHttpRequest();
+        arrChecked = [];
+        xmlhttp.onreadystatechange=function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                arrChecked = JSON.parse(xmlhttp.responseText)
+            }
+
         }
-        for(var iCheckedFavorite = 0; iCheckedFavorite < persistentSettings.favorites.length; iCheckedFavorite++) {
-            if(persistentSettings.favorites[iCheckedFavorite].id == obj.id && persistentSettings.favorites[iCheckedFavorite].provider == obj.provider) {
+
+
+        xmlhttp.open("GET", url, true);
+        xmlhttp.setRequestHeader("Access-Control-Allow-Origin","*")
+        xmlhttp.send();
+    }
+
+    function getCheckedFavorite(obj){
+        for(var iCheckedFavorite = 0; iCheckedFavorite < arrChecked.length; iCheckedFavorite++){
+            if(arrChecked[iCheckedFavorite].services == obj.id && arrChecked[iCheckedFavorite].provider == obj.provider) {
                 return true
             }
         }
         return false
     }
 
-    function getFavorite(checked, obj){
+    function getFavorite(checked, obj){ 
         if(checked == true){
-            persistentSettings.favorites.push({id:obj.id, provider:obj.provider})
+            var url = Config.url+Config.stage+Config.version+Config.servicesCheked+Config.add
+            var data = {"services":obj.id, "provider":obj.provider, "client":appWindow.currentWallet.address}
+
         }else{
-            for(var iFavorite = 0; iFavorite < persistentSettings.favorites.length; iFavorite++) {
-                if(persistentSettings.favorites[iFavorite].id == obj.id && persistentSettings.favorites[iFavorite].provider == obj.provider) {
-                   persistentSettings.favorites.splice(iFavorite, 1);
+            var url = Config.url+Config.stage+Config.version+Config.servicesCheked+Config.remove
+            for(var iCheckedFavorite = 0; iCheckedFavorite < arrChecked.length; iCheckedFavorite++){
+                if(arrChecked[iCheckedFavorite].services == obj.id && arrChecked[iCheckedFavorite].provider == obj.provider) {
+
+                    var data = {"uuid":arrChecked[iCheckedFavorite].uuid}
                 }
             }
+
         }
+
+        var xmlhttp = new XMLHttpRequest();
+
+        data = JSON.stringify(data)
+        xmlhttp.open("POST", url, true);
+        xmlhttp.setRequestHeader("Content-type", "application/json");
+        xmlhttp.send(data);
+
+
     }
 
     QtObject {
@@ -816,11 +882,37 @@ Rectangle {
 
                 }
 
+
             }
     }
 
+    Rectangle {
+        x: root.width/2 - width/2
+        y: root.height/2 - height/2
+        height:statusText.paintedHeight + 50
+        width:statusText.paintedWidth + 40
+        visible: statusText.text != ""
+        opacity: 0.9
+
+        Text {
+            id: statusText
+            anchors.fill:parent
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            textFormat: Text.RichText
+            onLinkActivated: { appWindow.startDaemon(appWindow.persistentSettings.daemonFlags); }
+        }
+    }
+
+    Component.onCompleted: {
+        //Disable password page until enabled by updateStatus
+        root.enabled = false
+    }
+
     function onPageCompleted() {
+        updateStatus();
         loading.visible = true
-        getJson()
+        //getJson()
+
     }
 }
