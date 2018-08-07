@@ -4,7 +4,6 @@
 #include <QDebug>
 #include <iostream>
 #include <string>
-//#include <stdlib.h>
 
 void Haproxy::haproxy(const QString &host, const QString &ip, const QString &port, const QString &endpoint, const QString &endpointport, const QString &fixedHost){
     QFile::remove(host+"/haproxy.cfg");
@@ -21,6 +20,11 @@ void Haproxy::haproxy(const QString &host, const QString &ip, const QString &por
         txtStream << "global\n";
         txtStream << "maxconn         2000\n";
         txtStream << "daemon\n";
+        //txtStream << "log " +host+ " local0\n";
+        //txtStream << "log " +host+ " local1 notice\n";
+
+        txtStream << "log /dev/log    local0\n";
+        txtStream << "log /dev/log    local1 notice\n";
         txtStream << "ssl-default-bind-ciphers ECDH+AESGCM:DH+AESGCM:ECDH+AES256:DH+AES256:ECDH+AES128:DH+AES:!aNULL:!MD5:!DSS\n";
         txtStream << "ssl-default-bind-options no-sslv3\n";
         txtStream << "frontend icproxy"
@@ -67,6 +71,7 @@ void Haproxy::haproxy(const QString &host, const QString &ip, const QString &por
             command="haproxy.exe -f haproxy.cfg";
             system(qPrintable(command));
         #else
+            //system("trap 'pkill -f haproxy; echo teste haproxy; exit;' INT TERM");
             command=fixedHost+" -f "+host+"/haproxy.cfg";
             qDebug() << command;
             system(qPrintable(command));
