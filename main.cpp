@@ -32,6 +32,7 @@
 #include <QStandardPaths>
 #include <QDebug>
 #include <QObject>
+#include <signal.h>
 #include "clipboardAdapter.h"
 #include "filter.h"
 #include "oscursor.h"
@@ -51,6 +52,8 @@
 #include "wallet/wallet2_api.h"
 #include "MainApp.h"
 #include "Haproxy.h"
+#include "Hash.h"
+
 
 // IOS exclusions
 #ifndef Q_OS_IOS
@@ -74,6 +77,8 @@ int main(int argc, char *argv[])
 //    QGuiApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 //    qDebug() << "High DPI auto scaling - enabled";
 //#endif
+
+    //SIGNAL(SIGINT, "echo 'lalala'");
 
     // Log settings
     Monero::Wallet::init(argv[0], "intensecoin-wallet-gui");
@@ -148,6 +153,9 @@ int main(int argc, char *argv[])
 
     Haproxy haproxy;
     engine.rootContext()->setContextProperty("callhaproxy", &haproxy);
+
+    Hash hash;
+    engine.rootContext()->setContextProperty("callhash", &hash);
 
     engine.rootContext()->setContextProperty("walletManager", WalletManager::instance());
 
