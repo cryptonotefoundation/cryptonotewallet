@@ -232,8 +232,10 @@ ApplicationWindow {
             currentWallet.moneyReceived.disconnect(onWalletMoneyReceived)
             currentWallet.unconfirmedMoneyReceived.disconnect(onWalletUnconfirmedMoneyReceived)
             currentWallet.transactionCreated.disconnect(onTransactionCreated)
+            currentWallet.transactionAutoCreated.disconnect(onTransactionAutoCreated)
             currentWallet.connectionStatusChanged.disconnect(onWalletConnectionStatusChanged)
             middlePanel.paymentClicked.disconnect(handlePayment);
+            middlePanel.paymentAutoClicked.disconnect(handleAutoPayment);
             middlePanel.sweepUnmixableClicked.disconnect(handleSweepUnmixable);
             middlePanel.checkPaymentClicked.disconnect(handleCheckPayment);
 
@@ -267,8 +269,10 @@ ApplicationWindow {
         currentWallet.moneyReceived.connect(onWalletMoneyReceived)
         currentWallet.unconfirmedMoneyReceived.connect(onWalletUnconfirmedMoneyReceived)
         currentWallet.transactionCreated.connect(onTransactionCreated)
+        currentWallet.transactionAutoCreated.connect(onTransactionAutoCreated)
         currentWallet.connectionStatusChanged.connect(onWalletConnectionStatusChanged)
         middlePanel.paymentClicked.connect(handlePayment);
+        middlePanel.paymentAutoClicked.connect(handleAutoPayment);
         middlePanel.sweepUnmixableClicked.connect(handleSweepUnmixable);
         middlePanel.checkPaymentClicked.connect(handleCheckPayment);
 
@@ -536,6 +540,55 @@ ApplicationWindow {
         }
     }
 
+    function onTransactionAutoCreated(pendingTransaction,address,paymentId,mixinCount){
+        console.log("Transaction created");
+        hideProcessingSplash();
+        transaction = pendingTransaction;
+        // validate address;
+        if (transaction.status !== PendingTransaction.Status_Ok) {
+            console.error("Can't create transaction: ", transaction.errorString);
+            informationPopup.title = qsTr("Error") + translationManager.emptyString;
+            if (currentWallet.connected() == Wallet.ConnectionStatus_WrongVersion)
+                informationPopup.text  = qsTr("Can't create transaction: Wrong daemon version: ") + transaction.errorString
+            else
+                informationPopup.text  = qsTr("Can't create transaction: ") + transaction.errorString
+            informationPopup.icon  = StandardIcon.Critical
+            informationPopup.onCloseCallback = null
+            informationPopup.open();
+            // deleting transaction object, we don't want memleaks
+            currentWallet.disposeTransaction(transaction);
+
+        } else if (transaction.txCount == 0) {
+            informationPopup.title = qsTr("Error") + translationManager.emptyString
+            informationPopup.text  = qsTr("No unmixable outputs to sweep") + translationManager.emptyString
+            informationPopup.icon = StandardIcon.Information
+            informationPopup.onCloseCallback = null
+            informationPopup.open()
+            // deleting transaction object, we don't want memleaks
+            currentWallet.disposeTransaction(transaction);
+        } else {
+            console.log("Transaction created, amount: " + walletManager.displayAmount(transaction.amount)
+                    + ", fee: " + walletManager.displayAmount(transaction.fee));
+            /*
+            // here we show confirmation popup;
+
+            transactionConfirmationPopup.title = qsTr("Confirmation") + translationManager.emptyString
+            transactionConfirmationPopup.text  = qsTr("Please confirm transaction:\n")
+                        + (address === "" ? "" : (qsTr("\nAddress: ") + address))
+                        + (paymentId === "" ? "" : (qsTr("\nPayment ID: ") + paymentId))
+                        + qsTr("\n\nAmount: ") + walletManager.displayAmount(transaction.amount)
+                        + qsTr("\nFee: ") + walletManager.displayAmount(transaction.fee)
+                        + qsTr("\n\nRingsize: ") + (mixinCount + 1)
+                        + qsTr("\n\Number of transactions: ") + transaction.txCount
+                        + (transactionDescription === "" ? "" : (qsTr("\n\nDescription: ") + transactionDescription))
+                        + translationManager.emptyString
+            transactionConfirmationPopup.icon = StandardIcon.Question
+            transactionConfirmationPopup.open()
+            */
+            handleTransactionAutoConfirmed()
+        }
+    }
+
 
     // called on "transfer"
     function handlePayment(address, paymentId, amount, mixinCount, priority, description, createFile) {
@@ -586,6 +639,24 @@ ApplicationWindow {
             currentWallet.createTransactionAllAsync(address, paymentId, mixinCount, priority);
         else
             currentWallet.createTransactionAsync(address, paymentId, amountxmr, mixinCount, priority);
+    }
+
+    // called on "transfer"
+    function handleAutoPayment(address, paymentId, amount, mixinCount, priority, description, createFile) {
+        console.log("Creating transaction: ")
+        console.log("\taddress: ", address,
+                    ", payment_id: ", paymentId,
+                    ", amount: ", amount,
+                    ", mixins: ", mixinCount,
+                    ", priority: ", priority,
+                    ", description: ", description);
+
+        //showProcessingSplash("Creating transaction");
+        var amountxmr = walletManager.amountFromString(amount);
+        transactionDescription = description;
+
+
+        currentWallet.createAutoTransactionAsync(address, paymentId, amountxmr, mixinCount, priority);
     }
 
     //Choose where to save transaction
@@ -696,6 +767,48 @@ ApplicationWindow {
         }
         informationPopup.onCloseCallback = null
         informationPopup.open()
+        currentWallet.refresh()
+        currentWallet.disposeTransaction(transaction)
+        currentWallet.store();
+    }
+
+    // called after user confirms transaction
+    function handleTransactionAutoConfirmed(fileName) {
+        // grab transaction.txid before commit, since it clears it.
+        // we actually need to copy it, because QML will incredibly
+        // call the function multiple times when the variable is used
+        // after commit, where it returns another result...
+        // Of course, this loop is also calling the function multiple
+        // times, but at least with the same result.
+        var txid = [], txid_org = transaction.txid, txid_text = ""
+        for (var i = 0; i < txid_org.length; ++i)
+          txid[i] = txid_org[i]
+
+        // View only wallet - we save the tx
+        if(viewOnly && saveTxDialog.fileUrl){
+            // No file specified - abort
+            if(!saveTxDialog.fileUrl) {
+                currentWallet.disposeTransaction(transaction)
+                return;
+            }
+
+            var path = walletManager.urlToLocalPath(saveTxDialog.fileUrl)
+
+            // Store to file
+            transaction.setFilename(path);
+        }
+
+        if (!transaction.commit()) {
+            console.log("Error committing transaction: " + transaction.errorString);
+            informationPopup.title = qsTr("Error") + translationManager.emptyString
+            informationPopup.text  = qsTr("Couldn't send the money: ") + transaction.errorString
+            informationPopup.icon  = StandardIcon.Critical
+        } else {
+
+            // Clear tx fields
+            middlePanel.transferView.clearFields()
+
+        }
         currentWallet.refresh()
         currentWallet.disposeTransaction(transaction)
         currentWallet.store();
