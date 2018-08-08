@@ -65,6 +65,8 @@ Rectangle {
 
 
     signal paymentClicked(string address, string paymentId, string amount, int mixinCount, int priority, string description)
+    signal paymentAutoClicked(string address, string paymentId, string amount, int mixinCount, int priority, string description)
+
     signal sweepUnmixableClicked()
     signal generatePaymentIdInvoked()
     signal checkPaymentClicked(string address, string txid, string txkey);

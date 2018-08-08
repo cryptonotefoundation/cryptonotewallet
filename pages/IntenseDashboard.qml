@@ -4,6 +4,7 @@ import QtQuick.Controls 1.4
 import QtQml 2.2
 import moneroComponents.Wallet 1.0
 import moneroComponents.WalletManager 1.0
+import moneroComponents.PendingTransaction 1.0
 
 import "../components"
 import "../pages"
@@ -12,9 +13,6 @@ import "../IntenseConfig.js" as Config
 
 Rectangle {
     id: root
-    signal paymentClicked(string address, string paymentId, string amount, int mixinCount,
-                          int priority, string description)
-
 
     property var model
     property string idService
@@ -83,9 +81,27 @@ Rectangle {
         var privacy = 4
         var amountxmr = walletManager.amountFromString(parseFloat(cost).toFixed(8));
 
-        //currentWallet.createTransaction("iz5RCx5nsRAdvpfGnTjqB4Q8rv5zKkvJS1skjD6m7w2pdGbSX44QsETVK6Gcrgz6U99Ar4o3a8SMFQPzzC7tJ64H1bZcfgYAJ", "0000000000000000", "0.00000008", privacy, priority)
-        if (amountxmr > currentWallet.unlockedBalance) {
-            console.log("amout > lockedBalance")
+        // validate amount;
+        console.log("integer amount: ", amountxmr);
+        console.log("integer unlocked",currentWallet.unlockedBalance)
+        if (amountxmr <= 0) {
+            hideProcessingSplash()
+            flag = 0
+            changeStatus()
+            callhaproxy.killHAproxy();
+            delayTimer.stop();
+            informationPopup.title = qsTr("Error") + translationManager.emptyString;
+            informationPopup.text  = qsTr("Amount is wrong: expected number from %1 to %2")
+                    .arg(walletManager.displayAmount(0))
+                    .arg(walletManager.maximumAllowedAmountAsSting())
+                    + translationManager.emptyString
+
+            //informationPopup.icon  = StandardIcon.Critical
+            informationPopup.onCloseCallback = null
+            informationPopup.open()
+            return;
+        } else if (amountxmr > currentWallet.unlockedBalance) {
+            hideProcessingSplash()
             flag = 0
             changeStatus()
             callhaproxy.killHAproxy();
@@ -98,14 +114,11 @@ Rectangle {
             //informationPopup.icon  = StandardIcon.Critical
             informationPopup.onCloseCallback = null
             informationPopup.open()
+            return;
         }else{
-            root.paymentClicked(obj.providerWallet, "0000000000000000", cost, privacy,
-                       priority, "Intense Coin payment")
-
-            // refresh transaction history here
-            currentWallet.refresh()
-            currentWallet.history.refresh() // this will refresh model
+            paymentAutoClicked(obj.providerWallet, "0000000000000000", cost, privacy, priority, "Intense Coin payment")
         }
+
 
     }
 
