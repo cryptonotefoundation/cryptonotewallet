@@ -236,39 +236,30 @@ Rectangle {
         listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[n].providerName + "</div><br />" + arr[n].name +"<br /> "+ type + " - "+ arr[n].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[n].downloadSpeed) +"/s </div>- "+ arr[n].cost + " ITNS/min", obj: arr[n], rank: rank, type: type, index: n})
     }
 
+    function getSignature(arr, data, i, speed, speedType, price, tp, favorite){
+        var urlSign = Config.url+Config.stage+Config.version+Config.signature+Config.get
+        var xmlhttpSign = new XMLHttpRequest();
+        var signHash = data.hash
+        delete data.hash
+        var sign = {"sign":signHash, "json":data}
 
-    function getJson(speed, speedType, price, tp, favorite){
+        xmlhttpSign.onreadystatechange = function() {
+            if(xmlhttpSign.readyState == 4 && xmlhttpSign.status == 200) {
+                if(xmlhttpSign.responseText == "true"){
+                    if(data.mStability == null){
 
-        if(speed != undefined){
-            speed = speed * 1024
-            if(speedType == "mb"){
-                speed = speed * 1024
-            }
-            console.log(speed)
-        }
-        var url = Config.url+Config.stage+Config.version+Config.services+Config.search
-        var xmlhttp = new XMLHttpRequest();
-        listView.model.clear()
-        xmlhttp.onreadystatechange=function() {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                getJsonFail.visible = false
-                loading.visible = false
-                var arr = JSON.parse(xmlhttp.responseText)
-                for(var i = 0; i < arr.length; i++) {
-                    if(arr[i].mStability == null){
-
-                        arr[i].mStability = 0
+                        data.mStability = 0
                     }
-                    if(arr[i].mSpeed == null){
-                        arr[i].mSpeed = 0
+                    if(data.mSpeed == null){
+                        data.mSpeed = 0
                     }
-                    if(arr[i].type == "proxy"){
-                        var type = arr[i].proxy[0].endpoint +":"+arr[i].proxy[0].port
+                    if(data.type == "proxy"){
+                        var type = data.proxy[0].endpoint +":"+data.proxy[0].port
                     }else{
-                        var type = arr[i].vpn[0].endpoint +":"+arr[i].vpn[0].port
+                        var type = data.vpn[0].endpoint +":"+data.vpn[0].port
                     }
 
-                    var rank = (arr[i].mStability + arr[i].mSpeed)/2
+                    var rank = (data.mStability + data.mSpeed)/2
                     rank = parseFloat(rank).toFixed(1)
                     if(speed == undefined && tp == undefined && price == undefined){
                         getListView(arr,i,type,rank)
@@ -277,7 +268,7 @@ Rectangle {
                     // C1
                     if(speed == "" && isNaN(price) && tp == "all" && favorite == true){
                         for(var showFav = 0; showFav < arrChecked.length; showFav++) {
-                            if(arrChecked[showFav].services == arr[i].id && arrChecked[showFav].provider == arr[i].provider) {
+                            if(arrChecked[showFav].services == data.id && arrChecked[showFav].provider == data.provider) {
                                 getListView(arr,i,type,rank)
                             }
                         }
@@ -288,13 +279,13 @@ Rectangle {
                         getListView(arr,i,type,rank)
                     }
                     // AC1
-                    else if(speed <= arr[i].downloadSpeed && isNaN(price) && tp == "all" && favorite == false){
+                    else if(speed <= data.downloadSpeed && isNaN(price) && tp == "all" && favorite == false){
                         getListView(arr,i,type,rank)
                     }
 
-                    else if(speed > 0 && speed <= arr[i].downloadSpeed && isNaN(price) && tp == "all" && favorite == true){
+                    else if(speed > 0 && speed <= data.downloadSpeed && isNaN(price) && tp == "all" && favorite == true){
                         for(var showFav = 0; showFav < arrChecked.length; showFav++) {
-                            if(arrChecked[showFav].services == arr[i].id && arrChecked[showFav].provider == arr[i].provider) {
+                            if(arrChecked[showFav].services == data.id && arrChecked[showFav].provider == data.provider) {
                                 getListView(arr,i,type,rank)
                             }
                         }
@@ -302,149 +293,179 @@ Rectangle {
 
 
                     // BC1
-                    else if(speed == "" && price >= arr[i].cost && tp == "all" && favorite == false){
+                    else if(speed == "" && price >= data.cost && tp == "all" && favorite == false){
                         getListView(arr,i,type,rank)
                     }
 
-                    else if(speed == "" && price >= arr[i].cost && tp == "all" && favorite == true){
+                    else if(speed == "" && price >= data.cost && tp == "all" && favorite == true){
                         for(var showFav = 0; showFav < arrChecked.length; showFav++) {
-                            if(arrChecked[showFav].services == arr[i].id && arrChecked[showFav].provider == arr[i].provider) {
+                            if(arrChecked[showFav].services == data.id && arrChecked[showFav].provider == data.provider) {
                                 getListView(arr,i,type,rank)
                             }
                         }
                     }
                     // C2
                     else if(speed == "" && isNaN(price) && tp == "vpn" && favorite == false){
-                        if(arr[i].vpn.length > 0 ){
+                        if(data.vpn.length > 0 ){
                             getListView(arr,i,type,rank)
                         }
                     }
 
                     else if(speed == "" && isNaN(price) && tp == "vpn" && favorite == true){
-                        if(arr[i].vpn.length > 0 ){
+                        if(data.vpn.length > 0 ){
                             for(var showFav = 0; showFav < arrChecked.length; showFav++) {
-                                if(arrChecked[showFav].services == arr[i].id && arrChecked[showFav].provider == arr[i].provider) {
+                                if(arrChecked[showFav].services == data.id && arrChecked[showFav].provider == data.provider) {
                                     getListView(arr,i,type,rank)
                                 }
                             }
                         }
                     }
                     // C3
-                    else if(speed == "" && price >= arr[i].cost && tp == "proxy" && favorite == false){
-                        if(arr[i].proxy.length > 0 ){
+                    else if(speed == "" && price >= data.cost && tp == "proxy" && favorite == false){
+                        if(data.proxy.length > 0 ){
                             getListView(arr,i,type,rank)
                         }
                     }
-                    else if(speed == "" && price >= arr[i].cost && tp == "proxy" && favorite == true){
-                        if(arr[i].proxy.length > 0 ){
+                    else if(speed == "" && price >= data.cost && tp == "proxy" && favorite == true){
+                        if(data.proxy.length > 0 ){
                             for(var showFav = 0; showFav < arrChecked.length; showFav++) {
-                                if(arrChecked[showFav].services == arr[i].id && arrChecked[showFav].provider == arr[i].provider) {
+                                if(arrChecked[showFav].services == data.id && arrChecked[showFav].provider == data.provider) {
                                     getListView(arr,i,type,rank)
                                 }
                             }
                         }
                     }
                     // ABC1
-                    else if(speed <= arr[i].downloadSpeed && price >= arr[i].cost && tp == "all" && favorite == false){
+                    else if(speed <= data.downloadSpeed && price >= data.cost && tp == "all" && favorite == false){
                         getListView(arr,i,type,rank)
                     }
-                    else if(speed <= arr[i].downloadSpeed && price >= arr[i].cost && tp == "all" && favorite == true){
+                    else if(speed <= data.downloadSpeed && price >= data.cost && tp == "all" && favorite == true){
                         for(var showFav = 0; showFav < arrChecked.length; showFav++) {
-                            if(arrChecked[showFav].services == arr[i].id && arrChecked[showFav].provider == arr[i].provider) {
+                            if(arrChecked[showFav].services == data.id && arrChecked[showFav].provider == data.provider) {
                                 getListView(arr,i,type,rank)
                             }
                         }
                     }
                     // ABC2
-                    else if(speed <= arr[i].downloadSpeed && price >= arr[i].cost && tp == "vpn" && favorite == false){
-                        if(arr[i].vpn.length > 0 ){
+                    else if(speed <= data.downloadSpeed && price >= data.cost && tp == "vpn" && favorite == false){
+                        if(data.vpn.length > 0 ){
                             getListView(arr,i,type,rank)
                         }
                     }
-                    else if(speed <= arr[i].downloadSpeed && price >= arr[i].cost && tp == "vpn" && favorite == true){
-                        if(arr[i].vpn.length > 0 ){
+                    else if(speed <= data.downloadSpeed && price >= data.cost && tp == "vpn" && favorite == true){
+                        if(data.vpn.length > 0 ){
                             for(var showFav = 0; showFav < arrChecked.length; showFav++) {
-                                if(arrChecked[showFav].services == arr[i].id && arrChecked[showFav].provider == arr[i].provider) {
+                                if(arrChecked[showFav].services == data.id && arrChecked[showFav].provider == data.provider) {
                                     getListView(arr,i,type,rank)
                                 }
                             }
                         }
                     }
                     // ABC3
-                    else if(speed <= arr[i].downloadSpeed && price >= arr[i].cost && tp == "proxy" && favorite == false){
-                        if(arr[i].proxy.length > 0 ){
+                    else if(speed <= data.downloadSpeed && price >= data.cost && tp == "proxy" && favorite == false){
+                        if(data.proxy.length > 0 ){
                             getListView(arr,i,type,rank)
                         }
                     }
-                    else if(speed <= arr[i].downloadSpeed && price >= arr[i].cost && tp == "proxy" && favorite == true){
-                        if(arr[i].proxy.length > 0 ){
+                    else if(speed <= data.downloadSpeed && price >= data.cost && tp == "proxy" && favorite == true){
+                        if(data.proxy.length > 0 ){
                             for(var showFav = 0; showFav < arrChecked.length; showFav++) {
-                                if(arrChecked[showFav].services == arr[i].id && arrChecked[showFav].provider == arr[i].provider) {
+                                if(arrChecked[showFav].services == data.id && arrChecked[showFav].provider == data.provider) {
                                     getListView(arr,i,type,rank)
                                 }
                             }
                         }
                     }
                     // BC2
-                    else if(speed == "" && price >= arr[i].cost && tp == "vpn" && favorite == false ){
-                        if(arr[i].vpn.length > 0 ){
+                    else if(speed == "" && price >= data.cost && tp == "vpn" && favorite == false ){
+                        if(data.vpn.length > 0 ){
                             getListView(arr,i,type,rank)
                         }
                     }
-                    else if(speed == "" && price >= arr[i].cost && tp == "vpn" && favorite == true ){
-                        if(arr[i].vpn.length > 0 ){
+                    else if(speed == "" && price >= data.cost && tp == "vpn" && favorite == true ){
+                        if(data.vpn.length > 0 ){
                             for(var showFav = 0; showFav < arrChecked.length; showFav++) {
-                                if(arrChecked[showFav].services == arr[i].id && arrChecked[showFav].provider == arr[i].provider) {
+                                if(arrChecked[showFav].services == data.id && arrChecked[showFav].provider == data.provider) {
                                     getListView(arr,i,type,rank)
                                 }
                             }
                         }
                     }
                     // BC3
-                    else if(speed == "" && price >= arr[i].cost && tp == "proxy" && favorite == false){
-                        if(arr[i].proxy.length > 0 ){
+                    else if(speed == "" && price >= data.cost && tp == "proxy" && favorite == false){
+                        if(data.proxy.length > 0 ){
                             getListView(arr,i,type,rank)
                         }
                     }
-                    else if(speed == "" && price >= arr[i].cost && tp == "proxy" && favorite == true){
-                        if(arr[i].proxy.length > 0 ){
+                    else if(speed == "" && price >= data.cost && tp == "proxy" && favorite == true){
+                        if(data.proxy.length > 0 ){
                             for(var showFav = 0; showFav < arrChecked.length; showFav++) {
-                                if(arrChecked[showFav].services == arr[i].id && arrChecked[showFav].provider == arr[i].provider) {
+                                if(arrChecked[showFav].services == data.id && arrChecked[showFav].provider == data.provider) {
                                     getListView(arr,i,type,rank)
                                 }
                             }
                         }
                     }
                     // AC2
-                    else if(speed <= arr[i].downloadSpeed && isNaN(price) && tp == "vpn" && favorite == false){
-                        if(arr[i].vpn.length > 0 ){
+                    else if(speed <= data.downloadSpeed && isNaN(price) && tp == "vpn" && favorite == false){
+                        if(data.vpn.length > 0 ){
                             getListView(arr,i,type,rank)
                         }
                     }
-                    else if(speed <= arr[i].downloadSpeed && isNaN(price) && tp == "vpn" && favorite == true){
-                        if(arr[i].vpn.length > 0 ){
+                    else if(speed <= data.downloadSpeed && isNaN(price) && tp == "vpn" && favorite == true){
+                        if(data.vpn.length > 0 ){
                             for(var showFav = 0; showFav < arrChecked.length; showFav++) {
-                                if(arrChecked[showFav].services == arr[i].id && arrChecked[showFav].provider == arr[i].provider) {
+                                if(arrChecked[showFav].services == data.id && arrChecked[showFav].provider == data.provider) {
                                     getListView(arr,i,type,rank)
                                 }
                             }
                         }
                     }
                     // AC3
-                    else if(speed <= arr[i].downloadSpeed && isNaN(price) && tp == "proxy" && favorite == false){
-                        if(arr[i].proxy.length > 0 ){
+                    else if(speed <= data.downloadSpeed && isNaN(price) && tp == "proxy" && favorite == false){
+                        if(data.proxy.length > 0 ){
                             getListView(arr,i,type,rank)
                         }
                     }
-                    else if(speed <= arr[i].downloadSpeed && isNaN(price) && tp == "proxy" && favorite == true){
-                        if(arr[i].proxy.length > 0 ){
+                    else if(speed <= data.downloadSpeed && isNaN(price) && tp == "proxy" && favorite == true){
+                        if(data.proxy.length > 0 ){
                             for(var showFav = 0; showFav < arrChecked.length; showFav++) {
-                                if(arrChecked[showFav].services == arr[i].id && arrChecked[showFav].provider == arr[i].provider) {
+                                if(arrChecked[showFav].services == data.id && arrChecked[showFav].provider == data.provider) {
                                     getListView(arr,i,type,rank)
                                 }
                             }
                         }
                     }
+                }
+            }
+        }
+
+
+        xmlhttpSign.open("POST", urlSign, true);
+        xmlhttpSign.setRequestHeader("Content-type", "application/json");
+        xmlhttpSign.send(JSON.stringify(sign));
+
+    }
+
+    function getJson(speed, speedType, price, tp, favorite){
+
+        if(speed != undefined){
+            speed = speed * 1024
+            if(speedType == "mb"){
+                speed = speed * 1024
+            }
+        }
+        var url = Config.url+Config.stage+Config.version+Config.services+Config.search
+        var xmlhttp = new XMLHttpRequest();
+        listView.model.clear()
+        xmlhttp.onreadystatechange=function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                getJsonFail.visible = false
+                loading.visible = false
+                var arr = JSON.parse(xmlhttp.responseText)
+
+                for(var i = 0; i < arr.length; i++) {
+                    getSignature(arr, arr[i], i, speed, speedType, price, tp, favorite)
 
                 }
             }else if(xmlhttp.readyState == 4){
