@@ -3,14 +3,18 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include <QDateTime>
-
+#include <crypto/crypto.h>
 #include "CurrencyAdapter.h"
 #include "TransactionDetailsDialog.h"
 #include "TransactionsModel.h"
 #include <IWalletLegacy.h>
 #include "WalletAdapter.h"
+#include "Common/StringTools.h"
+#include "CryptoNoteCore/CryptoNoteBasic.h"
 
 #include "ui_transactiondetailsdialog.h"
+
+using namespace CryptoNote;
 
 namespace WalletGui {
 
@@ -18,13 +22,14 @@ TransactionDetailsDialog::TransactionDetailsDialog(const QModelIndex& _index, QW
   m_ui(new Ui::TransactionDetailsDialog), m_detailsTemplate(tr(
     "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
     "</style></head><body style=\" font-family:'Cantarell'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
-    "<span style=\" font-weight:600;\">Status: </span>%1</p><br>\n"
-    "<span style=\" font-weight:600;\">Date: </span>%2</p><br>\n"
-    "<span style=\" font-weight:600;\">To: </span>%4</p><br>\n"
-    "<span style=\" font-weight:600;\">Amount: </span>%5</p><br>\n"
-    "<span style=\" font-weight:600;\">Fee: </span>%6</p><br>\n"
-    "<span style=\" font-weight:600;\">Payment ID: </span>%7</p><br>\n"
-    "<span style=\" font-weight:600;\">Transaction hash: </span>%8</p></body></html>")) {
+    "<p><span style=\" font-weight:600;\">Status: </span>%1<br>\n"
+    "<span style=\" font-weight:600;\">Date: </span>%2<br>\n"
+    "<span style=\" font-weight:600;\">To: </span>%4<br>\n"
+    "<span style=\" font-weight:600;\">Amount: </span>%5<br>\n"
+    "<span style=\" font-weight:600;\">Fee: </span>%6<br>\n"
+    "<span style=\" font-weight:600;\">Payment ID: </span>%7<br>\n"
+    "<span style=\" font-weight:600;\">Transaction Hash: </span>%8<br>\n"
+    "<span style=\" font-weight:600;\">Transaction Key: </span>%9</p></body></html>")) {
   m_ui->setupUi(this);
 
   QModelIndex index = TransactionsModel::instance().index(_index.data(TransactionsModel::ROLE_ROW).toInt(),
@@ -49,11 +54,24 @@ TransactionDetailsDialog::TransactionDetailsDialog(const QModelIndex& _index, QW
   if(state.isEmpty())
     state = QString(tr("%n confirmation(s)", "", numberOfConfirmations));
 
+  Crypto::Hash tx_hash;
+  size_t size;
+  QString transactionHash = index.sibling(index.row(), TransactionsModel::COLUMN_HASH).data().toString();
+  std::string tx_hash_str = transactionHash.toStdString();
+  Common::fromHex(tx_hash_str, &tx_hash, sizeof(tx_hash), size);
+  Crypto::SecretKey tx_key = WalletAdapter::instance().getTxKey(tx_hash);
+  QString transactionKey;
+  if (tx_key != NULL_SECRET_KEY) {
+    transactionKey = QString::fromStdString(Common::podToHex(tx_key));
+  } else {
+    transactionKey = QString(tr("(n/a)"));
+  }
+
   m_ui->m_detailsBrowser->setHtml(m_detailsTemplate.arg(state).
     arg(index.sibling(index.row(), TransactionsModel::COLUMN_DATE).data().toString()).arg(index.sibling(index.row(),
     TransactionsModel::COLUMN_ADDRESS).data().toString()).arg(amountText).arg(feeText).
     arg(index.sibling(index.row(), TransactionsModel::COLUMN_PAYMENT_ID).data().toString()).
-    arg(index.sibling(index.row(), TransactionsModel::COLUMN_HASH).data().toString()));
+    arg(transactionHash).arg(transactionKey));
 }
 
 TransactionDetailsDialog::~TransactionDetailsDialog() {

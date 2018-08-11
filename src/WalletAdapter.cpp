@@ -326,6 +326,14 @@ bool WalletAdapter::getAccountKeys(CryptoNote::AccountKeys& _keys) {
   return false;
 }
 
+Crypto::SecretKey WalletAdapter::getTxKey(Crypto::Hash& txid) {
+  Q_CHECK_PTR(m_wallet);
+  try {
+    return m_wallet->getTxKey(txid);
+  } catch (std::system_error&) {
+  }
+}
+
 void WalletAdapter::sendTransaction(const QVector<CryptoNote::WalletLegacyTransfer>& _transfers, quint64 _fee, const QString& _paymentId, quint64 _mixin) {
   Q_CHECK_PTR(m_wallet);
   try {
