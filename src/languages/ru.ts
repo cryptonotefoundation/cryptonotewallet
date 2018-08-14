@@ -940,6 +940,18 @@ Please wait...</source>
         <source>Copy key</source>
         <translation>Скопировать ключ</translation>
     </message>
+    <message>
+        <source>Private Keys</source>
+        <translation>Прыватные ключи</translation>
+    </message>
+    <message>
+        <source>Spend Secret Key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>View Secret Key</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>

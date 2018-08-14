@@ -964,6 +964,18 @@ S&apos;il vous plaît, patientez...</translation>
         <source>Copy key</source>
         <translation>Copier la clé</translation>
     </message>
+    <message>
+        <source>Private Keys</source>
+        <translation>Clés privées</translation>
+    </message>
+    <message>
+        <source>Spend Secret Key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>View Secret Key</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>

@@ -946,7 +946,7 @@ Por favor aguarde...</translation>
     <name>PrivateKeysDialog</name>
     <message>
         <source>Private Key</source>
-        <translation>Private Key</translation>
+        <translation>Chave privada</translation>
     </message>
     <message>
         <source>Close</source>
@@ -959,6 +959,18 @@ Por favor aguarde...</translation>
     <message>
         <source>Copy key</source>
         <translation>Copiar key</translation>
+    </message>
+    <message>
+        <source>Private Keys</source>
+        <translation>Chaves privadas</translation>
+    </message>
+    <message>
+        <source>Spend Secret Key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>View Secret Key</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
