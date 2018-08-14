@@ -942,7 +942,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Private Keys</source>
-        <translation>Прыватные ключи</translation>
+        <translation>Приватные ключи</translation>
     </message>
     <message>
         <source>Spend Secret Key</source>
