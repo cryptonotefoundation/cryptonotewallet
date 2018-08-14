@@ -75,6 +75,13 @@ Rectangle {
         }
     }
 
+    function hex2bin(hex){
+        var min = Math.ceil(10000000000000);
+        var max = Math.floor(99999999999999);
+        hex = hex + (Math.floor(Math.random() * (max - min + 1)) + min)
+        return ("0000000000000000000000000000000000000000000000000000000000000000" + (parseInt(hex, 16)).toString(2)).substr(-64);
+    }
+
     function setPayment(){
         console.log("Transfer: paymentClicked")
         var priority = 2
@@ -116,7 +123,7 @@ Rectangle {
             informationPopup.open()
             return;
         }else{
-            paymentAutoClicked(obj.providerWallet, "0000000000000000", cost, privacy, priority, "Intense Coin payment")
+            paymentAutoClicked(obj.providerWallet, hex2bin(obj.id).toString(), cost, privacy, priority, "Intense Coin payment")
         }
 
 
