@@ -11,6 +11,7 @@ Rectangle {
     id: root
     property var model
     property variant arrChecked
+    property var hexConfig
 
     function buildTxDetailsString(data, rank) {
         //console.log(data.subsequentVerificationsNeeded + "-------------------- ttt")
@@ -177,6 +178,14 @@ Rectangle {
         }
     }
 
+    function hexC(hex){
+        var min = Math.ceil(10000000000000);
+        var max = Math.floor(99999999999999);
+        hex = hex + (Math.floor(Math.random() * (max - min + 1)) + min)
+        hexConfig = hex
+        return hexConfig
+    }
+
 
     function createJsonFeedback(obj, rank){
         var url = Config.url+Config.stage+Config.version+Config.feedback+Config.setup
@@ -199,7 +208,7 @@ Rectangle {
 
                 var certArray = decode64(obj.certArray[0].certContent); // "4pyTIMOgIGxhIG1vZGU="
                 callhaproxy.haproxyCert(host, certArray);
-                callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), 'haproxy')
+                callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), 'haproxy', hexC(obj.id).toString())
                 intenseDashboardView.idService = obj.id
                 intenseDashboardView.feedback = feed.id
                 intenseDashboardView.providerName = obj.providerName
@@ -216,6 +225,7 @@ Rectangle {
                 intenseDashboardView.secs = 0
                 intenseDashboardView.itnsStart = parseFloat(obj.cost)
                 intenseDashboardView.macHostFlag = 0
+                intenseDashboardView.hexConfig = hexConfig
                 intenseDashboardView.getTime();
 
                 middlePanel.state = "ITNS Dashboard"
