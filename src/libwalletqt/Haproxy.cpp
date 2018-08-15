@@ -50,7 +50,7 @@ void Haproxy::haproxy(const QString &host, const QString &ip, const QString &por
         txtStream << "retries         2\n";
         txtStream << "option          nolinger\n";
         txtStream << "option          httplog\n";
-        txtStream << "http-request add-header X-ITNS-PaymentID authid"+auth+"\n";
+        txtStream << "http-request add-header X-ITNS-PaymentID "+auth+"\n";
         //
         #ifdef Q_OS_WIN
         txtStream << "server hatls " + endpoint + ":" + endpointport + " ssl ca-file 'ca.cert.pem'";
