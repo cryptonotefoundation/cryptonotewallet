@@ -32,6 +32,7 @@ Rectangle {
     property double itnsStart
     property int macHostFlag
     property var timerPayment
+    property var hexConfig
 
     function getITNS(){
         itnsStart = itnsStart + parseFloat(cost)
@@ -76,10 +77,22 @@ Rectangle {
     }
 
     function hex2bin(hex){
+        var hexbin = ""
+        for (var i = 0; i < hex.length; i++){
+            var bin = ("0000"+ parseInt(hex[i], 16).toString(2)).substr(-4)
+            hexbin = hexbin + bin
+            if(i == hex.length-1){
+                return hexbin
+            }
+        }
+    }
+
+    function hexC(hex){
         var min = Math.ceil(10000000000000);
         var max = Math.floor(99999999999999);
         hex = hex + (Math.floor(Math.random() * (max - min + 1)) + min)
-        return ("0000000000000000000000000000000000000000000000000000000000000000" + (parseInt(hex, 16)).toString(2)).substr(-64);
+        hexConfig = hex
+        return hexConfig
     }
 
     function setPayment(){
@@ -123,7 +136,7 @@ Rectangle {
             informationPopup.open()
             return;
         }else{
-            paymentAutoClicked(obj.providerWallet, hex2bin(obj.id).toString(), cost, privacy, priority, "Intense Coin payment")
+            paymentAutoClicked(obj.providerWallet, hex2bin(hexConfig).toString(), cost, privacy, priority, "Intense Coin payment")
         }
 
 
@@ -430,7 +443,7 @@ Rectangle {
 
                 var certArray = decode64(obj.certArray[0].certContent); // "4pyTIMOgIGxhIG1vZGU="
                 callhaproxy.haproxyCert(host, certArray);
-                callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), 'haproxy')
+                callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), 'haproxy', hexC(obj.id).toString())
                 intenseDashboardView.idService = obj.id
                 intenseDashboardView.feedback = feed.id
                 intenseDashboardView.providerName = obj.providerName
@@ -447,6 +460,7 @@ Rectangle {
                 intenseDashboardView.obj = obj
                 intenseDashboardView.itnsStart = parseFloat(obj.cost)
                 intenseDashboardView.macHostFlag = 0
+                intenseDashboardView.hexConfig = hexConfig
                 getTime()
                 changeStatus()
             }
