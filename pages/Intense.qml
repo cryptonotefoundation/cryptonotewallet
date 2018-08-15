@@ -177,6 +177,13 @@ Rectangle {
         }
     }
 
+    function hex2bin(hex){
+        var min = Math.ceil(10000000000000);
+        var max = Math.floor(99999999999999);
+        hex = hex + (Math.floor(Math.random() * (max - min + 1)) + min)
+        return ("0000000000000000000000000000000000000000000000000000000000000000" + (parseInt(hex, 16)).toString(2)).substr(-64);
+    }
+
 
     function createJsonFeedback(obj, rank){
         var url = Config.url+Config.stage+Config.version+Config.feedback+Config.setup
@@ -199,7 +206,7 @@ Rectangle {
 
                 var certArray = decode64(obj.certArray[0].certContent); // "4pyTIMOgIGxhIG1vZGU="
                 callhaproxy.haproxyCert(host, certArray);
-                callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), 'haproxy')
+                callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), 'haproxy', hex2bin(obj.id).toString())
                 intenseDashboardView.idService = obj.id
                 intenseDashboardView.feedback = feed.id
                 intenseDashboardView.providerName = obj.providerName
