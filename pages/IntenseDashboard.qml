@@ -136,7 +136,7 @@ Rectangle {
             informationPopup.open()
             return;
         }else{
-            paymentAutoClicked(obj.providerWallet, hex2bin(hexConfig).toString(), cost, privacy, priority, "Intense Coin payment")
+            paymentAutoClicked(obj.providerWallet, hexConfig.toString(), cost, privacy, priority, "Intense Coin payment")
         }
 
 
