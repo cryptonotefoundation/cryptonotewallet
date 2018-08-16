@@ -546,6 +546,8 @@ ApplicationWindow {
         transaction = pendingTransaction;
         // validate address;
         if (transaction.status !== PendingTransaction.Status_Ok) {
+
+
             console.error("Can't create transaction: ", transaction.errorString);
             informationPopup.title = qsTr("Error") + translationManager.emptyString;
             if (currentWallet.connected() == Wallet.ConnectionStatus_WrongVersion)
@@ -557,8 +559,13 @@ ApplicationWindow {
             informationPopup.open();
             // deleting transaction object, we don't want memleaks
             currentWallet.disposeTransaction(transaction);
+            middlePanel.intenseDashboardView.flag = 0
+            middlePanel.intenseDashboardView.changeStatus()
+            callhaproxy.killHAproxy();
+            middlePanel.intenseDashboardView.delayTimer.stop();
 
         } else if (transaction.txCount == 0) {
+
             informationPopup.title = qsTr("Error") + translationManager.emptyString
             informationPopup.text  = qsTr("No unmixable outputs to sweep") + translationManager.emptyString
             informationPopup.icon = StandardIcon.Information
@@ -566,6 +573,10 @@ ApplicationWindow {
             informationPopup.open()
             // deleting transaction object, we don't want memleaks
             currentWallet.disposeTransaction(transaction);
+            middlePanel.intenseDashboardView.flag = 0
+            middlePanel.intenseDashboardView.changeStatus()
+            callhaproxy.killHAproxy();
+            middlePanel.intenseDashboardView.delayTimer.stop();
         } else {
             console.log("Transaction created, amount: " + walletManager.displayAmount(transaction.amount)
                     + ", fee: " + walletManager.displayAmount(transaction.fee));

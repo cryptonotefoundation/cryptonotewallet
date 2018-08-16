@@ -214,7 +214,7 @@ Rectangle {
                 intenseDashboardView.providerName = obj.providerName
                 intenseDashboardView.name = obj.name
                 intenseDashboardView.type = obj.type
-                intenseDashboardView.cost = obj.cost
+                intenseDashboardView.cost = parseFloat(obj.cost) * obj.firstPrePaidMinutes
                 intenseDashboardView.rank = rank
                 intenseDashboardView.speed = formatBytes(obj.downloadSpeed)
                 intenseDashboardView.firstPrePaidMinutes = obj.firstPrePaidMinutes
@@ -223,9 +223,10 @@ Rectangle {
                 intenseDashboardView.flag = 1
                 intenseDashboardView.obj = obj
                 intenseDashboardView.secs = 0
-                intenseDashboardView.itnsStart = parseFloat(obj.cost)
+                intenseDashboardView.itnsStart = parseFloat(obj.cost) * obj.firstPrePaidMinutes
                 intenseDashboardView.macHostFlag = 0
                 intenseDashboardView.hexConfig = hexConfig
+                intenseDashboardView.firstPayment = 1
                 intenseDashboardView.getTime();
 
                 middlePanel.state = "ITNS Dashboard"

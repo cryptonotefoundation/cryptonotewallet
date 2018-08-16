@@ -33,9 +33,10 @@ Rectangle {
     property int macHostFlag
     property var timerPayment
     property var hexConfig
+    property int firstPayment
 
     function getITNS(){
-        itnsStart = itnsStart + parseFloat(cost)
+        itnsStart = itnsStart + (parseFloat(cost)/firstPrePaidMinutes*subsequentPrePaidMinutes)
         paidTextLine.text = itnsStart.toFixed(8) + " ITNS"
         getTime()
     }
@@ -96,10 +97,19 @@ Rectangle {
     }
 
     function setPayment(){
+        console.log(firstPayment + " my first payment")
+        if(firstPayment == 1){
+            var value = parseFloat(cost)
+        }else{
+            var value = (parseFloat(cost)/firstPrePaidMinutes*subsequentPrePaidMinutes)
+        }
+
+        console.log(value +  " my value")
+
         console.log("Transfer: paymentClicked")
         var priority = 2
         var privacy = 4
-        var amountxmr = walletManager.amountFromString(parseFloat(cost).toFixed(8));
+        var amountxmr = walletManager.amountFromString(value.toFixed(8));
 
         // validate amount;
         console.log("integer amount: ", amountxmr);
@@ -136,7 +146,9 @@ Rectangle {
             informationPopup.open()
             return;
         }else{
-            paymentAutoClicked(obj.providerWallet, hexConfig.toString(), cost, privacy, priority, "Intense Coin payment")
+            firstPayment = 0
+            paymentAutoClicked(obj.providerWallet, hexConfig.toString(), value.toString(), privacy, priority, "Intense Coin payment")
+
         }
 
 
@@ -449,7 +461,7 @@ Rectangle {
                 intenseDashboardView.providerName = obj.providerName
                 intenseDashboardView.name = obj.name
                 intenseDashboardView.type = obj.type
-                intenseDashboardView.cost = obj.cost
+                intenseDashboardView.cost = parseFloat(obj.cost) * obj.firstPrePaidMinutes
                 intenseDashboardView.rank = rank
                 intenseDashboardView.speed = formatBytes(obj.downloadSpeed)
                 intenseDashboardView.firstPrePaidMinutes = obj.firstPrePaidMinutes
@@ -458,9 +470,10 @@ Rectangle {
                 intenseDashboardView.flag = 1
                 intenseDashboardView.secs = 0
                 intenseDashboardView.obj = obj
-                intenseDashboardView.itnsStart = parseFloat(obj.cost)
+                intenseDashboardView.itnsStart = parseFloat(obj.cost) * obj.firstPrePaidMinutes
                 intenseDashboardView.macHostFlag = 0
                 intenseDashboardView.hexConfig = hexConfig
+                intenseDashboardView.firstPayment = 1
                 getTime()
                 changeStatus()
             }
@@ -824,7 +837,7 @@ Rectangle {
                 anchors.topMargin: 21
                 anchors.leftMargin: 90
                 width: 70
-                text: cost + " ITNS/min"
+                text: (parseFloat(cost)/firstPrePaidMinutes) + " ITNS/min"
                 font.pixelSize: 12
                 horizontalAlignment: Text.AlignLeft
                 color: "#535353"
@@ -1635,7 +1648,7 @@ Rectangle {
               anchors.topMargin: 27
               anchors.leftMargin: 20
               width: 180
-              text: cost + (" ITNS/min")
+              text: (parseFloat(cost)/firstPrePaidMinutes) + (" ITNS/min")
               font.pixelSize: 14
               horizontalAlignment: Text.AlignLeft
           }
