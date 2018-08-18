@@ -949,6 +949,18 @@ Bitte warten...</translation>
         <source>Copy key</source>
         <translation>Schlüssel kopieren</translation>
     </message>
+    <message>
+        <source>Private Keys</source>
+        <translation>Privater Schlüssel</translation>
+    </message>
+    <message>
+        <source>Spend Secret Key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>View Secret Key</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>QObject</name>
