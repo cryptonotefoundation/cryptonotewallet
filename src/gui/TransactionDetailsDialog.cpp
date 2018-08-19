@@ -3,7 +3,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include <QDateTime>
-#include <crypto/crypto.h>
+#include "crypto/crypto.h"
 #include "CurrencyAdapter.h"
 #include "TransactionDetailsDialog.h"
 #include "TransactionsModel.h"
@@ -11,6 +11,7 @@
 #include "WalletAdapter.h"
 #include "Common/StringTools.h"
 #include "CryptoNoteCore/CryptoNoteBasic.h"
+#include "TransactionsModel.h"
 
 #include "ui_transactiondetailsdialog.h"
 
@@ -61,8 +62,9 @@ TransactionDetailsDialog::TransactionDetailsDialog(const QModelIndex& _index, QW
   Common::fromHex(tx_hash_str, &tx_hash, sizeof(tx_hash), size);
   Crypto::SecretKey tx_key = WalletAdapter::instance().getTxKey(tx_hash);
   QString transactionKey;
-  if (tx_key != NULL_SECRET_KEY) {
-    transactionKey = QString::fromStdString(Common::podToHex(tx_key));
+  TransactionType transactionType = static_cast<TransactionType>(index.sibling(index.row(), TransactionsModel::COLUMN_TYPE).data().value<quint8>());
+  if (tx_key != NULL_SECRET_KEY || transactionType == TransactionType::OUTPUT) {
+    transactionKey =  QString::fromStdString(Common::podToHex(tx_key)).toUpper();
   } else {
     transactionKey = QString(tr("(n/a)"));
   }

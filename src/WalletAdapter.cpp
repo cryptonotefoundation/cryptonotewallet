@@ -13,10 +13,12 @@
 #include <QVector>
 #include <QDebug>
 
+#include <crypto/crypto.h>
 #include <Common/Base58.h>
 #include <Common/Util.h>
 #include <Wallet/WalletErrors.h>
 #include <Wallet/LegacyKeysImporter.h>
+#include "CryptoNoteCore/CryptoNoteBasic.h"
 
 #include "NodeAdapter.h"
 #include "Settings.h"
@@ -332,6 +334,8 @@ Crypto::SecretKey WalletAdapter::getTxKey(Crypto::Hash& txid) {
     return m_wallet->getTxKey(txid);
   } catch (std::system_error&) {
   }
+
+  return CryptoNote::NULL_SECRET_KEY;
 }
 
 void WalletAdapter::sendTransaction(const QVector<CryptoNote::WalletLegacyTransfer>& _transfers, quint64 _fee, const QString& _paymentId, quint64 _mixin) {

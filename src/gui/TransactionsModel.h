@@ -11,6 +11,8 @@
 
 namespace WalletGui {
 
+enum class TransactionType : quint8 {MINED, INPUT, OUTPUT, INOUT};
+
 typedef QPair<CryptoNote::TransactionId, CryptoNote::TransferId> TransactionTransferId;
 
 class TransactionsModel : public QAbstractItemModel {
@@ -21,12 +23,12 @@ class TransactionsModel : public QAbstractItemModel {
 public:
   enum Columns{
     COLUMN_STATE = 0, COLUMN_DATE, COLUMN_AMOUNT, COLUMN_ADDRESS, COLUMN_PAYMENT_ID, COLUMN_HASH, COLUMN_FEE,
-    COLUMN_HEIGHT, COLUMN_TYPE
+    COLUMN_HEIGHT, COLUMN_TYPE, COLUMN_SECRET_KEY
   };
 
   enum Roles{
     ROLE_DATE = Qt::UserRole, ROLE_TYPE, ROLE_HASH, ROLE_ADDRESS, ROLE_AMOUNT, ROLE_PAYMENT_ID, ROLE_ICON,
-    ROLE_TRANSACTION_ID, ROLE_HEIGHT, ROLE_FEE, ROLE_NUMBER_OF_CONFIRMATIONS, ROLE_COLUMN, ROLE_ROW
+    ROLE_TRANSACTION_ID, ROLE_HEIGHT, ROLE_FEE, ROLE_NUMBER_OF_CONFIRMATIONS, ROLE_SECRET_KEY, ROLE_COLUMN, ROLE_ROW
   };
 
   static TransactionsModel& instance();
@@ -38,7 +40,7 @@ public:
   QVariant headerData(int _section, Qt::Orientation _orientation, int _role = Qt::EditRole) const Q_DECL_OVERRIDE;
   QVariant data(const QModelIndex& _index, int _role = Qt::EditRole) const Q_DECL_OVERRIDE;
   QModelIndex index(int _row, int _column, const QModelIndex& _parent = QModelIndex()) const Q_DECL_OVERRIDE;
-  QModelIndex	parent(const QModelIndex& _index) const Q_DECL_OVERRIDE;
+  QModelIndex parent(const QModelIndex& _index) const Q_DECL_OVERRIDE;
 
   QByteArray toCsv() const;
 
