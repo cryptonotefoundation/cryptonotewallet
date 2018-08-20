@@ -38,6 +38,7 @@ TransactionsFrame::TransactionsFrame(QWidget* _parent) : QFrame(_parent), m_ui(n
   m_ui->m_transactionsView->header()->resizeSection(TransactionsModel::COLUMN_ADDRESS, 100);
   m_ui->m_transactionsView->header()->resizeSection(TransactionsModel::COLUMN_PAYMENT_ID, 200);
   m_ui->m_transactionsView->header()->resizeSection(TransactionsModel::COLUMN_HASH, 200);
+  m_ui->m_transactionsView->header()->resizeSection(TransactionsModel::COLUMN_SECRET_KEY, 200);
 
   connect(m_ui->m_transactionsView->selectionModel(), &QItemSelectionModel::selectionChanged, this, &TransactionsFrame::computeSelected);
 
