@@ -62,8 +62,8 @@ TransactionDetailsDialog::TransactionDetailsDialog(const QModelIndex& _index, QW
   Common::fromHex(tx_hash_str, &tx_hash, sizeof(tx_hash), size);
   Crypto::SecretKey tx_key = WalletAdapter::instance().getTxKey(tx_hash);
   QString transactionKey;
-  TransactionType transactionType = static_cast<TransactionType>(index.sibling(index.row(), TransactionsModel::COLUMN_TYPE).data().value<quint8>());
-  if (tx_key != NULL_SECRET_KEY || transactionType == TransactionType::OUTPUT) {
+  TransactionType transactionType = static_cast<TransactionType>(index.data(TransactionsModel::ROLE_TYPE).value<quint8>());
+  if (tx_key != NULL_SECRET_KEY && transactionType == TransactionType::OUTPUT) {
     transactionKey =  QString::fromStdString(Common::podToHex(tx_key)).toUpper();
   } else {
     transactionKey = QString(tr("(n/a)"));

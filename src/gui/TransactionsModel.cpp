@@ -192,10 +192,9 @@ QModelIndex TransactionsModel::parent(const QModelIndex& _index) const {
 
 QByteArray TransactionsModel::toCsv() const {
   QByteArray res;
-  res.append("\"State\",\"Date\",\"Amount\",\"Fee\",\"Hash\",\"Height\",\"Address\",\"Payment ID\",\"Key\"\n");
+  res.append("\"Date\",\"Amount\",\"Fee\",\"Hash\",\"Height\",\"Address\",\"Payment ID\",\"Key\"\n");
   for (quint32 row = 0; row < rowCount(); ++row) {
     QModelIndex ind = index(row, 0);
-    res.append("\"").append(ind.data().toString().toUtf8()).append("\",");
     res.append("\"").append(ind.sibling(row, COLUMN_DATE).data().toString().toUtf8()).append("\",");
     res.append("\"").append(ind.sibling(row, COLUMN_AMOUNT).data().toString().toUtf8()).append("\",");
     res.append("\"").append(ind.sibling(row, COLUMN_FEE).data().toString().toUtf8()).append("\",");
