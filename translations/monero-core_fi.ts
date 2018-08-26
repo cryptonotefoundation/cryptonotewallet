@@ -117,8 +117,8 @@
     <name>DaemonManagerDialog</name>
     <message>
         <location filename="../components/DaemonManagerDialog.qml" line="93"/>
-        <source>Starting Intensecoin daemon in %1 seconds</source>
-        <translation>Käynnistetään Intensecoin taustaohjelma %1 sekunnin kuluttua</translation>
+        <source>Starting Lethean daemon in %1 seconds</source>
+        <translation>Käynnistetään Lethean taustaohjelma %1 sekunnin kuluttua</translation>
     </message>
     <message>
         <location filename="../components/DaemonManagerDialog.qml" line="115"/>
@@ -944,7 +944,7 @@
     </message>
     <message>
         <location filename="../pages/Settings.qml" line="499"/>
-        <source>Embedded Intensecoin version: </source>
+        <source>Embedded Lethean version: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1733,8 +1733,8 @@ Please upgrade or connect to another daemon</source>
     </message>
     <message>
         <location filename="../wizard/WizardMain.qml" line="366"/>
-        <source>USE INTENSECOIN</source>
-        <translation>KÄYTÄ INTENSECOIN</translation>
+        <source>USE LETHEAN</source>
+        <translation>KÄYTÄ LETHEAN</translation>
     </message>
     <message>
         <location filename="../wizard/WizardMain.qml" line="383"/>
@@ -1828,8 +1828,8 @@ Please upgrade or connect to another daemon</source>
     <name>WizardOptions</name>
     <message>
         <location filename="../wizard/WizardOptions.qml" line="87"/>
-        <source>Welcome to Intense Coin!</source>
-        <translation>Tervetuloa käyttämään Intense Coin!</translation>
+        <source>Welcome to Lethean!</source>
+        <translation>Tervetuloa käyttämään Lethean!</translation>
     </message>
     <message>
         <location filename="../wizard/WizardOptions.qml" line="98"/>
@@ -1902,8 +1902,8 @@ Please upgrade or connect to another daemon</source>
     <name>WizardWelcome</name>
     <message>
         <location filename="../wizard/WizardWelcome.qml" line="79"/>
-        <source>Welcome to Intense Coin!</source>
-        <translation type="unfinished">Tervetuloa käyttämään Intense Coin!</translation>
+        <source>Welcome to Lethean!</source>
+        <translation type="unfinished">Tervetuloa käyttämään Lethean!</translation>
     </message>
     <message>
         <location filename="../wizard/WizardWelcome.qml" line="89"/>

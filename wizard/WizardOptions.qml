@@ -71,7 +71,7 @@ ColumnLayout {
             color: "#3F3F3F"
             wrapMode: Text.Wrap
             horizontalAlignment: Text.AlignHCenter
-            text: qsTr("Welcome to Intense Coin!") + translationManager.emptyString
+            text: qsTr("Welcome to Lethean!") + translationManager.emptyString
         }
 
         Text {
