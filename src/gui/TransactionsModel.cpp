@@ -219,16 +219,8 @@ QVariant TransactionsModel::getDisplayRole(const QModelIndex& _index) const {
   case COLUMN_HASH:
     return _index.data(ROLE_HASH).toByteArray().toHex().toUpper();
 
-  case COLUMN_SECRET_KEY: {
-    TransactionType transactionType = static_cast<TransactionType>(_index.data(ROLE_TYPE).value<quint8>());
-    // No key for incoming, in-out or mined tx
-    if (transactionType != TransactionType::INPUT || transactionType != TransactionType::MINED ||
-            transactionType != TransactionType::INOUT) {
-      return _index.data(ROLE_SECRET_KEY).toByteArray().toHex().toUpper();
-    } else {
-      return tr("(n/a)");
-    }
-  }
+  case COLUMN_SECRET_KEY:
+    return _index.data(ROLE_SECRET_KEY).toByteArray().toHex().toUpper();
 
   case COLUMN_ADDRESS: {
     TransactionType transactionType = static_cast<TransactionType>(_index.data(ROLE_TYPE).value<quint8>());
@@ -288,16 +280,8 @@ QVariant TransactionsModel::getEditRole(const QModelIndex& _index) const {
   case COLUMN_HASH:
     return _index.data(ROLE_HASH).toByteArray().toHex().toUpper();
 
-  case COLUMN_SECRET_KEY: {
-    TransactionType transactionType = static_cast<TransactionType>(_index.data(ROLE_TYPE).value<quint8>());
-    // No key for incoming, in-out or mined tx
-    if (transactionType != TransactionType::INPUT || transactionType != TransactionType::MINED ||
-            transactionType != TransactionType::INOUT) {
-      return _index.data(ROLE_SECRET_KEY).toByteArray().toHex().toUpper();
-    } else {
-      return tr("(n/a)");
-    }
-  }
+  case COLUMN_SECRET_KEY:
+    return _index.data(ROLE_SECRET_KEY).toByteArray().toHex().toUpper();
 
   case COLUMN_ADDRESS: {
     TransactionType transactionType = static_cast<TransactionType>(_index.data(ROLE_TYPE).value<quint8>());
