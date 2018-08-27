@@ -24,7 +24,7 @@ Rectangle {
             + (data.provider ? trStart + qsTr("Provider: ") + trMiddle + data.provider  + trEnd : "")
             + (data.name ? trStart + qsTr("Plan: ") + trMiddle + data.name + trEnd : "")
             + (data.type ? trStart + qsTr("Type: ") + trMiddle + data.type  + trEnd : "")
-            + (data.cost ? trStart + qsTr("Price:") + trMiddle + data.cost + " ITNS/min" + trEnd : "")
+            + (data.cost ? trStart + qsTr("Price:") + trMiddle + data.cost + " "+Config.coinName+"/min" + trEnd : "")
             + (data.firstPrePaidMinutes ? trStart + qsTr("First Pre Paid Minutes:") + trMiddle + data.firstPrePaidMinutes + trEnd : "")
             + (data.firstVerificationsNeeded ? trStart + qsTr("First Verifications Needed:") + trMiddle + data.firstVerificationsNeeded + trEnd : "")
             + (data.subsequentPrePaidMinutes ? trStart + qsTr("Subsequent Pre Paid Minutes:") + trMiddle + data.subsequentPrePaidMinutes + trEnd : "")
@@ -47,7 +47,7 @@ Rectangle {
             + (data.providerName ? trStart + qsTr("Provider: ") + trMiddle + data.providerName  + trEnd : "")
             + (data.name ? trStart + qsTr("Plan: ") + trMiddle + data.name + trEnd : "")
             + (data.type ? trStart + qsTr("Type: ") + trMiddle + data.type  + trEnd : "")
-            + (data.cost ? trStart + qsTr("Price:") + trMiddle + data.cost+" ITNS/min" + trEnd : "")
+            + (data.cost ? trStart + qsTr("Price:") + trMiddle + data.cost+" "+Config.coinName+"/min" + trEnd : "")
             + (data.firstPrePaidMinutes ? trStart + qsTr("First Pre Paid Minutes:") + trMiddle + data.firstPrePaidMinutes + trEnd : "")
             + "</table>"
             + translationManager.emptyString;
@@ -229,9 +229,9 @@ Rectangle {
                 intenseDashboardView.firstPayment = 1
                 intenseDashboardView.getTime();
 
-                middlePanel.state = "ITNS Dashboard"
+                middlePanel.state = "VPN Dashboard"
 
-                leftPanel.selectItem("ITNS Dashboard")
+                leftPanel.selectItem("VPN Dashboard")
             }
         }
 
