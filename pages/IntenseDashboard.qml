@@ -234,13 +234,14 @@ Rectangle {
         }
 
     function getGeoLocation(){
-        var url = "https://geoip.nekudo.com/api/"
+        console.log(obj.proxy[0].endpoint)
+        var url = "http://ip-api.com/json/"+obj.proxy[0].endpoint;
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange=function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 var location = JSON.parse(xmlhttp.responseText);
-                console.log(location.city + " - " + location.country.name)
-                serverCountryTextLine.text = location.city + " - " + location.country.name
+                console.log(location.city + " - " + location.country)
+                serverCountryTextLine.text = location.city + " - " + location.country
             }
         }
 
