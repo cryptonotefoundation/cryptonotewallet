@@ -244,7 +244,7 @@ Rectangle {
     }
 
     function getListView(arr,n, type, rank){
-        listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[n].providerName + "</div><br />" + arr[n].name +"<br /> "+ type + " - "+ arr[n].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[n].downloadSpeed) +"/s </div>- "+ arr[n].cost + " ITNS/min", obj: arr[n], rank: rank, type: type, index: n})
+        listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[n].providerName + "</div><br />" + arr[n].name +"<br /> "+ type + " - "+ arr[n].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[n].downloadSpeed) +"/s </div>- "+ arr[n].cost + " "+Config.coinName+"/min", obj: arr[n], rank: rank, type: type, index: n})
     }
 
     function getSignature(arr, data, i, speed, speedType, price, tp, favorite){
