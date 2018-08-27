@@ -117,7 +117,7 @@
     <name>DaemonManagerDialog</name>
     <message>
         <location filename="../components/DaemonManagerDialog.qml" line="93"/>
-        <source>Starting Intensecoin daemon in %1 seconds</source>
+        <source>Starting Lethean daemon in %1 seconds</source>
         <translation>Il daemon partirà tra %1 secondi</translation>
     </message>
     <message>
@@ -944,7 +944,7 @@
     </message>
     <message>
         <location filename="../pages/Settings.qml" line="499"/>
-        <source>Embedded Intensecoin version: </source>
+        <source>Embedded Lethean version: </source>
         <translation>Versione Monero inserita:</translation>
     </message>
     <message>
@@ -1730,8 +1730,8 @@ Ringsize: </source>
     </message>
     <message>
         <location filename="../wizard/WizardMain.qml" line="366"/>
-        <source>USE INTENSECOIN</source>
-        <translation>USA INTENSECOIN</translation>
+        <source>USE LETHEAN</source>
+        <translation>USA LETHEAN</translation>
     </message>
     <message>
         <location filename="../wizard/WizardMain.qml" line="383"/>
@@ -1826,8 +1826,8 @@ Ringsize: </source>
     <name>WizardOptions</name>
     <message>
         <location filename="../wizard/WizardOptions.qml" line="87"/>
-        <source>Welcome to Intense Coin!</source>
-        <translation>Benvenuto in Intense Coin!</translation>
+        <source>Welcome to Lethean!</source>
+        <translation>Benvenuto in Lethean!</translation>
     </message>
     <message>
         <location filename="../wizard/WizardOptions.qml" line="98"/>
@@ -1900,8 +1900,8 @@ Ringsize: </source>
     <name>WizardWelcome</name>
     <message>
         <location filename="../wizard/WizardWelcome.qml" line="79"/>
-        <source>Welcome to Intense Coin!</source>
-        <translation>Benvenuto in Intense Coin!</translation>
+        <source>Welcome to Lethean!</source>
+        <translation>Benvenuto in Lethean!</translation>
     </message>
     <message>
         <location filename="../wizard/WizardWelcome.qml" line="89"/>

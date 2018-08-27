@@ -147,7 +147,7 @@ Rectangle {
             return;
         }else{
             firstPayment = 0
-            paymentAutoClicked(obj.providerWallet, hexConfig.toString(), value.toString(), privacy, priority, "Intense Coin payment")
+            paymentAutoClicked(obj.providerWallet, hexConfig.toString(), value.toString(), privacy, priority, "Lethean payment")
 
         }
 

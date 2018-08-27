@@ -117,8 +117,8 @@
     <name>DaemonManagerDialog</name>
     <message>
         <location filename="../components/DaemonManagerDialog.qml" line="93"/>
-        <source>Starting Intensecoin daemon in %1 seconds</source>
-        <translation>Intensecoin node wordt gestart in %1 seconde(n)</translation>
+        <source>Starting Lethean daemon in %1 seconds</source>
+        <translation>Lethean node wordt gestart in %1 seconde(n)</translation>
     </message>
     <message>
         <location filename="../components/DaemonManagerDialog.qml" line="115"/>
@@ -995,7 +995,7 @@
     </message>
     <message>
         <location filename="../pages/Settings.qml" line="499"/>
-        <source>Embedded Intensecoin version: </source>
+        <source>Embedded Lethean version: </source>
         <translation>Ingebouwde Monero-versie: </translation>
     </message>
 </context>
@@ -1740,8 +1740,8 @@ Ringgrootte: </translation>
     </message>
     <message>
         <location filename="../wizard/WizardMain.qml" line="366"/>
-        <source>USE INTENSECOIN</source>
-        <translation>GEBRUIK INTENSECOIN</translation>
+        <source>USE LETHEAN</source>
+        <translation>GEBRUIK LETHEAN</translation>
     </message>
     <message>
         <location filename="../wizard/WizardMain.qml" line="383"/>
@@ -1837,8 +1837,8 @@ Ringgrootte: </translation>
     <name>WizardOptions</name>
     <message>
         <location filename="../wizard/WizardOptions.qml" line="87"/>
-        <source>Welcome to Intense Coin!</source>
-        <translation>Welkom bij Intense Coin!</translation>
+        <source>Welcome to Lethean!</source>
+        <translation>Welkom bij Lethean!</translation>
     </message>
     <message>
         <location filename="../wizard/WizardOptions.qml" line="98"/>
@@ -1912,8 +1912,8 @@ Ringgrootte: </translation>
     <name>WizardWelcome</name>
     <message>
         <location filename="../wizard/WizardWelcome.qml" line="79"/>
-        <source>Welcome to Intense Coin!</source>
-        <translation>Welkom bij Intense Coin!</translation>
+        <source>Welcome to Lethean!</source>
+        <translation>Welkom bij Lethean!</translation>
     </message>
     <message>
         <location filename="../wizard/WizardWelcome.qml" line="89"/>

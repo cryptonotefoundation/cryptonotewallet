@@ -42,7 +42,7 @@ import "wizard"
 
 ApplicationWindow {
     id: appWindow
-    title: "Intense Coin"
+    title: "Lethean"
 
     property var currentItem
     property bool whatIsEnable: false
@@ -57,7 +57,7 @@ ApplicationWindow {
     property bool isNewWallet: false
     property int restoreHeight:0
     property bool daemonSynced: false
-    property int maxWindowHeight: (Screen.height < 900)? 720 : 800;
+    property int maxWindowHeight: (Screen.height < 1000)? 820 : 900;
     property bool daemonRunning: false
     property alias toolTip: toolTip
     property string walletName
@@ -852,12 +852,12 @@ ApplicationWindow {
             if (received > 0) {
                 received = received / 1e12
                 if (height == 0) {
-                    informationPopup.text = qsTr("This address received %1 Intensecoin, but the transaction is not yet mined").arg(received);
+                    informationPopup.text = qsTr("This address received %1 Lethean, but the transaction is not yet mined").arg(received);
                 }
                 else {
                     var dCurrentBlock = currentWallet.daemonBlockChainHeight();
                     var confirmations = dCurrentBlock - height
-                    informationPopup.text = qsTr("This address received %1 Intensecoin, with %2 confirmation(s).").arg(received).arg(confirmations);
+                    informationPopup.text = qsTr("This address received %1 Lethean, with %2 confirmation(s).").arg(received).arg(confirmations);
                 }
             }
             else {
@@ -1169,7 +1169,7 @@ ApplicationWindow {
 //                PropertyChanges { target: frameArea; blocked: true }
                 PropertyChanges { target: titleBar; visible: true }
 //                PropertyChanges { target: titleBar; y: 0 }
-                PropertyChanges { target: titleBar; title: qsTr("Intense Coin") + translationManager.emptyString }
+                PropertyChanges { target: titleBar; title: qsTr("Lethean") + translationManager.emptyString }
             }
         ]
 

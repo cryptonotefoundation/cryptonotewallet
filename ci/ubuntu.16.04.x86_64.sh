@@ -32,6 +32,8 @@ if [ "$1" = "prep" ]; then
 	installDependencyIfNeeded qml-module-qtquick-xmllistmodel
 	installDependencyIfNeeded qttools5-dev-tools
 	installDependencyIfNeeded qml-module-qtquick-dialogs
+	installDependencyIfNeeded qml-module-qt-labs-settings
+	installDependencyIfNeeded qml-module-qtgraphicaleffects
 	# - temporary link workaround
 	installDependencyIfNeeded libunbound-dev
 
