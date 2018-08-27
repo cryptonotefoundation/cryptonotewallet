@@ -430,8 +430,8 @@
     </message>
     <message>
         <location filename="../pages/Mining.qml" line="86"/>
-        <source>Mining with your computer helps strengthen the Monero network. The more that people mine, the harder it is for the network to be attacked, and every little bit helps.&lt;br&gt; &lt;br&gt;Mining also gives you a small chance to earn some Monero. Your computer will create hashes looking for block solutions. If you find a block, you will get the associated reward. Good luck!</source>
-        <translation>La minado kun via komputilo sekurigas la Monerreto.  Se pli da homoj minus, la reto iĝus malpli atakebla. Ĉio gravas. &lt;br&gt; &lt;br&gt;Vi havas malgrandan ŝancon ricevi rekompenco en Monero. Via komputilo kreos haketojn dum serĉi bloksolvojn. Se vi trovas blokon, vi recivos la asociitan rekompencon. Bonŝancon!</translation>
+        <source>Mining with your computer helps strengthen the Lethean network. The more that people mine, the harder it is for the network to be attacked, and every little bit helps.&lt;br&gt; &lt;br&gt;Mining also gives you a small chance to earn some Lethean. Your computer will create hashes looking for block solutions. If you find a block, you will get the associated reward. Good luck!</source>
+        <translation>La minado kun via komputilo sekurigas la Monerreto.  Se pli da homoj minus, la reto iĝus malpli atakebla. Ĉio gravas. &lt;br&gt; &lt;br&gt;Vi havas malgrandan ŝancon ricevi rekompenco en Lethean. Via komputilo kreos haketojn dum serĉi bloksolvojn. Se vi trovas blokon, vi recivos la asociitan rekompencon. Bonŝancon!</translation>
     </message>
     <message>
         <location filename="../pages/Mining.qml" line="96"/>
@@ -1567,12 +1567,12 @@ Bonvolu plibonigi aŭ konekti al alia demono</translation>
     <name>WizardConfigure</name>
     <message>
         <location filename="../wizard/WizardConfigure.qml" line="79"/>
-        <source>We’re almost there - let’s just configure some Monero preferences</source>
-        <translation>Preskaŭ Preta - ni agordu kelkajn preferojn por Monero Core</translation>
+        <source>We’re almost there - let’s just configure some Lethean preferences</source>
+        <translation>Preskaŭ Preta - ni agordu kelkajn preferojn por Lethean Core</translation>
     </message>
     <message>
         <location filename="../wizard/WizardConfigure.qml" line="97"/>
-        <source>Kickstart the Monero blockchain?</source>
+        <source>Kickstart the Lethean blockchain?</source>
         <translation>Komencigi la Monera blokĉeno?</translation>
     </message>
     <message>
@@ -1587,7 +1587,7 @@ Bonvolu plibonigi aŭ konekti al alia demono</translation>
     </message>
     <message>
         <location filename="../wizard/WizardConfigure.qml" line="144"/>
-        <source>Disk conservation mode uses substantially less disk-space, but the same amount of bandwidth as a regular Monero instance. However, storing the full blockchain is beneficial to the security of the Monero network. If you are on a device with limited disk space, then this option is appropriate for you.</source>
+        <source>Disk conservation mode uses substantially less disk-space, but the same amount of bandwidth as a regular Lethean instance. However, storing the full blockchain is beneficial to the security of the Lethean network. If you are on a device with limited disk space, then this option is appropriate for you.</source>
         <translation>Diskakonservado-reĝimo uzas malmultege da diskspaco, sed la saman kvanton da retkapacito ol normala Monera nodo. Tamen, la konservado de la plena blokĉeno beneficas por la sekureco de la Monerreto.Se vi uzas aparaton kun mulmulte da diskspaco, tio ĉi opcio taŭgas al vi.</translation>
     </message>
     <message>
@@ -1597,7 +1597,7 @@ Bonvolu plibonigi aŭ konekti al alia demono</translation>
     </message>
     <message>
         <location filename="../wizard/WizardConfigure.qml" line="175"/>
-        <source>Mining secures the Monero network, and also pays a small reward for the work done. This option will let Monero mine when your computer is on mains power and is idle. It will stop mining when you continue working.</source>
+        <source>Mining secures the Lethean network, and also pays a small reward for the work done. This option will let Lethean mine when your computer is on mains power and is idle. It will stop mining when you continue working.</source>
         <translation>La minado sekurigas la Monerreton kaj vi ricevas rekompenceton por la laboro. Tio ĉi opcio ŝaltos la minadon kiam via komputilo uzas la kurentprovizon kaj estas senokupa. La minado haltos kiam vi daŭrigi uzi la komputilon.</translation>
     </message>
 </context>
@@ -1621,8 +1621,8 @@ Bonvolu plibonigi aŭ konekti al alia demono</translation>
     <name>WizardDonation</name>
     <message>
         <location filename="../wizard/WizardDonation.qml" line="93"/>
-        <source>Monero development is solely supported by donations</source>
-        <translation>La programado de Monero estas nur sustenata per donacoj.</translation>
+        <source>Lethean development is solely supported by donations</source>
+        <translation>La programado de Lethean estas nur sustenata per donacoj.</translation>
     </message>
     <message>
         <location filename="../wizard/WizardDonation.qml" line="113"/>
@@ -1636,8 +1636,8 @@ Bonvolu plibonigi aŭ konekti al alia demono</translation>
     </message>
     <message>
         <location filename="../wizard/WizardDonation.qml" line="164"/>
-        <source>For every transaction, a small transaction fee is charged. This option lets you add an additional amount, as a percentage of that fee, to your transaction to support Monero development. For instance, a 50% autodonation take a transaction fee of 0.005 XMR and add a 0.0025 XMR to support Monero development.</source>
-        <translation>Por ĉiu transakcio, one devas pagi malgrandan transakcikoston. Tio ĉi opcio ebligas aldona kvato (procento de la basa kosto) al via transakcio por subteni la progamadon de Monero.Ekzemple, 50% aŭtomata donaco aldonas 0.0025 XMR al transakcikosto de 0.005 XMR.</translation>
+        <source>For every transaction, a small transaction fee is charged. This option lets you add an additional amount, as a percentage of that fee, to your transaction to support Lethean development. For instance, a 50% autodonation take a transaction fee of 0.005 XMR and add a 0.0025 XMR to support Lethean development.</source>
+        <translation>Por ĉiu transakcio, one devas pagi malgrandan transakcikoston. Tio ĉi opcio ebligas aldona kvato (procento de la basa kosto) al via transakcio por subteni la progamadon de Lethean.Ekzemple, 50% aŭtomata donaco aldonas 0.0025 XMR al transakcikosto de 0.005 XMR.</translation>
     </message>
     <message>
         <location filename="../wizard/WizardDonation.qml" line="176"/>
@@ -1646,7 +1646,7 @@ Bonvolu plibonigi aŭ konekti al alia demono</translation>
     </message>
     <message>
         <location filename="../wizard/WizardDonation.qml" line="194"/>
-        <source>Mining secures the Monero network, and also pays a small reward for the work done. This option will let Monero mine when your computer is on mains power and is idle. It will stop mining when you continue working.</source>
+        <source>Mining secures the Lethean network, and also pays a small reward for the work done. This option will let Lethean mine when your computer is on mains power and is idle. It will stop mining when you continue working.</source>
         <translation>La minado sekurigas la Monerreto kaj vi ricevas rekompenceto por la laboro. Tio ĉi opcio ŝaltos la minadon kiam via komputilo uzas la kurentprovizon kaj estas senokupa. La minado haltos kiam vi daŭrigi uzi la komputilon.</translation>
     </message>
 </context>
@@ -1959,8 +1959,8 @@ Bonvolu plibonigi aŭ konekti al alia demono</translation>
     </message>
     <message>
         <location filename="../main.qml" line="723"/>
-        <source>This address received %1 monero, but the transaction is not yet mined</source>
-        <translation>Tio ĉi adreso ricevis %1 moneron; sed la transakcio ankoraŭ ne minatas</translation>
+        <source>This address received %1 lethean, but the transaction is not yet mined</source>
+        <translation>Tio ĉi adreso ricevis %1 letheann; sed la transakcio ankoraŭ ne minatas</translation>
     </message>
     <message>
         <location filename="../main.qml" line="732"/>
@@ -2085,8 +2085,8 @@ Description: </source>
     </message>
     <message>
         <location filename="../main.qml" line="1355"/>
-        <source>New version of monero-wallet-gui is available: %1&lt;br&gt;%2</source>
-        <translation>Nova versio de monero-wallet-gui disponeblas:  %1&lt;br&gt;%2</translation>
+        <source>New version of lethean-wallet-gui is available: %1&lt;br&gt;%2</source>
+        <translation>Nova versio de lethean-wallet-gui disponeblas:  %1&lt;br&gt;%2</translation>
     </message>
     <message>
         <location filename="../main.qml" line="566"/>
@@ -2110,8 +2110,8 @@ Description: </source>
     </message>
     <message>
         <location filename="../main.qml" line="728"/>
-        <source>This address received %1 monero, with %2 confirmation(s).</source>
-        <translation>Tio adreso ricevis %1 monero, kun %2 da konfirmo(j)</translation>
+        <source>This address received %1 lethean, with %2 confirmation(s).</source>
+        <translation>Tio adreso ricevis %1 lethean, kun %2 da konfirmo(j)</translation>
     </message>
     <message>
         <location filename="../main.qml" line="744"/>
@@ -2135,8 +2135,8 @@ Description: </source>
     </message>
     <message>
         <location filename="../main.qml" line="1017"/>
-        <source>Monero</source>
-        <translation>Monero</translation>
+        <source>Lethean</source>
+        <translation>Lethean</translation>
     </message>
     <message>
         <location filename="../main.qml" line="1065"/>

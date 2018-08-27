@@ -430,8 +430,8 @@
     </message>
     <message>
         <location filename="../pages/Mining.qml" line="86"/>
-        <source>Mining with your computer helps strengthen the Monero network. The more that people mine, the harder it is for the network to be attacked, and every little bit helps.&lt;br&gt; &lt;br&gt;Mining also gives you a small chance to earn some Monero. Your computer will create hashes looking for block solutions. If you find a block, you will get the associated reward. Good luck!</source>
-        <translation>Minatul cu propriul calculator ajută la creșterea puterii rețelei Monero. Cu cât se minează mai mult, cu atât rețeaua e mai greu de atacat și fiecare miner ajută.&lt;br&gt; &lt;br&gt;Minatul îți oferă de asemenea o mică șansă de a câștiga un pic de Monero. Calculatorul tău va crea hash-uri în căutarea de soluții pentru blocuri. Dacă descoperi un bloc, primești recompensa aferentă. Succes!</translation>
+        <source>Mining with your computer helps strengthen the Lethean network. The more that people mine, the harder it is for the network to be attacked, and every little bit helps.&lt;br&gt; &lt;br&gt;Mining also gives you a small chance to earn some Lethean. Your computer will create hashes looking for block solutions. If you find a block, you will get the associated reward. Good luck!</source>
+        <translation>Minatul cu propriul calculator ajută la creșterea puterii rețelei Lethean. Cu cât se minează mai mult, cu atât rețeaua e mai greu de atacat și fiecare miner ajută.&lt;br&gt; &lt;br&gt;Minatul îți oferă de asemenea o mică șansă de a câștiga un pic de Lethean. Calculatorul tău va crea hash-uri în căutarea de soluții pentru blocuri. Dacă descoperi un bloc, primești recompensa aferentă. Succes!</translation>
     </message>
     <message>
         <location filename="../pages/Mining.qml" line="96"/>
@@ -944,7 +944,7 @@
     <message>
         <location filename="../pages/Settings.qml" line="499"/>
         <source>Embedded Lethean version: </source>
-        <translation>Versiune Monero integrată: </translation>
+        <translation>Versiune Lethean integrată: </translation>
     </message>
     <message>
         <location filename="../pages/Settings.qml" line="509"/>
@@ -1574,13 +1574,13 @@ Actualizează sau conectează-te la un alt serviciu</translation>
     <name>WizardConfigure</name>
     <message>
         <location filename="../wizard/WizardConfigure.qml" line="79"/>
-        <source>We’re almost there - let’s just configure some Monero preferences</source>
-        <translation>Aproape am terminat - mai avem de configurat câteva setări Monero</translation>
+        <source>We’re almost there - let’s just configure some Lethean preferences</source>
+        <translation>Aproape am terminat - mai avem de configurat câteva setări Lethean</translation>
     </message>
     <message>
         <location filename="../wizard/WizardConfigure.qml" line="97"/>
-        <source>Kickstart the Monero blockchain?</source>
-        <translation>Pornește blockchain-ul Monero?</translation>
+        <source>Kickstart the Lethean blockchain?</source>
+        <translation>Pornește blockchain-ul Lethean?</translation>
     </message>
     <message>
         <location filename="../wizard/WizardConfigure.qml" line="115"/>
@@ -1594,8 +1594,8 @@ Actualizează sau conectează-te la un alt serviciu</translation>
     </message>
     <message>
         <location filename="../wizard/WizardConfigure.qml" line="144"/>
-        <source>Disk conservation mode uses substantially less disk-space, but the same amount of bandwidth as a regular Monero instance. However, storing the full blockchain is beneficial to the security of the Monero network. If you are on a device with limited disk space, then this option is appropriate for you.</source>
-        <translation>Modul de economisire spațiu pe disc folosește mult mai puțin spațiu, dar la fel de multă lățime de bandă ca și o instanță normală Monero. Totuși, stocarea întregului blockchain este benefică pentru securitatea rețelei Monero. Dacă folosești un dispozitiv cu spațiu de stocare limitat, această setare este potrivită pentru tine.</translation>
+        <source>Disk conservation mode uses substantially less disk-space, but the same amount of bandwidth as a regular Lethean instance. However, storing the full blockchain is beneficial to the security of the Lethean network. If you are on a device with limited disk space, then this option is appropriate for you.</source>
+        <translation>Modul de economisire spațiu pe disc folosește mult mai puțin spațiu, dar la fel de multă lățime de bandă ca și o instanță normală Lethean. Totuși, stocarea întregului blockchain este benefică pentru securitatea rețelei Lethean. Dacă folosești un dispozitiv cu spațiu de stocare limitat, această setare este potrivită pentru tine.</translation>
     </message>
     <message>
         <location filename="../wizard/WizardConfigure.qml" line="157"/>
@@ -1604,8 +1604,8 @@ Actualizează sau conectează-te la un alt serviciu</translation>
     </message>
     <message>
         <location filename="../wizard/WizardConfigure.qml" line="175"/>
-        <source>Mining secures the Monero network, and also pays a small reward for the work done. This option will let Monero mine when your computer is on mains power and is idle. It will stop mining when you continue working.</source>
-        <translation>Minatul securizează rețeaua Monero și, de asemenea, oferă o mică sumă ca recompensă pentru munca efectuată. Această setare permite minatul Monero atunci când calculatorul este inactiv și conectat la rețeaua electrică. Minatul se va opri atunci când reîncepi să folosești calculatorul.</translation>
+        <source>Mining secures the Lethean network, and also pays a small reward for the work done. This option will let Lethean mine when your computer is on mains power and is idle. It will stop mining when you continue working.</source>
+        <translation>Minatul securizează rețeaua Lethean și, de asemenea, oferă o mică sumă ca recompensă pentru munca efectuată. Această setare permite minatul Lethean atunci când calculatorul este inactiv și conectat la rețeaua electrică. Minatul se va opri atunci când reîncepi să folosești calculatorul.</translation>
     </message>
 </context>
 <context>
@@ -1628,8 +1628,8 @@ Actualizează sau conectează-te la un alt serviciu</translation>
     <name>WizardDonation</name>
     <message>
         <location filename="../wizard/WizardDonation.qml" line="93"/>
-        <source>Monero development is solely supported by donations</source>
-        <translation>Dezvoltarea Monero este susținută exclusiv prin donații</translation>
+        <source>Lethean development is solely supported by donations</source>
+        <translation>Dezvoltarea Lethean este susținută exclusiv prin donații</translation>
     </message>
     <message>
         <location filename="../wizard/WizardDonation.qml" line="113"/>
@@ -1643,8 +1643,8 @@ Actualizează sau conectează-te la un alt serviciu</translation>
     </message>
     <message>
         <location filename="../wizard/WizardDonation.qml" line="164"/>
-        <source>For every transaction, a small transaction fee is charged. This option lets you add an additional amount, as a percentage of that fee, to your transaction to support Monero development. For instance, a 50% autodonation take a transaction fee of 0.005 XMR and add a 0.0025 XMR to support Monero development.</source>
-        <translation>Pentru fiecare tranzacție se plătește un mic comision de tranzacție. Această setare îți permite să adaugi o mică sumă la tranzacție, ca procent din comisionul respectiv, pentru a susține dezvoltarea Monero. De exemplu, pentru un comision de 0.005 XMR, o donație automată de 50% adaugă 0.0025 XMR pentru susținerea dezvoltării Monero.</translation>
+        <source>For every transaction, a small transaction fee is charged. This option lets you add an additional amount, as a percentage of that fee, to your transaction to support Lethean development. For instance, a 50% autodonation take a transaction fee of 0.005 XMR and add a 0.0025 XMR to support Lethean development.</source>
+        <translation>Pentru fiecare tranzacție se plătește un mic comision de tranzacție. Această setare îți permite să adaugi o mică sumă la tranzacție, ca procent din comisionul respectiv, pentru a susține dezvoltarea Lethean. De exemplu, pentru un comision de 0.005 XMR, o donație automată de 50% adaugă 0.0025 XMR pentru susținerea dezvoltării Lethean.</translation>
     </message>
     <message>
         <location filename="../wizard/WizardDonation.qml" line="176"/>
@@ -1653,8 +1653,8 @@ Actualizează sau conectează-te la un alt serviciu</translation>
     </message>
     <message>
         <location filename="../wizard/WizardDonation.qml" line="194"/>
-        <source>Mining secures the Monero network, and also pays a small reward for the work done. This option will let Monero mine when your computer is on mains power and is idle. It will stop mining when you continue working.</source>
-        <translation>Minatul securizează rețeaua Monero și, de asemenea, oferă o mică sumă ca recompensă pentru munca efectuată. Această setare permite minatul Monero atunci când calculatorul este inactiv și conectat la rețeaua electrică. Minatul se va opri atunci când reîncepi să folosești calculatorul.</translation>
+        <source>Mining secures the Lethean network, and also pays a small reward for the work done. This option will let Lethean mine when your computer is on mains power and is idle. It will stop mining when you continue working.</source>
+        <translation>Minatul securizează rețeaua Lethean și, de asemenea, oferă o mică sumă ca recompensă pentru munca efectuată. Această setare permite minatul Lethean atunci când calculatorul este inactiv și conectat la rețeaua electrică. Minatul se va opri atunci când reîncepi să folosești calculatorul.</translation>
     </message>
 </context>
 <context>
@@ -2063,13 +2063,13 @@ Ringsize: </translation>
     </message>
     <message>
         <location filename="../main.qml" line="1355"/>
-        <source>New version of monero-wallet-gui is available: %1&lt;br&gt;%2</source>
-        <translation>O nouă versiune monero-wallet-gui este disponiilă: %1&lt;br&gt;%2</translation>
+        <source>New version of lethean-wallet-gui is available: %1&lt;br&gt;%2</source>
+        <translation>O nouă versiune lethean-wallet-gui este disponiilă: %1&lt;br&gt;%2</translation>
     </message>
     <message>
         <location filename="../main.qml" line="728"/>
-        <source>This address received %1 monero, with %2 confirmation(s).</source>
-        <translation>Această adresă a primit %1 monero, având %2 confirmări.</translation>
+        <source>This address received %1 lethean, with %2 confirmation(s).</source>
+        <translation>Această adresă a primit %1 lethean, având %2 confirmări.</translation>
     </message>
     <message>
         <location filename="../main.qml" line="523"/>
@@ -2124,8 +2124,8 @@ Descriere: </translation>
     </message>
     <message>
         <location filename="../main.qml" line="723"/>
-        <source>This address received %1 monero, but the transaction is not yet mined</source>
-        <translation>Această adresă a primit %1 monero, dar tranzacția nu a fost încă minată</translation>
+        <source>This address received %1 lethean, but the transaction is not yet mined</source>
+        <translation>Această adresă a primit %1 lethean, dar tranzacția nu a fost încă minată</translation>
     </message>
     <message>
         <location filename="../main.qml" line="732"/>
@@ -2154,8 +2154,8 @@ Descriere: </translation>
     </message>
     <message>
         <location filename="../main.qml" line="1017"/>
-        <source>Monero</source>
-        <translation>Monero</translation>
+        <source>Lethean</source>
+        <translation>Lethean</translation>
     </message>
     <message>
         <location filename="../main.qml" line="1065"/>

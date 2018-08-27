@@ -440,8 +440,8 @@
     </message>
     <message>
         <location filename="../pages/Mining.qml" line="86"/>
-        <source>Mining with your computer helps strengthen the Monero network. The more that people mine, the harder it is for the network to be attacked, and every little bit helps.&lt;br&gt; &lt;br&gt;Mining also gives you a small chance to earn some Monero. Your computer will create hashes looking for block solutions. If you find a block, you will get the associated reward. Good luck!</source>
-        <translation>挖礦可增進 Monero 網路的安全性，只要越多使用者在挖礦，Monero 網路就會越難以被攻擊。&lt;br&gt; &lt;br&gt;挖礦也同時提供您機會賺取一些額外的 Monero 幣，因為在挖礦時，您的電腦將被用來尋找 Monero 區塊的解答，每當您找到一個區塊的解答，您即可以獲得其附帶的獎勵金，祝您好運！</translation>
+        <source>Mining with your computer helps strengthen the Lethean network. The more that people mine, the harder it is for the network to be attacked, and every little bit helps.&lt;br&gt; &lt;br&gt;Mining also gives you a small chance to earn some Lethean. Your computer will create hashes looking for block solutions. If you find a block, you will get the associated reward. Good luck!</source>
+        <translation>挖礦可增進 Lethean 網路的安全性，只要越多使用者在挖礦，Lethean 網路就會越難以被攻擊。&lt;br&gt; &lt;br&gt;挖礦也同時提供您機會賺取一些額外的 Lethean 幣，因為在挖礦時，您的電腦將被用來尋找 Lethean 區塊的解答，每當您找到一個區塊的解答，您即可以獲得其附帶的獎勵金，祝您好運！</translation>
     </message>
     <message>
         <location filename="../pages/Mining.qml" line="96"/>
@@ -919,7 +919,7 @@
     <message>
         <location filename="../pages/Settings.qml" line="499"/>
         <source>Embedded Lethean version: </source>
-        <translation>內嵌 Monero 版本: </translation>
+        <translation>內嵌 Lethean 版本: </translation>
     </message>
     <message>
         <location filename="../pages/Settings.qml" line="509"/>
@@ -1476,7 +1476,7 @@ Ringsize: </source>
     <message>
         <location filename="../pages/Transfer.qml" line="645"/>
         <source>Money sent successfully</source>
-        <translation>已成功完成 Monero 付款</translation>
+        <translation>已成功完成 Lethean 付款</translation>
     </message>
     <message>
         <location filename="../pages/Transfer.qml" line="704"/>
@@ -1584,13 +1584,13 @@ Please upgrade or connect to another daemon</source>
     <name>WizardConfigure</name>
     <message>
         <location filename="../wizard/WizardConfigure.qml" line="79"/>
-        <source>We’re almost there - let’s just configure some Monero preferences</source>
-        <translation>就快完成了 - Monero 還需要一點設定</translation>
+        <source>We’re almost there - let’s just configure some Lethean preferences</source>
+        <translation>就快完成了 - Lethean 還需要一點設定</translation>
     </message>
     <message>
         <location filename="../wizard/WizardConfigure.qml" line="97"/>
-        <source>Kickstart the Monero blockchain?</source>
-        <translation>開始同步 Monero 區塊鏈?</translation>
+        <source>Kickstart the Lethean blockchain?</source>
+        <translation>開始同步 Lethean 區塊鏈?</translation>
     </message>
     <message>
         <location filename="../wizard/WizardConfigure.qml" line="115"/>
@@ -1604,8 +1604,8 @@ Please upgrade or connect to another daemon</source>
     </message>
     <message>
         <location filename="../wizard/WizardConfigure.qml" line="144"/>
-        <source>Disk conservation mode uses substantially less disk-space, but the same amount of bandwidth as a regular Monero instance. However, storing the full blockchain is beneficial to the security of the Monero network. If you are on a device with limited disk space, then this option is appropriate for you.</source>
-        <translation>硬碟節約模式能精簡區塊鏈的資料而減少硬碟空間的使用量，但保存完整的區塊鏈能加強 Monero 網路的安全性，當您需要在容量較小的硬碟上執行，那麼這個功能就很適合您，此功能對於網路頻寬的用量沒有影響。</translation>
+        <source>Disk conservation mode uses substantially less disk-space, but the same amount of bandwidth as a regular Lethean instance. However, storing the full blockchain is beneficial to the security of the Lethean network. If you are on a device with limited disk space, then this option is appropriate for you.</source>
+        <translation>硬碟節約模式能精簡區塊鏈的資料而減少硬碟空間的使用量，但保存完整的區塊鏈能加強 Lethean 網路的安全性，當您需要在容量較小的硬碟上執行，那麼這個功能就很適合您，此功能對於網路頻寬的用量沒有影響。</translation>
     </message>
     <message>
         <location filename="../wizard/WizardConfigure.qml" line="157"/>
@@ -1614,8 +1614,8 @@ Please upgrade or connect to another daemon</source>
     </message>
     <message>
         <location filename="../wizard/WizardConfigure.qml" line="175"/>
-        <source>Mining secures the Monero network, and also pays a small reward for the work done. This option will let Monero mine when your computer is on mains power and is idle. It will stop mining when you continue working.</source>
-        <translation>啟動挖礦功能可讓 Monero 的系統網路更加安全，且在工作完成時獲得小額的獎勵金。這個功能只會在電腦插著電源並且閒置時才會自動啟動，當您繼續使用電腦後即會停止挖礦。</translation>
+        <source>Mining secures the Lethean network, and also pays a small reward for the work done. This option will let Lethean mine when your computer is on mains power and is idle. It will stop mining when you continue working.</source>
+        <translation>啟動挖礦功能可讓 Lethean 的系統網路更加安全，且在工作完成時獲得小額的獎勵金。這個功能只會在電腦插著電源並且閒置時才會自動啟動，當您繼續使用電腦後即會停止挖礦。</translation>
     </message>
 </context>
 <context>
@@ -1638,8 +1638,8 @@ Please upgrade or connect to another daemon</source>
     <name>WizardDonation</name>
     <message>
         <location filename="../wizard/WizardDonation.qml" line="93"/>
-        <source>Monero development is solely supported by donations</source>
-        <translation>Monero的開發完全由贊助所支持</translation>
+        <source>Lethean development is solely supported by donations</source>
+        <translation>Lethean的開發完全由贊助所支持</translation>
     </message>
     <message>
         <location filename="../wizard/WizardDonation.qml" line="113"/>
@@ -1653,8 +1653,8 @@ Please upgrade or connect to another daemon</source>
     </message>
     <message>
         <location filename="../wizard/WizardDonation.qml" line="164"/>
-        <source>For every transaction, a small transaction fee is charged. This option lets you add an additional amount, as a percentage of that fee, to your transaction to support Monero development. For instance, a 50% autodonation take a transaction fee of 0.005 XMR and add a 0.0025 XMR to support Monero development.</source>
-        <translation>在每一筆交易中 Monero 系統都會收取小額的手續費，而這個選項則是讓你可以增加額外的金額贊助 Monero 的開發，比例以當次交易的手續費計算，譬如 50% 的自動贊助將會從0.005 XMR的手續費算出 0.0025 XMR 的金額贊助給 Monero 開發團隊。</translation>
+        <source>For every transaction, a small transaction fee is charged. This option lets you add an additional amount, as a percentage of that fee, to your transaction to support Lethean development. For instance, a 50% autodonation take a transaction fee of 0.005 XMR and add a 0.0025 XMR to support Lethean development.</source>
+        <translation>在每一筆交易中 Lethean 系統都會收取小額的手續費，而這個選項則是讓你可以增加額外的金額贊助 Lethean 的開發，比例以當次交易的手續費計算，譬如 50% 的自動贊助將會從0.005 XMR的手續費算出 0.0025 XMR 的金額贊助給 Lethean 開發團隊。</translation>
     </message>
     <message>
         <location filename="../wizard/WizardDonation.qml" line="176"/>
@@ -1663,8 +1663,8 @@ Please upgrade or connect to another daemon</source>
     </message>
     <message>
         <location filename="../wizard/WizardDonation.qml" line="194"/>
-        <source>Mining secures the Monero network, and also pays a small reward for the work done. This option will let Monero mine when your computer is on mains power and is idle. It will stop mining when you continue working.</source>
-        <translation>啟動挖礦功能可讓 Monero 的網路更加安全，且在工作完成時獲得小額的獎勵金。這個功能只會在電腦插著電源並且閒置時才會自動啟動，當您繼續使用電腦後即會停止挖礦。</translation>
+        <source>Mining secures the Lethean network, and also pays a small reward for the work done. This option will let Lethean mine when your computer is on mains power and is idle. It will stop mining when you continue working.</source>
+        <translation>啟動挖礦功能可讓 Lethean 的網路更加安全，且在工作完成時獲得小額的獎勵金。這個功能只會在電腦插著電源並且閒置時才會自動啟動，當您繼續使用電腦後即會停止挖礦。</translation>
     </message>
 </context>
 <context>
@@ -2057,8 +2057,8 @@ Ringsize: </source>
     </message>
     <message>
         <location filename="../main.qml" line="728"/>
-        <source>This address received %1 monero, with %2 confirmation(s).</source>
-        <translation>這個位址收入了 %1 monero，並通過 %2 次的確認。</translation>
+        <source>This address received %1 lethean, with %2 confirmation(s).</source>
+        <translation>這個位址收入了 %1 lethean，並通過 %2 次的確認。</translation>
     </message>
     <message>
         <location filename="../main.qml" line="1317"/>
@@ -2077,8 +2077,8 @@ Ringsize: </source>
     </message>
     <message>
         <location filename="../main.qml" line="1355"/>
-        <source>New version of monero-wallet-gui is available: %1&lt;br&gt;%2</source>
-        <translation>有可用的新版本 Monero 錢包:  %1&lt;br&gt;%2</translation>
+        <source>New version of lethean-wallet-gui is available: %1&lt;br&gt;%2</source>
+        <translation>有可用的新版本 Lethean 錢包:  %1&lt;br&gt;%2</translation>
     </message>
     <message>
         <location filename="../main.qml" line="523"/>
@@ -2133,8 +2133,8 @@ Description: </source>
     </message>
     <message>
         <location filename="../main.qml" line="723"/>
-        <source>This address received %1 monero, but the transaction is not yet mined</source>
-        <translation>這個位址已收到 %1 monero幣，但這筆交易尚未被礦工確認</translation>
+        <source>This address received %1 lethean, but the transaction is not yet mined</source>
+        <translation>這個位址已收到 %1 lethean幣，但這筆交易尚未被礦工確認</translation>
     </message>
     <message>
         <location filename="../main.qml" line="732"/>
@@ -2163,8 +2163,8 @@ Description: </source>
     </message>
     <message>
         <location filename="../main.qml" line="1017"/>
-        <source>Monero</source>
-        <translation>Monero</translation>
+        <source>Lethean</source>
+        <translation>Lethean</translation>
     </message>
     <message>
         <location filename="../main.qml" line="1065"/>

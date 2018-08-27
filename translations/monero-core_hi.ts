@@ -430,7 +430,7 @@
     </message>
     <message>
         <location filename="../pages/Mining.qml" line="86"/>
-        <source>Mining with your computer helps strengthen the Monero network. The more that people mine, the harder it is for the network to be attacked, and every little bit helps.&lt;br&gt; &lt;br&gt;Mining also gives you a small chance to earn some Monero. Your computer will create hashes looking for block solutions. If you find a block, you will get the associated reward. Good luck!</source>
+        <source>Mining with your computer helps strengthen the Lethean network. The more that people mine, the harder it is for the network to be attacked, and every little bit helps.&lt;br&gt; &lt;br&gt;Mining also gives you a small chance to earn some Lethean. Your computer will create hashes looking for block solutions. If you find a block, you will get the associated reward. Good luck!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1566,13 +1566,13 @@ Please upgrade or connect to another daemon</source>
     <name>WizardConfigure</name>
     <message>
         <location filename="../wizard/WizardConfigure.qml" line="79"/>
-        <source>We’re almost there - let’s just configure some Monero preferences</source>
-        <translation>हमने बस समाप्त कर लिया है - चलिए कुछ Monero प्राथमिकताएं कॉन्फ़िगर करते हैं</translation>
+        <source>We’re almost there - let’s just configure some Lethean preferences</source>
+        <translation>हमने बस समाप्त कर लिया है - चलिए कुछ Lethean प्राथमिकताएं कॉन्फ़िगर करते हैं</translation>
     </message>
     <message>
         <location filename="../wizard/WizardConfigure.qml" line="97"/>
-        <source>Kickstart the Monero blockchain?</source>
-        <translation>Kickstart the Monero ब्लॉकचेन?</translation>
+        <source>Kickstart the Lethean blockchain?</source>
+        <translation>Kickstart the Lethean ब्लॉकचेन?</translation>
     </message>
     <message>
         <location filename="../wizard/WizardConfigure.qml" line="115"/>
@@ -1586,8 +1586,8 @@ Please upgrade or connect to another daemon</source>
     </message>
     <message>
         <location filename="../wizard/WizardConfigure.qml" line="144"/>
-        <source>Disk conservation mode uses substantially less disk-space, but the same amount of bandwidth as a regular Monero instance. However, storing the full blockchain is beneficial to the security of the Monero network. If you are on a device with limited disk space, then this option is appropriate for you.</source>
-        <translation>डिस्क संरक्षण मोड काफी कम डिस्क-स्पेस प्रयोग करता है, लेकिन इसके लिए सामान्य Monero इंस्टैंस के बराबर बैंडविड्थ की आवश्यकता होती है। हालाँकि, Monero नेटवर्क की सुरक्षा के लिए पूरा ब्लॉकचेन संग्रहीत करना लाभदायक होता है। यदि आप कम डिस्क स्पेस वाली डिवाइस पर हैं तो यह विकल्प आपके लिए उपयुक्त है।</translation>
+        <source>Disk conservation mode uses substantially less disk-space, but the same amount of bandwidth as a regular Lethean instance. However, storing the full blockchain is beneficial to the security of the Lethean network. If you are on a device with limited disk space, then this option is appropriate for you.</source>
+        <translation>डिस्क संरक्षण मोड काफी कम डिस्क-स्पेस प्रयोग करता है, लेकिन इसके लिए सामान्य Lethean इंस्टैंस के बराबर बैंडविड्थ की आवश्यकता होती है। हालाँकि, Lethean नेटवर्क की सुरक्षा के लिए पूरा ब्लॉकचेन संग्रहीत करना लाभदायक होता है। यदि आप कम डिस्क स्पेस वाली डिवाइस पर हैं तो यह विकल्प आपके लिए उपयुक्त है।</translation>
     </message>
     <message>
         <location filename="../wizard/WizardConfigure.qml" line="157"/>
@@ -1596,8 +1596,8 @@ Please upgrade or connect to another daemon</source>
     </message>
     <message>
         <location filename="../wizard/WizardConfigure.qml" line="175"/>
-        <source>Mining secures the Monero network, and also pays a small reward for the work done. This option will let Monero mine when your computer is on mains power and is idle. It will stop mining when you continue working.</source>
-        <translation>माइनिंग Monero नेटवर्क को सुरक्षित बनाता है, और साथ ही किये गए कार्य के लिए छोटा पुरस्कार भी देता है। यह विकल्प Monero को तब माइन करने देता है जब आपका कंप्यूटर मेंस पॉवर पर होता है और निष्क्रिय होता है। जब आप काम करना शुरू करते हैं तो यह माइनिंग बंद कर देता है।</translation>
+        <source>Mining secures the Lethean network, and also pays a small reward for the work done. This option will let Lethean mine when your computer is on mains power and is idle. It will stop mining when you continue working.</source>
+        <translation>माइनिंग Lethean नेटवर्क को सुरक्षित बनाता है, और साथ ही किये गए कार्य के लिए छोटा पुरस्कार भी देता है। यह विकल्प Lethean को तब माइन करने देता है जब आपका कंप्यूटर मेंस पॉवर पर होता है और निष्क्रिय होता है। जब आप काम करना शुरू करते हैं तो यह माइनिंग बंद कर देता है।</translation>
     </message>
 </context>
 <context>
@@ -1620,8 +1620,8 @@ Please upgrade or connect to another daemon</source>
     <name>WizardDonation</name>
     <message>
         <location filename="../wizard/WizardDonation.qml" line="93"/>
-        <source>Monero development is solely supported by donations</source>
-        <translation>Monero का विकास पूरी तरह से डोनेशन से समर्थित है</translation>
+        <source>Lethean development is solely supported by donations</source>
+        <translation>Lethean का विकास पूरी तरह से डोनेशन से समर्थित है</translation>
     </message>
     <message>
         <location filename="../wizard/WizardDonation.qml" line="113"/>
@@ -1635,8 +1635,8 @@ Please upgrade or connect to another daemon</source>
     </message>
     <message>
         <location filename="../wizard/WizardDonation.qml" line="164"/>
-        <source>For every transaction, a small transaction fee is charged. This option lets you add an additional amount, as a percentage of that fee, to your transaction to support Monero development. For instance, a 50% autodonation take a transaction fee of 0.005 XMR and add a 0.0025 XMR to support Monero development.</source>
-        <translation>प्रत्येक लेनदेन के लिए एक छोटा शुल्क लगाया जाता है। यह विकल्प आपको Monero का विकास समर्थित करने के लिए अपने लेनदेन में शुल्क के प्रतिशत के रूप में एक अतिरिक्त राशि जोड़ने की अनुमति देता है। उदाहरण के लिए, 50% ऑटो-डोनेशन 0.005 XMR का लेनदेन शुल्क लेता है और Monero के विकास को समर्थित करने के लिए 0.0025 XMR जोड़ता है।</translation>
+        <source>For every transaction, a small transaction fee is charged. This option lets you add an additional amount, as a percentage of that fee, to your transaction to support Lethean development. For instance, a 50% autodonation take a transaction fee of 0.005 XMR and add a 0.0025 XMR to support Lethean development.</source>
+        <translation>प्रत्येक लेनदेन के लिए एक छोटा शुल्क लगाया जाता है। यह विकल्प आपको Lethean का विकास समर्थित करने के लिए अपने लेनदेन में शुल्क के प्रतिशत के रूप में एक अतिरिक्त राशि जोड़ने की अनुमति देता है। उदाहरण के लिए, 50% ऑटो-डोनेशन 0.005 XMR का लेनदेन शुल्क लेता है और Lethean के विकास को समर्थित करने के लिए 0.0025 XMR जोड़ता है।</translation>
     </message>
     <message>
         <location filename="../wizard/WizardDonation.qml" line="176"/>
@@ -1645,8 +1645,8 @@ Please upgrade or connect to another daemon</source>
     </message>
     <message>
         <location filename="../wizard/WizardDonation.qml" line="194"/>
-        <source>Mining secures the Monero network, and also pays a small reward for the work done. This option will let Monero mine when your computer is on mains power and is idle. It will stop mining when you continue working.</source>
-        <translation>माइनिंग Monero नेटवर्क को सुरक्षित बनाता है, और साथ ही किये गए कार्य के लिए छोटा पुरस्कार भी देता है। यह विकल्प Monero को तब माइन करने देता है जब आपका कंप्यूटर मेंस पॉवर पर होता है और निष्क्रिय होता है। जब आप काम करना शुरू करते हैं तो यह माइनिंग बंद कर देता है।</translation>
+        <source>Mining secures the Lethean network, and also pays a small reward for the work done. This option will let Lethean mine when your computer is on mains power and is idle. It will stop mining when you continue working.</source>
+        <translation>माइनिंग Lethean नेटवर्क को सुरक्षित बनाता है, और साथ ही किये गए कार्य के लिए छोटा पुरस्कार भी देता है। यह विकल्प Lethean को तब माइन करने देता है जब आपका कंप्यूटर मेंस पॉवर पर होता है और निष्क्रिय होता है। जब आप काम करना शुरू करते हैं तो यह माइनिंग बंद कर देता है।</translation>
     </message>
 </context>
 <context>
@@ -2045,7 +2045,7 @@ Ringsize: </source>
     </message>
     <message>
         <location filename="../main.qml" line="1355"/>
-        <source>New version of monero-wallet-gui is available: %1&lt;br&gt;%2</source>
+        <source>New version of lethean-wallet-gui is available: %1&lt;br&gt;%2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2088,12 +2088,12 @@ Description: </source>
     </message>
     <message>
         <location filename="../main.qml" line="723"/>
-        <source>This address received %1 monero, but the transaction is not yet mined</source>
+        <source>This address received %1 lethean, but the transaction is not yet mined</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../main.qml" line="728"/>
-        <source>This address received %1 monero, with %2 confirmation(s).</source>
+        <source>This address received %1 lethean, with %2 confirmation(s).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2118,7 +2118,7 @@ Description: </source>
     </message>
     <message>
         <location filename="../main.qml" line="1017"/>
-        <source>Monero</source>
+        <source>Lethean</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

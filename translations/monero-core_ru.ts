@@ -430,8 +430,8 @@
     </message>
     <message>
         <location filename="../pages/Mining.qml" line="86"/>
-        <source>Mining with your computer helps strengthen the Monero network. The more that people mine, the harder it is for the network to be attacked, and every little bit helps.&lt;br&gt; &lt;br&gt;Mining also gives you a small chance to earn some Monero. Your computer will create hashes looking for block solutions. If you find a block, you will get the associated reward. Good luck!</source>
-        <translation>Майнинг на вашем компьютере помогает обезопасить сеть Monero. Чем больше людей майнит, тем сложнее атаковать сеть, и каждый майнер немного помогает.&lt;br&gt; &lt;br&gt;Майнинг также дает вам маленький шанс добыть несколько монет Monero. Ваш компьютер будет искать хэшы для решения блоков. Если вы найдете блок, то получите вознаграждение. Удачи!</translation>
+        <source>Mining with your computer helps strengthen the Lethean network. The more that people mine, the harder it is for the network to be attacked, and every little bit helps.&lt;br&gt; &lt;br&gt;Mining also gives you a small chance to earn some Lethean. Your computer will create hashes looking for block solutions. If you find a block, you will get the associated reward. Good luck!</source>
+        <translation>Майнинг на вашем компьютере помогает обезопасить сеть Lethean. Чем больше людей майнит, тем сложнее атаковать сеть, и каждый майнер немного помогает.&lt;br&gt; &lt;br&gt;Майнинг также дает вам маленький шанс добыть несколько монет Lethean. Ваш компьютер будет искать хэшы для решения блоков. Если вы найдете блок, то получите вознаграждение. Удачи!</translation>
     </message>
     <message>
         <location filename="../pages/Mining.qml" line="96"/>
@@ -940,7 +940,7 @@
     <message>
         <location filename="../pages/Settings.qml" line="499"/>
         <source>Embedded Lethean version: </source>
-        <translation>Версия встроенного Monero</translation>
+        <translation>Версия встроенного Lethean</translation>
     </message>
     <message>
         <location filename="../pages/Settings.qml" line="509"/>
@@ -1573,13 +1573,13 @@ Ringsize: </source>
     <name>WizardConfigure</name>
     <message>
         <location filename="../wizard/WizardConfigure.qml" line="79"/>
-        <source>We’re almost there - let’s just configure some Monero preferences</source>
-        <translation>Мы почти готовы к работе - давайте просто сделаем некоторые настройки Monero</translation>
+        <source>We’re almost there - let’s just configure some Lethean preferences</source>
+        <translation>Мы почти готовы к работе - давайте просто сделаем некоторые настройки Lethean</translation>
     </message>
     <message>
         <location filename="../wizard/WizardConfigure.qml" line="97"/>
-        <source>Kickstart the Monero blockchain?</source>
-        <translation>Запустим блокчейн Monero ?</translation>
+        <source>Kickstart the Lethean blockchain?</source>
+        <translation>Запустим блокчейн Lethean ?</translation>
     </message>
     <message>
         <location filename="../wizard/WizardConfigure.qml" line="115"/>
@@ -1593,8 +1593,8 @@ Ringsize: </source>
     </message>
     <message>
         <location filename="../wizard/WizardConfigure.qml" line="144"/>
-        <source>Disk conservation mode uses substantially less disk-space, but the same amount of bandwidth as a regular Monero instance. However, storing the full blockchain is beneficial to the security of the Monero network. If you are on a device with limited disk space, then this option is appropriate for you.</source>
-        <translation>Режим сохранения диска использует значительно меньше дискового пространства, но такой же объем полосы пропускания, как у обычного запуска Monero. Тем не менее, хранение полного блокчейна полезно для безопасности сети Monero. Если этот кошелек на устройстве с ограниченным дисковым пространством, этот вариант вам подойдет.</translation>
+        <source>Disk conservation mode uses substantially less disk-space, but the same amount of bandwidth as a regular Lethean instance. However, storing the full blockchain is beneficial to the security of the Lethean network. If you are on a device with limited disk space, then this option is appropriate for you.</source>
+        <translation>Режим сохранения диска использует значительно меньше дискового пространства, но такой же объем полосы пропускания, как у обычного запуска Lethean. Тем не менее, хранение полного блокчейна полезно для безопасности сети Lethean. Если этот кошелек на устройстве с ограниченным дисковым пространством, этот вариант вам подойдет.</translation>
     </message>
     <message>
         <location filename="../wizard/WizardConfigure.qml" line="157"/>
@@ -1603,8 +1603,8 @@ Ringsize: </source>
     </message>
     <message>
         <location filename="../wizard/WizardConfigure.qml" line="175"/>
-        <source>Mining secures the Monero network, and also pays a small reward for the work done. This option will let Monero mine when your computer is on mains power and is idle. It will stop mining when you continue working.</source>
-        <translation>Майнинг защищает сеть Monero, а также платит небольшую награду за проделанную работу. Эта опция позволяет Monero майнить, когда ваш компьютер включен и простаивает. Когда вы продолжите работать, он прекратит майнинг.</translation>
+        <source>Mining secures the Lethean network, and also pays a small reward for the work done. This option will let Lethean mine when your computer is on mains power and is idle. It will stop mining when you continue working.</source>
+        <translation>Майнинг защищает сеть Lethean, а также платит небольшую награду за проделанную работу. Эта опция позволяет Lethean майнить, когда ваш компьютер включен и простаивает. Когда вы продолжите работать, он прекратит майнинг.</translation>
     </message>
 </context>
 <context>
@@ -1627,8 +1627,8 @@ Ringsize: </source>
     <name>WizardDonation</name>
     <message>
         <location filename="../wizard/WizardDonation.qml" line="93"/>
-        <source>Monero development is solely supported by donations</source>
-        <translation>Разработка Monero полностью поддерживается пожертвованиями</translation>
+        <source>Lethean development is solely supported by donations</source>
+        <translation>Разработка Lethean полностью поддерживается пожертвованиями</translation>
     </message>
     <message>
         <location filename="../wizard/WizardDonation.qml" line="113"/>
@@ -1642,8 +1642,8 @@ Ringsize: </source>
     </message>
     <message>
         <location filename="../wizard/WizardDonation.qml" line="164"/>
-        <source>For every transaction, a small transaction fee is charged. This option lets you add an additional amount, as a percentage of that fee, to your transaction to support Monero development. For instance, a 50% autodonation take a transaction fee of 0.005 XMR and add a 0.0025 XMR to support Monero development.</source>
-        <translation>За каждую транзакцию взимается небольшая комиссия. Эта опция позволяет вам добавить дополнительную сумму в процентах от этой комиссии к транзакции для поддержки разработки Monero. Например, 50% автодотации берут плату за транзакцию 0,005 XMR и добавляют 0,0025 XMR для поддержки разработки Monero.</translation>
+        <source>For every transaction, a small transaction fee is charged. This option lets you add an additional amount, as a percentage of that fee, to your transaction to support Lethean development. For instance, a 50% autodonation take a transaction fee of 0.005 XMR and add a 0.0025 XMR to support Lethean development.</source>
+        <translation>За каждую транзакцию взимается небольшая комиссия. Эта опция позволяет вам добавить дополнительную сумму в процентах от этой комиссии к транзакции для поддержки разработки Lethean. Например, 50% автодотации берут плату за транзакцию 0,005 XMR и добавляют 0,0025 XMR для поддержки разработки Lethean.</translation>
     </message>
     <message>
         <location filename="../wizard/WizardDonation.qml" line="176"/>
@@ -1652,8 +1652,8 @@ Ringsize: </source>
     </message>
     <message>
         <location filename="../wizard/WizardDonation.qml" line="194"/>
-        <source>Mining secures the Monero network, and also pays a small reward for the work done. This option will let Monero mine when your computer is on mains power and is idle. It will stop mining when you continue working.</source>
-        <translation>Майнинг защищает сеть Monero, а также платит небольшую награду за проделанную работу. Эта опция позволяет Monero майнить, когда ваш компьютер включен и простаивает. Когда вы продолжите работать, он прекратит майнинг.</translation>
+        <source>Mining secures the Lethean network, and also pays a small reward for the work done. This option will let Lethean mine when your computer is on mains power and is idle. It will stop mining when you continue working.</source>
+        <translation>Майнинг защищает сеть Lethean, а также платит небольшую награду за проделанную работу. Эта опция позволяет Lethean майнить, когда ваш компьютер включен и простаивает. Когда вы продолжите работать, он прекратит майнинг.</translation>
     </message>
 </context>
 <context>
@@ -2023,7 +2023,7 @@ Description: </source>
     </message>
     <message>
         <location filename="../main.qml" line="1355"/>
-        <source>New version of monero-wallet-gui is available: %1&lt;br&gt;%2</source>
+        <source>New version of lethean-wallet-gui is available: %1&lt;br&gt;%2</source>
         <translation>Доступна новая версия кошелька с графическим интерфейсом: %1&lt;br&gt;%2</translation>
     </message>
     <message>
@@ -2107,7 +2107,7 @@ Fee: </source>
     </message>
     <message>
         <location filename="../main.qml" line="728"/>
-        <source>This address received %1 monero, with %2 confirmation(s).</source>
+        <source>This address received %1 lethean, with %2 confirmation(s).</source>
         <translation>Этот адрес получил %1 XMR, с %2 подтверждениями</translation>
     </message>
     <message>
@@ -2137,7 +2137,7 @@ Fee: </source>
     </message>
     <message>
         <location filename="../main.qml" line="723"/>
-        <source>This address received %1 monero, but the transaction is not yet mined</source>
+        <source>This address received %1 lethean, but the transaction is not yet mined</source>
         <translation>Этот адрес получил %1 XMR, но транзакции еще не подтверждены майнерами</translation>
     </message>
     <message>
@@ -2152,8 +2152,8 @@ Fee: </source>
     </message>
     <message>
         <location filename="../main.qml" line="1017"/>
-        <source>Monero</source>
-        <translation>Monero</translation>
+        <source>Lethean</source>
+        <translation>Lethean</translation>
     </message>
     <message>
         <location filename="../main.qml" line="1065"/>
