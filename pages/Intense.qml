@@ -24,7 +24,7 @@ Rectangle {
             + (data.provider ? trStart + qsTr("Provider: ") + trMiddle + data.provider  + trEnd : "")
             + (data.name ? trStart + qsTr("Plan: ") + trMiddle + data.name + trEnd : "")
             + (data.type ? trStart + qsTr("Type: ") + trMiddle + data.type  + trEnd : "")
-            + (data.cost ? trStart + qsTr("Price:") + trMiddle + data.cost + " ITNS/min" + trEnd : "")
+            + (data.cost ? trStart + qsTr("Price:") + trMiddle + data.cost + " "+Config.coinName+"/min" + trEnd : "")
             + (data.firstPrePaidMinutes ? trStart + qsTr("First Pre Paid Minutes:") + trMiddle + data.firstPrePaidMinutes + trEnd : "")
             + (data.firstVerificationsNeeded ? trStart + qsTr("First Verifications Needed:") + trMiddle + data.firstVerificationsNeeded + trEnd : "")
             + (data.subsequentPrePaidMinutes ? trStart + qsTr("Subsequent Pre Paid Minutes:") + trMiddle + data.subsequentPrePaidMinutes + trEnd : "")
@@ -47,7 +47,7 @@ Rectangle {
             + (data.providerName ? trStart + qsTr("Provider: ") + trMiddle + data.providerName  + trEnd : "")
             + (data.name ? trStart + qsTr("Plan: ") + trMiddle + data.name + trEnd : "")
             + (data.type ? trStart + qsTr("Type: ") + trMiddle + data.type  + trEnd : "")
-            + (data.cost ? trStart + qsTr("Price:") + trMiddle + data.cost+" ITNS/min" + trEnd : "")
+            + (data.cost ? trStart + qsTr("Price:") + trMiddle + data.cost+" "+Config.coinName+"/min" + trEnd : "")
             + (data.firstPrePaidMinutes ? trStart + qsTr("First Pre Paid Minutes:") + trMiddle + data.firstPrePaidMinutes + trEnd : "")
             + "</table>"
             + translationManager.emptyString;
@@ -229,9 +229,9 @@ Rectangle {
                 intenseDashboardView.firstPayment = 1
                 intenseDashboardView.getTime();
 
-                middlePanel.state = "ITNS Dashboard"
+                middlePanel.state = "VPN Dashboard"
 
-                leftPanel.selectItem("ITNS Dashboard")
+                leftPanel.selectItem("VPN Dashboard")
             }
         }
 
@@ -244,7 +244,7 @@ Rectangle {
     }
 
     function getListView(arr,n, type, rank){
-        listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[n].providerName + "</div><br />" + arr[n].name +"<br /> "+ type + " - "+ arr[n].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[n].downloadSpeed) +"/s </div>- "+ arr[n].cost + " ITNS/min", obj: arr[n], rank: rank, type: type, index: n})
+        listView.model.append( {listdata:"<div style='font-size: 14px; font-weight: bold;'> " + arr[n].providerName + "</div><br />" + arr[n].name +"<br /> "+ type + " - "+ arr[n].type.toUpperCase() +"<br /><div style='font-weight: bold;'>"+ formatBytes(arr[n].downloadSpeed) +"/s </div>- "+ arr[n].cost + " "+Config.coinName+"/min", obj: arr[n], rank: rank, type: type, index: n})
     }
 
     function getSignature(arr, data, i, speed, speedType, price, tp, favorite){
