@@ -58,11 +58,11 @@ fi
 cd ..
 
 echo "CI: Creating release archive..."
-RELEASE_NAME="intensecoin-gui-linux-64bit-$BUILD_VERSION"
+RELEASE_NAME="lethean-gui-linux-64bit-$BUILD_VERSION"
 cd build/release/bin/
 mkdir $RELEASE_NAME
-cp intensecoind $RELEASE_NAME/
-cp intensecoin-wallet-gui $RELEASE_NAME/
+cp letheand $RELEASE_NAME/
+cp lethean-wallet-gui $RELEASE_NAME/
 cp -R qml $RELEASE_NAME/
 cp -R libs $RELEASE_NAME/
 cp -R plugins $RELEASE_NAME/
