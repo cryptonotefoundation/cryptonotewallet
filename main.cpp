@@ -81,16 +81,16 @@ int main(int argc, char *argv[])
     //SIGNAL(SIGINT, "echo 'lalala'");
 
     // Log settings
-    Monero::Wallet::init(argv[0], "intensecoin-wallet-gui");
+    Monero::Wallet::init(argv[0], "lethean-wallet-gui");
 //    qInstallMessageHandler(messageHandler);
 
     MainApp app(argc, argv);
 
     qDebug() << "app startd";
 
-    app.setApplicationName("intensecoin-core");
-    app.setOrganizationDomain("getmonero.org");
-    app.setOrganizationName("intensecoin-project");
+    app.setApplicationName("lethean-core");
+    app.setOrganizationDomain("lethean.io");
+    app.setOrganizationName("lethean-movement");
 
     filter *eventFilter = new filter;
     app.installEventFilter(eventFilter);
@@ -208,7 +208,7 @@ int main(int argc, char *argv[])
         accountName = qgetenv("USERNAME"); // Windows
     }
     if (accountName.isEmpty()) {
-        accountName = "My Intensecoin Account";
+        accountName = "My Lethean Account";
     }
 
     engine.rootContext()->setContextProperty("defaultAccountName", accountName);

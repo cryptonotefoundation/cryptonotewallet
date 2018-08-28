@@ -57,10 +57,10 @@ fi
 cd ..
 
 echo "CI: Creating release archive..."
-RELEASE_NAME="intensecoin-gui-mac-64bit-$BUILD_VERSION"
+RELEASE_NAME="lethean-gui-mac-64bit-$BUILD_VERSION"
 cd build/release/bin/
 mkdir $RELEASE_NAME
-cp -Rp intensecoin-wallet-gui.app $RELEASE_NAME/
+cp -Rp lethean-wallet-gui.app $RELEASE_NAME/
 cp ../../../ci/package-artifacts/CHANGELOG.txt $RELEASE_NAME/
 cp ../../../ci/package-artifacts/README.txt $RELEASE_NAME/
 tar -cvjf $RELEASE_NAME.tar.bz2 $RELEASE_NAME
