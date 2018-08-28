@@ -1,0 +1,3 @@
+[submodule "lethean"]
+	path = lethean
+	url = https://github.com/LetheanMovement/intensecoin

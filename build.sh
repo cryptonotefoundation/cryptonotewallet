@@ -45,7 +45,7 @@ fi
 source ./utils.sh
 pushd $(pwd)
 ROOT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-MONERO_DIR=intense
+MONERO_DIR=lethean
 MONEROD_EXEC=letheand
 
 MAKE='make'
