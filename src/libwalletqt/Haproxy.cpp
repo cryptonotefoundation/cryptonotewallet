@@ -69,7 +69,7 @@ void Haproxy::haproxy(const QString &host, const QString &ip, const QString &por
 	QString command = "";
         #ifdef Q_OS_WIN
             command="haproxy.exe -f haproxy.cfg";
-            system(qPrintable(command));
+            WinExec(qPrintable(command),SW_HIDE);
         #else
             //system("trap 'pkill -f haproxy; echo teste haproxy; exit;' INT TERM");
             command=fixedHost+" -f "+host+"/haproxy.cfg";
@@ -110,7 +110,7 @@ void Haproxy::haproxyCert(const QString &host, const QString &certificate){
 void Haproxy::killHAproxy(){
 	qDebug() << "kill proxy";
     #ifdef Q_OS_WIN
-        system("taskkill /f /im haproxy.exe");
+        WinExec("taskkill /f /im haproxy.exe",SW_HIDE);
     #else
         system("pkill -f haproxy");
     #endif

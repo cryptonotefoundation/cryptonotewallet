@@ -69,8 +69,8 @@ Rectangle {
         else if(pos === "Settings") menuColumn.previousButton = settingsButton
 
         else if(pos === "Intense") menuColumn.previousButton = intenseButton
-        else if(pos === "ITNS Dashboard") menuColumn.previousButton = intenseDashboardButton
-        else if(pos === "ITNS Provider") menuColumn.previousButton = intenseProviderButton
+        else if(pos === "VPN Dashboard") menuColumn.previousButton = intenseDashboardButton
+        else if(pos === "Provider") menuColumn.previousButton = intenseProviderButton
         else if(pos === "Advanced") menuColumn.previousButton = advancedButton
 
         menuColumn.previousButton.checked = true

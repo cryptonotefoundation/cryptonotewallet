@@ -166,11 +166,11 @@ Rectangle {
                 PropertyChanges { target: mainFlickable; contentHeight: minHeight  }
 
             }, State {
-                name: "ITNS Dashboard"
+                name: "VPN Dashboard"
                 PropertyChanges { target: root; currentView: intenseDashboardView }
                 PropertyChanges { target: mainFlickable; contentHeight: minHeight }
              }, State {
-                name: "ITNS Provider"
+                name: "Provider"
                 PropertyChanges { target: root; currentView: intenseView }
                 PropertyChanges { target: mainFlickable; contentHeight: minHeight }
             }

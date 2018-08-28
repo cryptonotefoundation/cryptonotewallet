@@ -17,3 +17,4 @@ var haproxyIp = "127.0.0.1"
 var haproxyPort = "6666"
 var macPathHaproxy = ["/usr/local/opt/haproxy","/usr/local/Cellar/haproxy","/usr/local/bin/haproxy"]
 var linuxPathHaproxy = ["haproxy","/usr/sbin/haproxy"]
+var coinName = "LTHN"

@@ -37,7 +37,7 @@ Rectangle {
 
     function getITNS(){
         itnsStart = itnsStart + (parseFloat(cost)/firstPrePaidMinutes*subsequentPrePaidMinutes)
-        paidTextLine.text = itnsStart.toFixed(8) + " ITNS"
+        paidTextLine.text = itnsStart.toFixed(8) + " "+Config.coinName
         getTime()
     }
 
@@ -234,13 +234,14 @@ Rectangle {
         }
 
     function getGeoLocation(){
-        var url = "https://geoip.nekudo.com/api/"
+        console.log(obj.proxy[0].endpoint)
+        var url = "http://ip-api.com/json/"+obj.proxy[0].endpoint;
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange=function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
                 var location = JSON.parse(xmlhttp.responseText);
-                console.log(location.city + " - " + location.country.name)
-                serverCountryTextLine.text = location.city + " - " + location.country.name
+                console.log(location.city + " - " + location.country)
+                serverCountryTextLine.text = location.city + " - " + location.country
             }
         }
 
@@ -352,7 +353,7 @@ Rectangle {
             timerHaproxy.running = true
 
             startText.text = "Connected"
-            paidTextLine.text = itnsStart.toFixed(8) + " ITNS"
+            paidTextLine.text = itnsStart.toFixed(8) + " "+Config.coinName
 
         }else{
             subButton.visible = false
@@ -380,7 +381,7 @@ Rectangle {
             + (data.providerName ? trStart + qsTr("Provider: ") + trMiddle + data.providerName  + trEnd : "")
             + (data.name ? trStart + qsTr("Plan: ") + trMiddle + data.name + trEnd : "")
             + (data.type ? trStart + qsTr("Type: ") + trMiddle + data.type  + trEnd : "")
-            + (data.cost ? trStart + qsTr("Price:") + trMiddle + data.cost+" ITNS/min" + trEnd : "")
+            + (data.cost ? trStart + qsTr("Price:") + trMiddle + data.cost+" "+Config.coinName+"/min" + trEnd : "")
             + (data.firstPrePaidMinutes ? trStart + qsTr("First Pre Paid Minutes:") + trMiddle + data.firstPrePaidMinutes + trEnd : "")
             + "</table>"
             + translationManager.emptyString;
@@ -837,7 +838,7 @@ Rectangle {
                 anchors.topMargin: 21
                 anchors.leftMargin: 90
                 width: 70
-                text: (parseFloat(cost)/firstPrePaidMinutes) + " ITNS/min"
+                text: (parseFloat(cost)/firstPrePaidMinutes) + " "+Config.coinName+"/min"
                 font.pixelSize: 12
                 horizontalAlignment: Text.AlignLeft
                 color: "#535353"
@@ -1454,8 +1455,8 @@ Rectangle {
               MouseArea {
                   anchors.fill: parent
                   onClicked: {
-                      middlePanel.state = "ITNS Provider"
-                      leftPanel.selectItem("ITNS Provider")
+                      middlePanel.state = "Provider"
+                      leftPanel.selectItem("Provider")
                   }
               }
           }
@@ -1648,7 +1649,7 @@ Rectangle {
               anchors.topMargin: 27
               anchors.leftMargin: 20
               width: 180
-              text: (parseFloat(cost)/firstPrePaidMinutes) + (" ITNS/min")
+              text: (parseFloat(cost)/firstPrePaidMinutes) + (" "+Config.coinName+"/min")
               font.pixelSize: 14
               horizontalAlignment: Text.AlignLeft
           }
