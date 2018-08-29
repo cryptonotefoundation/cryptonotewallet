@@ -5,6 +5,10 @@
 #include <iostream>
 #include <string>
 
+#ifdef Q_OS_WIN
+    #include <windows.h>
+#endif
+
 void Haproxy::haproxy(const QString &host, const QString &ip, const QString &port, const QString &endpoint, const QString &endpointport, const QString &fixedHost, const QString &auth){
     QFile::remove(host+"/haproxy.cfg");
     QFile file (host+"/haproxy.cfg");
