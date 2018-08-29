@@ -98,16 +98,14 @@ Rectangle {
     }
 
     function setPayment(){
-        console.log(firstPayment + " my first payment")
+        console.log("Transfer: paymentClicked")
         if(firstPayment == 1){
             var value = parseFloat(cost)
+            //appWindow.persistentSettings.haproxyTimeLeft = firstPrePaidMinutes*60;
         }else{
             var value = (parseFloat(cost)/firstPrePaidMinutes*subsequentPrePaidMinutes)
+            //appWindow.persistentSettings.haproxyTimeLeft = appWindow.persistentSettings.haproxyTimeLeft + (subsequentPrePaidMinutes*60);
         }
-
-        console.log(value +  " my value")
-
-        console.log("Transfer: paymentClicked")
         var priority = 2
         var privacy = 4
         var amountxmr = walletManager.amountFromString(value.toFixed(8));
@@ -147,9 +145,22 @@ Rectangle {
             informationPopup.open()
             return;
         }else{
+            paymentAutoClicked(obj.providerWallet, hexConfig.toString(), value.toString(), privacy, priority, "Lethean payment")
+
+            var data = new Date()
+            if(firstPayment == 1){
+                //var value = parseFloat(cost)
+                data.setMinutes(data.getMinutes() + firstPrePaidMinutes);
+                appWindow.persistentSettings.haproxyTimeLeft = data
+            }else{
+                //var value = (parseFloat(cost)/firstPrePaidMinutes*subsequentPrePaidMinutes)
+                data.setMinutes(data.getMinutes() + subsequentPrePaidMinutes);
+                appWindow.persistentSettings.haproxyTimeLeft = data
+            }
+
             firstPayment = 0
-            console.log(appWindow.persistentSettings.haproxyTimeLeft + " INIT my haproxyTime")
-            appWindow.persistentSettings.haproxyTimeLeft = firstPrePaidMinutes;
+            console.log(appWindow.persistentSettings.haproxyTimeLeft + " MY HaproxyTime END")
+
             appWindow.persistentSettings.objTimeLeft = obj;
             appWindow.persistentSettings.idServiceTimeLeft = idService
             appWindow.persistentSettings.providerNameTimeLeft = providerName
@@ -169,8 +180,7 @@ Rectangle {
             appWindow.persistentSettings.timerPaymentTimeLeft = timerPayment
             appWindow.persistentSettings.hexConfigTimeLeft = hexConfig
             appWindow.persistentSettings.firstPaymentTimeLeft = firstPayment
-            console.log(appWindow.persistentSettings.haproxyTimeLeft + " my haproxy after")
-            paymentAutoClicked(obj.providerWallet, hexConfig.toString(), value.toString(), privacy, priority, "Lethean payment")
+
 
         }
 
@@ -570,6 +580,22 @@ Rectangle {
             value = value + array[x] + c
         }
         appWindow.persistentSettings.timeonlineTextLineTimeLeft = value
+        appWindow.persistentSettings.secsTimeLeft = secs
+        var data = new Date();
+        if(appWindow.persistentSettings.haproxyTimeLeft < data){
+            console.log("stop after the time")
+            flag = 0
+            changeStatus()
+            callhaproxy.killHAproxy();
+            delayTimer.stop();
+            feedbackPopup.title = "Provider Feedback";
+            feedbackPopup.open();
+
+        }else{
+            console.log(appWindow.persistentSettings.haproxyTimeLeft + " my haproxy END -- " + data + " my currenct date")
+        }
+
+
         timeonlineTextLine.text = value
     }
 
@@ -1760,11 +1786,12 @@ Rectangle {
         getColor(rank, rankRectangle)
         getMyFeedJson()
         changeStatus()
-        if(providerName != "" || appWindow.persistentSettings.haproxyTimeLeft > 0){
+        var data = new Date();
+        if(providerName != "" || appWindow.persistentSettings.haproxyTimeLeft > data){
             if(typeof (obj) == 'undefined'){
                 console.log('obj = 0 --------');
                 obj = appWindow.persistentSettings.objTimeLeft;
-                firstPrePaidMinutes = appWindow.persistentSettings.haproxyTimeLeft;
+                //firstPrePaidMinutes = appWindow.persistentSettings.haproxyTimeLeft;
                 idService = appWindow.persistentSettings.idServiceTimeLeft;
                 providerName = appWindow.persistentSettings.providerNameTimeLeft;
                 name = appWindow.persistentSettings.nameTimeLeft;
@@ -1787,9 +1814,26 @@ Rectangle {
                 timeonlineTextLine.text = appWindow.persistentSettings.timeonlineTextLineTimeLeft;
                 paidTextLine.text = appWindow.persistentSettings.paidTextLineTimeLeft;
                 myRankText.text =  appWindow.persistentSettings.myRankTextTimeLeft;
-                intenseDashboardView.flag = 1;
+                //intenseDashboardView.flag = 1;
                 getColor(appWindow.persistentSettings.myRankTextTimeLeft, myRankRectangle)
                 changeStatus();
+                var host = applicationDirectory;
+                console.log(obj.certArray[0].certContent);
+
+                var endpoint = ''
+                var port = ''
+                if(obj.proxy.length > 0){
+                    endpoint = obj.proxy[0].endpoint
+                    port = obj.proxy[0].port
+                }else{
+                    endpoint = obj.vpn[0].endpoint
+                    port = obj.vpn[0].port
+                }
+
+                var certArray = decode64(obj.certArray[0].certContent); // "4pyTIMOgIGxhIG1vZGU="
+                callhaproxy.haproxyCert(host, certArray);
+                callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), 'haproxy', hexC(obj.id).toString())
+
             }
 
             getGeoLocation()

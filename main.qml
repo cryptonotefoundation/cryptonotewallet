@@ -1018,7 +1018,7 @@ ApplicationWindow {
         property string daemonPassword: ""
         property bool transferShowAdvanced: false
         property string blockchainDataDir: ""
-        property int haproxyTimeLeft: 0
+        property var haproxyTimeLeft
         property var objTimeLeft
         property string idServiceTimeLeft
         property string providerNameTimeLeft
