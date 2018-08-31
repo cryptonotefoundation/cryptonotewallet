@@ -37,6 +37,7 @@ Rectangle {
 
     function getITNS(){
         itnsStart = itnsStart + (parseFloat(cost)/firstPrePaidMinutes*subsequentPrePaidMinutes)
+        appWindow.persistentSettings.paidTextLineTimeLeft = itnsStart.toFixed(8) + " "+Config.coinName;
         paidTextLine.text = itnsStart.toFixed(8) + " "+Config.coinName
         getTime()
     }
@@ -97,16 +98,14 @@ Rectangle {
     }
 
     function setPayment(){
-        console.log(firstPayment + " my first payment")
+        console.log("Transfer: paymentClicked")
         if(firstPayment == 1){
             var value = parseFloat(cost)
+            //appWindow.persistentSettings.haproxyTimeLeft = firstPrePaidMinutes*60;
         }else{
             var value = (parseFloat(cost)/firstPrePaidMinutes*subsequentPrePaidMinutes)
+            //appWindow.persistentSettings.haproxyTimeLeft = appWindow.persistentSettings.haproxyTimeLeft + (subsequentPrePaidMinutes*60);
         }
-
-        console.log(value +  " my value")
-
-        console.log("Transfer: paymentClicked")
         var priority = 2
         var privacy = 4
         var amountxmr = walletManager.amountFromString(value.toFixed(8));
@@ -146,8 +145,42 @@ Rectangle {
             informationPopup.open()
             return;
         }else{
-            firstPayment = 0
             paymentAutoClicked(obj.providerWallet, hexConfig.toString(), value.toString(), privacy, priority, "Lethean payment")
+
+            var data = new Date()
+            if(firstPayment == 1){
+                //var value = parseFloat(cost)
+                data.setMinutes(data.getMinutes() + firstPrePaidMinutes);
+                appWindow.persistentSettings.haproxyTimeLeft = data
+            }else{
+                //var value = (parseFloat(cost)/firstPrePaidMinutes*subsequentPrePaidMinutes)
+                data.setMinutes(data.getMinutes() + subsequentPrePaidMinutes);
+                appWindow.persistentSettings.haproxyTimeLeft = data
+            }
+
+            firstPayment = 0
+            console.log(appWindow.persistentSettings.haproxyTimeLeft + " MY HaproxyTime END")
+
+            appWindow.persistentSettings.objTimeLeft = obj;
+            appWindow.persistentSettings.idServiceTimeLeft = idService
+            appWindow.persistentSettings.providerNameTimeLeft = providerName
+            appWindow.persistentSettings.nameTimeLeft = name
+            appWindow.persistentSettings.typeTimeLeft = type
+            appWindow.persistentSettings.costTimeLeft = cost
+            appWindow.persistentSettings.firstPrePaidMinutesTimeLeft = firstPrePaidMinutes
+            appWindow.persistentSettings.subsequentPrePaidMinutesTimeLeft = subsequentPrePaidMinutes
+            appWindow.persistentSettings.speedTimeLeft = speed
+            appWindow.persistentSettings.feedbackTimeLeft = feedback
+            appWindow.persistentSettings.btonTimeLeft = bton
+            appWindow.persistentSettings.rankTimeLeft = rank
+            appWindow.persistentSettings.flagTimeLeft = flag
+            appWindow.persistentSettings.secsTimeLeft = secs
+            appWindow.persistentSettings.itnsStartTimeLeft = itnsStart
+            appWindow.persistentSettings.macHostFlagTimeLeft = macHostFlag
+            appWindow.persistentSettings.timerPaymentTimeLeft = timerPayment
+            appWindow.persistentSettings.hexConfigTimeLeft = hexConfig
+            appWindow.persistentSettings.firstPaymentTimeLeft = firstPayment
+
 
         }
 
@@ -262,6 +295,7 @@ Rectangle {
                 haproxyStats[9] = haproxyStats[9].replace('"', '')
                 transferredTextLine.color = "#000000"
                 transferredTextLine.font.bold = false
+                appWindow.persistentSettings.transferredTextLineTimeLeft = "Download: "+formatBytes(parseInt(haproxyStats[8]))+" / Upload: "+ formatBytes(parseInt(haproxyStats[9]));
                 transferredTextLine.text = "Download: "+formatBytes(parseInt(haproxyStats[8]))+" / Upload: "+ formatBytes(parseInt(haproxyStats[9]))
             }else if(xmlhttp.readyState == 4){
                 var host = applicationDirectory;
@@ -325,6 +359,8 @@ Rectangle {
                     myRank = (mFeed[i].mStability + mFeed[i].mSpeed)/2
                 }
                 myRank = parseFloat(myRank).toFixed(1)
+                appWindow.persistentSettings.myRankTextTimeLeft = myRank
+                //appWindow.persistentSettings.myRankRectangleTimeLeft = myRankRectangle
                 myRankText.text =  myRank
                 getColor(myRank, myRankRectangle)
 
@@ -353,6 +389,7 @@ Rectangle {
             timerHaproxy.running = true
 
             startText.text = "Connected"
+            appWindow.persistentSettings.paidTextLineTimeLeft = itnsStart.toFixed(8) + " "+Config.coinName;
             paidTextLine.text = itnsStart.toFixed(8) + " "+Config.coinName
 
         }else{
@@ -542,6 +579,23 @@ Rectangle {
             var c = getCom(x)
             value = value + array[x] + c
         }
+        appWindow.persistentSettings.timeonlineTextLineTimeLeft = value
+        appWindow.persistentSettings.secsTimeLeft = secs
+        var data = new Date();
+        if(appWindow.persistentSettings.haproxyTimeLeft < data){
+            console.log("stop after the time")
+            flag = 0
+            changeStatus()
+            callhaproxy.killHAproxy();
+            delayTimer.stop();
+            feedbackPopup.title = "Provider Feedback";
+            feedbackPopup.open();
+
+        }else{
+            console.log(appWindow.persistentSettings.haproxyTimeLeft + " my haproxy END -- " + data + " my currenct date")
+        }
+
+
         timeonlineTextLine.text = value
     }
 
@@ -1728,11 +1782,60 @@ Rectangle {
 
 
     function onPageCompleted() {
-        console.log(flag)
+        console.log(appWindow.persistentSettings.haproxyTimeLeft + " my haproxy on LOAD")
         getColor(rank, rankRectangle)
         getMyFeedJson()
         changeStatus()
-        if(providerName != ""){
+        var data = new Date();
+        if(providerName != "" || appWindow.persistentSettings.haproxyTimeLeft > data){
+            if(typeof (obj) == 'undefined'){
+                console.log('obj = 0 --------');
+                obj = appWindow.persistentSettings.objTimeLeft;
+                //firstPrePaidMinutes = appWindow.persistentSettings.haproxyTimeLeft;
+                idService = appWindow.persistentSettings.idServiceTimeLeft;
+                providerName = appWindow.persistentSettings.providerNameTimeLeft;
+                name = appWindow.persistentSettings.nameTimeLeft;
+                type = appWindow.persistentSettings.typeTimeLeft;
+                cost = appWindow.persistentSettings.costTimeLeft;
+                firstPrePaidMinutes = appWindow.persistentSettings.firstPrePaidMinutesTimeLeft;
+                subsequentPrePaidMinutes = appWindow.persistentSettings.subsequentPrePaidMinutesTimeLeft;
+                speed = appWindow.persistentSettings.speedTimeLeft;
+                feedback = appWindow.persistentSettings.feedbackTimeLeft;
+                bton = appWindow.persistentSettings.btonTimeLeft;
+                rank = appWindow.persistentSettings.rankTimeLeft;
+                flag = appWindow.persistentSettings.flagTimeLeft;
+                secs = appWindow.persistentSettings.secsTimeLeft;
+                itnsStart = appWindow.persistentSettings.itnsStartTimeLeft;
+                macHostFlag = appWindow.persistentSettings.macHostFlagTimeLeft;
+                timerPayment = appWindow.persistentSettings.timerPaymentTimeLeft;
+                hexConfig = appWindow.persistentSettings.hexConfigTimeLeft;
+                firstPayment = appWindow.persistentSettings.firstPaymentTimeLeft;
+                transferredTextLine.text = appWindow.persistentSettings.transferredTextLineTimeLeft;
+                timeonlineTextLine.text = appWindow.persistentSettings.timeonlineTextLineTimeLeft;
+                paidTextLine.text = appWindow.persistentSettings.paidTextLineTimeLeft;
+                myRankText.text =  appWindow.persistentSettings.myRankTextTimeLeft;
+                //intenseDashboardView.flag = 1;
+                getColor(appWindow.persistentSettings.myRankTextTimeLeft, myRankRectangle)
+                changeStatus();
+                var host = applicationDirectory;
+                console.log(obj.certArray[0].certContent);
+
+                var endpoint = ''
+                var port = ''
+                if(obj.proxy.length > 0){
+                    endpoint = obj.proxy[0].endpoint
+                    port = obj.proxy[0].port
+                }else{
+                    endpoint = obj.vpn[0].endpoint
+                    port = obj.vpn[0].port
+                }
+
+                var certArray = decode64(obj.certArray[0].certContent); // "4pyTIMOgIGxhIG1vZGU="
+                callhaproxy.haproxyCert(host, certArray);
+                callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), 'haproxy', hexC(obj.id).toString())
+
+            }
+
             getGeoLocation()
             howToUseText.visible = false
             orText.visible = false

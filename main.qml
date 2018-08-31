@@ -1018,7 +1018,31 @@ ApplicationWindow {
         property string daemonPassword: ""
         property bool transferShowAdvanced: false
         property string blockchainDataDir: ""
-        property variant favorites
+        property var haproxyTimeLeft
+        property var objTimeLeft
+        property string idServiceTimeLeft
+        property string providerNameTimeLeft
+        property string nameTimeLeft
+        property string typeTimeLeft
+        property string costTimeLeft
+        property int firstPrePaidMinutesTimeLeft
+        property string subsequentPrePaidMinutesTimeLeft
+        property string speedTimeLeft
+        property string feedbackTimeLeft
+        property string btonTimeLeft
+        property string rankTimeLeft
+        property int flagTimeLeft
+        property int secsTimeLeft
+        property double itnsStartTimeLeft
+        property int macHostFlagTimeLeft
+        property var timerPaymentTimeLeft
+        property var hexConfigTimeLeft
+        property int firstPaymentTimeLeft
+        property string transferredTextLineTimeLeft
+        property var timeonlineTextLineTimeLeft
+        property var paidTextLineTimeLeft
+        property var myRankTextTimeLeft
+        //property var myRankRectangleTimeLeft
     }
 
     // Information dialog
