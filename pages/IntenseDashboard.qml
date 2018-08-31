@@ -295,9 +295,10 @@ Rectangle {
                 haproxyStats[9] = haproxyStats[9].replace('"', '')
                 transferredTextLine.color = "#000000"
                 transferredTextLine.font.bold = false
-                appWindow.persistentSettings.transferredTextLineTimeLeft = "Download: "+formatBytes(parseInt(haproxyStats[8]))+" / Upload: "+ formatBytes(parseInt(haproxyStats[9]));
-                transferredTextLine.text = "Download: "+formatBytes(parseInt(haproxyStats[8]))+" / Upload: "+ formatBytes(parseInt(haproxyStats[9]))
-            }else if(xmlhttp.readyState == 4){
+                appWindow.persistentSettings.transferredTextLineTimeLeft = "Download: " + formatBytes(parseInt(haproxyStats[9])) + " / Upload: " + formatBytes(parseInt(haproxyStats[8]));
+                transferredTextLine.text = "Download: " + formatBytes(parseInt(haproxyStats[9])) + " / Upload: " + formatBytes(parseInt(haproxyStats[8]))
+            }
+			else if(xmlhttp.readyState == 4) {
                 var host = applicationDirectory;
                 var endpoint = ''
                 var port = ''
