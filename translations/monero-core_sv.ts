@@ -145,8 +145,8 @@
     </message>
     <message>
         <location filename="../pages/Dashboard.qml" line="102"/>
-        <source>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #813CFF; font-size: 14px;}&lt;/style&gt;                        looking for security level and address book? go to &lt;a href=&apos;#&apos;&gt;Transfer&lt;/a&gt; tab</source>
-        <translation>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #813CFF; font-size: 14px;}&lt;/style&gt;                        letar du efter säkerhetsnivå och adressbok? gå till &lt;a href=&apos;#&apos;&gt;Transfer&lt;/a&gt; tab</translation>
+        <source>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #6C8896; font-size: 14px;}&lt;/style&gt;                        looking for security level and address book? go to &lt;a href=&apos;#&apos;&gt;Transfer&lt;/a&gt; tab</source>
+        <translation>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #6C8896; font-size: 14px;}&lt;/style&gt;                        letar du efter säkerhetsnivå och adressbok? gå till &lt;a href=&apos;#&apos;&gt;Transfer&lt;/a&gt; tab</translation>
     </message>
 </context>
 <context>
@@ -430,8 +430,8 @@
     </message>
     <message>
         <location filename="../pages/Mining.qml" line="86"/>
-        <source>Mining with your computer helps strengthen the Monero network. The more that people mine, the harder it is for the network to be attacked, and every little bit helps.&lt;br&gt; &lt;br&gt;Mining also gives you a small chance to earn some Monero. Your computer will create hashes looking for block solutions. If you find a block, you will get the associated reward. Good luck!</source>
-        <translation>Utvinning med din dator hjälper till att stärka Monero-nätverket. Ju mer som folk utvinner, ju svårare blir det för nätverket att angripas, och varje litet bidrag hjälper till.&lt;br&gt; &lt;br&gt;Utvinning ger dig även en liten möjlighet att tjäna några Monero. Din dator kommer att leta efter lösningar för block genom att skapa hashar. Om du hittar ett block får du den tillhörande belöningen. Lycka till!</translation>
+        <source>Mining with your computer helps strengthen the Lethean network. The more that people mine, the harder it is for the network to be attacked, and every little bit helps.&lt;br&gt; &lt;br&gt;Mining also gives you a small chance to earn some Lethean. Your computer will create hashes looking for block solutions. If you find a block, you will get the associated reward. Good luck!</source>
+        <translation>Utvinning med din dator hjälper till att stärka Lethean-nätverket. Ju mer som folk utvinner, ju svårare blir det för nätverket att angripas, och varje litet bidrag hjälper till.&lt;br&gt; &lt;br&gt;Utvinning ger dig även en liten möjlighet att tjäna några Lethean. Din dator kommer att leta efter lösningar för block genom att skapa hashar. Om du hittar ett block får du den tillhörande belöningen. Lycka till!</translation>
     </message>
     <message>
         <location filename="../pages/Mining.qml" line="96"/>
@@ -728,8 +728,8 @@
     </message>
     <message>
         <location filename="../pages/Receive.qml" line="338"/>
-        <source>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #813CFF; font-size: 14px;}&lt;/style&gt;                           Tracking &lt;font size=&apos;2&apos;&gt; (&lt;/font&gt;&lt;a href=&apos;#&apos;&gt;help&lt;/a&gt;&lt;font size=&apos;2&apos;&gt;)&lt;/font&gt;</source>
-        <translation>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #813CFF; font-size: 14px;}&lt;/style&gt;                           Spårning &lt;font size=&apos;2&apos;&gt; (&lt;/font&gt;&lt;a href=&apos;#&apos;&gt;help&lt;/a&gt;&lt;font size=&apos;2&apos;&gt;)&lt;/font&gt;</translation>
+        <source>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #6C8896; font-size: 14px;}&lt;/style&gt;                           Tracking &lt;font size=&apos;2&apos;&gt; (&lt;/font&gt;&lt;a href=&apos;#&apos;&gt;help&lt;/a&gt;&lt;font size=&apos;2&apos;&gt;)&lt;/font&gt;</source>
+        <translation>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #6C8896; font-size: 14px;}&lt;/style&gt;                           Spårning &lt;font size=&apos;2&apos;&gt; (&lt;/font&gt;&lt;a href=&apos;#&apos;&gt;help&lt;/a&gt;&lt;font size=&apos;2&apos;&gt;)&lt;/font&gt;</translation>
     </message>
     <message>
         <location filename="../pages/Receive.qml" line="254"/>
@@ -858,7 +858,7 @@
     <message>
         <location filename="../pages/Settings.qml" line="499"/>
         <source>Embedded Lethean version: </source>
-        <translation>Inbäddad Monero-version:</translation>
+        <translation>Inbäddad Lethean-version:</translation>
     </message>
     <message>
         <location filename="../pages/Settings.qml" line="509"/>
@@ -1066,8 +1066,8 @@
     </message>
     <message>
         <location filename="../pages/Sign.qml" line="419"/>
-        <source>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #813CFF; font-size: 14px;}&lt;/style&gt;                            Signing address &lt;font size=&apos;2&apos;&gt;  ( Paste in  or select from &lt;/font&gt; &lt;a href=&apos;#&apos;&gt;Address book&lt;/a&gt;&lt;font size=&apos;2&apos;&gt; )&lt;/font&gt;</source>
-        <translation>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #813CFF; font-size: 14px;}&lt;/style&gt;                            Signeringsadress &lt;font size=&apos;2&apos;&gt;  ( Klistra in eller välj från &lt;/font&gt; &lt;a href=&apos;#&apos;&gt;Adressbok&lt;/a&gt;&lt;font size=&apos;2&apos;&gt; )&lt;/font&gt;</translation>
+        <source>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #6C8896; font-size: 14px;}&lt;/style&gt;                            Signing address &lt;font size=&apos;2&apos;&gt;  ( Paste in  or select from &lt;/font&gt; &lt;a href=&apos;#&apos;&gt;Address book&lt;/a&gt;&lt;font size=&apos;2&apos;&gt; )&lt;/font&gt;</source>
+        <translation>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #6C8896; font-size: 14px;}&lt;/style&gt;                            Signeringsadress &lt;font size=&apos;2&apos;&gt;  ( Klistra in eller välj från &lt;/font&gt; &lt;a href=&apos;#&apos;&gt;Adressbok&lt;/a&gt;&lt;font size=&apos;2&apos;&gt; )&lt;/font&gt;</translation>
     </message>
     <message>
         <location filename="../pages/Sign.qml" line="172"/>
@@ -1268,8 +1268,8 @@
     </message>
     <message>
         <location filename="../pages/Transfer.qml" line="44"/>
-        <source>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #813CFF; font-size: 14px;}&lt;/style&gt;&lt;font size=&apos;2&apos;&gt; (&lt;/font&gt;&lt;a href=&apos;#&apos;&gt;Start daemon&lt;/a&gt;&lt;font size=&apos;2&apos;&gt;)&lt;/font&gt;</source>
-        <translation>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #813CFF; font-size: 14px;}&lt;/style&gt;&lt;font size=&apos;2&apos;&gt; (&lt;/font&gt;&lt;a href=&apos;#&apos;&gt;Starta lokal nod&lt;/a&gt;&lt;font size=&apos;2&apos;&gt;)&lt;/font&gt;</translation>
+        <source>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #6C8896; font-size: 14px;}&lt;/style&gt;&lt;font size=&apos;2&apos;&gt; (&lt;/font&gt;&lt;a href=&apos;#&apos;&gt;Start daemon&lt;/a&gt;&lt;font size=&apos;2&apos;&gt;)&lt;/font&gt;</source>
+        <translation>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #6C8896; font-size: 14px;}&lt;/style&gt;&lt;font size=&apos;2&apos;&gt; (&lt;/font&gt;&lt;a href=&apos;#&apos;&gt;Starta lokal nod&lt;/a&gt;&lt;font size=&apos;2&apos;&gt;)&lt;/font&gt;</translation>
     </message>
     <message>
         <location filename="../pages/Transfer.qml" line="197"/>
@@ -1308,8 +1308,8 @@
     </message>
     <message>
         <location filename="../pages/Transfer.qml" line="237"/>
-        <source>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #813CFF; font-size: 14px;}&lt;/style&gt;                      Address &lt;font size=&apos;2&apos;&gt;  ( Paste in or select from &lt;/font&gt; &lt;a href=&apos;#&apos;&gt;Address book&lt;/a&gt;&lt;font size=&apos;2&apos;&gt; )&lt;/font&gt;</source>
-        <translation>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #813CFF; font-size: 14px;}&lt;/style&gt;                      Adress &lt;font size=&apos;2&apos;&gt;  ( Klistra in eller välj från &lt;/font&gt; &lt;a href=&apos;#&apos;&gt;Adressbok&lt;/a&gt;&lt;font size=&apos;2&apos;&gt; )&lt;/font&gt;</translation>
+        <source>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #6C8896; font-size: 14px;}&lt;/style&gt;                      Address &lt;font size=&apos;2&apos;&gt;  ( Paste in or select from &lt;/font&gt; &lt;a href=&apos;#&apos;&gt;Address book&lt;/a&gt;&lt;font size=&apos;2&apos;&gt; )&lt;/font&gt;</source>
+        <translation>&lt;style type=&apos;text/css&apos;&gt;a {text-decoration: none; color: #6C8896; font-size: 14px;}&lt;/style&gt;                      Adress &lt;font size=&apos;2&apos;&gt;  ( Klistra in eller välj från &lt;/font&gt; &lt;a href=&apos;#&apos;&gt;Adressbok&lt;/a&gt;&lt;font size=&apos;2&apos;&gt; )&lt;/font&gt;</translation>
     </message>
     <message>
         <location filename="../pages/Transfer.qml" line="255"/>
@@ -1582,13 +1582,13 @@ Uppgradera eller anslut till en annan nod</translation>
     <name>WizardConfigure</name>
     <message>
         <location filename="../wizard/WizardConfigure.qml" line="79"/>
-        <source>We’re almost there - let’s just configure some Monero preferences</source>
-        <translation>Vi är nästan klara - låt oss bara göra några Monero-inställningar</translation>
+        <source>We’re almost there - let’s just configure some Lethean preferences</source>
+        <translation>Vi är nästan klara - låt oss bara göra några Lethean-inställningar</translation>
     </message>
     <message>
         <location filename="../wizard/WizardConfigure.qml" line="97"/>
-        <source>Kickstart the Monero blockchain?</source>
-        <translation>Kickstarta Monero-blockkedjan?</translation>
+        <source>Kickstart the Lethean blockchain?</source>
+        <translation>Kickstarta Lethean-blockkedjan?</translation>
     </message>
     <message>
         <location filename="../wizard/WizardConfigure.qml" line="115"/>
@@ -1602,8 +1602,8 @@ Uppgradera eller anslut till en annan nod</translation>
     </message>
     <message>
         <location filename="../wizard/WizardConfigure.qml" line="144"/>
-        <source>Disk conservation mode uses substantially less disk-space, but the same amount of bandwidth as a regular Monero instance. However, storing the full blockchain is beneficial to the security of the Monero network. If you are on a device with limited disk space, then this option is appropriate for you.</source>
-        <translation>Disksparläge använder markant mindre diskutrymme, men samma mängd bandbredd som en vanlig Monero-instans. Att spara hela blockkedjan är fördelaktigt för säkerheten för hela Monero-nätverket. Om du använder en enhet med begränsat diskutrymme så är denna inställning lämpad för dig.</translation>
+        <source>Disk conservation mode uses substantially less disk-space, but the same amount of bandwidth as a regular Lethean instance. However, storing the full blockchain is beneficial to the security of the Lethean network. If you are on a device with limited disk space, then this option is appropriate for you.</source>
+        <translation>Disksparläge använder markant mindre diskutrymme, men samma mängd bandbredd som en vanlig Lethean-instans. Att spara hela blockkedjan är fördelaktigt för säkerheten för hela Lethean-nätverket. Om du använder en enhet med begränsat diskutrymme så är denna inställning lämpad för dig.</translation>
     </message>
     <message>
         <location filename="../wizard/WizardConfigure.qml" line="157"/>
@@ -1612,8 +1612,8 @@ Uppgradera eller anslut till en annan nod</translation>
     </message>
     <message>
         <location filename="../wizard/WizardConfigure.qml" line="175"/>
-        <source>Mining secures the Monero network, and also pays a small reward for the work done. This option will let Monero mine when your computer is on mains power and is idle. It will stop mining when you continue working.</source>
-        <translation>Utvinning säkerställer Monero-nätverket, och betalar även en liten belöning för arbetet som utförs. Denna inställning låter Monero jobba när din dator körs på fast ström och inte används. Den kommer att sluta jobba när du använder datorn igen.</translation>
+        <source>Mining secures the Lethean network, and also pays a small reward for the work done. This option will let Lethean mine when your computer is on mains power and is idle. It will stop mining when you continue working.</source>
+        <translation>Utvinning säkerställer Lethean-nätverket, och betalar även en liten belöning för arbetet som utförs. Denna inställning låter Lethean jobba när din dator körs på fast ström och inte används. Den kommer att sluta jobba när du använder datorn igen.</translation>
     </message>
 </context>
 <context>
@@ -1636,8 +1636,8 @@ Uppgradera eller anslut till en annan nod</translation>
     <name>WizardDonation</name>
     <message>
         <location filename="../wizard/WizardDonation.qml" line="93"/>
-        <source>Monero development is solely supported by donations</source>
-        <translation>Utvecklingen av Monero finansieras helt genom donationer</translation>
+        <source>Lethean development is solely supported by donations</source>
+        <translation>Utvecklingen av Lethean finansieras helt genom donationer</translation>
     </message>
     <message>
         <location filename="../wizard/WizardDonation.qml" line="113"/>
@@ -1651,8 +1651,8 @@ Uppgradera eller anslut till en annan nod</translation>
     </message>
     <message>
         <location filename="../wizard/WizardDonation.qml" line="164"/>
-        <source>For every transaction, a small transaction fee is charged. This option lets you add an additional amount, as a percentage of that fee, to your transaction to support Monero development. For instance, a 50% autodonation take a transaction fee of 0.005 XMR and add a 0.0025 XMR to support Monero development.</source>
-        <translation>En liten överföringsavgift tas ut för varje överföring. Denna inställning låter dig lägga till ett ytterligare belopp, som en procent av den avgiften, till din överföring för att stödja utveckligen av Monero. Till exempel, en 50 % automatisk donation tar en överföringsavgift på 0,005 XMR och lägger på 0,0025 XMR för att stödja utvecklingen av Monero.</translation>
+        <source>For every transaction, a small transaction fee is charged. This option lets you add an additional amount, as a percentage of that fee, to your transaction to support Lethean development. For instance, a 50% autodonation take a transaction fee of 0.005 XMR and add a 0.0025 XMR to support Lethean development.</source>
+        <translation>En liten överföringsavgift tas ut för varje överföring. Denna inställning låter dig lägga till ett ytterligare belopp, som en procent av den avgiften, till din överföring för att stödja utveckligen av Lethean. Till exempel, en 50 % automatisk donation tar en överföringsavgift på 0,005 XMR och lägger på 0,0025 XMR för att stödja utvecklingen av Lethean.</translation>
     </message>
     <message>
         <location filename="../wizard/WizardDonation.qml" line="176"/>
@@ -1661,8 +1661,8 @@ Uppgradera eller anslut till en annan nod</translation>
     </message>
     <message>
         <location filename="../wizard/WizardDonation.qml" line="194"/>
-        <source>Mining secures the Monero network, and also pays a small reward for the work done. This option will let Monero mine when your computer is on mains power and is idle. It will stop mining when you continue working.</source>
-        <translation>Utvinning säkerställer Monero-nätverket, och betalar även en liten belöning för arbetet som utförs. Denna inställning låter Monero jobba när din dator körs på fast ström och inte används. Den kommer att sluta jobba när du använder datorn igen.</translation>
+        <source>Mining secures the Lethean network, and also pays a small reward for the work done. This option will let Lethean mine when your computer is on mains power and is idle. It will stop mining when you continue working.</source>
+        <translation>Utvinning säkerställer Lethean-nätverket, och betalar även en liten belöning för arbetet som utförs. Denna inställning låter Lethean jobba när din dator körs på fast ström och inte används. Den kommer att sluta jobba när du använder datorn igen.</translation>
     </message>
 </context>
 <context>
@@ -2080,8 +2080,8 @@ Avgift: </translation>
     </message>
     <message>
         <location filename="../main.qml" line="1024"/>
-        <source>Monero</source>
-        <translation>Monero</translation>
+        <source>Lethean</source>
+        <translation>Lethean</translation>
     </message>
     <message>
         <location filename="../main.qml" line="1072"/>
@@ -2099,8 +2099,8 @@ Ringstorlek:</translation>
     </message>
     <message>
         <location filename="../main.qml" line="729"/>
-        <source>This address received %1 monero, but the transaction is not yet mined</source>
-        <translation>Denna adress tog emot %1 monero, men överföringen har ännu inte bekräftats</translation>
+        <source>This address received %1 lethean, but the transaction is not yet mined</source>
+        <translation>Denna adress tog emot %1 lethean, men överföringen har ännu inte bekräftats</translation>
     </message>
     <message>
         <location filename="../main.qml" line="738"/>
@@ -2137,8 +2137,8 @@ Ringstorlek:</translation>
     </message>
     <message>
         <location filename="../main.qml" line="734"/>
-        <source>This address received %1 monero, with %2 confirmation(s).</source>
-        <translation>Denna adress tog emot %1 monero, med %2 bekräftelse(r).</translation>
+        <source>This address received %1 lethean, with %2 confirmation(s).</source>
+        <translation>Denna adress tog emot %1 lethean, med %2 bekräftelse(r).</translation>
     </message>
     <message>
         <location filename="../main.qml" line="750"/>
@@ -2167,8 +2167,8 @@ Ringstorlek:</translation>
     </message>
     <message>
         <location filename="../main.qml" line="1361"/>
-        <source>New version of monero-wallet-gui is available: %1&lt;br&gt;%2</source>
-        <translation>Ny version av monero-wallet-gui finns tillgänglig: %1&lt;br&gt;%2</translation>
+        <source>New version of lethean-wallet-gui is available: %1&lt;br&gt;%2</source>
+        <translation>Ny version av lethean-wallet-gui finns tillgänglig: %1&lt;br&gt;%2</translation>
     </message>
 </context>
 </TS>

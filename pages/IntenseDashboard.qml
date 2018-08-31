@@ -295,9 +295,10 @@ Rectangle {
                 haproxyStats[9] = haproxyStats[9].replace('"', '')
                 transferredTextLine.color = "#000000"
                 transferredTextLine.font.bold = false
-                appWindow.persistentSettings.transferredTextLineTimeLeft = "Download: "+formatBytes(parseInt(haproxyStats[8]))+" / Upload: "+ formatBytes(parseInt(haproxyStats[9]));
-                transferredTextLine.text = "Download: "+formatBytes(parseInt(haproxyStats[8]))+" / Upload: "+ formatBytes(parseInt(haproxyStats[9]))
-            }else if(xmlhttp.readyState == 4){
+                appWindow.persistentSettings.transferredTextLineTimeLeft = "Download: " + formatBytes(parseInt(haproxyStats[9])) + " / Upload: " + formatBytes(parseInt(haproxyStats[8]));
+                transferredTextLine.text = "Download: " + formatBytes(parseInt(haproxyStats[9])) + " / Upload: " + formatBytes(parseInt(haproxyStats[8]))
+            }
+			else if(xmlhttp.readyState == 4) {
                 var host = applicationDirectory;
                 var endpoint = ''
                 var port = ''
@@ -974,10 +975,10 @@ Rectangle {
               anchors.bottomMargin: 17
               width: 80
               text: qsTr("Connect") + translationManager.emptyString
-              shadowReleasedColor: "#983CFF"
-              shadowPressedColor: "#B32D00"
-              releasedColor: "#813CFF"
-              pressedColor: "#983CFF"
+              shadowReleasedColor: "#A7B8C0"
+              shadowPressedColor: "#666e71"
+              releasedColor: "#6C8896"
+              pressedColor: "#A7B8C0"
 
               onClicked:{
                   connectPopup.title = "Connection Confirmation";
@@ -1053,7 +1054,7 @@ Rectangle {
                   MouseArea {
                       anchors.fill: parent
                       onClicked: {
-                          parent.color = '#4D0051'
+                          parent.color = '#A7B8C0'
                           rank2.color = "#c4c4c4"
                           rank3.color = "#c4c4c4"
                           rank4.color = "#c4c4c4"
@@ -1087,7 +1088,7 @@ Rectangle {
                   MouseArea {
                       anchors.fill: parent
                       onClicked: {
-                          parent.color = '#4D0051'
+                          parent.color = '#A7B8C0'
                           rank1.color = "#c4c4c4"
                           rank3.color = "#c4c4c4"
                           rank4.color = "#c4c4c4"
@@ -1120,7 +1121,7 @@ Rectangle {
                   MouseArea {
                       anchors.fill: parent
                       onClicked: {
-                          parent.color = '#4D0051'
+                          parent.color = '#A7B8C0'
                           rank2.color = "#c4c4c4"
                           rank1.color = "#c4c4c4"
                           rank4.color = "#c4c4c4"
@@ -1154,7 +1155,7 @@ Rectangle {
                   MouseArea {
                       anchors.fill: parent
                       onClicked: {
-                          parent.color = '#4D0051'
+                          parent.color = '#A7B8C0'
                           rank2.color = "#c4c4c4"
                           rank3.color = "#c4c4c4"
                           rank1.color = "#c4c4c4"
@@ -1188,7 +1189,7 @@ Rectangle {
                   MouseArea {
                       anchors.fill: parent
                       onClicked: {
-                          parent.color = '#4D0051'
+                          parent.color = '#A7B8C0'
                           rank2.color = "#c4c4c4"
                           rank3.color = "#c4c4c4"
                           rank4.color = "#c4c4c4"
@@ -1236,7 +1237,7 @@ Rectangle {
                   MouseArea {
                       anchors.fill: parent
                       onClicked: {
-                          parent.color = '#4D0051'
+                          parent.color = '#A7B8C0'
                           rankQ2.color = "#c4c4c4"
                           rankQ3.color = "#c4c4c4"
                           rankQ4.color = "#c4c4c4"
@@ -1270,7 +1271,7 @@ Rectangle {
                   MouseArea {
                       anchors.fill: parent
                       onClicked: {
-                          parent.color = '#4D0051'
+                          parent.color = '#A7B8C0'
                           rankQ1.color = "#c4c4c4"
                           rankQ3.color = "#c4c4c4"
                           rankQ4.color = "#c4c4c4"
@@ -1303,7 +1304,7 @@ Rectangle {
                   MouseArea {
                       anchors.fill: parent
                       onClicked: {
-                          parent.color = '#4D0051'
+                          parent.color = '#A7B8C0'
                           rankQ2.color = "#c4c4c4"
                           rankQ1.color = "#c4c4c4"
                           rankQ4.color = "#c4c4c4"
@@ -1337,7 +1338,7 @@ Rectangle {
                   MouseArea {
                       anchors.fill: parent
                       onClicked: {
-                          parent.color = '#4D0051'
+                          parent.color = '#A7B8C0'
                           rankQ2.color = "#c4c4c4"
                           rankQ3.color = "#c4c4c4"
                           rankQ1.color = "#c4c4c4"
@@ -1371,7 +1372,7 @@ Rectangle {
                   MouseArea {
                       anchors.fill: parent
                       onClicked: {
-                          parent.color = '#4D0051'
+                          parent.color = '#A7B8C0'
                           rankQ2.color = "#c4c4c4"
                           rankQ3.color = "#c4c4c4"
                           rankQ4.color = "#c4c4c4"
@@ -1403,10 +1404,10 @@ Rectangle {
               anchors.rightMargin: 17
               anchors.bottomMargin: 17
               width: 120
-              shadowReleasedColor: "#983CFF"
-              shadowPressedColor: "#B32D00"
-              releasedColor: "#813CFF"
-              pressedColor: "#983CFF"
+              shadowReleasedColor: "#A7B8C0"
+              shadowPressedColor: "#666e71"
+              releasedColor: "#6C8896"
+              pressedColor: "#A7B8C0"
 
               onClicked:{
                   flag = 0
@@ -1767,7 +1768,7 @@ Rectangle {
 
     Timer {
         id: timerHaproxy
-        interval: 1000
+        interval: 10000
         repeat: true
         running: false
 

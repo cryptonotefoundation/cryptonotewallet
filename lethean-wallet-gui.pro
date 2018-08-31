@@ -2,7 +2,7 @@ TEMPLATE = app
 
 QT += qml quick widgets
 
-WALLET_ROOT=$$PWD/intense
+WALLET_ROOT=$$PWD/lethean
 
 CONFIG += c++11
 
@@ -413,7 +413,7 @@ OTHER_FILES += \
 
 DISTFILES += \
     notes.txt \
-    intense/src/wallet/CMakeLists.txt \
+    lethean/src/wallet/CMakeLists.txt \
     components/MobileHeader.qml \
     pages/intense.qml
     components/MobileHeader.qml

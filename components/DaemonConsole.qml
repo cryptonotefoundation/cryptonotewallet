@@ -110,10 +110,10 @@ Window {
                 id: okButton
                 width: 120
                 fontSize: 14
-                shadowReleasedColor: "#983CFF"
-                shadowPressedColor: "#B32D00"
-                releasedColor: "#813CFF"
-                pressedColor: "#983CFF"
+                shadowReleasedColor: "#A7B8C0"
+                shadowPressedColor: "#666e71"
+                releasedColor: "#6C8896"
+                pressedColor: "#A7B8C0"
                 text: qsTr("Close") + translationManager.emptyString
                 onClicked: {
                     root.close()
@@ -138,10 +138,10 @@ Window {
 //                id: sendCommandButton
 //                enabled: sendCommandText.text.length > 0
 //                fontSize: 14
-//                shadowReleasedColor: "#983CFF"
-//                shadowPressedColor: "#B32D00"
-//                releasedColor: "#813CFF"
-//                pressedColor: "#983CFF"
+//                shadowReleasedColor: "#A7B8C0"
+//                shadowPressedColor: "#666e71"
+//                releasedColor: "#6C8896"
+//                pressedColor: "#A7B8C0"
 //                text: qsTr("Send command")
 //                onClicked: {
 //                    daemonManager.sendCommand(sendCommandText.text,currentWallet.testnet);

@@ -18,11 +18,11 @@ fi
 cd ..
 
 echo "CI: Creating release archive..."
-RELEASE_NAME="intensecoin-gui-win-32bit-$BUILD_VERSION"
+RELEASE_NAME="lethean-gui-win-32bit-$BUILD_VERSION"
 cd build/release/bin/
 mkdir $RELEASE_NAME
-cp intensecoind.exe $RELEASE_NAME/
-cp intensecoin-wallet-gui.exe $RELEASE_NAME/
+cp letheand.exe $RELEASE_NAME/
+cp lethean-wallet-gui.exe $RELEASE_NAME/
 cp -R Qt* $RELEASE_NAME/
 cp -R audio $RELEASE_NAME/
 cp -R bearer $RELEASE_NAME/

@@ -8,14 +8,17 @@ ROOT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 source $ROOT_DIR/utils.sh
 
 INSTALL_DIR=$ROOT_DIR/wallet
-MONERO_DIR=$ROOT_DIR/intense
+MONERO_DIR=$ROOT_DIR/lethean
 BUILD_LIBWALLET=false
 
 # init and update monero submodule
 if [ ! -d $MONERO_DIR/src ]; then
-    git submodule init intense
+    git submodule init lethean
 fi
 git submodule update --remote
+cd lethean
+git checkout letheanize
+cd ..
 
 ## get monero core tag
 #get_tag
@@ -49,7 +52,7 @@ if [ ! -f $MONERO_DIR/lib/libwallet_merged.a ]; then
     BUILD_LIBWALLET=true
 # Build libwallet if no previous version file exists
 elif [ ! -f $MONERO_DIR/version.sh ]; then
-    echo "intense/version.h not found - Building libwallet"
+    echo "lethean/version.h not found - Building libwallet"
     BUILD_LIBWALLET=true
 ## Compare previously built version with submodule + merged PR's version.
 else
@@ -65,7 +68,7 @@ else
         echo "Building new libwallet version $GUI_MONERO_VERSION"
         BUILD_LIBWALLET=true
     else
-        echo "latest libwallet ($GUI_MONERO_VERSION) is already built. Remove intense/lib/libwallet_merged.a to force rebuild"
+        echo "latest libwallet ($GUI_MONERO_VERSION) is already built. Remove lethean/lib/libwallet_merged.a to force rebuild"
     fi
 fi
 

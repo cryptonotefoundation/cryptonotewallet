@@ -87,10 +87,10 @@ Rectangle {
             id: sendButton
             width: 60
             text: qsTr("SEND")
-            shadowReleasedColor: "#983CFF"
-            shadowPressedColor: "#B32D00"
-            releasedColor: "#813CFF"
-            pressedColor: "#983CFF"
+            shadowReleasedColor: "#A7B8C0"
+            shadowPressedColor: "#666e71"
+            releasedColor: "#6C8896"
+            pressedColor: "#A7B8C0"
         }
 
         Text {
@@ -99,7 +99,7 @@ Rectangle {
             font.pixelSize: 12
             color: "#545454"
             textFormat: Text.RichText
-            text: qsTr("<style type='text/css'>a {text-decoration: none; color: #813CFF; font-size: 14px;}</style>\
+            text: qsTr("<style type='text/css'>a {text-decoration: none; color: #6C8896; font-size: 14px;}</style>\
                         looking for security level and address book? go to <a href='#'>Transfer</a> tab")
                      + translationManager.emptyString
             font.underline: false

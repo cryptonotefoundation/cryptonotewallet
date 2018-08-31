@@ -188,7 +188,7 @@ Rectangle {
 
 
     function createJsonFeedback(obj, rank){
-        var url = Config.url+Config.stage+Config.version+Config.feedback+Config.setup
+        var url = Config.url + Config.stage + Config.version + Config.feedback + Config.setup
         var xmlhttpPost = new XMLHttpRequest();
         xmlhttpPost.onreadystatechange=function() {
             if (xmlhttpPost.readyState == 4 && xmlhttpPost.status == 200) {
@@ -198,10 +198,11 @@ Rectangle {
 
                 var endpoint = ''
                 var port = ''
-                if(obj.proxy.length > 0){
+                if (obj.proxy.length > 0) {
                     endpoint = obj.proxy[0].endpoint
                     port = obj.proxy[0].port
-                }else{
+                }
+				else {
                     endpoint = obj.vpn[0].endpoint
                     port = obj.vpn[0].port
                 }
@@ -460,13 +461,14 @@ Rectangle {
 
     function getJson(speed, speedType, price, tp, favorite){
 
-        if(speed != undefined){
+        if (speed != undefined) {
             speed = speed * 1024
-            if(speedType == "mb"){
+            if (speedType == "mb") {
                 speed = speed * 1024
             }
         }
-        var url = Config.url+Config.stage+Config.version+Config.services+Config.search
+		
+        var url = Config.url + Config.stage + Config.version + Config.services + Config.search
         var xmlhttp = new XMLHttpRequest();
         listView.model.clear()
         xmlhttp.onreadystatechange=function() {
@@ -475,11 +477,11 @@ Rectangle {
                 loading.visible = false
                 var arr = JSON.parse(xmlhttp.responseText)
 
-                for(var i = 0; i < arr.length; i++) {
+                for (var i = 0; i < arr.length; i++) {
                     getSignature(arr, arr[i], i, speed, speedType, price, tp, favorite)
-
                 }
-            }else if(xmlhttp.readyState == 4){
+            }
+			else if(xmlhttp.readyState == 4) {
                 var urlGEO = "https://geoip.nekudo.com/api/"
                 var xmlGEOhttp = new XMLHttpRequest();
 
@@ -488,7 +490,8 @@ Rectangle {
                     loading.visible = false
                     if (xmlGEOhttp.readyState == 4 && xmlGEOhttp.status == 200) {
                         getJsonFail.text = "Error status - SDP: " + xmlhttp.status + "<br />Error readyState - SDP: " + xmlhttp.readyState + "<br />" + xmlhttp.responseText + "<br /><br />" + "Status - GEO: " + xmlGEOhttp.status
-                    }else if(xmlGEOhttp.readyState == 4){
+                    }
+					else if(xmlGEOhttp.readyState == 4) {
                         getJsonFail.text = "Error status - SDP: " + xmlhttp.status + "<br />Error readyState - SDP: " + xmlhttp.readyState + "<br />" + xmlhttp.responseText + "<br /><br />" + "Error Status - GEO: " + xmlGEOhttp.status
                     }
                 }
@@ -592,10 +595,10 @@ Rectangle {
           anchors.leftMargin: 17
           anchors.topMargin: 5
           width: 100
-          shadowReleasedColor: "#4D0051"
-          shadowPressedColor: "#2D002F"
-          releasedColor: "#6B0072"
-          pressedColor: "#4D0051"
+          shadowReleasedColor: "#A7B8C0"
+          shadowPressedColor: "#666e71"
+          releasedColor: "#6C8896"
+          pressedColor: "#A7B8C0"
           dataModel: typeTransaction
           z: 100
       }
@@ -659,10 +662,10 @@ Rectangle {
           anchors.leftMargin: 0
           anchors.topMargin: 5
           width: 80
-          shadowReleasedColor: "#4D0051"
-          shadowPressedColor: "#2D002F"
-          releasedColor: "#6B0072"
-          pressedColor: "#4D0051"
+          shadowReleasedColor: "#A7B8C0"
+          shadowPressedColor: "#666e71"
+          releasedColor: "#6C8896"
+          pressedColor: "#A7B8C0"
           dataModel: typeSpeed
           z: 100
       }
@@ -692,10 +695,10 @@ Rectangle {
           anchors.topMargin: 40
           width: 60
           text: qsTr("Filter") + translationManager.emptyString
-          shadowReleasedColor: "#4D0051"
-          shadowPressedColor: "#2D002F"
-          releasedColor: "#6B0072"
-          pressedColor: "#4D0051"
+          shadowReleasedColor: "#A7B8C0"
+          shadowPressedColor: "#666e71"
+          releasedColor: "#6C8896"
+          pressedColor: "#A7B8C0"
           onClicked:  {
               getJson(minSpeedLine.text, typeSpeed.get(speedDrop.currentIndex).value, parseFloat(maxPriceLine.text), typeTransaction.get(typeDrop.currentIndex).value, favoriteFilter.checked)
           }
@@ -867,10 +870,10 @@ Rectangle {
                             anchors.topMargin: 0
                             width: 80
                             text: qsTr("Connect") + translationManager.emptyString
-                            shadowReleasedColor: "#983CFF"
-                            shadowPressedColor: "#B32D00"
-                            releasedColor: "#813CFF"
-                            pressedColor: "#983CFF"
+                            shadowReleasedColor: "#A7B8C0"
+                            shadowPressedColor: "#666e71"
+                            releasedColor: "#6C8896"
+                            pressedColor: "#A7B8C0"
 
                             onClicked:{
                                 connectPopup.title = "Connection Confirmation";
@@ -891,10 +894,10 @@ Rectangle {
                             anchors.topMargin: 2
                             width: 80
                             text: qsTr("Details") + translationManager.emptyString
-                            shadowReleasedColor: "#983CFF"
-                            shadowPressedColor: "#B32D00"
-                            releasedColor: "#813CFF"
-                            pressedColor: "#983CFF"
+                            shadowReleasedColor: "#A7B8C0"
+                            shadowPressedColor: "#666e71"
+                            releasedColor: "#6C8896"
+                            pressedColor: "#A7B8C0"
                             onClicked:  {
                                 detailsPopup.title = "Services details";
                                 detailsPopup.content = buildTxDetailsString(obj,rank);

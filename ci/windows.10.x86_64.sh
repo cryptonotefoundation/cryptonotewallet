@@ -18,11 +18,11 @@ fi
 cd ..
 
 echo "CI: Creating release archive..."
-RELEASE_NAME="intensecoin-gui-win-64bit-$BUILD_VERSION"
+RELEASE_NAME="lethean-gui-win-64bit-$BUILD_VERSION"
 cd build/release/bin/
 mkdir $RELEASE_NAME
-cp intensecoind.exe $RELEASE_NAME/
-cp intensecoin-wallet-gui.exe $RELEASE_NAME/
+cp letheand.exe $RELEASE_NAME/
+cp lethean-wallet-gui.exe $RELEASE_NAME/
 cp /c/msys64/mingw64/bin/libeay32.dll $RELEASE_NAME/
 cp /c/msys64/mingw64/bin/ssleay32.dll $RELEASE_NAME/
 cp *.dll $RELEASE_NAME/
