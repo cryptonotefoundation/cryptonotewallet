@@ -127,8 +127,8 @@ Rectangle {
         anchors.bottom: parent.bottom
 
         Rectangle { height: 8; width: parent.width / 5; color: "#FFE00A" }
-        Rectangle { height: 8; width: parent.width / 5; color: "#6B0072" }
-        Rectangle { height: 8; width: parent.width / 5; color: "#813CFF" }
+        Rectangle { height: 8; width: parent.width / 5; color: "#6C8896" }
+        Rectangle { height: 8; width: parent.width / 5; color: "#6C8896" }
         Rectangle { height: 8; width: parent.width / 5; color: "#FFD781" }
         Rectangle { height: 8; width: parent.width / 5 - 30; color: "#FF4F41" }
     }

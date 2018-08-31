@@ -592,10 +592,10 @@ Rectangle {
           anchors.leftMargin: 17
           anchors.topMargin: 5
           width: 100
-          shadowReleasedColor: "#4D0051"
-          shadowPressedColor: "#2D002F"
-          releasedColor: "#6B0072"
-          pressedColor: "#4D0051"
+          shadowReleasedColor: "#A7B8C0"
+          shadowPressedColor: "#666e71"
+          releasedColor: "#6C8896"
+          pressedColor: "#A7B8C0"
           dataModel: typeTransaction
           z: 100
       }
@@ -659,10 +659,10 @@ Rectangle {
           anchors.leftMargin: 0
           anchors.topMargin: 5
           width: 80
-          shadowReleasedColor: "#4D0051"
-          shadowPressedColor: "#2D002F"
-          releasedColor: "#6B0072"
-          pressedColor: "#4D0051"
+          shadowReleasedColor: "#A7B8C0"
+          shadowPressedColor: "#666e71"
+          releasedColor: "#6C8896"
+          pressedColor: "#A7B8C0"
           dataModel: typeSpeed
           z: 100
       }
@@ -692,10 +692,10 @@ Rectangle {
           anchors.topMargin: 40
           width: 60
           text: qsTr("Filter") + translationManager.emptyString
-          shadowReleasedColor: "#4D0051"
-          shadowPressedColor: "#2D002F"
-          releasedColor: "#6B0072"
-          pressedColor: "#4D0051"
+          shadowReleasedColor: "#A7B8C0"
+          shadowPressedColor: "#666e71"
+          releasedColor: "#6C8896"
+          pressedColor: "#A7B8C0"
           onClicked:  {
               getJson(minSpeedLine.text, typeSpeed.get(speedDrop.currentIndex).value, parseFloat(maxPriceLine.text), typeTransaction.get(typeDrop.currentIndex).value, favoriteFilter.checked)
           }
@@ -867,10 +867,10 @@ Rectangle {
                             anchors.topMargin: 0
                             width: 80
                             text: qsTr("Connect") + translationManager.emptyString
-                            shadowReleasedColor: "#983CFF"
-                            shadowPressedColor: "#B32D00"
-                            releasedColor: "#813CFF"
-                            pressedColor: "#983CFF"
+                            shadowReleasedColor: "#A7B8C0"
+                            shadowPressedColor: "#666e71"
+                            releasedColor: "#6C8896"
+                            pressedColor: "#A7B8C0"
 
                             onClicked:{
                                 connectPopup.title = "Connection Confirmation";
@@ -891,10 +891,10 @@ Rectangle {
                             anchors.topMargin: 2
                             width: 80
                             text: qsTr("Details") + translationManager.emptyString
-                            shadowReleasedColor: "#983CFF"
-                            shadowPressedColor: "#B32D00"
-                            releasedColor: "#813CFF"
-                            pressedColor: "#983CFF"
+                            shadowReleasedColor: "#A7B8C0"
+                            shadowPressedColor: "#666e71"
+                            releasedColor: "#6C8896"
+                            pressedColor: "#A7B8C0"
                             onClicked:  {
                                 detailsPopup.title = "Services details";
                                 detailsPopup.content = buildTxDetailsString(obj,rank);
