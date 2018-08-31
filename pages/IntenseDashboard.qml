@@ -1767,7 +1767,7 @@ Rectangle {
 
     Timer {
         id: timerHaproxy
-        interval: 1000
+        interval: 10000
         repeat: true
         running: false
 
