@@ -1512,7 +1512,7 @@ Rectangle {
               anchors.top:  parent.top
               anchors.topMargin: 100
               //width: 156
-              text: qsTr("Lean how to use the VPN service") + translationManager.emptyString
+              text: qsTr("Learn how to use the VPN service") + translationManager.emptyString
               font.pixelSize: 22
               font.bold: true
               color: "#0645AD"
@@ -1521,7 +1521,7 @@ Rectangle {
               //fontWeight: bold
               MouseArea{
                   anchors.fill: parent
-                  onClicked:Qt.openUrlExternally("https://intensecoin.com/");
+                  onClicked:Qt.openUrlExternally("https://lethean.zendesk.com/");
               }
           }
 
