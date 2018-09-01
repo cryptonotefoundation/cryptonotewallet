@@ -630,8 +630,8 @@ Rectangle {
             waitHaproxyPopup.close();
         }else if(waitHaproxy == 0){
             waitHaproxy = 1
-            waitHaproxyPopup.title = "Waiting the payment balance";
-            waitHaproxyPopup.content = "The proxy will be run in a few minuts.";
+            waitHaproxyPopup.title = "Waiting for payment balance";
+            waitHaproxyPopup.content = "The proxy may not work until the provider receives your payment.";
             waitHaproxyPopup.open();
         }
 
