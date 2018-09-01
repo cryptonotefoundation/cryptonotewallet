@@ -751,6 +751,14 @@ void MainWindow::exportTrackingKey() {
 void MainWindow::signMessage() {
   SignMessageDialog dlg(this);
   dlg.walletOpened();
+  dlg.sign();
+  dlg.exec();
+}
+
+void MainWindow::verifyMessage() {
+  SignMessageDialog dlg(this);
+  dlg.walletOpened();
+  dlg.verify();
   dlg.exec();
 }
 

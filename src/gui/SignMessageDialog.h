@@ -15,6 +15,8 @@ class SignMessageDialog : public QDialog {
 
 public:
     SignMessageDialog(QWidget * _parent);
+    void sign();
+    void verify();
     void walletOpened();
     void walletClosed();
     ~SignMessageDialog();
@@ -23,8 +25,8 @@ private:
     QString m_address;
 
     Q_SLOT void messageChanged();
-    Q_SLOT void copySignature();
-    Q_SLOT void saveSignatureToFile();
+    Q_SLOT void verifyMessage();
+    Q_SLOT void changeTitle(int _variant);
 
     QScopedPointer<Ui::SignMessageDialog> m_ui;
 };

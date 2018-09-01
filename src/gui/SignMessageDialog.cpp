@@ -8,6 +8,7 @@
 #include <QClipboard>
 #include <QFileDialog>
 #include <QTextStream>
+#include <QTabWidget>
 
 #include "Common/Base58.h"
 #include "Common/StringTools.h"
@@ -23,9 +24,24 @@ SignMessageDialog::SignMessageDialog(QWidget* _parent) : QDialog(_parent), m_ui(
   m_ui->setupUi(this);
   connect(&WalletAdapter::instance(), &WalletAdapter::walletInitCompletedSignal, this, &SignMessageDialog::walletOpened, Qt::QueuedConnection);
   connect(&WalletAdapter::instance(), &WalletAdapter::walletCloseCompletedSignal, this, &SignMessageDialog::walletClosed, Qt::QueuedConnection);
+  m_ui->m_verificationResult->setText("");
 }
 
 SignMessageDialog::~SignMessageDialog() {
+}
+
+void SignMessageDialog::sign() {
+  m_ui->m_tabWidget->setCurrentIndex(0);
+  changeTitle(0);
+}
+
+void SignMessageDialog::verify() {
+  m_ui->m_tabWidget->setCurrentIndex(1);
+  changeTitle(1);
+}
+
+void SignMessageDialog::changeTitle(int _variant) {
+  this->setWindowTitle(_variant == 0 ? tr("Sign message") : tr("Verify signed message"));
 }
 
 void SignMessageDialog::walletOpened() {
@@ -48,18 +64,34 @@ void SignMessageDialog::messageChanged() {
   m_ui->m_signatureEdit->setText(sig);
 }
 
-void SignMessageDialog::copySignature() {
-  QApplication::clipboard()->setText(m_ui->m_signatureEdit->toPlainText());
-}
-
-void SignMessageDialog::saveSignatureToFile() {
-  QString fileName = QFileDialog::getSaveFileName(&MainWindow::instance(), tr("Save signature to..."), QDir::homePath(), tr("Plain text (*.txt)"));
-  if (!fileName.isEmpty()) {
-    QFile f(fileName);
-    if (f.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
-      QTextStream outputStream(&f);
-      outputStream << m_ui->m_signatureEdit->toPlainText();
-      f.close();
+void SignMessageDialog::verifyMessage() {
+  m_ui->m_verificationResult->setText("");
+  CryptoNote::AccountPublicAddress acc = boost::value_initialized<CryptoNote::AccountPublicAddress>();
+  std::string addr_str = m_ui->m_addressEdit->text().trimmed().toStdString();
+  if(!addr_str.empty()) {
+    if(CurrencyAdapter::instance().getCurrency().parseAccountAddressString(addr_str, acc)) {
+      std::string message = m_ui->m_verifyMessageEdit->toPlainText().toUtf8().constData();
+      if(!message.empty()) {
+        Crypto::Hash hash;
+        Crypto::cn_fast_hash(message.data(), message.size(), hash);
+        std::string signature = m_ui->m_verifySignatureEdit->toPlainText().toStdString();
+        const size_t header_len = strlen("SigV1");
+        if (!signature.size() < header_len || signature.substr(0, header_len) == "SigV1") {
+          std::string decoded;
+          Crypto::Signature s;
+          if (Tools::Base58::decode(signature.substr(header_len), decoded) || sizeof(s) == decoded.size()) {
+            memcpy(&s, decoded.data(), sizeof(s));
+            bool valid = Crypto::check_signature(hash, acc.spendPublicKey, s);
+            if (valid) {
+              m_ui->m_verificationResult->setText(tr("Signature is valid"));
+              m_ui->m_verificationResult->setStyleSheet("QLabel { color : green; }");
+            } else {
+              m_ui->m_verificationResult->setText(tr("Signature is invalid!"));
+              m_ui->m_verificationResult->setStyleSheet("QLabel { color : red; }");
+            }
+          }
+        }
+      }
     }
   }
 }
