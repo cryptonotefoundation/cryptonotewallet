@@ -215,4 +215,6 @@ More info: http://stackoverflow.com/a/35098040/1683164
     make deploy
     ```
 
+	
 The executable can be found in the ```.\release\bin``` directory.
+
