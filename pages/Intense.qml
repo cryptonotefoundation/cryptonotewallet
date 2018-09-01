@@ -183,6 +183,7 @@ Rectangle {
         var max = Math.floor(99999999999999);
         hex = hex + (Math.floor(Math.random() * (max - min + 1)) + min)
         hexConfig = hex
+        appWindow.persistentSettings.hexId = hex.toString()
         return hexConfig
     }
 
@@ -209,7 +210,7 @@ Rectangle {
 
                 var certArray = decode64(obj.certArray[0].certContent); // "4pyTIMOgIGxhIG1vZGU="
                 callhaproxy.haproxyCert(host, certArray);
-                callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), 'haproxy', hexC(obj.id).toString())
+                callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), 'haproxy', hexC(obj.id).toString(), obj.provider)
                 intenseDashboardView.idService = obj.id
                 intenseDashboardView.feedback = feed.id
                 intenseDashboardView.providerName = obj.providerName

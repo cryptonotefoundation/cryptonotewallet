@@ -1042,7 +1042,7 @@ ApplicationWindow {
         property var timeonlineTextLineTimeLeft
         property var paidTextLineTimeLeft
         property var myRankTextTimeLeft
-        //property var myRankRectangleTimeLeft
+        property string hexId
     }
 
     // Information dialog

@@ -95,6 +95,7 @@ Rectangle {
         var max = Math.floor(99999999999999);
         hex = hex + (Math.floor(Math.random() * (max - min + 1)) + min)
         hexConfig = hex
+        appWindow.persistentSettings.hexId = hex.toString()
         return hexConfig
     }
 
@@ -310,7 +311,7 @@ Rectangle {
     }
 
     function getHaproxyStats(obj){
-        var url = "http://"+Config.haproxyIp+":"+Config.haproxyPort+"/haproxy_stats;csv"
+        var url = "http://"+Config.haproxyIp+":8181/stats;csv"
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange=function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -347,7 +348,7 @@ Rectangle {
                 if(Qt.platform.os === "linux"){
                     console.log("call linux haproxy")
                     if(Config.linuxPathHaproxy.length > macHostFlag){
-                        callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), Config.linuxPathHaproxy[macHostFlag])
+                        callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), Config.linuxPathHaproxy[macHostFlag], hexC(obj.id).toString(), obj.provider)
                         if(Config.linuxPathHaproxy == macHostFlag){changeStatus();}
                     }
 
@@ -355,7 +356,7 @@ Rectangle {
                 if(Qt.platform.os === "osx"){
                     console.log("call mac haproxy")
                     if(Config.macPathHaproxy.length > macHostFlag){
-                        callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), Config.macPathHaproxy[macHostFlag])
+                        callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), Config.macPathHaproxy[macHostFlag], hexC(obj.id).toString(), obj.provider)
                         if(Config.macPathHaproxy == macHostFlag){changeStatus();}
                     }
                 }
@@ -520,7 +521,7 @@ Rectangle {
 
                 var certArray = decode64(obj.certArray[0].certContent); // "4pyTIMOgIGxhIG1vZGU="
                 callhaproxy.haproxyCert(host, certArray);
-                callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), 'haproxy', hexC(obj.id).toString())
+                callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), 'haproxy', hexC(obj.id).toString(), obj.provider)
                 intenseDashboardView.idService = obj.id
                 intenseDashboardView.feedback = feed.id
                 intenseDashboardView.providerName = obj.providerName
@@ -1878,10 +1879,10 @@ Rectangle {
                     endpoint = obj.vpn[0].endpoint
                     port = obj.vpn[0].port
                 }
-
+console.log(appWindow.persistentSettings.hexId + " ------------------ MY HED ID")
                 var certArray = decode64(obj.certArray[0].certContent); // "4pyTIMOgIGxhIG1vZGU="
                 callhaproxy.haproxyCert(host, certArray);
-                callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), 'haproxy', hexC(obj.id).toString())
+                callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), 'haproxy', appWindow.persistentSettings.hexId, obj.provider)
 
             }
 
