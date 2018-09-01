@@ -24,7 +24,7 @@ Rectangle {
             + (data.provider ? trStart + qsTr("Provider: ") + trMiddle + data.provider  + trEnd : "")
             + (data.name ? trStart + qsTr("Plan: ") + trMiddle + data.name + trEnd : "")
             + (data.type ? trStart + qsTr("Type: ") + trMiddle + data.type  + trEnd : "")
-            + (data.cost ? trStart + qsTr("Price:") + trMiddle + data.cost + " "+Config.coinName+"/min" + trEnd : "")
+            + (data.cost ? trStart + qsTr("Price:") + trMiddle + data.cost+" "+Config.coinName+"/min" + trEnd : "")
             + (data.firstPrePaidMinutes ? trStart + qsTr("First Pre Paid Minutes:") + trMiddle + data.firstPrePaidMinutes + trEnd : "")
             + (data.firstVerificationsNeeded ? trStart + qsTr("First Verifications Needed:") + trMiddle + data.firstVerificationsNeeded + trEnd : "")
             + (data.subsequentPrePaidMinutes ? trStart + qsTr("Subsequent Pre Paid Minutes:") + trMiddle + data.subsequentPrePaidMinutes + trEnd : "")
@@ -48,6 +48,7 @@ Rectangle {
             + (data.name ? trStart + qsTr("Plan: ") + trMiddle + data.name + trEnd : "")
             + (data.type ? trStart + qsTr("Type: ") + trMiddle + data.type  + trEnd : "")
             + (data.cost ? trStart + qsTr("Price:") + trMiddle + data.cost+" "+Config.coinName+"/min" + trEnd : "")
+            + (data.cost ? trStart + qsTr("Total Price:") + trMiddle + (parseFloat(data.cost)*data.firstPrePaidMinutes).toFixed(8)+" "+Config.coinName + trEnd : "")
             + (data.firstPrePaidMinutes ? trStart + qsTr("First Pre Paid Minutes:") + trMiddle + data.firstPrePaidMinutes + trEnd : "")
             + "</table>"
             + translationManager.emptyString;
