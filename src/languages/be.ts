@@ -2166,7 +2166,7 @@ when the wallet is synchronized</source>
     </message>
     <message>
         <source>Key</source>
-        <translation type="unfinished"></translation>
+        <translation>Ключ</translation>
     </message>
 </context>
 <context>

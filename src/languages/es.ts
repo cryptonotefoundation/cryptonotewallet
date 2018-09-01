@@ -2158,7 +2158,7 @@ cuando la cartera termine de sincronizar</translation>
     </message>
     <message>
         <source>Key</source>
-        <translation type="unfinished"></translation>
+        <translation>Clave</translation>
     </message>
 </context>
 <context>

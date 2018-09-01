@@ -341,7 +341,7 @@ Por favor aguarde...</translation>
     </message>
     <message>
         <source>Key:</source>
-        <translation>Key:</translation>
+        <translation>Chave:</translation>
     </message>
     <message>
         <source>Wallet path:</source>
@@ -2165,7 +2165,7 @@ quando a carteira vai terminar de sincronizar</translation>
     </message>
     <message>
         <source>Key</source>
-        <translation type="unfinished"></translation>
+        <translation>Chave</translation>
     </message>
 </context>
 <context>

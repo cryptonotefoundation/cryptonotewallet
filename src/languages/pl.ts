@@ -2162,7 +2162,7 @@ kiedy portfel skończy synchronizowanie</translation>
     </message>
     <message>
         <source>Key</source>
-        <translation type="unfinished"></translation>
+        <translation>Klucz</translation>
     </message>
 </context>
 <context>
