@@ -636,6 +636,14 @@ Please wait...</source>
         <source>Sweep unmixable</source>
         <translation>Убрать несмешиваемые</translation>
     </message>
+    <message>
+        <source>Sign message</source>
+        <translation>Подписать сообщение</translation>
+    </message>
+    <message>
+        <source>Verify signed message</source>
+        <translation>Проверка подписанного сообщения</translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
@@ -1188,6 +1196,37 @@ Do you want to go to download page?</source>
     <message>
         <source>Close</source>
         <translation>Закрыть</translation>
+    </message>
+</context>
+<context>
+    <name>SignMessageDialog</name>
+    <message>
+        <source>Sign or verify message</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Закрыть</translation>
+    </message>
+    <message>
+        <source>Sign message</source>
+        <translation>Подписать сообщение</translation>
+    </message>
+    <message>
+        <source>Message</source>
+        <translation>Сообщение</translation>
+    </message>
+    <message>
+        <source>Signature</source>
+        <translation>Подпись</translation>
+    </message>
+    <message>
+        <source>Verify message</source>
+        <translation>Проверить сообщение</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Адрес</translation>
     </message>
 </context>
 <context>
@@ -1921,6 +1960,25 @@ Are you sure?</source>
 when the wallet is synchronized</source>
         <translation>Вы сможете отправлять %1
 когда кошелек завершит синхронизацию</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui::SignMessageDialog</name>
+    <message>
+        <source>Sign message</source>
+        <translation>Подписать сообщение</translation>
+    </message>
+    <message>
+        <source>Verify signed message</source>
+        <translation>Проверка подписанного сообщения</translation>
+    </message>
+    <message>
+        <source>Signature is valid</source>
+        <translation>Подпись действительна</translation>
+    </message>
+    <message>
+        <source>Signature is invalid!</source>
+        <translation>Подпись недействительна!</translation>
     </message>
 </context>
 <context>

@@ -636,6 +636,14 @@ Proszę czekać...</translation>
         <source>Sweep unmixable</source>
         <translation>Zmieszaj nieosiągalne wyjścia</translation>
     </message>
+    <message>
+        <source>Sign message</source>
+        <translation>Podpisz wiadomość</translation>
+    </message>
+    <message>
+        <source>Verify signed message</source>
+        <translation>Sprawdź podpis wiadomości</translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
@@ -1188,6 +1196,37 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
     <message>
         <source>Close</source>
         <translation>Zamknij</translation>
+    </message>
+</context>
+<context>
+    <name>SignMessageDialog</name>
+    <message>
+        <source>Sign or verify message</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Sign message</source>
+        <translation>Podpisz wiadomość</translation>
+    </message>
+    <message>
+        <source>Message</source>
+        <translation>Wiadomość</translation>
+    </message>
+    <message>
+        <source>Signature</source>
+        <translation>Podpis</translation>
+    </message>
+    <message>
+        <source>Verify message</source>
+        <translation>Zweryfikuj wiadomość</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Adres</translation>
     </message>
 </context>
 <context>
@@ -1928,6 +1967,25 @@ Jesteś pewien?</translation>
 when the wallet is synchronized</source>
         <translation>Będziesz mógł wysłać %1
 kiedy portfel skończy synchronizowanie</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui::SignMessageDialog</name>
+    <message>
+        <source>Sign message</source>
+        <translation>Podpisz wiadomość</translation>
+    </message>
+    <message>
+        <source>Verify signed message</source>
+        <translation>Sprawdź podpis wiadomości</translation>
+    </message>
+    <message>
+        <source>Signature is valid</source>
+        <translation>Podpis jest ważny</translation>
+    </message>
+    <message>
+        <source>Signature is invalid!</source>
+        <translation>Podpis jest nieważny!</translation>
     </message>
 </context>
 <context>
