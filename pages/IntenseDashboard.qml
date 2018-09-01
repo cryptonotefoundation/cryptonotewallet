@@ -623,9 +623,9 @@ Rectangle {
 
         var str = callhaproxy.verifyHaproxy(Config.haproxyIp, Config.haproxyPort, obj.provider).toString();
         str = String(str)
-        var n = str.search('status": "OK"');
-        var e = str.search("NO_PAYMENT")
-        if(n > 0){
+        //var n = str.search("OK");
+        //var e = str.search("NO_PAYMENT")
+        if(str.length == 3){
             //waitHaproxyPopup.title = "Waiting the payment";
             waitHaproxyPopup.close();
         }else if(waitHaproxy == 0){
