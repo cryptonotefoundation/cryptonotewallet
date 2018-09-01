@@ -629,7 +629,7 @@ Rectangle {
               //width: 156
               text: qsTr("Status") + translationManager.emptyString
               font.pixelSize: 20
-              color: "#6b0072"
+              color: "#6C8896"
               font.bold: true
               font.family: "Arial"
           }
@@ -682,7 +682,7 @@ Rectangle {
                 //width: 156
                 text: qsTr("Disconnected")+ translationManager.emptyString
                 font.pixelSize: 20
-                color: "#6b0072"
+                color: "#6C8896"
                 font.bold: true
             }
 
@@ -1008,7 +1008,7 @@ Rectangle {
                     text: qsTr(providerName) + translationManager.emptyString
                     font.pixelSize: 18
                     font.bold: true
-                    color: "#6b0072"
+                    color: "#6C8896"
                     //fontWeight: bold
                 }
 
@@ -1022,7 +1022,7 @@ Rectangle {
                     text: qsTr(name) + translationManager.emptyString
                     font.pixelSize: 16
                     font.bold: true
-                    color: "#6b0072"
+                    color: "#6C8896"
                     //fontWeight: bold
                 }
 
@@ -1529,7 +1529,7 @@ Rectangle {
               text: qsTr("Details") + translationManager.emptyString
               font.pixelSize: 18
               font.bold: true
-              color: "#6b0072"
+              color: "#6C8896"
               //fontWeight: bold
           }
 
@@ -1622,7 +1622,7 @@ Rectangle {
               //width: 156
               text: qsTr("Provider") + translationManager.emptyString
               font.pixelSize: 18
-              color: "#6b0072"
+              color: "#6C8896"
               font.bold: true
           }
 
