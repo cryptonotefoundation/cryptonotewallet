@@ -30,6 +30,7 @@
 #include "PrivateKeysDialog.h"
 #include "ExportTrackingKeyDialog.h"
 #include "ImportTrackingKeyDialog.h"
+#include "SignMessageDialog.h"
 #include "CurrencyAdapter.h"
 #include "ExitWidget.h"
 #include "ImportKeyDialog.h"
@@ -743,6 +744,12 @@ void MainWindow::showMnemonicSeed() {
 
 void MainWindow::exportTrackingKey() {
   ExportTrackingKeyDialog dlg(this);
+  dlg.walletOpened();
+  dlg.exec();
+}
+
+void MainWindow::signMessage() {
+  SignMessageDialog dlg(this);
   dlg.walletOpened();
   dlg.exec();
 }

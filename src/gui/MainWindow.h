@@ -119,6 +119,7 @@ private:
   Q_SLOT void openConnectionSettings();
   Q_SLOT void exportTrackingKey();
   Q_SLOT void importTrackingKey();
+  Q_SLOT void signMessage();
   Q_SLOT void openRecent();
   Q_SLOT void showStatusInfo();
   Q_SLOT void openLogFile();
