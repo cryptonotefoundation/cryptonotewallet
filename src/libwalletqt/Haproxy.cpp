@@ -119,3 +119,47 @@ void Haproxy::killHAproxy(){
         system("pkill -f haproxy");
     #endif
 }
+
+QString Haproxy::verifyHaproxy(const QString &host, const QString &ip, const QString &provider){
+    QString command = "";
+    QString v = "";
+
+    FILE *fp;
+    char path[1035];
+
+
+
+
+    #ifdef Q_OS_WIN
+        command="curl --proxy-header 'X-ITNS-MgmtId: "+provider+"' -x http://"+host+":"+ip+"/ http://_remote_/status";
+        return WinExec(qPrintable(command), SW_HIDE);
+    #else
+
+
+        command="curl -D /dev/stderr --proxy-header 'X-ITNS-MgmtId: "+provider+"' -x http://"+host+":"+ip+"/ http://_remote_/status";
+        /*
+        //v = system(qPrintable(command));
+        return v;
+        */
+
+        /* Open the command for reading. */
+        fp = popen(qPrintable(command), "r");
+        if (fp == NULL) {
+            printf("Failed to run command\n" );
+            exit(1);
+        }
+
+        /* Read the output a line at a time - output it. */
+        while (fgets(path, sizeof(path)-1, fp) != NULL) {
+            qDebug() << path;
+            qDebug() << v;
+            v = v + path;
+        }
+
+        /* close */
+        pclose(fp);
+
+        return v;
+
+    #endif
+}

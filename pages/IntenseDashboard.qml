@@ -34,6 +34,7 @@ Rectangle {
     property var timerPayment
     property var hexConfig
     property int firstPayment
+    property int waitHaproxy: 0
 
     function getITNS(){
         itnsStart = itnsStart + (parseFloat(cost)/firstPrePaidMinutes*subsequentPrePaidMinutes)
@@ -96,6 +97,29 @@ Rectangle {
         hexConfig = hex
         return hexConfig
     }
+
+    /*
+    function paymentVerify(){
+        console.log('enter payment -------------------')
+        var url = "http://localhost:6666/ http://_remote_/status"
+        var xmlhttpPost = new XMLHttpRequest();
+        xmlhttpPost.onreadystatechange=function() {
+            console.log(xmlhttpPost.status + " my status --------------------")
+            console.log(xmlhttpPost.readyState + " my readyState --------------------")
+            if (xmlhttpPost.readyState == 4 && xmlhttpPost.status == 200) {
+                var feed = JSON.parse(xmlhttpPost.responseText)
+                console.log(feed + "my feed")
+            }
+        }
+
+        xmlhttpPost.open("GET", url, true);
+        xmlhttpPost.setRequestHeader("X-ITNS-MgmtId", "7b08c778af3b28932185d7cc804b0cf399c05c9149613dc149dff5f30c8cd989");
+        xmlhttpPost.send();
+
+    }
+    */
+
+
 
     function setPayment(){
         console.log("Transfer: paymentClicked")
@@ -180,6 +204,8 @@ Rectangle {
             appWindow.persistentSettings.timerPaymentTimeLeft = timerPayment
             appWindow.persistentSettings.hexConfigTimeLeft = hexConfig
             appWindow.persistentSettings.firstPaymentTimeLeft = firstPayment
+
+            //paymentVerify()
 
 
         }
@@ -513,6 +539,7 @@ Rectangle {
                 intenseDashboardView.macHostFlag = 0
                 intenseDashboardView.hexConfig = hexConfig
                 intenseDashboardView.firstPayment = 1
+                waitHaproxy = 0;
                 getTime()
                 changeStatus()
             }
@@ -592,10 +619,21 @@ Rectangle {
             feedbackPopup.title = "Provider Feedback";
             feedbackPopup.open();
 
-        }else{
-            console.log(appWindow.persistentSettings.haproxyTimeLeft + " my haproxy END -- " + data + " my currenct date")
         }
 
+        var str = callhaproxy.verifyHaproxy(Config.haproxyIp, Config.haproxyPort, obj.provider).toString();
+        str = String(str)
+        var n = str.search('status": "OK"');
+        var e = str.search("NO_PAYMENT")
+        if(n > 0){
+            //waitHaproxyPopup.title = "Waiting the payment";
+            waitHaproxyPopup.close();
+        }else if(waitHaproxy == 0){
+            waitHaproxy = 1
+            waitHaproxyPopup.title = "Waiting the payment balance";
+            waitHaproxyPopup.content = "The proxy will be run in a few minuts.";
+            waitHaproxyPopup.open();
+        }
 
         timeonlineTextLine.text = value
     }
@@ -986,6 +1024,15 @@ Rectangle {
                   connectPopup.open();
 
               }
+          }
+
+          StandardDialog {
+              id: waitHaproxyPopup
+              cancelVisible: false
+              okVisible: true
+              width:500
+              height: 200
+
           }
 
           StandardDialog {
@@ -1768,7 +1815,7 @@ Rectangle {
 
     Timer {
         id: timerHaproxy
-        interval: 10000
+        interval: 1000
         repeat: true
         running: false
 
@@ -1783,7 +1830,8 @@ Rectangle {
 
 
     function onPageCompleted() {
-        console.log(appWindow.persistentSettings.haproxyTimeLeft + " my haproxy on LOAD")
+        waitHaproxy = 0;
+
         getColor(rank, rankRectangle)
         getMyFeedJson()
         changeStatus()
