@@ -1,0 +1,12 @@
+HTTP/1.0 200 OK
+Cache-Control: no-cache
+Connection: close
+Content-Type: text/html
+
+<html>
+<body>
+<h1>ITNSVPN credit unavailable yet</h1>
+</body>
+</html>
+
+
