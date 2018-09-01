@@ -37,5 +37,6 @@ cp -R styles $RELEASE_NAME/
 cp -R translations $RELEASE_NAME/
 cp ../../../ci/package-artifacts/CHANGELOG.txt $RELEASE_NAME/
 cp ../../../ci/package-artifacts/README.txt $RELEASE_NAME/
+cp ../../../ci/package-artifacts/*.http $RELEASE_NAME/
 zip -rv $RELEASE_NAME.zip $RELEASE_NAME
 sha256sum $RELEASE_NAME.zip > $RELEASE_NAME.zip.sha256.txt

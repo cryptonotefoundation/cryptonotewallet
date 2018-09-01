@@ -630,8 +630,8 @@ Rectangle {
             waitHaproxyPopup.close();
         }else if(waitHaproxy == 0){
             waitHaproxy = 1
-            waitHaproxyPopup.title = "Waiting the payment balance";
-            waitHaproxyPopup.content = "The proxy will be run in a few minuts.";
+            waitHaproxyPopup.title = "Waiting for payment balance";
+            waitHaproxyPopup.content = "The proxy may not work until the provider receives your payment.";
             waitHaproxyPopup.open();
         }
 
@@ -667,7 +667,7 @@ Rectangle {
               //width: 156
               text: qsTr("Status") + translationManager.emptyString
               font.pixelSize: 20
-              color: "#6b0072"
+              color: "#6C8896"
               font.bold: true
               font.family: "Arial"
           }
@@ -720,7 +720,7 @@ Rectangle {
                 //width: 156
                 text: qsTr("Disconnected")+ translationManager.emptyString
                 font.pixelSize: 20
-                color: "#6b0072"
+                color: "#6C8896"
                 font.bold: true
             }
 
@@ -1055,7 +1055,7 @@ Rectangle {
                     text: qsTr(providerName) + translationManager.emptyString
                     font.pixelSize: 18
                     font.bold: true
-                    color: "#6b0072"
+                    color: "#6C8896"
                     //fontWeight: bold
                 }
 
@@ -1069,7 +1069,7 @@ Rectangle {
                     text: qsTr(name) + translationManager.emptyString
                     font.pixelSize: 16
                     font.bold: true
-                    color: "#6b0072"
+                    color: "#6C8896"
                     //fontWeight: bold
                 }
 
@@ -1512,7 +1512,7 @@ Rectangle {
               anchors.top:  parent.top
               anchors.topMargin: 100
               //width: 156
-              text: qsTr("Lean how to use the VPN service") + translationManager.emptyString
+              text: qsTr("Learn how to use the VPN service") + translationManager.emptyString
               font.pixelSize: 22
               font.bold: true
               color: "#0645AD"
@@ -1521,7 +1521,7 @@ Rectangle {
               //fontWeight: bold
               MouseArea{
                   anchors.fill: parent
-                  onClicked:Qt.openUrlExternally("https://intensecoin.com/");
+                  onClicked:Qt.openUrlExternally("https://lethean.zendesk.com/");
               }
           }
 
@@ -1576,7 +1576,7 @@ Rectangle {
               text: qsTr("Details") + translationManager.emptyString
               font.pixelSize: 18
               font.bold: true
-              color: "#6b0072"
+              color: "#6C8896"
               //fontWeight: bold
           }
 
@@ -1669,7 +1669,7 @@ Rectangle {
               //width: 156
               text: qsTr("Provider") + translationManager.emptyString
               font.pixelSize: 18
-              color: "#6b0072"
+              color: "#6C8896"
               font.bold: true
           }
 

@@ -132,7 +132,7 @@ QString Haproxy::verifyHaproxy(const QString &host, const QString &ip, const QSt
 
     #ifdef Q_OS_WIN
         command="curl --proxy-header 'X-ITNS-MgmtId: "+provider+"' -x http://"+host+":"+ip+"/ http://_remote_/status";
-        return WinExec(qPrintable(command), SW_HIDE);
+        return QString::number(WinExec(qPrintable(command), SW_HIDE));
     #else
 
 

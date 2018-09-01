@@ -63,5 +63,6 @@ mkdir $RELEASE_NAME
 cp -Rp lethean-wallet-gui.app $RELEASE_NAME/
 cp ../../../ci/package-artifacts/CHANGELOG.txt $RELEASE_NAME/
 cp ../../../ci/package-artifacts/README.txt $RELEASE_NAME/
+cp ../../../ci/package-artifacts/*.http $RELEASE_NAME/
 tar -cvjf $RELEASE_NAME.tar.bz2 $RELEASE_NAME
 shasum -a 256 $RELEASE_NAME.tar.bz2 > $RELEASE_NAME.tar.bz2.sha256.txt
