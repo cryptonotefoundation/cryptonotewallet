@@ -622,18 +622,17 @@ Rectangle {
 
         }
 
-        var str = callhaproxy.verifyHaproxy(Config.haproxyIp, Config.haproxyPort, obj.provider).toString();
-        str = String(str)
-        //var n = str.search("OK");
-        //var e = str.search("NO_PAYMENT")
-        if(str.length == 3){
-            //waitHaproxyPopup.title = "Waiting the payment";
-            waitHaproxyPopup.close();
-        }else if(waitHaproxy == 0){
-            waitHaproxy = 1
-            waitHaproxyPopup.title = "Waiting for payment balance";
-            waitHaproxyPopup.content = "The proxy may not work until the provider receives your payment.";
-            waitHaproxyPopup.open();
+        if(Qt.platform.os === "linux"){
+            var str = callhaproxy.verifyHaproxy(Config.haproxyIp, Config.haproxyPort, obj.provider).toString();
+            str = String(str)
+            if(str.length == 3){
+                waitHaproxyPopup.close();
+            }else if(waitHaproxy == 0){
+                waitHaproxy = 1
+                waitHaproxyPopup.title = "Waiting for payment balance";
+                waitHaproxyPopup.content = "The proxy may not work until the provider receives your payment.";
+                waitHaproxyPopup.open();
+            }
         }
 
         timeonlineTextLine.text = value
