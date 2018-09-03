@@ -282,7 +282,7 @@
     </message>
     <message>
         <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet sends 0.25% fee from each transaction to the node, but no more than 1 KRB.</source>
-        <translation type="unfinished">Гаманец будзе падлучацца да вузла ў лакальнай або глабальнай сеткі. Выберыце вузел або пакажыце IP адрас або дамен і порт каб дадаць новы. У гэтым рэжыме гаманец плаціць камісію вузлу ў памеры 0,25% ад сумы транзакцыі, але не больш за 1 крб.</translation>
+        <translation>Гаманец будзе падлучацца да вузла ў лакальнай або глабальнай сеткі. Выберыце вузел або пакажыце IP адрас або дамен і порт каб дадаць новы. У гэтым рэжыме гаманец плаціць камісію вузлу ў памеры 0,25% ад сумы транзакцыі, але не больш за 1 крб.</translation>
     </message>
 </context>
 <context>
@@ -639,6 +639,14 @@ Please wait...</source>
     <message>
         <source>Sweep unmixable</source>
         <translation>Прыбраць нязмешвальных</translation>
+    </message>
+    <message>
+        <source>Sign message</source>
+        <translation>Падпісаць паведамленне</translation>
+    </message>
+    <message>
+        <source>Verify signed message</source>
+        <translation>Праверка падпісанага паведамленні</translation>
     </message>
 </context>
 <context>
@@ -1192,6 +1200,37 @@ Do you want to go to download page?</source>
     <message>
         <source>Close</source>
         <translation>Зачыніць</translation>
+    </message>
+</context>
+<context>
+    <name>SignMessageDialog</name>
+    <message>
+        <source>Sign or verify message</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Зачыніць</translation>
+    </message>
+    <message>
+        <source>Sign message</source>
+        <translation>Падпісаць паведамленне</translation>
+    </message>
+    <message>
+        <source>Message</source>
+        <translation>Паведамленне</translation>
+    </message>
+    <message>
+        <source>Signature</source>
+        <translation>Подпіс</translation>
+    </message>
+    <message>
+        <source>Verify message</source>
+        <translation>Праверыць паведамленне</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Адрас</translation>
     </message>
 </context>
 <context>
@@ -1932,6 +1971,25 @@ Are you sure?</source>
 when the wallet is synchronized</source>
         <translation>Вы зможаце адправіць %1
 калі гаманец завершыць сінхранізацыю</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui::SignMessageDialog</name>
+    <message>
+        <source>Sign message</source>
+        <translation>Падпісаць паведамленне</translation>
+    </message>
+    <message>
+        <source>Verify signed message</source>
+        <translation>Праверка падпісанага паведамленні</translation>
+    </message>
+    <message>
+        <source>Signature is valid</source>
+        <translation>Подпіс сапраўдная</translation>
+    </message>
+    <message>
+        <source>Signature is invalid!</source>
+        <translation>Подпіс з&apos;яўляецца несапраўдным!</translation>
     </message>
 </context>
 <context>

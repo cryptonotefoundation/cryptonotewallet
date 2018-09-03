@@ -642,6 +642,14 @@ Por favor, espera...</translation>
         <source>Sweep unmixable</source>
         <translation>Barrer no-mezclables</translation>
     </message>
+    <message>
+        <source>Sign message</source>
+        <translation>Firmar el mensaje</translation>
+    </message>
+    <message>
+        <source>Verify signed message</source>
+        <translation>Verificar mensaje firmado</translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
@@ -1206,6 +1214,37 @@ Do you want to go to download page?</source>
     <message>
         <source>Close</source>
         <translation>Cerrar</translation>
+    </message>
+</context>
+<context>
+    <name>SignMessageDialog</name>
+    <message>
+        <source>Sign or verify message</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Cerrar</translation>
+    </message>
+    <message>
+        <source>Sign message</source>
+        <translation>Firmar el mensaje</translation>
+    </message>
+    <message>
+        <source>Message</source>
+        <translation>Mensaje</translation>
+    </message>
+    <message>
+        <source>Signature</source>
+        <translation>Signatura</translation>
+    </message>
+    <message>
+        <source>Verify message</source>
+        <translation>Verificar mensaje</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Adress</translation>
     </message>
 </context>
 <context>
@@ -1928,6 +1967,25 @@ Are you sure?</source>
 when the wallet is synchronized</source>
         <translation>Podrás enviar %1
 cuando la cartera termine de sincronizar</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui::SignMessageDialog</name>
+    <message>
+        <source>Sign message</source>
+        <translation>Firmar el mensaje</translation>
+    </message>
+    <message>
+        <source>Verify signed message</source>
+        <translation>Verificar mensaje firmado</translation>
+    </message>
+    <message>
+        <source>Signature is valid</source>
+        <translation>Firma es valida</translation>
+    </message>
+    <message>
+        <source>Signature is invalid!</source>
+        <translation>¡La firma no es válida!</translation>
     </message>
 </context>
 <context>

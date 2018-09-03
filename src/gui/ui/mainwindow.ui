@@ -208,19 +208,14 @@
     <addaction name="m_createNondeterministicWalletAction"/>
     <addaction name="m_openWalletAction"/>
     <addaction name="menuRecent_wallets"/>
+    <addaction name="m_backupWalletAction"/>
     <addaction name="m_closeWalletAction"/>
     <addaction name="separator"/>
     <addaction name="m_openUriAction"/>
     <addaction name="m_openLogFileAction"/>
     <addaction name="separator"/>
-    <addaction name="m_backupWalletAction"/>
-    <addaction name="m_showMnemonicSeedAction"/>
-    <addaction name="m_showPrivateKey"/>
-    <addaction name="m_exportTrackingKeyAction"/>
-    <addaction name="separator"/>
-    <addaction name="m_restoreFromMnemonicSeedAction"/>
-    <addaction name="m_importKeyAction"/>
-    <addaction name="m_importTrackingKeyAction"/>
+    <addaction name="m_signMessageAction"/>
+    <addaction name="m_verifySignedMessageAction"/>
     <addaction name="separator"/>
     <addaction name="m_exitAction"/>
    </widget>
@@ -255,6 +250,15 @@
     <addaction name="m_encryptWalletAction"/>
     <addaction name="m_changePasswordAction"/>
     <addaction name="m_sweepUnmixableAction"/>
+    <addaction name="separator"/>
+    <addaction name="m_showMnemonicSeedAction"/>
+    <addaction name="m_showPrivateKey"/>
+    <addaction name="m_exportTrackingKeyAction"/>
+    <addaction name="separator"/>
+    <addaction name="m_restoreFromMnemonicSeedAction"/>
+    <addaction name="m_importKeyAction"/>
+    <addaction name="m_importTrackingKeyAction"/>
+    <addaction name="separator"/>
     <addaction name="m_resetAction"/>
    </widget>
    <addaction name="menuFile"/>
@@ -593,6 +597,16 @@
   <action name="m_sweepUnmixableAction">
    <property name="text">
     <string>Sweep unmixable</string>
+   </property>
+  </action>
+  <action name="m_signMessageAction">
+   <property name="text">
+    <string>Sign message</string>
+   </property>
+  </action>
+  <action name="m_verifySignedMessageAction">
+   <property name="text">
+    <string>Verify signed message</string>
    </property>
   </action>
  </widget>
@@ -1081,6 +1095,38 @@
    <signal>triggered()</signal>
    <receiver>MainWindow</receiver>
    <slot>createNonDeterministicWallet()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>489</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_signMessageAction</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>signMessage()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>489</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_verifySignedMessageAction</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>verifyMessage()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>-1</x>

@@ -656,6 +656,14 @@ S&apos;il vous plaît, patientez...</translation>
         <source>Sweep unmixable</source>
         <translation>Balayer Non Mélangeables</translation>
     </message>
+    <message>
+        <source>Sign message</source>
+        <translation>Signer le message</translation>
+    </message>
+    <message>
+        <source>Verify signed message</source>
+        <translation>Vérifier le message signé</translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
@@ -1220,6 +1228,37 @@ Voulez-vous aller à la page de téléchargement?</translation>
     <message>
         <source>Close</source>
         <translation>Fermer</translation>
+    </message>
+</context>
+<context>
+    <name>SignMessageDialog</name>
+    <message>
+        <source>Sign or verify message</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Fermer</translation>
+    </message>
+    <message>
+        <source>Sign message</source>
+        <translation>Signer le message</translation>
+    </message>
+    <message>
+        <source>Message</source>
+        <translation>Message</translation>
+    </message>
+    <message>
+        <source>Signature</source>
+        <translation>Signature</translation>
+    </message>
+    <message>
+        <source>Verify message</source>
+        <translation>Vérifier le message</translation>
+    </message>
+    <message>
+        <source>Address</source>
+        <translation>Adresse</translation>
     </message>
 </context>
 <context>
@@ -1940,6 +1979,25 @@ Are you sure?</source>
 when the wallet is synchronized</source>
         <translation>Vous pourrez envoyer %1
 quand le portefeuille aura terminé la synchronisation</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui::SignMessageDialog</name>
+    <message>
+        <source>Sign message</source>
+        <translation>Signer le message</translation>
+    </message>
+    <message>
+        <source>Verify signed message</source>
+        <translation>Vérifier le message signé</translation>
+    </message>
+    <message>
+        <source>Signature is valid</source>
+        <translation>La signature est valide</translation>
+    </message>
+    <message>
+        <source>Signature is invalid!</source>
+        <translation>La signature est invalide!</translation>
     </message>
 </context>
 <context>
