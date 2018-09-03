@@ -1028,7 +1028,7 @@ ApplicationWindow {
         property int firstPrePaidMinutesTimeLeft
         property string subsequentPrePaidMinutesTimeLeft
         property string speedTimeLeft
-        property string feedbackTimeLeft
+        property var feedbackTimeLeft
         property string btonTimeLeft
         property string rankTimeLeft
         property int flagTimeLeft

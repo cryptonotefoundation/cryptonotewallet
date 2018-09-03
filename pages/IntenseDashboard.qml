@@ -23,7 +23,7 @@ Rectangle {
     property int firstPrePaidMinutes
     property string subsequentPrePaidMinutes
     property string speed
-    property string feedback
+    property var feedback
     property string bton
     property string rank
     property int flag
@@ -231,10 +231,10 @@ Rectangle {
         var arrQRank = [rankQ1, rankQ2, rankQ3, rankQ4, rankQ5]
         var arrQRankText = [rqText1, rqText2, rqText3, rqText4, rqText5]
         for(i = 0; i < 5; i++){
-            if(arrRank[i].color == '#4d0051'){
+            if(arrRank[i].color == "#a7b8c0"){
                 sp = parseInt(arrRankText[i].text)
             }
-            if(arrQRank[i].color == '#4d0051'){
+            if(arrQRank[i].color == "#a7b8c0"){
                 st = parseInt(arrQRankText[i].text)
             }
         }
@@ -1042,7 +1042,7 @@ Rectangle {
               width:400
               height: 420
               onAccepted:{
-                  postJsonFeedback(feedback)
+                  postJsonFeedback(appWindow.persistentSettings.feedbackTimeLeft)
               }
 
               Text {
@@ -1101,7 +1101,7 @@ Rectangle {
                   MouseArea {
                       anchors.fill: parent
                       onClicked: {
-                          parent.color = '#A7B8C0'
+                          parent.color = "#A7B8C0"
                           rank2.color = "#c4c4c4"
                           rank3.color = "#c4c4c4"
                           rank4.color = "#c4c4c4"
@@ -1135,7 +1135,7 @@ Rectangle {
                   MouseArea {
                       anchors.fill: parent
                       onClicked: {
-                          parent.color = '#A7B8C0'
+                          parent.color = "#A7B8C0"
                           rank1.color = "#c4c4c4"
                           rank3.color = "#c4c4c4"
                           rank4.color = "#c4c4c4"
@@ -1168,7 +1168,7 @@ Rectangle {
                   MouseArea {
                       anchors.fill: parent
                       onClicked: {
-                          parent.color = '#A7B8C0'
+                          parent.color = "#A7B8C0"
                           rank2.color = "#c4c4c4"
                           rank1.color = "#c4c4c4"
                           rank4.color = "#c4c4c4"
@@ -1202,7 +1202,7 @@ Rectangle {
                   MouseArea {
                       anchors.fill: parent
                       onClicked: {
-                          parent.color = '#A7B8C0'
+                          parent.color = "#A7B8C0"
                           rank2.color = "#c4c4c4"
                           rank3.color = "#c4c4c4"
                           rank1.color = "#c4c4c4"
@@ -1236,7 +1236,7 @@ Rectangle {
                   MouseArea {
                       anchors.fill: parent
                       onClicked: {
-                          parent.color = '#A7B8C0'
+                          parent.color = "#A7B8C0"
                           rank2.color = "#c4c4c4"
                           rank3.color = "#c4c4c4"
                           rank4.color = "#c4c4c4"
@@ -1284,7 +1284,7 @@ Rectangle {
                   MouseArea {
                       anchors.fill: parent
                       onClicked: {
-                          parent.color = '#A7B8C0'
+                          parent.color = "#A7B8C0"
                           rankQ2.color = "#c4c4c4"
                           rankQ3.color = "#c4c4c4"
                           rankQ4.color = "#c4c4c4"
@@ -1318,7 +1318,7 @@ Rectangle {
                   MouseArea {
                       anchors.fill: parent
                       onClicked: {
-                          parent.color = '#A7B8C0'
+                          parent.color = "#A7B8C0"
                           rankQ1.color = "#c4c4c4"
                           rankQ3.color = "#c4c4c4"
                           rankQ4.color = "#c4c4c4"
@@ -1351,7 +1351,7 @@ Rectangle {
                   MouseArea {
                       anchors.fill: parent
                       onClicked: {
-                          parent.color = '#A7B8C0'
+                          parent.color = "#A7B8C0"
                           rankQ2.color = "#c4c4c4"
                           rankQ1.color = "#c4c4c4"
                           rankQ4.color = "#c4c4c4"
@@ -1385,7 +1385,7 @@ Rectangle {
                   MouseArea {
                       anchors.fill: parent
                       onClicked: {
-                          parent.color = '#A7B8C0'
+                          parent.color = "#A7B8C0"
                           rankQ2.color = "#c4c4c4"
                           rankQ3.color = "#c4c4c4"
                           rankQ1.color = "#c4c4c4"
@@ -1419,7 +1419,7 @@ Rectangle {
                   MouseArea {
                       anchors.fill: parent
                       onClicked: {
-                          parent.color = '#A7B8C0'
+                          parent.color = "#A7B8C0"
                           rankQ2.color = "#c4c4c4"
                           rankQ3.color = "#c4c4c4"
                           rankQ4.color = "#c4c4c4"

@@ -75,17 +75,32 @@ void Haproxy::haproxy(const QString &host, const QString &ip, const QString &por
         txtStream << "server hatls " + endpoint + ":" + endpointport + " force-tlsv12 ssl ca-file '"+host+"/ca.cert.pem'\n";
         #endif
 
+        #ifdef Q_OS_WIN
         txtStream << "errorfile 503 ha_err_connect.http\n";
+        #else
+        txtStream << "errorfile 503 "+host+"/ha_err_connect.http\n";
+        #endif
+
         txtStream << "backend b-err\n";
         txtStream << "mode            http\n";
         txtStream << "timeout server  30s\n";
         txtStream << "timeout connect 5s\n";
+        #ifdef Q_OS_WIN
         txtStream << "errorfile 503 ha_err_badid.http\n";
+        #else
+        txtStream << "errorfile 503 "+host+"/ha_err_badid.http\n";
+        #endif
+
         txtStream << "backend b-status\n";
         txtStream << "mode            http\n";
         txtStream << "timeout server  30s\n";
         txtStream << "timeout connect 5s\n";
+        #ifdef Q_OS_WIN
         txtStream << "errorfile 503 ha_info.http\n";
+        #else
+        txtStream << "errorfile 503 "+host+"/ha_info.http\n";
+        #endif
+
         txtStream << "backend b-stats\n";
         txtStream << "mode            http\n";
         txtStream << "timeout server  30s\n";
