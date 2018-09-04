@@ -448,6 +448,7 @@ public:
     m_node(m_core, m_protocolHandler) {
 
       CryptoNote::Checkpoints checkpoints(logManager);
+      checkpoints.load_checkpoints_from_dns();
       for (const CryptoNote::CheckpointData& checkpoint : CryptoNote::CHECKPOINTS) {
         checkpoints.add_checkpoint(checkpoint.height, checkpoint.blockId);
       }
