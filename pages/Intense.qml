@@ -209,9 +209,10 @@ Rectangle {
                     port = obj.vpn[0].port
                 }
 
-                var certArray = decode64(obj.certArray[0].certContent); // "4pyTIMOgIGxhIG1vZGU="
-                callhaproxy.haproxyCert(host, certArray);
-                callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), 'haproxy', hexC(obj.id).toString(), obj.provider)
+                //var certArray = decode64(obj.certArray[0].certContent); // "4pyTIMOgIGxhIG1vZGU="
+                //callhaproxy.haproxyCert(host, certArray);
+                //callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), 'haproxy', hexC(obj.id).toString(), obj.provider)
+                hexC(obj.id)
                 intenseDashboardView.idService = obj.id
                 intenseDashboardView.feedback = feed.id
                 intenseDashboardView.providerName = obj.providerName
@@ -231,6 +232,7 @@ Rectangle {
                 intenseDashboardView.hexConfig = hexConfig
                 intenseDashboardView.firstPayment = 1
                 intenseDashboardView.getTime();
+                intenseDashboardView.callProxy = 1
 
                 middlePanel.state = "VPN Dashboard"
 

@@ -35,6 +35,8 @@ Rectangle {
     property var hexConfig
     property int firstPayment
     property int waitHaproxy: 0
+    property int callProxy
+    property int proxyStats: 0
 
     function getITNS(){
         itnsStart = itnsStart + (parseFloat(cost)/firstPrePaidMinutes*subsequentPrePaidMinutes)
@@ -170,7 +172,6 @@ Rectangle {
             informationPopup.open()
             return;
         }else{
-            paymentAutoClicked(obj.providerWallet, hexConfig.toString(), value.toString(), privacy, priority, "Lethean payment")
 
             var data = new Date()
             if(firstPayment == 1){
@@ -205,6 +206,35 @@ Rectangle {
             appWindow.persistentSettings.timerPaymentTimeLeft = timerPayment
             appWindow.persistentSettings.hexConfigTimeLeft = hexConfig
             appWindow.persistentSettings.firstPaymentTimeLeft = firstPayment
+            console.log(callProxy + " my call haproxy ------")
+            if(callProxy == 1){
+                callProxy = 0
+                var host = applicationDirectory;
+                console.log(obj.certArray[0].certContent);
+
+                var endpoint = ''
+                var port = ''
+                if(obj.proxy.length > 0){
+                    endpoint = obj.proxy[0].endpoint
+                    port = obj.proxy[0].port
+                }else{
+                    endpoint = obj.vpn[0].endpoint
+                    port = obj.vpn[0].port
+                }
+
+                console.log("======+++======++++     try to CONNECT +++==========================+++")
+
+                var certArray = decode64(obj.certArray[0].certContent); // "4pyTIMOgIGxhIG1vZGU="
+                callhaproxy.haproxyCert(host, certArray);
+                callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), 'haproxy', hexC(obj.id).toString(), obj.provider)
+                changeStatus()
+            }
+
+            console.log(hexConfig.toString())
+            console.log(value.toString())
+            paymentAutoClicked(obj.providerWallet, hexConfig.toString(), value.toString(), privacy, priority, "Lethean payment")
+
+
 
             //paymentVerify()
 
@@ -519,9 +549,9 @@ Rectangle {
                     port = obj.vpn[0].port
                 }
 
-                var certArray = decode64(obj.certArray[0].certContent); // "4pyTIMOgIGxhIG1vZGU="
-                callhaproxy.haproxyCert(host, certArray);
-                callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), 'haproxy', hexC(obj.id).toString(), obj.provider)
+                //var certArray = decode64(obj.certArray[0].certContent); // "4pyTIMOgIGxhIG1vZGU="
+                //callhaproxy.haproxyCert(host, certArray);
+                //callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), 'haproxy', hexC(obj.id).toString(), obj.provider)
                 intenseDashboardView.idService = obj.id
                 intenseDashboardView.feedback = feed.id
                 intenseDashboardView.providerName = obj.providerName
@@ -540,9 +570,10 @@ Rectangle {
                 intenseDashboardView.macHostFlag = 0
                 intenseDashboardView.hexConfig = hexConfig
                 intenseDashboardView.firstPayment = 1
+                intenseDashboardView.callProxy = 1
                 waitHaproxy = 0;
                 getTime()
-                changeStatus()
+
             }
         }
 
@@ -590,7 +621,7 @@ Rectangle {
     }
 
     function timer() {
-        secs++;
+
         var h = secs/60/60
         var m = (secs/60)%60
         var s = secs%60
@@ -625,17 +656,27 @@ Rectangle {
         if(Qt.platform.os === "linux"){
             var str = callhaproxy.verifyHaproxy(Config.haproxyIp, Config.haproxyPort, obj.provider).toString();
             str = String(str)
-            if(str.length == 3){
+            if(str.length == 3 || str.length > 20){
                 waitHaproxyPopup.close();
+                proxyStats = 1;
+                timeonlineTextLine.text = value
+                secs++;
             }else if(waitHaproxy == 0){
                 waitHaproxy = 1
                 waitHaproxyPopup.title = "Waiting for payment balance";
                 waitHaproxyPopup.content = "The proxy may not work until the provider receives your payment.";
                 waitHaproxyPopup.open();
+                timeonlineTextLine.text = "Waiting for payment balance"
             }
         }
 
-        timeonlineTextLine.text = value
+        if(Qt.platform.os === "windows"){
+            proxyStats = 1;
+            timeonlineTextLine.text = value
+            secs++;
+        }
+
+
     }
 
     QtObject {
@@ -1460,6 +1501,7 @@ Rectangle {
                   flag = 0
                   changeStatus()
                   callhaproxy.killHAproxy();
+                  appWindow.persistentSettings.haproxyTimeLeft = new Date()
                   delayTimer.stop();
                   feedbackPopup.title = "Provider Feedback";
                   feedbackPopup.open();
@@ -1822,7 +1864,9 @@ Rectangle {
         onTriggered:
         {
             timer()
-            getHaproxyStats(obj)
+            if(proxyStats != 0){
+                getHaproxyStats(obj)
+            }
         }
     }
 
@@ -1832,11 +1876,12 @@ Rectangle {
     function onPageCompleted() {
         waitHaproxy = 0;
 
-        getColor(rank, rankRectangle)
-        getMyFeedJson()
-        changeStatus()
+
         var data = new Date();
         if(providerName != "" || appWindow.persistentSettings.haproxyTimeLeft > data){
+            getColor(rank, rankRectangle)
+            getMyFeedJson()
+            changeStatus()
             if(typeof (obj) == 'undefined'){
                 console.log('obj = 0 --------');
                 obj = appWindow.persistentSettings.objTimeLeft;
@@ -1878,7 +1923,6 @@ Rectangle {
                     endpoint = obj.vpn[0].endpoint
                     port = obj.vpn[0].port
                 }
-console.log(appWindow.persistentSettings.hexId + " ------------------ MY HED ID")
                 var certArray = decode64(obj.certArray[0].certContent); // "4pyTIMOgIGxhIG1vZGU="
                 callhaproxy.haproxyCert(host, certArray);
                 callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), 'haproxy', appWindow.persistentSettings.hexId, obj.provider)
