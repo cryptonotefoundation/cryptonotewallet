@@ -176,3 +176,4 @@ TRANSLATIONS = 	languages/uk.ts \
 				languages/es.ts \
 				languages/fr.ts \
 				languages/pt.ts \
+				languages/ja.ts \
