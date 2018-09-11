@@ -211,7 +211,7 @@ QString Haproxy::verifyHaproxy(const QString &host, const QString &ip, const QSt
     opt[CURLOPT_FAILONERROR] = true;
     QStringList headers = {};
     headers
-        << "-D /dev/stderr"
+        //<< "-D /dev/stderr"
         << "--proxy-header 'X-ITNS-MgmtID: "+provider+"'"
         << "-x http://"+host+":"+ip+"/";
     opt[CURLOPT_HTTPHEADER] = headers;

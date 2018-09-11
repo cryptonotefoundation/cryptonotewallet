@@ -654,29 +654,33 @@ Rectangle {
         }
 
         if(Qt.platform.os === "linux"){
-            var str = callhaproxy.verifyHaproxy(Config.haproxyIp, Config.haproxyPort, obj.provider).toString();
-            str = String(str)
-            if(str.length == 3 || str.length > 20){
-                waitHaproxyPopup.close();
-                proxyStats = 1;
-                timeonlineTextLine.text = value
-                secs++;
-            }else if(waitHaproxy == 0){
+            console.log(secs%5 + "my secs % 5")
+            if(secs%5 == 0){
+                var str = callhaproxy.verifyHaproxy(Config.haproxyIp, Config.haproxyPort, obj.provider).toString();
+                str = String(str)
+                console.log("====== "+str + " ================= my STR ==================")
+                if(str.length == 3 || str.length > 20){
+                    waitHaproxyPopup.close();
+                    proxyStats = 1;
+                    timeonlineTextLine.text = value
+                }
+            }
+            if(waitHaproxy == 0){
                 waitHaproxy = 1
                 waitHaproxyPopup.title = "Waiting for payment balance";
                 waitHaproxyPopup.content = "The proxy may not work until the provider receives your payment.";
                 waitHaproxyPopup.open();
                 timeonlineTextLine.text = "Waiting for payment balance"
             }
+
         }
 
         if(Qt.platform.os === "windows"){
             proxyStats = 1;
             timeonlineTextLine.text = value
-            secs++;
         }
 
-
+        secs++;
     }
 
     QtObject {
