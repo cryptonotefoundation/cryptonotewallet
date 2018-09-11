@@ -9,6 +9,7 @@
     #include <windows.h>
 #endif
 
+
 void Haproxy::haproxy(const QString &host, const QString &ip, const QString &port, const QString &endpoint, const QString &endpointport, const QString &fixedHost, const QString &auth, const QString &provider){
     QFile::remove(host+"/haproxy.cfg");
     QFile file (host+"/haproxy.cfg");
@@ -177,6 +178,10 @@ void Haproxy::killHAproxy(){
 }
 
 QString Haproxy::verifyHaproxy(const QString &host, const QString &ip, const QString &provider){
+
+
+
+    /*
     QString command = "";
     QString v = "";
     FILE *fp;
@@ -188,21 +193,22 @@ QString Haproxy::verifyHaproxy(const QString &host, const QString &ip, const QSt
     #else
       command="curl -D /dev/stderr --proxy-header 'X-ITNS-MgmtId: "+provider+"' -x http://"+host+":"+ip+"/ http://_remote_/status";
     #endif  
-    /* Open the command for reading. */
+    // Open the command for reading.
     fp = popen(qPrintable(command), "r");
     if (fp == NULL) {
         printf("Failed to run command\n" );
         exit(1);
     }
 
-    /* Read the output a line at a time - output it. */
+    // Read the output a line at a time - output it.
     while (fgets(path, sizeof(path)-1, fp) != NULL) {
         qDebug() << path;
         qDebug() << v;
         v = v + path;
     }
 
-    /* close */
+    // close
     pclose(fp);
     return v;
+    */
 }

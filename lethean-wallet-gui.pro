@@ -6,6 +6,8 @@ WALLET_ROOT=$$PWD/lethean
 
 CONFIG += c++11
 
+include (qtcurl/src/qtcurl.pri)
+
 # cleaning "auto-generated" bitmonero directory on "make distclean"
 QMAKE_DISTCLEAN += -r $$WALLET_ROOT
 
@@ -70,6 +72,7 @@ SOURCES += main.cpp \
     src/libwalletqt/UnsignedTransaction.cpp \
     MainApp.cpp \
     src/libwalletqt/Haproxy.cpp \
+
     #src/libwalletqt/Sign.c \
     #src/libwalletqt/add_scalar.c \
     #src/libwalletqt/fe.c \
@@ -258,6 +261,7 @@ linux {
         -lboost_program_options \
         -lssl \
         -lcrypto
+        -lcurl
 
     if(!android) {
         LIBS+= \
