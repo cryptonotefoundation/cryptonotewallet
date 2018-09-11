@@ -10,7 +10,6 @@
 #include <QUrlQuery>
 #include <QTime>
 #include <QUrl>
-#include <QDebug>
 
 #include "AddressBookModel.h"
 #include "CurrencyAdapter.h"
