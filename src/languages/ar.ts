@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="ja" sourcelanguage="en">
+<TS version="2.0" language="ar" sourcelanguage="en">
 <context>
     <name>AboutDialog</name>
     <message>
         <location filename="../gui/ui/aboutdialog.ui" line="32"/>
         <source>About %1</source>
-        <translation>%1について</translation>
+        <translation>1% حوالي</translation>
     </message>
     <message>
         <location filename="../gui/ui/aboutdialog.ui" line="101"/>
@@ -16,7 +16,7 @@
     <message>
         <location filename="../gui/ui/aboutdialog.ui" line="137"/>
         <source>Close</source>
-        <translation>閉じる</translation>
+        <translation>إغلاق</translation>
     </message>
 </context>
 <context>
@@ -24,54 +24,54 @@
     <message>
         <location filename="../gui/ui/accountframe.ui" line="26"/>
         <source>Frame</source>
-        <translation>フレーム</translation>
+        <translation>إطار </translation>
     </message>
     <message>
         <location filename="../gui/ui/accountframe.ui" line="76"/>
         <source>Your account:</source>
-        <translation>あなたのアカウント:</translation>
+        <translation>حسابك</translation>
     </message>
     <message>
         <location filename="../gui/ui/accountframe.ui" line="127"/>
         <source>Your receiving address</source>
-        <translation>あなたの受信アドレス</translation>
+        <translation>عنوان الاستلام </translation>
     </message>
     <message>
         <location filename="../gui/ui/accountframe.ui" line="130"/>
         <source>This is your account address</source>
-        <translation>これが、あなたのアカウントアドレスです</translation>
+        <translation> عنوان الحساب الخاص بك</translation>
     </message>
     <message>
         <location filename="../gui/ui/accountframe.ui" line="168"/>
         <source>Copy address</source>
-        <translation>アドレスをコピー</translation>
+        <translation>نسخ العنوان</translation>
     </message>
     <message>
         <location filename="../gui/ui/accountframe.ui" line="177"/>
         <location filename="../gui/ui/accountframe.ui" line="200"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../gui/ui/accountframe.ui" line="194"/>
         <source>Show QR code</source>
-        <translation>QRコードを表示</translation>
+        <translation>عرض البار كود</translation>
     </message>
     <message>
         <location filename="../gui/ui/accountframe.ui" line="243"/>
         <location filename="../gui/ui/accountframe.ui" line="246"/>
         <source>Total balance</source>
-        <translation>総残高</translation>
+        <translation>الرصيد الكلي</translation>
     </message>
     <message>
         <location filename="../gui/ui/accountframe.ui" line="249"/>
         <source>0.00</source>
-        <translation type="unfinished"></translation>
+        <translation>0.00</translation>
     </message>
     <message>
         <location filename="../gui/ui/accountframe.ui" line="289"/>
         <source> krb</source>
-        <translation type="unfinished"></translation>
+        <translation>krb</translation>
     </message>
 </context>
 <context>
@@ -79,12 +79,12 @@
     <message>
         <location filename="../gui/ui/addressbookdialog.ui" line="14"/>
         <source>Select address</source>
-        <translation>アドレス選択</translation>
+        <translation>اختر عنوان</translation>
     </message>
     <message>
         <location filename="../gui/ui/addressbookdialog.ui" line="38"/>
         <source>Choose</source>
-        <translation>選択</translation>
+        <translation>أختر</translation>
     </message>
 </context>
 <context>
@@ -92,32 +92,32 @@
     <message>
         <location filename="../gui/ui/addressbookframe.ui" line="14"/>
         <source>Frame</source>
-        <translation>フレーム</translation>
+        <translation>إطار </translation>
     </message>
     <message>
         <location filename="../gui/ui/addressbookframe.ui" line="47"/>
         <source>New contact</source>
-        <translation>新しい連絡先</translation>
+        <translation>جهة اتصال جديدة</translation>
     </message>
     <message>
         <location filename="../gui/ui/addressbookframe.ui" line="61"/>
         <source>Edit contact</source>
-        <translation>連絡先を編集</translation>
+        <translation>تعديل جهة اتصال</translation>
     </message>
     <message>
         <location filename="../gui/ui/addressbookframe.ui" line="75"/>
         <source>Delete contact</source>
-        <translation>連絡先を消去</translation>
+        <translation>حذف جهة اتصال</translation>
     </message>
     <message>
         <location filename="../gui/ui/addressbookframe.ui" line="89"/>
         <source>Copy address</source>
-        <translation>アドレスをコピー</translation>
+        <translation>نسخ العنوان</translation>
     </message>
     <message>
         <location filename="../gui/ui/addressbookframe.ui" line="104"/>
         <source>Copy Payment ID</source>
-        <translation>支払いIDをコピー</translation>
+        <translation>نسخ رقم الدفع</translation>
     </message>
 </context>
 <context>
@@ -125,17 +125,17 @@
     <message>
         <location filename="../gui/ui/changelanguagedialog.ui" line="14"/>
         <source>Change language</source>
-        <translation>言語の変更</translation>
+        <translation>تغيير اللغة</translation>
     </message>
     <message>
         <location filename="../gui/ui/changelanguagedialog.ui" line="22"/>
         <source>Select language:</source>
-        <translation>言語の選択:</translation>
+        <translation>حدد اللغة</translation>
     </message>
     <message>
         <location filename="../gui/ui/changelanguagedialog.ui" line="30"/>
         <source>English</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">اللغة الانجليزية</translation>
     </message>
     <message>
         <location filename="../gui/ui/changelanguagedialog.ui" line="35"/>
@@ -148,18 +148,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/ui/changelanguagedialog.ui" line="45"/>
-        <source>Polski</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../gui/ui/changelanguagedialog.ui" line="50"/>
         <source>Беларуская</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../gui/ui/changelanguagedialog.ui" line="55"/>
-        <source>Deutsch</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -178,14 +168,48 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>РЈРєСЂР°С—РЅСЃСЊРєР°</source>
+        <translation type="obsolete">-</translation>
+    </message>
+    <message>
+        <source>Р СѓСЃСЃРєРёР№</source>
+        <translation type="obsolete">-</translation>
+    </message>
+    <message>
+        <location filename="../gui/ui/changelanguagedialog.ui" line="45"/>
+        <source>Polski</source>
+        <translation type="unfinished">بولندي</translation>
+    </message>
+    <message>
+        <source>Р‘РµР»Р°СЂСѓСЃРєР°СЏ</source>
+        <translation type="obsolete">-</translation>
+    </message>
+    <message>
+        <location filename="../gui/ui/changelanguagedialog.ui" line="55"/>
+        <source>Deutsch</source>
+        <translation type="unfinished">الألمانية</translation>
+    </message>
+    <message>
+        <source>EspaГ±ol</source>
+        <translation type="obsolete">الإسبانية</translation>
+    </message>
+    <message>
+        <source>FranГ§ais</source>
+        <translation type="obsolete">الفرنسية</translation>
+    </message>
+    <message>
+        <source>PortuguГЄs</source>
+        <translation type="obsolete">البرتغالية</translation>
+    </message>
+    <message>
         <location filename="../gui/ui/changelanguagedialog.ui" line="95"/>
         <source>Cancel</source>
-        <translation type="unfinished">キャンセル</translation>
+        <translation>إلغاء</translation>
     </message>
     <message>
         <location filename="../gui/ui/changelanguagedialog.ui" line="102"/>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>موافق</translation>
     </message>
 </context>
 <context>
@@ -193,37 +217,37 @@
     <message>
         <location filename="../gui/ui/changepassworddialog.ui" line="32"/>
         <source>Change password</source>
-        <translation>パスワード変更</translation>
+        <translation>تغير كلمة المرور</translation>
     </message>
     <message>
         <location filename="../gui/ui/changepassworddialog.ui" line="41"/>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation>موافق</translation>
     </message>
     <message>
         <location filename="../gui/ui/changepassworddialog.ui" line="58"/>
         <source>Old password:</source>
-        <translation>現在のパスワード</translation>
+        <translation>كلمة المرور القديمة:</translation>
     </message>
     <message>
         <location filename="../gui/ui/changepassworddialog.ui" line="72"/>
         <source>Cancel</source>
-        <translation>キャンセル</translation>
+        <translation>إلغاء</translation>
     </message>
     <message>
         <location filename="../gui/ui/changepassworddialog.ui" line="85"/>
         <source>New password:</source>
-        <translation>新しいパスワード</translation>
+        <translation>كلمة المرور الجديدة</translation>
     </message>
     <message>
         <location filename="../gui/ui/changepassworddialog.ui" line="111"/>
         <source>Confirm:</source>
-        <translation>承認：</translation>
+        <translation>تأكيد:</translation>
     </message>
     <message>
         <location filename="../gui/ui/changepassworddialog.ui" line="121"/>
         <source>Password not confirmed</source>
-        <translation>パスワードが承認されません</translation>
+        <translation>كلمة مرور غير مؤكدة</translation>
     </message>
 </context>
 <context>
@@ -231,22 +255,22 @@
     <message>
         <location filename="../gui/ui/confirmsenddialog.ui" line="17"/>
         <source>Confirm sending %1 KRB</source>
-        <translation>1% KRB送信を承認</translation>
+        <translation>تأكيد إرسال 1 % KRB</translation>
     </message>
     <message>
         <location filename="../gui/ui/confirmsenddialog.ui" line="25"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Are you sure you want to send &lt;strong&gt;%1 KRB&lt;/strong&gt;?&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;strong&gt;%1 KRB&lt;/strong&gt;&lt;を送信してよろしいですか?/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation>هل أنت متأكد من إرسال 1% KRB</translation>
     </message>
     <message>
         <location filename="../gui/ui/confirmsenddialog.ui" line="75"/>
         <source>Yes</source>
-        <translation>はい</translation>
+        <translation>نعم</translation>
     </message>
     <message>
         <location filename="../gui/ui/confirmsenddialog.ui" line="86"/>
         <source>Cancel</source>
-        <translation>キャンセル</translation>
+        <translation>إلغاء</translation>
     </message>
 </context>
 <context>
@@ -254,72 +278,84 @@
     <message>
         <location filename="../gui/ui/connectionsettingsdialog.ui" line="17"/>
         <source>Connection settings</source>
-        <translation>接続設定</translation>
+        <translation>إعدادات
+الاتصال </translation>
     </message>
     <message>
         <location filename="../gui/ui/connectionsettingsdialog.ui" line="38"/>
         <source>Cancel</source>
-        <translation>キャンセル</translation>
+        <translation>إلغاء</translation>
     </message>
     <message>
         <location filename="../gui/ui/connectionsettingsdialog.ui" line="45"/>
         <source>Save</source>
-        <translation>保存</translation>
+        <translation>حفظ</translation>
     </message>
     <message>
         <location filename="../gui/ui/connectionsettingsdialog.ui" line="65"/>
         <source>Auto selection</source>
-        <translation>自動選択</translation>
+        <translation>تحديد تلقائي</translation>
     </message>
     <message>
         <location filename="../gui/ui/connectionsettingsdialog.ui" line="78"/>
         <source>Wallet will connect to local daemon on default port. In case of no local daemon running it will launch built-in node.</source>
-        <translation>ウォレットは初期設定ポートでローカルのデーモンに接続します。ローカルのデーモンなしで実行した場合はビルトインノードが起動します。</translation>
+        <translation>ستتصل المحفظة ببرنامج ديمون المحلي على المنفذ الافتراضي. في حال عدم
+تشغيل برنامج ديمون المحلي، سيتم تشغيل الوحدة الأساسية الداخلية. </translation>
     </message>
     <message>
         <location filename="../gui/ui/connectionsettingsdialog.ui" line="88"/>
         <source>Embedded</source>
-        <translation>組み込み</translation>
+        <translation>مدمج</translation>
     </message>
     <message>
         <location filename="../gui/ui/connectionsettingsdialog.ui" line="98"/>
         <source>Built-in embedded node will be used.</source>
-        <translation>組み込み内蔵ノードが利用されます。</translation>
+        <translation>سيتم استخدام الوحدة الأساسية المدمجة الداخلية. </translation>
     </message>
     <message>
         <location filename="../gui/ui/connectionsettingsdialog.ui" line="108"/>
         <source>Local daemon</source>
-        <translation>ローカルデーモン</translation>
+        <translation>ديمون المحلي</translation>
     </message>
     <message>
         <location filename="../gui/ui/connectionsettingsdialog.ui" line="120"/>
         <source>Port: </source>
-        <translation>ポート：</translation>
+        <translation>المنفذ: </translation>
     </message>
     <message>
         <location filename="../gui/ui/connectionsettingsdialog.ui" line="161"/>
         <source>Wallet will connect to local daemon on specified port.</source>
-        <translation>ウォレットは指定されたポートでローカルデーモンに接続します。</translation>
+        <translation>ستتصل المحفظة ببرنامج ديمون المحلي على المنفذ المحدد.</translation>
     </message>
     <message>
         <location filename="../gui/ui/connectionsettingsdialog.ui" line="171"/>
         <source>Remote daemon</source>
-        <translation>リモートデーモン</translation>
+        <translation>ديمون بعيد</translation>
     </message>
     <message>
         <location filename="../gui/ui/connectionsettingsdialog.ui" line="199"/>
         <source>Add node</source>
-        <translation>ノード追加</translation>
+        <translation>إضافة منفذ </translation>
     </message>
     <message>
         <location filename="../gui/ui/connectionsettingsdialog.ui" line="210"/>
         <source>Remove node</source>
-        <translation>ノード削除</translation>
+        <translation>إزالة منفذ</translation>
     </message>
     <message>
         <location filename="../gui/ui/connectionsettingsdialog.ui" line="251"/>
         <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet sends 0.25% fee from each transaction to the node, but no more than 1 KRB.</source>
-        <translation>ウォレットは、ローカルまたはグローバルネットワークで実行されているリモートノードに接続されます。ノードを選択するか、IPアドレス、ドメイン名、ポートを指定してください。このモードでは、ウォレットはトランザクション毎に0.25%の手数料をそのノードに送付しますが、最大でも1KRBです。</translation>
+        <translation type="unfinished">ستتصل المحفظة بريمون بعيد يعمل على شبكة عالمية أو محلية. الرجاء
+تحديد الوحدة الأساسية أو حدد عنوان الأي بي أو اسم المجال والمنفذ. وفي هذا
+الوضع، ترسل المحفظة رسوماً بنسبة 0.25% كرسوم عل كل معاملة تتم في الوحدة
+الأساسية، ولكن لا تزيد عن أكثر من 1 KRB.</translation>
+    </message>
+    <message>
+        <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet sends 0.25% fee from each transaction to the node, but no more than 10 KRB.</source>
+        <translation>ستتصل المحفظة بريمون بعيد يعمل على شبكة عالمية أو محلية. الرجاء
+تحديد الوحدة الأساسية أو حدد عنوان الأي بي أو اسم المجال والمنفذ. وفي هذا
+الوضع، ترسل المحفظة رسوماً بنسبة 0.25% كرسوم عل كل معاملة تتم في الوحدة
+الأساسية، ولكن لا تزيد عن أكثر من 10 KRB. </translation>
     </message>
 </context>
 <context>
@@ -327,42 +363,42 @@
     <message>
         <location filename="../gui/ui/exitwidget.ui" line="14"/>
         <source>Saving data</source>
-        <translation>データ保存</translation>
+        <translation>جار حفظ البيانات</translation>
     </message>
     <message>
         <location filename="../gui/ui/exitwidget.ui" line="27"/>
         <source>%1 wallet is saving data.
 Please wait...</source>
-        <translation>%1 ウォレットはデータを保存しています。
-お待ちください...</translation>
+        <translation>المحفظة 1% جارية في حفظ البيانات. الرجاء الانتظار... </translation>
     </message>
 </context>
 <context>
     <name>ExportTrackingKeyDialog</name>
     <message>
-        <location filename="../gui/ui/exporttrackingkeydialog.ui" line="26"/>
-        <source>Export tracking key</source>
-        <translation>トラッキングキーをエクスポート</translation>
-    </message>
-    <message>
-        <location filename="../gui/ui/exporttrackingkeydialog.ui" line="53"/>
-        <source>Tracking key allows to see all incoming transactions of this wallet. It does not allow to spend funds.</source>
-        <translation>トラッキングキーは、ウォレットのすべてのインカミングトランザクションの参照を許可します。これは資金の使用を許可するものではありません。</translation>
-    </message>
-    <message>
         <location filename="../gui/ui/exporttrackingkeydialog.ui" line="75"/>
         <source>Save to file</source>
-        <translation>ファイル保存</translation>
+        <translation>حفظ في الملف</translation>
     </message>
     <message>
         <location filename="../gui/ui/exporttrackingkeydialog.ui" line="86"/>
         <source>Copy key</source>
-        <translation>キーをコピー</translation>
+        <translation>نسخ المفتاح</translation>
     </message>
     <message>
         <location filename="../gui/ui/exporttrackingkeydialog.ui" line="97"/>
         <source>Close</source>
-        <translation>閉じる</translation>
+        <translation>إغلاق</translation>
+    </message>
+    <message>
+        <location filename="../gui/ui/exporttrackingkeydialog.ui" line="26"/>
+        <source>Export tracking key</source>
+        <translation>تصدير مفتاح التتبع </translation>
+    </message>
+    <message>
+        <location filename="../gui/ui/exporttrackingkeydialog.ui" line="53"/>
+        <source>Tracking key allows to see all incoming transactions of this wallet. It does not allow to spend funds.</source>
+        <translation>يسمح مفتاح التتبع برؤية كافة المعاملات الواردة في هذه المحفظة. لا
+يسمح بإنفاق المال المتوفر فيها. </translation>
     </message>
 </context>
 <context>
@@ -370,32 +406,32 @@ Please wait...</source>
     <message>
         <location filename="../gui/ui/importkeydialog.ui" line="20"/>
         <source>Import private key</source>
-        <translation>プライベートキーをインポート</translation>
+        <translation>استيراد المفتاح الخاص</translation>
     </message>
     <message>
         <location filename="../gui/ui/importkeydialog.ui" line="26"/>
         <source>Key:</source>
-        <translation>キー:</translation>
+        <translation>المفتاح:</translation>
     </message>
     <message>
         <location filename="../gui/ui/importkeydialog.ui" line="40"/>
         <source>Where to save new wallet file:</source>
-        <translation>新ウォレット保存先:</translation>
+        <translation>مكان حفظ ملف المحفظة الجديد:</translation>
     </message>
     <message>
         <location filename="../gui/ui/importkeydialog.ui" line="60"/>
         <source>Cancel</source>
-        <translation>キャンセル</translation>
+        <translation>إلغاء </translation>
     </message>
     <message>
         <location filename="../gui/ui/importkeydialog.ui" line="70"/>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>موافق </translation>
     </message>
     <message>
         <location filename="../gui/ui/importkeydialog.ui" line="86"/>
         <source>Select folder</source>
-        <translation>フォルダ選択</translation>
+        <translation>حدد مجلد </translation>
     </message>
 </context>
 <context>
@@ -403,37 +439,39 @@ Please wait...</source>
     <message>
         <location filename="../gui/ui/importtrackingkeydialog.ui" line="20"/>
         <source>Import tracking key</source>
-        <translation>トラッキングーキーをインポート</translation>
+        <translation>استيراد مفتاح التتبع</translation>
     </message>
     <message>
         <location filename="../gui/ui/importtrackingkeydialog.ui" line="26"/>
         <source>Key:</source>
-        <translation>キー:</translation>
+        <translation>المفتاح:</translation>
     </message>
     <message>
         <location filename="../gui/ui/importtrackingkeydialog.ui" line="36"/>
         <source>Where to save new wallet file:</source>
-        <translation>新ウォレット保存先:</translation>
+        <translation>مكان حفظ ملف المحفظة الجديد:</translation>
     </message>
     <message>
         <location filename="../gui/ui/importtrackingkeydialog.ui" line="46"/>
         <source>Select folder</source>
-        <translation>フォルダ選択</translation>
+        <translation>حدد مجلد</translation>
     </message>
     <message>
         <location filename="../gui/ui/importtrackingkeydialog.ui" line="53"/>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>موافق </translation>
     </message>
     <message>
         <location filename="../gui/ui/importtrackingkeydialog.ui" line="66"/>
         <source>Cancel</source>
-        <translation>キャンセル</translation>
+        <translation>إلغاء </translation>
     </message>
     <message>
         <location filename="../gui/ui/importtrackingkeydialog.ui" line="89"/>
         <source>Import a tracking key of a wallet to see all its incoming transactions. It doesn&apos;t allow spending funds.</source>
-        <translation>ウォレットのすべてのインカミングトランザクションの参照するためにウォレットのトラッキングキーをインポート。これは資金の使用を許可するものではありません。</translation>
+        <translation>استيراد مفتاح تتبع المحفظة لرؤية كافة
+المعاملات الواردة.  لا يسمح بإنفاق المال المتوفر
+فيها.</translation>
     </message>
 </context>
 <context>
@@ -441,62 +479,62 @@ Please wait...</source>
     <message>
         <location filename="../gui/ui/infodialog.ui" line="17"/>
         <source>Information</source>
-        <translation>インフォメーション</translation>
+        <translation>المعلومات</translation>
     </message>
     <message>
         <location filename="../gui/ui/infodialog.ui" line="29"/>
         <source>Network</source>
-        <translation>ネットワーク</translation>
+        <translation>الشبكة</translation>
     </message>
     <message>
         <location filename="../gui/ui/infodialog.ui" line="41"/>
         <source>Connections</source>
-        <translation>接続</translation>
+        <translation>الاتصالات</translation>
     </message>
     <message>
         <location filename="../gui/ui/infodialog.ui" line="61"/>
         <source>Peer list</source>
-        <translation>ピア リスト</translation>
+        <translation>قائمة الأقران</translation>
     </message>
     <message>
         <location filename="../gui/ui/infodialog.ui" line="78"/>
         <source>Blockchain</source>
-        <translation>ブロックチェーン</translation>
+        <translation>بلوكتشين</translation>
     </message>
     <message>
         <location filename="../gui/ui/infodialog.ui" line="90"/>
         <source>Height</source>
-        <translation>高さ</translation>
+        <translation>الارتفاع</translation>
     </message>
     <message>
         <location filename="../gui/ui/infodialog.ui" line="110"/>
         <source>Last block date and time</source>
-        <translation>最終ブロック日時</translation>
+        <translation>تاريخ ووقت البلوك الأخير</translation>
     </message>
     <message>
         <location filename="../gui/ui/infodialog.ui" line="130"/>
         <source>Difficulty</source>
-        <translation>採掘難易度</translation>
+        <translation>الصعوبة</translation>
     </message>
     <message>
         <location filename="../gui/ui/infodialog.ui" line="150"/>
         <source>Transactions</source>
-        <translation>トランザクション</translation>
+        <translation>المعاملات</translation>
     </message>
     <message>
         <location filename="../gui/ui/infodialog.ui" line="170"/>
         <source>Unconfirmed transactions</source>
-        <translation>未承認トランザクション</translation>
+        <translation>المعاملات غير المؤكدة</translation>
     </message>
     <message>
         <location filename="../gui/ui/infodialog.ui" line="190"/>
         <source>Alternative blocks</source>
-        <translation>代替ブロック</translation>
+        <translation>بلوكات بديلة</translation>
     </message>
     <message>
         <location filename="../gui/ui/infodialog.ui" line="235"/>
         <source>Close</source>
-        <translation>閉じる</translation>
+        <translation>إغلاق</translation>
     </message>
 </context>
 <context>
@@ -504,135 +542,135 @@ Please wait...</source>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="37"/>
         <source>MainWindow</source>
-        <translation>メイン ウインドウ</translation>
+        <translation>النافذة   الرئيسية</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="200"/>
         <source>File</source>
-        <translation>ファイル</translation>
+        <translation>ملف</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="204"/>
         <location filename="../gui/ui/mainwindow.ui" line="566"/>
         <source>Recent wallets</source>
-        <translation>最近のウォレット</translation>
+        <translation>المحافظ الأخيرة</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="224"/>
         <source>Settings</source>
-        <translation>設定</translation>
+        <translation>الإعدادات</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="240"/>
         <location filename="../gui/ui/mainwindow.ui" line="533"/>
         <source>Help</source>
-        <translation>ヘルプ</translation>
+        <translation>مساعدة</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="248"/>
         <source>Wallet</source>
-        <translation>ウォレット</translation>
+        <translation>محفظة</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="300"/>
         <source>toolBar</source>
-        <translation type="unfinished"></translation>
+        <translation>شريط الأدوات </translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="335"/>
         <source>Account toolbar</source>
-        <translation>アカウント ツールバー</translation>
+        <translation>شريط أدوات الحساب</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="356"/>
         <source>Overview</source>
-        <translation>概要</translation>
+        <translation>لمحة عامة</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="371"/>
         <source>Send</source>
-        <translation>送信</translation>
+        <translation>إرسال</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="386"/>
         <source>Receive</source>
-        <translation>受信</translation>
+        <translation>استلام</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="401"/>
         <source>Transactions</source>
-        <translation>史籍</translation>
+        <translation>المعاملات</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="409"/>
         <source>Exit</source>
-        <translation>退出</translation>
+        <translation>خروج</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="412"/>
         <source>Ctrl+Q</source>
-        <translation type="unfinished"></translation>
+        <translation>كونترول + Q</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="427"/>
         <source>Contacts</source>
-        <translation>連絡先</translation>
+        <translation>جهات الاتصال</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="435"/>
         <source>Create wallet</source>
-        <translation>ウォレットを作る</translation>
+        <translation>إنشاء محفظة</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="443"/>
         <source>Open wallet</source>
-        <translation>ウォレットを開く</translation>
+        <translation>فتح محفظة</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="451"/>
         <source>Encrypt wallet</source>
-        <translation>ウォレットの暗号化</translation>
+        <translation>تشفير المحفظة</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="459"/>
         <location filename="../gui/ui/mainwindow.ui" line="462"/>
         <source>Change password</source>
-        <translation>パスワードの変更</translation>
+        <translation>تغيير كلمة المرور</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="470"/>
         <source>About</source>
-        <translation>アバウト</translation>
+        <translation>حول</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="478"/>
         <source>About Qt</source>
-        <translation>Qtについて</translation>
+        <translation>حول Qt</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="486"/>
         <source>Backup wallet</source>
-        <translation>ウォレットをバックアップ</translation>
+        <translation>نسخ المحفظة</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="494"/>
         <source>Start on system login</source>
-        <translation>システム  ログインを始める</translation>
+        <translation>البدء بتسجيل الدخول إلى النظام</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="502"/>
         <source>Minimize to tray</source>
-        <translation>トレイに最小化</translation>
+        <translation>تصغير إلى شريط الأدوات</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="510"/>
         <source>Close to tray</source>
-        <translation>トレイに閉じる</translation>
+        <translation>بالقرب من شريط الأدوات</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="515"/>
         <source>Import private key</source>
-        <translation>プライベートキーのインポート</translation>
+        <translation>استيراد المفتاح الخاص</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="604"/>
@@ -646,134 +684,142 @@ Please wait...</source>
     </message>
     <message>
         <source>Mining</source>
-        <translation type="vanished">マイニング</translation>
+        <translation>تعدين</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="520"/>
         <location filename="../gui/ui/mainwindow.ui" line="523"/>
         <source>Reset wallet</source>
-        <translation>ウォレットをリセット</translation>
+        <translation>إعادة تعيين المحفظة</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="228"/>
         <source>Language</source>
-        <translation>言語</translation>
+        <translation>اللغة</translation>
+    </message>
+    <message>
+        <source>Change language</source>
+        <translation>تغيير اللغة</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="528"/>
         <source>Export private key</source>
-        <translation>プライベートキーをエクスポート</translation>
+        <translation>تصدير المفتاح الخاص</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="536"/>
         <source>F1</source>
-        <translation type="unfinished"></translation>
+        <translation>F1</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="541"/>
         <source>Connection</source>
-        <translation>接続</translation>
+        <translation>اتصال </translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="546"/>
         <source>Open payment request</source>
-        <translation>ペイメント リクエストを開く</translation>
+        <translation>فتح طلب الدفع</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="551"/>
         <source>Export tracking key</source>
-        <translation>トラッキングキーをエクスポート</translation>
+        <translation>تصدير مفتاح التتبع</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="556"/>
         <source>Import tracking key</source>
-        <translation>トラッキングキーをインポート</translation>
+        <translation>استيراد مفتاح التتبع</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="561"/>
         <source>Close wallet</source>
-        <translation>ウォレットを閉じる</translation>
+        <translation>إغلاق المحفظة</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="571"/>
         <source>Information</source>
-        <translation>インフォメーション</translation>
+        <translation>معلومات</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="576"/>
         <source>Open log file</source>
-        <translation>ログファイルを開く</translation>
+        <translation>فتح ملف السجل</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="584"/>
         <source>Show mnemonic seed</source>
-        <translation>ニーモニックシードを表示</translation>
+        <translation>عرض كلمة استرجاع المحفظة </translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="589"/>
         <source>Restore from mnemonic seed</source>
-        <translation>ニーモニックシードから復元</translation>
+        <translation>استعاد ة من كلمة استرجاع المحفظة </translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="594"/>
         <source>Create nondeterministic wallet</source>
-        <translation>非決定的ウォレットを作成</translation>
+        <translation>إنشاء نظام عدم اشتقاق مفاتيح</translation>
     </message>
     <message>
         <source>Start pool mining automatically</source>
-        <translation type="vanished">自動プールマイニング開始</translation>
+        <translation>بدء التعدين الجماعي تلقائياً</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="599"/>
         <source>Sweep unmixable</source>
-        <translation>スイープ混合不可</translation>
+        <translation>زر الدفعات القديمة</translation>
     </message>
 </context>
 <context>
     <name>MiningFrame</name>
     <message>
+        <source>Frame</source>
+        <translation>إطار </translation>
+    </message>
+    <message>
         <source>Pool mining</source>
-        <translation type="vanished">プールマイニング</translation>
+        <translation>التعدين الجماعي</translation>
     </message>
     <message>
         <source>Add pool</source>
-        <translation type="vanished">プール追加</translation>
+        <translation>إضافة طريق للتعدين</translation>
     </message>
     <message>
         <source>Select pool</source>
-        <translation type="vanished">プール選択</translation>
+        <translation>حدد طريقة التعدين</translation>
     </message>
     <message>
         <source>Start mining</source>
-        <translation type="vanished">マイニング開始</translation>
+        <translation>بدء التعدين</translation>
     </message>
     <message>
         <source>Stop mining</source>
-        <translation type="vanished">マイニング停止</translation>
+        <translation>إيقاف التعدين </translation>
     </message>
     <message>
         <source>Stopped</source>
-        <translation type="vanished">停止</translation>
+        <translation>متوقف</translation>
     </message>
     <message>
         <source>Mining status:</source>
-        <translation type="vanished">マイニング 状態:</translation>
+        <translation>حالة التعدين</translation>
     </message>
     <message>
         <source>Remove pool</source>
-        <translation type="vanished">プール消去</translation>
+        <translation>إزالة طريقة التعدين</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="vanished">設定</translation>
+        <translation>الإعدادات </translation>
     </message>
     <message>
         <source>CPU cores</source>
-        <translation type="vanished">CPUのコア</translation>
+        <translation>معالجات وحدة المعالجة المركزية</translation>
     </message>
     <message>
         <source>Solo mining</source>
-        <translation type="vanished">ソロマイニング</translation>
+        <translation>تعدين فردي</translation>
     </message>
 </context>
 <context>
@@ -781,17 +827,17 @@ Please wait...</source>
     <message>
         <location filename="../gui/ui/mnemonicseeddialog.ui" line="33"/>
         <source>Mnemonic seed</source>
-        <translation>ニーモニックシード</translation>
+        <translation> كلمة استرجاع المحفظة </translation>
     </message>
     <message>
         <location filename="../gui/ui/mnemonicseeddialog.ui" line="65"/>
         <source>Select language</source>
-        <translation>言語の選択</translation>
+        <translation>حدد اللغة</translation>
     </message>
     <message>
         <location filename="../gui/ui/mnemonicseeddialog.ui" line="107"/>
         <source>Close</source>
-        <translation>閉じる</translation>
+        <translation>إغلاق</translation>
     </message>
 </context>
 <context>
@@ -799,32 +845,32 @@ Please wait...</source>
     <message>
         <location filename="../gui/ui/newaddressdialog.ui" line="14"/>
         <source>New address</source>
-        <translation>新アドレス</translation>
+        <translation>عنوان جديد</translation>
     </message>
     <message>
         <location filename="../gui/ui/newaddressdialog.ui" line="26"/>
         <source>Label:</source>
-        <translation>ラベル:</translation>
+        <translation>العلامة:</translation>
     </message>
     <message>
         <location filename="../gui/ui/newaddressdialog.ui" line="39"/>
         <source>Address:</source>
-        <translation>アドレス:</translation>
+        <translation>العنوان:</translation>
     </message>
     <message>
         <location filename="../gui/ui/newaddressdialog.ui" line="52"/>
         <source>PaymentID:</source>
-        <translation>ペイメントID:</translation>
+        <translation> رقم الدفع</translation>
     </message>
     <message>
         <location filename="../gui/ui/newaddressdialog.ui" line="75"/>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation>موافق</translation>
     </message>
     <message>
         <location filename="../gui/ui/newaddressdialog.ui" line="85"/>
         <source>Cancel</source>
-        <translation>キャンセル</translation>
+        <translation>إلغاء</translation>
     </message>
 </context>
 <context>
@@ -832,27 +878,27 @@ Please wait...</source>
     <message>
         <location filename="../gui/ui/newnodedialog.ui" line="17"/>
         <source>New remote node</source>
-        <translation>新リモートノード</translation>
+        <translation>وحدة بعيدة جديدة</translation>
     </message>
     <message>
         <location filename="../gui/ui/newnodedialog.ui" line="25"/>
         <source>Host:</source>
-        <translation>ホスト:</translation>
+        <translation>المضيف:</translation>
     </message>
     <message>
         <location filename="../gui/ui/newnodedialog.ui" line="35"/>
         <source>Port:</source>
-        <translation>ポート:</translation>
+        <translation>المنفذ:</translation>
     </message>
     <message>
         <location filename="../gui/ui/newnodedialog.ui" line="72"/>
         <source>Cancel</source>
-        <translation>キャンセル</translation>
+        <translation>إلغاء</translation>
     </message>
     <message>
         <location filename="../gui/ui/newnodedialog.ui" line="79"/>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>موافق</translation>
     </message>
 </context>
 <context>
@@ -860,51 +906,55 @@ Please wait...</source>
     <message>
         <location filename="../gui/ui/newpassworddialog.ui" line="20"/>
         <source>Enter password</source>
-        <translation>パスワード入力</translation>
+        <translation>ادخل كلمة المرور</translation>
     </message>
     <message>
         <location filename="../gui/ui/newpassworddialog.ui" line="29"/>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation>موافق</translation>
     </message>
     <message>
         <location filename="../gui/ui/newpassworddialog.ui" line="39"/>
         <source>Cancel</source>
-        <translation>キャンセル</translation>
+        <translation>إلغاء</translation>
     </message>
     <message>
         <location filename="../gui/ui/newpassworddialog.ui" line="52"/>
         <source>Password:</source>
-        <translation>パスワード:</translation>
+        <translation>كلمة المرور:</translation>
     </message>
     <message>
         <location filename="../gui/ui/newpassworddialog.ui" line="85"/>
         <source>Confirm:</source>
-        <translation>承認:</translation>
+        <translation>تأكيد:</translation>
     </message>
     <message>
         <location filename="../gui/ui/newpassworddialog.ui" line="95"/>
         <source>Password not confirmed</source>
-        <translation>パスワードが承認されません</translation>
+        <translation>كلمة المرور غير مؤكدة</translation>
     </message>
 </context>
 <context>
     <name>NewPoolDialog</name>
     <message>
         <source>New pool</source>
-        <translation type="vanished">新プール</translation>
+        <translation>طريقة تعدين جديدة</translation>
     </message>
     <message>
         <source>Host:</source>
-        <translation type="vanished">ホスト:</translation>
+        <translation>المضيف:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation type="vanished">ポート:</translation>
+        <translation>المنفذ:</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="vanished">キャンセル</translation>
+        <translation>إلغاء</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>موافق</translation>
     </message>
 </context>
 <context>
@@ -912,22 +962,22 @@ Please wait...</source>
     <message>
         <location filename="../gui/ui/nowalletframe.ui" line="14"/>
         <source>Frame</source>
-        <translation>フレーム</translation>
+        <translation>إطار</translation>
     </message>
     <message>
         <location filename="../gui/ui/nowalletframe.ui" line="62"/>
         <source>Welcome to Karbo Wallet!</source>
-        <translation>Karbo Walletへようこそ！</translation>
+        <translation>أهلاً بك في محفظة Karbo! </translation>
     </message>
     <message>
         <location filename="../gui/ui/nowalletframe.ui" line="121"/>
         <source>Create wallet</source>
-        <translation>ウォレット作成</translation>
+        <translation>إنشاء محفظة</translation>
     </message>
     <message>
         <location filename="../gui/ui/nowalletframe.ui" line="162"/>
         <source>Open wallet</source>
-        <translation>ウォレットを開く</translation>
+        <translation>فتح محفظة</translation>
     </message>
 </context>
 <context>
@@ -935,22 +985,22 @@ Please wait...</source>
     <message>
         <location filename="../gui/ui/openuridialog.ui" line="17"/>
         <source>Open payment request</source>
-        <translation>ペイメントリクエストを開く</translation>
+        <translation>فتح طلب الدفع</translation>
     </message>
     <message>
         <location filename="../gui/ui/openuridialog.ui" line="25"/>
         <source>URI:</source>
-        <translation type="unfinished"></translation>
+        <translation>الرابط:</translation>
     </message>
     <message>
         <location filename="../gui/ui/openuridialog.ui" line="65"/>
         <source>Cancel</source>
-        <translation>キャンセル</translation>
+        <translation>إلغاء</translation>
     </message>
     <message>
         <location filename="../gui/ui/openuridialog.ui" line="72"/>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>موافق</translation>
     </message>
 </context>
 <context>
@@ -958,42 +1008,42 @@ Please wait...</source>
     <message>
         <location filename="../gui/ui/overviewframe.ui" line="14"/>
         <source>Frame</source>
-        <translation>フレーム</translation>
+        <translation>إطار</translation>
     </message>
     <message>
         <location filename="../gui/ui/overviewframe.ui" line="88"/>
         <source>Unconfirmed:</source>
-        <translation>未承認:</translation>
+        <translation>غير مؤكد:</translation>
     </message>
     <message>
         <location filename="../gui/ui/overviewframe.ui" line="108"/>
         <source>Balance</source>
-        <translation>残高</translation>
+        <translation>الرصيد</translation>
     </message>
     <message>
         <location filename="../gui/ui/overviewframe.ui" line="115"/>
         <source>Total:</source>
-        <translation>合計額:</translation>
+        <translation>الإجمالي:</translation>
     </message>
     <message>
         <location filename="../gui/ui/overviewframe.ui" line="142"/>
         <source>Available balance:</source>
-        <translation>利用可能残高:</translation>
+        <translation>الرصيد الحالي:</translation>
     </message>
     <message>
         <location filename="../gui/ui/overviewframe.ui" line="182"/>
         <source>Unmixable dust:</source>
-        <translation>混合不可ダスト:</translation>
+        <translation>قيمة كسرية غير قابلة للمزج</translation>
     </message>
     <message>
         <location filename="../gui/ui/overviewframe.ui" line="195"/>
         <source>0.00</source>
-        <translation type="unfinished"></translation>
+        <translation>0.00</translation>
     </message>
     <message>
         <location filename="../gui/ui/overviewframe.ui" line="257"/>
         <source>Recent transactions</source>
-        <translation>最新トランザクション</translation>
+        <translation>المعاملات الأخيرة</translation>
     </message>
 </context>
 <context>
@@ -1001,27 +1051,27 @@ Please wait...</source>
     <message>
         <location filename="../gui/ui/passworddialog.ui" line="26"/>
         <source>Enter password</source>
-        <translation>パスワード入力</translation>
+        <translation>ادخل كلمة المرور</translation>
     </message>
     <message>
         <location filename="../gui/ui/passworddialog.ui" line="45"/>
         <source>Cancel</source>
-        <translation>キャンセル</translation>
+        <translation>إلغاء</translation>
     </message>
     <message>
         <location filename="../gui/ui/passworddialog.ui" line="58"/>
         <source>Password:</source>
-        <translation>パスワード:</translation>
+        <translation>كلمة المرور:</translation>
     </message>
     <message>
         <location filename="../gui/ui/passworddialog.ui" line="68"/>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation>موافق</translation>
     </message>
     <message>
         <location filename="../gui/ui/passworddialog.ui" line="87"/>
         <source>Wrong password</source>
-        <translation>不適切なパスワード</translation>
+        <translation>كلمة مرور خاطئة</translation>
     </message>
 </context>
 <context>
@@ -1029,14 +1079,14 @@ Please wait...</source>
     <message>
         <location filename="../PaymentServer.cpp" line="96"/>
         <source>Cannot start karbowanec: click-to-pay handler</source>
-        <translation>karbowanecを開始できません: click-to-pay handler</translation>
+        <translation>لا يمكن بدء karbowanec: انقر لتسريع عملية الدفع</translation>
     </message>
 </context>
 <context>
     <name>PrivateKeysDialog</name>
     <message>
         <source>Private Key</source>
-        <translation type="vanished">プライベートキー</translation>
+        <translation>مفتاح خاص</translation>
     </message>
     <message>
         <location filename="../gui/ui/privatekeysdialog.ui" line="26"/>
@@ -1056,12 +1106,12 @@ Please wait...</source>
     <message>
         <location filename="../gui/ui/privatekeysdialog.ui" line="86"/>
         <source>Copy key</source>
-        <translation>キーをコピー</translation>
+        <translation>نسخ المفتاح</translation>
     </message>
     <message>
         <location filename="../gui/ui/privatekeysdialog.ui" line="97"/>
         <source>Close</source>
-        <translation>閉じる</translation>
+        <translation>إغلاق</translation>
     </message>
 </context>
 <context>
@@ -1070,39 +1120,39 @@ Please wait...</source>
         <location filename="../gui/MainWindow.cpp" line="660"/>
         <location filename="../main.cpp" line="70"/>
         <source>Help</source>
-        <translation>ヘルプ</translation>
+        <translation>مساعدة</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="67"/>
         <source>Error</source>
-        <translation>エラー</translation>
+        <translation>خطأ</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="107"/>
         <source>Fail</source>
-        <translation>失敗</translation>
+        <translation>فشل</translation>
     </message>
     <message>
         <location filename="../main.cpp" line="107"/>
         <source>%1 wallet already running or cannot create lock file %2. Check your permissions.</source>
-        <translation>%1 ウォレットは既に実行されているか、ロックファイルの作成ができません。%2. あなたの権限を確認してください。</translation>
+        <translation>1% من المحفظة نشط من قبل أو لا يمكن إنشاء ملف قفل 2%. تحقق من الأذونات
+المتاحة. </translation>
     </message>
     <message>
         <location filename="../main.cpp" line="119"/>
         <source>Loading blockchain...</source>
-        <translation>ブロックチェーン ローディング中...</translation>
+        <translation>جار تحميل البلوكتشين...</translation>
     </message>
     <message>
         <location filename="../update.cpp" line="90"/>
         <source>New version available</source>
-        <translation>利用可能な新バージョン</translation>
+        <translation>إصدار جديد متاح</translation>
     </message>
     <message>
         <location filename="../update.cpp" line="90"/>
         <source>There is update available.
 Do you want to go to download page?</source>
-        <translation>利用可能なアップデートがあります。
-ダウンロードページに行きますか？</translation>
+        <translation>هناك تحديث متاح. هل تريد الذهاب إلى صفحة التحميل؟</translation>
     </message>
 </context>
 <context>
@@ -1110,68 +1160,68 @@ Do you want to go to download page?</source>
     <message>
         <location filename="../gui/ui/receiveframe.ui" line="14"/>
         <source>Frame</source>
-        <translation>フレーム</translation>
+        <translation>إطار</translation>
     </message>
     <message>
         <location filename="../gui/ui/receiveframe.ui" line="101"/>
         <location filename="../gui/ui/receiveframe.ui" line="378"/>
         <source>Request payment</source>
-        <translation>ペイメントをリクエスト</translation>
+        <translation>طلب الدفع</translation>
     </message>
     <message>
         <location filename="../gui/ui/receiveframe.ui" line="107"/>
         <source>Use this form to request payment.</source>
-        <translation>ペイメントリクエストに、このフォームを使用してください。</translation>
+        <translation>استخدم هذا النموذج لطلب الدفع.</translation>
     </message>
     <message>
         <location filename="../gui/ui/receiveframe.ui" line="114"/>
         <source>Label:</source>
-        <translation>ラベル:</translation>
+        <translation>العلامة:</translation>
     </message>
     <message>
         <location filename="../gui/ui/receiveframe.ui" line="124"/>
         <source>Enter desired label for payer&apos;s address book</source>
-        <translation>支払人のアドレスブックに希望のラベルを入力してください。</translation>
+        <translation>أدخل العلامة المرغوبة لدفتر عناوين الدافعين.</translation>
     </message>
     <message>
         <location filename="../gui/ui/receiveframe.ui" line="144"/>
         <source>Amount:</source>
-        <translation>数量:</translation>
+        <translation>القيمة:</translation>
     </message>
     <message>
         <location filename="../gui/ui/receiveframe.ui" line="207"/>
         <source>PaymentID:</source>
-        <translation>ペイントID:</translation>
+        <translation>رقم الدفع:</translation>
     </message>
     <message>
         <location filename="../gui/ui/receiveframe.ui" line="217"/>
         <source>Payment identifier which payer should attach to transaction</source>
-        <translation>支払人がトランザクションに添付する必要がある支払い識別子</translation>
+        <translation>رقم الدفع الذي يجب أن يرفقه الدافع إلى المعاملة. </translation>
     </message>
     <message>
         <location filename="../gui/ui/receiveframe.ui" line="236"/>
         <source>Generate Payment ID</source>
-        <translation>ジェネレイターペイメントID</translation>
+        <translation>إنشاء رقم الدفع</translation>
     </message>
     <message>
         <location filename="../gui/ui/receiveframe.ui" line="255"/>
         <source>Create payment request</source>
-        <translation>ペイメントリクエストを作る</translation>
+        <translation>إنشاء طلب الدفع</translation>
     </message>
     <message>
         <location filename="../gui/ui/receiveframe.ui" line="278"/>
         <source>Close</source>
-        <translation>閉じる</translation>
+        <translation>إغلاق</translation>
     </message>
     <message>
         <location filename="../gui/ui/receiveframe.ui" line="350"/>
         <source>Copy address</source>
-        <translation>アドレスをコピー</translation>
+        <translation>نسخ العنوان</translation>
     </message>
     <message>
         <location filename="../gui/ui/receiveframe.ui" line="364"/>
         <source>Save QR to file</source>
-        <translation>QR をファイルに保存</translation>
+        <translation>حفظ QR في ملف</translation>
     </message>
 </context>
 <context>
@@ -1179,32 +1229,32 @@ Do you want to go to download page?</source>
     <message>
         <location filename="../gui/ui/restorefrommnemonicseeddialog.ui" line="20"/>
         <source>Restore from mnemonic phrase</source>
-        <translation>ニーモニックフレーズから復元</translation>
+        <translation>استعاد ة من كلمة استرجاع المحفظة </translation>
     </message>
     <message>
         <location filename="../gui/ui/restorefrommnemonicseeddialog.ui" line="26"/>
         <source>Mnemonic:</source>
-        <translation>ニーモニック:</translation>
+        <translation>كلمة استرجاع :</translation>
     </message>
     <message>
         <location filename="../gui/ui/restorefrommnemonicseeddialog.ui" line="40"/>
         <source>Where to save new wallet file:</source>
-        <translation>新ウォレット保存先</translation>
+        <translation>مكان حفظ ملف المحفظة الجديد:</translation>
     </message>
     <message>
         <location filename="../gui/ui/restorefrommnemonicseeddialog.ui" line="50"/>
         <source>Select folder</source>
-        <translation>フォルダ選択</translation>
+        <translation>حدد مجلد</translation>
     </message>
     <message>
         <location filename="../gui/ui/restorefrommnemonicseeddialog.ui" line="70"/>
         <source>Cancel</source>
-        <translation>キャンセル</translation>
+        <translation>إلغاء</translation>
     </message>
     <message>
         <location filename="../gui/ui/restorefrommnemonicseeddialog.ui" line="80"/>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>موافق</translation>
     </message>
 </context>
 <context>
@@ -1212,49 +1262,49 @@ Do you want to go to download page?</source>
     <message>
         <location filename="../gui/ui/sendframe.ui" line="14"/>
         <source>Frame</source>
-        <translation type="unfinished">フレーム</translation>
+        <translation>إطار </translation>
     </message>
     <message>
         <source>Anonymity level:</source>
-        <translation type="vanished">匿名性レベル:</translation>
+        <translation>مستوى سرية الهوية:</translation>
     </message>
     <message>
         <location filename="../gui/ui/sendframe.ui" line="167"/>
         <source>Donate 0.1% to development fund:</source>
-        <translation>開発資金へ0.1%寄付:</translation>
+        <translation>تبرع 0.1% لصندوق التطوير:</translation>
     </message>
     <message>
         <source>Fee:</source>
-        <translation type="vanished">手数料:</translation>
+        <translation>الرسوم:</translation>
     </message>
     <message>
         <source>PaymentID:</source>
-        <translation type="vanished">ペイメントID:</translation>
+        <translation> رقم الدفع:</translation>
     </message>
     <message>
         <location filename="../gui/ui/sendframe.ui" line="127"/>
         <source>Payment identifier issued by payee (exchange, shop or other entity)</source>
-        <translation>受領者（取引所、店舗、または、その他組織）によって発行された支払い識別子</translation>
+        <translation>رقم الدفع الصادر من قبل المستفيد (تبادل عملات أو متجر أو كيان آخر).</translation>
     </message>
     <message>
         <location filename="../gui/ui/sendframe.ui" line="117"/>
         <source>Generate Payment ID</source>
-        <translation>ペイメントIDを生成</translation>
+        <translation>إنشاء رقم الدفع</translation>
     </message>
     <message>
         <location filename="../gui/ui/sendframe.ui" line="92"/>
         <source>Payment ID:</source>
-        <translation>ペイメントID:</translation>
+        <translation> رقم الدفع:</translation>
     </message>
     <message>
         <location filename="../gui/ui/sendframe.ui" line="160"/>
         <source>Anonymity:</source>
-        <translation type="unfinished"></translation>
+        <translation>مستوى سرية الهوية:</translation>
     </message>
     <message>
         <location filename="../gui/ui/sendframe.ui" line="189"/>
         <source>Priority:</source>
-        <translation>優先</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../gui/ui/sendframe.ui" line="389"/>
@@ -1264,7 +1314,7 @@ Do you want to go to download page?</source>
     <message>
         <location filename="../gui/ui/sendframe.ui" line="411"/>
         <source>Send</source>
-        <translation>送信</translation>
+        <translation>إرسال</translation>
     </message>
     <message>
         <location filename="../gui/ui/sendframe.ui" line="425"/>
@@ -1274,36 +1324,36 @@ Do you want to go to download page?</source>
     <message>
         <location filename="../gui/ui/sendframe.ui" line="436"/>
         <source>Clear All</source>
-        <translation>全て消去</translation>
+        <translation>مسح الكل</translation>
     </message>
     <message>
         <location filename="../gui/ui/sendframe.ui" line="447"/>
         <source>Add Recipient</source>
-        <translation>受領者追加</translation>
+        <translation>إضافة مستلم</translation>
     </message>
     <message>
         <location filename="../gui/ui/sendframe.ui" line="458"/>
         <source>Advanced</source>
-        <translation>上級</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../gui/ui/sendframe.ui" line="491"/>
         <source>Wallet is connected through remote node. Additional 0.25% fee will be applied.</source>
-        <translation>リモートノードを介してウォレットは接続されます。0.25%の追加手数料が適用されます。</translation>
+        <translation>المحفظة متصلة من خلال وحدة بعيدة. سيتم تطبيق رسوم إضافية بقيمة 0.25٪.</translation>
     </message>
     <message>
         <location filename="../gui/ui/sendframe.ui" line="494"/>
         <source>Remote mode</source>
-        <translation>リモートモード</translation>
+        <translation>وضع الوحدة البعيدة</translation>
     </message>
     <message>
         <source>Remote node mode</source>
-        <translation type="vanished">リモートノードモード</translation>
+        <translation>وضع الوحدة البعيدة</translation>
     </message>
     <message>
         <location filename="../gui/ui/sendframe.ui" line="507"/>
         <source>Available balance:</source>
-        <translation>利用可能残高：</translation>
+        <translation>الرصيد المتاح</translation>
     </message>
 </context>
 <context>
@@ -1311,32 +1361,32 @@ Do you want to go to download page?</source>
     <message>
         <location filename="../gui/ui/showpaymentrequest.ui" line="26"/>
         <source>Payment request</source>
-        <translation>ペイメントリクエスト</translation>
+        <translation>الرصيد الحالي:</translation>
     </message>
     <message>
         <location filename="../gui/ui/showpaymentrequest.ui" line="88"/>
         <source>Payment information</source>
-        <translation>ペイメント情報</translation>
+        <translation>معلومات الدفع</translation>
     </message>
     <message>
         <location filename="../gui/ui/showpaymentrequest.ui" line="122"/>
         <source>Copy URI</source>
-        <translation>URIコピー</translation>
+        <translation>نسخ الرابط</translation>
     </message>
     <message>
         <location filename="../gui/ui/showpaymentrequest.ui" line="129"/>
         <source>Save URI</source>
-        <translation>URI保存</translation>
+        <translation>حفظ الرابط</translation>
     </message>
     <message>
         <location filename="../gui/ui/showpaymentrequest.ui" line="136"/>
         <source>Save image</source>
-        <translation>イメージ保存</translation>
+        <translation>حفظ الصورة</translation>
     </message>
     <message>
         <location filename="../gui/ui/showpaymentrequest.ui" line="156"/>
         <source>Close</source>
-        <translation>閉じる</translation>
+        <translation>إغلاق</translation>
     </message>
 </context>
 <context>
@@ -1349,7 +1399,7 @@ Do you want to go to download page?</source>
     <message>
         <location filename="../gui/ui/signmessagedialog.ui" line="51"/>
         <source>Close</source>
-        <translation type="unfinished">閉じる</translation>
+        <translation type="unfinished">إغلاق</translation>
     </message>
     <message>
         <location filename="../gui/ui/signmessagedialog.ui" line="79"/>
@@ -1376,7 +1426,7 @@ Do you want to go to download page?</source>
     <message>
         <location filename="../gui/ui/signmessagedialog.ui" line="198"/>
         <source>Address</source>
-        <translation type="unfinished">アドレス</translation>
+        <translation type="unfinished">العنوان</translation>
     </message>
 </context>
 <context>
@@ -1384,12 +1434,12 @@ Do you want to go to download page?</source>
     <message>
         <location filename="../gui/ui/transactiondetailsdialog.ui" line="14"/>
         <source>Transaction details</source>
-        <translation>トランザクション詳細</translation>
+        <translation>تفاصيل المعاملة</translation>
     </message>
     <message>
         <location filename="../gui/ui/transactiondetailsdialog.ui" line="38"/>
         <source>Close</source>
-        <translation>閉じる</translation>
+        <translation>إغلاق</translation>
     </message>
 </context>
 <context>
@@ -1397,14 +1447,14 @@ Do you want to go to download page?</source>
     <message>
         <location filename="../gui/ui/transactionframe.ui" line="63"/>
         <source>Frame</source>
-        <translation type="unfinished">フレーム</translation>
+        <translation>إطار</translation>
     </message>
     <message>
         <location filename="../gui/ui/transactionframe.ui" line="136"/>
         <location filename="../gui/ui/transactionframe.ui" line="143"/>
         <location filename="../gui/ui/transactionframe.ui" line="158"/>
         <source>TextLabel</source>
-        <translation type="unfinished"></translation>
+        <translation>علامة النص</translation>
     </message>
 </context>
 <context>
@@ -1412,27 +1462,27 @@ Do you want to go to download page?</source>
     <message>
         <location filename="../gui/ui/transactionsframe.ui" line="14"/>
         <source>Frame</source>
-        <translation type="unfinished">フレーム</translation>
+        <translation>إطار</translation>
     </message>
     <message>
         <location filename="../gui/ui/transactionsframe.ui" line="51"/>
         <source>Search for address, amount, transaction hash or Payment ID</source>
-        <translation>アドレス、数量、トランザクションハッシュ、支払いIDの検索</translation>
+        <translation>البحث عن العنوان أو المبلغ أو رقم المعاملة أو رقم الدفع</translation>
     </message>
     <message>
         <location filename="../gui/ui/transactionsframe.ui" line="58"/>
         <source>Reset filter</source>
-        <translation>フィルターリセット</translation>
+        <translation>إعادة تعيين الفلتر</translation>
     </message>
     <message>
         <location filename="../gui/ui/transactionsframe.ui" line="113"/>
         <source>Selected amount: </source>
-        <translation>数量: </translation>
+        <translation>المبلغ المحدد:</translation>
     </message>
     <message>
         <location filename="../gui/ui/transactionsframe.ui" line="170"/>
         <source>Export</source>
-        <translation>エクスポート</translation>
+        <translation>تصدير</translation>
     </message>
 </context>
 <context>
@@ -1440,49 +1490,49 @@ Do you want to go to download page?</source>
     <message>
         <location filename="../gui/ui/transferframe.ui" line="14"/>
         <source>Frame</source>
-        <translation type="unfinished">フレーム</translation>
+        <translation>إطار</translation>
     </message>
     <message>
         <location filename="../gui/ui/transferframe.ui" line="26"/>
         <source>Pay To:</source>
-        <translation>ペイメント先: </translation>
+        <translation>الدفع لـ:</translation>
     </message>
     <message>
         <location filename="../gui/ui/transferframe.ui" line="42"/>
         <source>Select recipient from Address Book</source>
-        <translation>受領者をアドレス帳から選択</translation>
+        <translation>حدد المستلم من دفتر العناوين</translation>
     </message>
     <message>
         <location filename="../gui/ui/transferframe.ui" line="45"/>
         <location filename="../gui/ui/transferframe.ui" line="59"/>
         <location filename="../gui/ui/transferframe.ui" line="73"/>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation>...</translation>
     </message>
     <message>
         <location filename="../gui/ui/transferframe.ui" line="56"/>
         <source>Paste from clipboard</source>
-        <translation>クリップボードから貼り付け</translation>
+        <translation>لصق من الحافظة</translation>
     </message>
     <message>
         <location filename="../gui/ui/transferframe.ui" line="70"/>
         <source>Remove recepient</source>
-        <translation>受領者削除</translation>
+        <translation>إزالة المستلم</translation>
     </message>
     <message>
         <location filename="../gui/ui/transferframe.ui" line="86"/>
         <source>Amount:</source>
-        <translation>数量:</translation>
+        <translation>المبلغ:</translation>
     </message>
     <message>
         <location filename="../gui/ui/transferframe.ui" line="122"/>
         <source>Save to Contacts as:</source>
-        <translation>連絡先を～として保存:</translation>
+        <translation>حفظ في جهات الاتصال كـ:</translation>
     </message>
     <message>
         <location filename="../gui/ui/transferframe.ui" line="132"/>
         <source>Enter a label for this address to add it to your address book</source>
-        <translation>ラベルを入力して、このアドレスをアドレス帳に加える</translation>
+        <translation>أدخل علامة لهذا العنوان لإضافته إلى دفتر العناوين الخاص بك.</translation>
     </message>
 </context>
 <context>
@@ -1490,12 +1540,12 @@ Do you want to go to download page?</source>
     <message>
         <location filename="../update.cpp" line="77"/>
         <source>Error: %1</source>
-        <translation>エラー: %1</translation>
+        <translation>خطأ:1%</translation>
     </message>
     <message>
         <location filename="../update.cpp" line="78"/>
         <source>Unable to check for update</source>
-        <translation>アップデートのチェックができません</translation>
+        <translation>غير قادر على التحقق من التحديث</translation>
     </message>
 </context>
 <context>
@@ -1503,32 +1553,32 @@ Do you want to go to download page?</source>
     <message>
         <location filename="../gui/ui/verifymnemonicseeddialog.ui" line="20"/>
         <source>New deterministic wallet created</source>
-        <translation>作成される新しい決定性ウォレット</translation>
+        <translation>تم إنشاء نظام اشتقاق مفاتيح جديدة </translation>
     </message>
     <message>
         <location filename="../gui/ui/verifymnemonicseeddialog.ui" line="26"/>
         <source>This is mnemonic seed of your wallet. Write it down carefully. It allows to restore your wallet.</source>
-        <translation>これは、あなたのウォレットのニーモニックシードです。注意深くメモをしておいてください。これでウォレットを復元することができます。</translation>
+        <translation>هذه كلمة استرجاع محفظتك. اكتبها وحافظ عليها. تسمح لك هذه الكلمة باستعادة المحفظة. </translation>
     </message>
     <message>
         <location filename="../gui/ui/verifymnemonicseeddialog.ui" line="33"/>
         <source>Mnemonic:</source>
-        <translation>ニーモニック:</translation>
+        <translation>كلمة استرجاع :</translation>
     </message>
     <message>
         <location filename="../gui/ui/verifymnemonicseeddialog.ui" line="54"/>
         <source>Repeat:</source>
-        <translation>リピート:</translation>
+        <translation>تكرار:</translation>
     </message>
     <message>
         <location filename="../gui/ui/verifymnemonicseeddialog.ui" line="87"/>
         <source>Select language</source>
-        <translation>言語選択</translation>
+        <translation>حدد اللغة</translation>
     </message>
     <message>
         <location filename="../gui/ui/verifymnemonicseeddialog.ui" line="120"/>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation>موافق</translation>
     </message>
 </context>
 <context>
@@ -1536,7 +1586,7 @@ Do you want to go to download page?</source>
     <message>
         <location filename="../gui/AboutDialog.cpp" line="15"/>
         <source>About %1 Wallet</source>
-        <translation>%1 ウォレットについて</translation>
+        <translation>محفظة 1% تقريباً</translation>
     </message>
 </context>
 <context>
@@ -1544,66 +1594,70 @@ Do you want to go to download page?</source>
     <message>
         <location filename="../gui/AccountFrame.cpp" line="40"/>
         <source>Copied to clipboard</source>
-        <translation>クリップボードにコピーされた</translation>
+        <translation>نسخ إلى الحافظة</translation>
     </message>
 </context>
 <context>
     <name>WalletGui::AddressBookFrame</name>
     <message>
-        <location filename="../gui/AddressBookFrame.cpp" line="34"/>
-        <source>&amp;Pay to</source>
-        <translation>ペイメント先</translation>
-    </message>
-    <message>
         <location filename="../gui/AddressBookFrame.cpp" line="35"/>
         <source>Copy &amp;label</source>
-        <translation>ラベルをコピー</translation>
+        <translation>نسخ العلامة</translation>
     </message>
     <message>
         <location filename="../gui/AddressBookFrame.cpp" line="36"/>
         <source>Copy &amp;address</source>
-        <translation>アドレスをコピー</translation>
+        <translation>نسخ العنوان</translation>
+    </message>
+    <message>
+        <source>Copy Payment &amp;</source>
+        <translation>نسخ رقم الدفع</translation>
+    </message>
+    <message>
+        <location filename="../gui/AddressBookFrame.cpp" line="34"/>
+        <source>&amp;Pay to</source>
+        <translation>الدفع لـ</translation>
     </message>
     <message>
         <location filename="../gui/AddressBookFrame.cpp" line="37"/>
         <source>Copy Payment &amp;ID</source>
-        <translation>ペイメント&amp;IDをコピー</translation>
+        <translation>نسخ رقم الدفع</translation>
     </message>
     <message>
         <location filename="../gui/AddressBookFrame.cpp" line="38"/>
         <source>&amp;Edit</source>
-        <translation>編集</translation>
+        <translation>تحرير</translation>
     </message>
     <message>
         <location filename="../gui/AddressBookFrame.cpp" line="39"/>
         <source>&amp;Delete</source>
-        <translation>削除</translation>
+        <translation>حذف</translation>
     </message>
     <message>
         <location filename="../gui/AddressBookFrame.cpp" line="59"/>
         <location filename="../gui/AddressBookFrame.cpp" line="82"/>
         <location filename="../gui/AddressBookFrame.cpp" line="117"/>
         <source>Invalid address</source>
-        <translation>無効なアドレス</translation>
+        <translation>عنوان غير صحيح</translation>
     </message>
     <message>
         <location filename="../gui/AddressBookFrame.cpp" line="64"/>
         <location filename="../gui/AddressBookFrame.cpp" line="87"/>
         <location filename="../gui/AddressBookFrame.cpp" line="122"/>
         <source>Invalid payment ID</source>
-        <translation>無効なペイメントID</translation>
+        <translation>رفم دفع غير صحيح</translation>
     </message>
     <message>
         <location filename="../gui/AddressBookFrame.cpp" line="71"/>
         <location filename="../gui/AddressBookFrame.cpp" line="94"/>
         <location filename="../gui/AddressBookFrame.cpp" line="129"/>
         <source>Contact with such label already exists.</source>
-        <translation>同じラベルの連絡先が既に存在します。</translation>
+        <translation>جهة الاتصال التي تحمل هذه العلامة موجودة من قبل.</translation>
     </message>
     <message>
         <location filename="../gui/AddressBookFrame.cpp" line="108"/>
         <source>Edit contact</source>
-        <translation>連絡先編集</translation>
+        <translation>تحرير جهة الاتصال</translation>
     </message>
 </context>
 <context>
@@ -1611,17 +1665,17 @@ Do you want to go to download page?</source>
     <message>
         <location filename="../gui/AddressBookModel.cpp" line="76"/>
         <source>Label</source>
-        <translation>ラベル</translation>
+        <translation>العلامة</translation>
     </message>
     <message>
         <location filename="../gui/AddressBookModel.cpp" line="78"/>
         <source>Address</source>
-        <translation>アドレス</translation>
+        <translation>العنوان</translation>
     </message>
     <message>
         <location filename="../gui/AddressBookModel.cpp" line="80"/>
         <source>PaymentID</source>
-        <translation>ペイメントID</translation>
+        <translation>رقم الدفع</translation>
     </message>
 </context>
 <context>
@@ -1629,103 +1683,107 @@ Do you want to go to download page?</source>
     <message>
         <location filename="../gui/ChangePasswordDialog.cpp" line="31"/>
         <source>Password not confirmed</source>
-        <translation>パスワードが確認されません</translation>
+        <translation>كلمة المرور غير مؤكدة</translation>
     </message>
 </context>
 <context>
     <name>WalletGui::CommandLineParser</name>
     <message>
+        <source>Used to deploy test nets. Checkpoints and hardcoded seeds are ignored, network id is changed. Use it with вЂ“data-dir flag. The wallet must be launched with вЂ“testnet flag</source>
+        <translation>تستخدم لنشر شبكات الاختبار. تم تجاهل البلوكات والكلمات الضمنية ، وتم تغيير معرف الشبكة. استخدم أمر data-dir flag. يجب أن يتم إطلاق المحفظة باستخدام أمر testnet flag. </translation>
+    </message>
+    <message>
         <location filename="../CommandLineParser.cpp" line="15"/>
         <source>Used to deploy test nets. Checkpoints and hardcoded seeds are ignored, network id is changed. Use it with –data-dir flag. The wallet must be launched with –testnet flag</source>
-        <translation>テストネットの実装に使われます。チェックポイントとハードコードされたシードは無視され、ネットワークIDは変更されます。data-dir flagと共に使用してください。ウォレットは、testnet flagと共に起動する必要があります。</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../CommandLineParser.cpp" line="17"/>
         <source>Interface for p2p network protocol</source>
-        <translation>p2pネットワークプロトコル用のインターフェース</translation>
+        <translation>واجهة لبروتوكول شبكة p2p</translation>
     </message>
     <message>
         <location filename="../CommandLineParser.cpp" line="17"/>
         <source>ip</source>
-        <translation type="unfinished"></translation>
+        <translation>الآي بي</translation>
     </message>
     <message>
         <location filename="../CommandLineParser.cpp" line="18"/>
         <source>Port for p2p network protocol</source>
-        <translation>p2pネットワークプロトコル用のポート</translation>
+        <translation>منفذ لبروتوكول شبكة p2p</translation>
     </message>
     <message>
         <location filename="../CommandLineParser.cpp" line="18"/>
         <location filename="../CommandLineParser.cpp" line="20"/>
         <source>port</source>
-        <translation>ポート</translation>
+        <translation>المنفذ</translation>
     </message>
     <message>
         <location filename="../CommandLineParser.cpp" line="19"/>
         <source>External port for p2p network protocol (if port forwarding used with NAT)</source>
-        <translation>p2pネットワークプロトコル用の外部ポート（NATと共にポートフォワーディングを使用している場合）</translation>
+        <translation>منفذ خارجي لبروتوكول شبكة p2p (في حالة استخدام المنفذ مع NAT).</translation>
     </message>
     <message>
         <location filename="../CommandLineParser.cpp" line="21"/>
         <source>Allow local ip add to peer list, mostly in debug purposes</source>
-        <translation>主にデバッグする用途で、ローカルIPをピアリストに追加できるようにする</translation>
+        <translation>السماح للآي بي المحلي بالإضافة إلى قائمة النظراء، ومعظمها لأغراض التصحيح.</translation>
     </message>
     <message>
         <location filename="../CommandLineParser.cpp" line="22"/>
         <source>Manually add peer to local peerlist</source>
-        <translation>ローカルピアリストにピアを手動で追加する</translation>
+        <translation>إضافة النظير يدويًا إلى قائمة النظير المحلية.</translation>
     </message>
     <message>
         <location filename="../CommandLineParser.cpp" line="22"/>
         <source>peer</source>
-        <translation>ピア</translation>
+        <translation>النظير</translation>
     </message>
     <message>
         <location filename="../CommandLineParser.cpp" line="23"/>
         <source>Specify list of peers to connect to and attempt to keep the connection open</source>
-        <translation>接続オープンの状態を維持するため、ピアのリストを指定</translation>
+        <translation>حدد قائمة النظراء للاتصال بها، ومحاولة الحفاظ على الاتصال مفتوحًا.</translation>
     </message>
     <message>
         <location filename="../CommandLineParser.cpp" line="24"/>
         <location filename="../CommandLineParser.cpp" line="26"/>
         <location filename="../CommandLineParser.cpp" line="27"/>
         <source>node</source>
-        <translation>ノード</translation>
+        <translation>الوحدة </translation>
     </message>
     <message>
         <location filename="../CommandLineParser.cpp" line="25"/>
         <source>Specify list of peers to connect to only. If this option is given the options add-priority-node and seed-node are ignored</source>
-        <translation>オンリーへの接続のためピアリストを指定してください。このオプションが指定されている場合、add-priority-nodeとseed-nodeオプションは無視されます。</translation>
+        <translation>حدد قائمة النظراء للاتصال فقط. إذا توفر هذا الخيار، فسيتم تجاهل خيارات وحدة إضافة الأولوية ووحدة استرجاع الكلمات.</translation>
     </message>
     <message>
         <location filename="../CommandLineParser.cpp" line="27"/>
         <source>Connect to a node to retrieve peer addresses, and disconnect</source>
-        <translation>ピアアドレス検索のためノードに接続し、その後接続を切ります</translation>
+        <translation>الاتصال بوحدة لاسترداد عناوين النظراء، وقطع الاتصال.</translation>
     </message>
     <message>
         <location filename="../CommandLineParser.cpp" line="28"/>
         <source>Do not announce yourself as peerlist candidate</source>
-        <translation>ピアリストの候補者としてあなた自身を公開しない</translation>
+        <translation>لا تعلن عن نفسك كمرشح لقائمة النظراء.</translation>
     </message>
     <message>
         <location filename="../CommandLineParser.cpp" line="29"/>
         <source>Specify data directory</source>
-        <translation>データディレクトリを指定</translation>
+        <translation>تحديد دليل البيانات</translation>
     </message>
     <message>
         <location filename="../CommandLineParser.cpp" line="29"/>
         <source>directory</source>
-        <translation>ディレクトリ</translation>
+        <translation>الدليل </translation>
     </message>
     <message>
         <location filename="../CommandLineParser.cpp" line="30"/>
         <source>Run application in minimized mode</source>
-        <translation>最小化モードでアプリケーションを実行</translation>
+        <translation>شغل التطبيق في الوضع المصغر</translation>
     </message>
     <message>
         <location filename="../CommandLineParser.cpp" line="31"/>
         <source>Karbowanec wallet</source>
-        <translation>カルボウォレット</translation>
+        <translation>محفظة Karbowanec</translation>
     </message>
 </context>
 <context>
@@ -1733,17 +1791,17 @@ Do you want to go to download page?</source>
     <message>
         <location filename="../gui/ConfirmSendDialog.cpp" line="20"/>
         <source>Confirm sending %1 KRB</source>
-        <translation>%1 KRBの送信を確認</translation>
+        <translation>تأكيد من إرسال 1% KRB</translation>
     </message>
     <message>
         <location filename="../gui/ConfirmSendDialog.cpp" line="25"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Payment ID: %1&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>ペイメントID: %1</translation>
+        <translation>رقم الدفع: 1%</translation>
     </message>
     <message>
         <location filename="../gui/ConfirmSendDialog.cpp" line="29"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Are you sure you want to send &lt;strong&gt;without Payment ID&lt;/strong&gt;?&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>支払いIDなしで送信してもよろしいでしょうか？</translation>
+        <translation>هل أنت متأكد من أنك تريد الإرسال بدون رقم الدفع؟</translation>
     </message>
 </context>
 <context>
@@ -1751,12 +1809,12 @@ Do you want to go to download page?</source>
     <message>
         <location filename="../gui/ExportTrackingKeyDialog.cpp" line="55"/>
         <source>Save tracking key to...</source>
-        <translation>トラッキングキーを...保存</translation>
+        <translation>حفظ مفتاح التتبع في ...</translation>
     </message>
     <message>
         <location filename="../gui/ExportTrackingKeyDialog.cpp" line="55"/>
         <source>Tracking key (*.trackingkey)</source>
-        <translation>トラッキングキー (*.trackingkey)</translation>
+        <translation>مفتاح التتبع (*. trackingkey)</translation>
     </message>
 </context>
 <context>
@@ -1764,12 +1822,12 @@ Do you want to go to download page?</source>
     <message>
         <location filename="../gui/ImportKeyDialog.cpp" line="33"/>
         <source>Wallet file</source>
-        <translation>ウォレットファイル</translation>
+        <translation>ملف المحفظة</translation>
     </message>
     <message>
         <location filename="../gui/ImportKeyDialog.cpp" line="40"/>
         <source>Wallets (*.wallet)</source>
-        <translation>ウォレット (*.wallet)</translation>
+        <translation>المحافظ (*. wallet)</translation>
     </message>
 </context>
 <context>
@@ -1777,12 +1835,12 @@ Do you want to go to download page?</source>
     <message>
         <location filename="../gui/ImportTrackingKeyDialog.cpp" line="33"/>
         <source>Tracking wallet file</source>
-        <translation>トラッキングウォレットファイル</translation>
+        <translation>تتبع ملف المحفظة</translation>
     </message>
     <message>
         <location filename="../gui/ImportTrackingKeyDialog.cpp" line="40"/>
         <source>Tracking wallets (*.wallet)</source>
-        <translation>トラッキングウォレット (*.wallet)</translation>
+        <translation>تتبع المحافظ (* .wallet)</translation>
     </message>
 </context>
 <context>
@@ -1790,17 +1848,17 @@ Do you want to go to download page?</source>
     <message>
         <location filename="../gui/InfoDialog.cpp" line="31"/>
         <source>%1 (Outgoing: %2, Incoming: %3)</source>
-        <translation>%1 (アウトゴーイング: %2, インカミング: %3)</translation>
+        <translation>1% (صادر: 2%، وارد: 3%) </translation>
     </message>
     <message>
         <location filename="../gui/InfoDialog.cpp" line="35"/>
         <source>White: %1, Grey: %2</source>
-        <translation>ホワイト: %1, グレー: %2</translation>
+        <translation>أبيض: 1%، رمادي: 2% </translation>
     </message>
     <message>
         <location filename="../gui/InfoDialog.cpp" line="39"/>
         <source>Known: %1, Local: %2</source>
-        <translation>既知: %1, ローカル: %2</translation>
+        <translation>معروف: 1%، محلي: 2% </translation>
     </message>
     <message>
         <location filename="../gui/InfoDialog.cpp" line="42"/>
@@ -1809,69 +1867,43 @@ Do you want to go to download page?</source>
         <location filename="../gui/InfoDialog.cpp" line="51"/>
         <location filename="../gui/InfoDialog.cpp" line="54"/>
         <source>%1</source>
-        <translation type="unfinished"></translation>
+        <translation>1% </translation>
     </message>
 </context>
 <context>
     <name>WalletGui::MainWindow</name>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="135"/>
-        <location filename="../gui/MainWindow.cpp" line="1021"/>
-        <source>Karbo Wallet %1</source>
-        <translation>カルボウォレット %1</translation>
-    </message>
-    <message>
-        <location filename="../gui/MainWindow.cpp" line="154"/>
-        <source>About %1 Wallet</source>
-        <translation>カルボウォレットについて</translation>
-    </message>
-    <message>
-        <location filename="../gui/MainWindow.cpp" line="180"/>
-        <source>Tracking wallet. Spending unawailable</source>
-        <translation>トラッキングウォレット. 利用不可能な出費</translation>
-    </message>
-    <message>
-        <location filename="../gui/MainWindow.cpp" line="181"/>
-        <source>Connected through remote node</source>
-        <translation>リモートノードを介して接続</translation>
-    </message>
-    <message>
-        <location filename="../gui/MainWindow.cpp" line="214"/>
-        <source>&amp;Show / Hide</source>
-        <translation>表示 / 非表示</translation>
-    </message>
-    <message>
         <location filename="../gui/MainWindow.cpp" line="215"/>
         <source>Show or hide the main window</source>
-        <translation>メインウィンドウを表示または非表示</translation>
+        <translation>عرض أو إخفاء النافذة الرئيسية</translation>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="326"/>
         <location filename="../gui/MainWindow.cpp" line="356"/>
         <source>New wallet file</source>
-        <translation>新ウォレットファイル</translation>
+        <translation>ملف محفظة جديد</translation>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="334"/>
         <location filename="../gui/MainWindow.cpp" line="363"/>
         <location filename="../gui/MainWindow.cpp" line="706"/>
         <source>Wallets (*.wallet)</source>
-        <translation>ウォレット (*.wallet)</translation>
+        <translation>المحافظ (*. wallet)</translation>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="385"/>
         <source>Open .wallet/.keys file</source>
-        <translation>.wallet/.keysファイルを開く</translation>
+        <translation>فتح ملف .wallet/.keys</translation>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="392"/>
         <source>Wallet (*.wallet *.keys)</source>
-        <translation>ウォレット (*.wallet *.keys)</translation>
+        <translation>المحفظة (* .wallet * .keys)</translation>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="397"/>
         <source>Wrong wallet file extension</source>
-        <translation>ウォレットファイルの拡張子が間違っています</translation>
+        <translation>امتداد ملف محفظة خاطئ</translation>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="398"/>
@@ -1881,22 +1913,22 @@ Do you want to go to download page?</source>
     <message>
         <location filename="../gui/MainWindow.cpp" line="450"/>
         <source>Wallet keys are not valid</source>
-        <translation>ウォレットキーは無効です</translation>
+        <translation>مفاتيح المحفظة غير صحيحة</translation>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="450"/>
         <source>The private keys you entered are not valid.</source>
-        <translation>あなたが入力したプライベートキーは無効です。</translation>
+        <translation>المفاتيح الخاصة التي أدخلتها غير صالحة.</translation>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="464"/>
         <source>Tracking key is not valid</source>
-        <translation>トラッキングキーは無効です</translation>
+        <translation>مفتاح التتبع غير صالح</translation>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="464"/>
         <source>The tracking key you entered is not valid.</source>
-        <translation>あなたが入力したトラッキングキーは無効です。</translation>
+        <translation>مفتاح التتبع الذي أدخلته غير صالح.</translation>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="495"/>
@@ -1904,152 +1936,187 @@ Do you want to go to download page?</source>
         <location filename="../gui/MainWindow.cpp" line="503"/>
         <location filename="../gui/MainWindow.cpp" line="507"/>
         <source>Key is not valid</source>
-        <translation>キーは無効です</translation>
+        <translation>المفتاح غير صالح.</translation>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="495"/>
         <source>The public spend key you entered is not valid.</source>
-        <translation>あなたが入力したパブリックスペンドキーは無効です。</translation>
+        <translation>مفتاح الإنفاق العام الذي أدخلته غير صالح.</translation>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="499"/>
         <source>The public view key you entered is not valid.</source>
-        <translation>あなたが入力したパブリックビューキーは無効です。</translation>
+        <translation>مفتاح العرض العام الذي أدخلته غير صالح.</translation>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="503"/>
         <source>The private spend key you entered is not valid.</source>
-        <translation>あなたが入力したプライベートスペンドキーは無効です。</translation>
+        <translation>مفتاح الإنفاق الخاص الذي أدخلته غير صالح.</translation>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="507"/>
         <source>The private view key you entered is not valid.</source>
-        <translation>あなたが入力したプライベートビューキーは無効です。</translation>
+        <translation>مفتاح العرض الخاص الذي أدخلته غير صالح.</translation>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="568"/>
         <source>Mnemonic seed is not correct</source>
-        <translation>ニーモニックシードが正しくありません。</translation>
+        <translation> كلمة استرجاع المحفظة غير صحيحة</translation>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="568"/>
         <source>There must be an error in mnemonic seed. Make sure you entered it correctly.</source>
-        <translation>ニーモニックシードにエラーがあります。正しく入力したか確認してください。</translation>
+        <translation>لابد أن هناك خطأ في كلمة استرجاع المحفظة. تأكد من إدخالها بشكل صحيح.</translation>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="651"/>
         <source>Language changed to %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">%1 تم تغيير اللغة</translation>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="652"/>
         <source>Language was changed</source>
-        <translation>言語は変更されました。</translation>
+        <translation>تم تغيير اللغة</translation>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="653"/>
         <source>Language changed to %1. The change will take effect after restarting the wallet.</source>
-        <translation>ウォレットの再起動後に言語が変更されます。</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The language will be changed after restarting the wallet.</source>
+        <translation>سيتم تغيير اللغة بعد إعادة تشغيل المحفظة.</translation>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="663"/>
         <source>More info can be found at www.karbowanec.com in Documentation section</source>
-        <translation>詳細情報はwww.karbowanec.comのDocumentationセクションにあります。</translation>
+        <translation>يمكن العثور على مزيد من المعلومات على www.karbowanec.com في قسم الوثائق.</translation>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="689"/>
         <source>Connection settings changed</source>
-        <translation>接続設定は変更されました</translation>
+        <translation>تم تغيير إعدادات الاتصال</translation>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="689"/>
         <source>Connection mode will be changed after restarting the wallet.</source>
-        <translation>ウォレットの再起動後に接続モードが変更されます。</translation>
+        <translation>سيتم تغيير وضع الاتصال بعد إعادة تشغيل المحفظة.</translation>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="699"/>
         <source>Backup wallet to...</source>
-        <translation>...へウォレットをバックアップ</translation>
+        <translation>حفظ المحفظة في...</translation>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="719"/>
         <source>Warning</source>
-        <translation>警告</translation>
+        <translation>تحذير</translation>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="719"/>
         <source>Your wallet will be reset and restored from blockchain.
 Are you sure?</source>
-        <translation>ウォレットがリセットされ、ブロックチェーンから復元されます。本当に実行してもよろしいでしょうか？</translation>
+        <translation>سيتم إعادة تعيين محفظتك، واستعادتها من البلوكتشين. هل أنت متأكد من ذلك؟</translation>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="880"/>
         <source>Wallet error</source>
-        <translation>ウォレットエラー</translation>
+        <translation>خطأ في المحفظة</translation>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="883"/>
         <source>Wallet</source>
-        <translation>ウォレット</translation>
+        <translation>المحفظة</translation>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="904"/>
         <source>Encrypted</source>
-        <translation>暗号化</translation>
+        <translation>مشفر</translation>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="904"/>
         <source>Not encrypted</source>
-        <translation>暗号化されていない</translation>
+        <translation>غير مشفر</translation>
     </message>
     <message numerus="yes">
         <location filename="../gui/MainWindow.cpp" line="912"/>
         <source>%n active connection(s)</source>
         <translation>
-            <numerusform>%n アクティブコネクション</numerusform>
+            <numerusform>٪ n اتصال نشط</numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="917"/>
         <source>Synchronization in progress</source>
-        <translation>同期化進行中</translation>
+        <translation>التزامن جارٍ</translation>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="924"/>
         <source>Not synchronized</source>
-        <translation>同期化されていない</translation>
+        <translation>غير متزامن</translation>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="924"/>
         <source>Synchronized</source>
-        <translation>同期化</translation>
+        <translation>متزامن</translation>
+    </message>
+    <message>
+        <location filename="../gui/MainWindow.cpp" line="135"/>
+        <location filename="../gui/MainWindow.cpp" line="1021"/>
+        <source>Karbo Wallet %1</source>
+        <translation>محفظة 1% Karbo </translation>
+    </message>
+    <message>
+        <location filename="../gui/MainWindow.cpp" line="154"/>
+        <source>About %1 Wallet</source>
+        <translation>تقريباً محفظة 1%</translation>
+    </message>
+    <message>
+        <location filename="../gui/MainWindow.cpp" line="180"/>
+        <source>Tracking wallet. Spending unawailable</source>
+        <translation>تتبع المحفظة. الإنفاق غير متوفر</translation>
+    </message>
+    <message>
+        <location filename="../gui/MainWindow.cpp" line="181"/>
+        <source>Connected through remote node</source>
+        <translation>متصل من خلال وحدة بعيدة </translation>
+    </message>
+    <message>
+        <location filename="../gui/MainWindow.cpp" line="214"/>
+        <source>&amp;Show / Hide</source>
+        <translation>عرض / إخفاء</translation>
     </message>
 </context>
 <context>
     <name>WalletGui::MiningFrame</name>
     <message>
         <source>Mining in pool. Hashrate: %1 H/s</source>
-        <translation type="vanished">マイニングインプール. ハッシュレート: %1 H/s</translation>
+        <translation>التعدين في نظام جماعي. سرعة العملية: %1 H/s</translation>
     </message>
     <message>
         <source>Mining solo. Hashrate: %1 H/s</source>
-        <translation type="vanished">マイニングソロ. ハッシュレート: %1 H/s</translation>
+        <translation>التعدين الفردي. سرعة العملية: %1 H/s</translation>
     </message>
     <message>
         <source>Error: %1</source>
-        <translation type="vanished">エラー: %1</translation>
+        <translation>خطأ: 1%</translation>
     </message>
     <message>
         <source>Starting...</source>
-        <translation type="vanished">開始...</translation>
+        <translation>جار البدء...</translation>
     </message>
     <message>
         <source>Stopped</source>
-        <translation type="vanished">停止</translation>
+        <translation>متوقف</translation>
     </message>
     <message>
         <source>Starting solo minining...</source>
-        <translation type="vanished">ソロマイング開始中...</translation>
+        <translation>جار بدء التعدين الفردي... </translation>
     </message>
 </context>
 <context>
@@ -2057,7 +2124,7 @@ Are you sure?</source>
     <message>
         <location filename="../gui/NewPasswordDialog.cpp" line="27"/>
         <source>Password not confirmed</source>
-        <translation>パスワードが確認されません</translation>
+        <translation>كلمة المرور غير مؤكدة</translation>
     </message>
 </context>
 <context>
@@ -2065,14 +2132,14 @@ Are you sure?</source>
     <message>
         <location filename="../gui/NodeModel.cpp" line="50"/>
         <source>Node URL</source>
-        <translation>ノードURL</translation>
+        <translation>رباط الوحدة </translation>
     </message>
 </context>
 <context>
     <name>WalletGui::PoolModel</name>
     <message>
         <source>Pool URL</source>
-        <translation type="vanished">プールURL</translation>
+        <translation>رابط نظام التعدين</translation>
     </message>
 </context>
 <context>
@@ -2080,17 +2147,17 @@ Are you sure?</source>
     <message>
         <location filename="../gui/QRLabel.cpp" line="21"/>
         <source>&amp;Save Image...</source>
-        <translation>イメージを保存...</translation>
+        <translation>حفظ الصورة </translation>
     </message>
     <message>
         <location filename="../gui/QRLabel.cpp" line="24"/>
         <source>&amp;Copy Image</source>
-        <translation>イメージをコピー</translation>
+        <translation>نسخ الصورة</translation>
     </message>
     <message>
         <location filename="../gui/QRLabel.cpp" line="82"/>
         <source>Save QR Code</source>
-        <translation>QR コード保存</translation>
+        <translation>حفظ رمز QR </translation>
     </message>
 </context>
 <context>
@@ -2098,7 +2165,7 @@ Are you sure?</source>
     <message>
         <location filename="../gui/ReceiveFrame.cpp" line="53"/>
         <source>Save QR Code</source>
-        <translation>QR コード保存</translation>
+        <translation>حفظ رمز QR </translation>
     </message>
 </context>
 <context>
@@ -2106,12 +2173,12 @@ Are you sure?</source>
     <message>
         <location filename="../gui/RestoreFromMnemonicSeedDialog.cpp" line="31"/>
         <source>Wallet file</source>
-        <translation>ウォレットファイル</translation>
+        <translation>ملف المحفظة</translation>
     </message>
     <message>
         <location filename="../gui/RestoreFromMnemonicSeedDialog.cpp" line="38"/>
         <source>Wallets (*.wallet)</source>
-        <translation>ウォレット (*.wallet)</translation>
+        <translation>المحافظ (*.wallet)</translation>
     </message>
 </context>
 <context>
@@ -2119,58 +2186,58 @@ Are you sure?</source>
     <message>
         <location filename="../gui/SendFrame.cpp" line="60"/>
         <source>Low</source>
-        <translation>低い</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../gui/SendFrame.cpp" line="61"/>
         <source>Normal</source>
-        <translation>正常</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../gui/SendFrame.cpp" line="62"/>
         <source>High</source>
-        <translation>高い</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../gui/SendFrame.cpp" line="63"/>
         <source>Highest</source>
-        <translation>最高</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../gui/SendFrame.cpp" line="226"/>
         <source>Node fee: %1 %2</source>
-        <translation>ノードの手数料: %1 %2</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../gui/SendFrame.cpp" line="259"/>
         <source>Payment request should start with karbowanec:</source>
-        <translation>ペイメントリクエストはkarbowanecで始めなくてなならない</translation>
+        <translation>يجب أن يبدأ طلب الدفع بـ karbowanec:</translation>
     </message>
     <message>
         <location filename="../gui/SendFrame.cpp" line="273"/>
         <location filename="../gui/SendFrame.cpp" line="314"/>
         <source>Invalid recipient address</source>
-        <translation>無効な受領者アドレス</translation>
+        <translation>عنوان المستلم غير صالح</translation>
     </message>
     <message>
         <location filename="../gui/SendFrame.cpp" line="353"/>
         <source>Incorrect fee value</source>
-        <translation>正しくない手数料の値</translation>
+        <translation>قيمة رسوم غير صحيحة</translation>
     </message>
     <message>
         <location filename="../gui/SendFrame.cpp" line="362"/>
         <source>Insufficient balance</source>
-        <translation>残高不足</translation>
+        <translation>رصيد غير كافٍ</translation>
     </message>
     <message>
         <location filename="../gui/SendFrame.cpp" line="362"/>
         <source>Available balance is insufficient to send this transaction. Have you excluded a fee?</source>
-        <translation>このトランザクションを送信するための利用可能残高が不足しています。手数料を除外しましたか？</translation>
+        <translation>الرصيد المتاح غير كاف لإرسال هذه المعاملة. هل استثنيت الرسوم؟</translation>
     </message>
     <message>
         <location filename="../gui/SendFrame.cpp" line="369"/>
         <source>Invalid payment ID</source>
-        <translation>無効なペイメントID</translation>
+        <translation>رقم دفع غير صالح</translation>
     </message>
     <message>
         <location filename="../gui/SendFrame.cpp" line="436"/>
@@ -2189,7 +2256,7 @@ when the wallet is synchronized</source>
     <message>
         <location filename="../gui/SendGlassFrame.cpp" line="151"/>
         <source>Synchronizing</source>
-        <translation>同期中</translation>
+        <translation type="unfinished">مزامنة</translation>
     </message>
 </context>
 <context>
@@ -2234,24 +2301,29 @@ when the wallet is synchronized</source>
     <message>
         <location filename="../gui/TransactionDetailsDialog.cpp" line="50"/>
         <source>Failed</source>
-        <translation>失敗しました</translation>
+        <translation>فشل</translation>
     </message>
     <message>
         <location filename="../gui/TransactionDetailsDialog.cpp" line="53"/>
         <source>Cancelled</source>
-        <translation>キャンセルされました</translation>
+        <translation>ملغي</translation>
     </message>
     <message numerus="yes">
         <location filename="../gui/TransactionDetailsDialog.cpp" line="56"/>
         <source>%n confirmation(s)</source>
         <translation>
-            <numerusform>%n 確認</numerusform>
+            <numerusform>تأكيد٪ n</numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message>
         <location filename="../gui/TransactionDetailsDialog.cpp" line="69"/>
         <source>(n/a)</source>
-        <translation type="unfinished"></translation>
+        <translation>(غير متطابق)</translation>
     </message>
 </context>
 <context>
@@ -2259,102 +2331,102 @@ when the wallet is synchronized</source>
     <message>
         <location filename="../gui/TransactionsFrame.cpp" line="50"/>
         <source>Copy transaction &amp;hash</source>
-        <translation>トランザクション&amp;hashをコピー</translation>
+        <translation>نسخ رقم المعاملة</translation>
     </message>
     <message>
         <location filename="../gui/TransactionsFrame.cpp" line="51"/>
         <source>Copy Payment &amp;ID</source>
-        <translation>ペイメント&amp;ID コピー</translation>
+        <translation>نسخ رقم الدفع</translation>
     </message>
     <message>
         <location filename="../gui/TransactionsFrame.cpp" line="52"/>
         <source>Copy &amp;amount</source>
-        <translation>数量コピー</translation>
+        <translation>نسخ المبلغ</translation>
     </message>
     <message>
         <location filename="../gui/TransactionsFrame.cpp" line="53"/>
         <source>Show &amp;details</source>
-        <translation>詳細を表示</translation>
+        <translation>عرض التفاصيل</translation>
     </message>
     <message>
         <location filename="../gui/TransactionsFrame.cpp" line="57"/>
         <source>Unconfirmed</source>
-        <translation>未承認</translation>
+        <translation>غير مؤكد</translation>
     </message>
     <message>
         <location filename="../gui/TransactionsFrame.cpp" line="58"/>
         <source>All</source>
-        <translation>すべて</translation>
+        <translation>الكل </translation>
     </message>
     <message>
         <location filename="../gui/TransactionsFrame.cpp" line="59"/>
         <source>Today</source>
-        <translation>今日</translation>
+        <translation>اليوم</translation>
     </message>
     <message>
         <location filename="../gui/TransactionsFrame.cpp" line="60"/>
         <source>This week</source>
-        <translation>今週</translation>
+        <translation>هذا الأسبوع</translation>
     </message>
     <message>
         <location filename="../gui/TransactionsFrame.cpp" line="61"/>
         <source>This month</source>
-        <translation>今月</translation>
+        <translation>هذا الشهر</translation>
     </message>
     <message>
         <location filename="../gui/TransactionsFrame.cpp" line="62"/>
         <source>Last month</source>
-        <translation>先月</translation>
+        <translation>الشهر الماضي</translation>
     </message>
     <message>
         <location filename="../gui/TransactionsFrame.cpp" line="63"/>
         <source>This year</source>
-        <translation>今年</translation>
+        <translation>هذا العام</translation>
     </message>
     <message>
         <location filename="../gui/TransactionsFrame.cpp" line="64"/>
         <source>Range...</source>
-        <translation>範囲...</translation>
+        <translation>نطاق...</translation>
     </message>
     <message>
         <location filename="../gui/TransactionsFrame.cpp" line="67"/>
         <source>All types</source>
-        <translation>全種類</translation>
+        <translation>كافة الأنواع</translation>
     </message>
     <message>
         <location filename="../gui/TransactionsFrame.cpp" line="68"/>
         <source>Incoming</source>
-        <translation>インカミング</translation>
+        <translation>وارد</translation>
     </message>
     <message>
         <location filename="../gui/TransactionsFrame.cpp" line="69"/>
         <source>Outgoing</source>
-        <translation>アウトゴーイング</translation>
+        <translation>صادر </translation>
     </message>
     <message>
         <location filename="../gui/TransactionsFrame.cpp" line="70"/>
         <source>Mined</source>
-        <translation>マイニング済</translation>
+        <translation>معدن</translation>
     </message>
     <message>
         <location filename="../gui/TransactionsFrame.cpp" line="71"/>
         <source>Sent to myself</source>
-        <translation>自分に送る</translation>
+        <translation>إرسال إلى نفسي</translation>
     </message>
     <message>
         <location filename="../gui/TransactionsFrame.cpp" line="98"/>
         <source>Select CSV file</source>
-        <translation>CSVファイル選択</translation>
+        <translation>حدد ملف الاكسل</translation>
     </message>
     <message>
         <location filename="../gui/TransactionsFrame.cpp" line="203"/>
         <source>From</source>
-        <translation>から</translation>
+        <translation>من</translation>
     </message>
     <message>
         <location filename="../gui/TransactionsFrame.cpp" line="211"/>
         <source>to</source>
-        <translation>へ</translation>
+        <translation>إلى</translation>
     </message>
 </context>
 <context>
@@ -2363,102 +2435,122 @@ when the wallet is synchronized</source>
         <location filename="../gui/TransactionsModel.cpp" line="89"/>
         <location filename="../gui/TransactionsModel.cpp" line="111"/>
         <source>Date</source>
-        <translation>日付</translation>
+        <translation>التاريخ</translation>
     </message>
     <message>
         <location filename="../gui/TransactionsModel.cpp" line="91"/>
         <location filename="../gui/TransactionsModel.cpp" line="113"/>
         <source>Type</source>
-        <translation>タイプ</translation>
+        <translation>النوع</translation>
     </message>
     <message>
         <location filename="../gui/TransactionsModel.cpp" line="93"/>
         <location filename="../gui/TransactionsModel.cpp" line="115"/>
         <source>Hash</source>
-        <translation>ハッシュ</translation>
+        <translation>الرقم</translation>
     </message>
     <message>
         <location filename="../gui/TransactionsModel.cpp" line="95"/>
         <location filename="../gui/TransactionsModel.cpp" line="117"/>
         <source>Key</source>
-        <translation>キー</translation>
+        <translation>المفتاح</translation>
     </message>
     <message>
         <location filename="../gui/TransactionsModel.cpp" line="97"/>
         <location filename="../gui/TransactionsModel.cpp" line="119"/>
         <source>Address</source>
-        <translation>アドレス</translation>
+        <translation>العنوان</translation>
     </message>
     <message>
         <location filename="../gui/TransactionsModel.cpp" line="99"/>
         <location filename="../gui/TransactionsModel.cpp" line="121"/>
         <source>Amount</source>
-        <translation>数量</translation>
+        <translation>المبلغ</translation>
     </message>
     <message>
         <location filename="../gui/TransactionsModel.cpp" line="101"/>
         <location filename="../gui/TransactionsModel.cpp" line="123"/>
         <source>PaymentID</source>
-        <translation>ペイメントID</translation>
+        <translation>رقم الدفع</translation>
     </message>
     <message>
         <location filename="../gui/TransactionsModel.cpp" line="229"/>
         <location filename="../gui/TransactionsModel.cpp" line="290"/>
         <source>me (%1)</source>
-        <translation>自分 (%1)</translation>
+        <translation>أنا (٪ 1)</translation>
     </message>
     <message>
         <location filename="../gui/TransactionsModel.cpp" line="231"/>
         <location filename="../gui/TransactionsModel.cpp" line="292"/>
         <source>(n/a)</source>
-        <translation type="unfinished"></translation>
+        <translation>(غير متطابق)</translation>
     </message>
     <message>
         <location filename="../gui/TransactionsModel.cpp" line="331"/>
         <source>Incoming transaction, unconfirmed</source>
-        <translation>インカミングトランザクション、未承認</translation>
+        <translation>معاملة واردة ، غير مؤكدة</translation>
     </message>
     <message>
         <location filename="../gui/TransactionsModel.cpp" line="334"/>
         <source>Mined, confirmations</source>
-        <translation>マイニング済み、承認</translation>
+        <translation>معدن، التأكيدات</translation>
     </message>
     <message>
         <location filename="../gui/TransactionsModel.cpp" line="337"/>
         <source>Sent to yourself, unconfirmed</source>
-        <translation>自分に送信、未承認</translation>
+        <translation>مرسل إلى نفسي، غير مؤكد</translation>
     </message>
     <message>
         <location filename="../gui/TransactionsModel.cpp" line="340"/>
         <source>Outgoing transaction, unconfirmed</source>
-        <translation>アウトゴーイングトランザクション、未承認</translation>
+        <translation>المعاملة الصادرة ، غير مؤكدة</translation>
     </message>
     <message numerus="yes">
         <location filename="../gui/TransactionsModel.cpp" line="343"/>
         <source>Incoming transaction, %n confirmation(s)</source>
         <translation>
-            <numerusform>インカミングトランザクション, %n 確認</numerusform>
+            <numerusform>المعاملة الواردة ،٪ n تأكيد</numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <location filename="../gui/TransactionsModel.cpp" line="346"/>
         <source>Mined, %n confirmation(s)</source>
         <translation>
-            <numerusform>マイニング済み、%n 確認</numerusform>
+            <numerusform>معدن،٪ n تأكيد</numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <location filename="../gui/TransactionsModel.cpp" line="349"/>
         <source>Sent to yourself, %n confirmation(s)</source>
         <translation>
-            <numerusform>自分に送信, %n 確認</numerusform>
+            <numerusform>مرسل إلى نفسك ،٪ n تأكيد</numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <location filename="../gui/TransactionsModel.cpp" line="352"/>
         <source>Outgoing transaction, %n confirmation(s)</source>
         <translation>
-            <numerusform>アウトゴーイングトランザクション, %n 確認</numerusform>
+            <numerusform>المعاملة الصادرة ،٪ n التأكيد</numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
 </context>
@@ -2467,213 +2559,213 @@ when the wallet is synchronized</source>
     <message>
         <location filename="../WalletAdapter.cpp" line="108"/>
         <source>Opening wallet</source>
-        <translation>ウォレットを開いています</translation>
+        <translation>فتح المحفظة</translation>
     </message>
     <message>
         <location filename="../WalletAdapter.cpp" line="140"/>
         <source>Creating wallet</source>
-        <translation>ウォレットを作成中</translation>
+        <translation>إنشاء محفظة</translation>
     </message>
     <message>
         <location filename="../WalletAdapter.cpp" line="173"/>
         <source>Importing keys</source>
-        <translation>キーインポート中</translation>
+        <translation>استيراد المفاتيح</translation>
     </message>
     <message>
         <location filename="../WalletAdapter.cpp" line="240"/>
         <source>Saving data</source>
-        <translation>データ保存中</translation>
+        <translation>حفظ البيانات</translation>
     </message>
     <message>
         <location filename="../WalletAdapter.cpp" line="346"/>
         <source>Sending transaction</source>
-        <translation>トランザクション送信中</translation>
+        <translation>إرسال المعاملة</translation>
     </message>
     <message>
         <location filename="../WalletAdapter.cpp" line="357"/>
         <source>Sweeping unmixable dust</source>
-        <translation>混合不可ダスト一掃中</translation>
+        <translation>مسح القيمة الكسرية غير قابلة للمزج</translation>
     </message>
     <message>
         <location filename="../WalletAdapter.cpp" line="412"/>
         <location filename="../WalletAdapter.cpp" line="438"/>
         <source>Ready</source>
-        <translation>開始</translation>
+        <translation>جاهز</translation>
     </message>
     <message>
         <location filename="../WalletAdapter.cpp" line="452"/>
         <source>Synchronizing</source>
-        <translation>同期中</translation>
+        <translation>مزامنة</translation>
     </message>
     <message>
         <location filename="../WalletAdapter.cpp" line="492"/>
         <source>Object was not initialized</source>
-        <translation>オブジェクトは初期化されませんでした</translation>
+        <translation>لم يتم تهيئة العنصر</translation>
     </message>
     <message>
         <location filename="../WalletAdapter.cpp" line="493"/>
         <source>The password is wrong</source>
-        <translation>パスワードが違います</translation>
+        <translation>كلمة المرور خاطئة</translation>
     </message>
     <message>
         <location filename="../WalletAdapter.cpp" line="494"/>
         <source>The object is already initialized</source>
-        <translation>オブジェクトは既に初期化されました</translation>
+        <translation>تمت تهيئة العنصر من قبل</translation>
     </message>
     <message>
         <location filename="../WalletAdapter.cpp" line="495"/>
         <source>Internal error occurred</source>
-        <translation>内部エラー発生</translation>
+        <translation>حدث خطأ داخلي</translation>
     </message>
     <message>
         <location filename="../WalletAdapter.cpp" line="496"/>
         <source>MixIn count is too big</source>
-        <translation>ミックスインカウントが大きすぎます。</translation>
+        <translation>عدد التوقيعات كبير جداً </translation>
     </message>
     <message>
         <location filename="../WalletAdapter.cpp" line="497"/>
         <source>Bad address</source>
-        <translation>無効アドレス</translation>
+        <translation>عنوان غير صالح</translation>
     </message>
     <message>
         <location filename="../WalletAdapter.cpp" line="498"/>
         <source>Transaction size is too big</source>
-        <translation>トランザクションサイズが大きすぎます</translation>
+        <translation>حجم المعاملة كبير جداً</translation>
     </message>
     <message>
         <location filename="../WalletAdapter.cpp" line="499"/>
         <source>Wrong amount</source>
-        <translation>不適切な数量</translation>
+        <translation>مبلغ خاطئ</translation>
     </message>
     <message>
         <location filename="../WalletAdapter.cpp" line="500"/>
         <source>Sum overflow</source>
-        <translation>合計オーバーフロー</translation>
+        <translation>تجاوز الحد المطلوب</translation>
     </message>
     <message>
         <location filename="../WalletAdapter.cpp" line="501"/>
         <source>The destination is empty</source>
-        <translation>宛先は空です</translation>
+        <translation>الوجهة فارغة</translation>
     </message>
     <message>
         <location filename="../WalletAdapter.cpp" line="502"/>
         <source>Impossible to cancel transaction</source>
-        <translation>トランザクションのキャンセルはできません。</translation>
+        <translation>لا يمكن إلغاء المعاملة</translation>
     </message>
     <message>
         <location filename="../WalletAdapter.cpp" line="503"/>
         <source>The wallet is in wrong state (maybe loading or saving), try again later</source>
-        <translation>ウォレットが不適切な状態（おそらくローディング中、または、保存中）なので、しばらく経ってからもう一度試してください。</translation>
+        <translation>المحفظة في حالة خطأ (ربما التحميل أو الحفظ)، حاول مرة أخرى لاحقًا.</translation>
     </message>
     <message>
         <location filename="../WalletAdapter.cpp" line="504"/>
         <source>The operation you&apos;ve requested has been cancelled</source>
-        <translation>あなたがリクエストした操作はキャンセルされました。</translation>
+        <translation>لقد تم إلغاء العملية التي طلبتها.</translation>
     </message>
     <message>
         <location filename="../WalletAdapter.cpp" line="505"/>
         <source>Transaction transfer impossible</source>
-        <translation>トランザクショントランスファー不可能</translation>
+        <translation>لا يمكن تحويل المعاملة.</translation>
     </message>
     <message>
         <location filename="../WalletAdapter.cpp" line="506"/>
         <source>Wrong version</source>
-        <translation>不適当なバージョン</translation>
+        <translation>إصدار خاطئ</translation>
     </message>
     <message>
         <location filename="../WalletAdapter.cpp" line="507"/>
         <source>Transaction fee is too small</source>
-        <translation>トランザクション手数料が少なすぎます</translation>
+        <translation>رسوم المعاملة صغيرة جداً.</translation>
     </message>
     <message>
         <location filename="../WalletAdapter.cpp" line="508"/>
         <source>Cannot generate new key</source>
-        <translation>新キーは生成できない</translation>
+        <translation>لا يمكن إنشاء مفتاح جديد</translation>
     </message>
     <message>
         <location filename="../WalletAdapter.cpp" line="509"/>
         <source>Index is out of range</source>
-        <translation>インデックスは範囲外</translation>
+        <translation>الفهرس خارج النطاق</translation>
     </message>
     <message>
         <location filename="../WalletAdapter.cpp" line="510"/>
         <source>Address already exists</source>
-        <translation>アドレスは既に存在します</translation>
+        <translation>العنوان موجود بالفعل</translation>
     </message>
     <message>
         <location filename="../WalletAdapter.cpp" line="511"/>
         <source>The wallet is in tracking mode</source>
-        <translation>ウォレットはトラッキングモードです</translation>
+        <translation>المحفظة في وضع التتبع</translation>
     </message>
     <message>
         <location filename="../WalletAdapter.cpp" line="512"/>
         <source>Wrong parameters passed</source>
-        <translation>不適切なパラメーターが渡されました</translation>
+        <translation>معلمات خاطئة</translation>
     </message>
     <message>
         <location filename="../WalletAdapter.cpp" line="513"/>
         <source>Object not found</source>
-        <translation>不明オブジェクト</translation>
+        <translation>العنصر غير موجود</translation>
     </message>
     <message>
         <location filename="../WalletAdapter.cpp" line="514"/>
         <source>Requested wallet not found</source>
-        <translation>リクエストされたウォレットが見つかりません</translation>
+        <translation>المحفظة المطلوبة غير موجودة</translation>
     </message>
     <message>
         <location filename="../WalletAdapter.cpp" line="515"/>
         <source>Change address required</source>
-        <translation>アドレスの変更が必要</translation>
+        <translation>تغيير العنوان مطلوب</translation>
     </message>
     <message>
         <location filename="../WalletAdapter.cpp" line="516"/>
         <source>Change address not found</source>
-        <translation>変更されたアドレスが見つかりません</translation>
+        <translation>تغيير العنوان غير موجود</translation>
     </message>
     <message>
         <location filename="../WalletAdapter.cpp" line="517"/>
         <source>Destination address required</source>
-        <translation>宛先アドレスが必要</translation>
+        <translation>عنوان الوجهة مطلوب</translation>
     </message>
     <message>
         <location filename="../WalletAdapter.cpp" line="518"/>
         <source>Destination address not found</source>
-        <translation>宛先アドレスが見つかりません</translation>
+        <translation>عنوان الوجهة غير موجود</translation>
     </message>
     <message>
         <location filename="../WalletAdapter.cpp" line="519"/>
         <source>Wrong payment id format</source>
-        <translation>不適切なペイメントIDフォーマット</translation>
+        <translation>صيغة رقم الدفع خاطئة</translation>
     </message>
     <message>
         <location filename="../WalletAdapter.cpp" line="520"/>
         <source>Wrong transaction extra format</source>
-        <translation>不適切なトランザクションエキストラフォーマット</translation>
+        <translation>صيغة المعاملة الإضافية خاطئة</translation>
     </message>
     <message>
         <location filename="../WalletAdapter.cpp" line="521"/>
         <source>Unknown error</source>
-        <translation>不明のエラー</translation>
+        <translation>خطأ غير معروف</translation>
     </message>
     <message>
         <location filename="../WalletAdapter.cpp" line="601"/>
         <source>  Warning: last block was received %1 hours %2 minutes ago</source>
-        <translation>  警告: 最新のブロックは%1時間%2分前に受信されました。</translation>
+        <translation type="unfinished">تحذير: تم استلام آخر بلوك قبل  1% ساعة٪ 2% دقيقة.</translation>
     </message>
     <message>
         <location filename="../WalletAdapter.cpp" line="602"/>
         <source>Wallet synchronized. Height: %1  |  Time (UTC): %2%3</source>
-        <translation>ウォレットは同期されました。高さ: %1 | 時刻(UTC): %2%3</translation>
+        <translation type="unfinished">المحفظة متزامنة. الارتفاع:٪ :%1 | الوقت (UTC): %2%3</translation>
     </message>
     <message>
         <location filename="../WalletAdapter.cpp" line="654"/>
         <source>Mnemonic seed is not correct</source>
-        <translation>ニーモニックシードが正しくありません。</translation>
+        <translation> كلمة استرجاع المحفظة غير صحيحة</translation>
     </message>
     <message>
         <location filename="../WalletAdapter.cpp" line="654"/>
         <source>There must be an error in mnemonic seed. Make sure you entered it correctly.</source>
-        <translation>ニーモニックシードにエラーがあります。正しく入力したか確認してください。</translation>
+        <translation>لابد أن هناك خطأ في كلمة استرجاع المحفظة. تأكد من إدخالها بشكل صحيح.</translation>
     </message>
 </context>
 </TS>
