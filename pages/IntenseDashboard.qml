@@ -23,7 +23,7 @@ Rectangle {
     property int firstPrePaidMinutes
     property string subsequentPrePaidMinutes
     property string speed
-    property string feedback
+    property var feedback
     property string bton
     property string rank
     property int flag
@@ -35,6 +35,8 @@ Rectangle {
     property var hexConfig
     property int firstPayment
     property int waitHaproxy: 0
+    property int callProxy
+    property int proxyStats: 0
 
     function getITNS(){
         itnsStart = itnsStart + (parseFloat(cost)/firstPrePaidMinutes*subsequentPrePaidMinutes)
@@ -170,7 +172,6 @@ Rectangle {
             informationPopup.open()
             return;
         }else{
-            paymentAutoClicked(obj.providerWallet, hexConfig.toString(), value.toString(), privacy, priority, "Lethean payment")
 
             var data = new Date()
             if(firstPayment == 1){
@@ -205,6 +206,35 @@ Rectangle {
             appWindow.persistentSettings.timerPaymentTimeLeft = timerPayment
             appWindow.persistentSettings.hexConfigTimeLeft = hexConfig
             appWindow.persistentSettings.firstPaymentTimeLeft = firstPayment
+            console.log(callProxy + " my call haproxy ------")
+            if(callProxy == 1){
+                callProxy = 0
+                var host = applicationDirectory;
+                console.log(obj.certArray[0].certContent);
+
+                var endpoint = ''
+                var port = ''
+                if(obj.proxy.length > 0){
+                    endpoint = obj.proxy[0].endpoint
+                    port = obj.proxy[0].port
+                }else{
+                    endpoint = obj.vpn[0].endpoint
+                    port = obj.vpn[0].port
+                }
+
+                console.log("======+++======++++     try to CONNECT +++==========================+++")
+
+                var certArray = decode64(obj.certArray[0].certContent); // "4pyTIMOgIGxhIG1vZGU="
+                callhaproxy.haproxyCert(host, certArray);
+                callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), 'haproxy', hexC(obj.id).toString(), obj.provider)
+                changeStatus()
+            }
+
+            console.log(hexConfig.toString())
+            console.log(value.toString())
+            paymentAutoClicked(obj.providerWallet, hexConfig.toString(), value.toString(), privacy, priority, "Lethean payment")
+
+
 
             //paymentVerify()
 
@@ -231,10 +261,10 @@ Rectangle {
         var arrQRank = [rankQ1, rankQ2, rankQ3, rankQ4, rankQ5]
         var arrQRankText = [rqText1, rqText2, rqText3, rqText4, rqText5]
         for(i = 0; i < 5; i++){
-            if(arrRank[i].color == '#4d0051'){
+            if(arrRank[i].color == "#a7b8c0"){
                 sp = parseInt(arrRankText[i].text)
             }
-            if(arrQRank[i].color == '#4d0051'){
+            if(arrQRank[i].color == "#a7b8c0"){
                 st = parseInt(arrQRankText[i].text)
             }
         }
@@ -452,6 +482,22 @@ Rectangle {
             + translationManager.emptyString;
     }
 
+    // create a table to show the user browser extension notification
+    function getBrowserExtensionNotification() {
+        return '<p><b>Browser Extension</b></p>'
+            + '<p>Enable and connect the Browser Extension in your browser to start using the Proxy!</p>'
+            + '<p>More information can be found on our <a href="' + Config.knowledgeBaseURL + '">Knowledge Base</a></p>'
+            + translationManager.emptyString;
+        /*
+        return '<table border="1" style="color: #31708f; background-color: #d9edf7; border-color: #bce8f1;">'
+            + '<tr><td>Browser Extension</td></tr>'
+            + '<tr><td>Enable and connect the Browser Extension in your browser to start using the Proxy!</td></tr>'
+            + '<tr><td>More information can be found on our <a href="' + Config.knowledgeBaseURL + '">Knowledge Base</a></td></tr>'
+            + '</table>'
+            + translationManager.emptyString;
+        */
+    }
+
     function decode64(input) {
         var keyStr = "ABCDEFGHIJKLMNOP" +
                        "QRSTUVWXYZabcdef" +
@@ -519,9 +565,9 @@ Rectangle {
                     port = obj.vpn[0].port
                 }
 
-                var certArray = decode64(obj.certArray[0].certContent); // "4pyTIMOgIGxhIG1vZGU="
-                callhaproxy.haproxyCert(host, certArray);
-                callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), 'haproxy', hexC(obj.id).toString(), obj.provider)
+                //var certArray = decode64(obj.certArray[0].certContent); // "4pyTIMOgIGxhIG1vZGU="
+                //callhaproxy.haproxyCert(host, certArray);
+                //callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), 'haproxy', hexC(obj.id).toString(), obj.provider)
                 intenseDashboardView.idService = obj.id
                 intenseDashboardView.feedback = feed.id
                 intenseDashboardView.providerName = obj.providerName
@@ -540,9 +586,10 @@ Rectangle {
                 intenseDashboardView.macHostFlag = 0
                 intenseDashboardView.hexConfig = hexConfig
                 intenseDashboardView.firstPayment = 1
+                intenseDashboardView.callProxy = 1
                 waitHaproxy = 0;
                 getTime()
-                changeStatus()
+
             }
         }
 
@@ -590,7 +637,7 @@ Rectangle {
     }
 
     function timer() {
-        secs++;
+
         var h = secs/60/60
         var m = (secs/60)%60
         var s = secs%60
@@ -622,20 +669,40 @@ Rectangle {
 
         }
 
+        /*
         if(Qt.platform.os === "linux"){
-            var str = callhaproxy.verifyHaproxy(Config.haproxyIp, Config.haproxyPort, obj.provider).toString();
-            str = String(str)
-            if(str.length == 3){
-                waitHaproxyPopup.close();
-            }else if(waitHaproxy == 0){
+            console.log(secs%5 + "my secs % 5")
+            if(secs%5 == 0){
+                var str = callhaproxy.verifyHaproxy(Config.haproxyIp, Config.haproxyPort, obj.provider).toString();
+                str = String(str)
+                console.log("====== "+str + " ================= my STR ==================")
+                if(str.length == 3 || str.length > 20){
+                    waitHaproxyPopup.close();
+                    proxyStats = 1;
+                    timeonlineTextLine.text = value
+                }
+            }
+            if(waitHaproxy == 0){
                 waitHaproxy = 1
                 waitHaproxyPopup.title = "Waiting for payment balance";
                 waitHaproxyPopup.content = "The proxy may not work until the provider receives your payment.";
                 waitHaproxyPopup.open();
+                timeonlineTextLine.text = "Waiting for payment balance"
             }
+
         }
 
+        if(Qt.platform.os === "windows"){
+            proxyStats = 1;
+            timeonlineTextLine.text = value
+        }
+        */
+
+        //only to work widhout Curl
+        proxyStats = 1;
         timeonlineTextLine.text = value
+
+        secs++;
     }
 
     QtObject {
@@ -1042,7 +1109,7 @@ Rectangle {
               width:400
               height: 420
               onAccepted:{
-                  postJsonFeedback(feedback)
+                  postJsonFeedback(appWindow.persistentSettings.feedbackTimeLeft)
               }
 
               Text {
@@ -1101,7 +1168,7 @@ Rectangle {
                   MouseArea {
                       anchors.fill: parent
                       onClicked: {
-                          parent.color = '#A7B8C0'
+                          parent.color = "#A7B8C0"
                           rank2.color = "#c4c4c4"
                           rank3.color = "#c4c4c4"
                           rank4.color = "#c4c4c4"
@@ -1135,7 +1202,7 @@ Rectangle {
                   MouseArea {
                       anchors.fill: parent
                       onClicked: {
-                          parent.color = '#A7B8C0'
+                          parent.color = "#A7B8C0"
                           rank1.color = "#c4c4c4"
                           rank3.color = "#c4c4c4"
                           rank4.color = "#c4c4c4"
@@ -1168,7 +1235,7 @@ Rectangle {
                   MouseArea {
                       anchors.fill: parent
                       onClicked: {
-                          parent.color = '#A7B8C0'
+                          parent.color = "#A7B8C0"
                           rank2.color = "#c4c4c4"
                           rank1.color = "#c4c4c4"
                           rank4.color = "#c4c4c4"
@@ -1202,7 +1269,7 @@ Rectangle {
                   MouseArea {
                       anchors.fill: parent
                       onClicked: {
-                          parent.color = '#A7B8C0'
+                          parent.color = "#A7B8C0"
                           rank2.color = "#c4c4c4"
                           rank3.color = "#c4c4c4"
                           rank1.color = "#c4c4c4"
@@ -1236,7 +1303,7 @@ Rectangle {
                   MouseArea {
                       anchors.fill: parent
                       onClicked: {
-                          parent.color = '#A7B8C0'
+                          parent.color = "#A7B8C0"
                           rank2.color = "#c4c4c4"
                           rank3.color = "#c4c4c4"
                           rank4.color = "#c4c4c4"
@@ -1284,7 +1351,7 @@ Rectangle {
                   MouseArea {
                       anchors.fill: parent
                       onClicked: {
-                          parent.color = '#A7B8C0'
+                          parent.color = "#A7B8C0"
                           rankQ2.color = "#c4c4c4"
                           rankQ3.color = "#c4c4c4"
                           rankQ4.color = "#c4c4c4"
@@ -1318,7 +1385,7 @@ Rectangle {
                   MouseArea {
                       anchors.fill: parent
                       onClicked: {
-                          parent.color = '#A7B8C0'
+                          parent.color = "#A7B8C0"
                           rankQ1.color = "#c4c4c4"
                           rankQ3.color = "#c4c4c4"
                           rankQ4.color = "#c4c4c4"
@@ -1351,7 +1418,7 @@ Rectangle {
                   MouseArea {
                       anchors.fill: parent
                       onClicked: {
-                          parent.color = '#A7B8C0'
+                          parent.color = "#A7B8C0"
                           rankQ2.color = "#c4c4c4"
                           rankQ1.color = "#c4c4c4"
                           rankQ4.color = "#c4c4c4"
@@ -1385,7 +1452,7 @@ Rectangle {
                   MouseArea {
                       anchors.fill: parent
                       onClicked: {
-                          parent.color = '#A7B8C0'
+                          parent.color = "#A7B8C0"
                           rankQ2.color = "#c4c4c4"
                           rankQ3.color = "#c4c4c4"
                           rankQ1.color = "#c4c4c4"
@@ -1419,7 +1486,7 @@ Rectangle {
                   MouseArea {
                       anchors.fill: parent
                       onClicked: {
-                          parent.color = '#A7B8C0'
+                          parent.color = "#A7B8C0"
                           rankQ2.color = "#c4c4c4"
                           rankQ3.color = "#c4c4c4"
                           rankQ4.color = "#c4c4c4"
@@ -1460,6 +1527,7 @@ Rectangle {
                   flag = 0
                   changeStatus()
                   callhaproxy.killHAproxy();
+                  appWindow.persistentSettings.haproxyTimeLeft = new Date()
                   delayTimer.stop();
                   feedbackPopup.title = "Provider Feedback";
                   feedbackPopup.open();
@@ -1521,7 +1589,7 @@ Rectangle {
               //fontWeight: bold
               MouseArea{
                   anchors.fill: parent
-                  onClicked:Qt.openUrlExternally("https://lethean.zendesk.com/");
+                  onClicked:Qt.openUrlExternally(Config.knowledgeBaseURL);
               }
           }
 
@@ -1807,7 +1875,41 @@ Rectangle {
               text: obj.proxy[0].endpoint
               font.pixelSize: 14
               horizontalAlignment: Text.AlignLeft
-          }
+        }
+
+        Rectangle {
+              visible: !isMobile
+              id: browserExtensionInfo
+              anchors.left: parent.left
+              anchors.top:  serveripText.top
+              anchors.topMargin: 40
+              anchors.leftMargin: 20
+              width: childrenRect.width
+              height: childrenRect.height
+              color: "#d9edf7"
+              MouseArea {
+                  anchors.fill: parent
+                  onClicked: Qt.openUrlExternally(Config.knowledgeBaseURL);
+              }
+              Text {
+                  anchors.left: parent.left
+                  anchors.top: parent.top
+                  anchors.topMargin: 20
+                  anchors.leftMargin: 10
+                  text: getBrowserExtensionNotification()
+                  font.pixelSize: 14
+                  horizontalAlignment: Text.AlignLeft
+                  textFormat: Text.RichText
+                  color: "#31708f"
+                  height: 120
+                  width: 610
+                  MouseArea {
+                      anchors.fill: parent
+                      onClicked: Qt.openUrlExternally(Config.knowledgeBaseURL);
+                  }
+              }
+        }
+
 
 
     }
@@ -1822,7 +1924,9 @@ Rectangle {
         onTriggered:
         {
             timer()
-            getHaproxyStats(obj)
+            if(proxyStats != 0){
+                getHaproxyStats(obj)
+            }
         }
     }
 
@@ -1832,11 +1936,12 @@ Rectangle {
     function onPageCompleted() {
         waitHaproxy = 0;
 
-        getColor(rank, rankRectangle)
-        getMyFeedJson()
-        changeStatus()
+
         var data = new Date();
         if(providerName != "" || appWindow.persistentSettings.haproxyTimeLeft > data){
+            getColor(rank, rankRectangle)
+            getMyFeedJson()
+            changeStatus()
             if(typeof (obj) == 'undefined'){
                 console.log('obj = 0 --------');
                 obj = appWindow.persistentSettings.objTimeLeft;
@@ -1866,6 +1971,8 @@ Rectangle {
                 //intenseDashboardView.flag = 1;
                 getColor(appWindow.persistentSettings.myRankTextTimeLeft, myRankRectangle)
                 changeStatus();
+                var value =  (subsequentPrePaidMinutes*60000)-secs - Config.payTimer;
+                delay(value)
                 var host = applicationDirectory;
                 console.log(obj.certArray[0].certContent);
 
@@ -1878,7 +1985,6 @@ Rectangle {
                     endpoint = obj.vpn[0].endpoint
                     port = obj.vpn[0].port
                 }
-console.log(appWindow.persistentSettings.hexId + " ------------------ MY HED ID")
                 var certArray = decode64(obj.certArray[0].certContent); // "4pyTIMOgIGxhIG1vZGU="
                 callhaproxy.haproxyCert(host, certArray);
                 callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), 'haproxy', appWindow.persistentSettings.hexId, obj.provider)

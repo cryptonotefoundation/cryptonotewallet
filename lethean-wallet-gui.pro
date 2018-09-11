@@ -39,7 +39,17 @@ HEADERS += \
     src/libwalletqt/UnsignedTransaction.h \
     MainApp.h \
     src/libwalletqt/Haproxy.h \
-    src/libwalletqt/Hash.h
+    qtcurl/src/CurlEasy.h \
+    qtcurl/src/CurlMulti.h \
+    src/qtcurl/QtCUrl.h
+
+    #src/libwalletqt/ed25519.h \
+    #src/libwalletqt/fe.h \
+    #src/libwalletqt/fixedint.h \
+    #src/libwalletqt/ge.h \
+    #src/libwalletqt/precomp_data.h \
+    #src/libwalletqt/sc.h \
+    #src/libwalletqt/sha512.h
 
 SOURCES += main.cpp \
     filter.cpp \
@@ -64,7 +74,20 @@ SOURCES += main.cpp \
     src/libwalletqt/UnsignedTransaction.cpp \
     MainApp.cpp \
     src/libwalletqt/Haproxy.cpp \
-    src/libwalletqt/Hash.cpp
+    qtcurl/src/CurlEasy.cpp \
+    qtcurl/src/CurlMulti.cpp \
+    src/qtcurl/QtCUrl.cpp
+
+    #src/libwalletqt/Sign.c \
+    #src/libwalletqt/add_scalar.c \
+    #src/libwalletqt/fe.c \
+    #src/libwalletqt/ge.c \
+    #src/libwalletqt/key_exchange.c \
+    #src/libwalletqt/keypair.c \
+    #src/libwalletqt/sc.c \
+    #src/libwalletqt/seed.c \
+    #src/libwalletqt/sha512.c \
+    #src/libwalletqt/verify.c
 
 !ios {
     HEADERS += src/daemon/DaemonManager.h
@@ -242,7 +265,8 @@ linux {
         -lboost_chrono \
         -lboost_program_options \
         -lssl \
-        -lcrypto
+        -lcrypto \
+        -lcurl
 
     if(!android) {
         LIBS+= \
@@ -415,7 +439,10 @@ DISTFILES += \
     notes.txt \
     lethean/src/wallet/CMakeLists.txt \
     components/MobileHeader.qml \
-    pages/intense.qml
+    pages/intense.qml \
+    IntenseConfig.js \
+    IntenseConfig.js \
+    IntenseConfig.js
     components/MobileHeader.qml
 
 

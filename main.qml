@@ -1028,18 +1028,18 @@ ApplicationWindow {
         property int firstPrePaidMinutesTimeLeft
         property string subsequentPrePaidMinutesTimeLeft
         property string speedTimeLeft
-        property string feedbackTimeLeft
+        property var feedbackTimeLeft
         property string btonTimeLeft
         property string rankTimeLeft
         property int flagTimeLeft
-        property int secsTimeLeft
+        property var secsTimeLeft
         property double itnsStartTimeLeft
         property int macHostFlagTimeLeft
         property var timerPaymentTimeLeft
         property var hexConfigTimeLeft
         property int firstPaymentTimeLeft
         property string transferredTextLineTimeLeft
-        property var timeonlineTextLineTimeLeft
+        property string timeonlineTextLineTimeLeft
         property var paidTextLineTimeLeft
         property var myRankTextTimeLeft
         property string hexId
