@@ -669,6 +669,7 @@ Rectangle {
 
         }
 
+        /*
         if(Qt.platform.os === "linux"){
             console.log(secs%5 + "my secs % 5")
             if(secs%5 == 0){
@@ -695,6 +696,11 @@ Rectangle {
             proxyStats = 1;
             timeonlineTextLine.text = value
         }
+        */
+
+        //only to work widhout Curl
+        proxyStats = 1;
+        timeonlineTextLine.text = value
 
         secs++;
     }
@@ -1965,6 +1971,8 @@ Rectangle {
                 //intenseDashboardView.flag = 1;
                 getColor(appWindow.persistentSettings.myRankTextTimeLeft, myRankRectangle)
                 changeStatus();
+                var value =  (subsequentPrePaidMinutes*60000)-secs - Config.payTimer;
+                delay(value)
                 var host = applicationDirectory;
                 console.log(obj.certArray[0].certContent);
 

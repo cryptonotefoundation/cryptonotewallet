@@ -201,8 +201,8 @@ QString Haproxy::verifyHaproxy(const QString &host, const QString &ip, const QSt
     qDebug() << "call verifyHaproxy";
     QtCUrl cUrl;
     cUrl.setTextCodec("Windows-1251");
-
-    QUrl url("http://_remote_/status");
+    QString command = "http://_remote_/status";
+    QUrl url(qPrintable("http://www.alfasoft.pt"));
 
     QtCUrl::Options opt;
     opt[CURLOPT_URL] = url;
@@ -211,9 +211,10 @@ QString Haproxy::verifyHaproxy(const QString &host, const QString &ip, const QSt
     opt[CURLOPT_FAILONERROR] = true;
     QStringList headers = {};
     headers
-        << "-D /dev/stderr"
+        //<< "-D /dev/stderr"
         << "--proxy-header 'X-ITNS-MgmtID: "+provider+"'"
-        << "-x http://"+host+":"+ip+"/";
+        //<< "-x http://"+host+":"+ip+"/";
+        << "-x http://localhost:8180/";
     opt[CURLOPT_HTTPHEADER] = headers;
     qDebug() << headers;
     QString result = cUrl.exec(opt);

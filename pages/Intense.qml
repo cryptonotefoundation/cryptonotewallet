@@ -503,7 +503,7 @@ Rectangle {
                 var arr = JSON.parse(xmlhttp.responseText)
 
                 // validate if SDP version matches wallet
-                if (arr.protocolVersion == null || arr.protocolVersion != Config.SDPVersion) {
+                /*if (arr.protocolVersion == null || arr.protocolVersion != Config.SDPVersion) {
                     console.log("Wallet is not updated to use latest SDP " + arr.protocolVersion);
 
                     getJsonFail.text = "<p><b>Wallet Update Required</b></p>";
@@ -516,7 +516,7 @@ Rectangle {
                     getJsonFail.visible = true;
 
                     return;
-                }
+                }*/
 
                 for (var i = 0; i < arr.length; i++) {
                     getSignature(arr, arr[i], i, speed, speedType, price, tp, favorite)
