@@ -11,3 +11,6 @@ qrc_qml.cpp
 moc*
 release
 Makefile
+lethean
+intense
+.qmake.stash

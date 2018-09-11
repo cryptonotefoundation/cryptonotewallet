@@ -12,6 +12,7 @@ Rectangle {
     property var model
     property variant arrChecked
     property var hexConfig
+    property bool autoLoadMode
 
     function buildTxDetailsString(data, rank) {
         //console.log(data.subsequentVerificationsNeeded + "-------------------- ttt")
@@ -463,7 +464,13 @@ Rectangle {
 
     }
 
-    function getJson(speed, speedType, price, tp, favorite){
+    function getJson(speed, speedType, price, tp, favorite) {
+        console.log("Getting SDP Services");
+
+        // show loading information while we retrieve services
+        loading.visible = true;
+        // hide any previous error
+        getJsonFail.visible = false;
 
         if (speed != undefined) {
             speed = speed * 1024
@@ -476,32 +483,70 @@ Rectangle {
         var xmlhttp = new XMLHttpRequest();
         listView.model.clear()
         xmlhttp.onreadystatechange=function() {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                getJsonFail.visible = false
-                loading.visible = false
+
+            // response is not ready, return
+            if (xmlhttp.readyState != 4) {
+                return;
+            }
+
+            // hide loading once we have retrieved the services
+            loading.visible = false;
+
+            if (xmlhttp.status == 200) {
+                console.log("SDP Services correctly received");
+                getJsonFail.visible = false;
+
+                // once we auto load the services, disable auto load mode
+                autoLoadMode = false;
+
+
                 var arr = JSON.parse(xmlhttp.responseText)
 
                 for (var i = 0; i < arr.length; i++) {
                     getSignature(arr, arr[i], i, speed, speedType, price, tp, favorite)
                 }
-            }
-			else if(xmlhttp.readyState == 4) {
+
+                // check geo location
                 var urlGEO = "https://geoip.nekudo.com/api/"
                 var xmlGEOhttp = new XMLHttpRequest();
 
                 xmlGEOhttp.onreadystatechange=function() {
-                    getJsonFail.visible = true;
-                    loading.visible = false
-                    if (xmlGEOhttp.readyState == 4 && xmlGEOhttp.status == 200) {
-                        getJsonFail.text = "Error status - SDP: " + xmlhttp.status + "<br />Error readyState - SDP: " + xmlhttp.readyState + "<br />" + xmlhttp.responseText + "<br /><br />" + "Status - GEO: " + xmlGEOhttp.status
+                    if (xmlGEOhttp.readyState != 4) {
+                        return;
                     }
-					else if(xmlGEOhttp.readyState == 4) {
+
+                    if (xmlGEOhttp.readyState != 200) {
+                        getJsonFail.visible = true;
                         getJsonFail.text = "Error status - SDP: " + xmlhttp.status + "<br />Error readyState - SDP: " + xmlhttp.readyState + "<br />" + xmlhttp.responseText + "<br /><br />" + "Error Status - GEO: " + xmlGEOhttp.status
                     }
                 }
                 xmlGEOhttp.open("GET", urlGEO, true);
                 xmlGEOhttp.setRequestHeader("Access-Control-Allow-Origin","*")
                 xmlGEOhttp.send();
+            }
+            else { // sdp services retrieval failed, notify user and try again later
+                console.log("SDP services retrieval failed");
+                console.log(xmlhttp);
+                getJsonFail.visible = true;
+                getJsonFail.text = "There was an error trying to retrieve available services.<br>";
+                getJsonFail.text += "Please click the 'Filter' button to retry.<br><br>";
+                getJsonFail.text += "<b>Error details</b><br>";
+                getJsonFail.text += "Code: " + xmlhttp.status + "<br>";
+                getJsonFail.text += "Message: " + xmlhttp.responseText;
+
+                console.log("SDP Auto load mode " + autoLoadMode);
+                // this will be true if we are autoloading services after startup of the app
+                if (autoLoadMode == true) {
+                    console.log("SDP Auto load timeout for services retrieval");
+                    getJson();
+                    /*
+                    setTimeout(
+                        function() {
+                            console.log("AutoLoadMode activated after failure retrieving services");
+                            getJson();
+                        }, 2000);
+                    */
+                }
             }
         }
 
@@ -704,6 +749,7 @@ Rectangle {
           releasedColor: "#6C8896"
           pressedColor: "#A7B8C0"
           onClicked:  {
+              conosle.log("Getting SDP Services after clicking on button");
               getJson(minSpeedLine.text, typeSpeed.get(speedDrop.currentIndex).value, parseFloat(maxPriceLine.text), typeTransaction.get(typeDrop.currentIndex).value, favoriteFilter.checked)
           }
       }
@@ -916,7 +962,8 @@ Rectangle {
                 id: listModel
 
                 Component.onCompleted: {
-
+                    console.log("Getting SDP Services after List initialized");
+                    autoLoadMode = true;
                     getJson()
 
                 }
@@ -950,7 +997,7 @@ Rectangle {
 
     function onPageCompleted() {
         updateStatus();
-        loading.visible = true
+        //loading.visible = true
         //getJson()
 
     }
