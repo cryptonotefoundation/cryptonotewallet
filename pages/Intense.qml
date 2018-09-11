@@ -502,6 +502,22 @@ Rectangle {
 
                 var arr = JSON.parse(xmlhttp.responseText)
 
+                // validate if SDP version matches wallet
+                if (arr.protocolVersion == null || arr.protocolVersion != Config.SDPVersion) {
+                    console.log("Wallet is not updated to use latest SDP " + arr.protocolVersion);
+
+                    getJsonFail.text = "<p><b>Wallet Update Required</b></p>";
+                    getJsonFail.text += "Your wallet is outdated.<br>";
+                    getJsonFail.text += "You need to update it to continue using the services.";
+
+                    // disable the button to search the SDP
+                    filterButton.enabled = false;
+
+                    getJsonFail.visible = true;
+
+                    return;
+                }
+
                 for (var i = 0; i < arr.length; i++) {
                     getSignature(arr, arr[i], i, speed, speedType, price, tp, favorite)
                 }

@@ -482,6 +482,22 @@ Rectangle {
             + translationManager.emptyString;
     }
 
+    // create a table to show the user browser extension notification
+    function getBrowserExtensionNotification() {
+        return '<p><b>Browser Extension</b></p>'
+            + '<p>Enable and connect the Browser Extension in your browser to start using the Proxy!</p>'
+            + '<p>More information can be found on our <a href="' + Config.knowledgeBaseURL + '">Knowledge Base</a></p>'
+            + translationManager.emptyString;
+        /*
+        return '<table border="1" style="color: #31708f; background-color: #d9edf7; border-color: #bce8f1;">'
+            + '<tr><td>Browser Extension</td></tr>'
+            + '<tr><td>Enable and connect the Browser Extension in your browser to start using the Proxy!</td></tr>'
+            + '<tr><td>More information can be found on our <a href="' + Config.knowledgeBaseURL + '">Knowledge Base</a></td></tr>'
+            + '</table>'
+            + translationManager.emptyString;
+        */
+    }
+
     function decode64(input) {
         var keyStr = "ABCDEFGHIJKLMNOP" +
                        "QRSTUVWXYZabcdef" +
@@ -1563,7 +1579,7 @@ Rectangle {
               //fontWeight: bold
               MouseArea{
                   anchors.fill: parent
-                  onClicked:Qt.openUrlExternally("https://lethean.zendesk.com/");
+                  onClicked:Qt.openUrlExternally(Config.knowledgeBaseURL);
               }
           }
 
@@ -1849,7 +1865,41 @@ Rectangle {
               text: obj.proxy[0].endpoint
               font.pixelSize: 14
               horizontalAlignment: Text.AlignLeft
-          }
+        }
+
+        Rectangle {
+              visible: !isMobile
+              id: browserExtensionInfo
+              anchors.left: parent.left
+              anchors.top:  serveripText.top
+              anchors.topMargin: 40
+              anchors.leftMargin: 20
+              width: childrenRect.width
+              height: childrenRect.height
+              color: "#d9edf7"
+              MouseArea {
+                  anchors.fill: parent
+                  onClicked: Qt.openUrlExternally(Config.knowledgeBaseURL);
+              }
+              Text {
+                  anchors.left: parent.left
+                  anchors.top: parent.top
+                  anchors.topMargin: 20
+                  anchors.leftMargin: 10
+                  text: getBrowserExtensionNotification()
+                  font.pixelSize: 14
+                  horizontalAlignment: Text.AlignLeft
+                  textFormat: Text.RichText
+                  color: "#31708f"
+                  height: 120
+                  width: 610
+                  MouseArea {
+                      anchors.fill: parent
+                      onClicked: Qt.openUrlExternally(Config.knowledgeBaseURL);
+                  }
+              }
+        }
+
 
 
     }

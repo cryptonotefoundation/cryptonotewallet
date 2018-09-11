@@ -18,3 +18,4 @@ var haproxyPort = "8180"
 var macPathHaproxy = ["/usr/local/opt/haproxy","/usr/local/Cellar/haproxy","/usr/local/bin/haproxy"]
 var linuxPathHaproxy = ["haproxy","/usr/sbin/haproxy"]
 var coinName = "LTHN"
+var knowledgeBaseURL = "https://lethean.zendesk.com/hc/"
