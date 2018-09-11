@@ -10,6 +10,7 @@
 #include <QUrlQuery>
 #include <QTime>
 #include <QUrl>
+#include <QDebug>
 
 #include "AddressBookModel.h"
 #include "CurrencyAdapter.h"
@@ -209,9 +210,8 @@ void SendFrame::amountValueChange() {
         donation_amount += *it;
     }
     float min = getMinimalFee();
-    if (donation_amount < min) {
+    if (donation_amount < min)
         donation_amount = min;
-    }
     donation_amount = floor(donation_amount * pow(10., 4) + .5) / pow(10., 4);
     m_ui->m_donateSpin->setValue(QString::number(donation_amount).toDouble());
 
@@ -446,9 +446,28 @@ void SendFrame::sendAllClicked() {
         remote_node_fee = 1000000000000;
     }
   }
+
+  QVector<float> donations;
+  donations.clear();
+  Q_FOREACH (TransferFrame * transfer, m_transfers) {
+    float amount = transfer->getAmountString().toFloat();
+    float donationpercent = amount * 0.1 / 100; // donation is 0.1%
+    donations.push_back(donationpercent);
+    }
   quint64 priorityFee = CurrencyAdapter::instance().parseAmount(QString::number(getMinimalFee() * m_ui->m_prioritySlider->value()));
   quint64 amount = actualBalance - (priorityFee + remote_node_fee);
-  m_transfers[0]->setAmount(amount);
+  if (m_ui->donateCheckBox->isChecked()) {
+    float donation_amount = CurrencyAdapter::instance().formatAmount(amount).toDouble() * 0.1 / 100;
+    donation_amount = floor(donation_amount * pow(10., 4) + .5) / pow(10., 4);
+    float min = getMinimalFee();
+    if (donation_amount < min)
+        donation_amount = min;
+    amount -= static_cast<quint64>(CurrencyAdapter::instance().parseAmount(QString::number(donation_amount)));
+    m_transfers[0]->setAmount(amount);
+    m_ui->m_donateSpin->setValue(QString::number(donation_amount).toDouble());
+  } else {
+    m_transfers[0]->setAmount(amount);
+  }
 }
 
 }
