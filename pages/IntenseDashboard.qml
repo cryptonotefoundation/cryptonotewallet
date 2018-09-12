@@ -37,7 +37,16 @@ Rectangle {
     property int waitHaproxy: 0
     property int callProxy
     property int proxyStats: 0
+    property bool autoRenew
 
+
+    function getITNS(){
+        itnsStart = itnsStart + (parseFloat(cost)/firstPrePaidMinutes*subsequentPrePaidMinutes)
+        appWindow.persistentSettings.paidTextLineTimeLeft = itnsStart.toFixed(8) + " "+Config.coinName;
+        paidTextLine.text = itnsStart.toFixed(8) + " "+Config.coinName
+    }
+
+    /*
     function getITNS(){
         itnsStart = itnsStart + (parseFloat(cost)/firstPrePaidMinutes*subsequentPrePaidMinutes)
         appWindow.persistentSettings.paidTextLineTimeLeft = itnsStart.toFixed(8) + " "+Config.coinName;
@@ -80,6 +89,7 @@ Rectangle {
             delay(value)
         }
     }
+    */
 
     function hex2bin(hex){
         var hexbin = ""
@@ -142,10 +152,10 @@ Rectangle {
         console.log("integer unlocked",currentWallet.unlockedBalance)
         if (amountxmr <= 0) {
             hideProcessingSplash()
-            flag = 0
-            changeStatus()
-            callhaproxy.killHAproxy();
-            delayTimer.stop();
+            //flag = 0
+            //changeStatus()
+            //callhaproxy.killHAproxy();
+            //delayTimer.stop();
             informationPopup.title = qsTr("Error") + translationManager.emptyString;
             informationPopup.text  = qsTr("Amount is wrong: expected number from %1 to %2")
                     .arg(walletManager.displayAmount(0))
@@ -158,10 +168,10 @@ Rectangle {
             return;
         } else if (amountxmr > currentWallet.unlockedBalance) {
             hideProcessingSplash()
-            flag = 0
-            changeStatus()
-            callhaproxy.killHAproxy();
-            delayTimer.stop();
+            //flag = 0
+            //changeStatus()
+            //callhaproxy.killHAproxy();
+            //delayTimer.stop();
             informationPopup.title = qsTr("Error") + translationManager.emptyString;
             informationPopup.text  = qsTr("Insufficient funds. Unlocked balance: %1")
                     .arg(walletManager.displayAmount(currentWallet.unlockedBalance))
@@ -175,9 +185,14 @@ Rectangle {
 
             var data = new Date()
             if(firstPayment == 1){
+
                 //var value = parseFloat(cost)
                 data.setMinutes(data.getMinutes() + firstPrePaidMinutes);
                 appWindow.persistentSettings.haproxyTimeLeft = data
+                var dataInit = new Date()
+                appWindow.persistentSettings.haproxyStart = parseFloat((appWindow.persistentSettings.haproxyTimeLeft.valueOf() - dataInit.valueOf())/1000).toFixed(0)
+                //appWindow.persistentSettings.haproxyStartValueOf =
+
             }else{
                 //var value = (parseFloat(cost)/firstPrePaidMinutes*subsequentPrePaidMinutes)
                 data.setMinutes(data.getMinutes() + subsequentPrePaidMinutes);
@@ -206,6 +221,7 @@ Rectangle {
             appWindow.persistentSettings.timerPaymentTimeLeft = timerPayment
             appWindow.persistentSettings.hexConfigTimeLeft = hexConfig
             appWindow.persistentSettings.firstPaymentTimeLeft = firstPayment
+            appWindow.persistentSettings.haproxyAutoRenew = autoRenew
             console.log(callProxy + " my call haproxy ------")
             if(callProxy == 1){
                 callProxy = 0
@@ -637,7 +653,16 @@ Rectangle {
     }
 
     function timer() {
+        /*
+        if(firstPayment == 1){
+            setPayment()
+        }
+        */
 
+        //time online
+        data = new Date()
+        // get the diff between to show the time online
+        secs = parseFloat(appWindow.persistentSettings.haproxyStart.valueOf()).toFixed(0) - parseFloat((appWindow.persistentSettings.haproxyTimeLeft.valueOf() - data.valueOf())/1000).toFixed(0)
         var h = secs/60/60
         var m = (secs/60)%60
         var s = secs%60
@@ -658,20 +683,27 @@ Rectangle {
         appWindow.persistentSettings.timeonlineTextLineTimeLeft = value
         appWindow.persistentSettings.secsTimeLeft = secs
         var data = new Date();
-        if(appWindow.persistentSettings.haproxyTimeLeft < data){
+
+        /*
+        if(parseFloat((appWindow.persistentSettings.haproxyTimeLeft.valueOf() - data.valueOf())/1000).toFixed(0) == Config.payTimer && autoRenew == true){
+            setPayment();
+            getITNS();
+
+        }else if(appWindow.persistentSettings.haproxyTimeLeft < data && autoRenew == false && firstPayment == 0){
             console.log("stop after the time")
             flag = 0
             changeStatus()
             callhaproxy.killHAproxy();
-            delayTimer.stop();
+            //delayTimer.stop();
             feedbackPopup.title = "Provider Feedback";
             feedbackPopup.open();
 
         }
+        */
 
-        /*
+
+
         if(Qt.platform.os === "linux"){
-            console.log(secs%5 + "my secs % 5")
             if(secs%5 == 0){
                 var str = callhaproxy.verifyHaproxy(Config.haproxyIp, Config.haproxyPort, obj.provider).toString();
                 str = String(str)
@@ -679,7 +711,7 @@ Rectangle {
                 if(str.length == 3 || str.length > 20){
                     waitHaproxyPopup.close();
                     proxyStats = 1;
-                    timeonlineTextLine.text = value
+                    //timeonlineTextLine.text = value
                 }
             }
             if(waitHaproxy == 0){
@@ -691,18 +723,19 @@ Rectangle {
             }
 
         }
+        /*
 
         if(Qt.platform.os === "windows"){
             proxyStats = 1;
             timeonlineTextLine.text = value
         }
-        */
+
 
         //only to work widhout Curl
         proxyStats = 1;
+        */
         timeonlineTextLine.text = value
 
-        secs++;
     }
 
     QtObject {
@@ -1528,7 +1561,7 @@ Rectangle {
                   changeStatus()
                   callhaproxy.killHAproxy();
                   appWindow.persistentSettings.haproxyTimeLeft = new Date()
-                  delayTimer.stop();
+                  //delayTimer.stop();
                   feedbackPopup.title = "Provider Feedback";
                   feedbackPopup.open();
 
@@ -1971,8 +2004,6 @@ Rectangle {
                 //intenseDashboardView.flag = 1;
                 getColor(appWindow.persistentSettings.myRankTextTimeLeft, myRankRectangle)
                 changeStatus();
-                var value =  (subsequentPrePaidMinutes*60000)-secs - Config.payTimer;
-                delay(value)
                 var host = applicationDirectory;
                 console.log(obj.certArray[0].certContent);
 

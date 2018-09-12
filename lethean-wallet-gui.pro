@@ -39,8 +39,6 @@ HEADERS += \
     src/libwalletqt/UnsignedTransaction.h \
     MainApp.h \
     src/libwalletqt/Haproxy.h \
-    qtcurl/src/CurlEasy.h \
-    qtcurl/src/CurlMulti.h \
     src/qtcurl/QtCUrl.h
 
     #src/libwalletqt/ed25519.h \
@@ -74,8 +72,6 @@ SOURCES += main.cpp \
     src/libwalletqt/UnsignedTransaction.cpp \
     MainApp.cpp \
     src/libwalletqt/Haproxy.cpp \
-    qtcurl/src/CurlEasy.cpp \
-    qtcurl/src/CurlMulti.cpp \
     src/qtcurl/QtCUrl.cpp
 
     #src/libwalletqt/Sign.c \
