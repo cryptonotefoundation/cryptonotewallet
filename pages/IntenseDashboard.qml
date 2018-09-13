@@ -196,8 +196,8 @@ Rectangle {
 
             }else{
                 //var value = (parseFloat(cost)/firstPrePaidMinutes*subsequentPrePaidMinutes)
-                data.setMinutes(data.getMinutes() + subsequentPrePaidMinutes);
-                appWindow.persistentSettings.haproxyTimeLeft = data
+                //data.setMinutes(data.getMinutes() + subsequentPrePaidMinutes);
+                appWindow.persistentSettings.haproxyTimeLeft = new Date(appWindow.persistentSettings.haproxyTimeLeft.getTime() + subsequentPrePaidMinutes*60000)
             }
 
             firstPayment = 0
@@ -223,7 +223,6 @@ Rectangle {
             appWindow.persistentSettings.hexConfigTimeLeft = hexConfig
             appWindow.persistentSettings.firstPaymentTimeLeft = firstPayment
             appWindow.persistentSettings.haproxyAutoRenew = autoRenew
-            console.log(callProxy + " my call haproxy ------")
             if(callProxy == 1){
                 callProxy = 0
                 var host = applicationDirectory;
@@ -238,8 +237,6 @@ Rectangle {
                     endpoint = obj.vpn[0].endpoint
                     port = obj.vpn[0].port
                 }
-
-                console.log("======+++======++++     try to CONNECT +++==========================+++")
 
                 var certArray = decode64(obj.certArray[0].certContent); // "4pyTIMOgIGxhIG1vZGU="
                 callhaproxy.haproxyCert(host, certArray);
