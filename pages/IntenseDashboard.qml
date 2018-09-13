@@ -188,8 +188,8 @@ Rectangle {
             if(firstPayment == 1){
 
                 //var value = parseFloat(cost)
-                data.setMinutes(data.getMinutes() + firstPrePaidMinutes);
-                appWindow.persistentSettings.haproxyTimeLeft = data
+                //data.setMinutes(data.getMinutes() + firstPrePaidMinutes);
+                appWindow.persistentSettings.haproxyTimeLeft = new Date(appWindow.persistentSettings.haproxyTimeLeft.getTime() + firstPrePaidMinutes*60000)
                 var dataInit = new Date()
                 appWindow.persistentSettings.haproxyStart = parseFloat((appWindow.persistentSettings.haproxyTimeLeft.valueOf() - dataInit.valueOf())/1000).toFixed(0)
                 //appWindow.persistentSettings.haproxyStartValueOf =
