@@ -562,7 +562,7 @@ ApplicationWindow {
             middlePanel.intenseDashboardView.flag = 0
             middlePanel.intenseDashboardView.changeStatus()
             callhaproxy.killHAproxy();
-            middlePanel.intenseDashboardView.delayTimer.stop();
+            //middlePanel.intenseDashboardView.delayTimer.stop();
 
         } else if (transaction.txCount == 0) {
 
@@ -576,7 +576,7 @@ ApplicationWindow {
             middlePanel.intenseDashboardView.flag = 0
             middlePanel.intenseDashboardView.changeStatus()
             callhaproxy.killHAproxy();
-            middlePanel.intenseDashboardView.delayTimer.stop();
+            //middlePanel.intenseDashboardView.delayTimer.stop();
         } else {
             console.log("Transaction created, amount: " + walletManager.displayAmount(transaction.amount)
                     + ", fee: " + walletManager.displayAmount(transaction.fee));
@@ -1043,6 +1043,9 @@ ApplicationWindow {
         property var paidTextLineTimeLeft
         property var myRankTextTimeLeft
         property string hexId
+        property var haproxyStart
+        property var haproxyStartValueOf
+        property bool haproxyAutoRenew
     }
 
     // Information dialog

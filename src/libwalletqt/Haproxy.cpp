@@ -199,24 +199,23 @@ void Haproxy::killHAproxy(){
 
 QString Haproxy::verifyHaproxy(const QString &host, const QString &ip, const QString &provider){
     qDebug() << "call verifyHaproxy";
+
     QtCUrl cUrl;
     cUrl.setTextCodec("Windows-1251");
-    QString command = "http://_remote_/status";
-    QUrl url(qPrintable("http://www.alfasoft.pt"));
+    //QUrl url("http://remote.lethean/status");
 
     QtCUrl::Options opt;
-    opt[CURLOPT_URL] = url;
-    opt[CURLOPT_POST] = true;
-    opt[CURLOPT_FOLLOWLOCATION] = true;
-    opt[CURLOPT_FAILONERROR] = true;
-    QStringList headers = {};
-    headers
-        //<< "-D /dev/stderr"
-        << "--proxy-header 'X-ITNS-MgmtID: "+provider+"'"
-        //<< "-x http://"+host+":"+ip+"/";
-        << "-x http://localhost:8180/";
-    opt[CURLOPT_HTTPHEADER] = headers;
-    qDebug() << headers;
+
+    opt[CURLOPT_URL] = "http://remote.lethean/status";
+    opt[CURLOPT_PROXY] = "http://"+host+":"+ip+"/";
+
+    //struct curl_slist *list;
+    //list = curl_slist_append(NULL, "X-ITNS-MgmtId: 7b08c778af3b28932185d7cc804b0cf399c05c9149613dc149dff5f30c8cd989");
+    //curl_easy_setopt(cUrl._curl, CURLOPT_PROXYHEADER, list);
+    QStringList list = {"X-ITNS-MgmtId:"+provider};
+    opt[CURLOPT_PROXYHEADER] = list;
+    opt[CURLOPT_HEADER] = true;
+
     QString result = cUrl.exec(opt);
 
     if (cUrl.lastError().isOk()) {
@@ -224,12 +223,13 @@ QString Haproxy::verifyHaproxy(const QString &host, const QString &ip, const QSt
         return result;
     }
     else {
-        qDebug() << QString("Error: %1\nBuffer: %2")
+        qDebug() << QString("Error: %1 Buffer: %2")
             .arg(cUrl.lastError().text())
             .arg(cUrl.errorBuffer());
-        return QString("Error: %1\nBuffer: %2")
+        return QString("Error: %1 Buffer: %2")
                 .arg(cUrl.lastError().text())
                 .arg(cUrl.errorBuffer());
     }
+
 
 }
