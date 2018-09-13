@@ -235,9 +235,10 @@ Rectangle {
                 //intenseDashboardView.getTime();
                 intenseDashboardView.callProxy = 1
                 //console.log(radioRenew.checked + " =================123123=123=12=3=123=12=3=12=31=23=12=3=")
-                //intenseDashboardView.autoRenew = radioRenew.checked
+                intenseDashboardView.autoRenew = true
+                intenseDashboardView.showTime = false
                 //must important to remove
-                intenseDashboardView.setPayment();
+                //intenseDashboardView.setPayment();
 
                 middlePanel.state = "VPN Dashboard"
 
