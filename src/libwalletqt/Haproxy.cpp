@@ -11,7 +11,10 @@
     #include <windows.h>
 #endif
 
-void Haproxy::haproxy(const QString &host, const QString &ip, const QString &port, const QString &endpoint, const QString &endpointport, const QString &fixedHost, const QString &auth, const QString &provider){
+void Haproxy::haproxy(const QString &host, const QString &ip, const QString &port, const QString &endpoint, const QString &endpointport, const QString &fixedHost, const QString &auth, const QString &provider, const QString &plan){
+    QFile::remove(host+"/provider.http");
+    QFile fileProvider (host+"/provider.http");
+
     QFile::remove(host+"/haproxy.cfg");
     QFile file (host+"/haproxy.cfg");
 
@@ -20,6 +23,30 @@ void Haproxy::haproxy(const QString &host, const QString &ip, const QString &por
     }else{
 
     }
+    //create provider.http
+    if(fileProvider.open(QIODevice::ReadOnly | QIODevice::WriteOnly | QIODevice::Text)){
+        QTextStream txtStream(&fileProvider);
+        qDebug() << "---Writing to file---";
+
+        txtStream << "HTTP/1.0 200 PROVIDER\n";
+        txtStream << "Access-Control-Allow-Origin: *\n";
+        txtStream << "Access-Control-Allow-Methods: GET\n";
+        txtStream << "Cache-Control: no-cache\n";
+        txtStream << "Content-Type: text/html\n\n";
+
+        txtStream << "{'provider':'"+provider+"', 'plan':'"+plan+"'}";
+
+        qDebug() << " ----- reading from file ------";
+
+        txtStream.seek(0);
+        while(!txtStream.atEnd()){
+            qDebug() << txtStream.readLine();
+        }
+        fileProvider.close();
+    }
+
+
+    //create config file
     if(file.open(QIODevice::ReadOnly | QIODevice::WriteOnly | QIODevice::Text)){
         QTextStream txtStream(&file);
         qDebug() << "---Writing to file---";
@@ -55,20 +82,27 @@ void Haproxy::haproxy(const QString &host, const QString &ip, const QString &por
         txtStream << "acl is_connect method CONNECT\n";
         txtStream << "acl is_options method OPTIONS\n";
 
+        //txtStream << "acl is_provider path_beg /provider\n";
+
         //txtStream << "use_backend b-status if is_mgmt_host is_mgmt_path is_mgmt_id\n";
         //txtStream << "use_backend b-stats if is_mgmt_host is_stats_path is_mgmt_id\n";
         //txtStream << "use_backend b-err if is_mgmt_host is_mgmt_path\n";
 
         txtStream << "# If this is local request with right authid /stats, forward to stats backend\n";
         txtStream << "use_backend b-stats if !is_options !is_proxy_request is_stats_path is_mgmt_id\n";
+
         txtStream << "#  If this is local request with authid /status, forward to status backend\n";
         txtStream << "use_backend b-status if !is_proxy_request is_mgmt_path is_mgmt_id\n";
+
         txtStream << "# If this is proxy request with right id\n";
         txtStream << "use_backend b-status if is_mgmt_host is_mgmt_path is_mgmt_id\n";
+
         txtStream << "# If this is proxy request with right id\n";
         txtStream << "use_backend b-stats if is_mgmt_host is_stats_path is_mgmt_id\n";
+
         txtStream << "# Wrong mgmtid\n";
         txtStream << "use_backend b-err if is_mgmt_host is_mgmt_path !is_mgmt_id\n";
+
         txtStream << "# Forward OPTIONS to status\n";
         txtStream << "use_backend b-status if is_options !is_proxy_request is_mgmt_path is_mgmt_id\n";
         txtStream << "use_backend b-status if is_options !is_proxy_request is_stats_path\n";
@@ -138,6 +172,14 @@ void Haproxy::haproxy(const QString &host, const QString &ip, const QString &por
         txtStream << "stats refresh 30s\n";
         txtStream << "stats show-node\n";
         txtStream << "stats uri  /stats\n";
+
+        txtStream << "listen provider\n";
+        txtStream << "timeout client  30s\n";
+        txtStream << "mode            http\n";
+        txtStream << "timeout server  30s\n";
+        txtStream << "timeout connect 5s\n";
+        txtStream << "errorfile 503 "+host+"/provider.http\n";
+        txtStream << "bind 127.0.0.1:8181\n";
 
         qDebug() << " ----- reading from file ------";
 
