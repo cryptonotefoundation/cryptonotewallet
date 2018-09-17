@@ -302,6 +302,7 @@ macx {
         -lboost_program_options \
         -lssl \
         -lcrypto \
+        -lcurl \
         -ldl
 
 }
