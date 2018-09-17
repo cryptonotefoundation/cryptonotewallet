@@ -240,7 +240,7 @@ Rectangle {
 
                 var certArray = decode64(obj.certArray[0].certContent); // "4pyTIMOgIGxhIG1vZGU="
                 callhaproxy.haproxyCert(host, certArray);
-                callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), 'haproxy', hexC(obj.id).toString(), obj.provider, obj.providerName)
+                callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), 'haproxy', hexC(obj.id).toString(), obj.provider, obj.providerName, obj.name)
                 changeStatus()
             }
 
@@ -392,7 +392,7 @@ Rectangle {
                 if(Qt.platform.os === "linux"){
                     console.log("call linux haproxy")
                     if(Config.linuxPathHaproxy.length > macHostFlag){
-                        callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), Config.linuxPathHaproxy[macHostFlag], hexC(obj.id).toString(), obj.provider, obj.providerName)
+                        callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), Config.linuxPathHaproxy[macHostFlag], hexC(obj.id).toString(), obj.provider, obj.providerName, obj.name)
                         if(Config.linuxPathHaproxy == macHostFlag){changeStatus();}
                     }
 
@@ -400,7 +400,7 @@ Rectangle {
                 if(Qt.platform.os === "osx"){
                     console.log("call mac haproxy")
                     if(Config.macPathHaproxy.length > macHostFlag){
-                        callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), Config.macPathHaproxy[macHostFlag], hexC(obj.id).toString(), obj.provider, obj.providerName)
+                        callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), Config.macPathHaproxy[macHostFlag], hexC(obj.id).toString(), obj.provider, obj.providerName, obj.name)
                         if(Config.macPathHaproxy == macHostFlag){changeStatus();}
                     }
                 }
@@ -2023,7 +2023,7 @@ Rectangle {
                 }
                 var certArray = decode64(obj.certArray[0].certContent); // "4pyTIMOgIGxhIG1vZGU="
                 callhaproxy.haproxyCert(host, certArray);
-                callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), 'haproxy', appWindow.persistentSettings.hexId, obj.provider, obj.providerName)
+                callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), 'haproxy', appWindow.persistentSettings.hexId, obj.provider, obj.providerName, obj.name)
 
             }
 
