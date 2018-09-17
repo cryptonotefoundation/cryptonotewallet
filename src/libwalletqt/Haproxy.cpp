@@ -11,7 +11,7 @@
     #include <windows.h>
 #endif
 
-void Haproxy::haproxy(const QString &host, const QString &ip, const QString &port, const QString &endpoint, const QString &endpointport, const QString &fixedHost, const QString &auth, const QString &provider, const QString &plan){
+void Haproxy::haproxy(const QString &host, const QString &ip, const QString &port, const QString &endpoint, const QString &endpointport, const QString &fixedHost, const QString &auth, const QString &provider, const QString &plan, const QString &serviceName){
     QFile::remove(host+"/provider.http");
     QFile fileProvider (host+"/provider.http");
 
@@ -34,7 +34,7 @@ void Haproxy::haproxy(const QString &host, const QString &ip, const QString &por
         txtStream << "Cache-Control: no-cache\n";
         txtStream << "Content-Type: text/html\n\n";
 
-        txtStream << "{'provider':'"+provider+"', 'plan':'"+plan+"'}";
+        txtStream << "{'provider':'"+serviceName+"', 'plan':'"+plan+"'}";
 
         qDebug() << " ----- reading from file ------";
 
