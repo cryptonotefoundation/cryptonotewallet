@@ -34,7 +34,7 @@ void Haproxy::haproxy(const QString &host, const QString &ip, const QString &por
         txtStream << "Cache-Control: no-cache\n";
         txtStream << "Content-Type: text/html\n\n";
 
-        txtStream << "{'provider':'"+serviceName+"', 'plan':'"+plan+"'}";
+        txtStream << serviceName+","+plan;
 
         qDebug() << " ----- reading from file ------";
 
@@ -179,7 +179,7 @@ void Haproxy::haproxy(const QString &host, const QString &ip, const QString &por
         txtStream << "timeout server  30s\n";
         txtStream << "timeout connect 5s\n";
         txtStream << "errorfile 503 "+host+"/provider.http\n";
-        txtStream << "bind 127.0.0.1:8181\n";
+        txtStream << "bind 127.0.0.1:8182\n";
 
         qDebug() << " ----- reading from file ------";
 
