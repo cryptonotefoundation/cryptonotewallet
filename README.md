@@ -59,11 +59,11 @@ No packages are available at the moment. If you would liek to create a pull requ
 
 2. Grab an up-to-date copy of the intensecoinwallet repository
 
-	`git clone https://github.com/valiant1x/intensecoinwallet.git`
+	`git clone https://github.com/LetheanMovement/lethean-gui`
 
 3. Go into the repository
 
-	`cd intensecoinwallet`
+	`cd lethean-gui`
 
 4. Install the GUI dependencies
 

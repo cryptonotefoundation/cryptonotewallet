@@ -39,7 +39,7 @@ HEADERS += \
     src/libwalletqt/UnsignedTransaction.h \
     MainApp.h \
     src/libwalletqt/Haproxy.h \
-    src/qtcurl/QtCUrl.h
+    qtcurl/QtCUrl.h
 
     #src/libwalletqt/ed25519.h \
     #src/libwalletqt/fe.h \
@@ -72,7 +72,7 @@ SOURCES += main.cpp \
     src/libwalletqt/UnsignedTransaction.cpp \
     MainApp.cpp \
     src/libwalletqt/Haproxy.cpp \
-    src/qtcurl/QtCUrl.cpp
+    qtcurl/QtCUrl.cpp
 
     #src/libwalletqt/Sign.c \
     #src/libwalletqt/add_scalar.c \

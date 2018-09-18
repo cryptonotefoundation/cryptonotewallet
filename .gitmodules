@@ -3,5 +3,5 @@
 	url = https://github.com/LetheanMovement/intensecoin
 
 [submodule "qtcurl"]
-	path =  src/qtcurl
+	path = qtcurl
 	url = https://github.com/pavlonion/qtcurl
