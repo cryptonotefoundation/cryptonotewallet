@@ -53,6 +53,16 @@ if [[ $platform == *bsd* ]]; then
     MAKE='gmake'
 fi
 
+
+# init and update qtcurl submodule
+if [ ! -d qtcurl/QtCUrl.h ]; then
+	echo "Initializing QtCUrl Submodule..."
+    git submodule init qtcurl
+	echo "QtCUrl Submodule Initialization done."
+fi
+
+
+
 # build libwallet
 ./get_libwallet_api.sh $BUILD_TYPE
 

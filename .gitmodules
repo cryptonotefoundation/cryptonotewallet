@@ -1,7 +1,6 @@
 [submodule "lethean"]
 	path = lethean
 	url = https://github.com/LetheanMovement/intensecoin
-
 [submodule "qtcurl"]
 	path = qtcurl
 	url = https://github.com/pavlonion/qtcurl
