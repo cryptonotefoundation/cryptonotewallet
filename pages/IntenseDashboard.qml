@@ -705,18 +705,20 @@ Rectangle {
 
         if(Qt.platform.os === "linux"){
             if(secs%10 == 0){
-                var str = callhaproxy.verifyHaproxy(Config.haproxyIp, Config.haproxyPort, obj.provider).toString();
-                str = String(str)
-                console.log("====== "+str + " ================= my STR ==================")
-                if(str.length == 3 || str.length > 200){
+                //var str = callhaproxy.verifyHaproxy(Config.haproxyIp, Config.haproxyPort, obj.provider).toString();
+
+                // check if proxy is connected. if it is, this method returns true
+                var proxyConnected = callhaproxy.verifyHaproxy(Config.haproxyIp, Config.haproxyPort, obj.provider);
+
+                console.log("====== " + proxyConnected + " ================= Proxy Connection Status ==================")
+                if (proxyConnected === true) {
                     waitHaproxyPopup.close();
                     proxyStats = 1;
-                    showTime = true
-                    waitHaproxy = 1
-
+                    showTime = true;
+                    waitHaproxy = 1;
                 }
             }
-            if(waitHaproxy == 0){
+            if (waitHaproxy == 0) {
                 waitHaproxyPopup.title = "Waiting for payment balance";
                 waitHaproxyPopup.content = "The proxy may not work until the provider receives your payment.";
                 waitHaproxyPopup.open();
@@ -1974,13 +1976,13 @@ Rectangle {
 
 
     function onPageCompleted() {
-
+        console.log("Dashboard page completed");
         var data = new Date();
-        if(providerName != "" || appWindow.persistentSettings.haproxyTimeLeft > data){
+        if (providerName != "" || appWindow.persistentSettings.haproxyTimeLeft > data){
             getColor(rank, rankRectangle)
             getMyFeedJson()
             changeStatus()
-            if(typeof (obj) == 'undefined'){
+            if (typeof (obj) == 'undefined') {
                 console.log('obj = 0 --------');
                 obj = appWindow.persistentSettings.objTimeLeft;
                 //firstPrePaidMinutes = appWindow.persistentSettings.haproxyTimeLeft;
@@ -2022,7 +2024,10 @@ Rectangle {
                     port = obj.vpn[0].port
                 }
                 var certArray = decode64(obj.certArray[0].certContent); // "4pyTIMOgIGxhIG1vZGU="
+
+                console.log("Generating certificate");
                 callhaproxy.haproxyCert(host, certArray);
+                console.log("Starting haproxy");
                 callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), 'haproxy', appWindow.persistentSettings.hexId, obj.provider, obj.providerName, obj.name)
 
             }
@@ -2062,7 +2067,8 @@ Rectangle {
             lastSpeedLabel.visible = true
             lastSpeedText.visible = true
 
-        }else{
+        }
+        else {
             howToUseText.visible = true
             orText.visible = true
             searchForProviderText.visible = true

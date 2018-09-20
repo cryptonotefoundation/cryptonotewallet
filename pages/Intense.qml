@@ -239,7 +239,7 @@ Rectangle {
                 intenseDashboardView.showTime = false
                 //must important to remove
                 //intenseDashboardView.setPayment();
-
+                //subButton.enabled = false;
                 middlePanel.state = "VPN Dashboard"
 
                 leftPanel.selectItem("VPN Dashboard")
@@ -628,6 +628,15 @@ Rectangle {
 
     }
 
+    function getBalance() {
+        if(currentWallet.unlockedBalance > 1) {
+            return true
+        }
+        else {
+            return false
+        }
+    }
+
     QtObject {
         id: d
         property bool initialized: false
@@ -770,7 +779,7 @@ Rectangle {
           releasedColor: "#6C8896"
           pressedColor: "#A7B8C0"
           onClicked:  {
-              conosle.log("Getting SDP Services after clicking on button");
+              console.log("Getting SDP Services after clicking on button");
               getJson(minSpeedLine.text, typeSpeed.get(speedDrop.currentIndex).value, parseFloat(maxPriceLine.text), typeTransaction.get(typeDrop.currentIndex).value, favoriteFilter.checked)
           }
       }
@@ -831,10 +840,12 @@ Rectangle {
         }
 
 
+
         ListView {
                 id: listView
                 anchors.fill: parent
                 model: listModel
+
 
                 delegate: Rectangle {
                     width: listView.width
@@ -945,6 +956,7 @@ Rectangle {
                             shadowPressedColor: "#666e71"
                             releasedColor: "#6C8896"
                             pressedColor: "#A7B8C0"
+                            enabled: getBalance();
 
                             onClicked:{
                                 connectPopup.title = "Connection Confirmation";
@@ -969,6 +981,7 @@ Rectangle {
                             shadowPressedColor: "#666e71"
                             releasedColor: "#6C8896"
                             pressedColor: "#A7B8C0"
+
                             onClicked:  {
                                 detailsPopup.title = "Services details";
                                 detailsPopup.content = buildTxDetailsString(obj,rank);
@@ -1015,6 +1028,23 @@ Rectangle {
         //Disable password page until enabled by updateStatus
         root.enabled = false
     }
+
+
+    // create timer to validate whether or not we have unlocked balance
+
+    Timer {
+        id: timerUnlockedBalance
+        interval: 5000
+        repeat: true
+        running: false
+
+        onTriggered:
+        {
+            timerUnlockedBalanceCheck()
+        }
+    }
+
+
 
     function onPageCompleted() {
         updateStatus();

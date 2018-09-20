@@ -14,7 +14,11 @@ public:
     Q_INVOKABLE void haproxy(const QString &host, const QString &ip, const QString &port, const QString &endpoint, const QString &endpointport, const QString &fixedHost, const QString &auth, const QString &provider, const QString &plan, const QString &serviceName);
     Q_INVOKABLE void haproxyCert(const QString &host, const QString &certificate);
     Q_INVOKABLE void killHAproxy();
-    Q_INVOKABLE QString verifyHaproxy(const QString &host, const QString &ip, const QString &provider);
+
+    // returns true if proxy is online and accepting connections, false otherwise
+    Q_INVOKABLE bool verifyHaproxy(const QString &host, const QString &ip, const QString &provider);
+
+
 private:
 };
 

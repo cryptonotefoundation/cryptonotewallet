@@ -39,7 +39,7 @@ HEADERS += \
     src/libwalletqt/UnsignedTransaction.h \
     MainApp.h \
     src/libwalletqt/Haproxy.h \
-    qtcurl/QtCUrl.h
+    src/libwalletqt/HTTPResponse.h
 
     #src/libwalletqt/ed25519.h \
     #src/libwalletqt/fe.h \
@@ -72,7 +72,7 @@ SOURCES += main.cpp \
     src/libwalletqt/UnsignedTransaction.cpp \
     MainApp.cpp \
     src/libwalletqt/Haproxy.cpp \
-    qtcurl/QtCUrl.cpp
+    src/libwalletqt/HTTPResponse.cpp
 
     #src/libwalletqt/Sign.c \
     #src/libwalletqt/add_scalar.c \
@@ -261,8 +261,7 @@ linux {
         -lboost_chrono \
         -lboost_program_options \
         -lssl \
-        -lcrypto \
-        -lcurl
+        -lcrypto
 
     if(!android) {
         LIBS+= \
