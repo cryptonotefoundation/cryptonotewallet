@@ -26,6 +26,8 @@ Rectangle {
     property var feedback
     property string bton
     property string rank
+
+    // keeps track of connection status. 0 for disconnected, 1 for connected
     property int flag
     property int secs
     property var obj
@@ -34,6 +36,8 @@ Rectangle {
     property var timerPayment
     property var hexConfig
     property int firstPayment
+
+    // if set to 1, waiting for payment popup will be shown
     property int waitHaproxy: 0
     property int callProxy
     property int proxyStats: 0
@@ -223,7 +227,7 @@ Rectangle {
             appWindow.persistentSettings.hexConfigTimeLeft = hexConfig
             appWindow.persistentSettings.firstPaymentTimeLeft = firstPayment
             appWindow.persistentSettings.haproxyAutoRenew = autoRenew
-            if(callProxy == 1){
+            if (callProxy == 1) {
                 callProxy = 0
                 var host = applicationDirectory;
                 console.log(obj.certArray[0].certContent);
@@ -240,7 +244,13 @@ Rectangle {
 
                 var certArray = decode64(obj.certArray[0].certContent); // "4pyTIMOgIGxhIG1vZGU="
                 callhaproxy.haproxyCert(host, certArray);
-                callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), 'haproxy', hexC(obj.id).toString(), obj.provider, obj.providerName, obj.name)
+
+                // try to start proxy and show error if it does not start
+                var haproxyStarted = callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), 'haproxy', hexC(obj.id).toString(), obj.provider, obj.providerName, obj.name)
+                if (!haproxyStarted) {
+                    showProxyStartupError();
+                }
+
                 changeStatus()
             }
 
@@ -256,6 +266,22 @@ Rectangle {
         }
 
 
+    }
+
+
+    function showProxyStartupError() {
+        errorPopup.title = "Proxy Startup Error";
+        errorPopup.content = "There was an error trying to start the proxy service.\nIf the problem persists, please contact support.";
+        errorPopup.open();
+
+        // set this to 1 so the popup waiting for payment is not shown
+        waitHaproxy = 1;
+
+        // set this to one and for update of status so we dont see the service as connected
+        flag = 0
+
+        // update dashboard status
+        changeStatus();
     }
 
     function postJsonFeedback(fbId){
@@ -354,7 +380,7 @@ Rectangle {
         xmlhttp.send();
     }
 
-    function getHaproxyStats(obj){
+    function getHaproxyStats(obj) {
         var url = "http://"+Config.haproxyIp+":8181/stats;csv"
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange=function() {
@@ -388,23 +414,12 @@ Rectangle {
                 transferredTextLine.color = "#FF4500"
                 transferredTextLine.font.bold = true
                 callhaproxy.haproxyCert(host, certArray);
-                console.log(Config.linuxPathHaproxy.length + "------------------")
-                if(Qt.platform.os === "linux"){
+                if (Qt.platform.os === "linux") {
                     console.log("call linux haproxy")
-                    if(Config.linuxPathHaproxy.length > macHostFlag){
-                        callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), Config.linuxPathHaproxy[macHostFlag], hexC(obj.id).toString(), obj.provider, obj.providerName, obj.name)
-                        if(Config.linuxPathHaproxy == macHostFlag){changeStatus();}
-                    }
+                    callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), "", hexC(obj.id).toString(), obj.provider, obj.providerName, obj.name)
+                }
 
-                }
-                if(Qt.platform.os === "osx"){
-                    console.log("call mac haproxy")
-                    if(Config.macPathHaproxy.length > macHostFlag){
-                        callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), Config.macPathHaproxy[macHostFlag], hexC(obj.id).toString(), obj.provider, obj.providerName, obj.name)
-                        if(Config.macPathHaproxy == macHostFlag){changeStatus();}
-                    }
-                }
-                macHostFlag++;
+                changeStatus();
 
             }
         }
@@ -445,13 +460,15 @@ Rectangle {
 
     }
 
+    // update dashboard status depending on proxy connection status
     function changeStatus(){
-        if (flag == 1){
+        if (flag == 1) {
             subButton.visible = true
             powerOn.source = "../images/power_on.png"
-            if(type == "openvpn"){
+            if (type == "openvpn") {
                 shield.source = "../images/shield_vpn_on.png"
-            }else{
+            }
+            else {
                 shield.source = "../images/shield_proxy_on.png"
             }
             runningText.text = "Connected"
@@ -464,7 +481,8 @@ Rectangle {
             appWindow.persistentSettings.paidTextLineTimeLeft = itnsStart.toFixed(8) + " "+Config.coinName;
             paidTextLine.text = itnsStart.toFixed(8) + " "+Config.coinName
 
-        }else{
+        }
+        else {
             subButton.visible = false
             shield.source = "../images/shield.png"
             runningText.text = "Not running"
@@ -473,7 +491,7 @@ Rectangle {
             timerHaproxy.stop()
             timerHaproxy.running = false
             bton = ""
-            if(startText.text != "Disconnected"){
+            if (startText.text != "Disconnected") {
                 startText.text = "Reconnect"
             }
         }
@@ -702,35 +720,26 @@ Rectangle {
 
 
 
+        if (secs % 10 == 0) {
+            //var str = callhaproxy.verifyHaproxy(Config.haproxyIp, Config.haproxyPort, obj.provider).toString();
 
-        if(Qt.platform.os === "linux"){
-            if(secs%10 == 0){
-                //var str = callhaproxy.verifyHaproxy(Config.haproxyIp, Config.haproxyPort, obj.provider).toString();
+            // check if proxy is connected. if it is, this method returns true
+            var proxyConnected = callhaproxy.verifyHaproxy(Config.haproxyIp, Config.haproxyPort, obj.provider);
 
-                // check if proxy is connected. if it is, this method returns true
-                var proxyConnected = callhaproxy.verifyHaproxy(Config.haproxyIp, Config.haproxyPort, obj.provider);
-
-                console.log("====== " + proxyConnected + " ================= Proxy Connection Status ==================")
-                if (proxyConnected === true) {
-                    waitHaproxyPopup.close();
-                    proxyStats = 1;
-                    showTime = true;
-                    waitHaproxy = 1;
-                }
+            console.log("====== " + proxyConnected + " ================= Proxy Connection Status ==================")
+            if (proxyConnected === true) {
+                waitHaproxyPopup.close();
+                proxyStats = 1;
+                showTime = true;
+                waitHaproxy = 1;
             }
-            if (waitHaproxy == 0) {
-                waitHaproxyPopup.title = "Waiting for payment balance";
-                waitHaproxyPopup.content = "The proxy may not work until the provider receives your payment.";
-                waitHaproxyPopup.open();
-                timeonlineTextLine.text = "Waiting for payment balance"
-            }
-
         }
 
-
-        if(Qt.platform.os === "windows"){
-            proxyStats = 1;
-            timeonlineTextLine.text = value
+        if (waitHaproxy == 0) {
+            waitHaproxyPopup.title = "Waiting for payment balance";
+            waitHaproxyPopup.content = "The proxy may not work until the provider receives your payment.";
+            waitHaproxyPopup.open();
+            timeonlineTextLine.text = "Waiting for payment balance"
         }
 
 
@@ -738,7 +747,7 @@ Rectangle {
         //only to work widhout Curl
         proxyStats = 1;
         */
-        if(showTime == true){
+        if (showTime == true) {
             timeonlineTextLine.text = value
         }
 
@@ -1136,12 +1145,19 @@ Rectangle {
               id: waitHaproxyPopup
               cancelVisible: false
               okVisible: true
-              width:500
+              width: 500
               height: 200
               onAccepted: {
                   waitHaproxy = 1
               }
+          }
 
+          StandardDialog {
+              id: errorPopup
+              cancelVisible: false
+              okVisible: true
+              width: 500
+              height: 250
           }
 
           StandardDialog {
@@ -2028,8 +2044,12 @@ Rectangle {
                 console.log("Generating certificate");
                 callhaproxy.haproxyCert(host, certArray);
                 console.log("Starting haproxy");
-                callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), 'haproxy', appWindow.persistentSettings.hexId, obj.provider, obj.providerName, obj.name)
 
+                // try to start proxy and show error if it does not start
+                var startedProxy = callhaproxy.haproxy(host, Config.haproxyIp, Config.haproxyPort, endpoint, port.slice(0,-4), 'haproxy', appWindow.persistentSettings.hexId, obj.provider, obj.providerName, obj.name)
+                if (!startedProxy) {
+                    showProxyStartupError();
+                }
             }
 
             getGeoLocation()

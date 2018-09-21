@@ -16,6 +16,5 @@ var payTimer = 120 // 60 = 1 minute
 var haproxyIp = "127.0.0.1"
 var haproxyPort = "8180"
 var macPathHaproxy = ["/usr/local/opt/haproxy","/usr/local/Cellar/haproxy","/usr/local/bin/haproxy"]
-var linuxPathHaproxy = ["haproxy","/usr/sbin/haproxy"]
 var coinName = "LTHN"
 var knowledgeBaseURL = "https://lethean.zendesk.com/hc/"

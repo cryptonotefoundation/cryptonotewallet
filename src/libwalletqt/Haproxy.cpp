@@ -3,6 +3,8 @@
 #include <QDir>
 #include <QFile>
 #include <QDebug>
+#include <QProcess>
+
 #include <string>
 #include <iostream>
 #include <istream>
@@ -15,7 +17,7 @@ using boost::asio::ip::tcp;
     #include <windows.h>
 #endif
 
-void Haproxy::haproxy(const QString &host, const QString &ip, const QString &port, const QString &endpoint, const QString &endpointport, const QString &fixedHost, const QString &auth, const QString &provider, const QString &plan, const QString &serviceName) {
+bool Haproxy::haproxy(const QString &host, const QString &ip, const QString &port, const QString &endpoint, const QString &endpointport, const QString &fixedHost, const QString &auth, const QString &provider, const QString &plan, const QString &serviceName) {
     qDebug() << "Starting haproxy";
 
     QFile::remove(host + "/provider.http");
@@ -202,20 +204,38 @@ void Haproxy::haproxy(const QString &host, const QString &ip, const QString &por
 
         QString command = "";
         #ifdef Q_OS_WIN
-            command="haproxy.exe -f haproxy.cfg";
+            command = "haproxy.exe -f haproxy.cfg";
             WinExec(qPrintable(command),SW_HIDE);
         #else
+            // try to find haproxy correctly
+            QProcess shellProcess;
+            shellProcess.start("/bin/sh");
+            shellProcess.write("which haproxy || whereis haproxy | cut -d ' ' -f 2");
+            shellProcess.closeWriteChannel();
+            shellProcess.waitForFinished(-1);
+            QString haProxyPath = shellProcess.readAllStandardOutput().trimmed();
+
+            qDebug() << "HAProxy Path " << haProxyPath;
+
+            // ha proxy location not found if output from command is empty or just the first word from whereis
+            if (haProxyPath.isEmpty() || haProxyPath == "haproxy:") {
+                qDebug() << "HAProxy not found!";
+                return false;
+            }
+
             //system("trap 'pkill -f haproxy; echo teste haproxy; exit;' INT TERM");
-            command=fixedHost+" -f "+host+"/haproxy.cfg";
-            qDebug() << command;
+            command = haProxyPath + " -f " + host +"/haproxy.cfg";
             system(qPrintable(command));
         #endif
+
+        qDebug() << "Starting Haproxy: " << command;
 
     }
     else {
         qDebug() << "could not open the file";
-        return;
+        return false;
     }
+    return true;
 }
 
 void Haproxy::haproxyCert(const QString &host, const QString &certificate){
@@ -265,6 +285,9 @@ std::string buffer_to_string(const boost::asio::streambuf &buffer)
 
 
 // make a request to the proxy and return a response object with code headers and body
+// based on original sync_client documentation sample from Boost
+// https://www.boost.org/doc/libs/1_49_0/doc/html/boost_asio/example/http/client/sync_client.cpp
+// Copyright (c) 2003-2012 Christopher M. Kohlhoff (chris at kohlhoff dot com)
 HttpResponse proxyRequest(std::string proxyHost, std::string proxyPort, std::string requestURL, std::string provider) {
     HttpResponse output = HttpResponse(0);
 
@@ -279,9 +302,8 @@ HttpResponse proxyRequest(std::string proxyHost, std::string proxyPort, std::str
         // Get a list of endpoints corresponding to the server name.
         tcp::resolver resolver(io_service);
 
-        // set the hostand port of the proxy to query
+        // set the host and port of the proxy to query
         tcp::resolver::query query(proxyHost, proxyPort, boost::asio::ip::resolver_query_base::numeric_service);
-
 
         tcp::resolver::iterator endpoint_iterator = resolver.resolve(query);
 
