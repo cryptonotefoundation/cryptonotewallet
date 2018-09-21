@@ -823,6 +823,8 @@ ApplicationWindow {
         currentWallet.refresh()
         currentWallet.disposeTransaction(transaction)
         currentWallet.store();
+        // set connect button disable if has no Lethean
+        middlePanel.intenseView.getJson()
     }
 
     // called on "checkPayment"

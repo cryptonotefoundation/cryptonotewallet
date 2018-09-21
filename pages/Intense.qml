@@ -4,6 +4,7 @@ import QtQuick.Controls 1.4
 import QtQml 2.2
 import moneroComponents.Wallet 1.0
 import moneroComponents.WalletManager 1.0
+import moneroComponents.PendingTransaction 1.0
 import "../components"
 import "../IntenseConfig.js" as Config
 
@@ -191,7 +192,7 @@ Rectangle {
 
 
     function createJsonFeedback(obj, rank){
-        var url = Config.url + Config.stage + Config.version + Config.feedback + Config.setup
+        var url = Config.url + Config.version + Config.feedback + Config.setup
         var xmlhttpPost = new XMLHttpRequest();
         xmlhttpPost.onreadystatechange=function() {
             if (xmlhttpPost.readyState == 4 && xmlhttpPost.status == 200) {
@@ -259,7 +260,7 @@ Rectangle {
     }
 
     function getSignature(arr, data, i, speed, speedType, price, tp, favorite){
-        var urlSign = Config.url+Config.stage+Config.version+Config.signature+Config.get
+        var urlSign = Config.url+Config.version+Config.signature+Config.get
         var xmlhttpSign = new XMLHttpRequest();
         var signHash = data.hash
         delete data.hash
@@ -484,7 +485,7 @@ Rectangle {
             }
         }
 		
-        var url = Config.url + Config.stage + Config.version + Config.services + Config.search
+        var url = Config.url + Config.version + Config.services + Config.search
         var xmlhttp = new XMLHttpRequest();
         listView.model.clear()
         xmlhttp.onreadystatechange=function() {
@@ -508,7 +509,7 @@ Rectangle {
                 var arr = JSON.parse(xmlhttp.responseText)
 
                 // validate if SDP version matches wallet
-                /*if (arr.protocolVersion == null || arr.protocolVersion != Config.SDPVersion) {
+                if (arr.protocolVersion == null || arr.protocolVersion != Config.SDPVersion) {
                     console.log("Wallet is not updated to use latest SDP " + arr.protocolVersion);
 
                     getJsonFail.text = "<p><b>Wallet Update Required</b></p>";
@@ -521,10 +522,10 @@ Rectangle {
                     getJsonFail.visible = true;
 
                     return;
-                }*/
-
-                for (var i = 0; i < arr.length; i++) {
-                    getSignature(arr, arr[i], i, speed, speedType, price, tp, favorite)
+                }
+                var providers = arr.providers
+                for (var i = 0; i < providers.length; i++) {
+                    getSignature(providers, providers[i], i, speed, speedType, price, tp, favorite)
                 }
 
                 // check geo location
@@ -577,7 +578,7 @@ Rectangle {
     }
 
     function getChecked(){
-        var url = Config.url+Config.stage+Config.version+Config.servicesCheked+Config.get+"/"+appWindow.currentWallet.address
+        var url = Config.url+Config.version+Config.servicesCheked+Config.get+"/"+appWindow.currentWallet.address
         var xmlhttp = new XMLHttpRequest();
         arrChecked = [];
         xmlhttp.onreadystatechange=function() {
@@ -604,11 +605,11 @@ Rectangle {
 
     function getFavorite(checked, obj){ 
         if(checked == true){
-            var url = Config.url+Config.stage+Config.version+Config.servicesCheked+Config.add
+            var url = Config.url+Config.version+Config.servicesCheked+Config.add
             var data = {"services":obj.id, "provider":obj.provider, "client":appWindow.currentWallet.address}
 
         }else{
-            var url = Config.url+Config.stage+Config.version+Config.servicesCheked+Config.remove
+            var url = Config.url+Config.version+Config.servicesCheked+Config.remove
             for(var iCheckedFavorite = 0; iCheckedFavorite < arrChecked.length; iCheckedFavorite++){
                 if(arrChecked[iCheckedFavorite].services == obj.id && arrChecked[iCheckedFavorite].provider == obj.provider) {
 
@@ -628,12 +629,15 @@ Rectangle {
 
     }
 
-    function getBalance() {
-        if(currentWallet.unlockedBalance > 1) {
-            return true
+    function getBalance(id) {
+
+        if(appWindow.currentWallet.unlockedBalance < 1) {
+            timerUnlockedBalance.start();
+            id.enabled = false
         }
         else {
-            return false
+            timerUnlockedBalance.stop();
+            id.enabled = true
         }
     }
 
@@ -956,7 +960,7 @@ Rectangle {
                             shadowPressedColor: "#666e71"
                             releasedColor: "#6C8896"
                             pressedColor: "#A7B8C0"
-                            enabled: getBalance();
+                            enabled: getBalance(this);
 
                             onClicked:{
                                 connectPopup.title = "Connection Confirmation";
@@ -1034,13 +1038,12 @@ Rectangle {
 
     Timer {
         id: timerUnlockedBalance
-        interval: 5000
+        interval: 10000
         repeat: true
-        running: false
 
         onTriggered:
         {
-            timerUnlockedBalanceCheck()
+            getJson()
         }
     }
 

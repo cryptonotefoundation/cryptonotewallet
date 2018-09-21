@@ -193,7 +193,7 @@ Rectangle {
 
                 //var value = parseFloat(cost)
                 //data.setMinutes(data.getMinutes() + firstPrePaidMinutes);
-                appWindow.persistentSettings.haproxyTimeLeft = new Date(appWindow.persistentSettings.haproxyTimeLeft.getTime() + firstPrePaidMinutes*60000)
+                appWindow.persistentSettings.haproxyTimeLeft = new Date(data.getTime() + firstPrePaidMinutes*60000)
                 var dataInit = new Date()
                 appWindow.persistentSettings.haproxyStart = parseFloat((appWindow.persistentSettings.haproxyTimeLeft.valueOf() - dataInit.valueOf())/1000).toFixed(0)
                 //appWindow.persistentSettings.haproxyStartValueOf =
@@ -285,7 +285,7 @@ Rectangle {
     }
 
     function postJsonFeedback(fbId){
-        var url = Config.url+Config.stage+Config.version+Config.feedback+Config.add
+        var url = Config.url+Config.version+Config.feedback+Config.add
         var xmlhttpPost = new XMLHttpRequest();
         xmlhttpPost.onreadystatechange=function() {
             if (xmlhttpPost.readyState == 4 && xmlhttpPost.status == 200) {
@@ -431,7 +431,7 @@ Rectangle {
 
     function getMyFeedJson(){
         var myRank = 0
-        var url = Config.url+Config.stage+Config.version+Config.feedback+Config.get+"/"+appWindow.currentWallet.address+"/"+idService
+        var url = Config.url+Config.version+Config.feedback+Config.get+"/"+appWindow.currentWallet.address+"/"+idService
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange=function() {
             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -579,7 +579,7 @@ Rectangle {
 
     function createJsonFeedback(obj, rank){
         subButton.visible = true;
-        var url = Config.url+Config.stage+Config.version+Config.feedback+Config.setup
+        var url = Config.url+Config.version+Config.feedback+Config.setup
         var xmlhttpPost = new XMLHttpRequest();
         xmlhttpPost.onreadystatechange=function() {
             if (xmlhttpPost.readyState == 4 && xmlhttpPost.status == 200) {
@@ -1993,7 +1993,12 @@ Rectangle {
 
     function onPageCompleted() {
         console.log("Dashboard page completed");
+        console.log(appWindow.persistentSettings.haproxyTimeLeft + " time left")
+
+        console.log(providerName + "providerName")
+        console.log(obj + " my obj")
         var data = new Date();
+        console.log(data + " time now")
         if (providerName != "" || appWindow.persistentSettings.haproxyTimeLeft > data){
             getColor(rank, rankRectangle)
             getMyFeedJson()
