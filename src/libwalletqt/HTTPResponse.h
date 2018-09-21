@@ -3,7 +3,7 @@
 
 #include <boost/algorithm/string.hpp>
 #include <map>
-
+#include <vector>
 
 class HttpResponse {
 
