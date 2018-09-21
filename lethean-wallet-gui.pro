@@ -304,6 +304,9 @@ macx {
         -lcurl \
         -ldl
 
+    INCLUDEPATH += /usr/local/opt/boost/include/
+
+
 }
 
 
