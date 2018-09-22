@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="it" sourcelanguage="en">
+<TS version="2.0" language="it" sourcelanguage="en">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -718,7 +718,7 @@ Attendere prego…
     </message>
     <message>
         <source>Start pool mining automatically</source>
-        <translation type="vanished">Inizia il mining pool automaticamente</translation>
+        <translation>Inizia il mining pool automaticamente</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="599"/>
@@ -730,63 +730,63 @@ Attendere prego…
     <name>MiningFrame</name>
     <message>
         <source>Frame</source>
-        <translation type="vanished">Marco</translation>
+        <translation>Marco</translation>
     </message>
     <message>
         <source>Mining status</source>
-        <translation type="vanished">Stato del mining</translation>
+        <translation>Stato del mining</translation>
     </message>
     <message>
         <source>CPU cores</source>
-        <translation type="vanished">Núcleos de CPU</translation>
+        <translation>Núcleos de CPU</translation>
     </message>
     <message>
         <source>Select pool</source>
-        <translation type="vanished">Seleziona un pool</translation>
+        <translation>Seleziona un pool</translation>
     </message>
     <message>
         <source>Stopped</source>
-        <translation type="vanished">Terminato</translation>
+        <translation>Terminato</translation>
     </message>
     <message>
         <source>Add pool</source>
-        <translation type="vanished">Aggiungi pool</translation>
+        <translation>Aggiungi pool</translation>
     </message>
     <message>
         <source>Start mining</source>
-        <translation type="vanished">Avvia il mining</translation>
+        <translation>Avvia il mining</translation>
     </message>
     <message>
         <source>Pause mining</source>
-        <translation type="vanished">Metti in pausa il mining</translation>
+        <translation>Metti in pausa il mining</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="vanished">Impostazioni</translation>
+        <translation>Impostazioni</translation>
     </message>
     <message>
         <source>Pool mining</source>
-        <translation type="vanished">Mining pool</translation>
+        <translation>Mining pool</translation>
     </message>
     <message>
         <source>Stop mining</source>
-        <translation type="vanished">Termina il mining</translation>
+        <translation>Termina il mining</translation>
     </message>
     <message>
         <source>Solo mining</source>
-        <translation type="vanished">Mining in solitaria</translation>
+        <translation>Mining in solitaria</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation type="vanished">Stato</translation>
+        <translation>Stato</translation>
     </message>
     <message>
         <source>Remove pool</source>
-        <translation type="vanished">Rimuovi pool</translation>
+        <translation>Rimuovi pool</translation>
     </message>
     <message>
         <source>Mining status:</source>
-        <translation type="vanished">Stato del mining:</translation>
+        <translation>Stato del mining:</translation>
     </message>
 </context>
 <context>
@@ -905,23 +905,23 @@ Attendere prego…
     <name>NewPoolDialog</name>
     <message>
         <source>New pool</source>
-        <translation type="vanished">Nuovo pool</translation>
+        <translation>Nuovo pool</translation>
     </message>
     <message>
         <source>Host:</source>
-        <translation type="vanished">Host:</translation>
+        <translation>Host:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation type="vanished">Porta:</translation>
+        <translation>Porta:</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="vanished">Annulla</translation>
+        <translation>Annulla</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="vanished">OK</translation>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -1813,7 +1813,7 @@ Vuoi andare alla pagina dei download?</translation>
     <name>WalletGui::MainWindow</name>
     <message>
         <location filename="../gui/MainWindow.cpp" line="135"/>
-        <location filename="../gui/MainWindow.cpp" line="1021"/>
+        <location filename="../gui/MainWindow.cpp" line="1025"/>
         <source>Karbo Wallet %1</source>
         <translation>Karbo Wallet %1</translation>
     </message>
@@ -2027,27 +2027,27 @@ Are you sure?</source>
     <name>WalletGui::MiningFrame</name>
     <message>
         <source>Error: %1</source>
-        <translation type="vanished">Errore: %1</translation>
+        <translation>Errore: %1</translation>
     </message>
     <message>
         <source>Starting...</source>
-        <translation type="vanished">Avvio…</translation>
+        <translation>Avvio…</translation>
     </message>
     <message>
         <source>Stopped</source>
-        <translation type="vanished">Terminato</translation>
+        <translation>Terminato</translation>
     </message>
     <message>
         <source>Mining solo. Hashrate: %1 H/s</source>
-        <translation type="vanished">Mining solitario. Hashrate: %1 H/s</translation>
+        <translation>Mining solitario. Hashrate: %1 H/s</translation>
     </message>
     <message>
         <source>Starting solo minining...</source>
-        <translation type="vanished">Avvio del mining in solitaria…</translation>
+        <translation>Avvio del mining in solitaria…</translation>
     </message>
     <message>
         <source>Mining in pool. Hashrate: %1 H/s</source>
-        <translation type="vanished">Mining in pool. Hashrate: %1 H/s</translation>
+        <translation>Mining in pool. Hashrate: %1 H/s</translation>
     </message>
 </context>
 <context>
@@ -2070,7 +2070,7 @@ Are you sure?</source>
     <name>WalletGui::PoolModel</name>
     <message>
         <source>Pool URL</source>
-        <translation type="vanished">URL del pool</translation>
+        <translation>URL del pool</translation>
     </message>
 </context>
 <context>
@@ -2115,63 +2115,63 @@ Are you sure?</source>
 <context>
     <name>WalletGui::SendFrame</name>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="60"/>
+        <location filename="../gui/SendFrame.cpp" line="59"/>
         <source>Low</source>
         <translation>Basso</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="61"/>
+        <location filename="../gui/SendFrame.cpp" line="60"/>
         <source>Normal</source>
         <translation>Normale</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="62"/>
+        <location filename="../gui/SendFrame.cpp" line="61"/>
         <source>High</source>
         <translation>Alto</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="63"/>
+        <location filename="../gui/SendFrame.cpp" line="62"/>
         <source>Highest</source>
         <translation>Massimo</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="226"/>
+        <location filename="../gui/SendFrame.cpp" line="225"/>
         <source>Node fee: %1 %2</source>
         <translation>Tassa sul nodo: %1 %2</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="259"/>
+        <location filename="../gui/SendFrame.cpp" line="258"/>
         <source>Payment request should start with karbowanec:</source>
         <translation>La richiesta di pagamento dovrebbe iniziare con karbowanec:</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="273"/>
-        <location filename="../gui/SendFrame.cpp" line="314"/>
+        <location filename="../gui/SendFrame.cpp" line="272"/>
+        <location filename="../gui/SendFrame.cpp" line="313"/>
         <source>Invalid recipient address</source>
         <translation>Indirizzo del destinatario non valido</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="353"/>
+        <location filename="../gui/SendFrame.cpp" line="352"/>
         <source>Incorrect fee value</source>
         <translation>Valore di commissione errato</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="362"/>
+        <location filename="../gui/SendFrame.cpp" line="361"/>
         <source>Insufficient balance</source>
         <translation>Saldo insufficiente</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="362"/>
+        <location filename="../gui/SendFrame.cpp" line="361"/>
         <source>Available balance is insufficient to send this transaction. Have you excluded a fee?</source>
         <translation>Il Saldo disponibile non è sufficiente per inviare questa transazione. Hai escluso la commissione?</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="369"/>
+        <location filename="../gui/SendFrame.cpp" line="368"/>
         <source>Invalid payment ID</source>
         <translation>ID di pagamento non valido</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="436"/>
+        <location filename="../gui/SendFrame.cpp" line="435"/>
         <source>You have unmixable dust on balance. Use menu &apos;Wallet -&gt; Sweep unmixable&apos; first.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2209,8 +2209,14 @@ when the wallet is synchronized</source>
     </message>
     <message>
         <location filename="../gui/SignMessageDialog.cpp" line="89"/>
+        <location filename="../gui/SignMessageDialog.cpp" line="93"/>
         <source>Signature is invalid!</source>
         <translation>La firma non è valida!</translation>
+    </message>
+    <message>
+        <location filename="../gui/SignMessageDialog.cpp" line="97"/>
+        <source>Address is invalid!</source>
+        <translation>L&apos;indirizzo non è valido!</translation>
     </message>
 </context>
 <context>

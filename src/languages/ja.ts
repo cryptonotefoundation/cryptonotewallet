@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="ja" sourcelanguage="en">
+<TS version="2.0" language="ja" sourcelanguage="en">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -646,7 +646,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Mining</source>
-        <translation type="vanished">マイニング</translation>
+        <translation>マイニング</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="520"/>
@@ -721,7 +721,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Start pool mining automatically</source>
-        <translation type="vanished">自動プールマイニング開始</translation>
+        <translation>自動プールマイニング開始</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="599"/>
@@ -733,47 +733,47 @@ Please wait...</source>
     <name>MiningFrame</name>
     <message>
         <source>Pool mining</source>
-        <translation type="vanished">プールマイニング</translation>
+        <translation>プールマイニング</translation>
     </message>
     <message>
         <source>Add pool</source>
-        <translation type="vanished">プール追加</translation>
+        <translation>プール追加</translation>
     </message>
     <message>
         <source>Select pool</source>
-        <translation type="vanished">プール選択</translation>
+        <translation>プール選択</translation>
     </message>
     <message>
         <source>Start mining</source>
-        <translation type="vanished">マイニング開始</translation>
+        <translation>マイニング開始</translation>
     </message>
     <message>
         <source>Stop mining</source>
-        <translation type="vanished">マイニング停止</translation>
+        <translation>マイニング停止</translation>
     </message>
     <message>
         <source>Stopped</source>
-        <translation type="vanished">停止</translation>
+        <translation>停止</translation>
     </message>
     <message>
         <source>Mining status:</source>
-        <translation type="vanished">マイニング 状態:</translation>
+        <translation>マイニング 状態:</translation>
     </message>
     <message>
         <source>Remove pool</source>
-        <translation type="vanished">プール消去</translation>
+        <translation>プール消去</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="vanished">設定</translation>
+        <translation>設定</translation>
     </message>
     <message>
         <source>CPU cores</source>
-        <translation type="vanished">CPUのコア</translation>
+        <translation>CPUのコア</translation>
     </message>
     <message>
         <source>Solo mining</source>
-        <translation type="vanished">ソロマイニング</translation>
+        <translation>ソロマイニング</translation>
     </message>
 </context>
 <context>
@@ -892,19 +892,19 @@ Please wait...</source>
     <name>NewPoolDialog</name>
     <message>
         <source>New pool</source>
-        <translation type="vanished">新プール</translation>
+        <translation>新プール</translation>
     </message>
     <message>
         <source>Host:</source>
-        <translation type="vanished">ホスト:</translation>
+        <translation>ホスト:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation type="vanished">ポート:</translation>
+        <translation>ポート:</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="vanished">キャンセル</translation>
+        <translation>キャンセル</translation>
     </message>
 </context>
 <context>
@@ -1036,7 +1036,7 @@ Please wait...</source>
     <name>PrivateKeysDialog</name>
     <message>
         <source>Private Key</source>
-        <translation type="vanished">プライベートキー</translation>
+        <translation>プライベートキー</translation>
     </message>
     <message>
         <location filename="../gui/ui/privatekeysdialog.ui" line="26"/>
@@ -1216,7 +1216,7 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>Anonymity level:</source>
-        <translation type="vanished">匿名性レベル:</translation>
+        <translation>匿名性レベル:</translation>
     </message>
     <message>
         <location filename="../gui/ui/sendframe.ui" line="167"/>
@@ -1225,11 +1225,11 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>Fee:</source>
-        <translation type="vanished">手数料:</translation>
+        <translation>手数料:</translation>
     </message>
     <message>
         <source>PaymentID:</source>
-        <translation type="vanished">ペイメントID:</translation>
+        <translation>ペイメントID:</translation>
     </message>
     <message>
         <location filename="../gui/ui/sendframe.ui" line="127"/>
@@ -1298,7 +1298,7 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>Remote node mode</source>
-        <translation type="vanished">リモートノードモード</translation>
+        <translation>リモートノードモード</translation>
     </message>
     <message>
         <location filename="../gui/ui/sendframe.ui" line="507"/>
@@ -1376,7 +1376,7 @@ Do you want to go to download page?</source>
     <message>
         <location filename="../gui/ui/signmessagedialog.ui" line="198"/>
         <source>Address</source>
-        <translation type="unfinished">アドレス</translation>
+        <translation>アドレス</translation>
     </message>
 </context>
 <context>
@@ -1816,7 +1816,7 @@ Do you want to go to download page?</source>
     <name>WalletGui::MainWindow</name>
     <message>
         <location filename="../gui/MainWindow.cpp" line="135"/>
-        <location filename="../gui/MainWindow.cpp" line="1021"/>
+        <location filename="../gui/MainWindow.cpp" line="1025"/>
         <source>Karbo Wallet %1</source>
         <translation>カルボウォレット %1</translation>
     </message>
@@ -2029,27 +2029,27 @@ Are you sure?</source>
     <name>WalletGui::MiningFrame</name>
     <message>
         <source>Mining in pool. Hashrate: %1 H/s</source>
-        <translation type="vanished">マイニングインプール. ハッシュレート: %1 H/s</translation>
+        <translation>マイニングインプール. ハッシュレート: %1 H/s</translation>
     </message>
     <message>
         <source>Mining solo. Hashrate: %1 H/s</source>
-        <translation type="vanished">マイニングソロ. ハッシュレート: %1 H/s</translation>
+        <translation>マイニングソロ. ハッシュレート: %1 H/s</translation>
     </message>
     <message>
         <source>Error: %1</source>
-        <translation type="vanished">エラー: %1</translation>
+        <translation>エラー: %1</translation>
     </message>
     <message>
         <source>Starting...</source>
-        <translation type="vanished">開始...</translation>
+        <translation>開始...</translation>
     </message>
     <message>
         <source>Stopped</source>
-        <translation type="vanished">停止</translation>
+        <translation>停止</translation>
     </message>
     <message>
         <source>Starting solo minining...</source>
-        <translation type="vanished">ソロマイング開始中...</translation>
+        <translation>ソロマイング開始中...</translation>
     </message>
 </context>
 <context>
@@ -2072,7 +2072,7 @@ Are you sure?</source>
     <name>WalletGui::PoolModel</name>
     <message>
         <source>Pool URL</source>
-        <translation type="vanished">プールURL</translation>
+        <translation>プールURL</translation>
     </message>
 </context>
 <context>
@@ -2117,63 +2117,63 @@ Are you sure?</source>
 <context>
     <name>WalletGui::SendFrame</name>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="60"/>
+        <location filename="../gui/SendFrame.cpp" line="59"/>
         <source>Low</source>
         <translation>低い</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="61"/>
+        <location filename="../gui/SendFrame.cpp" line="60"/>
         <source>Normal</source>
         <translation>正常</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="62"/>
+        <location filename="../gui/SendFrame.cpp" line="61"/>
         <source>High</source>
         <translation>高い</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="63"/>
+        <location filename="../gui/SendFrame.cpp" line="62"/>
         <source>Highest</source>
         <translation>最高</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="226"/>
+        <location filename="../gui/SendFrame.cpp" line="225"/>
         <source>Node fee: %1 %2</source>
         <translation>ノードの手数料: %1 %2</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="259"/>
+        <location filename="../gui/SendFrame.cpp" line="258"/>
         <source>Payment request should start with karbowanec:</source>
         <translation>ペイメントリクエストはkarbowanecで始めなくてなならない</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="273"/>
-        <location filename="../gui/SendFrame.cpp" line="314"/>
+        <location filename="../gui/SendFrame.cpp" line="272"/>
+        <location filename="../gui/SendFrame.cpp" line="313"/>
         <source>Invalid recipient address</source>
         <translation>無効な受領者アドレス</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="353"/>
+        <location filename="../gui/SendFrame.cpp" line="352"/>
         <source>Incorrect fee value</source>
         <translation>正しくない手数料の値</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="362"/>
+        <location filename="../gui/SendFrame.cpp" line="361"/>
         <source>Insufficient balance</source>
         <translation>残高不足</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="362"/>
+        <location filename="../gui/SendFrame.cpp" line="361"/>
         <source>Available balance is insufficient to send this transaction. Have you excluded a fee?</source>
         <translation>このトランザクションを送信するための利用可能残高が不足しています。手数料を除外しましたか？</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="369"/>
+        <location filename="../gui/SendFrame.cpp" line="368"/>
         <source>Invalid payment ID</source>
         <translation>無効なペイメントID</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="436"/>
+        <location filename="../gui/SendFrame.cpp" line="435"/>
         <source>You have unmixable dust on balance. Use menu &apos;Wallet -&gt; Sweep unmixable&apos; first.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2197,22 +2197,28 @@ when the wallet is synchronized</source>
     <message>
         <location filename="../gui/SignMessageDialog.cpp" line="44"/>
         <source>Sign message</source>
-        <translation type="unfinished"></translation>
+        <translation>サインメッセージ</translation>
     </message>
     <message>
         <location filename="../gui/SignMessageDialog.cpp" line="44"/>
         <source>Verify signed message</source>
-        <translation type="unfinished"></translation>
+        <translation>署名されたメッセージを確認する</translation>
     </message>
     <message>
         <location filename="../gui/SignMessageDialog.cpp" line="86"/>
         <source>Signature is valid</source>
-        <translation type="unfinished"></translation>
+        <translation>署名は有効です！</translation>
     </message>
     <message>
         <location filename="../gui/SignMessageDialog.cpp" line="89"/>
+        <location filename="../gui/SignMessageDialog.cpp" line="93"/>
         <source>Signature is invalid!</source>
-        <translation type="unfinished"></translation>
+        <translation>署名が無効です！</translation>
+    </message>
+    <message>
+        <location filename="../gui/SignMessageDialog.cpp" line="97"/>
+        <source>Address is invalid!</source>
+        <translation>アドレスが無効です！</translation>
     </message>
 </context>
 <context>

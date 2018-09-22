@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="zh" sourcelanguage="en">
+<TS version="2.0" language="zh" sourcelanguage="en">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -669,7 +669,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Mining</source>
-        <translation type="vanished">挖矿</translation>
+        <translation>挖矿</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="520"/>
@@ -684,7 +684,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Change language</source>
-        <translation type="vanished">更换语言</translation>
+        <translation>更换语言</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="528"/>
@@ -748,7 +748,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Start pool mining automatically</source>
-        <translation type="vanished">自动开始从矿池挖矿</translation>
+        <translation>自动开始从矿池挖矿</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="599"/>
@@ -2066,7 +2066,7 @@ Are you sure?</source>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="135"/>
-        <location filename="../gui/MainWindow.cpp" line="1021"/>
+        <location filename="../gui/MainWindow.cpp" line="1025"/>
         <source>Karbo Wallet %1</source>
         <translation>Karbo钱包%1</translation>
     </message>
@@ -2168,63 +2168,63 @@ Are you sure?</source>
 <context>
     <name>WalletGui::SendFrame</name>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="60"/>
+        <location filename="../gui/SendFrame.cpp" line="59"/>
         <source>Low</source>
         <translation>低</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="61"/>
+        <location filename="../gui/SendFrame.cpp" line="60"/>
         <source>Normal</source>
         <translation>正常</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="62"/>
+        <location filename="../gui/SendFrame.cpp" line="61"/>
         <source>High</source>
         <translation>高</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="63"/>
+        <location filename="../gui/SendFrame.cpp" line="62"/>
         <source>Highest</source>
         <translation>最高</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="226"/>
+        <location filename="../gui/SendFrame.cpp" line="225"/>
         <source>Node fee: %1 %2</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="259"/>
+        <location filename="../gui/SendFrame.cpp" line="258"/>
         <source>Payment request should start with karbowanec:</source>
         <translation>付款请求应从karbowanec开始</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="273"/>
-        <location filename="../gui/SendFrame.cpp" line="314"/>
+        <location filename="../gui/SendFrame.cpp" line="272"/>
+        <location filename="../gui/SendFrame.cpp" line="313"/>
         <source>Invalid recipient address</source>
         <translation>收件人地址无效</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="353"/>
+        <location filename="../gui/SendFrame.cpp" line="352"/>
         <source>Incorrect fee value</source>
         <translation>费用数值不正确</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="362"/>
+        <location filename="../gui/SendFrame.cpp" line="361"/>
         <source>Insufficient balance</source>
         <translation>余额不足</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="362"/>
+        <location filename="../gui/SendFrame.cpp" line="361"/>
         <source>Available balance is insufficient to send this transaction. Have you excluded a fee?</source>
         <translation>可用余额不足，无法发送本次交易。您是否已包括交易手续费在内？</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="369"/>
+        <location filename="../gui/SendFrame.cpp" line="368"/>
         <source>Invalid payment ID</source>
         <translation>付款ID无效</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="436"/>
+        <location filename="../gui/SendFrame.cpp" line="435"/>
         <source>You have unmixable dust on balance. Use menu &apos;Wallet -&gt; Sweep unmixable&apos; first.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2262,8 +2262,14 @@ when the wallet is synchronized</source>
     </message>
     <message>
         <location filename="../gui/SignMessageDialog.cpp" line="89"/>
+        <location filename="../gui/SignMessageDialog.cpp" line="93"/>
         <source>Signature is invalid!</source>
         <translation>签名无效！</translation>
+    </message>
+    <message>
+        <location filename="../gui/SignMessageDialog.cpp" line="97"/>
+        <source>Address is invalid!</source>
+        <translation>地址无效！</translation>
     </message>
 </context>
 <context>

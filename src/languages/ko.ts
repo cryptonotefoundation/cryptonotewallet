@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="ko" sourcelanguage="en">
+<TS version="2.0" language="ko" sourcelanguage="en">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -669,7 +669,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Mining</source>
-        <translation type="vanished">마이닝</translation>
+        <translation>마이닝</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="520"/>
@@ -684,7 +684,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Change language</source>
-        <translation type="vanished">언어 변경</translation>
+        <translation>언어 변경</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="528"/>
@@ -748,7 +748,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Start pool mining automatically</source>
-        <translation type="vanished">자동 풀 마이닝 시작</translation>
+        <translation>자동 풀 마이닝 시작</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="599"/>
@@ -760,51 +760,51 @@ Please wait...</source>
     <name>MiningFrame</name>
     <message>
         <source>Frame</source>
-        <translation type="vanished">프레임</translation>
+        <translation>프레임</translation>
     </message>
     <message>
         <source>Pool mining</source>
-        <translation type="vanished">풀 마이닝</translation>
+        <translation>풀 마이닝</translation>
     </message>
     <message>
         <source>Add pool</source>
-        <translation type="vanished">풀 추가</translation>
+        <translation>풀 추가</translation>
     </message>
     <message>
         <source>Select pool</source>
-        <translation type="vanished">풀 선택</translation>
+        <translation>풀 선택</translation>
     </message>
     <message>
         <source>Start mining</source>
-        <translation type="vanished">마이닝 시작</translation>
+        <translation>마이닝 시작</translation>
     </message>
     <message>
         <source>Stop mining</source>
-        <translation type="vanished">마이닝 중지</translation>
+        <translation>마이닝 중지</translation>
     </message>
     <message>
         <source>Stopped</source>
-        <translation type="vanished">중지됨</translation>
+        <translation>중지됨</translation>
     </message>
     <message>
         <source>Mining status:</source>
-        <translation type="vanished">마이닝 상태:</translation>
+        <translation>마이닝 상태:</translation>
     </message>
     <message>
         <source>Remove pool</source>
-        <translation type="vanished">풀 제거</translation>
+        <translation>풀 제거</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="vanished">설정</translation>
+        <translation>설정</translation>
     </message>
     <message>
         <source>CPU cores</source>
-        <translation type="vanished">CPU 코어</translation>
+        <translation>CPU 코어</translation>
     </message>
     <message>
         <source>Solo mining</source>
-        <translation type="vanished">솔로 마이닝</translation>
+        <translation>솔로 마이닝</translation>
     </message>
 </context>
 <context>
@@ -923,23 +923,23 @@ Please wait...</source>
     <name>NewPoolDialog</name>
     <message>
         <source>New pool</source>
-        <translation type="vanished">새로운 풀</translation>
+        <translation>새로운 풀</translation>
     </message>
     <message>
         <source>Host:</source>
-        <translation type="vanished">호스트:</translation>
+        <translation>호스트:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation type="vanished">포트:</translation>
+        <translation>포트:</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="vanished">취소</translation>
+        <translation>취소</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="vanished">확인</translation>
+        <translation>확인</translation>
     </message>
 </context>
 <context>
@@ -1071,7 +1071,7 @@ Please wait...</source>
     <name>PrivateKeysDialog</name>
     <message>
         <source>Private Key</source>
-        <translation type="vanished">비밀 키</translation>
+        <translation>비밀 키</translation>
     </message>
     <message>
         <location filename="../gui/ui/privatekeysdialog.ui" line="26"/>
@@ -1250,7 +1250,7 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>Anonymity level:</source>
-        <translation type="vanished">익명 레벨:</translation>
+        <translation>익명 레벨:</translation>
     </message>
     <message>
         <location filename="../gui/ui/sendframe.ui" line="167"/>
@@ -1259,11 +1259,11 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>Fee:</source>
-        <translation type="vanished">비용:</translation>
+        <translation>비용:</translation>
     </message>
     <message>
         <source>PaymentID:</source>
-        <translation type="vanished">지불 ID:</translation>
+        <translation>지불 ID:</translation>
     </message>
     <message>
         <location filename="../gui/ui/sendframe.ui" line="127"/>
@@ -1357,7 +1357,7 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>Remote node mode</source>
-        <translation type="vanished">원격 노드 모드</translation>
+        <translation>원격 노드 모드</translation>
     </message>
     <message>
         <location filename="../gui/ui/sendframe.ui" line="507"/>
@@ -1435,7 +1435,7 @@ Do you want to go to download page?</source>
     <message>
         <location filename="../gui/ui/signmessagedialog.ui" line="198"/>
         <source>Address</source>
-        <translation type="unfinished">주소</translation>
+        <translation>주소</translation>
     </message>
 </context>
 <context>
@@ -1695,7 +1695,7 @@ Do you want to go to download page?</source>
     <name>WalletGui::CommandLineParser</name>
     <message>
         <source>Used to deploy test nets. Checkpoints and hardcoded seeds are ignored, network id is changed. Use it with вЂ“data-dir flag. The wallet must be launched with вЂ“testnet flag</source>
-        <translation type="vanished">테스트 넷을 배포하는 데 사용되었습니다. 체크포인트와 해시코드 시드는 무시됩니다, 네트워크 id는 변경됩니다. вЂ“데이터-디어 플래그로 사용하세요. 지갑은 반드시 вЂ“ 테스트넷 플래그로 런칭되어야 합니다.</translation>
+        <translation>테스트 넷을 배포하는 데 사용되었습니다. 체크포인트와 해시코드 시드는 무시됩니다, 네트워크 id는 변경됩니다. вЂ“데이터-디어 플래그로 사용하세요. 지갑은 반드시 вЂ“ 테스트넷 플래그로 런칭되어야 합니다.</translation>
     </message>
     <message>
         <location filename="../CommandLineParser.cpp" line="15"/>
@@ -2010,7 +2010,7 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>The language will be changed after restarting the wallet.</source>
-        <translation type="vanished">지갑을 재시작한 후에 언어가 변경되었습니다.</translation>
+        <translation>지갑을 재시작한 후에 언어가 변경되었습니다.</translation>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="663"/>
@@ -2087,7 +2087,7 @@ Are you sure?</source>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="135"/>
-        <location filename="../gui/MainWindow.cpp" line="1021"/>
+        <location filename="../gui/MainWindow.cpp" line="1025"/>
         <source>Karbo Wallet %1</source>
         <translation>Karbo 지갑 %1</translation>
     </message>
@@ -2096,27 +2096,27 @@ Are you sure?</source>
     <name>WalletGui::MiningFrame</name>
     <message>
         <source>Mining in pool. Hashrate: %1 H/s</source>
-        <translation type="vanished">풀에서 마이닝. 해시 비율: %1 H/s</translation>
+        <translation>풀에서 마이닝. 해시 비율: %1 H/s</translation>
     </message>
     <message>
         <source>Mining solo. Hashrate: %1 H/s</source>
-        <translation type="vanished">마이닝 솔로. 해시 비율: %1 H/s</translation>
+        <translation>마이닝 솔로. 해시 비율: %1 H/s</translation>
     </message>
     <message>
         <source>Error: %1</source>
-        <translation type="vanished">오류: %1</translation>
+        <translation>오류: %1</translation>
     </message>
     <message>
         <source>Starting...</source>
-        <translation type="vanished">시작 중...</translation>
+        <translation>시작 중...</translation>
     </message>
     <message>
         <source>Stopped</source>
-        <translation type="vanished">중지됨</translation>
+        <translation>중지됨</translation>
     </message>
     <message>
         <source>Starting solo minining...</source>
-        <translation type="vanished">솔로 마이닝 시작 중...</translation>
+        <translation>솔로 마이닝 시작 중...</translation>
     </message>
 </context>
 <context>
@@ -2139,7 +2139,7 @@ Are you sure?</source>
     <name>WalletGui::PoolModel</name>
     <message>
         <source>Pool URL</source>
-        <translation type="vanished">풀 URL</translation>
+        <translation>풀 URL</translation>
     </message>
 </context>
 <context>
@@ -2184,63 +2184,63 @@ Are you sure?</source>
 <context>
     <name>WalletGui::SendFrame</name>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="60"/>
+        <location filename="../gui/SendFrame.cpp" line="59"/>
         <source>Low</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="61"/>
+        <location filename="../gui/SendFrame.cpp" line="60"/>
         <source>Normal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="62"/>
+        <location filename="../gui/SendFrame.cpp" line="61"/>
         <source>High</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="63"/>
+        <location filename="../gui/SendFrame.cpp" line="62"/>
         <source>Highest</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="226"/>
+        <location filename="../gui/SendFrame.cpp" line="225"/>
         <source>Node fee: %1 %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="259"/>
+        <location filename="../gui/SendFrame.cpp" line="258"/>
         <source>Payment request should start with karbowanec:</source>
         <translation>지불 요청이 karbowanec으로 시작되어야 합니다:</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="273"/>
-        <location filename="../gui/SendFrame.cpp" line="314"/>
+        <location filename="../gui/SendFrame.cpp" line="272"/>
+        <location filename="../gui/SendFrame.cpp" line="313"/>
         <source>Invalid recipient address</source>
         <translation>유효하지 않은 수신자 주소</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="353"/>
+        <location filename="../gui/SendFrame.cpp" line="352"/>
         <source>Incorrect fee value</source>
         <translation>유효하지 않은 비용값</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="362"/>
+        <location filename="../gui/SendFrame.cpp" line="361"/>
         <source>Insufficient balance</source>
         <translation>잔액 부족</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="362"/>
+        <location filename="../gui/SendFrame.cpp" line="361"/>
         <source>Available balance is insufficient to send this transaction. Have you excluded a fee?</source>
         <translation>사용 가능한 잔액으로 이 거래를 보낼 수 없습니다. 수수료를 제외했습니까?</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="369"/>
+        <location filename="../gui/SendFrame.cpp" line="368"/>
         <source>Invalid payment ID</source>
         <translation>유효하지 않은 지불 ID</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="436"/>
+        <location filename="../gui/SendFrame.cpp" line="435"/>
         <source>You have unmixable dust on balance. Use menu &apos;Wallet -&gt; Sweep unmixable&apos; first.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2264,22 +2264,28 @@ when the wallet is synchronized</source>
     <message>
         <location filename="../gui/SignMessageDialog.cpp" line="44"/>
         <source>Sign message</source>
-        <translation type="unfinished"></translation>
+        <translation>메시지에 서명</translation>
     </message>
     <message>
         <location filename="../gui/SignMessageDialog.cpp" line="44"/>
         <source>Verify signed message</source>
-        <translation type="unfinished"></translation>
+        <translation>서명 된 메시지 확인</translation>
     </message>
     <message>
         <location filename="../gui/SignMessageDialog.cpp" line="86"/>
         <source>Signature is valid</source>
-        <translation type="unfinished"></translation>
+        <translation>서명이 유효합니다!</translation>
     </message>
     <message>
         <location filename="../gui/SignMessageDialog.cpp" line="89"/>
+        <location filename="../gui/SignMessageDialog.cpp" line="93"/>
         <source>Signature is invalid!</source>
-        <translation type="unfinished"></translation>
+        <translation>서명이 유효하지 않습니다!</translation>
+    </message>
+    <message>
+        <location filename="../gui/SignMessageDialog.cpp" line="97"/>
+        <source>Address is invalid!</source>
+        <translation>주소가 잘못되었습니다!</translation>
     </message>
 </context>
 <context>

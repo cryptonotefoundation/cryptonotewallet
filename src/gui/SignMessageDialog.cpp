@@ -69,31 +69,33 @@ void SignMessageDialog::verifyMessage() {
   m_ui->m_verificationResult->setText("");
   CryptoNote::AccountPublicAddress acc = boost::value_initialized<CryptoNote::AccountPublicAddress>();
   std::string addr_str = m_ui->m_addressEdit->text().trimmed().toStdString();
-  if(!addr_str.empty()) {
-    if(CurrencyAdapter::instance().getCurrency().parseAccountAddressString(addr_str, acc)) {
-      std::string message = m_ui->m_verifyMessageEdit->toPlainText().toUtf8().constData();
-      if(!message.empty()) {
-        Crypto::Hash hash;
-        Crypto::cn_fast_hash(message.data(), message.size(), hash);
-        std::string signature = m_ui->m_verifySignatureEdit->toPlainText().toStdString();
-        const size_t header_len = strlen("SigV1");
-        if (!signature.size() < header_len || signature.substr(0, header_len) == "SigV1") {
-          std::string decoded;
-          Crypto::Signature s;
-          if (Tools::Base58::decode(signature.substr(header_len), decoded) || sizeof(s) == decoded.size()) {
-            memcpy(&s, decoded.data(), sizeof(s));
-            bool valid = Crypto::check_signature(hash, acc.spendPublicKey, s);
-            if (valid) {
-              m_ui->m_verificationResult->setText(tr("Signature is valid"));
-              m_ui->m_verificationResult->setStyleSheet("QLabel { color : green; }");
-            } else {
-              m_ui->m_verificationResult->setText(tr("Signature is invalid!"));
-              m_ui->m_verificationResult->setStyleSheet("QLabel { color : red; }");
-            }
-          }
-        }
+  std::string message = m_ui->m_verifyMessageEdit->toPlainText().toUtf8().constData();
+  std::string signature = m_ui->m_verifySignatureEdit->toPlainText().toStdString();
+  if(addr_str.empty() || message.empty() || signature.empty())
+    return;
+  if(CurrencyAdapter::instance().getCurrency().parseAccountAddressString(addr_str, acc)) {
+    Crypto::Hash hash;
+    Crypto::cn_fast_hash(message.data(), message.size(), hash);
+    const size_t header_len = strlen("SigV1");
+    std::string decoded;
+    Crypto::Signature s;
+    if (!signature.size() < header_len && signature.substr(0, header_len) == "SigV1" &&
+      Tools::Base58::decode(signature.substr(header_len), decoded) && sizeof(s) == decoded.size()) {
+      memcpy(&s, decoded.data(), sizeof(s));
+      if (Crypto::check_signature(hash, acc.spendPublicKey, s)) {
+        m_ui->m_verificationResult->setText(tr("Signature is valid"));
+        m_ui->m_verificationResult->setStyleSheet("QLabel { color : green; }");
+      } else {
+        m_ui->m_verificationResult->setText(tr("Signature is invalid!"));
+        m_ui->m_verificationResult->setStyleSheet("QLabel { color : red; }");
       }
+    } else {
+      m_ui->m_verificationResult->setText(tr("Signature is invalid!"));
+      m_ui->m_verificationResult->setStyleSheet("QLabel { color : red; }");
     }
+  } else {
+    m_ui->m_verificationResult->setText(tr("Address is invalid!"));
+    m_ui->m_verificationResult->setStyleSheet("QLabel { color : red; }");
   }
 }
 
