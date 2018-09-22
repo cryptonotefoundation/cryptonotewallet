@@ -53,6 +53,7 @@ void SignMessageDialog::walletClosed() {
 }
 
 void SignMessageDialog::messageChanged() {
+  if (m_ui->m_tabWidget->currentIndex() != 0) { return; }
   std::string message = m_ui->m_messageEdit->toPlainText().toUtf8().constData();
   Crypto::Hash hash;
   Crypto::cn_fast_hash(message.data(), message.size(), hash);
