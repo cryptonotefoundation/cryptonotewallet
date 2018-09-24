@@ -45,7 +45,7 @@ bool Haproxy::haproxy(const QString &host, const QString &ip, const QString &por
         txtStream << "Cache-Control: no-cache\n";
         txtStream << "Content-Type: text/html\n\n";
 
-        txtStream << serviceName + "," + plan;
+        txtStream << "{\"provider\":\""+serviceName+"\",\"service\":\""+plan+"\"}";
 
         qDebug() << " ----- reading from file ------";
 
