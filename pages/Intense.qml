@@ -14,6 +14,7 @@ Rectangle {
     property variant arrChecked
     property var hexConfig
     property bool autoLoadMode
+    property bool backgroundColor: false
 
     function buildTxDetailsString(data, rank) {
         //console.log(data.subsequentVerificationsNeeded + "-------------------- ttt")
@@ -90,12 +91,26 @@ Rectangle {
 
     }
 
-    function getBackgroundColor(id){
-        if(id & 1){
+    function getBackgroundColor(){
+
+        console.log(backgroundColor + " my id color")
+        if(backgroundColor == true){
+            backgroundColor = false
             return "#f0f0f0"
-        } else {
+        }else{
+            backgroundColor = true;
             return "#fafafa"
         }
+
+        /*
+        if(color == "#ffffff"){
+            return "#000000"
+            //return "#f0f0f0"
+        } else {
+            return "#ffffff"
+            //return "#fafafa"
+        }
+        */
     }
 
     function decode64(input) {
@@ -854,7 +869,7 @@ Rectangle {
                 delegate: Rectangle {
                     width: listView.width
                     height: listView.height / 6.8
-                    color: getBackgroundColor(index)
+                    color: getBackgroundColor()
 
                     Text {
                         text: listdata
