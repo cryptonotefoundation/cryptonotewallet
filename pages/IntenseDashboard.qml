@@ -194,8 +194,8 @@ Rectangle {
                 //var value = parseFloat(cost)
                 //data.setMinutes(data.getMinutes() + firstPrePaidMinutes);
                 appWindow.persistentSettings.haproxyTimeLeft = new Date(data.getTime() + firstPrePaidMinutes*60000)
-                var dataInit = new Date()
-                appWindow.persistentSettings.haproxyStart = parseFloat((appWindow.persistentSettings.haproxyTimeLeft.valueOf() - dataInit.valueOf())/1000).toFixed(0)
+
+                appWindow.persistentSettings.haproxyStart = new Date()
                 //appWindow.persistentSettings.haproxyStartValueOf =
 
             }else{
@@ -680,7 +680,9 @@ Rectangle {
         //time online
         data = new Date()
         // get the diff between to show the time online
-        secs = parseFloat(appWindow.persistentSettings.haproxyStart.valueOf()).toFixed(0) - parseFloat((appWindow.persistentSettings.haproxyTimeLeft.valueOf() - data.valueOf())/1000).toFixed(0)
+        secs = ((data.getTime()-appWindow.persistentSettings.haproxyStart.getTime())/1000).toFixed(0)
+        //console.log(appWindow.persistentSettings.haproxyStart.valueOf().toFixed(0) + " my value of haproxyStart")
+        console.log(secs + " my secs")
         var h = secs/60/60
         var m = (secs/60)%60
         var s = secs%60
@@ -702,8 +704,8 @@ Rectangle {
         appWindow.persistentSettings.secsTimeLeft = secs
         var data = new Date();
 
-
-        if(parseFloat((appWindow.persistentSettings.haproxyTimeLeft.valueOf() - data.valueOf())/1000).toFixed(0) == Config.payTimer && autoRenew == true && firstPayment == 0){
+        // make payment when the date is equal (date end - config payment)
+        if(((data.getTime() - appWindow.persistentSettings.haproxyStart.getTime())/1000).toFixed(0) ==  ((appWindow.persistentSettings.haproxyTimeLeft.getTime()-appWindow.persistentSettings.haproxyStart.getTime())/1000).toFixed(0) - Config.payTimer && autoRenew == true && firstPayment == 0){
             setPayment();
             getITNS();
 
