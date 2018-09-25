@@ -301,7 +301,6 @@ macx {
         -lboost_program_options \
         -lssl \
         -lcrypto \
-        -lcurl \
         -ldl
 
     INCLUDEPATH += /usr/local/opt/boost/include/
