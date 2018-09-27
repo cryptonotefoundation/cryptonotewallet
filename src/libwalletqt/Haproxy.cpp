@@ -315,8 +315,15 @@ HttpResponse proxyRequest(std::string proxyHost, std::string proxyPort, std::str
         boost::asio::streambuf request;
         std::ostream request_stream(&request);
 
+        std::string httpHost = proxyHost;
+        if (requestURL.length() >= 9 && requestURL.substr(0, 7) == std::string("http://")) {
+            httpHost = requestURL.substr(7);
+            if (httpHost.find('/') != std::string::npos)
+                httpHost = httpHost.substr(0, httpHost.find('/'));
+        }
+
         request_stream << "GET " << requestURL << " HTTP/1.0" << regularBoundary;
-        request_stream << "Host: " << proxyHost << regularBoundary;
+        request_stream << "Host: " << httpHost << regularBoundary;
         request_stream << "Accept: */*" << regularBoundary;
         request_stream << "Connection: close" << regularBoundary;
         request_stream << "X-ITNS-MgmtId: " << provider << regularBoundary << regularBoundary;
