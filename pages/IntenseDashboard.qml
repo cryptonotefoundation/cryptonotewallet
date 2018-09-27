@@ -681,8 +681,6 @@ Rectangle {
         data = new Date()
         // get the diff between to show the time online
         secs = ((data.getTime()-appWindow.persistentSettings.haproxyStart.getTime())/1000).toFixed(0)
-        //console.log(appWindow.persistentSettings.haproxyStart.valueOf().toFixed(0) + " my value of haproxyStart")
-        console.log(secs + " my secs")
         var h = secs/60/60
         var m = (secs/60)%60
         var s = secs%60
@@ -723,8 +721,6 @@ Rectangle {
 
 
         if (secs % 10 == 0) {
-            //var str = callhaproxy.verifyHaproxy(Config.haproxyIp, Config.haproxyPort, obj.provider).toString();
-
             // check if proxy is connected. if it is, this method returns true
             var proxyConnected = callhaproxy.verifyHaproxy(Config.haproxyIp, Config.haproxyPort, obj.provider);
 
@@ -744,11 +740,6 @@ Rectangle {
             timeonlineTextLine.text = "Waiting for payment balance"
         }
 
-
-        /*
-        //only to work widhout Curl
-        proxyStats = 1;
-        */
         if (showTime == true) {
             timeonlineTextLine.text = value
         }

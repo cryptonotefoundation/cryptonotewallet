@@ -15,6 +15,7 @@ Rectangle {
     property var hexConfig
     property bool autoLoadMode
     property bool backgroundColor: false
+    property bool unlockedBalance: true
 
     function buildTxDetailsString(data, rank) {
         //console.log(data.subsequentVerificationsNeeded + "-------------------- ttt")
@@ -538,6 +539,39 @@ Rectangle {
 
                     return;
                 }
+
+                // Get the raw header string
+                var headers = xmlhttp.getAllResponseHeaders();
+
+                console.log(headers + " my headers")
+
+                // Convert the header string into an array
+                // of individual headers
+                var arrHeaders = headers.trim().split(/[\r\n]+/);
+
+                // Create a map of header names to values
+                var headerMap = {};
+                arrHeaders.forEach(function (line) {
+                  var parts = line.split(': ');
+                  var header = parts.shift();
+                  var value = parts.join(': ');
+                  headerMap[header] = value;
+                });
+
+                console.log(arrHeaders[5] + " my arr")
+                /*
+                var publicKey = Config.ENCRYPTION_PUBLIC_KEY;
+                var encryptionContext = new EdDSA('ed25519');
+                var publicKeyHex = publicKey.toString('hex');
+
+
+                // Import public key
+                var key = encryptionContext.keyFromPublic(publicKey, 'hex');
+                // Verify signature
+                console.log("Verifying signature using public key");
+                console.log(key.verify(jsonResponseEncoded, signatureHex));
+                */
+
                 var providers = arr.providers
                 for (var i = 0; i < providers.length; i++) {
                     getSignature(providers, providers[i], i, speed, speedType, price, tp, favorite)
@@ -645,14 +679,18 @@ Rectangle {
     }
 
     function getBalance(id) {
-
+        // check the unlocked balance to lock the connect button.
+        // unlockedbalance == true because its have to run only once
         if(appWindow.currentWallet.unlockedBalance < 1) {
             timerUnlockedBalance.start();
             id.enabled = false
+            unlockedBalance = false
         }
-        else {
+        else if(appWindow.currentWallet.unlockedBalance > 1){
             timerUnlockedBalance.stop();
             id.enabled = true
+            unlockedBalance = true
+
         }
     }
 
@@ -1050,7 +1088,6 @@ Rectangle {
 
 
     // create timer to validate whether or not we have unlocked balance
-
     Timer {
         id: timerUnlockedBalance
         interval: 10000
@@ -1058,7 +1095,11 @@ Rectangle {
 
         onTriggered:
         {
-            getJson()
+            if(unlockedBalance == true && appWindow.currentWallet.unlockedBalance < 1){
+                getJson()
+            }else if(appWindow.currentWallet.unlockedBalance > 1){
+                getJson()
+            }
         }
     }
 
@@ -1066,8 +1107,6 @@ Rectangle {
 
     function onPageCompleted() {
         updateStatus();
-        //loading.visible = true
-        //getJson()
 
     }
 }
