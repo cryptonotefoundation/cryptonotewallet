@@ -71,7 +71,7 @@ Rectangle {
 
             Text {
                 id: soloMainLabel
-                text: qsTr("Mining with your computer helps strengthen the Intense Coin network. The more that people mine, the harder it is for the network to be attacked, and every little bit helps.<br> <br>Mining also gives you a small chance to earn some Intense Coin. Your computer will create hashes looking for block solutions. If you find a block, you will get the associated reward. Good luck!") + translationManager.emptyString
+                text: qsTr("Mining with your computer helps strengthen the Lethean network. The more that people mine, the harder it is for the network to be attacked, and every little bit helps.<br> <br>Mining also gives you a small chance to earn some Lethean. Your computer will create hashes looking for block solutions. If you find a block, you will get the associated reward. Good luck!") + translationManager.emptyString
                 wrapMode: Text.Wrap
                 Layout.fillWidth: true
             }
@@ -137,10 +137,10 @@ Rectangle {
                     id: startSoloMinerButton
                     width: 110
                     text: qsTr("Start mining") + translationManager.emptyString
-                    shadowReleasedColor: "#983CFF"
-                    shadowPressedColor: "#B32D00"
-                    releasedColor: "#813CFF"
-                    pressedColor: "#983CFF"
+                    shadowReleasedColor: "#A7B8C0"
+                    shadowPressedColor: "#666e71"
+                    releasedColor: "#6C8896"
+                    pressedColor: "#A7B8C0"
                     onClicked: {
                         var success = walletManager.startMining(appWindow.currentWallet.address, soloMinerThreadsLine.text, persistentSettings.allow_background_mining, persistentSettings.miningIgnoreBattery)
                         if (success) {
@@ -162,10 +162,10 @@ Rectangle {
                     id: stopSoloMinerButton
                     width: 110
                     text: qsTr("Stop mining") + translationManager.emptyString
-                    shadowReleasedColor: "#983CFF"
-                    shadowPressedColor: "#B32D00"
-                    releasedColor: "#813CFF"
-                    pressedColor: "#983CFF"
+                    shadowReleasedColor: "#A7B8C0"
+                    shadowPressedColor: "#666e71"
+                    releasedColor: "#6C8896"
+                    pressedColor: "#A7B8C0"
                     onClicked: {
                         walletManager.stopMining()
                         update()

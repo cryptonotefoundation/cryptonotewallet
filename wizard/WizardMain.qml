@@ -313,7 +313,7 @@ ColumnLayout {
 
         width: 50; height: 50
         radius: 25
-        color: prevArea.containsMouse ? "#983CFF" : "#813CFF"
+        color: prevArea.containsMouse ? "#A7B8C0" : "#6C8896"
 
         Image {
             anchors.centerIn: parent
@@ -338,7 +338,7 @@ ColumnLayout {
         visible: currentPage > 1 && currentPage < pages.length - 1
         width: 50; height: 50
         radius: 25
-        color: enabled ? nextArea.containsMouse ? "#983CFF" : "#813CFF" : "#DBDBDB"
+        color: enabled ? nextArea.containsMouse ? "#A7B8C0" : "#6C8896" : "#DBDBDB"
 
 
         Image {
@@ -360,11 +360,11 @@ ColumnLayout {
         anchors.right: parent.right
         anchors.bottom: parent.bottom
         anchors.margins:  (isMobile) ? 20 : 50
-        text: qsTr("USE INTENSECOIN") + translationManager.emptyString
-        shadowReleasedColor: "#983CFF"
-        shadowPressedColor: "#B32D00"
-        releasedColor: "#813CFF"
-        pressedColor: "#983CFF"
+        text: qsTr("USE LETHEAN") + translationManager.emptyString
+        shadowReleasedColor: "#A7B8C0"
+        shadowPressedColor: "#666e71"
+        releasedColor: "#6C8896"
+        pressedColor: "#A7B8C0"
         visible: parent.paths[currentPath][currentPage] === finishPage
         onClicked: {
             wizard.applySettings();
@@ -378,10 +378,10 @@ ColumnLayout {
        anchors.bottom: parent.bottom
        anchors.margins: (isMobile) ? 20 : 50
        text: qsTr("Create wallet") + translationManager.emptyString
-       shadowReleasedColor: "#983CFF"
-       shadowPressedColor: "#B32D00"
-       releasedColor: "#813CFF"
-       pressedColor: "#983CFF"
+       shadowReleasedColor: "#A7B8C0"
+       shadowPressedColor: "#666e71"
+       releasedColor: "#6C8896"
+       pressedColor: "#A7B8C0"
        visible: currentPath === "create_view_only_wallet" &&  parent.paths[currentPath][currentPage] === passwordPage
        enabled: passwordPage.passwordsMatch
        onClicked: {
@@ -410,10 +410,10 @@ ColumnLayout {
        anchors.bottom: parent.bottom
        anchors.margins:  (isMobile) ? 20 : 50
        text: qsTr("Abort") + translationManager.emptyString
-       shadowReleasedColor: "#983CFF"
-       shadowPressedColor: "#B32D00"
-       releasedColor: "#813CFF"
-       pressedColor: "#983CFF"
+       shadowReleasedColor: "#A7B8C0"
+       shadowPressedColor: "#666e71"
+       releasedColor: "#6C8896"
+       pressedColor: "#A7B8C0"
        visible: currentPath === "create_view_only_wallet" &&  parent.paths[currentPath][currentPage] === passwordPage
        onClicked: {
            wizard.restart();

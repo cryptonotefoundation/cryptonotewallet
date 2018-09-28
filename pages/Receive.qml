@@ -247,10 +247,10 @@ Rectangle {
             StandardButton {
                 id: generatePaymentId
                 width: 80
-                shadowReleasedColor: "#983CFF"
-                shadowPressedColor: "#B32D00"
-                releasedColor: "#813CFF"
-                pressedColor: "#983CFF"
+                shadowReleasedColor: "#A7B8C0"
+                shadowPressedColor: "#666e71"
+                releasedColor: "#6C8896"
+                pressedColor: "#A7B8C0"
                 text: qsTr("Generate") + translationManager.emptyString;
                 onClicked: updatePaymentId()
             }
@@ -259,10 +259,10 @@ Rectangle {
                 id: clearPaymentId
                 enabled: !!paymentIdLine.text
                 width: 80
-                shadowReleasedColor: "#983CFF"
-                shadowPressedColor: "#B32D00"
-                releasedColor: "#813CFF"
-                pressedColor: "#983CFF"
+                shadowReleasedColor: "#A7B8C0"
+                shadowPressedColor: "#666e71"
+                releasedColor: "#6C8896"
+                pressedColor: "#A7B8C0"
                 text: qsTr("Clear") + translationManager.emptyString;
                 onClicked: updatePaymentId("")
             }
@@ -335,7 +335,7 @@ Rectangle {
                 id: trackingLabel
                 fontSize: 14
                 textFormat: Text.RichText
-                text: qsTr("<style type='text/css'>a {text-decoration: none; color: #813CFF; font-size: 14px;}</style>\
+                text: qsTr("<style type='text/css'>a {text-decoration: none; color: #6C8896; font-size: 14px;}</style>\
                            Tracking <font size='2'> (</font><a href='#'>help</a><font size='2'>)</font>")
                            + translationManager.emptyString
                 width: mainLayout.labelWidth

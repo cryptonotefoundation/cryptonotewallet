@@ -42,7 +42,7 @@ import "wizard"
 
 ApplicationWindow {
     id: appWindow
-    title: "Intense Coin"
+    title: "Lethean"
 
     property var currentItem
     property bool whatIsEnable: false
@@ -57,7 +57,7 @@ ApplicationWindow {
     property bool isNewWallet: false
     property int restoreHeight:0
     property bool daemonSynced: false
-    property int maxWindowHeight: (Screen.height < 900)? 720 : 800;
+    property int maxWindowHeight: (Screen.height < 1000)? 820 : 900;
     property bool daemonRunning: false
     property alias toolTip: toolTip
     property string walletName
@@ -222,6 +222,7 @@ ApplicationWindow {
     }
     function closeWallet() {
 
+
         // Disconnect all listeners
         if (typeof currentWallet !== "undefined" && currentWallet !== null) {
             currentWallet.refreshed.disconnect(onWalletRefresh)
@@ -231,10 +232,13 @@ ApplicationWindow {
             currentWallet.moneyReceived.disconnect(onWalletMoneyReceived)
             currentWallet.unconfirmedMoneyReceived.disconnect(onWalletUnconfirmedMoneyReceived)
             currentWallet.transactionCreated.disconnect(onTransactionCreated)
+            currentWallet.transactionAutoCreated.disconnect(onTransactionAutoCreated)
             currentWallet.connectionStatusChanged.disconnect(onWalletConnectionStatusChanged)
             middlePanel.paymentClicked.disconnect(handlePayment);
+            middlePanel.paymentAutoClicked.disconnect(handleAutoPayment);
             middlePanel.sweepUnmixableClicked.disconnect(handleSweepUnmixable);
             middlePanel.checkPaymentClicked.disconnect(handleCheckPayment);
+
         }
         currentWallet = undefined;
         if (isIOS) {
@@ -265,8 +269,10 @@ ApplicationWindow {
         currentWallet.moneyReceived.connect(onWalletMoneyReceived)
         currentWallet.unconfirmedMoneyReceived.connect(onWalletUnconfirmedMoneyReceived)
         currentWallet.transactionCreated.connect(onTransactionCreated)
+        currentWallet.transactionAutoCreated.connect(onTransactionAutoCreated)
         currentWallet.connectionStatusChanged.connect(onWalletConnectionStatusChanged)
         middlePanel.paymentClicked.connect(handlePayment);
+        middlePanel.paymentAutoClicked.connect(handleAutoPayment);
         middlePanel.sweepUnmixableClicked.connect(handleSweepUnmixable);
         middlePanel.checkPaymentClicked.connect(handleCheckPayment);
 
@@ -442,7 +448,7 @@ ApplicationWindow {
         currentWallet.startRefresh();
         daemonRunning = false;
         informationPopup.title = qsTr("Daemon failed to start") + translationManager.emptyString;
-        informationPopup.text  = qsTr("Please check your wallet and daemon log for errors. You can also try to start %1 manually.").arg((isWindows)? "intensecoind.exe" : "intensecoind")
+        informationPopup.text  = qsTr("Please check your wallet and daemon log for errors. You can also try to start %1 manually.").arg((isWindows)? "letheand.exe" : "letheand")
         informationPopup.icon  = StandardIcon.Critical
         informationPopup.onCloseCallback = null
         informationPopup.open();
@@ -534,6 +540,66 @@ ApplicationWindow {
         }
     }
 
+    function onTransactionAutoCreated(pendingTransaction,address,paymentId,mixinCount){
+        console.log("Transaction created");
+        hideProcessingSplash();
+        transaction = pendingTransaction;
+        // validate address;
+        if (transaction.status !== PendingTransaction.Status_Ok) {
+
+
+            console.error("Can't create transaction: ", transaction.errorString);
+            informationPopup.title = qsTr("Error") + translationManager.emptyString;
+            if (currentWallet.connected() == Wallet.ConnectionStatus_WrongVersion)
+                informationPopup.text  = qsTr("Can't create transaction: Wrong daemon version: ") + transaction.errorString
+            else
+                informationPopup.text  = qsTr("Can't create transaction: ") + transaction.errorString
+            informationPopup.icon  = StandardIcon.Critical
+            informationPopup.onCloseCallback = null
+            informationPopup.open();
+            // deleting transaction object, we don't want memleaks
+            currentWallet.disposeTransaction(transaction);
+            middlePanel.intenseDashboardView.flag = 0
+            middlePanel.intenseDashboardView.changeStatus()
+            callhaproxy.killHAproxy();
+            //middlePanel.intenseDashboardView.delayTimer.stop();
+
+        } else if (transaction.txCount == 0) {
+
+            informationPopup.title = qsTr("Error") + translationManager.emptyString
+            informationPopup.text  = qsTr("No unmixable outputs to sweep") + translationManager.emptyString
+            informationPopup.icon = StandardIcon.Information
+            informationPopup.onCloseCallback = null
+            informationPopup.open()
+            // deleting transaction object, we don't want memleaks
+            currentWallet.disposeTransaction(transaction);
+            middlePanel.intenseDashboardView.flag = 0
+            middlePanel.intenseDashboardView.changeStatus()
+            callhaproxy.killHAproxy();
+            //middlePanel.intenseDashboardView.delayTimer.stop();
+        } else {
+            console.log("Transaction created, amount: " + walletManager.displayAmount(transaction.amount)
+                    + ", fee: " + walletManager.displayAmount(transaction.fee));
+            /*
+            // here we show confirmation popup;
+
+            transactionConfirmationPopup.title = qsTr("Confirmation") + translationManager.emptyString
+            transactionConfirmationPopup.text  = qsTr("Please confirm transaction:\n")
+                        + (address === "" ? "" : (qsTr("\nAddress: ") + address))
+                        + (paymentId === "" ? "" : (qsTr("\nPayment ID: ") + paymentId))
+                        + qsTr("\n\nAmount: ") + walletManager.displayAmount(transaction.amount)
+                        + qsTr("\nFee: ") + walletManager.displayAmount(transaction.fee)
+                        + qsTr("\n\nRingsize: ") + (mixinCount + 1)
+                        + qsTr("\n\Number of transactions: ") + transaction.txCount
+                        + (transactionDescription === "" ? "" : (qsTr("\n\nDescription: ") + transactionDescription))
+                        + translationManager.emptyString
+            transactionConfirmationPopup.icon = StandardIcon.Question
+            transactionConfirmationPopup.open()
+            */
+            handleTransactionAutoConfirmed()
+        }
+    }
+
 
     // called on "transfer"
     function handlePayment(address, paymentId, amount, mixinCount, priority, description, createFile) {
@@ -584,6 +650,24 @@ ApplicationWindow {
             currentWallet.createTransactionAllAsync(address, paymentId, mixinCount, priority);
         else
             currentWallet.createTransactionAsync(address, paymentId, amountxmr, mixinCount, priority);
+    }
+
+    // called on "transfer"
+    function handleAutoPayment(address, paymentId, amount, mixinCount, priority, description, createFile) {
+        console.log("Creating transaction: ")
+        console.log("\taddress: ", address,
+                    ", payment_id: ", paymentId,
+                    ", amount: ", amount,
+                    ", mixins: ", mixinCount,
+                    ", priority: ", priority,
+                    ", description: ", description);
+
+        //showProcessingSplash("Creating transaction");
+        var amountxmr = walletManager.amountFromString(amount);
+        transactionDescription = description;
+
+
+        currentWallet.createAutoTransactionAsync(address, paymentId, amountxmr, mixinCount, priority);
     }
 
     //Choose where to save transaction
@@ -699,6 +783,50 @@ ApplicationWindow {
         currentWallet.store();
     }
 
+    // called after user confirms transaction
+    function handleTransactionAutoConfirmed(fileName) {
+        // grab transaction.txid before commit, since it clears it.
+        // we actually need to copy it, because QML will incredibly
+        // call the function multiple times when the variable is used
+        // after commit, where it returns another result...
+        // Of course, this loop is also calling the function multiple
+        // times, but at least with the same result.
+        var txid = [], txid_org = transaction.txid, txid_text = ""
+        for (var i = 0; i < txid_org.length; ++i)
+          txid[i] = txid_org[i]
+
+        // View only wallet - we save the tx
+        if(viewOnly && saveTxDialog.fileUrl){
+            // No file specified - abort
+            if(!saveTxDialog.fileUrl) {
+                currentWallet.disposeTransaction(transaction)
+                return;
+            }
+
+            var path = walletManager.urlToLocalPath(saveTxDialog.fileUrl)
+
+            // Store to file
+            transaction.setFilename(path);
+        }
+
+        if (!transaction.commit()) {
+            console.log("Error committing transaction: " + transaction.errorString);
+            informationPopup.title = qsTr("Error") + translationManager.emptyString
+            informationPopup.text  = qsTr("Couldn't send the money: ") + transaction.errorString
+            informationPopup.icon  = StandardIcon.Critical
+        } else {
+
+            // Clear tx fields
+            middlePanel.transferView.clearFields()
+
+        }
+        currentWallet.refresh()
+        currentWallet.disposeTransaction(transaction)
+        currentWallet.store();
+        // set connect button disable if has no Lethean
+        middlePanel.intenseView.getJson()
+    }
+
     // called on "checkPayment"
     function handleCheckPayment(address, txid, txkey) {
         console.log("Checking payment: ")
@@ -726,12 +854,12 @@ ApplicationWindow {
             if (received > 0) {
                 received = received / 1e12
                 if (height == 0) {
-                    informationPopup.text = qsTr("This address received %1 Intensecoin, but the transaction is not yet mined").arg(received);
+                    informationPopup.text = qsTr("This address received %1 Lethean, but the transaction is not yet mined").arg(received);
                 }
                 else {
                     var dCurrentBlock = currentWallet.daemonBlockChainHeight();
                     var confirmations = dCurrentBlock - height
-                    informationPopup.text = qsTr("This address received %1 Intensecoin, with %2 confirmation(s).").arg(received).arg(confirmations);
+                    informationPopup.text = qsTr("This address received %1 Lethean, with %2 confirmation(s).").arg(received).arg(confirmations);
                 }
             }
             else {
@@ -892,6 +1020,34 @@ ApplicationWindow {
         property string daemonPassword: ""
         property bool transferShowAdvanced: false
         property string blockchainDataDir: ""
+        property var haproxyTimeLeft
+        property var objTimeLeft
+        property string idServiceTimeLeft
+        property string providerNameTimeLeft
+        property string nameTimeLeft
+        property string typeTimeLeft
+        property string costTimeLeft
+        property int firstPrePaidMinutesTimeLeft
+        property string subsequentPrePaidMinutesTimeLeft
+        property string speedTimeLeft
+        property var feedbackTimeLeft
+        property string btonTimeLeft
+        property string rankTimeLeft
+        property int flagTimeLeft
+        property var secsTimeLeft
+        property double itnsStartTimeLeft
+        property int macHostFlagTimeLeft
+        property var timerPaymentTimeLeft
+        property var hexConfigTimeLeft
+        property int firstPaymentTimeLeft
+        property string transferredTextLineTimeLeft
+        property string timeonlineTextLineTimeLeft
+        property var paidTextLineTimeLeft
+        property var myRankTextTimeLeft
+        property string hexId
+        property var haproxyStart
+        property var haproxyStartValueOf
+        property bool haproxyAutoRenew
     }
 
     // Information dialog
@@ -1042,7 +1198,7 @@ ApplicationWindow {
 //                PropertyChanges { target: frameArea; blocked: true }
                 PropertyChanges { target: titleBar; visible: true }
 //                PropertyChanges { target: titleBar; y: 0 }
-                PropertyChanges { target: titleBar; title: qsTr("Intense Coin") + translationManager.emptyString }
+                PropertyChanges { target: titleBar; title: qsTr("Lethean") + translationManager.emptyString }
             }
         ]
 
@@ -1061,6 +1217,11 @@ ApplicationWindow {
             anchors.bottom: parent.bottom
             onDashboardClicked: {middlePanel.state = "Dashboard"; if(isMobile) hideMenu()}
             onTransferClicked: {middlePanel.state = "Transfer"; if(isMobile) hideMenu()}
+
+            //onIntenseClicked: {middlePanel.state = "Intense"; if(isMobile) hideMenu()}
+            onIntenseDashboardClicked: {middlePanel.state = "VPN Dashboard"; if(isMobile) hideMenu()}
+            onIntenseProviderClicked: {middlePanel.state = "Provider"; if(isMobile) hideMenu()}
+
             onReceiveClicked: {middlePanel.state = "Receive"; if(isMobile) hideMenu()}
             onTxkeyClicked: {middlePanel.state = "TxKey"; if(isMobile) hideMenu()}
             onHistoryClicked: {middlePanel.state = "History"; if(isMobile) hideMenu()}
@@ -1306,7 +1467,7 @@ ApplicationWindow {
             property alias text: content.text
             width: content.width + 12
             height: content.height + 17
-            color: "#813CFF"
+            color: "#6C8896"
             //radius: 3
             visible:false;
 
@@ -1384,7 +1545,7 @@ ApplicationWindow {
           var hash = parts[1]
           var user_url = parts[2]
           var auto_url = parts[3]
-          var msg = qsTr("New version of intensecoin-wallet-gui is available: %1<br>%2").arg(version).arg(user_url) + translationManager.emptyString
+          var msg = qsTr("New version of lethean-wallet-gui is available: %1<br>%2").arg(version).arg(user_url) + translationManager.emptyString
           notifier.show(msg)
         }
         else {
@@ -1393,7 +1554,7 @@ ApplicationWindow {
     }
 
     function checkUpdates() {
-        walletManager.checkUpdatesAsync("intensecoin-gui", "gui")
+        walletManager.checkUpdatesAsync("lethean-gui", "gui")
     }
 
     Timer {

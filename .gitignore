@@ -2,4 +2,15 @@
 *.user.*
 translations/*.qm
 build
+intense-build
+*.o
+*.log
 version.js
+debug
+qrc_qml.cpp
+moc*
+release
+Makefile
+lethean
+intense
+.qmake.stash

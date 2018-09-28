@@ -1,21 +1,21 @@
 // Copyright (c) 2014-2015, The Monero Project
-// 
+//
 // All rights reserved.
-// 
+//
 // Redistribution and use in source and binary forms, with or without modification, are
 // permitted provided that the following conditions are met:
-// 
+//
 // 1. Redistributions of source code must retain the above copyright notice, this list of
 //    conditions and the following disclaimer.
-// 
+//
 // 2. Redistributions in binary form must reproduce the above copyright notice, this list
 //    of conditions and the following disclaimer in the documentation and/or other
 //    materials provided with the distribution.
-// 
+//
 // 3. Neither the name of the copyright holder nor the names of its contributors may be
 //    used to endorse or promote products derived from this software without specific
 //    prior written permission.
-// 
+//
 // THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
 // EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
 // MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
@@ -52,6 +52,10 @@ Rectangle {
 
     property Transfer transferView: Transfer { }
     property Receive receiveView: Receive { }
+
+    property IntenseDashboard intenseDashboardView: IntenseDashboard { }
+    property Intense intenseView: Intense { }
+
     property TxKey txkeyView: TxKey { }
     property History historyView: History { }
     property Sign signView: Sign { }
@@ -61,6 +65,8 @@ Rectangle {
 
 
     signal paymentClicked(string address, string paymentId, string amount, int mixinCount, int priority, string description)
+    signal paymentAutoClicked(string address, string paymentId, string amount, int mixinCount, int priority, string description)
+
     signal sweepUnmixableClicked()
     signal generatePaymentIdInvoked()
     signal checkPaymentClicked(string address, string txid, string txkey);
@@ -85,6 +91,7 @@ Rectangle {
 
     function updateStatus(){
         transferView.updateStatus();
+        intenseView.updateStatus();
     }
 
     // send from AddressBook
@@ -157,6 +164,15 @@ Rectangle {
                 name: "Mining"
                 PropertyChanges { target: root; currentView: miningView }
                 PropertyChanges { target: mainFlickable; contentHeight: minHeight  }
+
+            }, State {
+                name: "VPN Dashboard"
+                PropertyChanges { target: root; currentView: intenseDashboardView }
+                PropertyChanges { target: mainFlickable; contentHeight: minHeight }
+             }, State {
+                name: "Provider"
+                PropertyChanges { target: root; currentView: intenseView }
+                PropertyChanges { target: mainFlickable; contentHeight: minHeight }
             }
         ]
 
@@ -170,8 +186,8 @@ Rectangle {
 
 
         Rectangle { height: 4; width: parent.width / 5; color: "#FFE00A" }
-        Rectangle { height: 4; width: parent.width / 5; color: "#6B0072" }
-        Rectangle { height: 4; width: parent.width / 5; color: "#813CFF" }
+        Rectangle { height: 4; width: parent.width / 5; color: "#6C8896" }
+        Rectangle { height: 4; width: parent.width / 5; color: "#6C8896" }
         Rectangle { height: 4; width: parent.width / 5; color: "#FFD781" }
         Rectangle { height: 4; width: parent.width / 5; color: "#FF4F41" }
     }

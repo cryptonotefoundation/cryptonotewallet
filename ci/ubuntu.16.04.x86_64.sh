@@ -32,6 +32,9 @@ if [ "$1" = "prep" ]; then
 	installDependencyIfNeeded qml-module-qtquick-xmllistmodel
 	installDependencyIfNeeded qttools5-dev-tools
 	installDependencyIfNeeded qml-module-qtquick-dialogs
+	installDependencyIfNeeded qml-module-qt-labs-settings
+	installDependencyIfNeeded qml-module-qtgraphicaleffects
+	installDependencyIfNeeded qml-module-qt-labs-folderlistmodel
 	# - temporary link workaround
 	installDependencyIfNeeded libunbound-dev
 
@@ -56,11 +59,11 @@ fi
 cd ..
 
 echo "CI: Creating release archive..."
-RELEASE_NAME="intensecoin-gui-linux-64bit-$BUILD_VERSION"
+RELEASE_NAME="lethean-gui-linux-64bit-$BUILD_VERSION"
 cd build/release/bin/
 mkdir $RELEASE_NAME
-cp intensecoind $RELEASE_NAME/
-cp intensecoin-wallet-gui $RELEASE_NAME/
+cp letheand $RELEASE_NAME/
+cp lethean-wallet-gui $RELEASE_NAME/
 cp -R qml $RELEASE_NAME/
 cp -R libs $RELEASE_NAME/
 cp -R plugins $RELEASE_NAME/
@@ -68,5 +71,6 @@ cp -R translations $RELEASE_NAME/
 cp start-gui.sh $RELEASE_NAME/
 cp ../../../ci/package-artifacts/CHANGELOG.txt $RELEASE_NAME/
 cp ../../../ci/package-artifacts/README.txt $RELEASE_NAME/
+cp ../../../ci/package-artifacts/*.http $RELEASE_NAME/
 tar -cvjf $RELEASE_NAME.tar.bz2 $RELEASE_NAME
 sha256sum $RELEASE_NAME.tar.bz2 > $RELEASE_NAME.tar.bz2.sha256.txt

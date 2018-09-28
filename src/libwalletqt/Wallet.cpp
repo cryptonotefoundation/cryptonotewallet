@@ -1,4 +1,5 @@
 #include "Wallet.h"
+#include "Haproxy.h"
 #include "PendingTransaction.h"
 #include "UnsignedTransaction.h"
 #include "TransactionHistory.h"
@@ -348,6 +349,37 @@ void Wallet::createTransactionAsync(const QString &dst_addr, const QString &paym
     watcher->setFuture(future);
 }
 
+
+PendingTransaction *Wallet::createAutoTransaction(const QString &dst_addr, const QString &payment_id,
+                                              quint64 amount, quint32 mixin_count,
+                                              PendingTransaction::Priority priority)
+{
+    Monero::PendingTransaction * ptImpl = m_walletImpl->createTransaction(
+                dst_addr.toStdString(), payment_id.toStdString(), amount, mixin_count,
+                static_cast<Monero::PendingTransaction::Priority>(priority));
+    PendingTransaction * result = new PendingTransaction(ptImpl,0);
+    return result;
+}
+
+void Wallet::createAutoTransactionAsync(const QString &dst_addr, const QString &payment_id,
+                               quint64 amount, quint32 mixin_count,
+                               PendingTransaction::Priority priority)
+{
+    QFuture<PendingTransaction*> future = QtConcurrent::run(this, &Wallet::createTransaction,
+                                  dst_addr, payment_id,amount, mixin_count, priority);
+    QFutureWatcher<PendingTransaction*> * watcher = new QFutureWatcher<PendingTransaction*>();
+
+    connect(watcher, &QFutureWatcher<PendingTransaction*>::finished,
+            this, [this, watcher,dst_addr,payment_id,mixin_count]() {
+        QFuture<PendingTransaction*> future = watcher->future();
+        watcher->deleteLater();
+        emit transactionAutoCreated(future.result(),dst_addr,payment_id,mixin_count);
+    });
+    watcher->setFuture(future);
+}
+
+
+
 PendingTransaction *Wallet::createTransactionAll(const QString &dst_addr, const QString &payment_id,
                                                  quint32 mixin_count, PendingTransaction::Priority priority)
 {
@@ -608,12 +640,12 @@ void Wallet::setWalletCreationHeight(quint64 height)
 
 QString Wallet::getDaemonLogPath() const
 {
-    return QString::fromStdString(m_walletImpl->getDefaultDataDir()) + "/intensecoin.log";
+    return QString::fromStdString(m_walletImpl->getDefaultDataDir()) + "/lethean.log";
 }
 
 QString Wallet::getWalletLogPath() const
 {
-    return QCoreApplication::applicationDirPath() + "/intensecoin-wallet-gui.log";
+    return QCoreApplication::applicationDirPath() + "/lethean-wallet-gui.log";
 }
 
 Wallet::Wallet(Monero::Wallet *w, QObject *parent)
@@ -646,6 +678,8 @@ Wallet::Wallet(Monero::Wallet *w, QObject *parent)
 Wallet::~Wallet()
 {
     qDebug("~Wallet: Closing wallet");
+    Haproxy haproxy;
+    haproxy.killHAproxy();
 
     delete m_history;
     m_history = NULL;
