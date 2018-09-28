@@ -488,13 +488,15 @@ Rectangle {
         TextBlock {
             Layout.topMargin: 8
             Layout.fillWidth: true
-            text: qsTr("GUI version: ") + Version.GUI_VERSION + translationManager.emptyString
+            text: qsTr("GUI version: ") + qsTr("v3.0.0.b2") + translationManager.emptyString
+            //text: qsTr("GUI version: ") + Version.GUI_VERSION + translationManager.emptyString
         }
 
         TextBlock {
             id: guiMoneroVersion
             Layout.fillWidth: true
-            text: qsTr("Embedded Lethean version: ") + Version.GUI_MONERO_VERSION + translationManager.emptyString
+            text: qsTr("Embedded Lethean version: ") + qsTr("v3.0.0.b2") + translationManager.emptyString
+            //text: qsTr("Embedded Lethean version: ") + Version.GUI_MONERO_VERSION + translationManager.emptyString
         }
         TextBlock {
             id: restoreHeightText
