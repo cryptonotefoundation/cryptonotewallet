@@ -16,9 +16,6 @@ if [ ! -d $MONERO_DIR/src ]; then
     git submodule init lethean
 fi
 git submodule update --remote
-cd lethean
-git checkout letheanize
-cd ..
 
 ## get monero core tag
 #get_tag
