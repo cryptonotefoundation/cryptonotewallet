@@ -182,3 +182,4 @@ TRANSLATIONS = 	languages/uk.ts \
 				languages/zh.ts \
 				languages/hi.ts \
 				languages/ar.ts \
+				languages/fa.ts \
