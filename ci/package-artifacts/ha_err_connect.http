@@ -1,0 +1,11 @@
+HTTP/1.0 503 CONNECTION_ERROR
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Methods: GET
+Access-Control-Allow-Headers: X-ITNS-Status
+Access-Control-Max-Age: 86400
+Cache-Control: no-cache
+Connection: close
+Content-Type: text/html
+X-ITNS-Status: CONNECTION_ERROR
+
+CONNECTION_ERROR
