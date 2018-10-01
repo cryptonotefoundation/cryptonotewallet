@@ -191,7 +191,12 @@ bool Haproxy::haproxy(const QString &host, const QString &ip, const QString &por
         txtStream << "mode            http\n";
         txtStream << "timeout server  30s\n";
         txtStream << "timeout connect 5s\n";
+        #ifdef Q_OS_WIN
+        txtStream << "errorfile 503 provider.http\n";
+        #else
         txtStream << "errorfile 503 "+host+"/provider.http\n";
+        #endif
+
         txtStream << "bind 127.0.0.1:8182\n";
 
         qDebug() << " ----- reading from file ------";
