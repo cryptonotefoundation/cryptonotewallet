@@ -577,7 +577,7 @@ void MainWindow::sweepUnmixable() {
   dlg.showPasymentDetails(dust);
   if (dlg.exec() == QDialog::Accepted) {
     quint64 fee = CurrencyAdapter::instance().getMinimumFee();
-    QVector<CryptoNote::WalletLegacyTransfer> walletTransfers;
+    std::vector<CryptoNote::WalletLegacyTransfer> walletTransfers;
     CryptoNote::WalletLegacyTransfer walletTransfer;
     walletTransfer.address = WalletAdapter::instance().getAddress().toStdString();
     walletTransfer.amount = dust;

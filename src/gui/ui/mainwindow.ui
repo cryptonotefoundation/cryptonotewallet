@@ -1138,6 +1138,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>m_sweepUnmixableAction</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>sweepUnmixable()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>489</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>createWallet()</slot>
@@ -1154,5 +1170,6 @@
   <slot>showPrivateKeys()</slot>
   <slot>openConnectionSettings()</slot>
   <slot>showStatusInfo()</slot>
+  <slot>sweepUnmixable()</slot>
  </slots>
 </ui>

@@ -304,7 +304,7 @@ void SendFrame::sendClicked() {
     }
     if (dlg.exec() == QDialog::Accepted) {
 
-      QVector<CryptoNote::WalletLegacyTransfer> walletTransfers;
+      std::vector<CryptoNote::WalletLegacyTransfer> walletTransfers;
       Q_FOREACH (TransferFrame * transfer, m_transfers) {
         QString address = transfer->getAddress();
         if (!CurrencyAdapter::instance().validateAddress(address)) {
