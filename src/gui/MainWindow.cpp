@@ -27,6 +27,7 @@
 #include "AddressBookModel.h"
 #include "ChangePasswordDialog.h"
 #include "ConnectionSettings.h"
+#include "OptimizationSettings.h"
 #include "PrivateKeysDialog.h"
 #include "ExportTrackingKeyDialog.h"
 #include "ImportTrackingKeyDialog.h"
@@ -74,7 +75,7 @@ MainWindow& MainWindow::instance() {
 }
 
 MainWindow::MainWindow() : QMainWindow(), m_ui(new Ui::MainWindow), m_trayIcon(nullptr), m_tabActionGroup(new QActionGroup(this)),
-  m_isAboutToQuit(false), paymentServer(0), maxRecentFiles(10), trayIconMenu(0), toggleHideAction(0) {
+  m_isAboutToQuit(false), paymentServer(0), optimizationManager(nullptr), maxRecentFiles(10), trayIconMenu(0), toggleHideAction(0) {
   m_ui->setupUi(this);
   m_connectionStateIconLabel = new QPushButton();
   m_connectionStateIconLabel->setFlat(true); // Make the button look like a label, but clickable
@@ -87,13 +88,14 @@ MainWindow::MainWindow() : QMainWindow(), m_ui(new Ui::MainWindow), m_trayIcon(n
   connectToSignals();
   createLanguageMenu();
   initUi();
-
   walletClosed();
 }
 
 MainWindow::~MainWindow() {
     delete paymentServer;
     paymentServer = 0;
+    delete optimizationManager;
+    optimizationManager = 0;
     //if(m_trayIcon) // Hide tray icon, as deleting will let it linger until quit (on Ubuntu)
     //  m_trayIcon->hide();
     #ifdef Q_OS_MAC
@@ -221,6 +223,7 @@ void MainWindow::initUi() {
   m_ui->m_closeToTrayAction->deleteLater();
 #endif
 
+  OptimizationManager* optimizationManager = new OptimizationManager(this);
   createTrayIconMenu();
 }
 
@@ -535,6 +538,7 @@ void MainWindow::isTrackingMode() {
   m_ui->m_openUriAction->setEnabled(false);
   m_ui->m_showMnemonicSeedAction->setEnabled(false);
   m_ui->m_sweepUnmixableAction->setEnabled(false);
+  m_ui->m_optimizationAction->setEnabled(false);
   m_trackingModeIconLabel->show();
 }
 
@@ -676,7 +680,6 @@ void MainWindow::openConnectionSettings() {
     dlg.setRemoteNode();
     dlg.setLocalDaemonPort();
     if (dlg.exec() == QDialog::Accepted) {
-
       QString connection = dlg.setConnectionMode();
       Settings::instance().setConnection(connection);
 
@@ -688,6 +691,15 @@ void MainWindow::openConnectionSettings() {
 
       QMessageBox::information(this, tr("Connection settings changed"), tr("Connection mode will be changed after restarting the wallet."), QMessageBox::Ok);
     }
+}
+
+void MainWindow::openOptimizationSettings() {
+  OptimizationSettingsDialog dlg(&MainWindow::instance());
+  dlg.exec();
+
+//  if (dlg.exec() == QDialog::Accepted) {
+//    optimizationManager->checkOptimization();
+//  }
 }
 
 void MainWindow::showStatusInfo() {
@@ -938,6 +950,7 @@ void MainWindow::walletOpened(bool _error, const QString& _error_text) {
     m_ui->m_resetAction->setEnabled(true);
     m_ui->m_openUriAction->setEnabled(true);
     m_ui->m_sweepUnmixableAction->setEnabled(true);
+    m_ui->m_optimizationAction->setEnabled(true);
     m_ui->m_signMessageAction->setEnabled(true);
     m_ui->m_verifySignedMessageAction->setEnabled(true);
     if(WalletAdapter::instance().isDeterministic()) {
@@ -980,6 +993,7 @@ void MainWindow::walletClosed() {
   m_ui->m_resetAction->setEnabled(false);
   m_ui->m_showMnemonicSeedAction->setEnabled(false);
   m_ui->m_sweepUnmixableAction->setEnabled(false);
+  m_ui->m_optimizationAction->setEnabled(false);
   m_ui->m_signMessageAction->setEnabled(false);
   m_ui->m_verifySignedMessageAction->setEnabled(false);
   m_ui->m_overviewFrame->hide();

@@ -360,6 +360,35 @@ void WalletAdapter::sweepDust(const std::vector<CryptoNote::WalletLegacyTransfer
   }
 }
 
+quint64 WalletAdapter::estimateFusion(quint64 _threshold) {
+  Q_CHECK_PTR(m_wallet);
+  try {
+    return m_wallet->estimateFusion(_threshold);
+  } catch (std::system_error&) {
+    return 0;
+  }
+}
+
+std::list<CryptoNote::TransactionOutputInformation> WalletAdapter::getFusionTransfersToSend(quint64 _threshold, size_t _min_input_count, size_t _max_input_count) {
+  Q_CHECK_PTR(m_wallet);
+  try {
+    return m_wallet->selectFusionTransfersToSend(_threshold, _min_input_count, _max_input_count);
+  } catch (std::system_error&) {
+    return {};
+  }
+}
+
+void WalletAdapter::sendFusionTransaction(const std::list<CryptoNote::TransactionOutputInformation>& _fusion_inputs, quint64 _fee, const QString& _extra, quint64 _mixin) {
+  Q_CHECK_PTR(m_wallet);
+  try {
+    lock();
+    m_wallet->sendFusionTransaction(_fusion_inputs, _fee, _extra.toStdString(), _mixin, 0);
+    Q_EMIT walletStateChangedSignal(tr("Optimizing wallet"));
+  } catch (std::system_error&) {
+    unlock();
+  }
+}
+
 bool WalletAdapter::changePassword(const QString& _oldPassword, const QString& _newPassword) {
   Q_CHECK_PTR(m_wallet);
   try {
