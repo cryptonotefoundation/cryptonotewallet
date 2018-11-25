@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="fa_FA" sourcelanguage="en">
+<TS version="2.0" language="fa_IR" sourcelanguage="en">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -220,10 +220,6 @@
     <message>
         <source>Cancel</source>
         <translation>لغو</translation>
-    </message>
-    <message>
-        <source>Confirm sending %1 KRB</source>
-        <translation type="unfinished">تایید ارسال %1 KRB</translation>
     </message>
 </context>
 <context>
@@ -648,6 +644,10 @@ Please wait...</source>
         <source>Verify signed message</source>
         <translation>تایید امضا پیام</translation>
     </message>
+    <message>
+        <source>Optimization</source>
+        <translation>بهينه سازي</translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
@@ -716,7 +716,7 @@ Please wait...</source>
     <name>MnemonicSeedDialog</name>
     <message>
         <source>Mnemonic seed</source>
-         <translation>کدهای پشتیبان مهم</translation>
+        <translation>کدهای پشتیبان مهم</translation>
     </message>
     <message>
         <source>Close</source>
@@ -863,6 +863,69 @@ Please wait...</source>
     <message>
         <source>OK</source>
         <translation>تایید</translation>
+    </message>
+</context>
+<context>
+    <name>OptimizationSettingsDialog</name>
+    <message>
+        <source>Wallet optimization settings</source>
+        <translation>تنظیمات بهینه سازی کیف پول</translation>
+    </message>
+    <message>
+        <source>Run background wallet optimization</source>
+        <translation>اجرای پسزمینه کیف پول را انجام دهید</translation>
+    </message>
+    <message>
+        <source>(Recommended)</source>
+        <translation>(توصیه شده)</translation>
+    </message>
+    <message>
+        <source>Optimization target</source>
+        <translation>هدف بهینه سازی</translation>
+    </message>
+    <message>
+        <source>Anonymity level</source>
+        <translation>میزان ناشناس بودن </translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation type="unfinished">0</translation>
+    </message>
+    <message>
+        <source>outputs below selected target</source>
+        <translation>خروجی زیر هدف انتخاب شده</translation>
+    </message>
+    <message>
+        <source>From</source>
+        <translation>از طرف</translation>
+    </message>
+    <message>
+        <source>HH:mm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>To</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Specific time for optimization transactions</source>
+        <translation>زمان خاص برای معاملات بهینه سازی</translation>
+    </message>
+    <message>
+        <source>Send optimization transactions each</source>
+        <translation>ارسال هر یک از معاملات بهینه سازی</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>لغو</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>ذخیره</translation>
+    </message>
+    <message>
+        <source>Wallet optimization is a background task performed in order to aggregate transactions outputs that are below optimization target into bigger ones. It allows to send larger amounts of KRB within one transaction. Wallet optimization is free for all users but takes some time.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1555,6 +1618,10 @@ Do you want to go to download page?</source>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Are you sure you want to send &lt;strong&gt;without Payment ID&lt;/strong&gt;?&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;آیا مطمینید که میخواهید  &lt;strong&gt;sin کربو را بدون شناسه واریز ارسال کنید&lt;/strong&gt;?&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
+    <message>
+        <source>Confirm sending %1 KRB</source>
+        <translation type="unfinished">تایید ارسال %1 KRB</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::ExportTrackingKeyDialog</name>
@@ -1853,6 +1920,69 @@ Are you sure?</source>
     </message>
 </context>
 <context>
+    <name>WalletGui::OptimizationSettingsDialog</name>
+    <message>
+        <source>30 minutes</source>
+        <translation>30 دقیقه</translation>
+    </message>
+    <message>
+        <source>1 hour</source>
+        <translation>1 ساعت</translation>
+    </message>
+    <message>
+        <source>1.5 hours</source>
+        <translation>1.5 ساعت</translation>
+    </message>
+    <message>
+        <source>2 hours</source>
+        <translation>2 ساعت</translation>
+    </message>
+    <message>
+        <source>2.5 hours</source>
+        <translation>2.5 ساعت</translation>
+    </message>
+    <message>
+        <source>3 hours</source>
+        <translation>3 ساعت</translation>
+    </message>
+    <message>
+        <source>3.5 hours</source>
+        <translation>3.5 ساعت</translation>
+    </message>
+    <message>
+        <source>4 hours</source>
+        <translation>4 ساعت</translation>
+    </message>
+    <message>
+        <source>4.5 hours</source>
+        <translation>4.5 ساعت</translation>
+    </message>
+    <message>
+        <source>5 hours</source>
+        <translation>5 ساعت</translation>
+    </message>
+    <message>
+        <source>5.5 hours</source>
+        <translation>5.5 ساعت</translation>
+    </message>
+    <message>
+        <source>6 hours</source>
+        <translation>6 ساعت</translation>
+    </message>
+    <message>
+        <source>Wallet is currently optimized for this target</source>
+        <translation>کیف پول در حال حاضر برای این هدف بهینه شده است</translation>
+    </message>
+    <message>
+        <source> outputs below selected target</source>
+        <translation>خروجی زیر هدف انتخاب شده</translation>
+    </message>
+    <message>
+        <source>Wallet is closed</source>
+        <translation>کیف پول بسته است</translation>
+    </message>
+</context>
+<context>
     <name>WalletGui::PoolModel</name>
     <message>
         <source>Pool URL</source>
@@ -2017,7 +2147,6 @@ when the wallet is synchronized</source>
         <source>%n confirmation(s)</source>
         <translation>
             <numerusform>%n confirmacion</numerusform>
-            <numerusform>%n تاییدیه</numerusform>
         </translation>
     </message>
     <message>
@@ -2378,6 +2507,10 @@ when the wallet is synchronized</source>
     <message>
         <source>Sweeping unmixable dust</source>
         <translation>پاکسازی میزان غیرقابل ارسال</translation>
+    </message>
+    <message>
+        <source>Optimizing wallet</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

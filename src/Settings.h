@@ -48,6 +48,14 @@ public:
   QString getCurrentPool() const;
   QString getCurrentTheme() const;
 
+  bool isOptimizationEnabled() const;
+  bool isOptimizationTimeSetManually() const;
+  QTime getOptimizationStartTime() const;
+  QTime getOptimizationStopTime() const;
+  quint64 getOptimizationInterval() const;
+  quint64 getOptimizationThreshold() const;
+  quint64 getOptimizationMixin() const;
+
   bool isEncrypted() const;
   bool isStartOnLoginEnabled() const;
   bool isTrackingMode() const;
@@ -71,6 +79,14 @@ public:
   void setMinimizeToTrayEnabled(bool _enable);
   void setCloseToTrayEnabled(bool _enable);
 #endif
+
+  void setOptimizationEnabled(bool _enable);
+  void setOptimizationTimeSetManually(bool _enable);
+  void setOptimizationStartTime(const QTime& _startTime);
+  void setOptimizationStopTime(const QTime& _stopTime);
+  void setOptimizationInterval(quint64 _interval);
+  void setOptimizationThreshold(quint64 _threshold);
+  void setOptimizationMixin(quint64 _mixin);
 
 private:
   QJsonObject m_settings;

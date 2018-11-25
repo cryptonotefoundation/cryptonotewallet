@@ -650,6 +650,10 @@ Por favor, espera...</translation>
         <source>Verify signed message</source>
         <translation>Verificar mensaje firmado</translation>
     </message>
+    <message>
+        <source>Optimization</source>
+        <translation>Optimización</translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
@@ -867,6 +871,69 @@ Por favor, espera...</translation>
     <message>
         <source>OK</source>
         <translation>OK</translation>
+    </message>
+</context>
+<context>
+    <name>OptimizationSettingsDialog</name>
+    <message>
+        <source>Wallet optimization settings</source>
+        <translation>Configuración de optimización de cartera</translation>
+    </message>
+    <message>
+        <source>Run background wallet optimization</source>
+        <translation>Ejecutar la optimización de la cartera en el fondo</translation>
+    </message>
+    <message>
+        <source>(Recommended)</source>
+        <translation>(Recomendado)</translation>
+    </message>
+    <message>
+        <source>Optimization target</source>
+        <translation>Objetivo de optimización</translation>
+    </message>
+    <message>
+        <source>Anonymity level</source>
+        <translation>Nivel de anonimato</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation type="unfinished">0</translation>
+    </message>
+    <message>
+        <source>outputs below selected target</source>
+        <translation>salidas están por debajo del objetivo seleccionado</translation>
+    </message>
+    <message>
+        <source>From</source>
+        <translation>De</translation>
+    </message>
+    <message>
+        <source>HH:mm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>To</source>
+        <translation>a</translation>
+    </message>
+    <message>
+        <source>Specific time for optimization transactions</source>
+        <translation>Tiempo específico para la optimización</translation>
+    </message>
+    <message>
+        <source>Send optimization transactions each</source>
+        <translation>Enviar transacciones de optimización cada</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Cancelar</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Guardar</translation>
+    </message>
+    <message>
+        <source>Wallet optimization is a background task performed in order to aggregate transactions outputs that are below optimization target into bigger ones. It allows to send larger amounts of KRB within one transaction. Wallet optimization is free for all users but takes some time.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1862,6 +1929,69 @@ Are you sure?</source>
     </message>
 </context>
 <context>
+    <name>WalletGui::OptimizationSettingsDialog</name>
+    <message>
+        <source>30 minutes</source>
+        <translation>30 minutos</translation>
+    </message>
+    <message>
+        <source>1 hour</source>
+        <translation>1 hora</translation>
+    </message>
+    <message>
+        <source>1.5 hours</source>
+        <translation>1,5 horas</translation>
+    </message>
+    <message>
+        <source>2 hours</source>
+        <translation>2 horas</translation>
+    </message>
+    <message>
+        <source>2.5 hours</source>
+        <translation>2,5 horas</translation>
+    </message>
+    <message>
+        <source>3 hours</source>
+        <translation>3 horas</translation>
+    </message>
+    <message>
+        <source>3.5 hours</source>
+        <translation>3,5 horas</translation>
+    </message>
+    <message>
+        <source>4 hours</source>
+        <translation>4 horas</translation>
+    </message>
+    <message>
+        <source>4.5 hours</source>
+        <translation>4,5 horas</translation>
+    </message>
+    <message>
+        <source>5 hours</source>
+        <translation>5 horas</translation>
+    </message>
+    <message>
+        <source>5.5 hours</source>
+        <translation>5,5 horas</translation>
+    </message>
+    <message>
+        <source>6 hours</source>
+        <translation>6 horas</translation>
+    </message>
+    <message>
+        <source>Wallet is currently optimized for this target</source>
+        <translation>La cartera está actualmente optimizada para este objetivo</translation>
+    </message>
+    <message>
+        <source> outputs below selected target</source>
+        <translation> salidas están por debajo del objetivo seleccionado</translation>
+    </message>
+    <message>
+        <source>Wallet is closed</source>
+        <translation>La cartera esta cerrada</translation>
+    </message>
+</context>
+<context>
     <name>WalletGui::PoolModel</name>
     <message>
         <source>Pool URL</source>
@@ -2392,6 +2522,10 @@ cuando la cartera termine de sincronizar</translation>
     <message>
         <source>Sweeping unmixable dust</source>
         <translation>Barrer inigualable</translation>
+    </message>
+    <message>
+        <source>Optimizing wallet</source>
+        <translation>La optimización de la cartera</translation>
     </message>
 </context>
 </TS>

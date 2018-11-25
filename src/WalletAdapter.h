@@ -11,10 +11,12 @@
 #include <QTimer>
 #include <QPushButton>
 
+#include <list>
 #include <atomic>
 #include <fstream>
 
 #include <IWalletLegacy.h>
+#include <ITransfersContainer.h>
 
 namespace WalletGui {
 
@@ -50,6 +52,10 @@ public:
   bool changePassword(const QString& _old_pass, const QString& _new_pass);
   void setWalletFile(const QString& _path);
   Crypto::SecretKey getTxKey(Crypto::Hash& txid);
+
+  quint64 estimateFusion(quint64 _threshold);
+  std::list<CryptoNote::TransactionOutputInformation> getFusionTransfersToSend(quint64 _threshold, size_t _min_input_count, size_t _max_input_count);
+  void sendFusionTransaction(const std::list<CryptoNote::TransactionOutputInformation>& _fusion_inputs, quint64 _fee, const QString& _extra, quint64 _mixin);
 
   void initCompleted(std::error_code _result) Q_DECL_OVERRIDE;
   void saveCompleted(std::error_code _result) Q_DECL_OVERRIDE;

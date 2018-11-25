@@ -15,8 +15,10 @@
 #include <QTimer>
 #include "CommandLineParser.h"
 #include "PaymentServer.h"
+#include "OptimizationManager.h"
 
 class QActionGroup;
+class OptimizationManager;
 
 namespace Ui {
 class MainWindow;
@@ -49,6 +51,7 @@ private slots:
 
 private:
   PaymentServer* paymentServer;
+  OptimizationManager* optimizationManager;
 
   QScopedPointer<Ui::MainWindow> m_ui;
   QPushButton* m_connectionStateIconLabel;
@@ -117,6 +120,7 @@ private:
   Q_SLOT void showPrivateKeys();
   Q_SLOT void DisplayCmdLineHelp();
   Q_SLOT void openConnectionSettings();
+  Q_SLOT void openOptimizationSettings();
   Q_SLOT void exportTrackingKey();
   Q_SLOT void importTrackingKey();
   Q_SLOT void signMessage();

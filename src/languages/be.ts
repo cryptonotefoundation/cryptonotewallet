@@ -648,6 +648,10 @@ Please wait...</source>
         <source>Verify signed message</source>
         <translation>Праверка падпісанага паведамленні</translation>
     </message>
+    <message>
+        <source>Optimization</source>
+        <translation>Аптымізацыя</translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
@@ -859,6 +863,69 @@ Please wait...</source>
     <message>
         <source>OK</source>
         <translation>Добра</translation>
+    </message>
+</context>
+<context>
+    <name>OptimizationSettingsDialog</name>
+    <message>
+        <source>Wallet optimization settings</source>
+        <translation>Налады аптымізацыі гаманца</translation>
+    </message>
+    <message>
+        <source>Run background wallet optimization</source>
+        <translation>Выканаць аптымізацыю гаманца ў фонавым рэжыме</translation>
+    </message>
+    <message>
+        <source>(Recommended)</source>
+        <translation>(Рэкамендуецца)</translation>
+    </message>
+    <message>
+        <source>Optimization target</source>
+        <translation>Мэта аптымізацыі</translation>
+    </message>
+    <message>
+        <source>Anonymity level</source>
+        <translation>Узровень прыватнасці</translation>
+    </message>
+    <message>
+        <source>0</source>
+        <translation type="unfinished">0</translation>
+    </message>
+    <message>
+        <source>outputs below selected target</source>
+        <translation>выхадаў ніжэй абранай мэты</translation>
+    </message>
+    <message>
+        <source>From</source>
+        <translation>Ад</translation>
+    </message>
+    <message>
+        <source>HH:mm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>To</source>
+        <translation>да</translation>
+    </message>
+    <message>
+        <source>Specific time for optimization transactions</source>
+        <translation>Канкрэтны час для аптымізацыі</translation>
+    </message>
+    <message>
+        <source>Send optimization transactions each</source>
+        <translation>Адпраўляць аптымізацыйныя транзакцыйі са кожную</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Адмяніць</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Захаваць</translation>
+    </message>
+    <message>
+        <source>Wallet optimization is a background task performed in order to aggregate transactions outputs that are below optimization target into bigger ones. It allows to send larger amounts of KRB within one transaction. Wallet optimization is free for all users but takes some time.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1866,6 +1933,69 @@ Are you sure?</source>
     </message>
 </context>
 <context>
+    <name>WalletGui::OptimizationSettingsDialog</name>
+    <message>
+        <source>30 minutes</source>
+        <translation>30 хвілін</translation>
+    </message>
+    <message>
+        <source>1 hour</source>
+        <translation>1 гадз.</translation>
+    </message>
+    <message>
+        <source>1.5 hours</source>
+        <translation>1,5 гадз.</translation>
+    </message>
+    <message>
+        <source>2 hours</source>
+        <translation>2 гадз.</translation>
+    </message>
+    <message>
+        <source>2.5 hours</source>
+        <translation>2,5 гадз.</translation>
+    </message>
+    <message>
+        <source>3 hours</source>
+        <translation>3 гадз.</translation>
+    </message>
+    <message>
+        <source>3.5 hours</source>
+        <translation>3,5 гадз.</translation>
+    </message>
+    <message>
+        <source>4 hours</source>
+        <translation>4 гадз.</translation>
+    </message>
+    <message>
+        <source>4.5 hours</source>
+        <translation>4,5 гадз.</translation>
+    </message>
+    <message>
+        <source>5 hours</source>
+        <translation>5 гадз.</translation>
+    </message>
+    <message>
+        <source>5.5 hours</source>
+        <translation>5,5 гадз.</translation>
+    </message>
+    <message>
+        <source>6 hours</source>
+        <translation>6 гадз.</translation>
+    </message>
+    <message>
+        <source>Wallet is currently optimized for this target</source>
+        <translation>Гаманец у цяперашні час аптымізаваны для гэтай мэты</translation>
+    </message>
+    <message>
+        <source> outputs below selected target</source>
+        <translation> выхадаў ніжэй абранай мэты</translation>
+    </message>
+    <message>
+        <source>Wallet is closed</source>
+        <translation>Гаманец зачынены</translation>
+    </message>
+</context>
+<context>
     <name>WalletGui::PoolModel</name>
     <message>
         <source>Pool URL</source>
@@ -2400,6 +2530,10 @@ when the wallet is synchronized</source>
     <message>
         <source>Sweeping unmixable dust</source>
         <translation>Аптымізацыя несмешываемых выхадаў</translation>
+    </message>
+    <message>
+        <source>Optimizing wallet</source>
+        <translation>Аптымізацыя гаманца</translation>
     </message>
 </context>
 </TS>
