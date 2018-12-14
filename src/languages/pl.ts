@@ -869,7 +869,7 @@ Proszę czekać...</translation>
     </message>
     <message>
         <source>Run background wallet optimization</source>
-        <translation>Wykonywać optymalizację  portfela w tle</translation>
+        <translation type="unfinished">Wykonuj optymalizację portfela w tle</translation>
     </message>
     <message>
         <source>(Recommended)</source>
@@ -921,7 +921,7 @@ Proszę czekać...</translation>
     </message>
     <message>
         <source>Wallet optimization is a background task performed in order to aggregate transactions outputs that are below optimization target into bigger ones. It allows to send larger amounts of KRB within one transaction. Wallet optimization is free for all users but takes some time.</source>
-        <translation type="unfinished"></translation>
+        <translation>Optymalizacja portfela to zadanie wykonywane w tle w celu agregowania wyjść transakcji, które znajdują się poniżej celu optymalizacji, w większe. Umożliwia to wysyłanie większych kwot KRB w jednej transakcji. Optymalizacja portfela jest bezpłatna dla wszystkich użytkowników, ale zajmuje trochę czasu.</translation>
     </message>
 </context>
 <context>
