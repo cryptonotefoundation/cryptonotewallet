@@ -67,7 +67,8 @@ TransactionDetailsDialog::TransactionDetailsDialog(const QModelIndex& _index, QW
   TransactionType transactionType = static_cast<TransactionType>(index.data(TransactionsModel::ROLE_TYPE).value<quint8>());
   if (tx_key != NULL_SECRET_KEY && transactionType == TransactionType::OUTPUT) {
     transactionKey = QString::fromStdString(Common::podToHex(tx_key)).toUpper();
-    transactionProof = WalletAdapter::instance().getTxProof(tx_hash, CurrencyAdapter::instance().internalAddress(index.sibling(index.row(),                                                                                  TransactionsModel::COLUMN_ADDRESS).data().toString()), tx_key);
+    CryptoNote::AccountPublicAddress _addr = CurrencyAdapter::instance().internalAddress(index.sibling(index.row(), TransactionsModel::COLUMN_ADDRESS).data().toString());
+    transactionProof = WalletAdapter::instance().getTxProof(tx_hash, _addr, tx_key);
   } else {
     transactionKey = QString(tr("(n/a)"));
     transactionProof = QString(tr("(n/a)"));
