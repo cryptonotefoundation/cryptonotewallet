@@ -133,6 +133,7 @@ private:
   Q_SLOT void showMnemonicSeed();
   Q_SLOT void restoreFromMnemonicSeed();
   Q_SLOT void sweepUnmixable();
+  Q_SLOT void getBalanceProof();
 
   bool isObscured(QWidget *w);
   bool checkPoint(const QPoint &p, const QWidget *w);

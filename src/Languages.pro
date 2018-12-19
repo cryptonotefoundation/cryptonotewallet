@@ -71,6 +71,7 @@ gui/NoWalletFrame.cpp \
 gui/SendGlassFrame.cpp \
 gui/SignMessageDialog.cpp \
 gui/OptimizationSettings.cpp \
+gui/GetBalanceProofDialog.cpp \
  
 
 HEADERS = CommandLineParser.h \
@@ -131,6 +132,7 @@ gui/NoWalletFrame.h \
 gui/SendGlassFrame.h \
 gui/SignMessageDialog.h \
 gui/OptimizationSettings.h \
+gui/GetBalanceProofDialog.h \
 
 
 FORMS = gui/ui/aboutdialog.ui \
@@ -169,6 +171,7 @@ gui/ui/verifymnemonicseeddialog.ui \
 gui/ui/nowalletframe.ui \
 gui/ui/signmessagedialog.ui \
 gui/ui/optimizationsettingsdialog.ui \
+gui/ui/getbalanceproofdialog.ui \
 
 
 TRANSLATIONS = 	languages/uk.ts \

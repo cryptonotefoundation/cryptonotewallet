@@ -30,7 +30,8 @@ TransactionDetailsDialog::TransactionDetailsDialog(const QModelIndex& _index, QW
     "<span style=\" font-weight:600;\">Fee: </span>%6<br>\n"
     "<span style=\" font-weight:600;\">Payment ID: </span>%7<br>\n"
     "<span style=\" font-weight:600;\">Transaction Hash: </span>%8<br>\n"
-    "<span style=\" font-weight:600;\">Transaction Key: </span>%9</p></body></html>")) {
+    "<span style=\" font-weight:600;\">Transaction Key: </span>%9<br>\n"
+    "<span style=\" font-weight:600;\">Transaction Proof: </span>%10\n</p></body></html>")) {
   m_ui->setupUi(this);
 
   QModelIndex index = TransactionsModel::instance().index(_index.data(TransactionsModel::ROLE_ROW).toInt(),
@@ -62,18 +63,21 @@ TransactionDetailsDialog::TransactionDetailsDialog(const QModelIndex& _index, QW
   Common::fromHex(tx_hash_str, &tx_hash, sizeof(tx_hash), size);
   Crypto::SecretKey tx_key = WalletAdapter::instance().getTxKey(tx_hash);
   QString transactionKey;
+  QString transactionProof;
   TransactionType transactionType = static_cast<TransactionType>(index.data(TransactionsModel::ROLE_TYPE).value<quint8>());
   if (tx_key != NULL_SECRET_KEY && transactionType == TransactionType::OUTPUT) {
-    transactionKey =  QString::fromStdString(Common::podToHex(tx_key)).toUpper();
+    transactionKey = QString::fromStdString(Common::podToHex(tx_key)).toUpper();
+    transactionProof = WalletAdapter::instance().getTxProof(tx_hash, CurrencyAdapter::instance().internalAddress(index.sibling(index.row(),                                                                                  TransactionsModel::COLUMN_ADDRESS).data().toString()), tx_key);
   } else {
     transactionKey = QString(tr("(n/a)"));
+    transactionProof = QString(tr("(n/a)"));
   }
 
   m_ui->m_detailsBrowser->setHtml(m_detailsTemplate.arg(state).
     arg(index.sibling(index.row(), TransactionsModel::COLUMN_DATE).data().toString()).arg(index.sibling(index.row(),
     TransactionsModel::COLUMN_ADDRESS).data().toString()).arg(amountText).arg(feeText).
     arg(index.sibling(index.row(), TransactionsModel::COLUMN_PAYMENT_ID).data().toString()).
-    arg(transactionHash).arg(transactionKey));
+    arg(transactionHash).arg(transactionKey).arg(transactionProof));
 }
 
 TransactionDetailsDialog::~TransactionDetailsDialog() {

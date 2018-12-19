@@ -36,6 +36,7 @@
 #include "ExitWidget.h"
 #include "ImportKeyDialog.h"
 #include "RestoreFromMnemonicSeedDialog.h"
+#include "GetBalanceProofDialog.h"
 #include "MainWindow.h"
 #include "NewPasswordDialog.h"
 #include "NodeAdapter.h"
@@ -696,10 +697,11 @@ void MainWindow::openConnectionSettings() {
 void MainWindow::openOptimizationSettings() {
   OptimizationSettingsDialog dlg(&MainWindow::instance());
   dlg.exec();
+}
 
-//  if (dlg.exec() == QDialog::Accepted) {
-//    optimizationManager->checkOptimization();
-//  }
+void MainWindow::getBalanceProof() {
+  GetBalanceProofDialog dlg(&MainWindow::instance());
+  dlg.exec();
 }
 
 void MainWindow::showStatusInfo() {
