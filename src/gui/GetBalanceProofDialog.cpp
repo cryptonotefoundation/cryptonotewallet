@@ -38,15 +38,20 @@ void GetBalanceProofDialog::walletBalanceUpdated() {
 }
 
 void GetBalanceProofDialog::genProof() {
+  m_message = m_ui->m_messageEdit->toPlainText().toUtf8().constData();
   m_amount = static_cast<quint64>(CurrencyAdapter::instance().parseAmount(m_ui->m_amountSpin->cleanText()));
   quint64 balance = WalletAdapter::instance().getActualBalance();
-  if (m_amount > balance) {
+  if (balance != 0 && (m_amount > balance || m_amount == 0)) {
       m_amount = balance;
       m_ui->m_amountSpin->setValue(CurrencyAdapter::instance().formatAmount(m_amount).toDouble());
   }
-  m_message = m_ui->m_messageEdit->toPlainText().toUtf8().constData();
-  m_proof = WalletAdapter::instance().getReserveProof(m_amount, m_message);
-  m_ui->m_signatureEdit->setText(m_proof);
+  if (m_amount > 0) {
+    m_proof = WalletAdapter::instance().getReserveProof(m_amount, m_message);
+    m_ui->m_signatureEdit->setText(m_proof);
+  } else {
+    m_ui->m_amountSpin->setValue(0);
+    m_ui->m_signatureEdit->setText("");
+  }
 }
 
 void GetBalanceProofDialog::copyProof() {
