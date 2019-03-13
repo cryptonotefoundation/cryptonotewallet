@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="hi" sourcelanguage="en">
+<TS version="2.1" language="hi" sourcelanguage="en">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -717,7 +717,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Mining</source>
-        <translation>माइनिंग</translation>
+        <translation type="vanished">माइनिंग</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="522"/>
@@ -732,7 +732,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Change language</source>
-        <translation>भाषा बदलें</translation>
+        <translation type="vanished">भाषा बदलें</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="530"/>
@@ -796,7 +796,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Start pool mining automatically</source>
-        <translation>पूल माइनिंग स्वतः शुरू करें</translation>
+        <translation type="vanished">पूल माइनिंग स्वतः शुरू करें</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="601"/>
@@ -808,51 +808,51 @@ Please wait...</source>
     <name>MiningFrame</name>
     <message>
         <source>Frame</source>
-        <translation>ढांचा</translation>
+        <translation type="vanished">ढांचा</translation>
     </message>
     <message>
         <source>Pool mining</source>
-        <translation>पूल माइनिंग</translation>
+        <translation type="vanished">पूल माइनिंग</translation>
     </message>
     <message>
         <source>Add pool</source>
-        <translation>पूल जोड़ें</translation>
+        <translation type="vanished">पूल जोड़ें</translation>
     </message>
     <message>
         <source>Select pool</source>
-        <translation>पूल का चयन करें</translation>
+        <translation type="vanished">पूल का चयन करें</translation>
     </message>
     <message>
         <source>Start mining</source>
-        <translation>माइनिंग शुरू करें</translation>
+        <translation type="vanished">माइनिंग शुरू करें</translation>
     </message>
     <message>
         <source>Stop mining</source>
-        <translation>माइनिंग बंद करें</translation>
+        <translation type="vanished">माइनिंग बंद करें</translation>
     </message>
     <message>
         <source>Stopped</source>
-        <translation>रोका हुआ</translation>
+        <translation type="vanished">रोका हुआ</translation>
     </message>
     <message>
         <source>Mining status:</source>
-        <translation>माइनिंग की स्थिति:</translation>
+        <translation type="vanished">माइनिंग की स्थिति:</translation>
     </message>
     <message>
         <source>Remove pool</source>
-        <translation>पूल निकालें</translation>
+        <translation type="vanished">पूल निकालें</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation>सेटिंग्स</translation>
+        <translation type="vanished">सेटिंग्स</translation>
     </message>
     <message>
         <source>CPU cores</source>
-        <translation>CPU कोर</translation>
+        <translation type="vanished">CPU कोर</translation>
     </message>
     <message>
         <source>Solo mining</source>
-        <translation>सोलो माइनिंग</translation>
+        <translation type="vanished">सोलो माइनिंग</translation>
     </message>
 </context>
 <context>
@@ -971,23 +971,23 @@ Please wait...</source>
     <name>NewPoolDialog</name>
     <message>
         <source>New pool</source>
-        <translation>नया पूल</translation>
+        <translation type="vanished">नया पूल</translation>
     </message>
     <message>
         <source>Host:</source>
-        <translation>होस्ट:</translation>
+        <translation type="vanished">होस्ट:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation>पोर्ट:</translation>
+        <translation type="vanished">पोर्ट:</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>रद्द करें</translation>
+        <translation type="vanished">रद्द करें</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation>ठीक है</translation>
+        <translation type="vanished">ठीक है</translation>
     </message>
 </context>
 <context>
@@ -1225,7 +1225,7 @@ Please wait...</source>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="665"/>
+        <location filename="../gui/MainWindow.cpp" line="666"/>
         <location filename="../main.cpp" line="70"/>
         <source>Help</source>
         <translation></translation>
@@ -1373,7 +1373,7 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>Anonymity level:</source>
-        <translation>गुमनाम स्तर:</translation>
+        <translation type="vanished">गुमनाम स्तर:</translation>
     </message>
     <message>
         <location filename="../gui/ui/sendframe.ui" line="167"/>
@@ -1382,11 +1382,11 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>Fee:</source>
-        <translation>शुल्क:</translation>
+        <translation type="vanished">शुल्क:</translation>
     </message>
     <message>
         <source>PaymentID:</source>
-        <translation>PaymentID:</translation>
+        <translation type="vanished">PaymentID:</translation>
     </message>
     <message>
         <location filename="../gui/ui/sendframe.ui" line="127"/>
@@ -1919,7 +1919,7 @@ Do you want to go to download page?</source>
 <context>
     <name>WalletGui::GetBalanceProofDialog</name>
     <message>
-        <location filename="../gui/GetBalanceProofDialog.cpp" line="57"/>
+        <location filename="../gui/GetBalanceProofDialog.cpp" line="62"/>
         <source>Save as</source>
         <translation>फाइल में सेव करें</translation>
     </message>
@@ -1998,7 +1998,7 @@ Do you want to go to download page?</source>
     <message>
         <location filename="../gui/MainWindow.cpp" line="338"/>
         <location filename="../gui/MainWindow.cpp" line="367"/>
-        <location filename="../gui/MainWindow.cpp" line="720"/>
+        <location filename="../gui/MainWindow.cpp" line="721"/>
         <source>Wallets (*.wallet)</source>
         <translation>वॉलेट (*.wallet)</translation>
     </message>
@@ -2071,87 +2071,87 @@ Do you want to go to download page?</source>
         <translation>आपके द्वारा दर्ज की गई प्राइवेट व्यू की मान्य नहीं है।</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="573"/>
+        <location filename="../gui/MainWindow.cpp" line="574"/>
         <source>Mnemonic seed is not correct</source>
         <translation>म्नेमोनिक सीड सही नहीं है</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="573"/>
+        <location filename="../gui/MainWindow.cpp" line="574"/>
         <source>There must be an error in mnemonic seed. Make sure you entered it correctly.</source>
         <translation>म्नेमोनिक सीड में एक त्रुटि होनी चाहिए। सुनिश्चित करें कि आपने यह सही दर्ज की है।</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="656"/>
+        <location filename="../gui/MainWindow.cpp" line="657"/>
         <source>Language changed to %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="657"/>
+        <location filename="../gui/MainWindow.cpp" line="658"/>
         <source>Language was changed</source>
         <translation>भाषा बदल दी गई थी</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="658"/>
+        <location filename="../gui/MainWindow.cpp" line="659"/>
         <source>Language changed to %1. The change will take effect after restarting the wallet.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>The language will be changed after restarting the wallet.</source>
-        <translation>वॉलेट को रीस्टार्ट करने के बाद भाषा बदल दी जाएगी।</translation>
+        <translation type="vanished">वॉलेट को रीस्टार्ट करने के बाद भाषा बदल दी जाएगी।</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="668"/>
+        <location filename="../gui/MainWindow.cpp" line="669"/>
         <source>More info can be found at www.karbowanec.com in Documentation section</source>
         <translation>डॉक्यूमेंटेशन अनुभाग में www.karbowanec.com पर अधिक जानकारी मिल सकती है</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="693"/>
+        <location filename="../gui/MainWindow.cpp" line="694"/>
         <source>Connection settings changed</source>
         <translation>कनेक्शन सेटिंग्स बदल दी</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="693"/>
+        <location filename="../gui/MainWindow.cpp" line="694"/>
         <source>Connection mode will be changed after restarting the wallet.</source>
         <translation>वॉलेट को रीस्टार्ट करने के बाद कनेक्शन मोड बदल दिया जाएगा।</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="713"/>
+        <location filename="../gui/MainWindow.cpp" line="714"/>
         <source>Backup wallet to...</source>
         <translation>... में वॉलेट का बैकअप</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="733"/>
+        <location filename="../gui/MainWindow.cpp" line="734"/>
         <source>Warning</source>
         <translation>चेतावनी</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="733"/>
+        <location filename="../gui/MainWindow.cpp" line="734"/>
         <source>Your wallet will be reset and restored from blockchain.
 Are you sure?</source>
         <translation>आपका वॉलेट ब्लॉकचेन से रीसेट और रिस्टोर किया जाएगा। क्या आपको चाहते हैं?</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="894"/>
+        <location filename="../gui/MainWindow.cpp" line="895"/>
         <source>Wallet error</source>
         <translation>वॉलेट त्रुटि</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="897"/>
+        <location filename="../gui/MainWindow.cpp" line="898"/>
         <source>Wallet</source>
         <translation>वॉलेट</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="918"/>
+        <location filename="../gui/MainWindow.cpp" line="919"/>
         <source>Encrypted</source>
         <translation>एन्क्रिप्टेड</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="918"/>
+        <location filename="../gui/MainWindow.cpp" line="919"/>
         <source>Not encrypted</source>
         <translation>एन्क्रिप्ट नहीं किया गया</translation>
     </message>
     <message numerus="yes">
-        <location filename="../gui/MainWindow.cpp" line="926"/>
+        <location filename="../gui/MainWindow.cpp" line="927"/>
         <source>%n active connection(s)</source>
         <translation type="unfinished">
             <numerusform>%n सक्रिय कनेक्शन</numerusform>
@@ -2159,23 +2159,23 @@ Are you sure?</source>
         </translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="931"/>
+        <location filename="../gui/MainWindow.cpp" line="932"/>
         <source>Synchronization in progress</source>
         <translation>प्रगति पर सिंक्रनाइज़ेशन</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="938"/>
+        <location filename="../gui/MainWindow.cpp" line="940"/>
         <source>Not synchronized</source>
         <translation>सिंक्रोनाइज नहीं है</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="938"/>
+        <location filename="../gui/MainWindow.cpp" line="940"/>
         <source>Synchronized</source>
         <translation>सिंक्रनाइज़ है</translation>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="138"/>
-        <location filename="../gui/MainWindow.cpp" line="1041"/>
+        <location filename="../gui/MainWindow.cpp" line="1047"/>
         <source>Karbo Wallet %1</source>
         <translation>कार्बो वॉलेट %1</translation>
     </message>
@@ -2199,27 +2199,27 @@ Are you sure?</source>
     <name>WalletGui::MiningFrame</name>
     <message>
         <source>Mining in pool. Hashrate: %1 H/s</source>
-        <translation>पूल में माइनिंग. हैशरेट: %1  H/s</translation>
+        <translation type="vanished">पूल में माइनिंग. हैशरेट: %1  H/s</translation>
     </message>
     <message>
         <source>Mining solo. Hashrate: %1 H/s</source>
-        <translation>माइनिंग सोलो. हैशरेट: %1 H/s</translation>
+        <translation type="vanished">माइनिंग सोलो. हैशरेट: %1 H/s</translation>
     </message>
     <message>
         <source>Error: %1</source>
-        <translation>त्रुटि: %1</translation>
+        <translation type="vanished">त्रुटि: %1</translation>
     </message>
     <message>
         <source>Starting...</source>
-        <translation>शुरू हो रहा है...</translation>
+        <translation type="vanished">शुरू हो रहा है...</translation>
     </message>
     <message>
         <source>Stopped</source>
-        <translation>रोका हुआ</translation>
+        <translation type="vanished">रोका हुआ</translation>
     </message>
     <message>
         <source>Starting solo minining...</source>
-        <translation>सोलो माइनिंग शुरू...</translation>
+        <translation type="vanished">सोलो माइनिंग शुरू...</translation>
     </message>
 </context>
 <context>
@@ -2320,7 +2320,7 @@ Are you sure?</source>
     <name>WalletGui::PoolModel</name>
     <message>
         <source>Pool URL</source>
-        <translation>पूल URL</translation>
+        <translation type="vanished">पूल URL</translation>
     </message>
 </context>
 <context>
@@ -2396,32 +2396,38 @@ Are you sure?</source>
     </message>
     <message>
         <location filename="../gui/SendFrame.cpp" line="272"/>
-        <location filename="../gui/SendFrame.cpp" line="313"/>
+        <location filename="../gui/SendFrame.cpp" line="320"/>
         <source>Invalid recipient address</source>
         <translation>अमान्य प्राप्तकर्ता पता</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="352"/>
+        <location filename="../gui/SendFrame.cpp" line="302"/>
+        <location filename="../gui/SendFrame.cpp" line="439"/>
+        <source>Insufficient balance.</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../gui/SendFrame.cpp" line="359"/>
         <source>Incorrect fee value</source>
         <translation>गलत शुल्क मूल्य</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="361"/>
+        <location filename="../gui/SendFrame.cpp" line="368"/>
         <source>Insufficient balance</source>
         <translation>अपर्याप्त बैलेंस</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="361"/>
+        <location filename="../gui/SendFrame.cpp" line="368"/>
         <source>Available balance is insufficient to send this transaction. Have you excluded a fee?</source>
         <translation>उपलब्ध बैलेंस इस लेनदेन को भेजने के लिए अपर्याप्त है। क्या आपने शुल्क हटा लिया है?</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="368"/>
+        <location filename="../gui/SendFrame.cpp" line="375"/>
         <source>Invalid payment ID</source>
         <translation>अमान्य भुगतान आईडी</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="435"/>
+        <location filename="../gui/SendFrame.cpp" line="446"/>
         <source>You have unmixable dust on balance. Use menu &apos;Wallet -&gt; Sweep unmixable&apos; first.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2482,7 +2488,7 @@ when the wallet is synchronized</source>
 &lt;span style=&quot; font-weight:600;&quot;&gt;Payment ID: &lt;/span&gt;%7&lt;br&gt;
 &lt;span style=&quot; font-weight:600;&quot;&gt;Transaction Hash: &lt;/span&gt;%8&lt;br&gt;
 &lt;span style=&quot; font-weight:600;&quot;&gt;Transaction Key: &lt;/span&gt;%9&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+        <translation type="vanished">&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Cantarell&apos;; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Status: &lt;/span&gt;%1&lt;br&gt;
 &lt;span style=&quot; font-weight:600;&quot;&gt;तारीख: &lt;/span&gt;%2&lt;br&gt;
@@ -2539,8 +2545,8 @@ when the wallet is synchronized</source>
         </translation>
     </message>
     <message>
-        <location filename="../gui/TransactionDetailsDialog.cpp" line="72"/>
         <location filename="../gui/TransactionDetailsDialog.cpp" line="73"/>
+        <location filename="../gui/TransactionDetailsDialog.cpp" line="74"/>
         <source>(n/a)</source>
         <translation type="unfinished">(n/a)</translation>
     </message>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="ar" sourcelanguage="en">
+<TS version="2.1" language="ar" sourcelanguage="en">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -352,7 +352,7 @@
     </message>
     <message>
         <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet sends 0.25% fee from each transaction to the node, but no more than 10 KRB.</source>
-        <translation>ستتصل المحفظة بريمون بعيد يعمل على شبكة عالمية أو محلية. الرجاء
+        <translation type="vanished">ستتصل المحفظة بريمون بعيد يعمل على شبكة عالمية أو محلية. الرجاء
 تحديد الوحدة الأساسية أو حدد عنوان الأي بي أو اسم المجال والمنفذ. وفي هذا
 الوضع، ترسل المحفظة رسوماً بنسبة 0.25% كرسوم عل كل معاملة تتم في الوحدة
 الأساسية، ولكن لا تزيد عن أكثر من 10 KRB. </translation>
@@ -732,7 +732,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Mining</source>
-        <translation>تعدين</translation>
+        <translation type="vanished">تعدين</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="522"/>
@@ -747,7 +747,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Change language</source>
-        <translation>تغيير اللغة</translation>
+        <translation type="vanished">تغيير اللغة</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="530"/>
@@ -811,7 +811,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Start pool mining automatically</source>
-        <translation>بدء التعدين الجماعي تلقائياً</translation>
+        <translation type="vanished">بدء التعدين الجماعي تلقائياً</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="601"/>
@@ -823,51 +823,51 @@ Please wait...</source>
     <name>MiningFrame</name>
     <message>
         <source>Frame</source>
-        <translation>إطار </translation>
+        <translation type="vanished">إطار </translation>
     </message>
     <message>
         <source>Pool mining</source>
-        <translation>التعدين الجماعي</translation>
+        <translation type="vanished">التعدين الجماعي</translation>
     </message>
     <message>
         <source>Add pool</source>
-        <translation>إضافة طريق للتعدين</translation>
+        <translation type="vanished">إضافة طريق للتعدين</translation>
     </message>
     <message>
         <source>Select pool</source>
-        <translation>حدد طريقة التعدين</translation>
+        <translation type="vanished">حدد طريقة التعدين</translation>
     </message>
     <message>
         <source>Start mining</source>
-        <translation>بدء التعدين</translation>
+        <translation type="vanished">بدء التعدين</translation>
     </message>
     <message>
         <source>Stop mining</source>
-        <translation>إيقاف التعدين </translation>
+        <translation type="vanished">إيقاف التعدين </translation>
     </message>
     <message>
         <source>Stopped</source>
-        <translation>متوقف</translation>
+        <translation type="vanished">متوقف</translation>
     </message>
     <message>
         <source>Mining status:</source>
-        <translation>حالة التعدين</translation>
+        <translation type="vanished">حالة التعدين</translation>
     </message>
     <message>
         <source>Remove pool</source>
-        <translation>إزالة طريقة التعدين</translation>
+        <translation type="vanished">إزالة طريقة التعدين</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation>الإعدادات </translation>
+        <translation type="vanished">الإعدادات </translation>
     </message>
     <message>
         <source>CPU cores</source>
-        <translation>معالجات وحدة المعالجة المركزية</translation>
+        <translation type="vanished">معالجات وحدة المعالجة المركزية</translation>
     </message>
     <message>
         <source>Solo mining</source>
-        <translation>تعدين فردي</translation>
+        <translation type="vanished">تعدين فردي</translation>
     </message>
 </context>
 <context>
@@ -986,23 +986,23 @@ Please wait...</source>
     <name>NewPoolDialog</name>
     <message>
         <source>New pool</source>
-        <translation>طريقة تعدين جديدة</translation>
+        <translation type="vanished">طريقة تعدين جديدة</translation>
     </message>
     <message>
         <source>Host:</source>
-        <translation>المضيف:</translation>
+        <translation type="vanished">المضيف:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation>المنفذ:</translation>
+        <translation type="vanished">المنفذ:</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>إلغاء</translation>
+        <translation type="vanished">إلغاء</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation>موافق</translation>
+        <translation type="vanished">موافق</translation>
     </message>
 </context>
 <context>
@@ -1213,7 +1213,7 @@ Please wait...</source>
     <name>PrivateKeysDialog</name>
     <message>
         <source>Private Key</source>
-        <translation>مفتاح خاص</translation>
+        <translation type="vanished">مفتاح خاص</translation>
     </message>
     <message>
         <location filename="../gui/ui/privatekeysdialog.ui" line="26"/>
@@ -1244,7 +1244,7 @@ Please wait...</source>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="665"/>
+        <location filename="../gui/MainWindow.cpp" line="666"/>
         <location filename="../main.cpp" line="70"/>
         <source>Help</source>
         <translation>مساعدة</translation>
@@ -1393,7 +1393,7 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>Anonymity level:</source>
-        <translation>مستوى سرية الهوية:</translation>
+        <translation type="vanished">مستوى سرية الهوية:</translation>
     </message>
     <message>
         <location filename="../gui/ui/sendframe.ui" line="167"/>
@@ -1402,11 +1402,11 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>Fee:</source>
-        <translation>الرسوم:</translation>
+        <translation type="vanished">الرسوم:</translation>
     </message>
     <message>
         <source>PaymentID:</source>
-        <translation> رقم الدفع:</translation>
+        <translation type="vanished"> رقم الدفع:</translation>
     </message>
     <message>
         <location filename="../gui/ui/sendframe.ui" line="127"/>
@@ -1475,7 +1475,7 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>Remote node mode</source>
-        <translation>وضع الوحدة البعيدة</translation>
+        <translation type="vanished">وضع الوحدة البعيدة</translation>
     </message>
     <message>
         <location filename="../gui/ui/sendframe.ui" line="507"/>
@@ -1738,7 +1738,7 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>Copy Payment &amp;</source>
-        <translation>نسخ رقم الدفع</translation>
+        <translation type="vanished">نسخ رقم الدفع</translation>
     </message>
     <message>
         <location filename="../gui/AddressBookFrame.cpp" line="34"/>
@@ -1817,7 +1817,7 @@ Do you want to go to download page?</source>
     <name>WalletGui::CommandLineParser</name>
     <message>
         <source>Used to deploy test nets. Checkpoints and hardcoded seeds are ignored, network id is changed. Use it with вЂ“data-dir flag. The wallet must be launched with вЂ“testnet flag</source>
-        <translation>تستخدم لنشر شبكات الاختبار. تم تجاهل البلوكات والكلمات الضمنية ، وتم تغيير معرف الشبكة. استخدم أمر data-dir flag. يجب أن يتم إطلاق المحفظة باستخدام أمر testnet flag. </translation>
+        <translation type="vanished">تستخدم لنشر شبكات الاختبار. تم تجاهل البلوكات والكلمات الضمنية ، وتم تغيير معرف الشبكة. استخدم أمر data-dir flag. يجب أن يتم إطلاق المحفظة باستخدام أمر testnet flag. </translation>
     </message>
     <message>
         <location filename="../CommandLineParser.cpp" line="15"/>
@@ -1947,7 +1947,7 @@ Do you want to go to download page?</source>
 <context>
     <name>WalletGui::GetBalanceProofDialog</name>
     <message>
-        <location filename="../gui/GetBalanceProofDialog.cpp" line="57"/>
+        <location filename="../gui/GetBalanceProofDialog.cpp" line="62"/>
         <source>Save as</source>
         <translation>حفظ في الملف</translation>
     </message>
@@ -2021,7 +2021,7 @@ Do you want to go to download page?</source>
     <message>
         <location filename="../gui/MainWindow.cpp" line="338"/>
         <location filename="../gui/MainWindow.cpp" line="367"/>
-        <location filename="../gui/MainWindow.cpp" line="720"/>
+        <location filename="../gui/MainWindow.cpp" line="721"/>
         <source>Wallets (*.wallet)</source>
         <translation>المحافظ (*. wallet)</translation>
     </message>
@@ -2094,87 +2094,87 @@ Do you want to go to download page?</source>
         <translation>مفتاح العرض الخاص الذي أدخلته غير صالح.</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="573"/>
+        <location filename="../gui/MainWindow.cpp" line="574"/>
         <source>Mnemonic seed is not correct</source>
         <translation> كلمة استرجاع المحفظة غير صحيحة</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="573"/>
+        <location filename="../gui/MainWindow.cpp" line="574"/>
         <source>There must be an error in mnemonic seed. Make sure you entered it correctly.</source>
         <translation>لابد أن هناك خطأ في كلمة استرجاع المحفظة. تأكد من إدخالها بشكل صحيح.</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="656"/>
+        <location filename="../gui/MainWindow.cpp" line="657"/>
         <source>Language changed to %1</source>
         <translation type="unfinished">%1 تم تغيير اللغة</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="657"/>
+        <location filename="../gui/MainWindow.cpp" line="658"/>
         <source>Language was changed</source>
         <translation>تم تغيير اللغة</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="658"/>
+        <location filename="../gui/MainWindow.cpp" line="659"/>
         <source>Language changed to %1. The change will take effect after restarting the wallet.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>The language will be changed after restarting the wallet.</source>
-        <translation>سيتم تغيير اللغة بعد إعادة تشغيل المحفظة.</translation>
+        <translation type="vanished">سيتم تغيير اللغة بعد إعادة تشغيل المحفظة.</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="668"/>
+        <location filename="../gui/MainWindow.cpp" line="669"/>
         <source>More info can be found at www.karbowanec.com in Documentation section</source>
         <translation>يمكن العثور على مزيد من المعلومات على www.karbowanec.com في قسم الوثائق.</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="693"/>
+        <location filename="../gui/MainWindow.cpp" line="694"/>
         <source>Connection settings changed</source>
         <translation>تم تغيير إعدادات الاتصال</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="693"/>
+        <location filename="../gui/MainWindow.cpp" line="694"/>
         <source>Connection mode will be changed after restarting the wallet.</source>
         <translation>سيتم تغيير وضع الاتصال بعد إعادة تشغيل المحفظة.</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="713"/>
+        <location filename="../gui/MainWindow.cpp" line="714"/>
         <source>Backup wallet to...</source>
         <translation>حفظ المحفظة في...</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="733"/>
+        <location filename="../gui/MainWindow.cpp" line="734"/>
         <source>Warning</source>
         <translation>تحذير</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="733"/>
+        <location filename="../gui/MainWindow.cpp" line="734"/>
         <source>Your wallet will be reset and restored from blockchain.
 Are you sure?</source>
         <translation>سيتم إعادة تعيين محفظتك، واستعادتها من البلوكتشين. هل أنت متأكد من ذلك؟</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="894"/>
+        <location filename="../gui/MainWindow.cpp" line="895"/>
         <source>Wallet error</source>
         <translation>خطأ في المحفظة</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="897"/>
+        <location filename="../gui/MainWindow.cpp" line="898"/>
         <source>Wallet</source>
         <translation>المحفظة</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="918"/>
+        <location filename="../gui/MainWindow.cpp" line="919"/>
         <source>Encrypted</source>
         <translation>مشفر</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="918"/>
+        <location filename="../gui/MainWindow.cpp" line="919"/>
         <source>Not encrypted</source>
         <translation>غير مشفر</translation>
     </message>
     <message numerus="yes">
-        <location filename="../gui/MainWindow.cpp" line="926"/>
+        <location filename="../gui/MainWindow.cpp" line="927"/>
         <source>%n active connection(s)</source>
         <translation>
             <numerusform>٪ n اتصال نشط</numerusform>
@@ -2186,23 +2186,23 @@ Are you sure?</source>
         </translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="931"/>
+        <location filename="../gui/MainWindow.cpp" line="932"/>
         <source>Synchronization in progress</source>
         <translation>التزامن جارٍ</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="938"/>
+        <location filename="../gui/MainWindow.cpp" line="940"/>
         <source>Not synchronized</source>
         <translation>غير متزامن</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="938"/>
+        <location filename="../gui/MainWindow.cpp" line="940"/>
         <source>Synchronized</source>
         <translation>متزامن</translation>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="138"/>
-        <location filename="../gui/MainWindow.cpp" line="1041"/>
+        <location filename="../gui/MainWindow.cpp" line="1047"/>
         <source>Karbo Wallet %1</source>
         <translation>محفظة 1% Karbo </translation>
     </message>
@@ -2231,27 +2231,27 @@ Are you sure?</source>
     <name>WalletGui::MiningFrame</name>
     <message>
         <source>Mining in pool. Hashrate: %1 H/s</source>
-        <translation>التعدين في نظام جماعي. سرعة العملية: %1 H/s</translation>
+        <translation type="vanished">التعدين في نظام جماعي. سرعة العملية: %1 H/s</translation>
     </message>
     <message>
         <source>Mining solo. Hashrate: %1 H/s</source>
-        <translation>التعدين الفردي. سرعة العملية: %1 H/s</translation>
+        <translation type="vanished">التعدين الفردي. سرعة العملية: %1 H/s</translation>
     </message>
     <message>
         <source>Error: %1</source>
-        <translation>خطأ: 1%</translation>
+        <translation type="vanished">خطأ: 1%</translation>
     </message>
     <message>
         <source>Starting...</source>
-        <translation>جار البدء...</translation>
+        <translation type="vanished">جار البدء...</translation>
     </message>
     <message>
         <source>Stopped</source>
-        <translation>متوقف</translation>
+        <translation type="vanished">متوقف</translation>
     </message>
     <message>
         <source>Starting solo minining...</source>
-        <translation>جار بدء التعدين الفردي... </translation>
+        <translation type="vanished">جار بدء التعدين الفردي... </translation>
     </message>
 </context>
 <context>
@@ -2352,7 +2352,7 @@ Are you sure?</source>
     <name>WalletGui::PoolModel</name>
     <message>
         <source>Pool URL</source>
-        <translation>رابط نظام التعدين</translation>
+        <translation type="vanished">رابط نظام التعدين</translation>
     </message>
 </context>
 <context>
@@ -2428,32 +2428,38 @@ Are you sure?</source>
     </message>
     <message>
         <location filename="../gui/SendFrame.cpp" line="272"/>
-        <location filename="../gui/SendFrame.cpp" line="313"/>
+        <location filename="../gui/SendFrame.cpp" line="320"/>
         <source>Invalid recipient address</source>
         <translation>عنوان المستلم غير صالح</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="352"/>
+        <location filename="../gui/SendFrame.cpp" line="302"/>
+        <location filename="../gui/SendFrame.cpp" line="439"/>
+        <source>Insufficient balance.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gui/SendFrame.cpp" line="359"/>
         <source>Incorrect fee value</source>
         <translation>قيمة رسوم غير صحيحة</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="361"/>
+        <location filename="../gui/SendFrame.cpp" line="368"/>
         <source>Insufficient balance</source>
         <translation>رصيد غير كافٍ</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="361"/>
+        <location filename="../gui/SendFrame.cpp" line="368"/>
         <source>Available balance is insufficient to send this transaction. Have you excluded a fee?</source>
         <translation>الرصيد المتاح غير كاف لإرسال هذه المعاملة. هل استثنيت الرسوم؟</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="368"/>
+        <location filename="../gui/SendFrame.cpp" line="375"/>
         <source>Invalid payment ID</source>
         <translation>رقم دفع غير صالح</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="435"/>
+        <location filename="../gui/SendFrame.cpp" line="446"/>
         <source>You have unmixable dust on balance. Use menu &apos;Wallet -&gt; Sweep unmixable&apos; first.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2542,8 +2548,8 @@ when the wallet is synchronized</source>
         </translation>
     </message>
     <message>
-        <location filename="../gui/TransactionDetailsDialog.cpp" line="72"/>
         <location filename="../gui/TransactionDetailsDialog.cpp" line="73"/>
+        <location filename="../gui/TransactionDetailsDialog.cpp" line="74"/>
         <source>(n/a)</source>
         <translation>(غير متطابق)</translation>
     </message>

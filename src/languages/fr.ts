@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="fr_FR" sourcelanguage="en">
+<TS version="2.1" language="fr_FR" sourcelanguage="en">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -13,7 +13,7 @@
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Karbowanec v. %1&lt;/p&gt;&lt;p&gt;This is the next generation anonymous cryptocurrency based on CryptoNote.&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2015. CryptoNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2015-2016. DigitalNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2016-2017. Karbowanec Developers&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://opensource.org/licenses/MIT&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://cryptonote.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://cryptonote.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://karbowanec.com/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://karbowanec.com/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Karbowanec v. %1&lt;/p&gt;&lt;p&gt;Ceci est la crypto-monnaie anonyme de la prochaine génération basée sur CryptoNote.&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2015. CryptoNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2015-2016. DigitalNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2016-2017. Karbowanec Developers&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://opensource.org/licenses/MIT&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://cryptonote.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://cryptonote.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://karbowanec.com/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://karbowanec.com/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+        <translation type="vanished">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Karbowanec v. %1&lt;/p&gt;&lt;p&gt;Ceci est la crypto-monnaie anonyme de la prochaine génération basée sur CryptoNote.&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2015. CryptoNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2015-2016. DigitalNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2016-2017. Karbowanec Developers&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://opensource.org/licenses/MIT&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://cryptonote.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://cryptonote.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://karbowanec.com/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://karbowanec.com/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Karbo v. %1&lt;/p&gt;&lt;p&gt;This is the next generation anonymous cryptocurrency based on CryptoNote.&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2015. CryptoNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2012-2016. Bytecoin Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2015-2016. DigitalNote Developers&lt;/p&gt;&lt;p&gt;Copyright (c) 2016-2018. Karbo (Karbowanec) Developers&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://opensource.org/licenses/MIT&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://cryptonote.org/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://cryptonote.org/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://karbo.io/&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;http://karbo.io/&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;THE SOFTWARE IS PROVIDED &amp;quot;AS IS&amp;quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
@@ -24,7 +24,7 @@
     <name>AccountFrame</name>
     <message>
         <source>Address:</source>
-        <translation>Adresse:</translation>
+        <translation type="vanished">Adresse:</translation>
     </message>
     <message>
         <source>...</source>
@@ -32,7 +32,7 @@
     </message>
     <message>
         <source>Show private key</source>
-        <translation>Afficher la clé privée</translation>
+        <translation type="vanished">Afficher la clé privée</translation>
     </message>
     <message>
         <source>Your account:</source>
@@ -90,11 +90,11 @@
     </message>
     <message>
         <source>New address</source>
-        <translation>Nouvelle adresse</translation>
+        <translation type="vanished">Nouvelle adresse</translation>
     </message>
     <message>
         <source>Delete address</source>
-        <translation>Supprimer l&apos;adresse</translation>
+        <translation type="vanished">Supprimer l&apos;adresse</translation>
     </message>
     <message>
         <source>Copy address</source>
@@ -133,15 +133,15 @@
     </message>
     <message>
         <source>Ukrainian</source>
-        <translation>Ukrainien</translation>
+        <translation type="vanished">Ukrainien</translation>
     </message>
     <message>
         <source>Russian</source>
-        <translation>Russe</translation>
+        <translation type="vanished">Russe</translation>
     </message>
     <message>
         <source>Polish</source>
-        <translation>Polonais</translation>
+        <translation type="vanished">Polonais</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -153,7 +153,7 @@
     </message>
     <message>
         <source>Belarusian</source>
-        <translation>Biélorusse</translation>
+        <translation type="vanished">Biélorusse</translation>
     </message>
     <message>
         <source>Українська</source>
@@ -223,7 +223,7 @@
     <name>ConfirmSendDialog</name>
     <message>
         <source>Comfirm sending %1 KRB</source>
-        <translation>Confirmer l&apos;envoi de %1 KRB</translation>
+        <translation type="vanished">Confirmer l&apos;envoi de %1 KRB</translation>
     </message>
     <message>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Are you sure you want to send &lt;strong&gt;%1 KRB&lt;/strong&gt;?&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
@@ -380,11 +380,11 @@ S&apos;il vous plaît, patientez...</translation>
     </message>
     <message>
         <source>Wallet path:</source>
-        <translation>Chemin du portefeuille:</translation>
+        <translation type="vanished">Chemin du portefeuille:</translation>
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="vanished">...</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -411,7 +411,7 @@ S&apos;il vous plaît, patientez...</translation>
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="vanished">...</translation>
     </message>
     <message>
         <source>Key:</source>
@@ -419,7 +419,7 @@ S&apos;il vous plaît, patientez...</translation>
     </message>
     <message>
         <source>Wallet path:</source>
-        <translation>Chemin du portefeuille:</translation>
+        <translation type="vanished">Chemin du portefeuille:</translation>
     </message>
     <message>
         <source>Import a tracking key of a wallet to see all its incoming transactions. It doesn&apos;t allow spending funds.</source>
@@ -541,7 +541,7 @@ S&apos;il vous plaît, patientez...</translation>
     </message>
     <message>
         <source>Address Book</source>
-        <translation>Carnet d&apos;adresses</translation>
+        <translation type="vanished">Carnet d&apos;adresses</translation>
     </message>
     <message>
         <source>Create wallet</source>
@@ -589,7 +589,7 @@ S&apos;il vous plaît, patientez...</translation>
     </message>
     <message>
         <source>Mining</source>
-        <translation>Mining</translation>
+        <translation type="vanished">Mining</translation>
     </message>
     <message>
         <source>Reset wallet</source>
@@ -605,11 +605,11 @@ S&apos;il vous plaît, patientez...</translation>
     </message>
     <message>
         <source>Change language</source>
-        <translation>Changer la langue</translation>
+        <translation type="vanished">Changer la langue</translation>
     </message>
     <message>
         <source>Show private key</source>
-        <translation>Afficher la clé privée</translation>
+        <translation type="vanished">Afficher la clé privée</translation>
     </message>
     <message>
         <source>F1</source>
@@ -653,11 +653,11 @@ S&apos;il vous plaît, patientez...</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation>Statut</translation>
+        <translation type="vanished">Statut</translation>
     </message>
     <message>
         <source>Tools</source>
-        <translation>Outils</translation>
+        <translation type="vanished">Outils</translation>
     </message>
     <message>
         <source>Open log file</source>
@@ -677,7 +677,7 @@ S&apos;il vous plaît, patientez...</translation>
     </message>
     <message>
         <source>Start pool mining automatically</source>
-        <translation>Démarrer l&apos;exploration de la piscine automatiquement</translation>
+        <translation type="vanished">Démarrer l&apos;exploration de la piscine automatiquement</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -708,63 +708,63 @@ S&apos;il vous plaît, patientez...</translation>
     <name>MiningFrame</name>
     <message>
         <source>Frame</source>
-        <translation>Cadre</translation>
+        <translation type="vanished">Cadre</translation>
     </message>
     <message>
         <source>Mining status</source>
-        <translation>Statut minier</translation>
+        <translation type="vanished">Statut minier</translation>
     </message>
     <message>
         <source>CPU cores</source>
-        <translation>Cœurs de processeurs</translation>
+        <translation type="vanished">Cœurs de processeurs</translation>
     </message>
     <message>
         <source>Select pool</source>
-        <translation>Sélectionnez le groupement</translation>
+        <translation type="vanished">Sélectionnez le groupement</translation>
     </message>
     <message>
         <source>Stopped</source>
-        <translation>Arrêté</translation>
+        <translation type="vanished">Arrêté</translation>
     </message>
     <message>
         <source>Add pool</source>
-        <translation>Ajouter le groupment</translation>
+        <translation type="vanished">Ajouter le groupment</translation>
     </message>
     <message>
         <source>Start mining</source>
-        <translation>Démarrer l&apos;exploitation</translation>
+        <translation type="vanished">Démarrer l&apos;exploitation</translation>
     </message>
     <message>
         <source>Pause mining</source>
-        <translation>Pauser l&apos;exploitation</translation>
+        <translation type="vanished">Pauser l&apos;exploitation</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation>Paramètres</translation>
+        <translation type="vanished">Paramètres</translation>
     </message>
     <message>
         <source>Pool mining</source>
-        <translation>L&apos;exploitation de groupment</translation>
+        <translation type="vanished">L&apos;exploitation de groupment</translation>
     </message>
     <message>
         <source>Stop mining</source>
-        <translation>Arrêter l&apos;exploitation</translation>
+        <translation type="vanished">Arrêter l&apos;exploitation</translation>
     </message>
     <message>
         <source>Solo mining</source>
-        <translation>Exploitation solo</translation>
+        <translation type="vanished">Exploitation solo</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation>Statut</translation>
+        <translation type="vanished">Statut</translation>
     </message>
     <message>
         <source>Remove pool</source>
-        <translation>Supprimer le groupment</translation>
+        <translation type="vanished">Supprimer le groupment</translation>
     </message>
     <message>
         <source>Mining status:</source>
-        <translation>Statut de l&apos;exploitation:</translation>
+        <translation type="vanished">Statut de l&apos;exploitation:</translation>
     </message>
 </context>
 <context>
@@ -863,23 +863,23 @@ S&apos;il vous plaît, patientez...</translation>
     <name>NewPoolDialog</name>
     <message>
         <source>New pool</source>
-        <translation>Nouveau groupment</translation>
+        <translation type="vanished">Nouveau groupment</translation>
     </message>
     <message>
         <source>Host:</source>
-        <translation>Host:</translation>
+        <translation type="vanished">Host:</translation>
     </message>
     <message>
         <source>Port:</source>
-        <translation>Port:</translation>
+        <translation type="vanished">Port:</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Annuler</translation>
+        <translation type="vanished">Annuler</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation>OK</translation>
+        <translation type="vanished">OK</translation>
     </message>
 </context>
 <context>
@@ -995,7 +995,7 @@ S&apos;il vous plaît, patientez...</translation>
     </message>
     <message>
         <source>Wallet</source>
-        <translation>Portefeuille</translation>
+        <translation type="vanished">Portefeuille</translation>
     </message>
     <message>
         <source>Unconfirmed:</source>
@@ -1003,7 +1003,7 @@ S&apos;il vous plaît, patientez...</translation>
     </message>
     <message>
         <source>Balance:</source>
-        <translation>Balance:</translation>
+        <translation type="vanished">Balance:</translation>
     </message>
     <message>
         <source>Recent transactions</source>
@@ -1060,7 +1060,7 @@ S&apos;il vous plaît, patientez...</translation>
     <name>PrivateKeysDialog</name>
     <message>
         <source>Private Key</source>
-        <translation>Clé privée</translation>
+        <translation type="vanished">Clé privée</translation>
     </message>
     <message>
         <source>Close</source>
@@ -1068,7 +1068,7 @@ S&apos;il vous plaît, patientez...</translation>
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="vanished">...</translation>
     </message>
     <message>
         <source>Copy key</source>
@@ -1148,7 +1148,7 @@ Voulez-vous aller à la page de téléchargement?</translation>
     </message>
     <message>
         <source>Enter a label for this payer</source>
-        <translation>Entrez un label pour ce payeur</translation>
+        <translation type="vanished">Entrez un label pour ce payeur</translation>
     </message>
     <message>
         <source>Amount:</source>
@@ -1191,11 +1191,11 @@ Voulez-vous aller à la page de téléchargement?</translation>
     </message>
     <message>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="vanished">...</translation>
     </message>
     <message>
         <source>Wallet path:</source>
-        <translation>Chemin du portefeuille:</translation>
+        <translation type="vanished">Chemin du portefeuille:</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1222,11 +1222,11 @@ Voulez-vous aller à la page de téléchargement?</translation>
     </message>
     <message>
         <source>Anonimity level:</source>
-        <translation>Niveau d&apos;anonymat:</translation>
+        <translation type="vanished">Niveau d&apos;anonymat:</translation>
     </message>
     <message>
         <source>PaymentID:</source>
-        <translation>ID de paiement:</translation>
+        <translation type="vanished">ID de paiement:</translation>
     </message>
     <message>
         <source>Send</source>
@@ -1242,11 +1242,11 @@ Voulez-vous aller à la page de téléchargement?</translation>
     </message>
     <message>
         <source>Balance:</source>
-        <translation>Balance:</translation>
+        <translation type="vanished">Balance:</translation>
     </message>
     <message>
         <source>Fee:</source>
-        <translation>Frais:</translation>
+        <translation type="vanished">Frais:</translation>
     </message>
     <message>
         <source>Payment identifier issued by payee (exchange, shop or other entity)</source>
@@ -1266,7 +1266,7 @@ Voulez-vous aller à la page de téléchargement?</translation>
     </message>
     <message>
         <source>Remote node mode</source>
-        <translation>Mode noeud distant</translation>
+        <translation type="vanished">Mode noeud distant</translation>
     </message>
     <message>
         <source>Available balance:</source>
@@ -1274,7 +1274,7 @@ Voulez-vous aller à la page de téléchargement?</translation>
     </message>
     <message>
         <source>Anonymity level:</source>
-        <translation>Niveau de confidentialité:</translation>
+        <translation type="vanished">Niveau de confidentialité:</translation>
     </message>
     <message>
         <source>Payment ID:</source>
@@ -1432,11 +1432,11 @@ Voulez-vous aller à la page de téléchargement?</translation>
     </message>
     <message>
         <source>Label:</source>
-        <translation>Label:</translation>
+        <translation type="vanished">Label:</translation>
     </message>
     <message>
         <source>Add to Contacts:</source>
-        <translation>Ajouter aux contacts:</translation>
+        <translation type="vanished">Ajouter aux contacts:</translation>
     </message>
     <message>
         <source>Select recipient from Address Book</source>
@@ -1448,7 +1448,7 @@ Voulez-vous aller à la page de téléchargement?</translation>
     </message>
     <message>
         <source>Save to Contacts:</source>
-        <translation>Enregistrer dans les contacts:</translation>
+        <translation type="vanished">Enregistrer dans les contacts:</translation>
     </message>
     <message>
         <source>Save to Contacts as:</source>
@@ -1508,11 +1508,11 @@ Voulez-vous aller à la page de téléchargement?</translation>
     <name>WalletGui::AccountFrame</name>
     <message>
         <source>Hide private keys</source>
-        <translation>Cacher les clés privées</translation>
+        <translation type="vanished">Cacher les clés privées</translation>
     </message>
     <message>
         <source>Show private keys</source>
-        <translation>Afficher les clés privées</translation>
+        <translation type="vanished">Afficher les clés privées</translation>
     </message>
     <message>
         <source>Copied to clipboard</source>
@@ -1535,7 +1535,7 @@ Voulez-vous aller à la page de téléchargement?</translation>
     </message>
     <message>
         <source>Contact with such label and address already exists.</source>
-        <translation>Le contact avec cet label et adresse existe déjà.</translation>
+        <translation type="vanished">Le contact avec cet label et adresse existe déjà.</translation>
     </message>
     <message>
         <source>Copy &amp;label</source>
@@ -1715,7 +1715,7 @@ Voulez-vous aller à la page de téléchargement?</translation>
     </message>
     <message>
         <source>Tracking wallets (*.trackingwallet)</source>
-        <translation>Suivi des portefeuilles (*.trackingwallet)</translation>
+        <translation type="vanished">Suivi des portefeuilles (*.trackingwallet)</translation>
     </message>
     <message>
         <source>Tracking wallets (*.wallet)</source>
@@ -1795,7 +1795,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>%1 peers</source>
-        <translation>%1 peers</translation>
+        <translation type="vanished">%1 peers</translation>
     </message>
     <message>
         <source>Synchronization in progress</source>
@@ -1811,7 +1811,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>The language will be changed after restarting the wallet.</source>
-        <translation>La langue changera après le redémarrage du portefeuille.</translation>
+        <translation type="vanished">La langue changera après le redémarrage du portefeuille.</translation>
     </message>
     <message>
         <source>Language was changed</source>
@@ -1819,7 +1819,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>%1 Wallet %2</source>
-        <translation>%1 Portefeuille %2</translation>
+        <translation type="vanished">%1 Portefeuille %2</translation>
     </message>
     <message>
         <source>More info can be found at www.karbowanec.com in Documentation section</source>
@@ -1835,7 +1835,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>Account toolbar</source>
-        <translation>Barre d&apos;outils du compte</translation>
+        <translation type="vanished">Barre d&apos;outils du compte</translation>
     </message>
     <message>
         <source>Tracking wallet. Spending unawailable</source>
@@ -1866,15 +1866,15 @@ Are you sure?</source>
     </message>
     <message>
         <source>Total amount: %1, hash: %2</source>
-        <translation>Montant total: %1, hash: %2</translation>
+        <translation type="vanished">Montant total: %1, hash: %2</translation>
     </message>
     <message>
         <source>Karbo Wallet</source>
-        <translation>Portefeuille Karbo</translation>
+        <translation type="vanished">Portefeuille Karbo</translation>
     </message>
     <message>
         <source>New transaction received</source>
-        <translation>Nouvelle transaction reçue</translation>
+        <translation type="vanished">Nouvelle transaction reçue</translation>
     </message>
     <message>
         <source>Mnemonic seed is not correct</source>
@@ -1941,31 +1941,31 @@ Are you sure?</source>
     <name>WalletGui::MiningFrame</name>
     <message>
         <source>Mining. Hashrate: %1 H/s</source>
-        <translation>L&apos;extraction. Hashrate: %1 H/s</translation>
+        <translation type="vanished">L&apos;extraction. Hashrate: %1 H/s</translation>
     </message>
     <message>
         <source>Error: %1</source>
-        <translation>Erreur: %1</translation>
+        <translation type="vanished">Erreur: %1</translation>
     </message>
     <message>
         <source>Starting...</source>
-        <translation>Départ...</translation>
+        <translation type="vanished">Départ...</translation>
     </message>
     <message>
         <source>Stopped</source>
-        <translation>Arrêté</translation>
+        <translation type="vanished">Arrêté</translation>
     </message>
     <message>
         <source>Mining solo. Hashrate: %1 H/s</source>
-        <translation>L&apos;extraction solo. Hashrate: %1 H/s</translation>
+        <translation type="vanished">L&apos;extraction solo. Hashrate: %1 H/s</translation>
     </message>
     <message>
         <source>Starting solo minining...</source>
-        <translation>Démarrage de l&apos;extraction en solo ...</translation>
+        <translation type="vanished">Démarrage de l&apos;extraction en solo ...</translation>
     </message>
     <message>
         <source>Mining in pool. Hashrate: %1 H/s</source>
-        <translation>L&apos;extraction en groupment. Hashrate: %1 H/s</translation>
+        <translation type="vanished">L&apos;extraction en groupment. Hashrate: %1 H/s</translation>
     </message>
 </context>
 <context>
@@ -2049,7 +2049,7 @@ Are you sure?</source>
     <name>WalletGui::PoolModel</name>
     <message>
         <source>Pool URL</source>
-        <translation>Engroupment du URL</translation>
+        <translation type="vanished">Engroupment du URL</translation>
     </message>
 </context>
 <context>
@@ -2071,7 +2071,7 @@ Are you sure?</source>
     <name>WalletGui::ReceiveFrame</name>
     <message>
         <source>New PNG file</source>
-        <translation>Nouveau fichier PNG</translation>
+        <translation type="vanished">Nouveau fichier PNG</translation>
     </message>
     <message>
         <source>Save QR Code</source>
@@ -2139,6 +2139,10 @@ Are you sure?</source>
         <source>You have unmixable dust on balance. Use menu &apos;Wallet -&gt; Sweep unmixable&apos; first.</source>
         <translation>Vous avez un équilibre immiscible. Utilisez d&apos;abord le menu &apos;Portefeuille -&gt; Balayer Non Mélangeables&apos;.</translation>
     </message>
+    <message>
+        <source>Insufficient balance.</source>
+        <translation>Solde insuffisant.</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::SendGlassFrame</name>
@@ -2188,7 +2192,7 @@ quand le portefeuille aura terminé la synchronisation</translation>
 &lt;span style=&quot; font-weight:600;&quot;&gt;Fee: &lt;/span&gt;%6&lt;/p&gt;&lt;br&gt;
 &lt;span style=&quot; font-weight:600;&quot;&gt;Payment ID: &lt;/span&gt;%7&lt;/p&gt;&lt;br&gt;
 &lt;span style=&quot; font-weight:600;&quot;&gt;Transaction hash: &lt;/span&gt;%8&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+        <translation type="vanished">&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Cantarell&apos;; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;span style=&quot; font-weight:600;&quot;&gt;Statut: &lt;/span&gt;%1&lt;/p&gt;&lt;br&gt;
 &lt;span style=&quot; font-weight:600;&quot;&gt;Date: &lt;/span&gt;%2&lt;/p&gt;&lt;br&gt;
@@ -2224,7 +2228,7 @@ quand le portefeuille aura terminé la synchronisation</translation>
 &lt;span style=&quot; font-weight:600;&quot;&gt;Payment ID: &lt;/span&gt;%7&lt;br&gt;
 &lt;span style=&quot; font-weight:600;&quot;&gt;Transaction Hash: &lt;/span&gt;%8&lt;br&gt;
 &lt;span style=&quot; font-weight:600;&quot;&gt;Transaction Key: &lt;/span&gt;%9&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation>&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+        <translation type="vanished">&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Cantarell&apos;; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Statut: &lt;/span&gt;%1&lt;br&gt;
 &lt;span style=&quot; font-weight:600;&quot;&gt;Date: &lt;/span&gt;%2&lt;br&gt;

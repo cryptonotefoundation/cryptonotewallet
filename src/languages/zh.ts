@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.0" language="zh" sourcelanguage="en">
+<TS version="2.1" language="zh" sourcelanguage="en">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -721,7 +721,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Mining</source>
-        <translation>挖矿</translation>
+        <translation type="vanished">挖矿</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="522"/>
@@ -736,7 +736,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Change language</source>
-        <translation>更换语言</translation>
+        <translation type="vanished">更换语言</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="530"/>
@@ -800,7 +800,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Start pool mining automatically</source>
-        <translation>自动开始从矿池挖矿</translation>
+        <translation type="vanished">自动开始从矿池挖矿</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="601"/>
@@ -1233,7 +1233,7 @@ Please wait...</source>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="665"/>
+        <location filename="../gui/MainWindow.cpp" line="666"/>
         <location filename="../main.cpp" line="70"/>
         <source>Help</source>
         <translation>帮助</translation>
@@ -1940,7 +1940,7 @@ Do you want to go to download page?</source>
 <context>
     <name>WalletGui::GetBalanceProofDialog</name>
     <message>
-        <location filename="../gui/GetBalanceProofDialog.cpp" line="57"/>
+        <location filename="../gui/GetBalanceProofDialog.cpp" line="62"/>
         <source>Save as</source>
         <translation>保存至文档</translation>
     </message>
@@ -2029,7 +2029,7 @@ Do you want to go to download page?</source>
     <message>
         <location filename="../gui/MainWindow.cpp" line="338"/>
         <location filename="../gui/MainWindow.cpp" line="367"/>
-        <location filename="../gui/MainWindow.cpp" line="720"/>
+        <location filename="../gui/MainWindow.cpp" line="721"/>
         <source>Wallets (*.wallet)</source>
         <translation>钱包（*.wallet）</translation>
     </message>
@@ -2102,27 +2102,27 @@ Do you want to go to download page?</source>
         <translation>您输入的检视私钥无效。</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="573"/>
+        <location filename="../gui/MainWindow.cpp" line="574"/>
         <source>Mnemonic seed is not correct</source>
         <translation>助记种子不正确</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="573"/>
+        <location filename="../gui/MainWindow.cpp" line="574"/>
         <source>There must be an error in mnemonic seed. Make sure you entered it correctly.</source>
         <translation>助记种子有误，请确保输入正确的数据。</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="656"/>
+        <location filename="../gui/MainWindow.cpp" line="657"/>
         <source>Language changed to %1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="657"/>
+        <location filename="../gui/MainWindow.cpp" line="658"/>
         <source>Language was changed</source>
         <translation>语言已更改</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="658"/>
+        <location filename="../gui/MainWindow.cpp" line="659"/>
         <source>Language changed to %1. The change will take effect after restarting the wallet.</source>
         <translation></translation>
     </message>
@@ -2131,81 +2131,81 @@ Do you want to go to download page?</source>
         <translation type="obsolete">语言更改会在重启钱包后生效</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="668"/>
+        <location filename="../gui/MainWindow.cpp" line="669"/>
         <source>More info can be found at www.karbowanec.com in Documentation section</source>
         <translation>更多信息请阅读www.karbowanec.com的文档部分。</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="693"/>
+        <location filename="../gui/MainWindow.cpp" line="694"/>
         <source>Connection settings changed</source>
         <translation>连接设置已更改</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="693"/>
+        <location filename="../gui/MainWindow.cpp" line="694"/>
         <source>Connection mode will be changed after restarting the wallet.</source>
         <translation>连接模式更改会在重启钱包后生效</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="713"/>
+        <location filename="../gui/MainWindow.cpp" line="714"/>
         <source>Backup wallet to...</source>
         <translation>备份钱包至...</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="733"/>
+        <location filename="../gui/MainWindow.cpp" line="734"/>
         <source>Warning</source>
         <translation>系统提醒</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="733"/>
+        <location filename="../gui/MainWindow.cpp" line="734"/>
         <source>Your wallet will be reset and restored from blockchain.
 Are you sure?</source>
         <translation>您的钱包将会被重置，并从区块链中恢复，您确定吗？</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="894"/>
+        <location filename="../gui/MainWindow.cpp" line="895"/>
         <source>Wallet error</source>
         <translation>钱包错误</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="897"/>
+        <location filename="../gui/MainWindow.cpp" line="898"/>
         <source>Wallet</source>
         <translation>钱包</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="918"/>
+        <location filename="../gui/MainWindow.cpp" line="919"/>
         <source>Encrypted</source>
         <translation>加密</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="918"/>
+        <location filename="../gui/MainWindow.cpp" line="919"/>
         <source>Not encrypted</source>
         <translation>未加密</translation>
     </message>
     <message numerus="yes">
-        <location filename="../gui/MainWindow.cpp" line="926"/>
+        <location filename="../gui/MainWindow.cpp" line="927"/>
         <source>%n active connection(s)</source>
         <translation>
             <numerusform>%n 有效连接</numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="931"/>
+        <location filename="../gui/MainWindow.cpp" line="932"/>
         <source>Synchronization in progress</source>
         <translation>正在同步中</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="938"/>
+        <location filename="../gui/MainWindow.cpp" line="940"/>
         <source>Not synchronized</source>
         <translation>未同步</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="938"/>
+        <location filename="../gui/MainWindow.cpp" line="940"/>
         <source>Synchronized</source>
         <translation>已同步</translation>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="138"/>
-        <location filename="../gui/MainWindow.cpp" line="1041"/>
+        <location filename="../gui/MainWindow.cpp" line="1047"/>
         <source>Karbo Wallet %1</source>
         <translation>Karbo钱包%1</translation>
     </message>
@@ -2416,32 +2416,38 @@ Are you sure?</source>
     </message>
     <message>
         <location filename="../gui/SendFrame.cpp" line="272"/>
-        <location filename="../gui/SendFrame.cpp" line="313"/>
+        <location filename="../gui/SendFrame.cpp" line="320"/>
         <source>Invalid recipient address</source>
         <translation>收件人地址无效</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="352"/>
+        <location filename="../gui/SendFrame.cpp" line="302"/>
+        <location filename="../gui/SendFrame.cpp" line="439"/>
+        <source>Insufficient balance.</source>
+        <translation>余额不足。</translation>
+    </message>
+    <message>
+        <location filename="../gui/SendFrame.cpp" line="359"/>
         <source>Incorrect fee value</source>
         <translation>费用数值不正确</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="361"/>
+        <location filename="../gui/SendFrame.cpp" line="368"/>
         <source>Insufficient balance</source>
         <translation>余额不足</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="361"/>
+        <location filename="../gui/SendFrame.cpp" line="368"/>
         <source>Available balance is insufficient to send this transaction. Have you excluded a fee?</source>
         <translation>可用余额不足，无法发送本次交易。您是否已包括交易手续费在内？</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="368"/>
+        <location filename="../gui/SendFrame.cpp" line="375"/>
         <source>Invalid payment ID</source>
         <translation>付款ID无效</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="435"/>
+        <location filename="../gui/SendFrame.cpp" line="446"/>
         <source>You have unmixable dust on balance. Use menu &apos;Wallet -&gt; Sweep unmixable&apos; first.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2525,8 +2531,8 @@ when the wallet is synchronized</source>
         </translation>
     </message>
     <message>
-        <location filename="../gui/TransactionDetailsDialog.cpp" line="72"/>
         <location filename="../gui/TransactionDetailsDialog.cpp" line="73"/>
+        <location filename="../gui/TransactionDetailsDialog.cpp" line="74"/>
         <source>(n/a)</source>
         <translation>(n/a)</translation>
     </message>
