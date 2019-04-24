@@ -125,6 +125,7 @@ set(CRYPTONOTE_SOURCES
   cryptonote/src/Serialization/JsonOutputStreamSerializer.cpp
   cryptonote/src/Serialization/KVBinaryInputStreamSerializer.cpp
   cryptonote/src/Serialization/KVBinaryOutputStreamSerializer.cpp
+  cryptonote/src/Serialization/BlockchainExplorerDataSerialization.cpp
   cryptonote/src/Serialization/SerializationOverloads.cpp
   cryptonote/src/Transfers/BlockchainSynchronizer.cpp
   cryptonote/src/Transfers/SynchronizationState.cpp
@@ -180,7 +181,7 @@ set(CRYPTONOTE_SOURCES
 file(GLOB_RECURSE SOURCES src/*.cpp)
 file(GLOB_RECURSE HEADERS src/*.h)
 file(GLOB_RECURSE FORMS src/gui/ui/*.ui)
-file(GLOB_RECURSE Mnemonics cryptonote/src/mnemonics/*)
+file(GLOB_RECURSE Mnemonics cryptonote/src/Mnemonics/*)
 
 set(QRC src/resources.qrc)
 
