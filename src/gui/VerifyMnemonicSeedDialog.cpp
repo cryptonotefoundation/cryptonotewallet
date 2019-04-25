@@ -6,7 +6,7 @@
 #include "ui_verifymnemonicseeddialog.h"
 #include "CurrencyAdapter.h"
 #include "WalletAdapter.h"
-#include "mnemonics/electrum-words.h"
+#include "Mnemonics/electrum-words.h"
 #include "Settings.h"
 
 namespace WalletGui {
