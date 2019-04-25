@@ -55,7 +55,7 @@
 #include "macdockiconhandler.h"
 #endif
 
-#include "mnemonics/electrum-words.h"
+#include "Mnemonics/electrum-words.h"
 
 extern "C"
 {
