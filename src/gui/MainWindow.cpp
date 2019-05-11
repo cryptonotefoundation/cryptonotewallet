@@ -970,6 +970,8 @@ void MainWindow::walletOpened(bool _error, const QString& _error_text) {
       action->setEnabled(true);
     }
 
+    setWindowTitle(QString(tr("%1 - Karbo Wallet %2")).arg(Settings::instance().getWalletFile()).arg(Settings::instance().getVersion()));
+
     m_ui->m_overviewAction->trigger();
     accountWidget->setVisible(true);
     m_ui->m_overviewFrame->show();
@@ -1014,6 +1016,9 @@ void MainWindow::walletClosed() {
   m_encryptionStateIconLabel->hide();
   m_trackingModeIconLabel->hide();
   m_synchronizationStateIconLabel->hide();
+
+  setWindowTitle(QString(tr("Karbo Wallet %2")).arg(Settings::instance().getVersion()));
+
   QList<QAction*> tabActions = m_tabActionGroup->actions();
   Q_FOREACH(auto action, tabActions) {
     action->setEnabled(false);
