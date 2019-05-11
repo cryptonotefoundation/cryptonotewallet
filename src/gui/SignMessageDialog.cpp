@@ -79,7 +79,7 @@ void SignMessageDialog::verifyMessage() {
     const size_t header_len = strlen("SigV1");
     std::string decoded;
     Crypto::Signature s;
-    if (!signature.size() < header_len && signature.substr(0, header_len) == "SigV1" &&
+    if (!(signature.size() < header_len) && signature.substr(0, header_len) == "SigV1" &&
       Tools::Base58::decode(signature.substr(header_len), decoded) && sizeof(s) == decoded.size()) {
       memcpy(&s, decoded.data(), sizeof(s));
       if (Crypto::check_signature(hash, acc.spendPublicKey, s)) {
