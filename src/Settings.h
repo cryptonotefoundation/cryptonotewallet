@@ -37,6 +37,7 @@ public:
   QStringList getSeedNodes() const;
 
   QString getWalletFile() const;
+  QString getWalletName() const;
   QStringList getRecentWalletsList() const;
   QString getAddressBookFile() const;
   QString getVersion() const;

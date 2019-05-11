@@ -185,6 +185,11 @@ QString Settings::getWalletFile() const {
     getDataDir().absoluteFilePath(QCoreApplication::applicationName() + ".wallet");
 }
 
+QString Settings::getWalletName() const {
+  QFileInfo fi(getWalletFile());
+  return fi.fileName();
+}
+
 QStringList Settings::getRecentWalletsList() const {
    QStringList recent_wallets;
    if (m_settings.contains("recentWallets")) {
