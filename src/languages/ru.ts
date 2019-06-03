@@ -1024,6 +1024,10 @@ Please wait...</source>
         <source>Wrong password</source>
         <translation>Неправильный пароль</translation>
     </message>
+    <message>
+        <source>Wallet:</source>
+        <translation>Кошелек:</translation>
+    </message>
 </context>
 <context>
     <name>PaymentServer</name>
@@ -1916,6 +1920,14 @@ Are you sure?</source>
     <message>
         <source>Language changed to %1</source>
         <translation>Язык изменен на %1</translation>
+    </message>
+    <message>
+        <source>%1 - Karbo Wallet %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Karbo Wallet %2</source>
+        <translation type="unfinished">Карбованец в. %2</translation>
     </message>
 </context>
 <context>

@@ -1028,6 +1028,10 @@ Please wait...</source>
         <source>Wrong password</source>
         <translation>رمز عیور اشتباه است</translation>
     </message>
+    <message>
+        <source>Wallet:</source>
+        <translation type="unfinished">کیف پول</translation>
+    </message>
 </context>
 <context>
     <name>PaymentServer</name>
@@ -1914,6 +1918,14 @@ Are you sure?</source>
     <message>
         <source>Language changed to %1</source>
         <translation>زبان تغییر کرد به %1</translation>
+    </message>
+    <message>
+        <source>%1 - Karbo Wallet %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Karbo Wallet %2</source>
+        <translation type="unfinished">کیف پول کربو %2</translation>
     </message>
 </context>
 <context>

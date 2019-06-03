@@ -1048,6 +1048,10 @@ S&apos;il vous plaît, patientez...</translation>
         <source>Wrong password</source>
         <translation>Mauvais mot de passe</translation>
     </message>
+    <message>
+        <source>Wallet:</source>
+        <translation>Portefeuille:</translation>
+    </message>
 </context>
 <context>
     <name>PaymentServer</name>
@@ -1935,6 +1939,14 @@ Are you sure?</source>
     <message>
         <source>Language changed to %1</source>
         <translation>Langue changée en %1</translation>
+    </message>
+    <message>
+        <source>%1 - Karbo Wallet %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Karbo Wallet %2</source>
+        <translation type="unfinished">Karbo Portefeuille %2</translation>
     </message>
 </context>
 <context>

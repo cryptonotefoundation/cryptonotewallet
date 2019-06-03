@@ -1045,6 +1045,10 @@ Por favor aguarde...</translation>
         <source>Wrong password</source>
         <translation>Senha incorreta</translation>
     </message>
+    <message>
+        <source>Wallet:</source>
+        <translation>Carteira:</translation>
+    </message>
 </context>
 <context>
     <name>PaymentServer</name>
@@ -1657,7 +1661,7 @@ Você quer ir à página de dowload?</translation>
     </message>
     <message>
         <source>Karbowanec wallet</source>
-        <translation type="unfinished"></translation>
+        <translation>Karbowanec carteira</translation>
     </message>
 </context>
 <context>
@@ -1932,6 +1936,14 @@ Você tem certeza?</translation>
     <message>
         <source>Language changed to %1</source>
         <translation>Idioma alterado para %1</translation>
+    </message>
+    <message>
+        <source>%1 - Karbo Wallet %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Karbo Wallet %2</source>
+        <translation type="unfinished">Karbo Wallet %2</translation>
     </message>
 </context>
 <context>

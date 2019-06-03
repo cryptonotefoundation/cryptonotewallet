@@ -904,7 +904,7 @@ Proszę czekać...</translation>
     </message>
     <message>
         <source>Run background wallet optimization</source>
-        <translation type="unfinished">Wykonuj optymalizację portfela w tle</translation>
+        <translation>Wykonuj optymalizację portfela w tle</translation>
     </message>
     <message>
         <source>(Recommended)</source>
@@ -1023,6 +1023,10 @@ Proszę czekać...</translation>
     <message>
         <source>Wrong password</source>
         <translation>Złe hasło</translation>
+    </message>
+    <message>
+        <source>Wallet:</source>
+        <translation>Portfel:</translation>
     </message>
 </context>
 <context>
@@ -1679,18 +1683,18 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
     <name>WalletGui::ImportKeyDialog</name>
     <message>
         <source>Wallet file</source>
-        <translation>Plik porfela</translation>
+        <translation type="unfinished">Plik portfela</translation>
     </message>
     <message>
         <source>Wallets (*.wallet)</source>
-        <translation>Porfele (*.wallet)</translation>
+        <translation type="unfinished">Portfele (*.wallet)</translation>
     </message>
 </context>
 <context>
     <name>WalletGui::ImportTrackingKeyDialog</name>
     <message>
         <source>Tracking wallet file</source>
-        <translation>Plik porfela śledzenia</translation>
+        <translation type="unfinished">Plik portfela śledzenia</translation>
     </message>
     <message>
         <source>Tracking wallets (*.trackingwallet)</source>
@@ -1698,7 +1702,7 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
     </message>
     <message>
         <source>Tracking wallets (*.wallet)</source>
-        <translation>Porfel śledzenia (*.wallet)</translation>
+        <translation type="unfinished">Portfel śledzenia (*.wallet)</translation>
     </message>
 </context>
 <context>
@@ -1762,7 +1766,7 @@ Jesteś pewien?</translation>
     </message>
     <message>
         <source>Wallet</source>
-        <translation>Porfel</translation>
+        <translation type="unfinished">Portfel</translation>
     </message>
     <message>
         <source>Encrypted</source>
@@ -1924,6 +1928,14 @@ Jesteś pewien?</translation>
         <source>Language changed to %1</source>
         <translation>Język zmieniony na %1</translation>
     </message>
+    <message>
+        <source>%1 - Karbo Wallet %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Karbo Wallet %2</source>
+        <translation type="unfinished">Karbowaneć v. %2</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::MiningFrame</name>
@@ -2070,7 +2082,7 @@ Jesteś pewien?</translation>
     <name>WalletGui::RestoreFromMnemonicSeedDialog</name>
     <message>
         <source>Wallet file</source>
-        <translation>Plik porfela</translation>
+        <translation>Plik portfela</translation>
     </message>
     <message>
         <source>Wallets (*.wallet)</source>
