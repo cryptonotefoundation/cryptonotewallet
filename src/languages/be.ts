@@ -392,6 +392,41 @@ Please wait...</source>
     </message>
 </context>
 <context>
+    <name>ImportKeysDialog</name>
+    <message>
+        <source>Import private key</source>
+        <translation type="vanished">Імпартаваць прыватны ключ</translation>
+    </message>
+    <message>
+        <source>Select folder</source>
+        <translation>Выбраць каталог</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Адмяніць</translation>
+    </message>
+    <message>
+        <source>Where to save new wallet file:</source>
+        <translation>Дзе захаваць файл новага гаманца:</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>Добра</translation>
+    </message>
+    <message>
+        <source>Private View Key:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Private Spend Key:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import private keys</source>
+        <translation>Імпартаваць прыватня ключы</translation>
+    </message>
+</context>
+<context>
     <name>ImportTrackingKeyDialog</name>
     <message>
         <source>Import tracking key</source>
@@ -690,6 +725,10 @@ Please wait...</source>
     <message>
         <source>Get proof of balance</source>
         <translation>Атрымаць пацверджанне балансу</translation>
+    </message>
+    <message>
+        <source>Import keys</source>
+        <translation>Імпартаваць ключы</translation>
     </message>
 </context>
 <context>
@@ -1696,6 +1735,17 @@ Do you want to go to download page?</source>
     <message>
         <source>Wallets (*.wallet)</source>
         <translation>Гаманцы (*.wallet)</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui::ImportKeysDialog</name>
+    <message>
+        <source>Wallet file</source>
+        <translation>Файл гаманца</translation>
+    </message>
+    <message>
+        <source>Wallets (*.wallet)</source>
+        <translation></translation>
     </message>
 </context>
 <context>
