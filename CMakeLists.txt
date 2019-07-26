@@ -58,6 +58,7 @@ set(CRYPTONOTE_SOURCES
   cryptonote/external/miniupnpc/upnpcommands.c
   cryptonote/external/miniupnpc/upnpreplyparse.c
   cryptonote/src/Common/Base58.cpp
+  cryptonote/src/Common/Base64.cpp
   cryptonote/src/Common/CommandLine.cpp
   cryptonote/src/Common/Util.cpp
   cryptonote/src/Common/StringTools.cpp

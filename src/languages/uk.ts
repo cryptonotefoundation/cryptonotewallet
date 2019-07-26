@@ -376,11 +376,46 @@ Please wait...</source>
     </message>
     <message>
         <source>Where to save new wallet file:</source>
-        <translation>Куди зберегти файл  нового гаманця:</translation>
+        <translation>Куди зберегти файл нового гаманця:</translation>
     </message>
     <message>
         <source>Select folder</source>
         <translation>Вибрати каталог</translation>
+    </message>
+</context>
+<context>
+    <name>ImportKeysDialog</name>
+    <message>
+        <source>Import private key</source>
+        <translation type="vanished">Імпортувати приватний ключ</translation>
+    </message>
+    <message>
+        <source>Select folder</source>
+        <translation>Вибрати каталог</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Скасувати</translation>
+    </message>
+    <message>
+        <source>Where to save new wallet file:</source>
+        <translation>Куди зберегти файл нового гаманця:</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>Гаразд</translation>
+    </message>
+    <message>
+        <source>Private View Key:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Private Spend Key:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import private keys</source>
+        <translation>Імпортувати приватні ключі</translation>
     </message>
 </context>
 <context>
@@ -682,6 +717,10 @@ Please wait...</source>
     <message>
         <source>Get proof of balance</source>
         <translation>Доказ балансу</translation>
+    </message>
+    <message>
+        <source>Import keys</source>
+        <translation type="unfinished">Імпортувати ключі</translation>
     </message>
 </context>
 <context>
@@ -1674,6 +1713,17 @@ Do you want to go to download page?</source>
 </context>
 <context>
     <name>WalletGui::ImportKeyDialog</name>
+    <message>
+        <source>Wallet file</source>
+        <translation>Файл гаманця</translation>
+    </message>
+    <message>
+        <source>Wallets (*.wallet)</source>
+        <translation>Гаманці (*.wallet)</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui::ImportKeysDialog</name>
     <message>
         <source>Wallet file</source>
         <translation>Файл гаманця</translation>

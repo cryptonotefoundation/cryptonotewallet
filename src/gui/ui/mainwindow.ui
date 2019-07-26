@@ -258,6 +258,7 @@
     <addaction name="m_exportTrackingKeyAction"/>
     <addaction name="separator"/>
     <addaction name="m_restoreFromMnemonicSeedAction"/>
+    <addaction name="m_importKeysAction"/>
     <addaction name="m_importKeyAction"/>
     <addaction name="m_importTrackingKeyAction"/>
     <addaction name="separator"/>
@@ -619,6 +620,11 @@
   <action name="m_proofBalanceAction">
    <property name="text">
     <string>Get proof of balance</string>
+   </property>
+  </action>
+  <action name="m_importKeysAction">
+   <property name="text">
+    <string>Import keys</string>
    </property>
   </action>
  </widget>
@@ -1187,6 +1193,22 @@
    <signal>triggered()</signal>
    <receiver>MainWindow</receiver>
    <slot>getBalanceProof()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>489</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_importKeysAction</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>importKeys()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>-1</x>

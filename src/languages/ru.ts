@@ -384,6 +384,41 @@ Please wait...</source>
     </message>
 </context>
 <context>
+    <name>ImportKeysDialog</name>
+    <message>
+        <source>Import private key</source>
+        <translation type="vanished">Импортировать приватный ключ</translation>
+    </message>
+    <message>
+        <source>Select folder</source>
+        <translation>Выбрать каталог</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Отменить</translation>
+    </message>
+    <message>
+        <source>Where to save new wallet file:</source>
+        <translation>Где сохранить файл  нового кошелька:</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>Хорошо</translation>
+    </message>
+    <message>
+        <source>Private View Key:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Private Spend Key:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import private keys</source>
+        <translation>Импортировать приватные ключи</translation>
+    </message>
+</context>
+<context>
     <name>ImportTrackingKeyDialog</name>
     <message>
         <source>Import tracking key</source>
@@ -682,6 +717,10 @@ Please wait...</source>
     <message>
         <source>Get proof of balance</source>
         <translation>Подтверждение баланса</translation>
+    </message>
+    <message>
+        <source>Import keys</source>
+        <translation>Импортировать ключи</translation>
     </message>
 </context>
 <context>
@@ -1670,6 +1709,17 @@ Do you want to go to download page?</source>
 </context>
 <context>
     <name>WalletGui::ImportKeyDialog</name>
+    <message>
+        <source>Wallet file</source>
+        <translation>Файл кошелька</translation>
+    </message>
+    <message>
+        <source>Wallets (*.wallet)</source>
+        <translation>Кошельки (*.wallet)</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui::ImportKeysDialog</name>
     <message>
         <source>Wallet file</source>
         <translation>Файл кошелька</translation>

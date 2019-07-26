@@ -384,6 +384,37 @@ Please wait...</source>
     </message>
 </context>
 <context>
+    <name>ImportKeysDialog</name>
+    <message>
+        <source>Select folder</source>
+        <translation>انتخاب پوشه</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>لغو</translation>
+    </message>
+    <message>
+        <source>Where to save new wallet file:</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>تایید</translation>
+    </message>
+    <message>
+        <source>Private View Key:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Private Spend Key:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import private keys</source>
+        <translation>درون ریزی کلید شخصی</translation>
+    </message>
+</context>
+<context>
     <name>ImportTrackingKeyDialog</name>
     <message>
         <source>Import tracking key</source>
@@ -682,6 +713,10 @@ Please wait...</source>
     <message>
         <source>Get proof of balance</source>
         <translation>تایید تعادل</translation>
+    </message>
+    <message>
+        <source>Import keys</source>
+        <translation>وارد نمودن کلید ها</translation>
     </message>
 </context>
 <context>
@@ -1689,6 +1724,17 @@ Do you want to go to download page?</source>
     <message>
         <source>Wallets (*.wallet)</source>
         <translation>کیف پول ها (*.wallet)</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui::ImportKeysDialog</name>
+    <message>
+        <source>Wallet file</source>
+        <translation>فایل کیف پول</translation>
+    </message>
+    <message>
+        <source>Wallets (*.wallet)</source>
+        <translation></translation>
     </message>
 </context>
 <context>

@@ -35,6 +35,7 @@ gui/AnimatedLabel.cpp \
 gui/ChangePasswordDialog.cpp \
 gui/ExitWidget.cpp \
 gui/ImportKeyDialog.cpp \
+gui/ImportKeysDialog.cpp \
 gui/MainWindow.cpp \
 gui/MiningFrame.cpp \
 gui/NewAddressDialog.cpp \
@@ -95,6 +96,7 @@ gui/AnimatedLabel.h \
 gui/ChangePasswordDialog.h \
 gui/ExitWidget.h \
 gui/ImportKeyDialog.h \
+gui/ImportKeysDialog.h \
 gui/MainWindow.h \
 gui/MiningFrame.h \
 gui/NewAddressDialog.h \
@@ -141,6 +143,7 @@ gui/ui/addressbookframe.ui \
 gui/ui/changepassworddialog.ui \
 gui/ui/exitwidget.ui \
 gui/ui/importkeydialog.ui \
+gui/ui/importkeysdialog.ui \
 gui/ui/mainwindow.ui \
 gui/ui/miningframe.ui \
 gui/ui/newaddressdialog.ui \

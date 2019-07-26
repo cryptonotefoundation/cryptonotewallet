@@ -384,6 +384,41 @@ Proszę czekać...</translation>
     </message>
 </context>
 <context>
+    <name>ImportKeysDialog</name>
+    <message>
+        <source>Import private key</source>
+        <translation type="vanished">Importuj klucz prywatny</translation>
+    </message>
+    <message>
+        <source>Select folder</source>
+        <translation>Wybierz katalog</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Anuluj</translation>
+    </message>
+    <message>
+        <source>Where to save new wallet file:</source>
+        <translation>Gdzie zapisać nowy plik portfela:</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>OK</translation>
+    </message>
+    <message>
+        <source>Private View Key:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Private Spend Key:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import private keys</source>
+        <translation>Importuj klucze prywatne</translation>
+    </message>
+</context>
+<context>
     <name>ImportTrackingKeyDialog</name>
     <message>
         <source>Import tracking key</source>
@@ -682,6 +717,10 @@ Proszę czekać...</translation>
     <message>
         <source>Get proof of balance</source>
         <translation>Uzyskaj potwierdzenie salda</translation>
+    </message>
+    <message>
+        <source>Import keys</source>
+        <translation>Importuj kluczy</translation>
     </message>
 </context>
 <context>
@@ -1683,11 +1722,22 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
     <name>WalletGui::ImportKeyDialog</name>
     <message>
         <source>Wallet file</source>
-        <translation type="unfinished">Plik portfela</translation>
+        <translation>Plik portfela</translation>
     </message>
     <message>
         <source>Wallets (*.wallet)</source>
-        <translation type="unfinished">Portfele (*.wallet)</translation>
+        <translation>Portfele (*.wallet)</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui::ImportKeysDialog</name>
+    <message>
+        <source>Wallet file</source>
+        <translation>Plik portfela</translation>
+    </message>
+    <message>
+        <source>Wallets (*.wallet)</source>
+        <translation>Portfele (*.wallet)</translation>
     </message>
 </context>
 <context>

@@ -390,6 +390,41 @@ Por favor, espera...</translation>
     </message>
 </context>
 <context>
+    <name>ImportKeysDialog</name>
+    <message>
+        <source>Import private key</source>
+        <translation type="vanished">Importar la clave privada</translation>
+    </message>
+    <message>
+        <source>Select folder</source>
+        <translation>Seleccionar carpeta</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Cancelar</translation>
+    </message>
+    <message>
+        <source>Where to save new wallet file:</source>
+        <translation>Dónde guardar nuevo archivo de cartera:</translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation>OK</translation>
+    </message>
+    <message>
+        <source>Private View Key:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Private Spend Key:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import private keys</source>
+        <translation>Importar claves privadas</translation>
+    </message>
+</context>
+<context>
     <name>ImportTrackingKeyDialog</name>
     <message>
         <source>Import tracking key</source>
@@ -688,6 +723,10 @@ Por favor, espera...</translation>
     <message>
         <source>Get proof of balance</source>
         <translation>Confirmación de saldo</translation>
+    </message>
+    <message>
+        <source>Import keys</source>
+        <translation>Importar claves</translation>
     </message>
 </context>
 <context>
@@ -1689,6 +1728,17 @@ Do you want to go to download page?</source>
 </context>
 <context>
     <name>WalletGui::ImportKeyDialog</name>
+    <message>
+        <source>Wallet file</source>
+        <translation>Archivo de monedero</translation>
+    </message>
+    <message>
+        <source>Wallets (*.wallet)</source>
+        <translation>Monederos (*.wallet)</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui::ImportKeysDialog</name>
     <message>
         <source>Wallet file</source>
         <translation>Archivo de monedero</translation>
