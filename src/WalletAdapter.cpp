@@ -697,6 +697,7 @@ QString WalletAdapter::getTxProof(Crypto::Hash& _txid, CryptoNote::AccountPublic
     return QString::fromStdString(sig_str);
   } catch (std::system_error&) {
     QMessageBox::critical(nullptr, tr("Failed to get the transaction proof"), tr("Failed to get the transaction proof."), QMessageBox::Ok);
+    return QString();
   }
 }
 
@@ -704,7 +705,8 @@ QString WalletAdapter::getReserveProof(const quint64 &_reserve, const QString &_
   Q_CHECK_PTR(m_wallet);
   if(Settings::instance().isTrackingMode()) {
     QMessageBox::critical(nullptr, tr("Failed to get the reserve proof"), tr("This is tracking wallet. The reserve proof can be generated only by a full wallet."), QMessageBox::Ok);
-    }
+    return QString();
+  }
   try {
     uint64_t amount = 0;
     if (_reserve == 0) {
@@ -716,6 +718,7 @@ QString WalletAdapter::getReserveProof(const quint64 &_reserve, const QString &_
     return QString::fromStdString(sig_str);
   } catch (std::system_error&) {
     QMessageBox::critical(nullptr, tr("Failed to get the reserve proof"), tr("Failed to get the reserve proof."), QMessageBox::Ok);
+    return QString();
   }
 }
 
