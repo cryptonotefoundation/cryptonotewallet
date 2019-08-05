@@ -180,6 +180,11 @@ QDir Settings::getDataDir() const {
   return QDir(m_cmdLineParser->getDataDir());
 }
 
+quint32 Settings::getRollBack() const {
+  Q_CHECK_PTR(m_cmdLineParser);
+  return m_cmdLineParser->rollBack();
+}
+
 QString Settings::getWalletFile() const {
   return m_settings.contains("walletFile") ? m_settings.value("walletFile").toString() :
     getDataDir().absoluteFilePath(QCoreApplication::applicationName() + ".wallet");

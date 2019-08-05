@@ -4,6 +4,7 @@
 
 #pragma once
 
+#include <limits>
 #include <QCommandLineParser>
 #include <QObject>
 
@@ -34,6 +35,7 @@ public:
   QStringList getExclusiveNodes() const;
   QStringList getSeedNodes() const;
   QString getDataDir() const;
+  quint32 rollBack() const;
 
 private:
   QCommandLineParser m_parser;
@@ -50,6 +52,7 @@ private:
   QCommandLineOption m_seedNodeOption;
   QCommandLineOption m_hideMyPortOption;
   QCommandLineOption m_dataDirOption;
+  QCommandLineOption m_rollBackOption;
   QCommandLineOption m_minimized;
 };
 

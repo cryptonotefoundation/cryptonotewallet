@@ -57,6 +57,8 @@ public:
   quint64 getOptimizationThreshold() const;
   quint64 getOptimizationMixin() const;
 
+  quint32 getRollBack() const;
+
   bool isEncrypted() const;
   bool isStartOnLoginEnabled() const;
   bool isTrackingMode() const;

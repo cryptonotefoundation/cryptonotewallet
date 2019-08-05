@@ -27,6 +27,7 @@ CommandLineParser::CommandLineParser(QObject* _parent) : QObject(_parent), m_par
   m_seedNodeOption("seed-node", tr("Connect to a node to retrieve peer addresses, and disconnect"), tr("node")),
   m_hideMyPortOption("hide-my-port", tr("Do not announce yourself as peerlist candidate")),
   m_dataDirOption("data-dir", tr("Specify data directory"), tr("directory"), QString::fromLocal8Bit(Tools::getDefaultDataDirectory().c_str())),
+  m_rollBackOption("rollback", tr("Rollback to height"), tr("height"), QString::number(std::numeric_limits<uint32_t>::max())),
   m_minimized("minimized", tr("Run application in minimized mode")) {
   m_parser.setApplicationDescription(tr("Karbowanec wallet"));
   m_parser.addHelpOption();
@@ -42,6 +43,7 @@ CommandLineParser::CommandLineParser(QObject* _parent) : QObject(_parent), m_par
   m_parser.addOption(m_seedNodeOption);
   m_parser.addOption(m_hideMyPortOption);
   m_parser.addOption(m_dataDirOption);
+  m_parser.addOption(m_rollBackOption);
   m_parser.addOption(m_minimized);
 }
 
@@ -119,6 +121,10 @@ QStringList CommandLineParser::getSeedNodes() const {
 
 QString CommandLineParser::getDataDir() const {
   return m_parser.value(m_dataDirOption);
+}
+
+quint32 CommandLineParser::rollBack() const {
+  return m_parser.value(m_rollBackOption).toULong();
 }
 
 }
