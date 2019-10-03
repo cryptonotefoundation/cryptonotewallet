@@ -1688,6 +1688,14 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
         <source>External port for p2p network protocol (if port forwarding used with NAT)</source>
         <translation>Port zewnętrzny dla protokołu sieci P2P (jeśli port forwarding stosowany razem z NAT)</translation>
     </message>
+    <message>
+        <source>Rollback to height</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>height</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::ConfirmSendDialog</name>
@@ -1989,6 +1997,14 @@ Jesteś pewien?</translation>
     <message>
         <source>Karbo Wallet %2</source>
         <translation type="unfinished">Karbowaneć v. %2</translation>
+    </message>
+    <message>
+        <source>Recent wallet file not found</source>
+        <translation>Nie znaleziono ostatniego pliku portfela</translation>
+    </message>
+    <message>
+        <source>The recent wallet file is missing. Probably it was removed.</source>
+        <translation>Brak ostatniego pliku portfela. Prawdopodobnie został usunięty.</translation>
     </message>
 </context>
 <context>

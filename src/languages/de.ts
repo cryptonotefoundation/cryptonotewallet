@@ -1697,6 +1697,14 @@ Geben Sie eine Liste von Peers an, zu denen nur eine Verbindung hergestellt werd
         <translation>
 Externer Port für das P2P-Netzwerkprotokoll (wenn Portweiterleitung mit NAT verwendet wird)</translation>
     </message>
+    <message>
+        <source>Rollback to height</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>height</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::ConfirmSendDialog</name>
@@ -1993,6 +2001,14 @@ Bist du sicher?</translation>
     <message>
         <source>Karbo Wallet %2</source>
         <translation type="unfinished">Karbo Brieftasche %2</translation>
+    </message>
+    <message>
+        <source>Recent wallet file not found</source>
+        <translation>Aktuelle Brieftaschendatei nicht gefunden</translation>
+    </message>
+    <message>
+        <source>The recent wallet file is missing. Probably it was removed.</source>
+        <translation>Die aktuelle Brieftaschendatei fehlt. Wahrscheinlich wurde es entfernt.</translation>
     </message>
 </context>
 <context>

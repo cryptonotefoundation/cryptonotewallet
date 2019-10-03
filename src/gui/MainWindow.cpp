@@ -423,12 +423,14 @@ void MainWindow::openRecent(){
   QAction *action = qobject_cast<QAction *>(sender());
   if (action) {
     QString filePath = action->data().toString();
-    if (!filePath.isEmpty()) {
+    if (!filePath.isEmpty() && QFile::exists(filePath)) {
       if (WalletAdapter::instance().isOpen()) {
           WalletAdapter::instance().close();
       }
       WalletAdapter::instance().setWalletFile(filePath);
       WalletAdapter::instance().open("");
+    } else {
+       QMessageBox::warning(this, tr("Recent wallet file not found"), tr("The recent wallet file is missing. Probably it was removed."), QMessageBox::Ok);
     }
   }
 }

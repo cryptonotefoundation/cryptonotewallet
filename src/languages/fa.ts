@@ -1681,6 +1681,14 @@ Do you want to go to download page?</source>
         <source>External port for p2p network protocol (if port forwarding used with NAT)</source>
         <translation>External port for p2p network protocol (if port forwarding used with NAT)</translation>
     </message>
+    <message>
+        <source>Rollback to height</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>height</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::ConfirmSendDialog</name>
@@ -1976,6 +1984,14 @@ Are you sure?</source>
     <message>
         <source>Karbo Wallet %2</source>
         <translation type="unfinished">کیف پول کربو %2</translation>
+    </message>
+    <message>
+        <source>Recent wallet file not found</source>
+        <translation>پرونده کیف پول اخیر یافت نشد</translation>
+    </message>
+    <message>
+        <source>The recent wallet file is missing. Probably it was removed.</source>
+        <translation>پرونده کیف پول اخیر وجود ندارد. احتمالاً حذف شده است.</translation>
     </message>
 </context>
 <context>

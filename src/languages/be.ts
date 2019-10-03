@@ -1692,6 +1692,14 @@ Do you want to go to download page?</source>
         <source>External port for p2p network protocol (if port forwarding used with NAT)</source>
         <translation>Знешні порт для пратаколу p2p сеткі (калі выкарыстоўваецца перанакіраванне партоў з NAT)</translation>
     </message>
+    <message>
+        <source>Rollback to height</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>height</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::ConfirmSendDialog</name>
@@ -1993,6 +2001,14 @@ Are you sure?</source>
     <message>
         <source>Karbo Wallet %2</source>
         <translation type="unfinished">Карбованець в. %2</translation>
+    </message>
+    <message>
+        <source>Recent wallet file not found</source>
+        <translation>Апошні файл гаманца не знойдзены</translation>
+    </message>
+    <message>
+        <source>The recent wallet file is missing. Probably it was removed.</source>
+        <translation>Апошні файл гаманца адсутнічае. Верагодна, яго прыбралі.</translation>
     </message>
 </context>
 <context>

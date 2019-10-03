@@ -1706,6 +1706,14 @@ Você quer ir à página de dowload?</translation>
         <source>Karbowanec wallet</source>
         <translation>Karbowanec carteira</translation>
     </message>
+    <message>
+        <source>Rollback to height</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>height</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::ConfirmSendDialog</name>
@@ -1998,6 +2006,14 @@ Você tem certeza?</translation>
     <message>
         <source>Karbo Wallet %2</source>
         <translation type="unfinished">Karbo Wallet %2</translation>
+    </message>
+    <message>
+        <source>Recent wallet file not found</source>
+        <translation>Arquivo recente da carteira não encontrado</translation>
+    </message>
+    <message>
+        <source>The recent wallet file is missing. Probably it was removed.</source>
+        <translation>O arquivo da carteira recente está ausente. Provavelmente foi removido.</translation>
     </message>
 </context>
 <context>

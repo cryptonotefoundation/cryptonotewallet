@@ -1705,6 +1705,14 @@ Voulez-vous aller à la page de téléchargement?</translation>
         <source>External port for p2p network protocol (if port forwarding used with NAT)</source>
         <translation>Port externe pour le protocole réseau p2p (si le transfert de port est utilisé avec NAT)</translation>
     </message>
+    <message>
+        <source>Rollback to height</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>height</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::ConfirmSendDialog</name>
@@ -1997,6 +2005,14 @@ Are you sure?</source>
     <message>
         <source>Karbo Wallet %2</source>
         <translation type="unfinished">Karbo Portefeuille %2</translation>
+    </message>
+    <message>
+        <source>Recent wallet file not found</source>
+        <translation>Fichier portefeuille récent introuvable</translation>
+    </message>
+    <message>
+        <source>The recent wallet file is missing. Probably it was removed.</source>
+        <translation>Le fichier portefeuille récent est manquant. Probablement il a été enlevé.</translation>
     </message>
 </context>
 <context>
