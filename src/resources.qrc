@@ -40,6 +40,7 @@
         <file alias="remote_mode">icons/remote_mode.png</file>
         <file alias="tracking">icons/tracking_mode.png</file>
         <file alias="sweep">icons/broom.png</file>
+        <file alias="tx-fusion">icons/tx_fusion.png</file>
     </qresource>
     <qresource prefix="/images">
         <file alias="splash">images/splash.png</file>

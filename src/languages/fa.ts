@@ -722,6 +722,10 @@ Please wait...</source>
         <source>Import keys</source>
         <translation>وارد نمودن کلید ها</translation>
     </message>
+    <message>
+        <source>Don&apos;t show wallet optimization transactions</source>
+        <translation>معاملات بهینه سازی کیف پول را نشان نمی دهد</translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
@@ -2408,6 +2412,10 @@ when the wallet is synchronized</source>
         <source>Sent to myself</source>
         <translation>ارسال به خودم</translation>
     </message>
+    <message>
+        <source>Optimization</source>
+        <translation>بهينه سازي</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::TransactionsModel</name>
@@ -2441,7 +2449,7 @@ when the wallet is synchronized</source>
     </message>
     <message>
         <source>(n/a)</source>
-        <translation>(n/A)</translation>
+        <translation>(n/a)</translation>
     </message>
     <message>
         <source>Incoming transaction, unconfirmed</source>
@@ -2486,6 +2494,20 @@ when the wallet is synchronized</source>
     <message>
         <source>Key</source>
         <translation>کلید</translation>
+    </message>
+    <message>
+        <source>Fee</source>
+        <translation>کارمزد </translation>
+    </message>
+    <message>
+        <source>Wallet optimization transaction, unconfirmed</source>
+        <translation>معاملات بهینه سازی کیف پول ، تأیید نشده است</translation>
+    </message>
+    <message numerus="yes">
+        <source>Wallet optimization transaction, %n confirmation(s)</source>
+        <translation>
+            <numerusform>معاملات بهینه سازی کیف پول ،,%n تاییدیه</numerusform>
+        </translation>
     </message>
 </context>
 <context>
@@ -2660,7 +2682,7 @@ when the wallet is synchronized</source>
     </message>
     <message>
         <source>Optimizing wallet</source>
-        <translation type="unfinished"></translation>
+        <translation>کیف پول بهینه سازی</translation>
     </message>
     <message>
         <source>Failed to get the transaction proof</source>

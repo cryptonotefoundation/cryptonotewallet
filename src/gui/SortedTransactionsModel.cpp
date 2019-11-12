@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2015 The Cryptonote developers
-// Copyright (c) 2016-2017 The Karbowanec developers
+// Copyright (c) 2016-2019 The Karbowanec developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -7,6 +7,7 @@
 
 #include "SortedTransactionsModel.h"
 #include "TransactionsModel.h"
+#include "Settings.h"
 
 namespace WalletGui {
 
@@ -39,9 +40,13 @@ bool SortedTransactionsModel::filterAcceptsRow(int _row, const QModelIndex &_par
 
   int txType = _index.data(TransactionsModel::ROLE_TYPE).value<quint8>();
 
-  if(selectedtxtype != 4) {
+  if(selectedtxtype != -1) {
     if(txType != selectedtxtype)
       return false;
+  }
+
+  if (Settings::instance().skipFusionTransactions() && txType == 4) {
+    return false;
   }
 
   QModelIndex index2 = sourceModel()->index(_row, 2, _parent);

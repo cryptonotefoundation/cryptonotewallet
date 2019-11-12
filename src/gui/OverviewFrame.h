@@ -23,6 +23,8 @@ public:
   OverviewFrame(QWidget* _parent);
   ~OverviewFrame();
 
+  void reloadTransactions();
+
 private:
   QScopedPointer<Ui::OverviewFrame> m_ui;
   QSharedPointer<RecentTransactionsModel> m_transactionModel;

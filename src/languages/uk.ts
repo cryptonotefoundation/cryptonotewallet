@@ -726,6 +726,10 @@ Please wait...</source>
         <source>Import keys</source>
         <translation type="unfinished">Імпортувати ключі</translation>
     </message>
+    <message>
+        <source>Don&apos;t show wallet optimization transactions</source>
+        <translation>Не показувати транзакції оптимізації гаманця</translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
@@ -2412,6 +2416,10 @@ when the wallet is synchronized</source>
         <source>Sent to myself</source>
         <translation>Вислані самому собі</translation>
     </message>
+    <message>
+        <source>Optimization</source>
+        <translation>Оптимізація</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::TransactionsModel</name>
@@ -2498,6 +2506,22 @@ when the wallet is synchronized</source>
     <message>
         <source>Key</source>
         <translation>Ключ</translation>
+    </message>
+    <message>
+        <source>Fee</source>
+        <translation>Комісія</translation>
+    </message>
+    <message>
+        <source>Wallet optimization transaction, unconfirmed</source>
+        <translation>Оптимізація гаманця, непідтверджена</translation>
+    </message>
+    <message numerus="yes">
+        <source>Wallet optimization transaction, %n confirmation(s)</source>
+        <translation>
+            <numerusform>Оптимізація гаманця, %n підтвердження</numerusform>
+            <numerusform>Оптимізація гаманця, %n підтвердження</numerusform>
+            <numerusform>Оптимізація гаманця, %n підтверджень</numerusform>
+        </translation>
     </message>
 </context>
 <context>

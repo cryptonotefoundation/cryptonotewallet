@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2015 The Cryptonote developers
 // Copyright (c) 2011-2013 The Bitcoin developers
-// Copyright (c) 2016-2017 The Karbowanec developers
+// Copyright (c) 2016-2019 The Karbowanec developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -35,6 +35,7 @@ TransactionsFrame::TransactionsFrame(QWidget* _parent) : QFrame(_parent), m_ui(n
   m_ui->m_transactionsView->header()->setSectionResizeMode(TransactionsModel::COLUMN_STATE, QHeaderView::Fixed);
   m_ui->m_transactionsView->header()->resizeSection(TransactionsModel::COLUMN_STATE, 25);
   m_ui->m_transactionsView->header()->resizeSection(TransactionsModel::COLUMN_DATE, 90);
+  m_ui->m_transactionsView->header()->resizeSection(TransactionsModel::COLUMN_FEE, 45);
   m_ui->m_transactionsView->header()->resizeSection(TransactionsModel::COLUMN_ADDRESS, 100);
   m_ui->m_transactionsView->header()->resizeSection(TransactionsModel::COLUMN_PAYMENT_ID, 200);
   m_ui->m_transactionsView->header()->resizeSection(TransactionsModel::COLUMN_HASH, 200);
@@ -68,6 +69,7 @@ TransactionsFrame::TransactionsFrame(QWidget* _parent) : QFrame(_parent), m_ui(n
   m_ui->m_typeSelect->addItem(tr("Incoming"), Incoming);
   m_ui->m_typeSelect->addItem(tr("Outgoing"), Outgoing);
   m_ui->m_typeSelect->addItem(tr("Mined"), Mining);
+  m_ui->m_typeSelect->addItem(tr("Optimization"), Fusion);
   m_ui->m_typeSelect->addItem(tr("Sent to myself"), InOut);
 
   m_ui->m_dateRangeArea->addWidget(createDateRangeWidget());
@@ -79,7 +81,7 @@ TransactionsFrame::TransactionsFrame(QWidget* _parent) : QFrame(_parent), m_ui(n
   // set sorting date range to include unconfirmed
   includeUnconfirmed();
   // set sorting to include all types of transactions
-  SortedTransactionsModel::instance().setTxType(4);
+  SortedTransactionsModel::instance().setTxType(-1);
 
 }
 
@@ -306,7 +308,7 @@ void TransactionsFrame::chooseType(int idx)
     switch(m_ui->m_typeSelect->itemData(idx).toInt())
     {
     case AllTypes:
-        SortedTransactionsModel::instance().setTxType(4);
+        SortedTransactionsModel::instance().setTxType(-1);
         break;
     case Incoming:
         SortedTransactionsModel::instance().setTxType(1);
@@ -316,6 +318,9 @@ void TransactionsFrame::chooseType(int idx)
         } break;
     case Mining:
         SortedTransactionsModel::instance().setTxType(0);
+        break;
+    case Fusion:
+        SortedTransactionsModel::instance().setTxType(4);
         break;
     case InOut:
         SortedTransactionsModel::instance().setTxType(3);
@@ -334,7 +339,7 @@ void TransactionsFrame::resetFilterClicked() {
   m_ui->m_searchFor->clear();
   m_ui->m_dateSelect->setCurrentIndex(1);
   m_ui->m_typeSelect->setCurrentIndex(0);
-  SortedTransactionsModel::instance().setTxType(4);
+  SortedTransactionsModel::instance().setTxType(-1);
   m_ui->m_transactionsView->sortByColumn(0, Qt::AscendingOrder);
   dateRangeWidget->setVisible(false);
   includeUnconfirmed();
@@ -351,6 +356,10 @@ void TransactionsFrame::walletClosed() {
   m_ui->m_selectedAmount->setText("");
   m_ui->m_selectedAmount->hide();
   m_ui->m_selectedAmountLabel->hide();
+}
+
+void TransactionsFrame::reloadTransactions() {
+  resetFilterClicked();
 }
 
 }

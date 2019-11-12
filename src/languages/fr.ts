@@ -742,6 +742,10 @@ S&apos;il vous plaît, patientez...</translation>
         <source>Import keys</source>
         <translation>Importer des clés</translation>
     </message>
+    <message>
+        <source>Don&apos;t show wallet optimization transactions</source>
+        <translation>Ne pas afficher les transactions d&apos;optimisation de portefeuille</translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
@@ -2430,6 +2434,10 @@ quand le portefeuille aura terminé la synchronisation</translation>
         <source>Sent to myself</source>
         <translation>Envoyé à moi-même</translation>
     </message>
+    <message>
+        <source>Optimization</source>
+        <translation>Optimisation</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::TransactionsModel</name>
@@ -2463,7 +2471,7 @@ quand le portefeuille aura terminé la synchronisation</translation>
     </message>
     <message>
         <source>(n/a)</source>
-        <translation>(n/a)</translation>
+        <translation>pas de données</translation>
     </message>
     <message>
         <source>Incoming transaction, unconfirmed</source>
@@ -2512,6 +2520,21 @@ quand le portefeuille aura terminé la synchronisation</translation>
     <message>
         <source>Key</source>
         <translation>Clé</translation>
+    </message>
+    <message>
+        <source>Fee</source>
+        <translation>Frais</translation>
+    </message>
+    <message>
+        <source>Wallet optimization transaction, unconfirmed</source>
+        <translation>Transaction d&apos;optimisation de portefeuille, non confirmée</translation>
+    </message>
+    <message numerus="yes">
+        <source>Wallet optimization transaction, %n confirmation(s)</source>
+        <translation>
+            <numerusform>Transaction d&apos;optimisation de portefeuille, %n confirmation</numerusform>
+            <numerusform>Transaction d&apos;optimisation de portefeuille, %n confirmations</numerusform>
+        </translation>
     </message>
 </context>
 <context>

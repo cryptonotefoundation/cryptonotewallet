@@ -193,6 +193,7 @@ void MainWindow::initUi() {
   m_ui->m_showMnemonicSeedAction->setEnabled(false);
 
   m_ui->m_startOnLoginAction->setChecked(Settings::instance().isStartOnLoginEnabled());
+  m_ui->m_hideFusionTransactions->setChecked(Settings::instance().skipFusionTransactions());
 
   m_ui->menuRecent_wallets->setVisible(false);
   QAction* recentWalletAction = 0;
@@ -936,6 +937,13 @@ void MainWindow::setCloseToTray(bool _on) {
   Settings::instance().setCloseToTrayEnabled(_on);
   m_ui->m_closeToTrayAction->setChecked(Settings::instance().isCloseToTrayEnabled());
 #endif
+}
+
+void MainWindow::setHideFusionTransactions(bool _on) {
+  Settings::instance().setSkipFusionTransactions(_on);
+  m_ui->m_hideFusionTransactions->setChecked(Settings::instance().skipFusionTransactions());
+  m_ui->m_transactionsFrame->reloadTransactions();
+  m_ui->m_overviewFrame->reloadTransactions();
 }
 
 void MainWindow::about() {

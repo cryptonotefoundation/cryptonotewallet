@@ -730,6 +730,10 @@ Please wait...</source>
         <source>Import keys</source>
         <translation>Імпартаваць ключы</translation>
     </message>
+    <message>
+        <source>Don&apos;t show wallet optimization transactions</source>
+        <translation>Не паказваць транзакцыі аптымізацыі гаманца</translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
@@ -2427,6 +2431,10 @@ when the wallet is synchronized</source>
         <source>Sent to myself</source>
         <translation>Высланыя самому сабе</translation>
     </message>
+    <message>
+        <source>Optimization</source>
+        <translation>Аптымізацыя</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::TransactionsModel</name>
@@ -2491,7 +2499,7 @@ when the wallet is synchronized</source>
         <translation>
             <numerusform>Здабыта майнингом, %n пацвярджэнне</numerusform>
             <numerusform>Здабыта майнингом, %n пацвярджэння</numerusform>
-            <numerusform>Здабыта майнингом, пацвярджэнняў</numerusform>
+            <numerusform>Здабыта майнингом,%n пацвярджэнняў</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -2513,6 +2521,22 @@ when the wallet is synchronized</source>
     <message>
         <source>Key</source>
         <translation>Ключ</translation>
+    </message>
+    <message>
+        <source>Fee</source>
+        <translation>Поплатак</translation>
+    </message>
+    <message>
+        <source>Wallet optimization transaction, unconfirmed</source>
+        <translation>Аптымізацыя гаманца, непацьверджаная</translation>
+    </message>
+    <message numerus="yes">
+        <source>Wallet optimization transaction, %n confirmation(s)</source>
+        <translation>
+            <numerusform>Аптымізацыя гаманца, %n пацвярджэнне</numerusform>
+            <numerusform>Аптымізацыя гаманца,%n пацвярджэння</numerusform>
+            <numerusform>Аптымізацыя гаманца,%n пацвярджэнняў</numerusform>
+        </translation>
     </message>
 </context>
 <context>

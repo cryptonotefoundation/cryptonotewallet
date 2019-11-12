@@ -731,6 +731,10 @@ Bitte warten...</translation>
         <source>Import keys</source>
         <translation>Schlüssel importieren</translation>
     </message>
+    <message>
+        <source>Don&apos;t show wallet optimization transactions</source>
+        <translation>Brieftaschenoptimierungstransaktionen nicht anzeigen</translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
@@ -2426,6 +2430,10 @@ wenn die Brieftasche die Synchronisation beendet</translation>
         <source>Sent to myself</source>
         <translation>An mich selbst gesendet</translation>
     </message>
+    <message>
+        <source>Optimization</source>
+        <translation>Optimierung</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::TransactionsModel</name>
@@ -2459,7 +2467,7 @@ wenn die Brieftasche die Synchronisation beendet</translation>
     </message>
     <message>
         <source>(n/a)</source>
-        <translation>(n/a)</translation>
+        <translation>keine Daten</translation>
     </message>
     <message>
         <source>Incoming transaction, unconfirmed</source>
@@ -2508,6 +2516,21 @@ wenn die Brieftasche die Synchronisation beendet</translation>
     <message>
         <source>Key</source>
         <translation>Schlüssel</translation>
+    </message>
+    <message>
+        <source>Fee</source>
+        <translation>Gebühr</translation>
+    </message>
+    <message>
+        <source>Wallet optimization transaction, unconfirmed</source>
+        <translation>Wallet-Optimierungstransaktion, unbestätigt</translation>
+    </message>
+    <message numerus="yes">
+        <source>Wallet optimization transaction, %n confirmation(s)</source>
+        <translation>
+            <numerusform>Wallet-Optimierungstransaktion,%n bestätigung</numerusform>
+            <numerusform>Wallet-Optimierungstransaktion,%n bestätigungen</numerusform>
+        </translation>
     </message>
 </context>
 <context>

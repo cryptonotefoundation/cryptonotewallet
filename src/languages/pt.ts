@@ -747,6 +747,10 @@ Por favor aguarde...</translation>
         <source>Import keys</source>
         <translation>Importar chaves</translation>
     </message>
+    <message>
+        <source>Don&apos;t show wallet optimization transactions</source>
+        <translation>Não mostrar transações de otimização de carteira</translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
@@ -2431,6 +2435,10 @@ quando a carteira vai terminar de sincronizar</translation>
         <source>Sent to myself</source>
         <translation>Envios para mim</translation>
     </message>
+    <message>
+        <source>Optimization</source>
+        <translation>Otimização</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::TransactionsModel</name>
@@ -2513,6 +2521,21 @@ quando a carteira vai terminar de sincronizar</translation>
     <message>
         <source>Key</source>
         <translation>Chave</translation>
+    </message>
+    <message>
+        <source>Fee</source>
+        <translation>Taxa</translation>
+    </message>
+    <message>
+        <source>Wallet optimization transaction, unconfirmed</source>
+        <translation>Transação de otimização de carteira, não confirmada</translation>
+    </message>
+    <message numerus="yes">
+        <source>Wallet optimization transaction, %n confirmation(s)</source>
+        <translation>
+            <numerusform>Transação de otimização de carteira, %n confirmaçõ</numerusform>
+            <numerusform>Transação de otimização de carteira, %n confirmações</numerusform>
+        </translation>
     </message>
 </context>
 <context>

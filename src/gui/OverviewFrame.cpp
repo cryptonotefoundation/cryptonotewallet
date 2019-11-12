@@ -98,6 +98,10 @@ void OverviewFrame::reset() {
   updateUnmixableBalance(0);
 }
 
+void OverviewFrame::reloadTransactions() {
+  // TODO: make dynamic filter of fusion txs here
+}
+
 }
 
 #include "OverviewFrame.moc"

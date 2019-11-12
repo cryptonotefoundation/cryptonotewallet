@@ -1,4 +1,5 @@
 // Copyright (c) 2011-2015 The Cryptonote developers
+// Copyright (c) 2016-2019 The Karbowanec developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -11,7 +12,7 @@
 
 namespace WalletGui {
 
-enum class TransactionType : quint8 {MINED, INPUT, OUTPUT, INOUT};
+enum class TransactionType : quint8 {MINED, INPUT, OUTPUT, INOUT, FUSION};
 
 typedef QPair<CryptoNote::TransactionId, CryptoNote::TransferId> TransactionTransferId;
 
@@ -22,7 +23,7 @@ class TransactionsModel : public QAbstractItemModel {
 
 public:
   enum Columns{
-    COLUMN_STATE = 0, COLUMN_DATE, COLUMN_AMOUNT, COLUMN_ADDRESS, COLUMN_PAYMENT_ID, COLUMN_HASH, COLUMN_FEE,
+    COLUMN_STATE = 0, COLUMN_DATE, COLUMN_AMOUNT, COLUMN_FEE, COLUMN_ADDRESS, COLUMN_PAYMENT_ID, COLUMN_HASH,
     COLUMN_HEIGHT, COLUMN_TYPE, COLUMN_SECRET_KEY
   };
 
@@ -44,6 +45,8 @@ public:
 
   QByteArray toCsv() const;
 
+  void reloadWalletTransactions();
+
 private:
   QVector<TransactionTransferId> m_transfers;
   QHash<CryptoNote::TransactionId, QPair<quint32, quint32> > m_transactionRow;
@@ -59,7 +62,6 @@ private:
   QVariant getUserRole(const QModelIndex& _index, int _role, CryptoNote::TransactionId _transactionId, CryptoNote::WalletLegacyTransaction& _transaction,
     CryptoNote::TransferId _transferId, CryptoNote::WalletLegacyTransfer& _transfer) const;
 
-  void reloadWalletTransactions();
   void appendTransaction(CryptoNote::TransactionId _id, quint32& _row_count);
   void appendTransaction(CryptoNote::TransactionId _id);
   void updateWalletTransaction(CryptoNote::TransactionId _id);

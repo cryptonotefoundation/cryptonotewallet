@@ -732,6 +732,10 @@ Por favor, espera...</translation>
         <source>Import keys</source>
         <translation>Importar claves</translation>
     </message>
+    <message>
+        <source>Don&apos;t show wallet optimization transactions</source>
+        <translation>No mostrar transacciones de optimización de billetera</translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
@@ -2423,6 +2427,10 @@ cuando la cartera termine de sincronizar</translation>
         <source>Sent to myself</source>
         <translation>Enviado a mi mismo</translation>
     </message>
+    <message>
+        <source>Optimization</source>
+        <translation>Optimización</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::TransactionsModel</name>
@@ -2456,7 +2464,7 @@ cuando la cartera termine de sincronizar</translation>
     </message>
     <message>
         <source>(n/a)</source>
-        <translation>(n/A)</translation>
+        <translation>sin datos</translation>
     </message>
     <message>
         <source>Incoming transaction, unconfirmed</source>
@@ -2505,6 +2513,21 @@ cuando la cartera termine de sincronizar</translation>
     <message>
         <source>Key</source>
         <translation>Clave</translation>
+    </message>
+    <message>
+        <source>Fee</source>
+        <translation>Tasa</translation>
+    </message>
+    <message>
+        <source>Wallet optimization transaction, unconfirmed</source>
+        <translation>Transacción de optimización de billetera, sin confirmar</translation>
+    </message>
+    <message numerus="yes">
+        <source>Wallet optimization transaction, %n confirmation(s)</source>
+        <translation>
+            <numerusform>Transacción de optimización de billetera, , %n confirmacion</numerusform>
+            <numerusform>Transacción de optimización de billetera, , %n confirmaciones</numerusform>
+        </translation>
     </message>
 </context>
 <context>
