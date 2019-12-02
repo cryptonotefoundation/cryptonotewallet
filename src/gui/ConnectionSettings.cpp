@@ -48,8 +48,13 @@ void ConnectionSettingsDialog::initConnectionSettings() {
     }
     m_ui->m_localDaemonPort->setValue(localDaemonPort);
 
- QString currentRemoteNode = Settings::instance().getCurrentRemoteNode().split(":")[0];
- int index = m_ui->remoteNodesComboBox->findData(currentRemoteNode);
+ QString currentRemoteNode = Settings::instance().getCurrentRemoteNode();
+ if (currentRemoteNode.indexOf("https://") == 0) {
+   currentRemoteNode = currentRemoteNode.left(currentRemoteNode.lastIndexOf(":"));
+ } else {
+   currentRemoteNode = currentRemoteNode.split(":")[0];
+ }
+ int index = m_ui->remoteNodesComboBox->findText(currentRemoteNode, Qt::MatchStartsWith);
  if ( index != -1 ) {
     m_ui->remoteNodesComboBox->setCurrentIndex(index);
  }
@@ -101,10 +106,11 @@ void ConnectionSettingsDialog::addNodeClicked() {
     if (dlg.exec() == QDialog::Accepted) {
     QString host = dlg.getHost();
     quint16 port = dlg.getPort();
+    bool enableSSL = dlg.getEnableSSL();
     if (host.isEmpty()) {
       return;
     }
-    m_nodeModel->addNode(host, port);
+    m_nodeModel->addNode(host, port, enableSSL);
   }
 
 }

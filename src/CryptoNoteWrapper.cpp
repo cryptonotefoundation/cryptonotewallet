@@ -95,12 +95,12 @@ Node::~Node() {
 class RpcNode : CryptoNote::INodeObserver, public Node {
 public:
   Logging::LoggerManager& m_logManager;
-  RpcNode(const CryptoNote::Currency& currency, INodeCallback& callback, Logging::LoggerManager& logManager, const std::string& nodeHost, unsigned short nodePort) :
+  RpcNode(const CryptoNote::Currency& currency, INodeCallback& callback, Logging::LoggerManager& logManager, const std::string& nodeHost, unsigned short nodePort, bool &enableSSL) :
     m_callback(callback),
     m_currency(currency),
     m_dispatcher(),
     m_logManager(logManager),
-    m_node(nodeHost, nodePort) {
+    m_node(nodeHost, nodePort, "/", enableSSL) {
     m_node.addObserver(this);
   }
 
@@ -445,8 +445,8 @@ private:
   }
 };
 
-Node* createRpcNode(const CryptoNote::Currency& currency, INodeCallback& callback, Logging::LoggerManager& logManager,  const std::string& nodeHost, unsigned short nodePort) {
-  return new RpcNode(currency, callback, logManager, nodeHost, nodePort);
+Node* createRpcNode(const CryptoNote::Currency& currency, INodeCallback& callback, Logging::LoggerManager& logManager,  const std::string& nodeHost, unsigned short nodePort, bool enableSSL) {
+  return new RpcNode(currency, callback, logManager, nodeHost, nodePort, enableSSL);
 }
 
 Node* createInprocessNode(const CryptoNote::Currency& currency, Logging::LoggerManager& logManager,

@@ -136,7 +136,7 @@ bool NodeAdapter::init() {
 
   } else if(connection.compare("local") == 0) {
       QUrl localNodeUrl = QUrl::fromUserInput(QString("127.0.0.1:%1").arg(Settings::instance().getCurrentLocalDaemonPort()));
-      m_node = createRpcNode(CurrencyAdapter::instance().getCurrency(), *this, LoggerAdapter::instance().getLoggerManager(), localNodeUrl.host().toStdString(), localNodeUrl.port());
+      m_node = createRpcNode(CurrencyAdapter::instance().getCurrency(), *this, LoggerAdapter::instance().getLoggerManager(), localNodeUrl.host().toStdString(), localNodeUrl.port(), false);
       QTimer initTimer;
       initTimer.setInterval(3000);
       initTimer.setSingleShot(true);
@@ -157,7 +157,9 @@ bool NodeAdapter::init() {
 
   } else if(connection.compare("remote") == 0) {
       QUrl remoteNodeUrl = QUrl::fromUserInput(Settings::instance().getCurrentRemoteNode());
-      m_node = createRpcNode(CurrencyAdapter::instance().getCurrency(), *this, LoggerAdapter::instance().getLoggerManager(), remoteNodeUrl.host().toStdString(), remoteNodeUrl.port());
+      bool enableSSL = false;
+      if (remoteNodeUrl.scheme().compare("https") == 0) enableSSL = true;
+      m_node = createRpcNode(CurrencyAdapter::instance().getCurrency(), *this, LoggerAdapter::instance().getLoggerManager(), remoteNodeUrl.host().toStdString(), remoteNodeUrl.port(), enableSSL);
       QTimer initTimer;
       initTimer.setInterval(3000);
       initTimer.setSingleShot(true);
@@ -178,7 +180,7 @@ bool NodeAdapter::init() {
 
   } else {
       QUrl localNodeUrl = QUrl::fromUserInput(QString("127.0.0.1:%1").arg(CryptoNote::RPC_DEFAULT_PORT));
-      m_node = createRpcNode(CurrencyAdapter::instance().getCurrency(), *this, LoggerAdapter::instance().getLoggerManager(), localNodeUrl.host().toStdString(), localNodeUrl.port());
+      m_node = createRpcNode(CurrencyAdapter::instance().getCurrency(), *this, LoggerAdapter::instance().getLoggerManager(), localNodeUrl.host().toStdString(), localNodeUrl.port(), false);
       QTimer initTimer;
       initTimer.setInterval(3000);
       initTimer.setSingleShot(true);

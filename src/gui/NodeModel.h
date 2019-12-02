@@ -20,7 +20,7 @@ public:
   NodeModel(QObject* _parent);
   ~NodeModel();
 
-  void addNode(const QString& _host, quint16 _port);
+  void addNode(const QString& _host, quint16 _port, bool &enableSSL);
 
   QVariant data(const QModelIndex& _index, int _role) const Q_DECL_OVERRIDE;
   Qt::ItemFlags flags(const QModelIndex& _index) const Q_DECL_OVERRIDE;

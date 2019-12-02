@@ -16,9 +16,11 @@ NodeModel::NodeModel(QObject* _parent) : QStringListModel(_parent) {
 NodeModel::~NodeModel() {
 }
 
-void NodeModel::addNode(const QString& _host, quint16 _port) {
+void NodeModel::addNode(const QString& _host, quint16 _port, bool &enableSSL) {
+  QString conn_tpl = QString("%1:%2");
+  if (enableSSL) conn_tpl.insert(0, "https://");
   insertRow(rowCount());
-  setData(index(rowCount() - 1, 0), QString("%1:%2").arg(_host).arg(_port));
+  setData(index(rowCount() - 1, 0), QString(conn_tpl).arg(_host).arg(_port));
 }
 
 QVariant NodeModel::data(const QModelIndex& _index, int _role) const {
