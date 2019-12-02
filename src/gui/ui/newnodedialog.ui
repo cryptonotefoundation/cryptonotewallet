@@ -49,6 +49,23 @@
        </property>
       </widget>
      </item>
+     <item>
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>SSL:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="m_enableSSL">
+        <property name="checked">
+          <bool>false</bool>
+        </property>
+        <property name="tristate">
+          <bool>false</bool>
+        </property>
+      </widget>
+     </item>
     </layout>
    </item>
    <item>

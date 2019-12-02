@@ -12,9 +12,18 @@ namespace WalletGui {
 
 NewNodeDialog::NewNodeDialog(QWidget* _parent) : QDialog(_parent), m_ui(new Ui::NewNodeDialog) {
   m_ui->setupUi(this);
+  connect(m_ui->m_enableSSL, SIGNAL(stateChanged(const int &)), this, SLOT(enableSSLstateChanged(const int &)));
 }
 
 NewNodeDialog::~NewNodeDialog() {
+}
+
+void NewNodeDialog::enableSSLstateChanged(const int state) {
+  const quint16 offset = 100;
+  quint16 port = m_ui->m_portSpin->value();
+  if (state == Qt::Unchecked && port > offset) port -= offset;
+  else if (state == Qt::Checked && port <= 65535 - offset) port += offset;
+  m_ui->m_portSpin->setValue(port);
 }
 
 QString NewNodeDialog::getHost() const {
@@ -23,6 +32,13 @@ QString NewNodeDialog::getHost() const {
 
 quint16 NewNodeDialog::getPort() const {
   return m_ui->m_portSpin->value();
+}
+
+bool NewNodeDialog::getEnableSSL() const {
+  int state = m_ui->m_enableSSL->checkState();
+  bool res = false;
+  if (state == Qt::Checked) res = true;
+  return res;
 }
 
 }

@@ -23,9 +23,13 @@ public:
 
   QString getHost() const;
   quint16 getPort() const;
+  bool getEnableSSL() const;
 
 private:
   QScopedPointer<Ui::NewNodeDialog> m_ui;
+
+private slots:
+  void enableSSLstateChanged(const int state);
 };
 
 }
