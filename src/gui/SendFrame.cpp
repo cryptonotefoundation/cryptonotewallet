@@ -304,15 +304,19 @@ void SendFrame::sendClicked() {
     return;
   }
 
-  PasswordDialog pass_dlg(false, this);
-  if (pass_dlg.exec() == QDialog::Accepted) {
-    QString password = pass_dlg.getPassword();
-    if (!WalletAdapter::instance().tryOpen(password)) {
-      QMessageBox::critical(nullptr, tr("Incorrect password"), tr("Wrong password."), QMessageBox::Ok);
+  if (Settings::instance().isEncrypted()) {
+    PasswordDialog pass_dlg(false, this);
+    if (pass_dlg.exec() == QDialog::Accepted) {
+      QString password = pass_dlg.getPassword();
+      if (!WalletAdapter::instance().tryOpen(password)) {
+        QMessageBox::critical(nullptr, tr("Incorrect password"), tr("Wrong password."), QMessageBox::Ok);
+        return;
+      }
+    }
+    else {
       return;
     }
-  }
-  else {
+  } else if (!WalletAdapter::instance().tryOpen("")) {
     return;
   }
 
