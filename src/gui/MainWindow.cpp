@@ -1,7 +1,7 @@
 // Copyright (c) 2011-2016 The Cryptonote developers
 // Copyright (c) 2011-2013 The Bitcoin Core developers
 // Copyright (c) 2015-2016 XDN developers
-// Copyright (c) 2016-2018 The Karbowanec developers
+// Copyright (c) 2016-2019 The Karbowanec developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -19,6 +19,9 @@
 #include <QToolButton>
 #include <QPushButton>
 #include <QFontDatabase>
+
+#include "MainWindow.h"
+
 #include <Common/Base58.h>
 #include <Common/StringTools.h>
 #include <Common/Util.h>
@@ -38,7 +41,6 @@
 #include "CurrencyAdapter.h"
 #include "ExitWidget.h"
 #include "GetBalanceProofDialog.h"
-#include "MainWindow.h"
 #include "NewPasswordDialog.h"
 #include "NodeAdapter.h"
 #include "PasswordDialog.h"
@@ -974,6 +976,23 @@ void MainWindow::askForWalletPassword(bool _error) {
     QString password = dlg.getPassword();
     WalletAdapter::instance().open(password);
   }
+}
+
+void MainWindow::checkWalletPassword() {
+  bool keep_asking = true;
+  bool wrong_pass = false;
+  do {
+    PasswordDialog dlg(wrong_pass, this);
+    if (dlg.exec() == QDialog::Accepted) {
+      QString password = dlg.getPassword();
+      keep_asking = !WalletAdapter::instance().tryOpen(password);
+      wrong_pass = keep_asking;
+    }
+    else {
+      closeWallet();
+      break;
+    }
+  } while (keep_asking);
 }
 
 void MainWindow::encryptedFlagChanged(bool _encrypted) {

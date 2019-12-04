@@ -13,6 +13,8 @@
 #include <QVector>
 #include <QDebug>
 
+#include "WalletAdapter.h"
+
 #include <crypto/crypto.h>
 #include <Common/Base58.h>
 #include <Common/Util.h>
@@ -22,7 +24,6 @@
 #include <ITransfersContainer.h>
 #include "NodeAdapter.h"
 #include "Settings.h"
-#include "WalletAdapter.h"
 #include "Mnemonics/electrum-words.h"
 #include "gui/VerifyMnemonicSeedDialog.h"
 #include "CurrencyAdapter.h"
@@ -133,6 +134,29 @@ void WalletAdapter::open(const QString& _password) {
   } else {
     //createWallet();
   }
+}
+
+bool WalletAdapter::tryOpen(const QString& _password) {
+  Q_ASSERT(m_wallet != nullptr);
+  if (Settings::instance().getWalletFile().endsWith(".wallet")) {
+    if (openFile(Settings::instance().getWalletFile(), true)) {
+      try {
+        if (m_wallet->tryLoadWallet(m_file, _password.toStdString())) {
+          closeFile();
+          return true;
+        }
+        else {
+          closeFile();
+          return false;
+        }
+      }
+      catch (std::system_error&) {
+        closeFile();
+        return false;
+      }
+    }
+  }
+  return false;
 }
 
 void WalletAdapter::createWallet() {
