@@ -762,6 +762,10 @@ void MainWindow::openOptimizationSettings() {
 }
 
 void MainWindow::getBalanceProof() {
+  if (!confirmWithPassword()) {
+    return;
+  }
+
   GetBalanceProofDialog dlg(&MainWindow::instance());
   dlg.exec();
 }
@@ -807,24 +811,40 @@ void MainWindow::openLogFile() {
 }
 
 void MainWindow::showPrivateKeys() {
+  if (!confirmWithPassword()) {
+    return;
+  }
+
   PrivateKeysDialog dlg(this);
   dlg.walletOpened();
   dlg.exec();
 }
 
 void MainWindow::showMnemonicSeed() {
+  if (!confirmWithPassword()) {
+    return;
+  }
+
   MnemonicSeedDialog dlg(this);
   dlg.walletOpened();
   dlg.exec();
 }
 
 void MainWindow::exportTrackingKey() {
+  if (!confirmWithPassword()) {
+    return;
+  }
+
   ExportTrackingKeyDialog dlg(this);
   dlg.walletOpened();
   dlg.exec();
 }
 
 void MainWindow::signMessage() {
+  if (!confirmWithPassword()) {
+    return;
+  }
+
   SignMessageDialog dlg(this);
   dlg.walletOpened();
   dlg.sign();
@@ -993,6 +1013,21 @@ void MainWindow::checkWalletPassword() {
       break;
     }
   } while (keep_asking);
+}
+
+bool MainWindow::confirmWithPassword() {
+  PasswordDialog dlg(false, this);
+  if (dlg.exec() == QDialog::Accepted) {
+    QString password = dlg.getPassword();
+    if (!WalletAdapter::instance().tryOpen(password)) {
+      QMessageBox::critical(nullptr, tr("Incorrect password"), tr("Wrong password."), QMessageBox::Ok);
+      return false;
+    } else {
+      return true;
+    }
+  }
+  
+  return false;
 }
 
 void MainWindow::encryptedFlagChanged(bool _encrypted) {
