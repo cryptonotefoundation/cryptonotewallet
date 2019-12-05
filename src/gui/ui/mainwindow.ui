@@ -217,6 +217,7 @@
     <addaction name="m_signMessageAction"/>
     <addaction name="m_verifySignedMessageAction"/>
     <addaction name="separator"/>
+    <addaction name="m_lockWalletAction"/>
     <addaction name="m_exitAction"/>
    </widget>
    <widget class="QMenu" name="menuSettings">
@@ -634,6 +635,14 @@
    </property>
    <property name="text">
     <string>Don't show wallet optimization transactions</string>
+   </property>
+  </action>
+  <action name="m_lockWalletAction">
+   <property name="text">
+    <string>Lock wallet</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+L</string>
    </property>
   </action>
  </widget>
@@ -1245,6 +1254,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>m_lockWalletAction</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>checkWalletPassword()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>489</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>createWallet()</slot>
@@ -1264,5 +1289,6 @@
   <slot>showStatusInfo()</slot>
   <slot>sweepUnmixable()</slot>
   <slot>getBalanceProof()</slot>
+  <slot>checkWalletPassword()</slot>
  </slots>
 </ui>

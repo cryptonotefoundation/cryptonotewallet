@@ -77,6 +77,7 @@ public:
   bool isDeterministic(CryptoNote::AccountKeys& _keys) const;
   QString getMnemonicSeed(QString _language) const;
   CryptoNote::AccountKeys getKeysFromMnemonicSeed(QString& _seed) const;
+  bool tryOpen(const QString& _password);
 
 private:
   std::fstream m_file;

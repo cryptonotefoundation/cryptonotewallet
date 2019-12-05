@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2016 The Cryptonote developers
 // Copyright (c) 2015-2016 XDN developers
-// Copyright (c) 2016-2017 The Karbowanec developers
+// Copyright (c) 2016-2019 The Karbowanec developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -89,6 +89,7 @@ private:
   void setStatusBarText(const QString& _text);
   void showMessage(const QString& _text, QtMsgType _type);
   void askForWalletPassword(bool _error);
+  bool confirmWithPassword();
   void encryptedFlagChanged(bool _encrypted);
   void peerCountUpdated(quint64 _peer_count);
   void walletSynchronizationInProgress();
@@ -136,6 +137,7 @@ private:
   Q_SLOT void restoreFromMnemonicSeed();
   Q_SLOT void sweepUnmixable();
   Q_SLOT void getBalanceProof();
+  Q_SLOT void checkWalletPassword();
 
   bool isObscured(QWidget *w);
   bool checkPoint(const QPoint &p, const QWidget *w);

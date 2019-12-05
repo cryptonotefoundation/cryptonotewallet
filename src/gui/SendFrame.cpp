@@ -23,6 +23,7 @@
 #include "AddressProvider.h"
 #include "OpenUriDialog.h"
 #include "ConfirmSendDialog.h"
+#include "PasswordDialog.h"
 
 #include "ui_sendframe.h"
 
@@ -302,82 +303,100 @@ void SendFrame::sendClicked() {
       new ShowMessageEvent(tr("Insufficient balance."), QtCriticalMsg));
     return;
   }
-  ConfirmSendDialog dlg(&MainWindow::instance());
-    dlg.showPasymentDetails(total_amount);
-    if(!m_ui->m_paymentIdEdit->text().isEmpty()){
-      dlg.showPaymentId(m_ui->m_paymentIdEdit->text());
-    } else {
-      dlg.confirmNoPaymentId();
+
+  if (Settings::instance().isEncrypted()) {
+    PasswordDialog pass_dlg(false, this);
+    if (pass_dlg.exec() == QDialog::Accepted) {
+      QString password = pass_dlg.getPassword();
+      if (!WalletAdapter::instance().tryOpen(password)) {
+        QMessageBox::critical(nullptr, tr("Incorrect password"), tr("Wrong password."), QMessageBox::Ok);
+        return;
+      }
     }
-    if (dlg.exec() == QDialog::Accepted) {
+    else {
+      return;
+    }
+  } else if (!WalletAdapter::instance().tryOpen("")) {
+    return;
+  }
 
-      std::vector<CryptoNote::WalletLegacyTransfer> walletTransfers;
-      Q_FOREACH (TransferFrame * transfer, m_transfers) {
-        QString address = transfer->getAddress();
-        if (!CurrencyAdapter::instance().validateAddress(address)) {
-          QCoreApplication::postEvent(
-            &MainWindow::instance(),
-            new ShowMessageEvent(tr("Invalid recipient address"), QtCriticalMsg));
-          return;
-        }
+  ConfirmSendDialog dlg(&MainWindow::instance());
+  dlg.showPasymentDetails(total_amount);
+  if (!m_ui->m_paymentIdEdit->text().isEmpty()) {
+    dlg.showPaymentId(m_ui->m_paymentIdEdit->text());
+  }
+  else {
+    dlg.confirmNoPaymentId();
+  }
+  if (dlg.exec() == QDialog::Accepted) {
 
+    std::vector<CryptoNote::WalletLegacyTransfer> walletTransfers;
+    Q_FOREACH(TransferFrame * transfer, m_transfers) {
+      QString address = transfer->getAddress();
+      if (!CurrencyAdapter::instance().validateAddress(address)) {
+        QCoreApplication::postEvent(
+          &MainWindow::instance(),
+          new ShowMessageEvent(tr("Invalid recipient address"), QtCriticalMsg));
+        return;
+      }
+
+      CryptoNote::WalletLegacyTransfer walletTransfer;
+      walletTransfer.address = address.toStdString();
+      uint64_t amount = CurrencyAdapter::instance().parseAmount(transfer->getAmountString());
+      walletTransfer.amount = amount;
+      walletTransfers.push_back(walletTransfer);
+      QString label = transfer->getLabel();
+      if (!label.isEmpty()) {
+        AddressBookModel::instance().addAddress(label, address, m_ui->m_paymentIdEdit->text().toUtf8());
+      }
+    }
+
+    // Dev donation
+    if (m_ui->donateCheckBox->isChecked()) {
+      CryptoNote::WalletLegacyTransfer walletTransfer;
+      walletTransfer.address = "Kdev1L9V5ow3cdKNqDpLcFFxZCqu5W2GE9xMKewsB2pUXWxcXvJaUWHcSrHuZw91eYfQFzRtGfTemReSSMN4kE445i6Etb3";
+      walletTransfer.amount = CurrencyAdapter::instance().parseAmount(m_ui->m_donateSpin->cleanText());
+      walletTransfers.push_back(walletTransfer);
+    }
+
+    // Remote node fee
+    QString connection = Settings::instance().getConnection();
+    if (connection.compare("remote") == 0) {
+      if (!SendFrame::remote_node_fee_address.isEmpty()) {
         CryptoNote::WalletLegacyTransfer walletTransfer;
-        walletTransfer.address = address.toStdString();
-        uint64_t amount = CurrencyAdapter::instance().parseAmount(transfer->getAmountString());
-        walletTransfer.amount = amount;
+        walletTransfer.address = SendFrame::remote_node_fee_address.toStdString();
+        walletTransfer.amount = remote_node_fee;
         walletTransfers.push_back(walletTransfer);
-        QString label = transfer->getLabel();
-        if (!label.isEmpty()) {
-          AddressBookModel::instance().addAddress(label, address, m_ui->m_paymentIdEdit->text().toUtf8());
-        }
       }
+    }
 
-      // Dev donation
-      if (m_ui->donateCheckBox->isChecked()) {
-          CryptoNote::WalletLegacyTransfer walletTransfer;
-          walletTransfer.address = "Kdev1L9V5ow3cdKNqDpLcFFxZCqu5W2GE9xMKewsB2pUXWxcXvJaUWHcSrHuZw91eYfQFzRtGfTemReSSMN4kE445i6Etb3";
-          walletTransfer.amount = CurrencyAdapter::instance().parseAmount(m_ui->m_donateSpin->cleanText());
-          walletTransfers.push_back(walletTransfer);
-      }
+    // Miners fee
+    priorityValueChanged(m_ui->m_prioritySlider->value());
+    quint64 fee = CurrencyAdapter::instance().parseAmount(m_ui->m_feeSpin->cleanText());
 
-      // Remote node fee
-      QString connection = Settings::instance().getConnection();
-      if(connection.compare("remote") == 0) {
-          if (!SendFrame::remote_node_fee_address.isEmpty()) {
-            CryptoNote::WalletLegacyTransfer walletTransfer;
-            walletTransfer.address = SendFrame::remote_node_fee_address.toStdString();
-            walletTransfer.amount = remote_node_fee;
-            walletTransfers.push_back(walletTransfer);
-          }
-      }
+    if (fee < NodeAdapter::instance().getMinimalFee()) {
+      QCoreApplication::postEvent(&MainWindow::instance(), new ShowMessageEvent(tr("Incorrect fee value"), QtCriticalMsg));
+      return;
+    }
 
-      // Miners fee
-      priorityValueChanged(m_ui->m_prioritySlider->value());
-      quint64 fee = CurrencyAdapter::instance().parseAmount(m_ui->m_feeSpin->cleanText());
+    quint64 total_transaction_amount = 0;
+    for (size_t i = 0; i < walletTransfers.size(); i++) {
+      total_transaction_amount += walletTransfers.at(i).amount;
+    }
+    if (total_transaction_amount > (WalletAdapter::instance().getActualBalance() - fee - dust_balance)) {
+      QMessageBox::critical(this, tr("Insufficient balance"), tr("Available balance is insufficient to send this transaction. Have you excluded a fee?"), QMessageBox::Ok);
+      return;
+    }
 
-	  if (fee < NodeAdapter::instance().getMinimalFee()) {
-        QCoreApplication::postEvent(&MainWindow::instance(), new ShowMessageEvent(tr("Incorrect fee value"), QtCriticalMsg));
+    if (WalletAdapter::instance().isOpen()) {
+      QByteArray paymentIdString = m_ui->m_paymentIdEdit->text().toUtf8();
+      if (!isValidPaymentId(paymentIdString)) {
+        QCoreApplication::postEvent(&MainWindow::instance(), new ShowMessageEvent(tr("Invalid payment ID"), QtCriticalMsg));
         return;
       }
 
-      quint64 total_transaction_amount = 0;
-      for (size_t i = 0; i < walletTransfers.size(); i++){
-        total_transaction_amount += walletTransfers.at(i).amount;
-      }
-      if (total_transaction_amount > (WalletAdapter::instance().getActualBalance() - fee - dust_balance)) {
-        QMessageBox::critical(this, tr("Insufficient balance"), tr("Available balance is insufficient to send this transaction. Have you excluded a fee?"), QMessageBox::Ok);
-        return;
-      }
-
-      if (WalletAdapter::instance().isOpen()) {
-          QByteArray paymentIdString = m_ui->m_paymentIdEdit->text().toUtf8();
-          if (!isValidPaymentId(paymentIdString)) {
-            QCoreApplication::postEvent(&MainWindow::instance(), new ShowMessageEvent(tr("Invalid payment ID"), QtCriticalMsg));
-            return;
-          }
-
-          WalletAdapter::instance().sendTransaction(walletTransfers, fee, m_ui->m_paymentIdEdit->text(), m_ui->m_mixinSlider->value());
-      }
+      WalletAdapter::instance().sendTransaction(walletTransfers, fee, m_ui->m_paymentIdEdit->text(), m_ui->m_mixinSlider->value());
+    }
   }
 }
 

@@ -1,7 +1,7 @@
 // Copyright (c) 2011-2016 The Cryptonote developers
 // Copyright (c) 2011-2013 The Bitcoin Core developers
 // Copyright (c) 2015-2016 XDN developers
-// Copyright (c) 2016-2018 The Karbowanec developers
+// Copyright (c) 2016-2019 The Karbowanec developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -19,6 +19,9 @@
 #include <QToolButton>
 #include <QPushButton>
 #include <QFontDatabase>
+
+#include "MainWindow.h"
+
 #include <Common/Base58.h>
 #include <Common/StringTools.h>
 #include <Common/Util.h>
@@ -38,7 +41,6 @@
 #include "CurrencyAdapter.h"
 #include "ExitWidget.h"
 #include "GetBalanceProofDialog.h"
-#include "MainWindow.h"
 #include "NewPasswordDialog.h"
 #include "NodeAdapter.h"
 #include "PasswordDialog.h"
@@ -760,6 +762,10 @@ void MainWindow::openOptimizationSettings() {
 }
 
 void MainWindow::getBalanceProof() {
+  if (!confirmWithPassword()) {
+    return;
+  }
+
   GetBalanceProofDialog dlg(&MainWindow::instance());
   dlg.exec();
 }
@@ -805,24 +811,40 @@ void MainWindow::openLogFile() {
 }
 
 void MainWindow::showPrivateKeys() {
+  if (!confirmWithPassword()) {
+    return;
+  }
+
   PrivateKeysDialog dlg(this);
   dlg.walletOpened();
   dlg.exec();
 }
 
 void MainWindow::showMnemonicSeed() {
+  if (!confirmWithPassword()) {
+    return;
+  }
+
   MnemonicSeedDialog dlg(this);
   dlg.walletOpened();
   dlg.exec();
 }
 
 void MainWindow::exportTrackingKey() {
+  if (!confirmWithPassword()) {
+    return;
+  }
+
   ExportTrackingKeyDialog dlg(this);
   dlg.walletOpened();
   dlg.exec();
 }
 
 void MainWindow::signMessage() {
+  if (!confirmWithPassword()) {
+    return;
+  }
+
   SignMessageDialog dlg(this);
   dlg.walletOpened();
   dlg.sign();
@@ -976,6 +998,41 @@ void MainWindow::askForWalletPassword(bool _error) {
   }
 }
 
+void MainWindow::checkWalletPassword() {
+  bool keep_asking = true;
+  bool wrong_pass = false;
+  do {
+    PasswordDialog dlg(wrong_pass, this);
+    if (dlg.exec() == QDialog::Accepted) {
+      QString password = dlg.getPassword();
+      keep_asking = !WalletAdapter::instance().tryOpen(password);
+      wrong_pass = keep_asking;
+    }
+    else {
+      closeWallet();
+      break;
+    }
+  } while (keep_asking);
+}
+
+bool MainWindow::confirmWithPassword() {
+  if (!Settings::instance().isEncrypted() && WalletAdapter::instance().tryOpen(""))
+    return true;
+
+  PasswordDialog dlg(false, this);
+  if (dlg.exec() == QDialog::Accepted) {
+    QString password = dlg.getPassword();
+    if (!WalletAdapter::instance().tryOpen(password)) {
+      QMessageBox::critical(nullptr, tr("Incorrect password"), tr("Wrong password."), QMessageBox::Ok);
+      return false;
+    } else {
+      return true;
+    }
+  }
+  
+  return false;
+}
+
 void MainWindow::encryptedFlagChanged(bool _encrypted) {
   m_ui->m_encryptWalletAction->setEnabled(!_encrypted);
   m_ui->m_changePasswordAction->setEnabled(_encrypted);
@@ -984,6 +1041,7 @@ void MainWindow::encryptedFlagChanged(bool _encrypted) {
   m_encryptionStateIconLabel->setPixmap(encryptionIcon);
   QString encryptionLabelTooltip = _encrypted ? tr("Encrypted") : tr("Not encrypted");
   m_encryptionStateIconLabel->setToolTip(encryptionLabelTooltip);
+  m_ui->m_lockWalletAction->setEnabled(_encrypted);
 }
 
 void MainWindow::peerCountUpdated(quint64 _peerCount) {
