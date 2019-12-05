@@ -196,6 +196,7 @@ void MainWindow::initUi() {
 
   m_ui->m_startOnLoginAction->setChecked(Settings::instance().isStartOnLoginEnabled());
   m_ui->m_hideFusionTransactions->setChecked(Settings::instance().skipFusionTransactions());
+  m_ui->m_lockWalletAction->setEnabled(false);
 
   m_ui->menuRecent_wallets->setVisible(false);
   QAction* recentWalletAction = 0;
@@ -998,7 +999,14 @@ void MainWindow::askForWalletPassword(bool _error) {
   }
 }
 
-void MainWindow::checkWalletPassword() {
+void MainWindow::lockWalletWithPassword() {
+  accountWidget->setVisible(false);
+  m_ui->m_overviewFrame->hide();
+  m_ui->m_receiveFrame->hide();
+  m_ui->m_sendFrame->hide();
+  m_ui->m_transactionsFrame->hide();
+  m_ui->m_addressBookFrame->hide();
+
   bool keep_asking = true;
   bool wrong_pass = false;
   do {
@@ -1010,9 +1018,12 @@ void MainWindow::checkWalletPassword() {
     }
     else {
       closeWallet();
-      break;
+      return;
     }
   } while (keep_asking);
+
+  accountWidget->setVisible(true);
+  m_ui->m_overviewFrame->show();
 }
 
 bool MainWindow::confirmWithPassword() {
@@ -1071,7 +1082,7 @@ void MainWindow::walletSynchronized(int _error, const QString& _error_text) {
 void MainWindow::walletOpened(bool _error, const QString& _error_text) {
   if (!_error) {
     m_ui->m_noWalletFrame->hide();
-	m_ui->accountToolBar->show();
+    m_ui->accountToolBar->show();
     m_ui->m_closeWalletAction->setEnabled(true);
     m_ui->m_exportTrackingKeyAction->setEnabled(true);
     m_encryptionStateIconLabel->show();
@@ -1130,6 +1141,7 @@ void MainWindow::walletClosed() {
   m_ui->m_signMessageAction->setEnabled(false);
   m_ui->m_verifySignedMessageAction->setEnabled(false);
   m_ui->m_proofBalanceAction->setEnabled(false);
+  m_ui->m_lockWalletAction->setEnabled(false);
   m_ui->m_overviewFrame->hide();
   accountWidget->setVisible(false);
   m_ui->m_receiveFrame->hide();

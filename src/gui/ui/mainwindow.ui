@@ -1258,7 +1258,7 @@
    <sender>m_lockWalletAction</sender>
    <signal>triggered()</signal>
    <receiver>MainWindow</receiver>
-   <slot>checkWalletPassword()</slot>
+   <slot>lockWalletWithPassword()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>-1</x>
@@ -1289,6 +1289,6 @@
   <slot>showStatusInfo()</slot>
   <slot>sweepUnmixable()</slot>
   <slot>getBalanceProof()</slot>
-  <slot>checkWalletPassword()</slot>
+  <slot>lockWalletWithPassword()</slot>
  </slots>
 </ui>
