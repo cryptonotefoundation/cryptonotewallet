@@ -746,6 +746,14 @@ S&apos;il vous plaît, patientez...</translation>
         <source>Don&apos;t show wallet optimization transactions</source>
         <translation>Ne pas afficher les transactions d&apos;optimisation de portefeuille</translation>
     </message>
+    <message>
+        <source>Lock wallet</source>
+        <translation>Verrouillez le portefeuille</translation>
+    </message>
+    <message>
+        <source>Ctrl+L</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
@@ -1711,11 +1719,11 @@ Voulez-vous aller à la page de téléchargement?</translation>
     </message>
     <message>
         <source>Rollback to height</source>
-        <translation type="unfinished"></translation>
+        <translation>Revenir à la hauteur</translation>
     </message>
     <message>
         <source>height</source>
-        <translation type="unfinished"></translation>
+        <translation>La taille</translation>
     </message>
 </context>
 <context>
@@ -2004,11 +2012,11 @@ Are you sure?</source>
     </message>
     <message>
         <source>%1 - Karbo Wallet %2</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 - Karbo Portefeuille %2</translation>
     </message>
     <message>
         <source>Karbo Wallet %2</source>
-        <translation type="unfinished">Karbo Portefeuille %2</translation>
+        <translation>Karbo Portefeuille %2</translation>
     </message>
     <message>
         <source>Recent wallet file not found</source>
@@ -2017,6 +2025,14 @@ Are you sure?</source>
     <message>
         <source>The recent wallet file is missing. Probably it was removed.</source>
         <translation>Le fichier portefeuille récent est manquant. Probablement il a été enlevé.</translation>
+    </message>
+    <message>
+        <source>Incorrect password</source>
+        <translation>Mot de passe incorrect</translation>
+    </message>
+    <message>
+        <source>Wrong password.</source>
+        <translation>Mauvais mot de passe.</translation>
     </message>
 </context>
 <context>
@@ -2224,6 +2240,14 @@ Are you sure?</source>
     <message>
         <source>Insufficient balance.</source>
         <translation>Solde insuffisant.</translation>
+    </message>
+    <message>
+        <source>Incorrect password</source>
+        <translation>Mot de passe incorrect</translation>
+    </message>
+    <message>
+        <source>Wrong password.</source>
+        <translation>Mauvais mot de passe.</translation>
     </message>
 </context>
 <context>
@@ -2713,23 +2737,23 @@ quand le portefeuille aura terminé la synchronisation</translation>
     </message>
     <message>
         <source>Failed to get the transaction proof</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossible d&apos;obtenir la preuve de transaction</translation>
     </message>
     <message>
         <source>Failed to get the transaction proof.</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossible d&apos;obtenir la preuve de transaction.</translation>
     </message>
     <message>
         <source>Failed to get the reserve proof</source>
-        <translation type="unfinished"></translation>
+        <translation>N&apos;a pas obtenu la preuve de la réserve</translation>
     </message>
     <message>
         <source>This is tracking wallet. The reserve proof can be generated only by a full wallet.</source>
-        <translation type="unfinished"></translation>
+        <translation>C&apos;est le portefeuille de suivi. La preuve de réserve ne peut être générée que par un portefeuille complet.</translation>
     </message>
     <message>
         <source>Failed to get the reserve proof.</source>
-        <translation type="unfinished"></translation>
+        <translation>N&apos;a pas obtenu la preuve de la réserve.</translation>
     </message>
 </context>
 </TS>

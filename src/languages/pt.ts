@@ -751,6 +751,14 @@ Por favor aguarde...</translation>
         <source>Don&apos;t show wallet optimization transactions</source>
         <translation>Não mostrar transações de otimização de carteira</translation>
     </message>
+    <message>
+        <source>Lock wallet</source>
+        <translation>Bloquear a carteira</translation>
+    </message>
+    <message>
+        <source>Ctrl+L</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
@@ -1712,11 +1720,11 @@ Você quer ir à página de dowload?</translation>
     </message>
     <message>
         <source>Rollback to height</source>
-        <translation type="unfinished"></translation>
+        <translation>Reversão para altura</translation>
     </message>
     <message>
         <source>height</source>
-        <translation type="unfinished"></translation>
+        <translation>Altura</translation>
     </message>
 </context>
 <context>
@@ -2005,11 +2013,11 @@ Você tem certeza?</translation>
     </message>
     <message>
         <source>%1 - Karbo Wallet %2</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 - Karbo Wallet %2</translation>
     </message>
     <message>
         <source>Karbo Wallet %2</source>
-        <translation type="unfinished">Karbo Wallet %2</translation>
+        <translation>Karbo Wallet %2</translation>
     </message>
     <message>
         <source>Recent wallet file not found</source>
@@ -2018,6 +2026,14 @@ Você tem certeza?</translation>
     <message>
         <source>The recent wallet file is missing. Probably it was removed.</source>
         <translation>O arquivo da carteira recente está ausente. Provavelmente foi removido.</translation>
+    </message>
+    <message>
+        <source>Incorrect password</source>
+        <translation>Senha incorreta</translation>
+    </message>
+    <message>
+        <source>Wrong password.</source>
+        <translation>Senha incorreta.</translation>
     </message>
 </context>
 <context>
@@ -2225,6 +2241,14 @@ Você tem certeza?</translation>
     <message>
         <source>Insufficient balance.</source>
         <translation>Saldo insuficiente.</translation>
+    </message>
+    <message>
+        <source>Incorrect password</source>
+        <translation>Senha incorreta</translation>
+    </message>
+    <message>
+        <source>Wrong password.</source>
+        <translation>Senha incorreta.</translation>
     </message>
 </context>
 <context>
@@ -2714,23 +2738,23 @@ quando a carteira vai terminar de sincronizar</translation>
     </message>
     <message>
         <source>Failed to get the transaction proof</source>
-        <translation type="unfinished"></translation>
+        <translation>Falha ao obter a prova da transação</translation>
     </message>
     <message>
         <source>Failed to get the transaction proof.</source>
-        <translation type="unfinished"></translation>
+        <translation>Falha ao obter a prova da transação.</translation>
     </message>
     <message>
         <source>Failed to get the reserve proof</source>
-        <translation type="unfinished"></translation>
+        <translation>Falha ao obter a prova da reserva</translation>
     </message>
     <message>
         <source>This is tracking wallet. The reserve proof can be generated only by a full wallet.</source>
-        <translation type="unfinished"></translation>
+        <translation>Isso está acompanhando a carteira. A prova de reserva pode ser gerada apenas por uma carteira completa.</translation>
     </message>
     <message>
         <source>Failed to get the reserve proof.</source>
-        <translation type="unfinished"></translation>
+        <translation>Falha ao obter a prova da reserva.</translation>
     </message>
 </context>
 </TS>

@@ -730,6 +730,14 @@ Please wait...</source>
         <source>Don&apos;t show wallet optimization transactions</source>
         <translation>Не показувати транзакції оптимізації гаманця</translation>
     </message>
+    <message>
+        <source>Lock wallet</source>
+        <translation>Замкнути гаманець</translation>
+    </message>
+    <message>
+        <source>Ctrl+L</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
@@ -1687,11 +1695,11 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>Rollback to height</source>
-        <translation type="unfinished"></translation>
+        <translation>Відкотити до висоти</translation>
     </message>
     <message>
         <source>height</source>
-        <translation type="unfinished"></translation>
+        <translation>Висота</translation>
     </message>
 </context>
 <context>
@@ -1985,11 +1993,11 @@ Are you sure?</source>
     </message>
     <message>
         <source>%1 - Karbo Wallet %2</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 - Карбованець в. %2</translation>
     </message>
     <message>
         <source>Karbo Wallet %2</source>
-        <translation type="unfinished">Карбованець в. %2</translation>
+        <translation>Карбованець в. %2</translation>
     </message>
     <message>
         <source>Recent wallet file not found</source>
@@ -1998,6 +2006,14 @@ Are you sure?</source>
     <message>
         <source>The recent wallet file is missing. Probably it was removed.</source>
         <translation>Останній файл гаманця відсутній. Ймовірно, він був видалений.</translation>
+    </message>
+    <message>
+        <source>Incorrect password</source>
+        <translation>Невірний пароль</translation>
+    </message>
+    <message>
+        <source>Wrong password.</source>
+        <translation>Неправильний пароль.</translation>
     </message>
 </context>
 <context>
@@ -2205,6 +2221,14 @@ Are you sure?</source>
     <message>
         <source>Insufficient balance.</source>
         <translation>Недостатній баланс.</translation>
+    </message>
+    <message>
+        <source>Incorrect password</source>
+        <translation>Невірний пароль</translation>
+    </message>
+    <message>
+        <source>Wrong password.</source>
+        <translation>Неправильний пароль.</translation>
     </message>
 </context>
 <context>
@@ -2700,23 +2724,23 @@ when the wallet is synchronized</source>
     </message>
     <message>
         <source>Failed to get the transaction proof</source>
-        <translation type="unfinished"></translation>
+        <translation>Не вдалося отримати підтвердження транзакції</translation>
     </message>
     <message>
         <source>Failed to get the transaction proof.</source>
-        <translation type="unfinished"></translation>
+        <translation>Не вдалося отримати підтвердження транзакції.</translation>
     </message>
     <message>
         <source>Failed to get the reserve proof</source>
-        <translation type="unfinished"></translation>
+        <translation>Не вдалося отримати підтвердження резерву</translation>
     </message>
     <message>
         <source>This is tracking wallet. The reserve proof can be generated only by a full wallet.</source>
-        <translation type="unfinished"></translation>
+        <translation>Це гаманець відстеження. Доказ резерву може бути створений лише повним гаманцем.</translation>
     </message>
     <message>
         <source>Failed to get the reserve proof.</source>
-        <translation type="unfinished"></translation>
+        <translation>Не вдалося отримати підтвердження резерву.</translation>
     </message>
 </context>
 </TS>

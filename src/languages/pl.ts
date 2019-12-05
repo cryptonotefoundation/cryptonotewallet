@@ -730,6 +730,14 @@ Proszę czekać...</translation>
         <source>Don&apos;t show wallet optimization transactions</source>
         <translation>Nie pokazuj transakcji optymalizacji portfela</translation>
     </message>
+    <message>
+        <source>Lock wallet</source>
+        <translation>Zablokuj portfel</translation>
+    </message>
+    <message>
+        <source>Ctrl+L</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
@@ -1694,11 +1702,11 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
     </message>
     <message>
         <source>Rollback to height</source>
-        <translation type="unfinished"></translation>
+        <translation>Cofnij do wysokości</translation>
     </message>
     <message>
         <source>height</source>
-        <translation type="unfinished"></translation>
+        <translation>Wysokość</translation>
     </message>
 </context>
 <context>
@@ -1832,7 +1840,7 @@ Jesteś pewien?</translation>
     </message>
     <message>
         <source>Wallet</source>
-        <translation type="unfinished">Portfel</translation>
+        <translation>Portfel</translation>
     </message>
     <message>
         <source>Encrypted</source>
@@ -1996,11 +2004,11 @@ Jesteś pewien?</translation>
     </message>
     <message>
         <source>%1 - Karbo Wallet %2</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 - Karbowaniec w. %2</translation>
     </message>
     <message>
         <source>Karbo Wallet %2</source>
-        <translation type="unfinished">Karbowaneć v. %2</translation>
+        <translation>Karbowaneć v. %2</translation>
     </message>
     <message>
         <source>Recent wallet file not found</source>
@@ -2009,6 +2017,14 @@ Jesteś pewien?</translation>
     <message>
         <source>The recent wallet file is missing. Probably it was removed.</source>
         <translation>Brak ostatniego pliku portfela. Prawdopodobnie został usunięty.</translation>
+    </message>
+    <message>
+        <source>Incorrect password</source>
+        <translation>Niepoprawne hasło</translation>
+    </message>
+    <message>
+        <source>Wrong password.</source>
+        <translation>Złe hasło.</translation>
     </message>
 </context>
 <context>
@@ -2216,6 +2232,14 @@ Jesteś pewien?</translation>
     <message>
         <source>Insufficient balance.</source>
         <translation>Niewystarczająca ilość środków.</translation>
+    </message>
+    <message>
+        <source>Incorrect password</source>
+        <translation>Niepoprawne hasło</translation>
+    </message>
+    <message>
+        <source>Wrong password.</source>
+        <translation>Złe hasło.</translation>
     </message>
 </context>
 <context>
@@ -2711,23 +2735,23 @@ kiedy portfel skończy synchronizowanie</translation>
     </message>
     <message>
         <source>Failed to get the transaction proof</source>
-        <translation type="unfinished"></translation>
+        <translation>Nie udało się uzyskać potwierdzenia transakcji</translation>
     </message>
     <message>
         <source>Failed to get the transaction proof.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nie udało się uzyskać potwierdzenia transakcji.</translation>
     </message>
     <message>
         <source>Failed to get the reserve proof</source>
-        <translation type="unfinished"></translation>
+        <translation>Nie udało się uzyskać dowodu rezerwy</translation>
     </message>
     <message>
         <source>This is tracking wallet. The reserve proof can be generated only by a full wallet.</source>
-        <translation type="unfinished"></translation>
+        <translation>To jest portfel śledzący. Dowód rezerwy może zostać wygenerowany tylko przez pełny portfel.</translation>
     </message>
     <message>
         <source>Failed to get the reserve proof.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nie udało się uzyskać dowod rezerwy.</translation>
     </message>
 </context>
 </TS>

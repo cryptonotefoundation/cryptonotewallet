@@ -736,6 +736,14 @@ Por favor, espera...</translation>
         <source>Don&apos;t show wallet optimization transactions</source>
         <translation>No mostrar transacciones de optimización de billetera</translation>
     </message>
+    <message>
+        <source>Lock wallet</source>
+        <translation>Bloquear la billetera</translation>
+    </message>
+    <message>
+        <source>Ctrl+L</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
@@ -1701,11 +1709,11 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>Rollback to height</source>
-        <translation type="unfinished"></translation>
+        <translation>Reversión a la altura</translation>
     </message>
     <message>
         <source>height</source>
-        <translation type="unfinished"></translation>
+        <translation>Altura</translation>
     </message>
 </context>
 <context>
@@ -1996,11 +2004,11 @@ Are you sure?</source>
     </message>
     <message>
         <source>%1 - Karbo Wallet %2</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 - Karbo Monedero %2</translation>
     </message>
     <message>
         <source>Karbo Wallet %2</source>
-        <translation type="unfinished">Karbo Monedero %2</translation>
+        <translation>Karbo Monedero %2</translation>
     </message>
     <message>
         <source>Recent wallet file not found</source>
@@ -2009,6 +2017,14 @@ Are you sure?</source>
     <message>
         <source>The recent wallet file is missing. Probably it was removed.</source>
         <translation>Falta el archivo de cartera reciente. Probablemente fue eliminado.</translation>
+    </message>
+    <message>
+        <source>Incorrect password</source>
+        <translation>Contraseña incorrecta</translation>
+    </message>
+    <message>
+        <source>Wrong password.</source>
+        <translation>Contraseña incorrecta.</translation>
     </message>
 </context>
 <context>
@@ -2216,6 +2232,14 @@ Are you sure?</source>
     <message>
         <source>Insufficient balance.</source>
         <translation>Saldo insuficiente.</translation>
+    </message>
+    <message>
+        <source>Incorrect password</source>
+        <translation>Contraseña incorrecta</translation>
+    </message>
+    <message>
+        <source>Wrong password.</source>
+        <translation>Contraseña incorrecta.</translation>
     </message>
 </context>
 <context>
@@ -2706,23 +2730,23 @@ cuando la cartera termine de sincronizar</translation>
     </message>
     <message>
         <source>Failed to get the transaction proof</source>
-        <translation type="unfinished"></translation>
+        <translation>No se pudo obtener la prueba de la transacción</translation>
     </message>
     <message>
         <source>Failed to get the transaction proof.</source>
-        <translation type="unfinished"></translation>
+        <translation>No se pudo obtener la prueba de la transacción.</translation>
     </message>
     <message>
         <source>Failed to get the reserve proof</source>
-        <translation type="unfinished"></translation>
+        <translation>No se pudo obtener la prueba de la reserva</translation>
     </message>
     <message>
         <source>This is tracking wallet. The reserve proof can be generated only by a full wallet.</source>
-        <translation type="unfinished"></translation>
+        <translation>Esta es la billetera de seguimiento. La prueba de reserva solo se puede generar con una billetera completa.</translation>
     </message>
     <message>
         <source>Failed to get the reserve proof.</source>
-        <translation type="unfinished"></translation>
+        <translation>No se pudo obtener la prueba de la reserva.</translation>
     </message>
 </context>
 </TS>

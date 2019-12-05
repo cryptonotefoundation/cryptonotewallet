@@ -735,6 +735,14 @@ Bitte warten...</translation>
         <source>Don&apos;t show wallet optimization transactions</source>
         <translation>Brieftaschenoptimierungstransaktionen nicht anzeigen</translation>
     </message>
+    <message>
+        <source>Lock wallet</source>
+        <translation>Brieftasche sperren</translation>
+    </message>
+    <message>
+        <source>Ctrl+L</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
@@ -1703,11 +1711,11 @@ Externer Port für das P2P-Netzwerkprotokoll (wenn Portweiterleitung mit NAT ver
     </message>
     <message>
         <source>Rollback to height</source>
-        <translation type="unfinished"></translation>
+        <translation>Zurückkehren zu Höhe</translation>
     </message>
     <message>
         <source>height</source>
-        <translation type="unfinished"></translation>
+        <translation>Höhe</translation>
     </message>
 </context>
 <context>
@@ -2000,11 +2008,11 @@ Bist du sicher?</translation>
     </message>
     <message>
         <source>%1 - Karbo Wallet %2</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 - Karbo Brieftasche %2</translation>
     </message>
     <message>
         <source>Karbo Wallet %2</source>
-        <translation type="unfinished">Karbo Brieftasche %2</translation>
+        <translation>Karbo Brieftasche %2</translation>
     </message>
     <message>
         <source>Recent wallet file not found</source>
@@ -2013,6 +2021,14 @@ Bist du sicher?</translation>
     <message>
         <source>The recent wallet file is missing. Probably it was removed.</source>
         <translation>Die aktuelle Brieftaschendatei fehlt. Wahrscheinlich wurde es entfernt.</translation>
+    </message>
+    <message>
+        <source>Incorrect password</source>
+        <translation>Falsches Passwort</translation>
+    </message>
+    <message>
+        <source>Wrong password.</source>
+        <translation>Falsches Passwort.</translation>
     </message>
 </context>
 <context>
@@ -2220,6 +2236,14 @@ Bist du sicher?</translation>
     <message>
         <source>Insufficient balance.</source>
         <translation>Ungenügende Balance.</translation>
+    </message>
+    <message>
+        <source>Incorrect password</source>
+        <translation>Falsches Passwort</translation>
+    </message>
+    <message>
+        <source>Wrong password.</source>
+        <translation>Falsches Passwort.</translation>
     </message>
 </context>
 <context>
@@ -2713,23 +2737,23 @@ Kann keinen neuen Schlüssel generieren</translation>
     </message>
     <message>
         <source>Failed to get the transaction proof</source>
-        <translation type="unfinished"></translation>
+        <translation>Der Transaktionsnachweis konnte nicht abgerufen werden</translation>
     </message>
     <message>
         <source>Failed to get the transaction proof.</source>
-        <translation type="unfinished"></translation>
+        <translation>Der Transaktionsnachweis konnte nicht abgerufen werden.</translation>
     </message>
     <message>
         <source>Failed to get the reserve proof</source>
-        <translation type="unfinished"></translation>
+        <translation>Der Nachweis der Reserve ist fehlgeschlagen</translation>
     </message>
     <message>
         <source>This is tracking wallet. The reserve proof can be generated only by a full wallet.</source>
-        <translation type="unfinished"></translation>
+        <translation>Dies ist Tracking-Brieftasche. Der Reservebeweis kann nur mit einem vollen Brieftasche erstellt werden.</translation>
     </message>
     <message>
         <source>Failed to get the reserve proof.</source>
-        <translation type="unfinished"></translation>
+        <translation>Der Nachweis der Reserve ist fehlgeschlagen.</translation>
     </message>
 </context>
 </TS>

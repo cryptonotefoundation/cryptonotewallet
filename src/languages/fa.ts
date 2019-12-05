@@ -726,6 +726,14 @@ Please wait...</source>
         <source>Don&apos;t show wallet optimization transactions</source>
         <translation>معاملات بهینه سازی کیف پول را نشان نمی دهد</translation>
     </message>
+    <message>
+        <source>Lock wallet</source>
+        <translation>کیف پول را قفل کنید</translation>
+    </message>
+    <message>
+        <source>Ctrl+L</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
@@ -1691,7 +1699,7 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>height</source>
-        <translation type="unfinished"></translation>
+        <translation>آخرین بلوک</translation>
     </message>
 </context>
 <context>
@@ -1983,11 +1991,11 @@ Are you sure?</source>
     </message>
     <message>
         <source>%1 - Karbo Wallet %2</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 کیف پول کربو %2</translation>
     </message>
     <message>
         <source>Karbo Wallet %2</source>
-        <translation type="unfinished">کیف پول کربو %2</translation>
+        <translation>کیف پول کربو %2</translation>
     </message>
     <message>
         <source>Recent wallet file not found</source>
@@ -1996,6 +2004,14 @@ Are you sure?</source>
     <message>
         <source>The recent wallet file is missing. Probably it was removed.</source>
         <translation>پرونده کیف پول اخیر وجود ندارد. احتمالاً حذف شده است.</translation>
+    </message>
+    <message>
+        <source>Incorrect password</source>
+        <translation>گذرواژه نادرست</translation>
+    </message>
+    <message>
+        <source>Wrong password.</source>
+        <translation>گذرواژه اشتباه</translation>
     </message>
 </context>
 <context>
@@ -2203,6 +2219,14 @@ Are you sure?</source>
     <message>
         <source>Insufficient balance.</source>
         <translation>تعادل ناکافی</translation>
+    </message>
+    <message>
+        <source>Incorrect password</source>
+        <translation>گذرواژه نادرست</translation>
+    </message>
+    <message>
+        <source>Wrong password.</source>
+        <translation>گذرواژه اشتباه</translation>
     </message>
 </context>
 <context>
@@ -2686,23 +2710,23 @@ when the wallet is synchronized</source>
     </message>
     <message>
         <source>Failed to get the transaction proof</source>
-        <translation type="unfinished"></translation>
+        <translation>اثبات معامله انجام نشد</translation>
     </message>
     <message>
         <source>Failed to get the transaction proof.</source>
-        <translation type="unfinished"></translation>
+        <translation>اثبات معامله انجام نشد.</translation>
     </message>
     <message>
         <source>Failed to get the reserve proof</source>
-        <translation type="unfinished"></translation>
+        <translation>اثبات ذخیره ناموفق بود</translation>
     </message>
     <message>
         <source>This is tracking wallet. The reserve proof can be generated only by a full wallet.</source>
-        <translation type="unfinished"></translation>
+        <translation>این کیف پول است. اثبات ذخیره فقط با یک کیف پول کامل تولید می شود.</translation>
     </message>
     <message>
         <source>Failed to get the reserve proof.</source>
-        <translation type="unfinished"></translation>
+        <translation>اثبات ذخیره ناموفق بود.</translation>
     </message>
 </context>
 </TS>
