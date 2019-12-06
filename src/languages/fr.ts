@@ -754,6 +754,10 @@ S&apos;il vous plaît, patientez...</translation>
         <source>Ctrl+L</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Hide everything when wallet is locked</source>
+        <translation>Cachez tout lorsque le portefeuille est verrouillé</translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>

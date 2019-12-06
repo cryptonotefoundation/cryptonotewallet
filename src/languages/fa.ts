@@ -734,6 +734,10 @@ Please wait...</source>
         <source>Ctrl+L</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Hide everything when wallet is locked</source>
+        <translation>هنگام قفل کردن کیف پول همه چیز را مخفی کنید</translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>

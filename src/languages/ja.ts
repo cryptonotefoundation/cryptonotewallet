@@ -589,7 +589,7 @@ Please wait...</source>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="204"/>
-        <location filename="../gui/ui/mainwindow.ui" line="571"/>
+        <location filename="../gui/ui/mainwindow.ui" line="572"/>
         <source>Recent wallets</source>
         <translation>最近のウォレット</translation>
     </message>
@@ -599,164 +599,169 @@ Please wait...</source>
         <translation>設定</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="243"/>
-        <location filename="../gui/ui/mainwindow.ui" line="538"/>
+        <location filename="../gui/ui/mainwindow.ui" line="244"/>
+        <location filename="../gui/ui/mainwindow.ui" line="539"/>
         <source>Help</source>
         <translation>ヘルプ</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="251"/>
+        <location filename="../gui/ui/mainwindow.ui" line="252"/>
         <source>Wallet</source>
         <translation>ウォレット</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="305"/>
+        <location filename="../gui/ui/mainwindow.ui" line="306"/>
         <source>toolBar</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="340"/>
+        <location filename="../gui/ui/mainwindow.ui" line="341"/>
         <source>Account toolbar</source>
         <translation>アカウント ツールバー</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="361"/>
+        <location filename="../gui/ui/mainwindow.ui" line="362"/>
         <source>Overview</source>
         <translation>概要</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="376"/>
+        <location filename="../gui/ui/mainwindow.ui" line="377"/>
         <source>Send</source>
         <translation>送信</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="391"/>
+        <location filename="../gui/ui/mainwindow.ui" line="392"/>
         <source>Receive</source>
         <translation>受信</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="406"/>
+        <location filename="../gui/ui/mainwindow.ui" line="407"/>
         <source>Transactions</source>
         <translation>史籍</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="414"/>
+        <location filename="../gui/ui/mainwindow.ui" line="415"/>
         <source>Exit</source>
         <translation>退出</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="417"/>
+        <location filename="../gui/ui/mainwindow.ui" line="418"/>
         <source>Ctrl+Q</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="432"/>
+        <location filename="../gui/ui/mainwindow.ui" line="433"/>
         <source>Contacts</source>
         <translation>連絡先</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="440"/>
+        <location filename="../gui/ui/mainwindow.ui" line="441"/>
         <source>Create wallet</source>
         <translation>ウォレットを作る</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="448"/>
+        <location filename="../gui/ui/mainwindow.ui" line="449"/>
         <source>Open wallet</source>
         <translation>ウォレットを開く</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="456"/>
+        <location filename="../gui/ui/mainwindow.ui" line="457"/>
         <source>Encrypt wallet</source>
         <translation>ウォレットの暗号化</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="464"/>
-        <location filename="../gui/ui/mainwindow.ui" line="467"/>
+        <location filename="../gui/ui/mainwindow.ui" line="465"/>
+        <location filename="../gui/ui/mainwindow.ui" line="468"/>
         <source>Change password</source>
         <translation>パスワードの変更</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="475"/>
+        <location filename="../gui/ui/mainwindow.ui" line="476"/>
         <source>About</source>
         <translation>アバウト</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="483"/>
+        <location filename="../gui/ui/mainwindow.ui" line="484"/>
         <source>About Qt</source>
         <translation>Qtについて</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="491"/>
+        <location filename="../gui/ui/mainwindow.ui" line="492"/>
         <source>Backup wallet</source>
         <translation>ウォレットをバックアップ</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="499"/>
+        <location filename="../gui/ui/mainwindow.ui" line="500"/>
         <source>Start on system login</source>
         <translation>システム  ログインを始める</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="507"/>
+        <location filename="../gui/ui/mainwindow.ui" line="508"/>
         <source>Minimize to tray</source>
         <translation>トレイに最小化</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="515"/>
+        <location filename="../gui/ui/mainwindow.ui" line="516"/>
         <source>Close to tray</source>
         <translation>トレイに閉じる</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="520"/>
+        <location filename="../gui/ui/mainwindow.ui" line="521"/>
         <source>Import private key</source>
         <translation>プライベートキーのインポート</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="609"/>
+        <location filename="../gui/ui/mainwindow.ui" line="610"/>
         <source>Sign message</source>
         <translation type="unfinished">サインメッセージ</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="614"/>
+        <location filename="../gui/ui/mainwindow.ui" line="615"/>
         <source>Verify signed message</source>
         <translation type="unfinished">署名されたメッセージを確認する</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="619"/>
+        <location filename="../gui/ui/mainwindow.ui" line="620"/>
         <source>Optimization</source>
         <translation>最適化</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="624"/>
+        <location filename="../gui/ui/mainwindow.ui" line="625"/>
         <source>Get proof of balance</source>
         <translation>残高確認</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="629"/>
+        <location filename="../gui/ui/mainwindow.ui" line="630"/>
         <source>Import keys</source>
         <translation>キーをインポートする</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="637"/>
+        <location filename="../gui/ui/mainwindow.ui" line="638"/>
         <source>Don&apos;t show wallet optimization transactions</source>
         <translation>ウォレット最適化トランザクションを表示しません</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="642"/>
+        <location filename="../gui/ui/mainwindow.ui" line="643"/>
         <source>Lock wallet</source>
         <translation>ロックウォレット</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="645"/>
+        <location filename="../gui/ui/mainwindow.ui" line="646"/>
         <source>Ctrl+L</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gui/ui/mainwindow.ui" line="654"/>
+        <source>Hide everything when wallet is locked</source>
+        <translation>ウォレットがロックされているときにすべてを隠す</translation>
     </message>
     <message>
         <source>Mining</source>
         <translation type="vanished">マイニング</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="525"/>
-        <location filename="../gui/ui/mainwindow.ui" line="528"/>
+        <location filename="../gui/ui/mainwindow.ui" line="526"/>
+        <location filename="../gui/ui/mainwindow.ui" line="529"/>
         <source>Reset wallet</source>
         <translation>ウォレットをリセット</translation>
     </message>
@@ -766,62 +771,62 @@ Please wait...</source>
         <translation>言語</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="533"/>
+        <location filename="../gui/ui/mainwindow.ui" line="534"/>
         <source>Export private key</source>
         <translation>プライベートキーをエクスポート</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="541"/>
+        <location filename="../gui/ui/mainwindow.ui" line="542"/>
         <source>F1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="546"/>
+        <location filename="../gui/ui/mainwindow.ui" line="547"/>
         <source>Connection</source>
         <translation>接続</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="551"/>
+        <location filename="../gui/ui/mainwindow.ui" line="552"/>
         <source>Open payment request</source>
         <translation>ペイメント リクエストを開く</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="556"/>
+        <location filename="../gui/ui/mainwindow.ui" line="557"/>
         <source>Export tracking key</source>
         <translation>トラッキングキーをエクスポート</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="561"/>
+        <location filename="../gui/ui/mainwindow.ui" line="562"/>
         <source>Import tracking key</source>
         <translation>トラッキングキーをインポート</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="566"/>
+        <location filename="../gui/ui/mainwindow.ui" line="567"/>
         <source>Close wallet</source>
         <translation>ウォレットを閉じる</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="576"/>
+        <location filename="../gui/ui/mainwindow.ui" line="577"/>
         <source>Information</source>
         <translation>インフォメーション</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="581"/>
+        <location filename="../gui/ui/mainwindow.ui" line="582"/>
         <source>Open log file</source>
         <translation>ログファイルを開く</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="589"/>
+        <location filename="../gui/ui/mainwindow.ui" line="590"/>
         <source>Show mnemonic seed</source>
         <translation>ニーモニックシードを表示</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="594"/>
+        <location filename="../gui/ui/mainwindow.ui" line="595"/>
         <source>Restore from mnemonic seed</source>
         <translation>ニーモニックシードから復元</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="599"/>
+        <location filename="../gui/ui/mainwindow.ui" line="600"/>
         <source>Create nondeterministic wallet</source>
         <translation>非決定的ウォレットを作成</translation>
     </message>
@@ -830,7 +835,7 @@ Please wait...</source>
         <translation type="vanished">自動プールマイニング開始</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="604"/>
+        <location filename="../gui/ui/mainwindow.ui" line="605"/>
         <source>Sweep unmixable</source>
         <translation>スイープ混合不可</translation>
     </message>
@@ -1257,7 +1262,7 @@ Please wait...</source>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="727"/>
+        <location filename="../gui/MainWindow.cpp" line="728"/>
         <location filename="../main.cpp" line="70"/>
         <source>Help</source>
         <translation>ヘルプ</translation>
@@ -2037,7 +2042,7 @@ Do you want to go to download page?</source>
     <name>WalletGui::MainWindow</name>
     <message>
         <location filename="../gui/MainWindow.cpp" line="141"/>
-        <location filename="../gui/MainWindow.cpp" line="1176"/>
+        <location filename="../gui/MainWindow.cpp" line="1198"/>
         <source>Karbo Wallet %1</source>
         <translation>カルボウォレット %1</translation>
     </message>
@@ -2057,226 +2062,226 @@ Do you want to go to download page?</source>
         <translation>リモートノードを介して接続</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="221"/>
+        <location filename="../gui/MainWindow.cpp" line="222"/>
         <source>&amp;Show / Hide</source>
         <translation>表示 / 非表示</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="222"/>
+        <location filename="../gui/MainWindow.cpp" line="223"/>
         <source>Show or hide the main window</source>
         <translation>メインウィンドウを表示または非表示</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="334"/>
-        <location filename="../gui/MainWindow.cpp" line="364"/>
+        <location filename="../gui/MainWindow.cpp" line="335"/>
+        <location filename="../gui/MainWindow.cpp" line="365"/>
         <source>New wallet file</source>
         <translation>新ウォレットファイル</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="342"/>
-        <location filename="../gui/MainWindow.cpp" line="371"/>
-        <location filename="../gui/MainWindow.cpp" line="786"/>
+        <location filename="../gui/MainWindow.cpp" line="343"/>
+        <location filename="../gui/MainWindow.cpp" line="372"/>
+        <location filename="../gui/MainWindow.cpp" line="787"/>
         <source>Wallets (*.wallet)</source>
         <translation>ウォレット (*.wallet)</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="404"/>
+        <location filename="../gui/MainWindow.cpp" line="405"/>
         <source>Open .wallet/.keys file</source>
         <translation>.wallet/.keysファイルを開く</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="406"/>
+        <location filename="../gui/MainWindow.cpp" line="407"/>
         <source>Wallet (*.wallet *.keys)</source>
         <translation>ウォレット (*.wallet *.keys)</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="411"/>
+        <location filename="../gui/MainWindow.cpp" line="412"/>
         <source>Wrong wallet file extension</source>
         <translation>ウォレットファイルの拡張子が間違っています</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="412"/>
+        <location filename="../gui/MainWindow.cpp" line="413"/>
         <source>Wrong wallet file extension, wallet file should have &quot;.wallet&quot;, &quot;.keys&quot; or &quot;.trackingwallet&quot; extension.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="466"/>
+        <location filename="../gui/MainWindow.cpp" line="467"/>
         <source>Wallet keys are not valid</source>
         <translation>ウォレットキーは無効です</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="466"/>
+        <location filename="../gui/MainWindow.cpp" line="467"/>
         <source>The private keys you entered are not valid.</source>
         <translation>あなたが入力したプライベートキーは無効です。</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="529"/>
+        <location filename="../gui/MainWindow.cpp" line="530"/>
         <source>Tracking key is not valid</source>
         <translation>トラッキングキーは無効です</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="529"/>
+        <location filename="../gui/MainWindow.cpp" line="530"/>
         <source>The tracking key you entered is not valid.</source>
         <translation>あなたが入力したトラッキングキーは無効です。</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="497"/>
-        <location filename="../gui/MainWindow.cpp" line="501"/>
-        <location filename="../gui/MainWindow.cpp" line="560"/>
-        <location filename="../gui/MainWindow.cpp" line="564"/>
-        <location filename="../gui/MainWindow.cpp" line="568"/>
-        <location filename="../gui/MainWindow.cpp" line="572"/>
+        <location filename="../gui/MainWindow.cpp" line="498"/>
+        <location filename="../gui/MainWindow.cpp" line="502"/>
+        <location filename="../gui/MainWindow.cpp" line="561"/>
+        <location filename="../gui/MainWindow.cpp" line="565"/>
+        <location filename="../gui/MainWindow.cpp" line="569"/>
+        <location filename="../gui/MainWindow.cpp" line="573"/>
         <source>Key is not valid</source>
         <translation>キーは無効です</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="560"/>
+        <location filename="../gui/MainWindow.cpp" line="561"/>
         <source>The public spend key you entered is not valid.</source>
         <translation>あなたが入力したパブリックスペンドキーは無効です。</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="564"/>
+        <location filename="../gui/MainWindow.cpp" line="565"/>
         <source>The public view key you entered is not valid.</source>
         <translation>あなたが入力したパブリックビューキーは無効です。</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="497"/>
-        <location filename="../gui/MainWindow.cpp" line="568"/>
+        <location filename="../gui/MainWindow.cpp" line="498"/>
+        <location filename="../gui/MainWindow.cpp" line="569"/>
         <source>The private spend key you entered is not valid.</source>
         <translation>あなたが入力したプライベートスペンドキーは無効です。</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="436"/>
+        <location filename="../gui/MainWindow.cpp" line="437"/>
         <source>Recent wallet file not found</source>
         <translation>最近のウォレットファイルが見つかりません</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="436"/>
+        <location filename="../gui/MainWindow.cpp" line="437"/>
         <source>The recent wallet file is missing. Probably it was removed.</source>
         <translation>最近のウォレットファイルがありません。 おそらく削除されました。</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="501"/>
-        <location filename="../gui/MainWindow.cpp" line="572"/>
+        <location filename="../gui/MainWindow.cpp" line="502"/>
+        <location filename="../gui/MainWindow.cpp" line="573"/>
         <source>The private view key you entered is not valid.</source>
         <translation>あなたが入力したプライベートビューキーは無効です。</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="635"/>
+        <location filename="../gui/MainWindow.cpp" line="636"/>
         <source>Mnemonic seed is not correct</source>
         <translation>ニーモニックシードが正しくありません。</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="635"/>
+        <location filename="../gui/MainWindow.cpp" line="636"/>
         <source>There must be an error in mnemonic seed. Make sure you entered it correctly.</source>
         <translation>ニーモニックシードにエラーがあります。正しく入力したか確認してください。</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="718"/>
+        <location filename="../gui/MainWindow.cpp" line="719"/>
         <source>Language changed to %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="719"/>
+        <location filename="../gui/MainWindow.cpp" line="720"/>
         <source>Language was changed</source>
         <translation>言語は変更されました。</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="720"/>
+        <location filename="../gui/MainWindow.cpp" line="721"/>
         <source>Language changed to %1. The change will take effect after restarting the wallet.</source>
         <translation>ウォレットの再起動後に言語が変更されます。</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="730"/>
+        <location filename="../gui/MainWindow.cpp" line="731"/>
         <source>More info can be found at www.karbowanec.com in Documentation section</source>
         <translation>詳細情報はwww.karbowanec.comのDocumentationセクションにあります。</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="755"/>
+        <location filename="../gui/MainWindow.cpp" line="756"/>
         <source>Connection settings changed</source>
         <translation>接続設定は変更されました</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="755"/>
+        <location filename="../gui/MainWindow.cpp" line="756"/>
         <source>Connection mode will be changed after restarting the wallet.</source>
         <translation>ウォレットの再起動後に接続モードが変更されます。</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="779"/>
+        <location filename="../gui/MainWindow.cpp" line="780"/>
         <source>Backup wallet to...</source>
         <translation>...へウォレットをバックアップ</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="799"/>
+        <location filename="../gui/MainWindow.cpp" line="800"/>
         <source>Warning</source>
         <translation>警告</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="799"/>
+        <location filename="../gui/MainWindow.cpp" line="800"/>
         <source>Your wallet will be reset and restored from blockchain.
 Are you sure?</source>
         <translation>ウォレットがリセットされ、ブロックチェーンから復元されます。本当に実行してもよろしいでしょうか？</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="983"/>
+        <location filename="../gui/MainWindow.cpp" line="989"/>
         <source>Wallet error</source>
         <translation>ウォレットエラー</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="986"/>
+        <location filename="../gui/MainWindow.cpp" line="992"/>
         <source>Wallet</source>
         <translation>ウォレット</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="1026"/>
+        <location filename="../gui/MainWindow.cpp" line="1047"/>
         <source>Incorrect password</source>
         <translation>誤ったパスワード</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="1026"/>
+        <location filename="../gui/MainWindow.cpp" line="1047"/>
         <source>Wrong password.</source>
         <translation>間違ったパスワード。</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="1042"/>
+        <location filename="../gui/MainWindow.cpp" line="1063"/>
         <source>Encrypted</source>
         <translation>暗号化</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="1042"/>
+        <location filename="../gui/MainWindow.cpp" line="1063"/>
         <source>Not encrypted</source>
         <translation>暗号化されていない</translation>
     </message>
     <message numerus="yes">
-        <location filename="../gui/MainWindow.cpp" line="1051"/>
+        <location filename="../gui/MainWindow.cpp" line="1072"/>
         <source>%n active connection(s)</source>
         <translation>
             <numerusform>%n アクティブコネクション</numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="1056"/>
+        <location filename="../gui/MainWindow.cpp" line="1077"/>
         <source>Synchronization in progress</source>
         <translation>同期化進行中</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="1064"/>
+        <location filename="../gui/MainWindow.cpp" line="1085"/>
         <source>Not synchronized</source>
         <translation>同期化されていない</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="1064"/>
+        <location filename="../gui/MainWindow.cpp" line="1085"/>
         <source>Synchronized</source>
         <translation>同期化</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="1097"/>
+        <location filename="../gui/MainWindow.cpp" line="1118"/>
         <source>%1 - Karbo Wallet %2</source>
         <translatorcomment>%1 - カルボウォレット %2</translatorcomment>
         <translation></translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="1144"/>
+        <location filename="../gui/MainWindow.cpp" line="1166"/>
         <source>Karbo Wallet %2</source>
         <translation>カルボウォレット %2</translation>
     </message>

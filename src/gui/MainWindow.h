@@ -119,7 +119,8 @@ private:
   Q_SLOT void setStartOnLogin(bool _on);
   Q_SLOT void setMinimizeToTray(bool _on);
   Q_SLOT void setCloseToTray(bool _on);
-  Q_SLOT void setHideFusionTransactions(bool _on);
+  Q_SLOT void hideFusionTransactions(bool _on);
+  Q_SLOT void hideEverythingOnLocked(bool _on);
   Q_SLOT void showPrivateKeys();
   Q_SLOT void DisplayCmdLineHelp();
   Q_SLOT void openConnectionSettings();

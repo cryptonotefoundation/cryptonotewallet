@@ -413,6 +413,10 @@ bool Settings::skipFusionTransactions() const {
   return optimizationObject.contains(OPTION_SKIP_WALLET_OPTIMIZATION_TRANSACTIONS) ? optimizationObject.value(OPTION_SKIP_WALLET_OPTIMIZATION_TRANSACTIONS).toBool() : false;
 }
 
+bool Settings::hideEverythingOnLocked() const {
+  return m_settings.contains("hideEverythingOnLocked") ? m_settings.value("hideEverythingOnLocked").toBool() : false;
+}
+
 void Settings::setWalletFile(const QString& _file) {
   if (_file.endsWith(".wallet") || _file.endsWith(".keys")) {
     m_settings.insert("walletFile", _file);
@@ -706,6 +710,13 @@ void Settings::setSkipFusionTransactions(bool _skip) {
 
     optimizationObject.insert(OPTION_SKIP_WALLET_OPTIMIZATION_TRANSACTIONS, _skip);
     m_settings.insert(OPTION_WALLET_OPTIMIZATION, optimizationObject);
+    saveSettings();
+  }
+}
+
+void Settings::setHideEverythingOnLocked(bool _hide) {
+  if (hideEverythingOnLocked() != _hide) {
+    m_settings.insert("hideEverythingOnLocked", _hide);
     saveSettings();
   }
 }

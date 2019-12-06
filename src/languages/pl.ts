@@ -738,6 +738,10 @@ Proszę czekać...</translation>
         <source>Ctrl+L</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Hide everything when wallet is locked</source>
+        <translation>Ukryj wszystko, gdy portfel jest zablokowany</translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>

@@ -962,11 +962,16 @@ void MainWindow::setCloseToTray(bool _on) {
 #endif
 }
 
-void MainWindow::setHideFusionTransactions(bool _on) {
+void MainWindow::hideFusionTransactions(bool _on) {
   Settings::instance().setSkipFusionTransactions(_on);
   m_ui->m_hideFusionTransactions->setChecked(Settings::instance().skipFusionTransactions());
   m_ui->m_transactionsFrame->reloadTransactions();
   m_ui->m_overviewFrame->reloadTransactions();
+}
+
+void MainWindow::hideEverythingOnLocked(bool _on) {
+  Settings::instance().setHideEverythingOnLocked(_on);
+  m_ui->m_hideEverythingOnLocked->setChecked(Settings::instance().hideEverythingOnLocked());
 }
 
 void MainWindow::about() {
@@ -1000,13 +1005,16 @@ void MainWindow::askForWalletPassword(bool _error) {
 }
 
 void MainWindow::lockWalletWithPassword() {
-  accountWidget->setVisible(false);
-  m_ui->m_overviewFrame->hide();
-  m_ui->m_receiveFrame->hide();
-  m_ui->m_sendFrame->hide();
-  m_ui->m_transactionsFrame->hide();
-  m_ui->m_addressBookFrame->hide();
+  bool lock = Settings::instance().hideEverythingOnLocked();
 
+  if (lock) {
+    accountWidget->setVisible(false);
+    m_ui->m_overviewFrame->hide();
+    m_ui->m_receiveFrame->hide();
+    m_ui->m_sendFrame->hide();
+    m_ui->m_transactionsFrame->hide();
+    m_ui->m_addressBookFrame->hide();
+  }
   bool keep_asking = true;
   bool wrong_pass = false;
   do {
@@ -1022,8 +1030,10 @@ void MainWindow::lockWalletWithPassword() {
     }
   } while (keep_asking);
 
-  accountWidget->setVisible(true);
-  m_ui->m_overviewFrame->show();
+  if (lock) {
+    accountWidget->setVisible(true);
+    m_ui->m_overviewFrame->show();
+  }
 }
 
 bool MainWindow::confirmWithPassword() {
