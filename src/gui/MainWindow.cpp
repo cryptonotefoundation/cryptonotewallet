@@ -196,6 +196,7 @@ void MainWindow::initUi() {
 
   m_ui->m_startOnLoginAction->setChecked(Settings::instance().isStartOnLoginEnabled());
   m_ui->m_hideFusionTransactions->setChecked(Settings::instance().skipFusionTransactions());
+  m_ui->m_hideEverythingOnLocked->setChecked(Settings::instance().hideEverythingOnLocked());
   m_ui->m_lockWalletAction->setEnabled(false);
 
   m_ui->menuRecent_wallets->setVisible(false);
@@ -1005,9 +1006,9 @@ void MainWindow::askForWalletPassword(bool _error) {
 }
 
 void MainWindow::lockWalletWithPassword() {
-  bool lock = Settings::instance().hideEverythingOnLocked();
+  bool hide = Settings::instance().hideEverythingOnLocked();
 
-  if (lock) {
+  if (hide) {
     accountWidget->setVisible(false);
     m_ui->m_overviewFrame->hide();
     m_ui->m_receiveFrame->hide();
@@ -1030,7 +1031,7 @@ void MainWindow::lockWalletWithPassword() {
     }
   } while (keep_asking);
 
-  if (lock) {
+  if (hide) {
     accountWidget->setVisible(true);
     m_ui->m_overviewFrame->show();
   }
