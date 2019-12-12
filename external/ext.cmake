@@ -29,7 +29,7 @@ list(APPEND qrencode_definitions "STATIC_IN_RELEASE=static")
 list(APPEND qrencode_definitions "MAJOR_VERSION=4")
 list(APPEND qrencode_definitions "MINOR_VERSION=0")
 list(APPEND qrencode_definitions "MICRO_VERSION=0")
-list(APPEND qrencode_definitions VERSION="${MAJOR_VERSION}.${MINOR_VERSION}.${MICRO_VERSION}")
+list(APPEND qrencode_definitions QRENCODE_VERSION="${MAJOR_VERSION}.${MINOR_VERSION}.${MICRO_VERSION}")
 
 if (WIN32)
   list(APPEND qrencode_definitions "inline=__inline")

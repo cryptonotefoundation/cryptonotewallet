@@ -878,5 +878,5 @@ void QRcode_APIVersion(int *major_version, int *minor_version, int *micro_versio
 
 char *QRcode_APIVersionString(void)
 {
-	return VERSION;
+	return QRENCODE_VERSION;
 }
