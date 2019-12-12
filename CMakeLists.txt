@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 
 include(CryptoNoteWallet.cmake)
-include(QREncode.cmake)
+include(external/ext.cmake)
 
 project(${CN_PROJECT_NAME})
 
@@ -15,8 +15,7 @@ include_directories(${CMAKE_BINARY_DIR}
     src
     cryptonote/external
     cryptonote/include
-    cryptonote/src
-    libqrencode)
+    cryptonote/src)
 
 find_package(Qt5Gui REQUIRED)
 find_package(Qt5Widgets REQUIRED)
