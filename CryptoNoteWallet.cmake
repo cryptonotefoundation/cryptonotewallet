@@ -2,4 +2,4 @@
 set(CN_PROJECT_NAME "KarbowanecWallet")
 set(CN_CURRENCY_DISPLAY_NAME "Karbo")
 set(CN_CURRENCY_TICKER "KRB")
-set(CN_VERSION 1.3.6)
+set(CN_VERSION 1.3.7)

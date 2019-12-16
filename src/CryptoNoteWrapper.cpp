@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2015 The Cryptonote developers
-// Copyright (c) 2016-2017 The Karbowanec developers
+// Copyright (c) 2016-2019 The Karbowanec developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -235,7 +235,7 @@ public:
           CryptoNote::invokeJsonCommand(httpClient, "/getinfo", req, res);
           std::string err = interpret_rpc_response(true, res.status);
         if (err.empty())
-          return res.tx_count;
+          return res.transactions_count;
         else {
           qDebug() << "Failed to invoke request: " << QString::fromStdString(err);
           return 0;
@@ -257,7 +257,7 @@ public:
           CryptoNote::invokeJsonCommand(httpClient, "/getinfo", req, res);
           std::string err = interpret_rpc_response(true, res.status);
         if (err.empty())
-          return res.tx_pool_size;
+          return res.transactions_pool_size;
         else {
           qDebug() << "Failed to invoke request: " << QString::fromStdString(err);
           return 0;
@@ -445,7 +445,7 @@ public:
     m_coreConfig(coreConfig),
     m_netNodeConfig(netNodeConfig),
     m_protocolHandler(currency, m_dispatcher, m_core, nullptr, logManager),
-    m_core(currency, &m_protocolHandler, logManager, true),
+    m_core(currency, &m_protocolHandler, logManager, m_dispatcher, true),
     m_nodeServer(m_dispatcher, m_protocolHandler, logManager),
     m_node(m_core, m_protocolHandler) {
 
@@ -596,7 +596,7 @@ private:
   System::Dispatcher m_dispatcher;
   CryptoNote::CoreConfig m_coreConfig;
   CryptoNote::NetNodeConfig m_netNodeConfig;
-  CryptoNote::core m_core;
+  CryptoNote::Core m_core;
   CryptoNote::CryptoNoteProtocolHandler m_protocolHandler;
   CryptoNote::NodeServer m_nodeServer;
   CryptoNote::InProcessNode m_node;
