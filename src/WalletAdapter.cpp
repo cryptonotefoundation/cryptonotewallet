@@ -510,19 +510,17 @@ void WalletAdapter::saveCompleted(std::error_code _error) {
 void WalletAdapter::synchronizationProgressUpdated(uint32_t _current, uint32_t _total) {
   m_isSynchronized = false;
   const uint32_t speedCalcPeriod = 10;
-  const QTime currentTime = QTime::currentTime();
   bool calcReady = false;
   uint32_t totalDeltaTime = 0;
   uint32_t totalDeltaHeight= 0;
   QString perfMess = "";
-  uint32_t deltaElements = m_syncTime.size();
+  uint32_t deltaElements = m_perfData.size();
   if (deltaElements > 0) {
    for (uint32_t i = deltaElements - 1; i > 0; i--) {
-      totalDeltaTime += m_syncTime[i - 1].secsTo(m_syncTime[i]);
-      totalDeltaHeight += m_syncHeight[i] - m_syncHeight[i - 1];
+      totalDeltaTime += m_perfData[i - 1].time.secsTo(m_perfData[i].time);
+      totalDeltaHeight += m_perfData[i].height - m_perfData[i - 1].height;
       if (totalDeltaTime >= speedCalcPeriod) {
-        m_syncTime.erase(m_syncTime.begin(), m_syncTime.begin() + i);
-        m_syncHeight.erase(m_syncHeight.begin(), m_syncHeight.begin() + i);
+        m_perfData.erase(m_perfData.begin(), m_perfData.begin() + i);
         calcReady = true;
         break;
       }
@@ -532,8 +530,8 @@ void WalletAdapter::synchronizationProgressUpdated(uint32_t _current, uint32_t _
     m_syncSpeed = static_cast<uint32_t>(totalDeltaHeight / totalDeltaTime);
     m_syncPeriod = static_cast<uint32_t>((_total - _current) / m_syncSpeed);
   }
-  m_syncHeight.push_back(_current);
-  m_syncTime.push_back(std::move(currentTime));
+  PerfType perfData = {_current, QTime::currentTime()};
+  m_perfData.push_back(std::move(perfData));
   if (m_syncSpeed > 0 && m_syncPeriod > 0) {
     QDateTime leftTime = QDateTime::fromTime_t(m_syncPeriod).toUTC();
     perfMess += "(";
@@ -550,8 +548,7 @@ void WalletAdapter::synchronizationCompleted(std::error_code _error) {
     m_isSynchronized = true;
     m_syncSpeed = 0;
     m_syncPeriod = 0;
-    m_syncHeight.clear();
-    m_syncTime.clear();
+    m_perfData.clear();
     Q_EMIT updateBlockStatusTextSignal();
     Q_EMIT walletSynchronizationCompletedSignal(_error.value(), QString::fromStdString(_error.message()));
   }

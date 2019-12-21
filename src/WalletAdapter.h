@@ -93,8 +93,8 @@ private:
 
   uint32_t m_syncSpeed;
   uint32_t m_syncPeriod;
-  std::vector<uint32_t> m_syncHeight;
-  std::vector<QTime> m_syncTime;
+  struct PerfType { uint32_t height; QTime time; };
+  std::vector<PerfType> m_perfData;
 
   WalletAdapter();
   ~WalletAdapter();
