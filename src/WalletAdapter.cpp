@@ -513,17 +513,14 @@ void WalletAdapter::synchronizationProgressUpdated(uint32_t _current, uint32_t _
   bool calcReady = false;
   uint32_t totalDeltaTime = 0;
   uint32_t totalDeltaHeight= 0;
-  QString perfMess = "";
-  uint32_t deltaElements = m_perfData.size();
-  if (deltaElements > 0) {
-   for (uint32_t i = deltaElements - 1; i > 0; i--) {
-      totalDeltaTime += m_perfData[i - 1].time.secsTo(m_perfData[i].time);
-      totalDeltaHeight += m_perfData[i].height - m_perfData[i - 1].height;
-      if (totalDeltaTime >= speedCalcPeriod) {
-        m_perfData.erase(m_perfData.begin(), m_perfData.begin() + i);
-        calcReady = true;
-        break;
-      }
+  uint32_t indexElements = m_perfData.empty() ? 0 : m_perfData.size() - 1;
+  for (uint32_t i = indexElements; i > 0; i--) {
+    totalDeltaTime += m_perfData[i - 1].time.secsTo(m_perfData[i].time);
+    totalDeltaHeight += m_perfData[i].height - m_perfData[i - 1].height;
+    if (totalDeltaTime >= speedCalcPeriod) {
+      m_perfData.erase(m_perfData.begin(), m_perfData.begin() + i - 1);
+      calcReady = true;
+      break;
     }
   }
   if (calcReady && totalDeltaHeight > 0 && _total > 0 && _total > _current) {
@@ -532,6 +529,7 @@ void WalletAdapter::synchronizationProgressUpdated(uint32_t _current, uint32_t _
   }
   PerfType perfData = {_current, QTime::currentTime()};
   m_perfData.push_back(std::move(perfData));
+  QString perfMess = "";
   if (m_syncSpeed > 0 && m_syncPeriod > 0) {
     QDateTime leftTime = QDateTime::fromTime_t(m_syncPeriod).toUTC();
     perfMess += "(";
