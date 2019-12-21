@@ -530,7 +530,7 @@ void WalletAdapter::synchronizationProgressUpdated(uint32_t _current, uint32_t _
   }
   if (calcReady && totalDeltaHeight > 0 && _total >= _current) {
     m_syncSpeed = static_cast<uint32_t>(totalDeltaHeight / totalDeltaTime);
-    m_syncPeriod = static_cast<uint32_t>((_total - _current) / m_syncSpeed);
+    m_syncPeriod = static_cast<uint32_t>((_total - _current) / (m_syncSpeed == 0 ? 1 : m_syncSpeed));
   }
   PerfType perfData = {_current, QTime::currentTime()};
   m_perfData.push_back(std::move(perfData));
