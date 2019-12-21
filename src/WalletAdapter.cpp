@@ -508,6 +508,11 @@ void WalletAdapter::saveCompleted(std::error_code _error) {
 }
 
 void WalletAdapter::synchronizationProgressUpdated(uint32_t _current, uint32_t _total) {
+  if (m_isSynchronized) {
+    m_syncSpeed = 0;
+    m_syncPeriod = 0;
+    m_perfData.clear();
+  }
   m_isSynchronized = false;
   const uint32_t speedCalcPeriod = 10;
   bool calcReady = false;
@@ -523,7 +528,7 @@ void WalletAdapter::synchronizationProgressUpdated(uint32_t _current, uint32_t _
       break;
     }
   }
-  if (calcReady && totalDeltaHeight > 0 && _total > 0 && _total > _current) {
+  if (calcReady && totalDeltaHeight > 0 && _total >= _current) {
     m_syncSpeed = static_cast<uint32_t>(totalDeltaHeight / totalDeltaTime);
     m_syncPeriod = static_cast<uint32_t>((_total - _current) / m_syncSpeed);
   }
@@ -544,9 +549,6 @@ void WalletAdapter::synchronizationProgressUpdated(uint32_t _current, uint32_t _
 void WalletAdapter::synchronizationCompleted(std::error_code _error) {
   if (!_error) {
     m_isSynchronized = true;
-    m_syncSpeed = 0;
-    m_syncPeriod = 0;
-    m_perfData.clear();
     Q_EMIT updateBlockStatusTextSignal();
     Q_EMIT walletSynchronizationCompletedSignal(_error.value(), QString::fromStdString(_error.message()));
   }
