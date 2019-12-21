@@ -8,10 +8,12 @@
 
 #include <QMutex>
 #include <QObject>
+#include <QTime>
 #include <QTimer>
 #include <QPushButton>
 
 #include <list>
+#include <vector>
 #include <atomic>
 #include <fstream>
 
@@ -88,6 +90,11 @@ private:
   std::atomic<quint64> m_lastWalletTransactionId;
   QTimer m_newTransactionsNotificationTimer;
   QPushButton* m_closeButton;
+
+  uint32_t m_syncSpeed;
+  uint32_t m_syncPeriod;
+  std::vector<uint32_t> m_syncHeight;
+  std::vector<QTime> m_syncTime;
 
   WalletAdapter();
   ~WalletAdapter();
