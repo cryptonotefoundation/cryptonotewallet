@@ -515,6 +515,8 @@ void WalletAdapter::synchronizationProgressUpdated(uint32_t _current, uint32_t _
   }
   m_isSynchronized = false;
   const uint32_t speedCalcPeriod = 10;
+  const uint32_t periodDay = 60 * 60 * 24;
+  const uint32_t syncPeriodMax = std::numeric_limits<uint32_t>::max();
   bool calcReady = false;
   uint32_t totalDeltaTime = 0;
   uint32_t totalDeltaHeight= 0;
@@ -528,18 +530,28 @@ void WalletAdapter::synchronizationProgressUpdated(uint32_t _current, uint32_t _
       break;
     }
   }
-  if (calcReady && totalDeltaHeight > 0 && _total >= _current) {
+  if (calcReady && _total >= _current) {
     m_syncSpeed = static_cast<uint32_t>(totalDeltaHeight / totalDeltaTime);
-    m_syncPeriod = static_cast<uint32_t>((_total - _current) / (m_syncSpeed == 0 ? 1 : m_syncSpeed));
+    m_syncPeriod = m_syncSpeed > 0 ? static_cast<uint32_t>((_total - _current) / m_syncSpeed) : syncPeriodMax;
   }
   PerfType perfData = {_current, QTime::currentTime()};
   m_perfData.push_back(std::move(perfData));
   QString perfMess = "";
-  if (m_syncSpeed > 0 && m_syncPeriod > 0) {
+  if (m_syncPeriod > 0) {
     QDateTime leftTime = QDateTime::fromTime_t(m_syncPeriod).toUTC();
     perfMess += "(";
-    perfMess += QString("%1 %2").arg(m_syncSpeed).arg(tr("blocks per second")) + "; ";
-    perfMess += QString("%1 %2 %3  %4").arg(tr("will be completed in")).arg(leftTime.toString("dd")).arg(tr("day(s)")).arg(leftTime.toString("hh:mm"));
+    perfMess += QString("%1 %2").arg(m_syncSpeed).arg(tr("blocks per second"));
+    if (m_syncPeriod < syncPeriodMax) {
+      perfMess += " | ";
+      perfMess += QString("%1 ").arg(tr("will be completed in"));
+      if (m_syncPeriod >= periodDay) {
+        perfMess += QString("%1 %2 %3").arg(static_cast<uint32_t>(m_syncPeriod / periodDay))
+                                       .arg(tr("day(s) and"))
+                                       .arg(leftTime.toString("hh:mm"));
+      } else {
+        perfMess += leftTime.toString("hh:mm:ss");
+      }
+    }
     perfMess += ")";
   }
   Q_EMIT walletStateChangedSignal(QString("%1 %2/%3 %4").arg(tr("Synchronizing")).arg(_current).arg(_total).arg(perfMess));
