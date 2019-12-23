@@ -540,14 +540,13 @@ void WalletAdapter::synchronizationProgressUpdated(uint32_t _current, uint32_t _
   if (m_syncPeriod > 0) {
     QDateTime leftTime = QDateTime::fromTime_t(m_syncPeriod).toUTC();
     perfMess += "(";
-    perfMess += QString("%1 %2").arg(m_syncSpeed).arg(tr("blocks per second"));
+    perfMess += QString(tr("%n blocks per second", "", m_syncSpeed));
     if (m_syncPeriod < syncPeriodMax) {
       perfMess += " | ";
-      perfMess += QString("%1 ").arg(tr("will be completed in"));
+      perfMess += QString(tr("will be completed in")) + " ";
       if (m_syncPeriod >= periodDay) {
-        perfMess += QString("%1 %2 %3").arg(static_cast<uint32_t>(m_syncPeriod / periodDay))
-                                       .arg(tr("day(s) and"))
-                                       .arg(leftTime.toString("hh:mm"));
+        perfMess += QString(tr("%n day(s) and", "", static_cast<uint32_t>(m_syncPeriod / periodDay))) + " ";
+        perfMess += leftTime.toString("hh:mm");
       } else {
         perfMess += leftTime.toString("hh:mm:ss");
       }
