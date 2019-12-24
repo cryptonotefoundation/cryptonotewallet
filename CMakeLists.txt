@@ -50,6 +50,7 @@ include_directories(${CMAKE_BINARY_DIR}
 find_package(Qt5Gui REQUIRED)
 find_package(Qt5Widgets REQUIRED)
 find_package(Qt5Network REQUIRED)
+find_package(Qt5LinguistTools REQUIRED)
 
 set(Boost_USE_STATIC_LIBS ON)
 if(WIN32)
@@ -212,12 +213,18 @@ file(GLOB_RECURSE SOURCES src/*.cpp)
 file(GLOB_RECURSE HEADERS src/*.h)
 file(GLOB_RECURSE FORMS src/gui/ui/*.ui)
 file(GLOB_RECURSE Mnemonics cryptonote/src/Mnemonics/*)
+file(GLOB TRANSLATION_FILES src/languages/*.ts)
 
 set(QRC src/resources.qrc)
+set_source_files_properties(${TRANSLATION_FILES} PROPERTIES OUTPUT_LOCATION "${CMAKE_BINARY_DIR}/languages")
 
 qt5_wrap_ui(UIS ${FORMS})
 qt5_add_resources(RCC ${QRC})
+#qt5_create_translation(TRANSLATION_MESSAGES ${FORMS} ${TRANSLATION_FILES})
+qt5_add_translation(TRANSLATION_QM ${TRANSLATION_FILES})
 
+add_custom_target(translations DEPENDS ${TRANSLATION_QM})
+#add_custom_target(translations_update DEPENDS ${TRANSLATION_MESSAGES})
 
 if (WIN32)
   if (NOT MSVC)
@@ -399,10 +406,10 @@ endif ()
 set_target_properties(Mnemonics PROPERTIES COMPILE_DEFINITIONS _GNU_SOURCE)
 target_link_libraries(Mnemonics ${Boost_LIBRARIES})
 
-#add_executable(${PROJECT_NAME} ${BUILD_PLATFORM} ${BUILD_RESOURCES} ${SOURCES} ${HEADERS} ${UIS} ${RCC} ${QM} ${TRANSLATIONS})
 add_executable(${PROJECT_NAME} ${BUILD_PLATFORM} ${BUILD_RESOURCES} ${SOURCES} ${HEADERS} ${UIS} ${RCC})
 set_target_properties(${PROJECT_NAME} PROPERTIES COMPILE_DEFINITIONS _GNU_SOURCE)
 target_link_libraries(${PROJECT_NAME} ${Boost_LIBRARIES} ${QTMAIN} ${CRYPTONOTE_LIB} ${QRENCODE_LIB} Mnemonics)
+add_dependencies(${PROJECT_NAME} translations)
 
 if (APPLE)
   target_link_libraries(${PROJECT_NAME} Qt5::PrintSupport)
@@ -433,7 +440,7 @@ elseif (UNIX)
     install(FILES src/karbowanecwallet.desktop DESTINATION share/applications)
     install(FILES src/images/karbowanez.png DESTINATION share/pixmaps RENAME karbowanec.png)
     install(FILES copyright DESTINATION share/doc/karbowanecwallet)
-    install(DIRECTORY src/languages DESTINATION /opt/karbo/ FILES_MATCHING PATTERN "*.qm")
+    install(DIRECTORY "${CMAKE_BINARY_DIR}/languages" DESTINATION /opt/karbo/ FILES_MATCHING PATTERN "*.qm")
 
     if (NOT RPMBUILD)
         set(CPACK_GENERATOR DEB)
