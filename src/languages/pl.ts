@@ -2757,5 +2757,25 @@ kiedy portfel skończy synchronizowanie</translation>
         <source>Failed to get the reserve proof.</source>
         <translation>Nie udało się uzyskać dowod rezerwy.</translation>
     </message>
+    <message numerus="yes">
+        <source>%n blocks per second</source>
+        <translation>
+            <numerusform>%n blok na sekundę</numerusform>
+            <numerusform>%n bloki na sekundę</numerusform>
+            <numerusform>%n bloków na sekundę</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>est. completion in</source>
+        <translation>szacunkowe zakończenie w</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n day(s) and</source>
+        <translation>
+            <numerusform>%n dzień i</numerusform>
+            <numerusform>%n dni i</numerusform>
+            <numerusform>%n dni i</numerusform>
+        </translation>
+    </message>
 </context>
 </TS>

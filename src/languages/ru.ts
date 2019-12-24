@@ -2762,12 +2762,16 @@ when the wallet is synchronized</source>
         <source>%n day(s) and</source>
         <translation>
             <numerusform>%n день и</numerusform>
-            <numerusform>%n деня и</numerusform>
+            <numerusform>%n дня и</numerusform>
             <numerusform>%n дней и</numerusform>
         </translation>
     </message>
     <message>
         <source>will be completed in</source>
+        <translation type="vanished">будет завершено через</translation>
+    </message>
+    <message>
+        <source>est. completion in</source>
         <translation>будет завершено через</translation>
     </message>
 </context>

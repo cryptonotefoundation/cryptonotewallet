@@ -2732,5 +2732,21 @@ when the wallet is synchronized</source>
         <source>Failed to get the reserve proof.</source>
         <translation>اثبات ذخیره ناموفق بود.</translation>
     </message>
+    <message numerus="yes">
+        <source>%n blocks per second</source>
+        <translation>
+            <numerusform>%n بلوک در ثانیه</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>est. completion in</source>
+        <translation>تکمیل در</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n day(s) and</source>
+        <translation>
+            <numerusform>%n روز و</numerusform>
+        </translation>
+    </message>
 </context>
 </TS>

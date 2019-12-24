@@ -2759,5 +2759,23 @@ quand le portefeuille aura terminé la synchronisation</translation>
         <source>Failed to get the reserve proof.</source>
         <translation>N&apos;a pas obtenu la preuve de la réserve.</translation>
     </message>
+    <message numerus="yes">
+        <source>%n blocks per second</source>
+        <translation>
+            <numerusform>%n bloc par seconde</numerusform>
+            <numerusform>%n blocs par seconde</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>est. completion in</source>
+        <translation>est. achèvement</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n day(s) and</source>
+        <translation>
+            <numerusform>%n jour et</numerusform>
+            <numerusform>%n jours et</numerusform>
+        </translation>
+    </message>
 </context>
 </TS>

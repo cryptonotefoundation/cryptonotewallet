@@ -2752,5 +2752,23 @@ cuando la cartera termine de sincronizar</translation>
         <source>Failed to get the reserve proof.</source>
         <translation>No se pudo obtener la prueba de la reserva.</translation>
     </message>
+    <message numerus="yes">
+        <source>%n blocks per second</source>
+        <translation>
+            <numerusform>%n bloque por segundo</numerusform>
+            <numerusform>%n bloques por segundo</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>est. completion in</source>
+        <translation>est. finalización en</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n day(s) and</source>
+        <translation>
+            <numerusform>%n día y</numerusform>
+            <numerusform>%n días y</numerusform>
+        </translation>
+    </message>
 </context>
 </TS>

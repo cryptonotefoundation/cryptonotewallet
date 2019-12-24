@@ -2764,6 +2764,10 @@ when the wallet is synchronized</source>
     </message>
     <message>
         <source>will be completed in</source>
+        <translation type="vanished">буде завершено через</translation>
+    </message>
+    <message>
+        <source>est. completion in</source>
         <translation>буде завершено через</translation>
     </message>
 </context>
