@@ -68,6 +68,7 @@ private:
   bool m_isAboutToQuit;
   QList<QAction*> recentFileActionList;
   const int maxRecentFiles;
+  const uint32_t maxProgressBar;
 
   QTranslator m_translator; // contains the translations for this application
   QTranslator m_translatorQt; // contains the translations for qt
@@ -77,6 +78,8 @@ private:
   static MainWindow* m_instance;
 
   QMenu *trayIconMenu;
+
+  QString m_statusBarText;
 
   MainWindow();
   ~MainWindow();
