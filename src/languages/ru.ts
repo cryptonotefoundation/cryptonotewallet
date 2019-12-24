@@ -2750,5 +2750,25 @@ when the wallet is synchronized</source>
         <source>Failed to get the reserve proof.</source>
         <translation>Не удалось получить подтверждение резерва.</translation>
     </message>
+    <message numerus="yes">
+        <source>%n blocks per second</source>
+        <translation>
+            <numerusform>%n блок в секунду</numerusform>
+            <numerusform>%n блокa в секунду</numerusform>
+            <numerusform>%n блоков в секунду</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n day(s) and</source>
+        <translation>
+            <numerusform>%n день и</numerusform>
+            <numerusform>%n деня и</numerusform>
+            <numerusform>%n дней и</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>will be completed in</source>
+        <translation>будет завершено через</translation>
+    </message>
 </context>
 </TS>
