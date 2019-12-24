@@ -9,6 +9,7 @@
 #include <QLocale>
 #include <QTranslator>
 #include <QLabel>
+#include <QProgressBar>
 #include <QPushButton>
 #include <QMainWindow>
 #include <QSystemTrayIcon>
@@ -54,6 +55,7 @@ private:
   OptimizationManager* optimizationManager;
 
   QScopedPointer<Ui::MainWindow> m_ui;
+  QProgressBar* m_syncProgressBar;
   QPushButton* m_connectionStateIconLabel;
   QLabel* m_encryptionStateIconLabel;
   QLabel* m_synchronizationStateIconLabel;
@@ -92,7 +94,7 @@ private:
   bool confirmWithPassword();
   void encryptedFlagChanged(bool _encrypted);
   void peerCountUpdated(quint64 _peer_count);
-  void walletSynchronizationInProgress();
+  void walletSynchronizationInProgress(uint32_t _current, uint32_t _total);
   void walletSynchronized(int _error, const QString& _error_text);
   void walletOpened(bool _error, const QString& _error_text);
   void walletClosed();
