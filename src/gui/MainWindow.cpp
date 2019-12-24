@@ -88,6 +88,7 @@ MainWindow::MainWindow() : QMainWindow(), m_ui(new Ui::MainWindow), m_trayIcon(n
   m_encryptionStateIconLabel = new QLabel(this);
   m_trackingModeIconLabel = new QLabel(this);
   m_remoteModeIconLabel = new QLabel(this);
+  m_syncProgressBar = new QProgressBar();
   m_synchronizationStateIconLabel = new AnimatedLabel(this);
   connectToSignals();
   createLanguageMenu();
@@ -170,6 +171,27 @@ void MainWindow::initUi() {
   m_tabActionGroup->addAction(m_ui->m_receiveAction);
   m_tabActionGroup->addAction(m_ui->m_transactionsAction);
   m_tabActionGroup->addAction(m_ui->m_addressBookAction);
+
+  const QString progressFormat = "";
+  m_syncProgressBar->setMaximum(100);
+  m_syncProgressBar->setMinimum(0);
+  m_syncProgressBar->setValue(0);
+  m_syncProgressBar->setFormat(progressFormat);
+  m_syncProgressBar->setTextVisible(true);
+  m_syncProgressBar->setStyleSheet("QProgressBar {"
+                                   "  border: 1px solid transparent;"
+                                   "  text-align: left;"
+                                   "  color:rgba(0, 0, 0, 100);"
+                                   "  border-radius: 5px;"
+                                   "  background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1,"
+                                   "                                    stop:0 rgba(182, 182, 182, 100),"
+                                   "                                    stop:1 rgba(209, 209, 209, 100));"
+                                   "}"
+                                   "QProgressBar::chunk {"
+                                   "  background-color: rgba(133, 167, 211, 100);"
+                                   "}");
+  m_syncProgressBar->hide();
+  statusBar()->addPermanentWidget(m_syncProgressBar, 1);
 
   m_ui->m_overviewAction->toggle();
   encryptedFlagChanged(false);
@@ -981,7 +1003,12 @@ void MainWindow::about() {
 }
 
 void MainWindow::setStatusBarText(const QString& _text) {
-  statusBar()->showMessage(_text);
+  if (m_syncProgressBar->isHidden()) {
+    statusBar()->showMessage(_text);
+  } else {
+    m_syncProgressBar->setFormat(_text);
+    statusBar()->clearMessage();
+  }
 }
 
 void MainWindow::showMessage(const QString& _text, QtMsgType _type) {
@@ -1073,9 +1100,16 @@ void MainWindow::peerCountUpdated(quint64 _peerCount) {
   m_connectionStateIconLabel->setToolTip(QString(tr("%n active connection(s)", "", _peerCount)));
 }
 
-void MainWindow::walletSynchronizationInProgress() {
+void MainWindow::walletSynchronizationInProgress(uint32_t _current, uint32_t _total) {
+  const uint32_t progressLevel = 90;
   qobject_cast<AnimatedLabel*>(m_synchronizationStateIconLabel)->startAnimation();
   m_synchronizationStateIconLabel->setToolTip(tr("Synchronization in progress"));
+  uint32_t syncProgress = 0;
+  if (_current > 0 && _total > 0) {
+    syncProgress = static_cast<uint32_t>(static_cast<float>(_current) / static_cast<float>(_total) * 100.0);
+  }
+  if (syncProgress < progressLevel) m_syncProgressBar->show();
+  m_syncProgressBar->setValue(syncProgress);
   m_ui->m_proofBalanceAction->setEnabled(false);
 }
 
@@ -1088,6 +1122,8 @@ void MainWindow::walletSynchronized(int _error, const QString& _error_text) {
   if (WalletAdapter::instance().getActualBalance() > 0 && !(Settings::instance().isTrackingMode())) {
     m_ui->m_proofBalanceAction->setEnabled(true);
   }
+  statusBar()->showMessage(m_syncProgressBar->text());
+  m_syncProgressBar->hide();
 }
 
 void MainWindow::walletOpened(bool _error, const QString& _error_text) {
