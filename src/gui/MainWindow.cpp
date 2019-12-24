@@ -78,8 +78,9 @@ MainWindow& MainWindow::instance() {
   return *m_instance;
 }
 
-MainWindow::MainWindow() : QMainWindow(), m_ui(new Ui::MainWindow), m_trayIcon(nullptr), m_tabActionGroup(new QActionGroup(this)),
-  m_isAboutToQuit(false), paymentServer(0), optimizationManager(nullptr), maxRecentFiles(10), trayIconMenu(0), toggleHideAction(0) {
+MainWindow::MainWindow() : QMainWindow(),
+  m_ui(new Ui::MainWindow), m_trayIcon(nullptr), m_tabActionGroup(new QActionGroup(this)), m_isAboutToQuit(false), paymentServer(0),
+  optimizationManager(nullptr), maxRecentFiles(10), trayIconMenu(0), toggleHideAction(0), maxProgressBar(100), m_statusBarText("") {
   m_ui->setupUi(this);
   m_connectionStateIconLabel = new QPushButton();
   m_connectionStateIconLabel->setFlat(true); // Make the button look like a label, but clickable
@@ -172,24 +173,11 @@ void MainWindow::initUi() {
   m_tabActionGroup->addAction(m_ui->m_transactionsAction);
   m_tabActionGroup->addAction(m_ui->m_addressBookAction);
 
-  const QString progressFormat = "";
-  m_syncProgressBar->setMaximum(100);
+  m_syncProgressBar->setMaximum(maxProgressBar);
   m_syncProgressBar->setMinimum(0);
   m_syncProgressBar->setValue(0);
-  m_syncProgressBar->setFormat(progressFormat);
+  m_syncProgressBar->setFormat(m_statusBarText);
   m_syncProgressBar->setTextVisible(true);
-  m_syncProgressBar->setStyleSheet("QProgressBar {"
-                                   "  border: 1px solid transparent;"
-                                   "  text-align: left;"
-                                   "  color:rgba(0, 0, 0, 100);"
-                                   "  border-radius: 5px;"
-                                   "  background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1,"
-                                   "                                    stop:0 rgba(182, 182, 182, 100),"
-                                   "                                    stop:1 rgba(209, 209, 209, 100));"
-                                   "}"
-                                   "QProgressBar::chunk {"
-                                   "  background-color: rgba(133, 167, 211, 100);"
-                                   "}");
   m_syncProgressBar->hide();
   statusBar()->addPermanentWidget(m_syncProgressBar, 1);
 
@@ -739,7 +727,7 @@ void MainWindow::loadLanguage(const QString& rLanguage)
     //TranslatorManager::instance()->switchTranslator(m_translator, QString("%1.qm").arg(rLanguage));
     //TranslatorManager::instance()->switchTranslator(m_translatorQt, QString("qt_%1.qm").arg(rLanguage));
     Settings::instance().setLanguage((m_currLang));
-    m_ui->statusBar->showMessage(tr("Language changed to %1").arg(languageName));
+    setStatusBarText(QString(tr("Language changed to %1").arg(languageName)));
     QMessageBox::information(this, tr("Language was changed"),
        tr("Language changed to %1. The change will take effect after restarting the wallet.").arg(languageName), QMessageBox::Ok);
   }
@@ -1003,10 +991,12 @@ void MainWindow::about() {
 }
 
 void MainWindow::setStatusBarText(const QString& _text) {
+  m_statusBarText = _text;
   if (m_syncProgressBar->isHidden()) {
-    statusBar()->showMessage(_text);
+    statusBar()->showMessage(m_statusBarText);
   } else {
-    m_syncProgressBar->setFormat(_text);
+    // TODO: not the best indent, but it is very simple and works
+    m_syncProgressBar->setFormat(QString("  ") + m_statusBarText);
     statusBar()->clearMessage();
   }
 }
@@ -1101,14 +1091,20 @@ void MainWindow::peerCountUpdated(quint64 _peerCount) {
 }
 
 void MainWindow::walletSynchronizationInProgress(uint32_t _current, uint32_t _total) {
-  const uint32_t progressLevel = 90;
+  const uint32_t progressActOffset = 500;
+  bool progressAct = false;
+  uint32_t syncProgress = 0;
   qobject_cast<AnimatedLabel*>(m_synchronizationStateIconLabel)->startAnimation();
   m_synchronizationStateIconLabel->setToolTip(tr("Synchronization in progress"));
-  uint32_t syncProgress = 0;
-  if (_current > 0 && _total > 0) {
-    syncProgress = static_cast<uint32_t>(static_cast<float>(_current) / static_cast<float>(_total) * 100.0);
+  if (_total > 0 && _current <= _total) {
+    syncProgress = static_cast<uint32_t>(static_cast<float>(_current) /
+                   static_cast<float>(_total) *
+                   static_cast<float>(maxProgressBar));
+    if (_total > progressActOffset && _total - _current > progressActOffset) progressAct = true;
+  } else {
+    syncProgress = maxProgressBar;
   }
-  if (syncProgress < progressLevel) m_syncProgressBar->show();
+  if (m_syncProgressBar->isHidden() && progressAct) m_syncProgressBar->show();
   m_syncProgressBar->setValue(syncProgress);
   m_ui->m_proofBalanceAction->setEnabled(false);
 }
@@ -1122,7 +1118,7 @@ void MainWindow::walletSynchronized(int _error, const QString& _error_text) {
   if (WalletAdapter::instance().getActualBalance() > 0 && !(Settings::instance().isTrackingMode())) {
     m_ui->m_proofBalanceAction->setEnabled(true);
   }
-  statusBar()->showMessage(m_syncProgressBar->text());
+  statusBar()->showMessage(m_statusBarText);
   m_syncProgressBar->hide();
 }
 
