@@ -307,3 +307,16 @@ QToolTip{
 QTabWidget {
     background-color: transparent;
 }
+
+QProgressBar {
+	border: 1px solid transparent;
+	text-align: left;
+	border-radius: 5px;
+	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1,
+										stop:0 rgba(203, 222, 247, 100),
+                                        stop:1 rgba(211, 215, 222, 100));
+}
+
+QProgressBar::chunk {
+	background-color: rgba(133, 167, 211, 100);
+}

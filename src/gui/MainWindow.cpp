@@ -178,28 +178,19 @@ void MainWindow::initUi() {
   m_syncProgressBar->setValue(0);
   m_syncProgressBar->setFormat(progressFormat);
   m_syncProgressBar->setTextVisible(true);
-  m_syncProgressBar->setStyleSheet("QProgressBar {"
-                                   "  border: 1px solid transparent;"
-                                   "  text-align: left;"
-                                   "  color:rgba(0, 0, 0, 100);"
-                                   "  border-radius: 5px;"
-                                   "  background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1,"
-                                   "                                    stop:0 rgba(182, 182, 182, 100),"
-                                   "                                    stop:1 rgba(209, 209, 209, 100));"
-                                   "}"
-                                   "QProgressBar::chunk {"
-                                   "  background-color: rgba(133, 167, 211, 100);"
-                                   "}");
+  m_syncProgressBar->setMaximumHeight(30);
   m_syncProgressBar->hide();
-  statusBar()->addPermanentWidget(m_syncProgressBar, 1);
 
-  m_ui->m_overviewAction->toggle();
-  encryptedFlagChanged(false);
+  statusBar()->addPermanentWidget(m_syncProgressBar, 1);
   statusBar()->addPermanentWidget(m_trackingModeIconLabel);
   statusBar()->addPermanentWidget(m_remoteModeIconLabel);
   statusBar()->addPermanentWidget(m_connectionStateIconLabel);
   statusBar()->addPermanentWidget(m_encryptionStateIconLabel);
   statusBar()->addPermanentWidget(m_synchronizationStateIconLabel);
+  
+  m_ui->m_overviewAction->toggle();
+  encryptedFlagChanged(false);
+  
   qobject_cast<AnimatedLabel*>(m_synchronizationStateIconLabel)->setSprite(QPixmap(":icons/sync_sprite"), QSize(16, 16), 5, 24);
   m_connectionStateIconLabel->setIcon(QPixmap(":icons/disconnected").scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
   m_trackingModeIconLabel->setPixmap(QPixmap(":icons/tracking").scaledToHeight(16, Qt::SmoothTransformation));
