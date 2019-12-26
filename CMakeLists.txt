@@ -227,6 +227,18 @@ add_custom_target(translations DEPENDS ${TRANSLATION_QM})
 #add_custom_target(translations_update DEPENDS ${TRANSLATION_MESSAGES})
 
 if (WIN32)
+  file(GLOB _TRANSLATION_FILES_DEFAULT ${_qt5Core_install_prefix}/translations/*.qm)
+  list(FILTER _TRANSLATION_FILES_DEFAULT INCLUDE REGEX "\\/[a-z][a-z]_[a-z][a-z].qm$")
+  add_custom_target(translations_delault)
+  foreach(_qm_file_src ${_TRANSLATION_FILES_DEFAULT})
+    get_filename_component(_qm_file_name ${_qm_file_src} NAME)
+    set(_qm_file_dst "${CMAKE_BINARY_DIR}/languages/${_qm_file_name}")
+    add_custom_command(TARGET translations_delault
+                       COMMAND ${CMAKE_COMMAND} -E copy ${_qm_file_src} ${_qm_file_dst})
+  endforeach()
+endif()
+
+if (WIN32)
   if (NOT MSVC)
 	message(FATAL_ERROR "Only MSVC is supported on this platform")
   endif ()
@@ -410,6 +422,9 @@ add_executable(${PROJECT_NAME} ${BUILD_PLATFORM} ${BUILD_RESOURCES} ${SOURCES} $
 set_target_properties(${PROJECT_NAME} PROPERTIES COMPILE_DEFINITIONS _GNU_SOURCE)
 target_link_libraries(${PROJECT_NAME} ${Boost_LIBRARIES} ${QTMAIN} ${CRYPTONOTE_LIB} ${QRENCODE_LIB} Mnemonics)
 add_dependencies(${PROJECT_NAME} translations)
+if (WIN32)
+  add_dependencies(${PROJECT_NAME} translations_delault)
+endif ()
 
 if (APPLE)
   target_link_libraries(${PROJECT_NAME} Qt5::PrintSupport)
