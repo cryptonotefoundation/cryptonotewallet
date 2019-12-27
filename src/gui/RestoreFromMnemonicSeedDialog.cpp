@@ -27,6 +27,10 @@ QString RestoreFromMnemonicSeedDialog::getFilePath() const {
   return m_ui->m_pathEdit->text().trimmed();
 }
 
+quint32 RestoreFromMnemonicSeedDialog::getSyncHeight() const {
+  return m_ui->m_syncHeight->value();
+}
+
 void RestoreFromMnemonicSeedDialog::selectPathClicked() {
   QString filePath = QFileDialog::getSaveFileName(this, tr("Wallet file"),
 #ifdef Q_OS_WIN

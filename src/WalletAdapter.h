@@ -34,6 +34,7 @@ public:
   void createWallet();
   void createNonDeterministic();
   void createWithKeys(const CryptoNote::AccountKeys& _keys);
+  void createWithKeys(const CryptoNote::AccountKeys& _keys, const quint32 _sync_heigth);
   void close();
   bool save(bool _details, bool _cache);
   void backup(const QString& _file);

@@ -24,6 +24,7 @@ public:
   QString getViewKeyString() const;
   QString getSpendKeyString() const;
   QString getFilePath() const;
+  quint32 getSyncHeight() const;
 
 private:
   QScopedPointer<Ui::ImportKeysDialog> m_ui;

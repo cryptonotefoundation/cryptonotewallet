@@ -23,6 +23,7 @@ public:
 
   QString getSeedString() const;
   QString getFilePath() const;
+  quint32 getSyncHeight() const;
 
 private:
   QScopedPointer<Ui::RestoreFromMnemonicSeedDialog> m_ui;

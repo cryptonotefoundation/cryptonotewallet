@@ -96,6 +96,7 @@ set(CRYPTONOTE_SOURCES
   cryptonote/src/Common/ConsoleTools.cpp
   cryptonote/src/Common/MemoryInputStream.cpp
   cryptonote/src/Common/PathTools.cpp
+  cryptonote/src/Common/PasswordContainer.cpp
   cryptonote/src/Common/DnsTools.cpp
   cryptonote/src/Common/StdInputStream.cpp
   cryptonote/src/Common/StdOutputStream.cpp
@@ -104,7 +105,7 @@ set(CRYPTONOTE_SOURCES
   cryptonote/src/Common/StringView.cpp
   cryptonote/src/Common/VectorOutputStream.cpp
   cryptonote/src/crypto/blake256.c
-  cryptonote/src/crypto/chacha8.c
+  cryptonote/src/crypto/chacha8.cpp
   cryptonote/src/crypto/crypto-ops-data.c
   cryptonote/src/crypto/crypto-ops.c
   cryptonote/src/crypto/crypto.cpp
@@ -117,7 +118,6 @@ set(CRYPTONOTE_SOURCES
   cryptonote/src/crypto/jh.c
   cryptonote/src/crypto/keccak.c
   cryptonote/src/crypto/oaes_lib.c
-  cryptonote/src/crypto/random.c
   cryptonote/src/crypto/skein.c
   cryptonote/src/crypto/slow-hash.c
   cryptonote/src/crypto/slow-hash.cpp

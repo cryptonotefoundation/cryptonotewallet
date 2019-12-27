@@ -29,6 +29,10 @@ QString ImportKeyDialog::getFilePath() const {
   return m_ui->m_pathEdit->text().trimmed();
 }
 
+quint32 ImportKeyDialog::getSyncHeight() const {
+  return m_ui->m_syncHeight->value();
+}
+
 void ImportKeyDialog::selectPathClicked() {
   QString filePath = QFileDialog::getSaveFileName(this, tr("Wallet file"),
 #ifdef Q_OS_WIN

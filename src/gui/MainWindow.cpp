@@ -476,7 +476,14 @@ void MainWindow::importKey() {
         WalletAdapter::instance().close();
       }
       WalletAdapter::instance().setWalletFile(filePath);
-      WalletAdapter::instance().createWithKeys(keys);
+
+      quint32 syncHeight = dlg.getSyncHeight();
+      if (syncHeight != 0) {
+        WalletAdapter::instance().createWithKeys(keys, syncHeight);
+      } else {
+        WalletAdapter::instance().createWithKeys(keys);
+      }
+
     } else {
       QMessageBox::warning(this, tr("Wallet keys are not valid"), tr("The private keys you entered are not valid."), QMessageBox::Ok);
     }
@@ -527,8 +534,13 @@ void MainWindow::importKeys() {
         WalletAdapter::instance().close();
     }
     WalletAdapter::instance().setWalletFile(filePath);
-    WalletAdapter::instance().createWithKeys(keys);
 
+    quint32 syncHeight = dlg.getSyncHeight();
+    if (syncHeight != 0) {
+      WalletAdapter::instance().createWithKeys(keys, syncHeight);
+    } else {
+      WalletAdapter::instance().createWithKeys(keys);
+    }
   }
 }
 
@@ -603,7 +615,14 @@ void MainWindow::importTrackingKey() {
       }
       Settings::instance().setTrackingMode(true);
       WalletAdapter::instance().setWalletFile(filePath);
-      WalletAdapter::instance().createWithKeys(keys);
+
+      quint32 syncHeight = dlg.getSyncHeight();
+      if (syncHeight != 0) {
+        WalletAdapter::instance().createWithKeys(keys, syncHeight);
+      } else {
+        WalletAdapter::instance().createWithKeys(keys);
+      }
+
    // }
   }
 }
@@ -645,7 +664,13 @@ void MainWindow::restoreFromMnemonicSeed() {
         WalletAdapter::instance().close();
       }
       WalletAdapter::instance().setWalletFile(filePath);
-      WalletAdapter::instance().createWithKeys(keys);
+
+      quint32 syncHeight = dlg.getSyncHeight();
+      if (syncHeight != 0) {
+        WalletAdapter::instance().createWithKeys(keys, syncHeight);
+      } else {
+        WalletAdapter::instance().createWithKeys(keys);
+      }
     } else {
       QMessageBox::critical(nullptr, tr("Mnemonic seed is not correct"), tr("There must be an error in mnemonic seed. Make sure you entered it correctly."), QMessageBox::Ok);
       return;
@@ -976,7 +1001,7 @@ void MainWindow::setCloseToTray(bool _on) {
 #endif
 }
 
-void MainWindow::hideFusionTransactions(bool _on) {
+void MainWindow::setHideFusionTransactions(bool _on) {
   Settings::instance().setSkipFusionTransactions(_on);
   m_ui->m_hideFusionTransactions->setChecked(Settings::instance().skipFusionTransactions());
   m_ui->m_transactionsFrame->reloadTransactions();

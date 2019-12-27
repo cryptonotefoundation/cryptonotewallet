@@ -23,6 +23,7 @@ public:
 
   QString getKeyString() const;
   QString getFilePath() const;
+  quint32 getSyncHeight() const;
 
 private:
   QScopedPointer<Ui::ImportTrackingKeyDialog> m_ui;

@@ -200,6 +200,13 @@ void WalletAdapter::createWithKeys(const CryptoNote::AccountKeys& _keys) {
   m_wallet->initWithKeys(_keys, "");
 }
 
+void WalletAdapter::createWithKeys(const CryptoNote::AccountKeys& _keys, const quint32 _sync_heigth) {
+  m_wallet = NodeAdapter::instance().createWallet();
+  m_wallet->addObserver(this);
+  Settings::instance().setEncrypted(false);
+  Q_EMIT walletStateChangedSignal(tr("Importing keys"));
+  m_wallet->initWithKeys(_keys, "", _sync_heigth);
+}
 
 bool WalletAdapter::isOpen() const {
   return m_wallet != nullptr;
