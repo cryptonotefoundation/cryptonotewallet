@@ -386,6 +386,10 @@ Please wait...</source>
         <source>Select folder</source>
         <translation>Вибрати каталог</translation>
     </message>
+    <message>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>Почати синхронізацію з цієї висоти (не заповнюйте, якщо не впевнені):</translation>
+    </message>
 </context>
 <context>
     <name>ImportKeysDialog</name>
@@ -420,6 +424,10 @@ Please wait...</source>
     <message>
         <source>Import private keys</source>
         <translation>Імпортувати приватні ключі</translation>
+    </message>
+    <message>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>Почати синхронізацію з цієї висоти (не заповнюйте, якщо не впевнені):</translation>
     </message>
 </context>
 <context>
@@ -459,6 +467,10 @@ Please wait...</source>
     <message>
         <source>Select folder</source>
         <translation>Вибрати каталог</translation>
+    </message>
+    <message>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>Почати синхронізацію з цієї висоти (не заповнюйте, якщо не впевнені):</translation>
     </message>
 </context>
 <context>
@@ -1251,6 +1263,10 @@ Do you want to go to download page?</source>
     <message>
         <source>Select folder</source>
         <translation>Вибрати каталог</translation>
+    </message>
+    <message>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>Почати синхронізацію з цієї висоти (не заповнюйте, якщо не впевнені):</translation>
     </message>
 </context>
 <context>

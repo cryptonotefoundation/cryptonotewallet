@@ -386,6 +386,10 @@ Please wait...</source>
         <source>Select folder</source>
         <translation>انتخاب پوشه</translation>
     </message>
+    <message>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>هماهنگ سازی را از این ارتفاع شروع کنید (در صورت عدم اطمینان خالی بگذارید):</translation>
+    </message>
 </context>
 <context>
     <name>ImportKeysDialog</name>
@@ -416,6 +420,10 @@ Please wait...</source>
     <message>
         <source>Import private keys</source>
         <translation>درون ریزی کلید شخصی</translation>
+    </message>
+    <message>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>هماهنگ سازی را از این ارتفاع شروع کنید (در صورت عدم اطمینان خالی بگذارید):</translation>
     </message>
 </context>
 <context>
@@ -455,6 +463,10 @@ Please wait...</source>
     <message>
         <source>Select folder</source>
         <translation>انتخاب پوشه</translation>
+    </message>
+    <message>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>هماهنگ سازی را از این ارتفاع شروع کنید (در صورت عدم اطمینان خالی بگذارید):</translation>
     </message>
 </context>
 <context>
@@ -1251,6 +1263,10 @@ Do you want to go to download page?</source>
     <message>
         <source>Select folder</source>
         <translation>انتخاب پوشه</translation>
+    </message>
+    <message>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>هماهنگ سازی را از این ارتفاع شروع کنید (در صورت عدم اطمینان خالی بگذارید):</translation>
     </message>
 </context>
 <context>

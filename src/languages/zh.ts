@@ -438,27 +438,32 @@ Please wait...</source>
         <translation>导入私钥</translation>
     </message>
     <message>
-        <location filename="../gui/ui/importkeydialog.ui" line="26"/>
+        <location filename="../gui/ui/importkeydialog.ui" line="93"/>
         <source>Key:</source>
         <translation>密钥：</translation>
     </message>
     <message>
-        <location filename="../gui/ui/importkeydialog.ui" line="40"/>
+        <location filename="../gui/ui/importkeydialog.ui" line="29"/>
         <source>Where to save new wallet file:</source>
         <translation>新钱包文件保存至：</translation>
     </message>
     <message>
-        <location filename="../gui/ui/importkeydialog.ui" line="60"/>
+        <location filename="../gui/ui/importkeydialog.ui" line="49"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../gui/ui/importkeydialog.ui" line="70"/>
+        <location filename="../gui/ui/importkeydialog.ui" line="66"/>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>从这个高度开始同步（如果不确定，请留空）：</translation>
+    </message>
+    <message>
+        <location filename="../gui/ui/importkeydialog.ui" line="80"/>
         <source>OK</source>
         <translation>好</translation>
     </message>
     <message>
-        <location filename="../gui/ui/importkeydialog.ui" line="86"/>
+        <location filename="../gui/ui/importkeydialog.ui" line="59"/>
         <source>Select folder</source>
         <translation>选择文件夹</translation>
     </message>
@@ -475,32 +480,37 @@ Please wait...</source>
         <translation>正在导入密钥</translation>
     </message>
     <message>
-        <location filename="../gui/ui/importkeysdialog.ui" line="26"/>
+        <location filename="../gui/ui/importkeysdialog.ui" line="29"/>
         <source>Select folder</source>
         <translation>选择文件夹</translation>
     </message>
     <message>
-        <location filename="../gui/ui/importkeysdialog.ui" line="49"/>
+        <location filename="../gui/ui/importkeysdialog.ui" line="56"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../gui/ui/importkeysdialog.ui" line="59"/>
+        <location filename="../gui/ui/importkeysdialog.ui" line="46"/>
         <source>Where to save new wallet file:</source>
         <translation>新钱包文件保存至：</translation>
     </message>
     <message>
-        <location filename="../gui/ui/importkeysdialog.ui" line="66"/>
+        <location filename="../gui/ui/importkeysdialog.ui" line="93"/>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>从这个高度开始同步（如果不确定，请留空）：</translation>
+    </message>
+    <message>
+        <location filename="../gui/ui/importkeysdialog.ui" line="100"/>
         <source>OK</source>
         <translation>好</translation>
     </message>
     <message>
-        <location filename="../gui/ui/importkeysdialog.ui" line="85"/>
+        <location filename="../gui/ui/importkeysdialog.ui" line="86"/>
         <source>Private View Key:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/ui/importkeysdialog.ui" line="92"/>
+        <location filename="../gui/ui/importkeysdialog.ui" line="66"/>
         <source>Private Spend Key:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -513,32 +523,37 @@ Please wait...</source>
         <translation>导入跟踪密钥</translation>
     </message>
     <message>
-        <location filename="../gui/ui/importtrackingkeydialog.ui" line="26"/>
+        <location filename="../gui/ui/importtrackingkeydialog.ui" line="29"/>
         <source>Key:</source>
         <translation>密钥：</translation>
     </message>
     <message>
-        <location filename="../gui/ui/importtrackingkeydialog.ui" line="36"/>
+        <location filename="../gui/ui/importtrackingkeydialog.ui" line="82"/>
         <source>Where to save new wallet file:</source>
         <translation>新钱包文件保存至：</translation>
     </message>
     <message>
-        <location filename="../gui/ui/importtrackingkeydialog.ui" line="46"/>
+        <location filename="../gui/ui/importtrackingkeydialog.ui" line="89"/>
         <source>Select folder</source>
         <translation>选择文件夹</translation>
     </message>
     <message>
-        <location filename="../gui/ui/importtrackingkeydialog.ui" line="53"/>
+        <location filename="../gui/ui/importtrackingkeydialog.ui" line="96"/>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>从这个高度开始同步（如果不确定，请留空）：</translation>
+    </message>
+    <message>
+        <location filename="../gui/ui/importtrackingkeydialog.ui" line="46"/>
         <source>OK</source>
         <translation>好</translation>
     </message>
     <message>
-        <location filename="../gui/ui/importtrackingkeydialog.ui" line="66"/>
+        <location filename="../gui/ui/importtrackingkeydialog.ui" line="59"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../gui/ui/importtrackingkeydialog.ui" line="89"/>
+        <location filename="../gui/ui/importtrackingkeydialog.ui" line="36"/>
         <source>Import a tracking key of a wallet to see all its incoming transactions. It doesn&apos;t allow spending funds.</source>
         <translation>导入跟踪密钥，查看钱包所有的传入资金交易，但不可支出任何资金。</translation>
     </message>
@@ -1305,7 +1320,7 @@ Please wait...</source>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="742"/>
+        <location filename="../gui/MainWindow.cpp" line="767"/>
         <location filename="../main.cpp" line="70"/>
         <source>Help</source>
         <translation>帮助</translation>
@@ -1424,22 +1439,27 @@ Do you want to go to download page?</source>
         <translation>助记符：</translation>
     </message>
     <message>
-        <location filename="../gui/ui/restorefrommnemonicseeddialog.ui" line="40"/>
+        <location filename="../gui/ui/restorefrommnemonicseeddialog.ui" line="100"/>
         <source>Where to save new wallet file:</source>
         <translation>新钱包文件保存至：</translation>
     </message>
     <message>
-        <location filename="../gui/ui/restorefrommnemonicseeddialog.ui" line="50"/>
+        <location filename="../gui/ui/restorefrommnemonicseeddialog.ui" line="107"/>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>从这个高度开始同步（如果不确定，请留空）：</translation>
+    </message>
+    <message>
+        <location filename="../gui/ui/restorefrommnemonicseeddialog.ui" line="47"/>
         <source>Select folder</source>
         <translation>选择文件夹</translation>
     </message>
     <message>
-        <location filename="../gui/ui/restorefrommnemonicseeddialog.ui" line="70"/>
+        <location filename="../gui/ui/restorefrommnemonicseeddialog.ui" line="74"/>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
     <message>
-        <location filename="../gui/ui/restorefrommnemonicseeddialog.ui" line="80"/>
+        <location filename="../gui/ui/restorefrommnemonicseeddialog.ui" line="84"/>
         <source>OK</source>
         <translation>好</translation>
     </message>
@@ -2030,12 +2050,12 @@ Do you want to go to download page?</source>
 <context>
     <name>WalletGui::ImportKeyDialog</name>
     <message>
-        <location filename="../gui/ImportKeyDialog.cpp" line="33"/>
+        <location filename="../gui/ImportKeyDialog.cpp" line="37"/>
         <source>Wallet file</source>
         <translation>钱包文件</translation>
     </message>
     <message>
-        <location filename="../gui/ImportKeyDialog.cpp" line="40"/>
+        <location filename="../gui/ImportKeyDialog.cpp" line="44"/>
         <source>Wallets (*.wallet)</source>
         <translation>钱包（*.wallet）</translation>
     </message>
@@ -2043,12 +2063,12 @@ Do you want to go to download page?</source>
 <context>
     <name>WalletGui::ImportKeysDialog</name>
     <message>
-        <location filename="../gui/ImportKeysDialog.cpp" line="37"/>
+        <location filename="../gui/ImportKeysDialog.cpp" line="41"/>
         <source>Wallet file</source>
         <translation>钱包文件</translation>
     </message>
     <message>
-        <location filename="../gui/ImportKeysDialog.cpp" line="44"/>
+        <location filename="../gui/ImportKeysDialog.cpp" line="48"/>
         <source>Wallets (*.wallet)</source>
         <translation>钱包（*.wallet）</translation>
     </message>
@@ -2056,12 +2076,12 @@ Do you want to go to download page?</source>
 <context>
     <name>WalletGui::ImportTrackingKeyDialog</name>
     <message>
-        <location filename="../gui/ImportTrackingKeyDialog.cpp" line="33"/>
+        <location filename="../gui/ImportTrackingKeyDialog.cpp" line="37"/>
         <source>Tracking wallet file</source>
         <translation>跟踪钱包文件</translation>
     </message>
     <message>
-        <location filename="../gui/ImportTrackingKeyDialog.cpp" line="40"/>
+        <location filename="../gui/ImportTrackingKeyDialog.cpp" line="44"/>
         <source>Tracking wallets (*.wallet)</source>
         <translation>跟踪钱包（*.wallet）</translation>
     </message>
@@ -2124,7 +2144,7 @@ Do you want to go to download page?</source>
     <message>
         <location filename="../gui/MainWindow.cpp" line="357"/>
         <location filename="../gui/MainWindow.cpp" line="386"/>
-        <location filename="../gui/MainWindow.cpp" line="801"/>
+        <location filename="../gui/MainWindow.cpp" line="826"/>
         <source>Wallets (*.wallet)</source>
         <translation>钱包（*.wallet）</translation>
     </message>
@@ -2159,89 +2179,89 @@ Do you want to go to download page?</source>
         <translation>最近的钱包文件丢失。 可能已删除。</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="481"/>
+        <location filename="../gui/MainWindow.cpp" line="488"/>
         <source>Wallet keys are not valid</source>
         <translation>钱包密钥无效</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="481"/>
+        <location filename="../gui/MainWindow.cpp" line="488"/>
         <source>The private keys you entered are not valid.</source>
         <translation>您输入的私钥无效。</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="544"/>
+        <location filename="../gui/MainWindow.cpp" line="556"/>
         <source>Tracking key is not valid</source>
         <translation>跟踪密钥无效</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="544"/>
+        <location filename="../gui/MainWindow.cpp" line="556"/>
         <source>The tracking key you entered is not valid.</source>
         <translation>您输入的跟踪密钥无效。</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="512"/>
-        <location filename="../gui/MainWindow.cpp" line="516"/>
-        <location filename="../gui/MainWindow.cpp" line="575"/>
-        <location filename="../gui/MainWindow.cpp" line="579"/>
-        <location filename="../gui/MainWindow.cpp" line="583"/>
+        <location filename="../gui/MainWindow.cpp" line="519"/>
+        <location filename="../gui/MainWindow.cpp" line="523"/>
         <location filename="../gui/MainWindow.cpp" line="587"/>
+        <location filename="../gui/MainWindow.cpp" line="591"/>
+        <location filename="../gui/MainWindow.cpp" line="595"/>
+        <location filename="../gui/MainWindow.cpp" line="599"/>
         <source>Key is not valid</source>
         <translation>密钥无效</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="575"/>
+        <location filename="../gui/MainWindow.cpp" line="587"/>
         <source>The public spend key you entered is not valid.</source>
         <translation>您输入的支出公钥无效。</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="579"/>
+        <location filename="../gui/MainWindow.cpp" line="591"/>
         <source>The public view key you entered is not valid.</source>
         <translation>您输入的检视公钥无效。</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="512"/>
-        <location filename="../gui/MainWindow.cpp" line="583"/>
+        <location filename="../gui/MainWindow.cpp" line="519"/>
+        <location filename="../gui/MainWindow.cpp" line="595"/>
         <source>The private spend key you entered is not valid.</source>
         <translation>您输入的支出私钥无效。</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="516"/>
-        <location filename="../gui/MainWindow.cpp" line="587"/>
+        <location filename="../gui/MainWindow.cpp" line="523"/>
+        <location filename="../gui/MainWindow.cpp" line="599"/>
         <source>The private view key you entered is not valid.</source>
         <translation>您输入的检视私钥无效。</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="650"/>
+        <location filename="../gui/MainWindow.cpp" line="675"/>
         <source>Mnemonic seed is not correct</source>
         <translation>助记种子不正确</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="650"/>
+        <location filename="../gui/MainWindow.cpp" line="675"/>
         <source>There must be an error in mnemonic seed. Make sure you entered it correctly.</source>
         <translation>助记种子有误，请确保输入正确的数据。</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="733"/>
+        <location filename="../gui/MainWindow.cpp" line="758"/>
         <source>Language changed to %1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="734"/>
+        <location filename="../gui/MainWindow.cpp" line="759"/>
         <source>Language was changed</source>
         <translation>语言已更改</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="735"/>
+        <location filename="../gui/MainWindow.cpp" line="760"/>
         <source>Language changed to %1. The change will take effect after restarting the wallet.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="1146"/>
+        <location filename="../gui/MainWindow.cpp" line="1179"/>
         <source>%1 - Karbo Wallet %2</source>
         <translation>%1 - 卡博币钱包%2</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="1194"/>
+        <location filename="../gui/MainWindow.cpp" line="1227"/>
         <source>Karbo Wallet %2</source>
         <translation>卡博币钱包%2</translation>
     </message>
@@ -2250,96 +2270,96 @@ Do you want to go to download page?</source>
         <translation type="obsolete">语言更改会在重启钱包后生效</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="745"/>
+        <location filename="../gui/MainWindow.cpp" line="770"/>
         <source>More info can be found at www.karbowanec.com in Documentation section</source>
         <translation>更多信息请阅读www.karbowanec.com的文档部分。</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="770"/>
+        <location filename="../gui/MainWindow.cpp" line="795"/>
         <source>Connection settings changed</source>
         <translation>连接设置已更改</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="770"/>
+        <location filename="../gui/MainWindow.cpp" line="795"/>
         <source>Connection mode will be changed after restarting the wallet.</source>
         <translation>连接模式更改会在重启钱包后生效</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="794"/>
+        <location filename="../gui/MainWindow.cpp" line="819"/>
         <source>Backup wallet to...</source>
         <translation>备份钱包至...</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="814"/>
+        <location filename="../gui/MainWindow.cpp" line="839"/>
         <source>Warning</source>
         <translation>系统提醒</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="814"/>
+        <location filename="../gui/MainWindow.cpp" line="839"/>
         <source>Your wallet will be reset and restored from blockchain.
 Are you sure?</source>
         <translation>您的钱包将会被重置，并从区块链中恢复，您确定吗？</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="1008"/>
+        <location filename="../gui/MainWindow.cpp" line="1035"/>
         <source>Wallet error</source>
         <translation>钱包错误</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="1011"/>
+        <location filename="../gui/MainWindow.cpp" line="1038"/>
         <source>Wallet</source>
         <translation>钱包</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="1066"/>
+        <location filename="../gui/MainWindow.cpp" line="1093"/>
         <source>Incorrect password</source>
         <translation>密码错误</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="1066"/>
+        <location filename="../gui/MainWindow.cpp" line="1093"/>
         <source>Wrong password.</source>
         <translation>密码错误。</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="1082"/>
+        <location filename="../gui/MainWindow.cpp" line="1109"/>
         <source>Encrypted</source>
         <translation>加密</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="1082"/>
+        <location filename="../gui/MainWindow.cpp" line="1109"/>
         <source>Not encrypted</source>
         <translation>未加密</translation>
     </message>
     <message numerus="yes">
-        <location filename="../gui/MainWindow.cpp" line="1091"/>
+        <location filename="../gui/MainWindow.cpp" line="1118"/>
         <source>%n active connection(s)</source>
         <translation>
             <numerusform>%n 有效连接</numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="1097"/>
+        <location filename="../gui/MainWindow.cpp" line="1126"/>
         <source>Synchronization in progress</source>
         <translation>正在同步中</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="1111"/>
+        <location filename="../gui/MainWindow.cpp" line="1144"/>
         <source>Not synchronized</source>
         <translation>未同步</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="1111"/>
+        <location filename="../gui/MainWindow.cpp" line="1144"/>
         <source>Synchronized</source>
         <translation>已同步</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="142"/>
-        <location filename="../gui/MainWindow.cpp" line="1226"/>
+        <location filename="../gui/MainWindow.cpp" line="143"/>
+        <location filename="../gui/MainWindow.cpp" line="1259"/>
         <source>Karbo Wallet %1</source>
         <translation>Karbo钱包%1</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="161"/>
+        <location filename="../gui/MainWindow.cpp" line="162"/>
         <source>About %1 Wallet</source>
         <translation>关于%1钱包</translation>
     </message>
@@ -2501,12 +2521,12 @@ Are you sure?</source>
 <context>
     <name>WalletGui::RestoreFromMnemonicSeedDialog</name>
     <message>
-        <location filename="../gui/RestoreFromMnemonicSeedDialog.cpp" line="31"/>
+        <location filename="../gui/RestoreFromMnemonicSeedDialog.cpp" line="35"/>
         <source>Wallet file</source>
         <translation>钱包文件</translation>
     </message>
     <message>
-        <location filename="../gui/RestoreFromMnemonicSeedDialog.cpp" line="38"/>
+        <location filename="../gui/RestoreFromMnemonicSeedDialog.cpp" line="42"/>
         <source>Wallets (*.wallet)</source>
         <translation>钱包（*.wallet）</translation>
     </message>
@@ -2921,252 +2941,253 @@ when the wallet is synchronized</source>
     </message>
     <message>
         <location filename="../WalletAdapter.cpp" line="199"/>
+        <location filename="../WalletAdapter.cpp" line="207"/>
         <source>Importing keys</source>
         <translation>正在导入密钥</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="266"/>
+        <location filename="../WalletAdapter.cpp" line="273"/>
         <source>Saving data</source>
         <translation>正在保存数据</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="372"/>
+        <location filename="../WalletAdapter.cpp" line="379"/>
         <source>Sending transaction</source>
         <translation>正在发送交易</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="383"/>
+        <location filename="../WalletAdapter.cpp" line="390"/>
         <source>Sweeping unmixable dust</source>
         <translation>正在扫除不可混合的尘额</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="412"/>
+        <location filename="../WalletAdapter.cpp" line="419"/>
         <source>Optimizing wallet</source>
         <translation>优化钱包</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="472"/>
-        <location filename="../WalletAdapter.cpp" line="498"/>
+        <location filename="../WalletAdapter.cpp" line="479"/>
+        <location filename="../WalletAdapter.cpp" line="505"/>
         <source>Ready</source>
         <translation>已就绪</translation>
     </message>
     <message numerus="yes">
-        <location filename="../WalletAdapter.cpp" line="543"/>
+        <location filename="../WalletAdapter.cpp" line="550"/>
         <source>%n blocks per second</source>
         <translation>
             <numerusform>每秒%n个区块</numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="546"/>
+        <location filename="../WalletAdapter.cpp" line="553"/>
         <source>est. completion in</source>
         <translation>预计完成时间</translation>
     </message>
     <message numerus="yes">
-        <location filename="../WalletAdapter.cpp" line="548"/>
+        <location filename="../WalletAdapter.cpp" line="555"/>
         <source>%n day(s) and</source>
         <translation>
             <numerusform>%n天</numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="556"/>
+        <location filename="../WalletAdapter.cpp" line="563"/>
         <source>Synchronizing</source>
         <translation>同步中</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="596"/>
+        <location filename="../WalletAdapter.cpp" line="603"/>
         <source>Object was not initialized</source>
         <translation>对象未初始化</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="597"/>
+        <location filename="../WalletAdapter.cpp" line="604"/>
         <source>The password is wrong</source>
         <translation>密码错误</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="598"/>
+        <location filename="../WalletAdapter.cpp" line="605"/>
         <source>The object is already initialized</source>
         <translation>对象已初始化</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="599"/>
+        <location filename="../WalletAdapter.cpp" line="606"/>
         <source>Internal error occurred</source>
         <translation>发生内部错误</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="600"/>
+        <location filename="../WalletAdapter.cpp" line="607"/>
         <source>MixIn count is too big</source>
         <translation>MixIn计数过大</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="601"/>
+        <location filename="../WalletAdapter.cpp" line="608"/>
         <source>Bad address</source>
         <translation>地址错误</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="602"/>
+        <location filename="../WalletAdapter.cpp" line="609"/>
         <source>Transaction size is too big</source>
         <translation>交易规模过大</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="603"/>
+        <location filename="../WalletAdapter.cpp" line="610"/>
         <source>Wrong amount</source>
         <translation>数额错误</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="604"/>
+        <location filename="../WalletAdapter.cpp" line="611"/>
         <source>Sum overflow</source>
         <translation>总和溢位</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="605"/>
+        <location filename="../WalletAdapter.cpp" line="612"/>
         <source>The destination is empty</source>
         <translation>目的地不存在</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="606"/>
+        <location filename="../WalletAdapter.cpp" line="613"/>
         <source>Impossible to cancel transaction</source>
         <translation>无法取消交易</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="607"/>
+        <location filename="../WalletAdapter.cpp" line="614"/>
         <source>The wallet is in wrong state (maybe loading or saving), try again later</source>
         <translation>钱包状态有误（可能正在加载或保存中），请稍后再试</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="608"/>
+        <location filename="../WalletAdapter.cpp" line="615"/>
         <source>The operation you&apos;ve requested has been cancelled</source>
         <translation>您请求的操作已取消</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="609"/>
+        <location filename="../WalletAdapter.cpp" line="616"/>
         <source>Transaction transfer impossible</source>
         <translation>无法进行交易转移</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="610"/>
+        <location filename="../WalletAdapter.cpp" line="617"/>
         <source>Wrong version</source>
         <translation>版本错误</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="611"/>
+        <location filename="../WalletAdapter.cpp" line="618"/>
         <source>Transaction fee is too small</source>
         <translation>交易费用太小</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="612"/>
+        <location filename="../WalletAdapter.cpp" line="619"/>
         <source>Cannot generate new key</source>
         <translation>无法生成新的密钥</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="613"/>
+        <location filename="../WalletAdapter.cpp" line="620"/>
         <source>Index is out of range</source>
         <translation>指数超出范围</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="614"/>
+        <location filename="../WalletAdapter.cpp" line="621"/>
         <source>Address already exists</source>
         <translation>地址已存在</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="615"/>
+        <location filename="../WalletAdapter.cpp" line="622"/>
         <source>The wallet is in tracking mode</source>
         <translation>钱包处于跟踪模式</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="616"/>
+        <location filename="../WalletAdapter.cpp" line="623"/>
         <source>Wrong parameters passed</source>
         <translation>传递的参数错误</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="617"/>
+        <location filename="../WalletAdapter.cpp" line="624"/>
         <source>Object not found</source>
         <translation>对象未找到</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="618"/>
+        <location filename="../WalletAdapter.cpp" line="625"/>
         <source>Requested wallet not found</source>
         <translation>请求的钱包未找到</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="619"/>
+        <location filename="../WalletAdapter.cpp" line="626"/>
         <source>Change address required</source>
         <translation>需要更改地址</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="620"/>
+        <location filename="../WalletAdapter.cpp" line="627"/>
         <source>Change address not found</source>
         <translation>更改地址未找到</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="621"/>
+        <location filename="../WalletAdapter.cpp" line="628"/>
         <source>Destination address required</source>
         <translation>需要目标地址</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="622"/>
+        <location filename="../WalletAdapter.cpp" line="629"/>
         <source>Destination address not found</source>
         <translation>目标地址未找到</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="623"/>
+        <location filename="../WalletAdapter.cpp" line="630"/>
         <source>Wrong payment id format</source>
         <translation>付款ID格式错误</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="624"/>
+        <location filename="../WalletAdapter.cpp" line="631"/>
         <source>Wrong transaction extra format</source>
         <translation>交易额外格式错误</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="625"/>
+        <location filename="../WalletAdapter.cpp" line="632"/>
         <source>Unknown error</source>
         <translation>未知错误</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="705"/>
+        <location filename="../WalletAdapter.cpp" line="712"/>
         <source>  Warning: last block was received %1 hours %2 minutes ago</source>
         <translation>  系统提醒：上个区块已于%1小时%2分钟前收到</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="706"/>
+        <location filename="../WalletAdapter.cpp" line="713"/>
         <source>Wallet synchronized. Height: %1  |  Time (UTC): %2%3</source>
         <translation>钱包已同步。高度：%1 | 时间（UTC）：%2%3</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="758"/>
+        <location filename="../WalletAdapter.cpp" line="765"/>
         <source>Mnemonic seed is not correct</source>
         <translation>助记种子不正确</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="758"/>
+        <location filename="../WalletAdapter.cpp" line="765"/>
         <source>There must be an error in mnemonic seed. Make sure you entered it correctly.</source>
         <translation>助记种子有误，请确保输入正确的数据。</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="774"/>
+        <location filename="../WalletAdapter.cpp" line="781"/>
         <source>Failed to get the transaction proof</source>
         <translation>未能获得交易证明</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="774"/>
+        <location filename="../WalletAdapter.cpp" line="781"/>
         <source>Failed to get the transaction proof.</source>
         <translation>无法获得交易证明。</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="782"/>
-        <location filename="../WalletAdapter.cpp" line="795"/>
+        <location filename="../WalletAdapter.cpp" line="789"/>
+        <location filename="../WalletAdapter.cpp" line="802"/>
         <source>Failed to get the reserve proof</source>
         <translation>无法获得储备金证明</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="782"/>
+        <location filename="../WalletAdapter.cpp" line="789"/>
         <source>This is tracking wallet. The reserve proof can be generated only by a full wallet.</source>
         <translation>这是跟踪钱包。 储备证明只能由完整的钱包生成。</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="795"/>
+        <location filename="../WalletAdapter.cpp" line="802"/>
         <source>Failed to get the reserve proof.</source>
         <translation>无法获得储备金证明。</translation>
     </message>

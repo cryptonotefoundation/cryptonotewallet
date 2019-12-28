@@ -392,6 +392,10 @@ Por favor, espera...</translation>
         <source>Select folder</source>
         <translation>Seleccionar carpeta</translation>
     </message>
+    <message>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>Inicie la sincronización desde esta altura (deje en blanco si no está seguro):</translation>
+    </message>
 </context>
 <context>
     <name>ImportKeysDialog</name>
@@ -426,6 +430,10 @@ Por favor, espera...</translation>
     <message>
         <source>Import private keys</source>
         <translation>Importar claves privadas</translation>
+    </message>
+    <message>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>Inicie la sincronización desde esta altura (deje en blanco si no está seguro):</translation>
     </message>
 </context>
 <context>
@@ -465,6 +473,10 @@ Por favor, espera...</translation>
     <message>
         <source>Select folder</source>
         <translation>Seleccionar carpeta</translation>
+    </message>
+    <message>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>Inicie la sincronización desde esta altura (deje en blanco si no está seguro):</translation>
     </message>
 </context>
 <context>
@@ -1264,6 +1276,10 @@ Do you want to go to download page?</source>
     <message>
         <source>Select folder</source>
         <translation>Seleccionar carpeta</translation>
+    </message>
+    <message>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>Inicie la sincronización desde esta altura (deje en blanco si no está seguro):</translation>
     </message>
 </context>
 <context>

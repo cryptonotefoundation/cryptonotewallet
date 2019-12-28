@@ -402,6 +402,10 @@ Por favor aguarde...</translation>
         <source>Select folder</source>
         <translation>Selecione a pasta</translation>
     </message>
+    <message>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>Inicie a sincronização a partir desta altura (deixe em branco se não tiver certeza):</translation>
+    </message>
 </context>
 <context>
     <name>ImportKeysDialog</name>
@@ -436,6 +440,10 @@ Por favor aguarde...</translation>
     <message>
         <source>Import private keys</source>
         <translation>Importar claves privadas</translation>
+    </message>
+    <message>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>Inicie a sincronização a partir desta altura (deixe em branco se não tiver certeza):</translation>
     </message>
 </context>
 <context>
@@ -475,6 +483,10 @@ Por favor aguarde...</translation>
     <message>
         <source>Select folder</source>
         <translation>Selecione a pasta</translation>
+    </message>
+    <message>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>Inicie a sincronização a partir desta altura (deixe em branco se não tiver certeza):</translation>
     </message>
 </context>
 <context>
@@ -1272,6 +1284,10 @@ Você quer ir à página de dowload?</translation>
     <message>
         <source>Select folder</source>
         <translation>Selecione a pasta</translation>
+    </message>
+    <message>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>Inicie a sincronização a partir desta altura (deixe em branco se não tiver certeza):</translation>
     </message>
 </context>
 <context>
