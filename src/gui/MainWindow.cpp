@@ -285,7 +285,7 @@ void MainWindow::closeEvent(QCloseEvent* _event) {
     QApplication::quit();
     return;
   }
-#elif defined(Q_OS_LINUX)
+#elif defined(Q_OS_LINUX) || defined(Q_OS_FREEBSD)
   if (!m_isAboutToQuit) {
     QApplication::quit();
     return;
