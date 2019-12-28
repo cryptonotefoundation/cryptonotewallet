@@ -270,11 +270,18 @@ quint64 NodeAdapter::getMinimalFee() const {
 }
 
 CryptoNote::BlockHeaderInfo NodeAdapter::getLastLocalBlockHeaderInfo() {
+  Q_CHECK_PTR(m_node);
   return m_node->getLastLocalBlockHeaderInfo();
 }
 
 uint8_t NodeAdapter::getCurrentBlockMajorVersion() {
-  return getLastLocalBlockHeaderInfo().majorVersion;
+  Q_CHECK_PTR(m_node);
+  return m_node->getCurrentBlockMajorVersion();
+}
+
+quint64 NodeAdapter::getAlreadyGeneratedCoins() {
+  Q_CHECK_PTR(m_node);
+  return m_node->getAlreadyGeneratedCoins();
 }
 
 void NodeAdapter::peerCountUpdated(Node& _node, size_t _count) {

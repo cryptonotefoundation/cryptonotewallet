@@ -523,6 +523,10 @@ Please wait...</source>
         <source>Close</source>
         <translation>Закрити</translation>
     </message>
+    <message>
+        <source>Circulating supply</source>
+        <translation>Всього монет в обігу</translation>
+    </message>
 </context>
 <context>
     <name>MainWindow</name>
@@ -1809,6 +1813,10 @@ Do you want to go to download page?</source>
     <message>
         <source>%1</source>
         <translation>%1</translation>
+    </message>
+    <message>
+        <source>%1 %2</source>
+        <translation type="unfinished">%1 %2</translation>
     </message>
 </context>
 <context>

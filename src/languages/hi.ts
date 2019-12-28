@@ -562,57 +562,62 @@ Please wait...</source>
         <translation>जानकारी</translation>
     </message>
     <message>
-        <location filename="../gui/ui/infodialog.ui" line="29"/>
+        <location filename="../gui/ui/infodialog.ui" line="155"/>
+        <source>Circulating supply</source>
+        <translation>प्रचलन में सिक्कों की संख्या</translation>
+    </message>
+    <message>
+        <location filename="../gui/ui/infodialog.ui" line="172"/>
         <source>Network</source>
         <translation>नेटवर्क</translation>
     </message>
     <message>
-        <location filename="../gui/ui/infodialog.ui" line="41"/>
+        <location filename="../gui/ui/infodialog.ui" line="184"/>
         <source>Connections</source>
         <translation>कनेक्शन</translation>
     </message>
     <message>
-        <location filename="../gui/ui/infodialog.ui" line="61"/>
+        <location filename="../gui/ui/infodialog.ui" line="204"/>
         <source>Peer list</source>
         <translation>पीयर सूची</translation>
     </message>
     <message>
-        <location filename="../gui/ui/infodialog.ui" line="78"/>
+        <location filename="../gui/ui/infodialog.ui" line="29"/>
         <source>Blockchain</source>
         <translation>ब्लॉकचैन</translation>
     </message>
     <message>
-        <location filename="../gui/ui/infodialog.ui" line="90"/>
+        <location filename="../gui/ui/infodialog.ui" line="114"/>
         <source>Height</source>
         <translation>ऊँचाई</translation>
     </message>
     <message>
-        <location filename="../gui/ui/infodialog.ui" line="110"/>
+        <location filename="../gui/ui/infodialog.ui" line="101"/>
         <source>Last block date and time</source>
         <translation>अंतिम ब्लॉक दिनांक और समय</translation>
     </message>
     <message>
-        <location filename="../gui/ui/infodialog.ui" line="130"/>
+        <location filename="../gui/ui/infodialog.ui" line="41"/>
         <source>Difficulty</source>
         <translation>कठिनाई</translation>
     </message>
     <message>
-        <location filename="../gui/ui/infodialog.ui" line="150"/>
+        <location filename="../gui/ui/infodialog.ui" line="141"/>
         <source>Transactions</source>
         <translation>लेनदेन</translation>
     </message>
     <message>
-        <location filename="../gui/ui/infodialog.ui" line="170"/>
+        <location filename="../gui/ui/infodialog.ui" line="68"/>
         <source>Unconfirmed transactions</source>
         <translation>पुष्टि नहीं हुए लेनदेन</translation>
     </message>
     <message>
-        <location filename="../gui/ui/infodialog.ui" line="190"/>
+        <location filename="../gui/ui/infodialog.ui" line="81"/>
         <source>Alternative blocks</source>
         <translation>वैकल्पिक ब्लॉक</translation>
     </message>
     <message>
-        <location filename="../gui/ui/infodialog.ui" line="235"/>
+        <location filename="../gui/ui/infodialog.ui" line="249"/>
         <source>Close</source>
         <translation>बंद करें</translation>
     </message>
@@ -2068,28 +2073,33 @@ Do you want to go to download page?</source>
 <context>
     <name>WalletGui::InfoDialog</name>
     <message>
-        <location filename="../gui/InfoDialog.cpp" line="31"/>
+        <location filename="../gui/InfoDialog.cpp" line="32"/>
         <source>%1 (Outgoing: %2, Incoming: %3)</source>
         <translation>%1 (आउटगोइंग: %2, इनकमिंग: %3)</translation>
     </message>
     <message>
-        <location filename="../gui/InfoDialog.cpp" line="35"/>
+        <location filename="../gui/InfoDialog.cpp" line="36"/>
         <source>White: %1, Grey: %2</source>
         <translation>सफेद: %1, ग्रे: % 2</translation>
     </message>
     <message>
-        <location filename="../gui/InfoDialog.cpp" line="39"/>
+        <location filename="../gui/InfoDialog.cpp" line="40"/>
         <source>Known: %1, Local: %2</source>
         <translation>ज्ञात: %1, स्थानीय: %2</translation>
     </message>
     <message>
-        <location filename="../gui/InfoDialog.cpp" line="42"/>
-        <location filename="../gui/InfoDialog.cpp" line="45"/>
-        <location filename="../gui/InfoDialog.cpp" line="48"/>
-        <location filename="../gui/InfoDialog.cpp" line="51"/>
-        <location filename="../gui/InfoDialog.cpp" line="54"/>
+        <location filename="../gui/InfoDialog.cpp" line="43"/>
+        <location filename="../gui/InfoDialog.cpp" line="46"/>
+        <location filename="../gui/InfoDialog.cpp" line="49"/>
+        <location filename="../gui/InfoDialog.cpp" line="52"/>
+        <location filename="../gui/InfoDialog.cpp" line="55"/>
         <source>%1</source>
         <translation>%1</translation>
+    </message>
+    <message>
+        <location filename="../gui/InfoDialog.cpp" line="58"/>
+        <source>%1 %2</source>
+        <translation type="unfinished">%1 %2</translation>
     </message>
 </context>
 <context>

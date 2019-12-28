@@ -539,6 +539,10 @@ Por favor aguarde...</translation>
         <source>Close</source>
         <translation>Fechar</translation>
     </message>
+    <message>
+        <source>Circulating supply</source>
+        <translation>Número de moedas em circulação</translation>
+    </message>
 </context>
 <context>
     <name>MainWindow</name>
@@ -1834,6 +1838,10 @@ Você quer ir à página de dowload?</translation>
     <message>
         <source>%1</source>
         <translation>%1</translation>
+    </message>
+    <message>
+        <source>%1 %2</source>
+        <translation type="unfinished">%1 %2</translation>
     </message>
 </context>
 <context>

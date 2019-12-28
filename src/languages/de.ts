@@ -528,6 +528,10 @@ Bitte warten...</translation>
         <source>Close</source>
         <translation>Schliessen</translation>
     </message>
+    <message>
+        <source>Circulating supply</source>
+        <translation>Die Anzahl der Münzen im Umlauf</translation>
+    </message>
 </context>
 <context>
     <name>MainWindow</name>
@@ -1825,6 +1829,10 @@ Externer Port für das P2P-Netzwerkprotokoll (wenn Portweiterleitung mit NAT ver
     <message>
         <source>%1</source>
         <translation>%1</translation>
+    </message>
+    <message>
+        <source>%1 %2</source>
+        <translation type="unfinished">%1 %2</translation>
     </message>
 </context>
 <context>
