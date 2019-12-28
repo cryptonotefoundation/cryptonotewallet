@@ -390,6 +390,10 @@ Please wait...</source>
         <source>Select folder</source>
         <translation>Выбраць каталог</translation>
     </message>
+    <message>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>Пачніце сінхранізацыю з гэтай вышыні (пакіньце пустым, калі не ўпэўнены):</translation>
+    </message>
 </context>
 <context>
     <name>ImportKeysDialog</name>
@@ -424,6 +428,10 @@ Please wait...</source>
     <message>
         <source>Import private keys</source>
         <translation>Імпартаваць прыватня ключы</translation>
+    </message>
+    <message>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>Пачніце сінхранізацыю з гэтай вышыні (пакіньце пустым, калі не ўпэўнены):</translation>
     </message>
 </context>
 <context>
@@ -463,6 +471,10 @@ Please wait...</source>
     <message>
         <source>Select folder</source>
         <translation>Выбраць каталог</translation>
+    </message>
+    <message>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>Пачніце сінхранізацыю з гэтай вышыні (пакіньце пустым, калі не ўпэўнены):</translation>
     </message>
 </context>
 <context>
@@ -1251,6 +1263,10 @@ Do you want to go to download page?</source>
     <message>
         <source>Select folder</source>
         <translation>Выбраць каталог</translation>
+    </message>
+    <message>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>Пачніце сінхранізацыю з гэтай вышыні (пакіньце пустым, калі не ўпэўнены):</translation>
     </message>
 </context>
 <context>
@@ -2760,6 +2776,26 @@ when the wallet is synchronized</source>
     <message>
         <source>Failed to get the reserve proof.</source>
         <translation>Не атрымалася пацвердзіць рэзерв.</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n blocks per second</source>
+        <translation>
+            <numerusform>%n блок у секунду</numerusform>
+            <numerusform>%n блокі у секунду</numerusform>
+            <numerusform>%n блокаў у секунду</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>est. completion in</source>
+        <translation>оц. завяршэнне ў</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n day(s) and</source>
+        <translation>
+            <numerusform>%n дзень і</numerusform>
+            <numerusform>%n дні і</numerusform>
+            <numerusform>%n  дзён і</numerusform>
+        </translation>
     </message>
 </context>
 </TS>

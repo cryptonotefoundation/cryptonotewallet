@@ -29,6 +29,10 @@ QString ImportTrackingKeyDialog::getFilePath() const {
   return m_ui->m_pathEdit->text().trimmed();
 }
 
+quint32 ImportTrackingKeyDialog::getSyncHeight() const {
+  return m_ui->m_syncHeight->value();
+}
+
 void ImportTrackingKeyDialog::selectPathClicked() {
   QString filePath = QFileDialog::getSaveFileName(this, tr("Tracking wallet file"),
 #ifdef Q_OS_WIN

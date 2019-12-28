@@ -50,6 +50,7 @@ include_directories(${CMAKE_BINARY_DIR}
 find_package(Qt5Gui REQUIRED)
 find_package(Qt5Widgets REQUIRED)
 find_package(Qt5Network REQUIRED)
+find_package(Qt5LinguistTools REQUIRED)
 
 set(Boost_USE_STATIC_LIBS ON)
 if(WIN32)
@@ -95,6 +96,7 @@ set(CRYPTONOTE_SOURCES
   cryptonote/src/Common/ConsoleTools.cpp
   cryptonote/src/Common/MemoryInputStream.cpp
   cryptonote/src/Common/PathTools.cpp
+  cryptonote/src/Common/PasswordContainer.cpp
   cryptonote/src/Common/DnsTools.cpp
   cryptonote/src/Common/StdInputStream.cpp
   cryptonote/src/Common/StdOutputStream.cpp
@@ -103,7 +105,7 @@ set(CRYPTONOTE_SOURCES
   cryptonote/src/Common/StringView.cpp
   cryptonote/src/Common/VectorOutputStream.cpp
   cryptonote/src/crypto/blake256.c
-  cryptonote/src/crypto/chacha8.c
+  cryptonote/src/crypto/chacha8.cpp
   cryptonote/src/crypto/crypto-ops-data.c
   cryptonote/src/crypto/crypto-ops.c
   cryptonote/src/crypto/crypto.cpp
@@ -116,7 +118,6 @@ set(CRYPTONOTE_SOURCES
   cryptonote/src/crypto/jh.c
   cryptonote/src/crypto/keccak.c
   cryptonote/src/crypto/oaes_lib.c
-  cryptonote/src/crypto/random.c
   cryptonote/src/crypto/skein.c
   cryptonote/src/crypto/slow-hash.c
   cryptonote/src/crypto/slow-hash.cpp
@@ -212,12 +213,30 @@ file(GLOB_RECURSE SOURCES src/*.cpp)
 file(GLOB_RECURSE HEADERS src/*.h)
 file(GLOB_RECURSE FORMS src/gui/ui/*.ui)
 file(GLOB_RECURSE Mnemonics cryptonote/src/Mnemonics/*)
+file(GLOB TRANSLATION_FILES src/languages/*.ts)
 
 set(QRC src/resources.qrc)
+set_source_files_properties(${TRANSLATION_FILES} PROPERTIES OUTPUT_LOCATION "${CMAKE_BINARY_DIR}/languages")
 
 qt5_wrap_ui(UIS ${FORMS})
 qt5_add_resources(RCC ${QRC})
+#qt5_create_translation(TRANSLATION_MESSAGES ${FORMS} ${TRANSLATION_FILES})
+qt5_add_translation(TRANSLATION_QM ${TRANSLATION_FILES})
 
+add_custom_target(translations DEPENDS ${TRANSLATION_QM})
+#add_custom_target(translations_update DEPENDS ${TRANSLATION_MESSAGES})
+
+if (WIN32)
+  file(GLOB _TRANSLATION_FILES_DEFAULT ${_qt5Core_install_prefix}/translations/*.qm)
+  list(FILTER _TRANSLATION_FILES_DEFAULT INCLUDE REGEX "\\/[a-z][a-z]_[a-z][a-z].qm$")
+  add_custom_target(translations_delault)
+  foreach(_qm_file_src ${_TRANSLATION_FILES_DEFAULT})
+    get_filename_component(_qm_file_name ${_qm_file_src} NAME)
+    set(_qm_file_dst "${CMAKE_BINARY_DIR}/languages/${_qm_file_name}")
+    add_custom_command(TARGET translations_delault
+                       COMMAND ${CMAKE_COMMAND} -E copy ${_qm_file_src} ${_qm_file_dst})
+  endforeach()
+endif()
 
 if (WIN32)
   if (NOT MSVC)
@@ -399,10 +418,13 @@ endif ()
 set_target_properties(Mnemonics PROPERTIES COMPILE_DEFINITIONS _GNU_SOURCE)
 target_link_libraries(Mnemonics ${Boost_LIBRARIES})
 
-#add_executable(${PROJECT_NAME} ${BUILD_PLATFORM} ${BUILD_RESOURCES} ${SOURCES} ${HEADERS} ${UIS} ${RCC} ${QM} ${TRANSLATIONS})
 add_executable(${PROJECT_NAME} ${BUILD_PLATFORM} ${BUILD_RESOURCES} ${SOURCES} ${HEADERS} ${UIS} ${RCC})
 set_target_properties(${PROJECT_NAME} PROPERTIES COMPILE_DEFINITIONS _GNU_SOURCE)
 target_link_libraries(${PROJECT_NAME} ${Boost_LIBRARIES} ${QTMAIN} ${CRYPTONOTE_LIB} ${QRENCODE_LIB} Mnemonics)
+add_dependencies(${PROJECT_NAME} translations)
+if (WIN32)
+  add_dependencies(${PROJECT_NAME} translations_delault)
+endif ()
 
 if (APPLE)
   target_link_libraries(${PROJECT_NAME} Qt5::PrintSupport)
@@ -433,7 +455,7 @@ elseif (UNIX)
     install(FILES src/karbowanecwallet.desktop DESTINATION share/applications)
     install(FILES src/images/karbowanez.png DESTINATION share/pixmaps RENAME karbowanec.png)
     install(FILES copyright DESTINATION share/doc/karbowanecwallet)
-    install(DIRECTORY src/languages DESTINATION /opt/karbo/ FILES_MATCHING PATTERN "*.qm")
+    install(DIRECTORY "${CMAKE_BINARY_DIR}/languages" DESTINATION /opt/karbo/ FILES_MATCHING PATTERN "*.qm")
 
     if (NOT RPMBUILD)
         set(CPACK_GENERATOR DEB)

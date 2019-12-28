@@ -386,6 +386,10 @@ Please wait...</source>
         <source>Select folder</source>
         <translation>انتخاب پوشه</translation>
     </message>
+    <message>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>هماهنگ سازی را از این ارتفاع شروع کنید (در صورت عدم اطمینان خالی بگذارید):</translation>
+    </message>
 </context>
 <context>
     <name>ImportKeysDialog</name>
@@ -416,6 +420,10 @@ Please wait...</source>
     <message>
         <source>Import private keys</source>
         <translation>درون ریزی کلید شخصی</translation>
+    </message>
+    <message>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>هماهنگ سازی را از این ارتفاع شروع کنید (در صورت عدم اطمینان خالی بگذارید):</translation>
     </message>
 </context>
 <context>
@@ -455,6 +463,10 @@ Please wait...</source>
     <message>
         <source>Select folder</source>
         <translation>انتخاب پوشه</translation>
+    </message>
+    <message>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>هماهنگ سازی را از این ارتفاع شروع کنید (در صورت عدم اطمینان خالی بگذارید):</translation>
     </message>
 </context>
 <context>
@@ -1251,6 +1263,10 @@ Do you want to go to download page?</source>
     <message>
         <source>Select folder</source>
         <translation>انتخاب پوشه</translation>
+    </message>
+    <message>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>هماهنگ سازی را از این ارتفاع شروع کنید (در صورت عدم اطمینان خالی بگذارید):</translation>
     </message>
 </context>
 <context>
@@ -2731,6 +2747,22 @@ when the wallet is synchronized</source>
     <message>
         <source>Failed to get the reserve proof.</source>
         <translation>اثبات ذخیره ناموفق بود.</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n blocks per second</source>
+        <translation>
+            <numerusform>%n بلوک در ثانیه</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>est. completion in</source>
+        <translation>تکمیل در</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n day(s) and</source>
+        <translation>
+            <numerusform>%n روز و</numerusform>
+        </translation>
     </message>
 </context>
 </TS>

@@ -386,6 +386,10 @@ Proszę czekać...</translation>
         <source>Select folder</source>
         <translation>Wybierz katalog</translation>
     </message>
+    <message>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>Rozpocznij synchronizację od tej wysokości (pozostaw puste w przypadku wątpliwości):</translation>
+    </message>
 </context>
 <context>
     <name>ImportKeysDialog</name>
@@ -420,6 +424,10 @@ Proszę czekać...</translation>
     <message>
         <source>Import private keys</source>
         <translation>Importuj klucze prywatne</translation>
+    </message>
+    <message>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>Rozpocznij synchronizację od tej wysokości (pozostaw puste w przypadku wątpliwości):</translation>
     </message>
 </context>
 <context>
@@ -459,6 +467,10 @@ Proszę czekać...</translation>
     <message>
         <source>Select folder</source>
         <translation>Wybierz katalog</translation>
+    </message>
+    <message>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>Rozpocznij synchronizację od tej wysokości (pozostaw puste w przypadku wątpliwości):</translation>
     </message>
 </context>
 <context>
@@ -1247,6 +1259,10 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
     <message>
         <source>Select folder</source>
         <translation>Wybierz katalog</translation>
+    </message>
+    <message>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>Rozpocznij synchronizację od tej wysokości (pozostaw puste w przypadku wątpliwości):</translation>
     </message>
 </context>
 <context>
@@ -2756,6 +2772,26 @@ kiedy portfel skończy synchronizowanie</translation>
     <message>
         <source>Failed to get the reserve proof.</source>
         <translation>Nie udało się uzyskać dowod rezerwy.</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n blocks per second</source>
+        <translation>
+            <numerusform>%n blok na sekundę</numerusform>
+            <numerusform>%n bloki na sekundę</numerusform>
+            <numerusform>%n bloków na sekundę</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>est. completion in</source>
+        <translation>szacunkowe zakończenie w</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n day(s) and</source>
+        <translation>
+            <numerusform>%n dzień i</numerusform>
+            <numerusform>%n dni i</numerusform>
+            <numerusform>%n dni i</numerusform>
+        </translation>
     </message>
 </context>
 </TS>

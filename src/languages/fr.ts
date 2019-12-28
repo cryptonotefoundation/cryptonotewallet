@@ -406,6 +406,10 @@ S&apos;il vous plaît, patientez...</translation>
         <source>Select folder</source>
         <translation>Choisir le dossier</translation>
     </message>
+    <message>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>Commencez la synchronisation à partir de cette hauteur (laissez vide si vous n&apos;êtes pas sûr):</translation>
+    </message>
 </context>
 <context>
     <name>ImportKeysDialog</name>
@@ -436,6 +440,10 @@ S&apos;il vous plaît, patientez...</translation>
     <message>
         <source>Import private keys</source>
         <translation>Importer les clés privées</translation>
+    </message>
+    <message>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>Commencez la synchronisation à partir de cette hauteur (laissez vide si vous n&apos;êtes pas sûr):</translation>
     </message>
 </context>
 <context>
@@ -475,6 +483,10 @@ S&apos;il vous plaît, patientez...</translation>
     <message>
         <source>Select folder</source>
         <translation>Choisir le dossier</translation>
+    </message>
+    <message>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>Commencez la synchronisation à partir de cette hauteur (laissez vide si vous n&apos;êtes pas sûr):</translation>
     </message>
 </context>
 <context>
@@ -1271,6 +1283,10 @@ Voulez-vous aller à la page de téléchargement?</translation>
     <message>
         <source>Select folder</source>
         <translation>Choisir le dossier</translation>
+    </message>
+    <message>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>Commencez la synchronisation à partir de cette hauteur (laissez vide si vous n&apos;êtes pas sûr):</translation>
     </message>
 </context>
 <context>
@@ -2758,6 +2774,24 @@ quand le portefeuille aura terminé la synchronisation</translation>
     <message>
         <source>Failed to get the reserve proof.</source>
         <translation>N&apos;a pas obtenu la preuve de la réserve.</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n blocks per second</source>
+        <translation>
+            <numerusform>%n bloc par seconde</numerusform>
+            <numerusform>%n blocs par seconde</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>est. completion in</source>
+        <translation>est. achèvement</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n day(s) and</source>
+        <translation>
+            <numerusform>%n jour et</numerusform>
+            <numerusform>%n jours et</numerusform>
+        </translation>
     </message>
 </context>
 </TS>

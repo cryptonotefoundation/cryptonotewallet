@@ -391,6 +391,10 @@ Bitte warten...</translation>
         <source>Select folder</source>
         <translation>Ordner auswählen</translation>
     </message>
+    <message>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>Starten Sie die Synchronisation von dieser Höhe aus (leer lassen, wenn unsicher):</translation>
+    </message>
 </context>
 <context>
     <name>ImportKeysDialog</name>
@@ -425,6 +429,10 @@ Bitte warten...</translation>
     <message>
         <source>Import private keys</source>
         <translation>Privaten Schlüssel importieren</translation>
+    </message>
+    <message>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>Starten Sie die Synchronisation von dieser Höhe aus (leer lassen, wenn unsicher):</translation>
     </message>
 </context>
 <context>
@@ -464,6 +472,10 @@ Bitte warten...</translation>
     <message>
         <source>Select folder</source>
         <translation>Ordner auswählen</translation>
+    </message>
+    <message>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>Starten Sie die Synchronisation von dieser Höhe aus (leer lassen, wenn unsicher):</translation>
     </message>
 </context>
 <context>
@@ -1260,6 +1272,10 @@ Möchten Sie die Download Seite besuchen?</translation>
     <message>
         <source>Select folder</source>
         <translation>Ordner auswählen</translation>
+    </message>
+    <message>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>Starten Sie die Synchronisation von dieser Höhe aus (leer lassen, wenn unsicher):</translation>
     </message>
 </context>
 <context>
@@ -2758,6 +2774,24 @@ Kann keinen neuen Schlüssel generieren</translation>
     <message>
         <source>Failed to get the reserve proof.</source>
         <translation>Der Nachweis der Reserve ist fehlgeschlagen.</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n blocks per second</source>
+        <translation>
+            <numerusform>%n Blöck pro Sekunde</numerusform>
+            <numerusform>%n Blöcke pro Sekunde</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>est. completion in</source>
+        <translation>est. Fertigstellung</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n day(s) and</source>
+        <translation>
+            <numerusform>%n Tag und</numerusform>
+            <numerusform>%n Tage und</numerusform>
+        </translation>
     </message>
 </context>
 </TS>

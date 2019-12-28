@@ -386,6 +386,10 @@ Please wait...</source>
         <source>Select folder</source>
         <translation>Выбрать каталог</translation>
     </message>
+    <message>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>Начать синхронизацию с этой высоты (оставьте пустым, если не уверены):</translation>
+    </message>
 </context>
 <context>
     <name>ImportKeysDialog</name>
@@ -420,6 +424,10 @@ Please wait...</source>
     <message>
         <source>Import private keys</source>
         <translation>Импортировать приватные ключи</translation>
+    </message>
+    <message>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>Начать синхронизацию с этой высоты (оставьте пустым, если не уверены):</translation>
     </message>
 </context>
 <context>
@@ -459,6 +467,10 @@ Please wait...</source>
     <message>
         <source>Select folder</source>
         <translation>Выбрать каталог</translation>
+    </message>
+    <message>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>Начать синхронизацию с этой высоты (оставьте пустым, если не уверены):</translation>
     </message>
 </context>
 <context>
@@ -1247,6 +1259,10 @@ Do you want to go to download page?</source>
     <message>
         <source>Select folder</source>
         <translation>Выбрать каталог</translation>
+    </message>
+    <message>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>Начать синхронизацию с этой высоты (оставьте пустым, если не уверены):</translation>
     </message>
 </context>
 <context>
@@ -2749,6 +2765,30 @@ when the wallet is synchronized</source>
     <message>
         <source>Failed to get the reserve proof.</source>
         <translation>Не удалось получить подтверждение резерва.</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n blocks per second</source>
+        <translation>
+            <numerusform>%n блок в секунду</numerusform>
+            <numerusform>%n блокa в секунду</numerusform>
+            <numerusform>%n блоков в секунду</numerusform>
+        </translation>
+    </message>
+    <message numerus="yes">
+        <source>%n day(s) and</source>
+        <translation>
+            <numerusform>%n день и</numerusform>
+            <numerusform>%n дня и</numerusform>
+            <numerusform>%n дней и</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>will be completed in</source>
+        <translation type="vanished">будет завершено через</translation>
+    </message>
+    <message>
+        <source>est. completion in</source>
+        <translation>будет завершено через</translation>
     </message>
 </context>
 </TS>

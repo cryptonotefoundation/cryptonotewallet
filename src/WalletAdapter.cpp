@@ -48,6 +48,7 @@ WalletAdapter& WalletAdapter::instance() {
 }
 
 WalletAdapter::WalletAdapter() : QObject(), m_wallet(nullptr), m_mutex(), m_isBackupInProgress(false),
+  m_syncSpeed(0), m_syncPeriod(0),
   m_isSynchronized(false), m_newTransactionsNotificationTimer(),
   m_lastWalletTransactionId(std::numeric_limits<quint64>::max()) {
   connect(this, &WalletAdapter::walletInitCompletedSignal, this, &WalletAdapter::onWalletInitCompleted, Qt::QueuedConnection);
@@ -199,6 +200,13 @@ void WalletAdapter::createWithKeys(const CryptoNote::AccountKeys& _keys) {
   m_wallet->initWithKeys(_keys, "");
 }
 
+void WalletAdapter::createWithKeys(const CryptoNote::AccountKeys& _keys, const quint32 _sync_heigth) {
+  m_wallet = NodeAdapter::instance().createWallet();
+  m_wallet->addObserver(this);
+  Settings::instance().setEncrypted(false);
+  Q_EMIT walletStateChangedSignal(tr("Importing keys"));
+  m_wallet->initWithKeys(_keys, "", _sync_heigth);
+}
 
 bool WalletAdapter::isOpen() const {
   return m_wallet != nullptr;
@@ -507,8 +515,52 @@ void WalletAdapter::saveCompleted(std::error_code _error) {
 }
 
 void WalletAdapter::synchronizationProgressUpdated(uint32_t _current, uint32_t _total) {
+  if (m_isSynchronized) {
+    m_syncSpeed = 0;
+    m_syncPeriod = 0;
+    m_perfData.clear();
+  }
   m_isSynchronized = false;
-  Q_EMIT walletStateChangedSignal(QString("%1 %2/%3").arg(tr("Synchronizing")).arg(_current).arg(_total));
+  const uint32_t speedCalcPeriod = 10;
+  const uint32_t periodDay = 60 * 60 * 24;
+  const uint32_t syncPeriodMax = std::numeric_limits<uint32_t>::max();
+  bool calcReady = false;
+  uint32_t totalDeltaTime = 0;
+  uint32_t totalDeltaHeight= 0;
+  uint32_t indexElements = m_perfData.empty() ? 0 : m_perfData.size() - 1;
+  for (uint32_t i = indexElements; i > 0; i--) {
+    totalDeltaTime += m_perfData[i - 1].time.secsTo(m_perfData[i].time);
+    totalDeltaHeight += m_perfData[i].height - m_perfData[i - 1].height;
+    if (totalDeltaTime >= speedCalcPeriod) {
+      m_perfData.erase(m_perfData.begin(), m_perfData.begin() + i - 1);
+      calcReady = true;
+      break;
+    }
+  }
+  if (calcReady && _total >= _current) {
+    m_syncSpeed = static_cast<uint32_t>(totalDeltaHeight / totalDeltaTime);
+    m_syncPeriod = m_syncSpeed > 0 ? static_cast<uint32_t>((_total - _current) / m_syncSpeed) : syncPeriodMax;
+  }
+  PerfType perfData = {_current, QTime::currentTime()};
+  m_perfData.push_back(std::move(perfData));
+  QString perfMess = "";
+  if (m_syncPeriod > 0) {
+    QDateTime leftTime = QDateTime::fromTime_t(m_syncPeriod).toUTC();
+    perfMess += "(";
+    perfMess += QString(tr("%n blocks per second", "", m_syncSpeed));
+    if (m_syncPeriod < syncPeriodMax) {
+      perfMess += " | ";
+      perfMess += QString(tr("est. completion in")) + " ";
+      if (m_syncPeriod >= periodDay) {
+        perfMess += QString(tr("%n day(s) and", "", static_cast<uint32_t>(m_syncPeriod / periodDay))) + " ";
+        perfMess += leftTime.toString("hh:mm");
+      } else {
+        perfMess += leftTime.toString("hh:mm:ss");
+      }
+    }
+    perfMess += ")";
+  }
+  Q_EMIT walletStateChangedSignal(QString("%1 %2/%3 %4").arg(tr("Synchronizing")).arg(_current).arg(_total).arg(perfMess));
   Q_EMIT walletSynchronizationProgressUpdatedSignal(_current, _total);
 }
 

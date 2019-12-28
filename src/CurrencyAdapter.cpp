@@ -123,7 +123,7 @@ CryptoNote::AccountPublicAddress CurrencyAdapter::internalAddress(const QString&
 
 QString CurrencyAdapter::generatePaymentId() const {
   Crypto::Hash payment_id;
-  payment_id = Crypto::rand<Crypto::Hash>();
+  Random::randomBytes(32, payment_id.data);
   return QString::fromStdString(Common::podToHex(payment_id));
 }
 

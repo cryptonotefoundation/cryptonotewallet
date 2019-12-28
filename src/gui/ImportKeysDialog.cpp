@@ -33,6 +33,10 @@ QString ImportKeysDialog::getFilePath() const {
   return m_ui->m_pathEdit->text().trimmed();
 }
 
+quint32 ImportKeysDialog::getSyncHeight() const {
+  return m_ui->m_syncHeight->value();
+}
+
 void ImportKeysDialog::selectPathClicked() {
   QString filePath = QFileDialog::getSaveFileName(this, tr("Wallet file"),
 #ifdef Q_OS_WIN

@@ -402,6 +402,10 @@ Por favor aguarde...</translation>
         <source>Select folder</source>
         <translation>Selecione a pasta</translation>
     </message>
+    <message>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>Inicie a sincronização a partir desta altura (deixe em branco se não tiver certeza):</translation>
+    </message>
 </context>
 <context>
     <name>ImportKeysDialog</name>
@@ -436,6 +440,10 @@ Por favor aguarde...</translation>
     <message>
         <source>Import private keys</source>
         <translation>Importar claves privadas</translation>
+    </message>
+    <message>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>Inicie a sincronização a partir desta altura (deixe em branco se não tiver certeza):</translation>
     </message>
 </context>
 <context>
@@ -475,6 +483,10 @@ Por favor aguarde...</translation>
     <message>
         <source>Select folder</source>
         <translation>Selecione a pasta</translation>
+    </message>
+    <message>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>Inicie a sincronização a partir desta altura (deixe em branco se não tiver certeza):</translation>
     </message>
 </context>
 <context>
@@ -1272,6 +1284,10 @@ Você quer ir à página de dowload?</translation>
     <message>
         <source>Select folder</source>
         <translation>Selecione a pasta</translation>
+    </message>
+    <message>
+        <source>Start synchronization from this height (leave empty if unsure):</source>
+        <translation>Inicie a sincronização a partir desta altura (deixe em branco se não tiver certeza):</translation>
     </message>
 </context>
 <context>
@@ -2759,6 +2775,24 @@ quando a carteira vai terminar de sincronizar</translation>
     <message>
         <source>Failed to get the reserve proof.</source>
         <translation>Falha ao obter a prova da reserva.</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n blocks per second</source>
+        <translation>
+            <numerusform>%n bloco por segundo</numerusform>
+            <numerusform>%n blocos por segundo</numerusform>
+        </translation>
+    </message>
+    <message>
+        <source>est. completion in</source>
+        <translation>conclusão prevista em</translation>
+    </message>
+    <message numerus="yes">
+        <source>%n day(s) and</source>
+        <translation>
+            <numerusform>%n dia e</numerusform>
+            <numerusform>%n dias e</numerusform>
+        </translation>
     </message>
 </context>
 </TS>

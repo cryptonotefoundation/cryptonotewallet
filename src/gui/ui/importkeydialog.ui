@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>647</width>
-    <height>226</height>
+    <height>278</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -20,28 +20,17 @@
    <string>Import private key</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0">
-    <widget class="QLabel" name="label">
-     <property name="text">
-      <string>Key:</string>
-     </property>
-    </widget>
+   <item row="5" column="0" colspan="2">
+    <widget class="QLineEdit" name="m_pathEdit"/>
    </item>
-   <item row="1" column="0" colspan="4">
-    <widget class="QTextEdit" name="m_keyEdit">
-     <property name="readOnly">
-      <bool>false</bool>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="0" colspan="4">
+   <item row="4" column="0" colspan="4">
     <widget class="QLabel" name="label_2">
      <property name="text">
       <string>Where to save new wallet file:</string>
      </property>
     </widget>
    </item>
-   <item row="4" column="0">
+   <item row="6" column="0">
     <spacer name="horizontalSpacer">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -54,7 +43,7 @@
      </property>
     </spacer>
    </item>
-   <item row="4" column="1">
+   <item row="6" column="1">
     <widget class="QPushButton" name="m_cancelButton">
      <property name="text">
       <string>Cancel</string>
@@ -64,7 +53,28 @@
      </property>
     </widget>
    </item>
-   <item row="4" column="2" colspan="2">
+   <item row="5" column="2" colspan="2">
+    <widget class="QToolButton" name="m_selectPathButton">
+     <property name="text">
+      <string>Select folder</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QLabel" name="label_3">
+     <property name="text">
+      <string>Start synchronization from this height (leave empty if unsure):</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0" colspan="4">
+    <widget class="QTextEdit" name="m_keyEdit">
+     <property name="readOnly">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="2" colspan="2">
     <widget class="QPushButton" name="m_okButton">
      <property name="text">
       <string>OK</string>
@@ -77,13 +87,17 @@
      </property>
     </widget>
    </item>
-   <item row="3" column="0" colspan="2">
-    <widget class="QLineEdit" name="m_pathEdit"/>
-   </item>
-   <item row="3" column="2" colspan="2">
-    <widget class="QToolButton" name="m_selectPathButton">
+   <item row="0" column="0">
+    <widget class="QLabel" name="label">
      <property name="text">
-      <string>Select folder</string>
+      <string>Key:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="2" colspan="2">
+    <widget class="QSpinBox" name="m_syncHeight">
+     <property name="maximum">
+      <number>999999999</number>
      </property>
     </widget>
    </item>
