@@ -90,6 +90,7 @@ set(CRYPTONOTE_SOURCES
   cryptonote/src/Common/Base58.cpp
   cryptonote/src/Common/Base64.cpp
   cryptonote/src/Common/CommandLine.cpp
+  cryptonote/src/Common/FormatTools.cpp
   cryptonote/src/Common/Util.cpp
   cryptonote/src/Common/StringTools.cpp
   cryptonote/src/Common/JsonValue.cpp
