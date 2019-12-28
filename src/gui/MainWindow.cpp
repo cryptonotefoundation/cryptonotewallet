@@ -685,6 +685,8 @@ void MainWindow::createLanguageMenu(void)
 #elif defined(Q_OS_MAC)
   m_langPath = QApplication::applicationDirPath();
   m_langPath = m_langPath + "/../Resources/languages/";
+#elif defined(__FreeBSD__)
+  m_langPath = "/usr/local/share/karbo/karbowallet/languages";
 #else
   m_langPath = "/opt/karbo/languages";
 #endif
