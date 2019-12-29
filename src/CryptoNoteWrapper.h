@@ -50,6 +50,7 @@ public:
   virtual uint64_t getGreyPeerlistSize() = 0;
   virtual uint64_t getMinimalFee() = 0;
   virtual uint8_t getCurrentBlockMajorVersion() = 0;
+  virtual uint64_t getAlreadyGeneratedCoins() = 0;
   virtual CryptoNote::BlockHeaderInfo getLastLocalBlockHeaderInfo() = 0;
 
   virtual void startMining(const std::string& address, size_t threads_count) = 0;

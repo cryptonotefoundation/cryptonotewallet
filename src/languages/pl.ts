@@ -523,6 +523,10 @@ Proszę czekać...</translation>
         <source>Close</source>
         <translation>Zamknij</translation>
     </message>
+    <message>
+        <source>Circulating supply</source>
+        <translation>Podaż w obiegu</translation>
+    </message>
 </context>
 <context>
     <name>MainWindow</name>
@@ -1816,6 +1820,10 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
     <message>
         <source>%1</source>
         <translation>%1</translation>
+    </message>
+    <message>
+        <source>%1 %2</source>
+        <translation type="unfinished">%1 %2</translation>
     </message>
 </context>
 <context>

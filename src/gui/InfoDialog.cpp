@@ -7,6 +7,7 @@
 #include "InfoDialog.h"
 #include "NodeAdapter.h"
 #include "CryptoNoteWrapper.h"
+#include "CurrencyAdapter.h"
 
 #include "ui_infodialog.h"
 
@@ -28,30 +29,33 @@ void InfoDialog::timerEvent(QTimerEvent* _event) {
     quint64 Connections = NodeAdapter::instance().getPeerCount(); // NodeAdapter::instance().getConnectionsCount();
     quint64 Outgoing =    NodeAdapter::instance().getOutgoingConnectionsCount();
     quint64 Incoming =    NodeAdapter::instance().getIncomingConnectionsCount();
-        m_ui->m_connections->setText(QString(tr("%1 (Outgoing: %2, Incoming: %3)")).arg(Connections).arg(Outgoing).arg(Incoming));
+    m_ui->m_connections->setText(QString(tr("%1 (Outgoing: %2, Incoming: %3)")).arg(Connections).arg(Outgoing).arg(Incoming));
 
     quint64 whitePeerList = NodeAdapter::instance().getWhitePeerlistSize();
     quint64 greyPeerList = NodeAdapter::instance().getGreyPeerlistSize();
-        m_ui->m_peerList->setText(QString(tr("White: %1, Grey: %2")).arg(whitePeerList).arg(greyPeerList));
+    m_ui->m_peerList->setText(QString(tr("White: %1, Grey: %2")).arg(whitePeerList).arg(greyPeerList));
 
     quint64 lastKnownBlockHeight = NodeAdapter::instance().getLastKnownBlockHeight();
     quint64 lastLocalBlockHeight = NodeAdapter::instance().getLastLocalBlockHeight();
-        m_ui->m_height->setText(QString(tr("Known: %1, Local: %2")).arg(lastKnownBlockHeight).arg(lastLocalBlockHeight));
+    m_ui->m_height->setText(QString(tr("Known: %1, Local: %2")).arg(lastKnownBlockHeight).arg(lastLocalBlockHeight));
 
     const QDateTime blockTime = NodeAdapter::instance().getLastLocalBlockTimestamp();
-        m_ui->m_blockTime->setText(QString(tr("%1")).arg(QLocale(QLocale::English).toString(blockTime, "dd.MM.yyyy, HH:mm:ss UTC")));
+    m_ui->m_blockTime->setText(QString(tr("%1")).arg(QLocale(QLocale::English).toString(blockTime, "dd.MM.yyyy, HH:mm:ss UTC")));
 
     quint64 difficulty = NodeAdapter::instance().getDifficulty();
-        m_ui->m_difficulty->setText(QString(tr("%1")).arg(difficulty));
+    m_ui->m_difficulty->setText(QString(tr("%1")).arg(difficulty));
 
     quint64 txCount = NodeAdapter::instance().getTxCount();
-        m_ui->m_txCount->setText(QString(tr("%1")).arg(txCount));
+    m_ui->m_txCount->setText(QString(tr("%1")).arg(txCount));
 
     quint64 txPoolSize = NodeAdapter::instance().getTxPoolSize();
-        m_ui->m_txPoolSize->setText(QString(tr("%1")).arg(txPoolSize));
+    m_ui->m_txPoolSize->setText(QString(tr("%1")).arg(txPoolSize));
 
     quint64 altBlocks = NodeAdapter::instance().getAltBlocksCount();
-        m_ui->m_altBlocksCount->setText(QString(tr("%1")).arg(altBlocks));
+    m_ui->m_altBlocksCount->setText(QString(tr("%1")).arg(altBlocks));
+
+    quint64 coinsInCirculation = NodeAdapter::instance().getAlreadyGeneratedCoins();
+    m_ui->m_alreadyGeneratedCoins->setText(QString(tr("%1 %2")).arg(CurrencyAdapter::instance().formatAmount(coinsInCirculation)).arg(CurrencyAdapter::instance().getCurrencyTicker()));
 
     return;
   }

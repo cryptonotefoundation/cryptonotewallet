@@ -539,6 +539,10 @@ S&apos;il vous plaît, patientez...</translation>
         <source>Close</source>
         <translation>Fermer</translation>
     </message>
+    <message>
+        <source>Circulating supply</source>
+        <translation>Nombre de pièces en circulation</translation>
+    </message>
 </context>
 <context>
     <name>MainWindow</name>
@@ -1833,6 +1837,10 @@ Voulez-vous aller à la page de téléchargement?</translation>
     <message>
         <source>%1</source>
         <translation>%1</translation>
+    </message>
+    <message>
+        <source>%1 %2</source>
+        <translation type="unfinished">%1 %2</translation>
     </message>
 </context>
 <context>

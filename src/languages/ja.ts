@@ -198,7 +198,7 @@
     <message>
         <location filename="../gui/ui/changepassworddialog.ui" line="41"/>
         <source>Ok</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">よし</translation>
     </message>
     <message>
         <location filename="../gui/ui/changepassworddialog.ui" line="58"/>
@@ -535,57 +535,62 @@ Please wait...</source>
         <translation>インフォメーション</translation>
     </message>
     <message>
-        <location filename="../gui/ui/infodialog.ui" line="29"/>
+        <location filename="../gui/ui/infodialog.ui" line="155"/>
+        <source>Circulating supply</source>
+        <translation>流通しているコインの数</translation>
+    </message>
+    <message>
+        <location filename="../gui/ui/infodialog.ui" line="172"/>
         <source>Network</source>
         <translation>ネットワーク</translation>
     </message>
     <message>
-        <location filename="../gui/ui/infodialog.ui" line="41"/>
+        <location filename="../gui/ui/infodialog.ui" line="184"/>
         <source>Connections</source>
         <translation>接続</translation>
     </message>
     <message>
-        <location filename="../gui/ui/infodialog.ui" line="61"/>
+        <location filename="../gui/ui/infodialog.ui" line="204"/>
         <source>Peer list</source>
         <translation>ピア リスト</translation>
     </message>
     <message>
-        <location filename="../gui/ui/infodialog.ui" line="78"/>
+        <location filename="../gui/ui/infodialog.ui" line="29"/>
         <source>Blockchain</source>
         <translation>ブロックチェーン</translation>
     </message>
     <message>
-        <location filename="../gui/ui/infodialog.ui" line="90"/>
+        <location filename="../gui/ui/infodialog.ui" line="114"/>
         <source>Height</source>
         <translation>高さ</translation>
     </message>
     <message>
-        <location filename="../gui/ui/infodialog.ui" line="110"/>
+        <location filename="../gui/ui/infodialog.ui" line="101"/>
         <source>Last block date and time</source>
         <translation>最終ブロック日時</translation>
     </message>
     <message>
-        <location filename="../gui/ui/infodialog.ui" line="130"/>
+        <location filename="../gui/ui/infodialog.ui" line="41"/>
         <source>Difficulty</source>
         <translation>採掘難易度</translation>
     </message>
     <message>
-        <location filename="../gui/ui/infodialog.ui" line="150"/>
+        <location filename="../gui/ui/infodialog.ui" line="141"/>
         <source>Transactions</source>
         <translation>トランザクション</translation>
     </message>
     <message>
-        <location filename="../gui/ui/infodialog.ui" line="170"/>
+        <location filename="../gui/ui/infodialog.ui" line="68"/>
         <source>Unconfirmed transactions</source>
         <translation>未承認トランザクション</translation>
     </message>
     <message>
-        <location filename="../gui/ui/infodialog.ui" line="190"/>
+        <location filename="../gui/ui/infodialog.ui" line="81"/>
         <source>Alternative blocks</source>
         <translation>代替ブロック</translation>
     </message>
     <message>
-        <location filename="../gui/ui/infodialog.ui" line="235"/>
+        <location filename="../gui/ui/infodialog.ui" line="249"/>
         <source>Close</source>
         <translation>閉じる</translation>
     </message>
@@ -2034,27 +2039,32 @@ Do you want to go to download page?</source>
 <context>
     <name>WalletGui::InfoDialog</name>
     <message>
-        <location filename="../gui/InfoDialog.cpp" line="31"/>
+        <location filename="../gui/InfoDialog.cpp" line="32"/>
         <source>%1 (Outgoing: %2, Incoming: %3)</source>
         <translation>%1 (アウトゴーイング: %2, インカミング: %3)</translation>
     </message>
     <message>
-        <location filename="../gui/InfoDialog.cpp" line="35"/>
+        <location filename="../gui/InfoDialog.cpp" line="36"/>
         <source>White: %1, Grey: %2</source>
         <translation>ホワイト: %1, グレー: %2</translation>
     </message>
     <message>
-        <location filename="../gui/InfoDialog.cpp" line="39"/>
+        <location filename="../gui/InfoDialog.cpp" line="40"/>
         <source>Known: %1, Local: %2</source>
         <translation>既知: %1, ローカル: %2</translation>
     </message>
     <message>
-        <location filename="../gui/InfoDialog.cpp" line="42"/>
-        <location filename="../gui/InfoDialog.cpp" line="45"/>
-        <location filename="../gui/InfoDialog.cpp" line="48"/>
-        <location filename="../gui/InfoDialog.cpp" line="51"/>
-        <location filename="../gui/InfoDialog.cpp" line="54"/>
+        <location filename="../gui/InfoDialog.cpp" line="43"/>
+        <location filename="../gui/InfoDialog.cpp" line="46"/>
+        <location filename="../gui/InfoDialog.cpp" line="49"/>
+        <location filename="../gui/InfoDialog.cpp" line="52"/>
+        <location filename="../gui/InfoDialog.cpp" line="55"/>
         <source>%1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gui/InfoDialog.cpp" line="58"/>
+        <source>%1 %2</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

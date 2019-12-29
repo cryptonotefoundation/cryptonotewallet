@@ -249,6 +249,10 @@ public:
     return getLastLocalBlockHeaderInfo().majorVersion;
   }
 
+  uint64_t getAlreadyGeneratedCoins() {
+    return m_node.getAlreadyGeneratedCoins();
+  }
+
   CryptoNote::IWalletLegacy* createWallet() override {
     return new CryptoNote::WalletLegacy(m_currency, m_node, m_logManager);
   }
@@ -422,6 +426,10 @@ public:
 
   uint8_t getCurrentBlockMajorVersion() {
     return getLastLocalBlockHeaderInfo().majorVersion;
+  }
+
+  uint64_t getAlreadyGeneratedCoins() {
+    return m_node.getAlreadyGeneratedCoins();
   }
 
   CryptoNote::IWalletLegacy* createWallet() override {

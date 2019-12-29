@@ -540,57 +540,62 @@ Attendere prego…
         <translation>Informazioni</translation>
     </message>
     <message>
-        <location filename="../gui/ui/infodialog.ui" line="29"/>
+        <location filename="../gui/ui/infodialog.ui" line="155"/>
+        <source>Circulating supply</source>
+        <translation>Numero di monete in circolazione</translation>
+    </message>
+    <message>
+        <location filename="../gui/ui/infodialog.ui" line="172"/>
         <source>Network</source>
         <translation>Rete</translation>
     </message>
     <message>
-        <location filename="../gui/ui/infodialog.ui" line="41"/>
+        <location filename="../gui/ui/infodialog.ui" line="184"/>
         <source>Connections</source>
         <translation>Connessioni</translation>
     </message>
     <message>
-        <location filename="../gui/ui/infodialog.ui" line="61"/>
+        <location filename="../gui/ui/infodialog.ui" line="204"/>
         <source>Peer list</source>
         <translation>Lista dei peer</translation>
     </message>
     <message>
-        <location filename="../gui/ui/infodialog.ui" line="78"/>
+        <location filename="../gui/ui/infodialog.ui" line="29"/>
         <source>Blockchain</source>
-        <translation type="unfinished"></translation>
+        <translation>Blockchain</translation>
     </message>
     <message>
-        <location filename="../gui/ui/infodialog.ui" line="90"/>
+        <location filename="../gui/ui/infodialog.ui" line="114"/>
         <source>Height</source>
         <translation>Altezza</translation>
     </message>
     <message>
-        <location filename="../gui/ui/infodialog.ui" line="110"/>
+        <location filename="../gui/ui/infodialog.ui" line="101"/>
         <source>Last block date and time</source>
         <translation>Data e ora dell&apos;ultimo blocco</translation>
     </message>
     <message>
-        <location filename="../gui/ui/infodialog.ui" line="130"/>
+        <location filename="../gui/ui/infodialog.ui" line="41"/>
         <source>Difficulty</source>
         <translation>Difficoltà</translation>
     </message>
     <message>
-        <location filename="../gui/ui/infodialog.ui" line="150"/>
+        <location filename="../gui/ui/infodialog.ui" line="141"/>
         <source>Transactions</source>
         <translation>Transazioni</translation>
     </message>
     <message>
-        <location filename="../gui/ui/infodialog.ui" line="170"/>
+        <location filename="../gui/ui/infodialog.ui" line="68"/>
         <source>Unconfirmed transactions</source>
         <translation>Transazioni non confermate</translation>
     </message>
     <message>
-        <location filename="../gui/ui/infodialog.ui" line="190"/>
+        <location filename="../gui/ui/infodialog.ui" line="81"/>
         <source>Alternative blocks</source>
         <translation>Blocchi alternativi</translation>
     </message>
     <message>
-        <location filename="../gui/ui/infodialog.ui" line="235"/>
+        <location filename="../gui/ui/infodialog.ui" line="249"/>
         <source>Close</source>
         <translation>Chiudi</translation>
     </message>
@@ -2035,27 +2040,32 @@ Vuoi andare alla pagina dei download?</translation>
 <context>
     <name>WalletGui::InfoDialog</name>
     <message>
-        <location filename="../gui/InfoDialog.cpp" line="31"/>
+        <location filename="../gui/InfoDialog.cpp" line="32"/>
         <source>%1 (Outgoing: %2, Incoming: %3)</source>
         <translation>%1 (In uscita: %2, In entrata: %3)</translation>
     </message>
     <message>
-        <location filename="../gui/InfoDialog.cpp" line="35"/>
+        <location filename="../gui/InfoDialog.cpp" line="36"/>
         <source>White: %1, Grey: %2</source>
         <translation>Bianco: %1, Grigio: %2</translation>
     </message>
     <message>
-        <location filename="../gui/InfoDialog.cpp" line="39"/>
+        <location filename="../gui/InfoDialog.cpp" line="40"/>
         <source>Known: %1, Local: %2</source>
         <translation>Noto: %1, Locale: %2</translation>
     </message>
     <message>
-        <location filename="../gui/InfoDialog.cpp" line="42"/>
-        <location filename="../gui/InfoDialog.cpp" line="45"/>
-        <location filename="../gui/InfoDialog.cpp" line="48"/>
-        <location filename="../gui/InfoDialog.cpp" line="51"/>
-        <location filename="../gui/InfoDialog.cpp" line="54"/>
+        <location filename="../gui/InfoDialog.cpp" line="43"/>
+        <location filename="../gui/InfoDialog.cpp" line="46"/>
+        <location filename="../gui/InfoDialog.cpp" line="49"/>
+        <location filename="../gui/InfoDialog.cpp" line="52"/>
+        <location filename="../gui/InfoDialog.cpp" line="55"/>
         <source>%1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gui/InfoDialog.cpp" line="58"/>
+        <source>%1 %2</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
