@@ -18,12 +18,19 @@ namespace WalletGui {
 
 InfoDialog::InfoDialog(QWidget* _parent) : QDialog(_parent), m_ui(new Ui::InfoDialog), m_refreshTimerId(-1) {
   m_ui->setupUi(this);
-  m_refreshTimerId = startTimer(10000);
+  m_refreshTimerId = startTimer(1000);
   m_ui->m_connectionsView->setModel(&ConnectionsModel::instance());
   m_ui->m_connectionsView->header()->setStretchLastSection(false);
-  m_ui->m_connectionsView->header()->setSectionResizeMode(1, QHeaderView::Stretch);
+  m_ui->m_connectionsView->header()->setSectionResizeMode(0, QHeaderView::ResizeToContents);
   m_ui->m_connectionsView->setSortingEnabled(true);
-  m_ui->m_connectionsView->sortByColumn(4, Qt::AscendingOrder);
+  m_ui->m_connectionsView->sortByColumn(0, Qt::AscendingOrder);
+  m_ui->m_connectionsView->header()->resizeSection(ConnectionsModel::COLUMN_STATE, 80);
+  m_ui->m_connectionsView->header()->resizeSection(ConnectionsModel::COLUMN_ID, 90);
+  m_ui->m_connectionsView->header()->resizeSection(ConnectionsModel::COLUMN_PORT, 45);
+  m_ui->m_connectionsView->header()->resizeSection(ConnectionsModel::COLUMN_IS_INCOMING, 70);
+  m_ui->m_connectionsView->header()->resizeSection(ConnectionsModel::COLUMN_HEIGHT, 50);
+  m_ui->m_connectionsView->header()->resizeSection(ConnectionsModel::COLUMN_LAST_RESPONSE_HEIGHT, 50);
+  m_ui->m_connectionsView->header()->resizeSection(ConnectionsModel::COLUMN_VERSION, 45);
 
   ConnectionsModel::instance().refreshConnections();
 }

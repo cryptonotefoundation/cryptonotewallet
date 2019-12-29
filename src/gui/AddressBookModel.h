@@ -24,7 +24,7 @@ public:
   Qt::ItemFlags flags(const QModelIndex& _index) const Q_DECL_OVERRIDE;
   QVariant headerData(int _section, Qt::Orientation _orientation, int _role = Qt::DisplayRole) const Q_DECL_OVERRIDE;
   QModelIndex index(int _row, int _column, const QModelIndex& _parent = QModelIndex()) const Q_DECL_OVERRIDE;
-  QModelIndex	parent(const QModelIndex& _index) const Q_DECL_OVERRIDE;
+  QModelIndex parent(const QModelIndex& _index) const Q_DECL_OVERRIDE;
   int rowCount(const QModelIndex& _parent = QModelIndex()) const Q_DECL_OVERRIDE;
 
   void addAddress(const QString& _label, const QString& _address, const QString& _paymentid);
