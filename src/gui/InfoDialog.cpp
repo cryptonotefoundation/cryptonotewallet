@@ -2,12 +2,15 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
+#include "InfoDialog.h"
+
 #include <QDateTime>
 #include <QLocale>
-#include "InfoDialog.h"
+#include <QTabWidget>
 #include "NodeAdapter.h"
 #include "CryptoNoteWrapper.h"
 #include "CurrencyAdapter.h"
+#include "ConnectionsModel.h"
 
 #include "ui_infodialog.h"
 
@@ -15,7 +18,14 @@ namespace WalletGui {
 
 InfoDialog::InfoDialog(QWidget* _parent) : QDialog(_parent), m_ui(new Ui::InfoDialog), m_refreshTimerId(-1) {
   m_ui->setupUi(this);
-  m_refreshTimerId = startTimer(1000);
+  m_refreshTimerId = startTimer(10000);
+  m_ui->m_connectionsView->setModel(&ConnectionsModel::instance());
+  m_ui->m_connectionsView->header()->setStretchLastSection(false);
+  m_ui->m_connectionsView->header()->setSectionResizeMode(1, QHeaderView::Stretch);
+  m_ui->m_connectionsView->setSortingEnabled(true);
+  m_ui->m_connectionsView->sortByColumn(4, Qt::AscendingOrder);
+
+  ConnectionsModel::instance().refreshConnections();
 }
 
 InfoDialog::~InfoDialog() {
