@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2015 The Cryptonote developers
-// Copyright (c) 2016-2017 The Karbowanec developers
+// Copyright (c) 2016-2020 The Karbowanec developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #include <QApplication>
@@ -9,6 +9,7 @@
 #include <QLockFile>
 #include <QMessageBox>
 #include <QProcess>
+#include <QRegularExpression>
 #include <QSplashScreen>
 #include <QStyleFactory>
 #include <QSettings>
@@ -25,10 +26,23 @@
 #include "Update.h"
 #include "PaymentServer.h"
 #include "TranslatorManager.h"
+#include "LogFileWatcher.h"
 
 #define DEBUG 1
 
 using namespace WalletGui;
+
+const QRegularExpression LOG_SPLASH_REG_EXP("\\] ");
+
+QSplashScreen* splash(nullptr);
+
+inline void newLogString(const QString& _string) {
+  QRegularExpressionMatch match = LOG_SPLASH_REG_EXP.match(_string);
+  if (match.hasMatch()) {
+    QString message = _string.mid(match.capturedEnd());
+    splash->showMessage(message, Qt::AlignLeft | Qt::AlignBottom, Qt::white);
+  }
+}
 
 int main(int argc, char* argv[]) {
 
@@ -111,12 +125,21 @@ int main(int argc, char* argv[]) {
   SignalHandler::instance().init();
   QObject::connect(&SignalHandler::instance(), &SignalHandler::quitSignal, &app, &QApplication::quit);
 
-  QSplashScreen* splash = new QSplashScreen(QPixmap(":images/splash"), /*Qt::WindowStaysOnTopHint |*/ Qt::X11BypassWindowManagerHint);
+  if (splash == nullptr) {
+    splash = new QSplashScreen(QPixmap(":images/splash"), Qt::X11BypassWindowManagerHint);
+  }
+
   if (!splash->isVisible()) {
     splash->show();
   }
 
   splash->showMessage(QObject::tr("Loading blockchain..."), Qt::AlignLeft | Qt::AlignBottom, Qt::white);
+
+  LogFileWatcher* logWatcher(nullptr);
+  if (logWatcher == nullptr) {
+    logWatcher = new LogFileWatcher(Settings::instance().getDataDir().absoluteFilePath(QCoreApplication::applicationName() + ".log"), &app);
+    QObject::connect(logWatcher, &LogFileWatcher::newLogStringSignal, &app, &newLogString);
+  }
 
   app.processEvents();
   qRegisterMetaType<CryptoNote::TransactionId>("CryptoNote::TransactionId");
@@ -124,9 +147,20 @@ int main(int argc, char* argv[]) {
   if (!NodeAdapter::instance().init()) {
     return 0;
   }
+
   splash->finish(&MainWindow::instance());
+
+  if (logWatcher != nullptr) {
+    logWatcher->deleteLater();
+    logWatcher = nullptr;
+  }
+
+  splash->deleteLater();
+  splash = nullptr;
+
   Updater *d = new Updater();
   d->checkForUpdate();
+
   MainWindow::instance().show();
   WalletAdapter::instance().open("");
 
