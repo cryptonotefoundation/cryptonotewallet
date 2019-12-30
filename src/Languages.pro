@@ -65,6 +65,7 @@ gui/ConfirmSendDialog.cpp \
 gui/ExportTrackingKeyDialog.cpp \
 gui/ImportTrackingKeyDialog.cpp \
 gui/InfoDialog.cpp \
+gui/ConnectionsModel.cpp \
 gui/MnemonicSeedDialog.cpp \
 gui/RestoreFromMnemonicSeedDialog.cpp \
 gui/VerifyMnemonicSeedDialog.cpp \
@@ -127,6 +128,7 @@ gui/ConfirmSendDialog.h \
 gui/ExportTrackingKeyDialog.h \
 gui/ImportTrackingKeyDialog.h \
 gui/InfoDialog.h \
+gui/ConnectionsModel.h \
 gui/MnemonicSeedDialog.h \
 gui/RestoreFromMnemonicSeedDialog.h \
 gui/VerifyMnemonicSeedDialog.h \

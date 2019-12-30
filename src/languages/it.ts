@@ -540,62 +540,63 @@ Attendere prego…
         <translation>Informazioni</translation>
     </message>
     <message>
-        <location filename="../gui/ui/infodialog.ui" line="155"/>
+        <location filename="../gui/ui/infodialog.ui" line="138"/>
         <source>Circulating supply</source>
         <translation>Numero di monete in circolazione</translation>
     </message>
     <message>
-        <location filename="../gui/ui/infodialog.ui" line="172"/>
+        <location filename="../gui/ui/infodialog.ui" line="202"/>
         <source>Network</source>
         <translation>Rete</translation>
     </message>
     <message>
-        <location filename="../gui/ui/infodialog.ui" line="184"/>
+        <location filename="../gui/ui/infodialog.ui" line="193"/>
+        <location filename="../gui/ui/infodialog.ui" line="241"/>
         <source>Connections</source>
         <translation>Connessioni</translation>
     </message>
     <message>
-        <location filename="../gui/ui/infodialog.ui" line="204"/>
+        <location filename="../gui/ui/infodialog.ui" line="214"/>
         <source>Peer list</source>
         <translation>Lista dei peer</translation>
     </message>
     <message>
-        <location filename="../gui/ui/infodialog.ui" line="29"/>
+        <location filename="../gui/ui/infodialog.ui" line="39"/>
         <source>Blockchain</source>
         <translation>Blockchain</translation>
     </message>
     <message>
-        <location filename="../gui/ui/infodialog.ui" line="114"/>
+        <location filename="../gui/ui/infodialog.ui" line="151"/>
         <source>Height</source>
         <translation>Altezza</translation>
     </message>
     <message>
-        <location filename="../gui/ui/infodialog.ui" line="101"/>
+        <location filename="../gui/ui/infodialog.ui" line="65"/>
         <source>Last block date and time</source>
         <translation>Data e ora dell&apos;ultimo blocco</translation>
     </message>
     <message>
-        <location filename="../gui/ui/infodialog.ui" line="41"/>
+        <location filename="../gui/ui/infodialog.ui" line="117"/>
         <source>Difficulty</source>
         <translation>Difficoltà</translation>
     </message>
     <message>
-        <location filename="../gui/ui/infodialog.ui" line="141"/>
+        <location filename="../gui/ui/infodialog.ui" line="91"/>
         <source>Transactions</source>
         <translation>Transazioni</translation>
     </message>
     <message>
-        <location filename="../gui/ui/infodialog.ui" line="68"/>
+        <location filename="../gui/ui/infodialog.ui" line="104"/>
         <source>Unconfirmed transactions</source>
         <translation>Transazioni non confermate</translation>
     </message>
     <message>
-        <location filename="../gui/ui/infodialog.ui" line="81"/>
+        <location filename="../gui/ui/infodialog.ui" line="78"/>
         <source>Alternative blocks</source>
         <translation>Blocchi alternativi</translation>
     </message>
     <message>
-        <location filename="../gui/ui/infodialog.ui" line="249"/>
+        <location filename="../gui/ui/infodialog.ui" line="270"/>
         <source>Close</source>
         <translation>Chiudi</translation>
     </message>
@@ -1299,7 +1300,7 @@ Attendere prego…
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="767"/>
+        <location filename="../gui/MainWindow.cpp" line="769"/>
         <location filename="../main.cpp" line="70"/>
         <source>Help</source>
         <translation>Aiuto</translation>
@@ -1978,6 +1979,64 @@ Vuoi andare alla pagina dei download?</translation>
     </message>
 </context>
 <context>
+    <name>WalletGui::ConnectionsModel</name>
+    <message>
+        <location filename="../gui/ConnectionsModel.cpp" line="124"/>
+        <source>Incoming</source>
+        <translation>In entrata</translation>
+    </message>
+    <message>
+        <location filename="../gui/ConnectionsModel.cpp" line="124"/>
+        <source>Outgoing</source>
+        <translation>In uscita</translation>
+    </message>
+    <message>
+        <location filename="../gui/ConnectionsModel.cpp" line="150"/>
+        <source>State</source>
+        <translation>Stato</translation>
+    </message>
+    <message>
+        <location filename="../gui/ConnectionsModel.cpp" line="152"/>
+        <source>Id</source>
+        <translation>Identificator</translation>
+    </message>
+    <message>
+        <location filename="../gui/ConnectionsModel.cpp" line="154"/>
+        <source>Host</source>
+        <translation>Host</translation>
+    </message>
+    <message>
+        <location filename="../gui/ConnectionsModel.cpp" line="156"/>
+        <source>Port</source>
+        <translation>Porta</translation>
+    </message>
+    <message>
+        <location filename="../gui/ConnectionsModel.cpp" line="158"/>
+        <source>Start</source>
+        <translation>Inizio</translation>
+    </message>
+    <message>
+        <location filename="../gui/ConnectionsModel.cpp" line="160"/>
+        <source>Version</source>
+        <translation>Versione</translation>
+    </message>
+    <message>
+        <location filename="../gui/ConnectionsModel.cpp" line="162"/>
+        <source>Type</source>
+        <translation>Tipo</translation>
+    </message>
+    <message>
+        <location filename="../gui/ConnectionsModel.cpp" line="164"/>
+        <source>Height</source>
+        <translation>Altezza</translation>
+    </message>
+    <message>
+        <location filename="../gui/ConnectionsModel.cpp" line="166"/>
+        <source>Last resp. height</source>
+        <translation>L&apos;altezza dell&apos;ultima risposta</translation>
+    </message>
+</context>
+<context>
     <name>WalletGui::ExportTrackingKeyDialog</name>
     <message>
         <location filename="../gui/ExportTrackingKeyDialog.cpp" line="55"/>
@@ -2040,31 +2099,41 @@ Vuoi andare alla pagina dei download?</translation>
 <context>
     <name>WalletGui::InfoDialog</name>
     <message>
-        <location filename="../gui/InfoDialog.cpp" line="32"/>
+        <location filename="../gui/InfoDialog.cpp" line="41"/>
+        <source>Copy &amp;address</source>
+        <translation type="unfinished">Copia indirizzo</translation>
+    </message>
+    <message>
+        <location filename="../gui/InfoDialog.cpp" line="42"/>
+        <source>Copy &amp;Id</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gui/InfoDialog.cpp" line="65"/>
         <source>%1 (Outgoing: %2, Incoming: %3)</source>
         <translation>%1 (In uscita: %2, In entrata: %3)</translation>
     </message>
     <message>
-        <location filename="../gui/InfoDialog.cpp" line="36"/>
+        <location filename="../gui/InfoDialog.cpp" line="69"/>
         <source>White: %1, Grey: %2</source>
         <translation>Bianco: %1, Grigio: %2</translation>
     </message>
     <message>
-        <location filename="../gui/InfoDialog.cpp" line="40"/>
+        <location filename="../gui/InfoDialog.cpp" line="73"/>
         <source>Known: %1, Local: %2</source>
         <translation>Noto: %1, Locale: %2</translation>
     </message>
     <message>
-        <location filename="../gui/InfoDialog.cpp" line="43"/>
-        <location filename="../gui/InfoDialog.cpp" line="46"/>
-        <location filename="../gui/InfoDialog.cpp" line="49"/>
-        <location filename="../gui/InfoDialog.cpp" line="52"/>
-        <location filename="../gui/InfoDialog.cpp" line="55"/>
+        <location filename="../gui/InfoDialog.cpp" line="76"/>
+        <location filename="../gui/InfoDialog.cpp" line="79"/>
+        <location filename="../gui/InfoDialog.cpp" line="82"/>
+        <location filename="../gui/InfoDialog.cpp" line="85"/>
+        <location filename="../gui/InfoDialog.cpp" line="88"/>
         <source>%1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/InfoDialog.cpp" line="58"/>
+        <location filename="../gui/InfoDialog.cpp" line="91"/>
         <source>%1 %2</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2073,7 +2142,7 @@ Vuoi andare alla pagina dei download?</translation>
     <name>WalletGui::MainWindow</name>
     <message>
         <location filename="../gui/MainWindow.cpp" line="143"/>
-        <location filename="../gui/MainWindow.cpp" line="1259"/>
+        <location filename="../gui/MainWindow.cpp" line="1261"/>
         <source>Karbo Wallet %1</source>
         <translation>Karbo Wallet %1</translation>
     </message>
@@ -2111,7 +2180,7 @@ Vuoi andare alla pagina dei download?</translation>
     <message>
         <location filename="../gui/MainWindow.cpp" line="357"/>
         <location filename="../gui/MainWindow.cpp" line="386"/>
-        <location filename="../gui/MainWindow.cpp" line="826"/>
+        <location filename="../gui/MainWindow.cpp" line="828"/>
         <source>Wallets (*.wallet)</source>
         <translation>Portafogli (*.wallet)</translation>
     </message>
@@ -2208,83 +2277,83 @@ Vuoi andare alla pagina dei download?</translation>
         <translation>Ci deve essere un errore nel seed mnemonico. Assicuratevi di averlo inserito correttamente.</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="758"/>
+        <location filename="../gui/MainWindow.cpp" line="760"/>
         <source>Language changed to %1</source>
         <translation>La lingua è stata modificata 1%</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="759"/>
+        <location filename="../gui/MainWindow.cpp" line="761"/>
         <source>Language was changed</source>
         <translation>La lingua è stata modificata</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="760"/>
+        <location filename="../gui/MainWindow.cpp" line="762"/>
         <source>Language changed to %1. The change will take effect after restarting the wallet.</source>
         <translation>La lingua è stata modificata in %1. La lingua sarà modificata dopo il riavvio del portafoglio.</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="770"/>
+        <location filename="../gui/MainWindow.cpp" line="772"/>
         <source>More info can be found at www.karbowanec.com in Documentation section</source>
         <translation>Maggiori info si possono trovare su www.karbowanec.com nella sezione Documentazione</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="795"/>
+        <location filename="../gui/MainWindow.cpp" line="797"/>
         <source>Connection settings changed</source>
         <translation>Impostazioni di connessione modificate</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="795"/>
+        <location filename="../gui/MainWindow.cpp" line="797"/>
         <source>Connection mode will be changed after restarting the wallet.</source>
         <translation>La modalità di connessione sarà modificata dopo il riavvio del portafoglio.</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="819"/>
+        <location filename="../gui/MainWindow.cpp" line="821"/>
         <source>Backup wallet to...</source>
         <translation>Portafoglio di backup in…</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="839"/>
+        <location filename="../gui/MainWindow.cpp" line="841"/>
         <source>Warning</source>
         <translation>Attenzione</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="839"/>
+        <location filename="../gui/MainWindow.cpp" line="841"/>
         <source>Your wallet will be reset and restored from blockchain.
 Are you sure?</source>
         <translation>Il tuo portafoglio sarà resettato e ripristinato dal blockchain. Sei sicuro?</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="1035"/>
+        <location filename="../gui/MainWindow.cpp" line="1037"/>
         <source>Wallet error</source>
         <translation>Errore nel portafoglio</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="1038"/>
+        <location filename="../gui/MainWindow.cpp" line="1040"/>
         <source>Wallet</source>
         <translation>Portafoglio</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="1093"/>
+        <location filename="../gui/MainWindow.cpp" line="1095"/>
         <source>Incorrect password</source>
         <translation>Password errata</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="1093"/>
+        <location filename="../gui/MainWindow.cpp" line="1095"/>
         <source>Wrong password.</source>
         <translation>Password errata.</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="1109"/>
+        <location filename="../gui/MainWindow.cpp" line="1111"/>
         <source>Encrypted</source>
         <translation>Criptato</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="1109"/>
+        <location filename="../gui/MainWindow.cpp" line="1111"/>
         <source>Not encrypted</source>
         <translation>Non criptato</translation>
     </message>
     <message numerus="yes">
-        <location filename="../gui/MainWindow.cpp" line="1118"/>
+        <location filename="../gui/MainWindow.cpp" line="1120"/>
         <source>%n active connection(s)</source>
         <translation type="unfinished">
             <numerusform>%n connessione attiva</numerusform>
@@ -2292,28 +2361,28 @@ Are you sure?</source>
         </translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="1126"/>
+        <location filename="../gui/MainWindow.cpp" line="1128"/>
         <source>Synchronization in progress</source>
         <translation>Sincronizzazione in corso</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="1144"/>
+        <location filename="../gui/MainWindow.cpp" line="1146"/>
         <source>Not synchronized</source>
         <translation>Non sincronizzato</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="1144"/>
+        <location filename="../gui/MainWindow.cpp" line="1146"/>
         <source>Synchronized</source>
         <translation>Sincronizzato</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="1179"/>
+        <location filename="../gui/MainWindow.cpp" line="1181"/>
         <source>%1 - Karbo Wallet %2</source>
         <translatorcomment>%1 - Karbo Wallet %2</translatorcomment>
         <translation></translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="1227"/>
+        <location filename="../gui/MainWindow.cpp" line="1229"/>
         <source>Karbo Wallet %2</source>
         <translation>Karbo Wallet %2</translation>
     </message>
