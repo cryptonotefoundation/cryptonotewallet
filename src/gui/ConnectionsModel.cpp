@@ -44,6 +44,7 @@ ConnectionsModel& ConnectionsModel::instance() {
 ConnectionsModel::ConnectionsModel() : QAbstractItemModel() {
   connect(&NodeAdapter::instance(), &NodeAdapter::nodeInitCompletedSignal, this, &ConnectionsModel::refreshConnections, Qt::QueuedConnection);
   connect(&NodeAdapter::instance(), &NodeAdapter::peerCountUpdatedSignal, this, &ConnectionsModel::refreshConnections, Qt::QueuedConnection);
+  connect(&NodeAdapter::instance(), &NodeAdapter::lastKnownBlockHeightUpdatedSignal, this, &ConnectionsModel::refreshConnections, Qt::QueuedConnection);
 }
 
 ConnectionsModel::~ConnectionsModel() {
