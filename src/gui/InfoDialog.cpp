@@ -2,12 +2,18 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
+#include "InfoDialog.h"
+
+#include <QApplication>
+#include <QClipboard>
 #include <QDateTime>
 #include <QLocale>
-#include "InfoDialog.h"
+#include <QTabWidget>
+
 #include "NodeAdapter.h"
 #include "CryptoNoteWrapper.h"
 #include "CurrencyAdapter.h"
+#include "ConnectionsModel.h"
 
 #include "ui_infodialog.h"
 
@@ -16,11 +22,38 @@ namespace WalletGui {
 InfoDialog::InfoDialog(QWidget* _parent) : QDialog(_parent), m_ui(new Ui::InfoDialog), m_refreshTimerId(-1) {
   m_ui->setupUi(this);
   m_refreshTimerId = startTimer(1000);
+  m_ui->m_connectionsView->setModel(&ConnectionsModel::instance());
+  m_ui->m_connectionsView->header()->setSectionResizeMode(0, QHeaderView::ResizeToContents);
+  m_ui->m_connectionsView->setSortingEnabled(true);
+  m_ui->m_connectionsView->sortByColumn(0, Qt::AscendingOrder);
+  m_ui->m_connectionsView->header()->resizeSection(ConnectionsModel::COLUMN_STATE, 80);
+  m_ui->m_connectionsView->header()->resizeSection(ConnectionsModel::COLUMN_ID, 90);
+  m_ui->m_connectionsView->header()->resizeSection(ConnectionsModel::COLUMN_PORT, 45);
+  m_ui->m_connectionsView->header()->resizeSection(ConnectionsModel::COLUMN_IS_INCOMING, 70);
+  m_ui->m_connectionsView->header()->resizeSection(ConnectionsModel::COLUMN_HEIGHT, 50);
+  m_ui->m_connectionsView->header()->resizeSection(ConnectionsModel::COLUMN_LAST_RESPONSE_HEIGHT, 50);
+  m_ui->m_connectionsView->header()->resizeSection(ConnectionsModel::COLUMN_VERSION, 45);
+
+  m_ui->m_connectionsView->setContextMenuPolicy(Qt::CustomContextMenu);
+  connect(m_ui->m_connectionsView, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(onCustomContextMenu(const QPoint &)));
+
+  m_contextMenu = new QMenu();
+  m_contextMenu->addAction(QString(tr("Copy &address")), this, SLOT(copyAddressClicked()));
+  m_contextMenu->addAction(QString(tr("Copy &Id")), this, SLOT(copyIdClicked()));
+
+  ConnectionsModel::instance().refreshConnections();
 }
 
 InfoDialog::~InfoDialog() {
   killTimer(m_refreshTimerId);
   m_refreshTimerId = -1;
+}
+
+void InfoDialog::onCustomContextMenu(const QPoint &point) {
+  m_index = m_ui->m_connectionsView->indexAt(point);
+  if (!m_index.isValid())
+     return;
+  m_contextMenu->exec(m_ui->m_connectionsView->mapToGlobal(point));
 }
 
 void InfoDialog::timerEvent(QTimerEvent* _event) {
@@ -61,6 +94,14 @@ void InfoDialog::timerEvent(QTimerEvent* _event) {
   }
 
   QDialog::timerEvent(_event);
+}
+
+void InfoDialog::copyAddressClicked() {
+  QApplication::clipboard()->setText(QString("%1:%2").arg(m_ui->m_connectionsView->currentIndex().data(ConnectionsModel::ROLE_HOST).toString()).arg(m_ui->m_connectionsView->currentIndex().data(ConnectionsModel::ROLE_PORT).toString()));
+}
+
+void InfoDialog::copyIdClicked() {
+  QApplication::clipboard()->setText(m_ui->m_connectionsView->currentIndex().data(ConnectionsModel::ROLE_ID).toString());
 }
 
 }

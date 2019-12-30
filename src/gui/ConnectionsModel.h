@@ -1,24 +1,29 @@
-// Copyright (c) 2011-2015 The Cryptonote developers
+// Copyright (c) 2016-2020 The Karbo developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #pragma once
 
 #include <QAbstractItemModel>
-#include <QJsonArray>
+
+#include <INode.h>
 
 namespace WalletGui {
-  
-class AddressBookModel : public QAbstractItemModel
-{
+
+class ConnectionsModel : public QAbstractItemModel {
   Q_OBJECT
-  Q_DISABLE_COPY(AddressBookModel)
+  Q_DISABLE_COPY(ConnectionsModel)
 
 public:
-  enum Columns {COLUMN_LABEL = 0, COLUMN_ADDRESS, COLUMN_PAYMENTID};
-  enum Roles { ROLE_LABEL = Qt::UserRole, ROLE_ADDRESS, ROLE_PAYMENTID };
+  enum Columns {
+    COLUMN_START = 0, COLUMN_STATE, COLUMN_ID, COLUMN_HOST, COLUMN_PORT, COLUMN_IS_INCOMING, COLUMN_HEIGHT, COLUMN_LAST_RESPONSE_HEIGHT, COLUMN_VERSION
+  };
 
-  static AddressBookModel& instance();
+  enum Roles {
+    ROLE_STATE = Qt::UserRole, ROLE_ID, ROLE_HOST, ROLE_PORT, ROLE_START, ROLE_VERSION, ROLE_IS_INCOMING, ROLE_HEIGHT, ROLE_LAST_RESPONSE_HEIGHT
+  };
+
+  static ConnectionsModel& instance();
   int columnCount(const QModelIndex& _parent = QModelIndex()) const Q_DECL_OVERRIDE;
   QVariant data(const QModelIndex& _index, int _role = Qt::DisplayRole) const Q_DECL_OVERRIDE;
   Qt::ItemFlags flags(const QModelIndex& _index) const Q_DECL_OVERRIDE;
@@ -27,20 +32,13 @@ public:
   QModelIndex parent(const QModelIndex& _index) const Q_DECL_OVERRIDE;
   int rowCount(const QModelIndex& _parent = QModelIndex()) const Q_DECL_OVERRIDE;
 
-  void addAddress(const QString& _label, const QString& _address, const QString& _paymentid);
-  void removeAddress(quint32 _row);
-
-  const QModelIndex indexFromContact(const QString& searchstring, const int& column);
+  void refreshConnections();
 
 private:
-  QJsonArray m_addressBook;
+  ConnectionsModel();
+  ~ConnectionsModel();
 
-  AddressBookModel();
-  ~AddressBookModel();
-
-  void reset();
-  void saveAddressBook();
-  void walletInitCompleted(int _error, const QString& _error_text);
+  std::vector<CryptoNote::p2pConnection> m_connections;
 };
 
 }

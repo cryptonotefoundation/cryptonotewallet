@@ -5,6 +5,8 @@
 #pragma once
 
 #include <QDialog>
+#include <QMenu>
+#include <QModelIndex>
 
 namespace Ui {
 class InfoDialog;
@@ -18,12 +20,21 @@ class InfoDialog : public QDialog {
 public:
   InfoDialog(QWidget* _parent);
   ~InfoDialog();
+  QModelIndex m_index;
+
+public slots:
+  void onCustomContextMenu(const QPoint &point);
+
+public Q_SLOTS:
+  void copyAddressClicked();
+  void copyIdClicked();
 
 protected:
   void timerEvent(QTimerEvent* _event) Q_DECL_OVERRIDE;
 
 private:
   QScopedPointer<Ui::InfoDialog> m_ui;
+  QMenu* m_contextMenu;
   int m_refreshTimerId;
 };
 

@@ -53,6 +53,8 @@ public:
   virtual uint64_t getAlreadyGeneratedCoins() = 0;
   virtual CryptoNote::BlockHeaderInfo getLastLocalBlockHeaderInfo() = 0;
 
+  virtual std::vector<CryptoNote::p2pConnection> getConnections() = 0;
+
   virtual void startMining(const std::string& address, size_t threads_count) = 0;
   virtual void stopMining() = 0;
   virtual uint64_t getSpeed() = 0;

@@ -4,6 +4,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include <limits>
+#include <future>
 #include "CryptoNoteWrapper.h"
 #include <CheckpointsData.h>
 #include "CryptoNoteCore/CryptoNoteBasicImpl.h"
@@ -253,6 +254,27 @@ public:
     return m_node.getAlreadyGeneratedCoins();
   }
 
+  std::vector<CryptoNote::p2pConnection> getConnections() {
+    std::vector<CryptoNote::p2pConnection> connections;
+
+    auto getConnectionsCompleted = std::promise<std::error_code>();
+    auto getConnectionsWaitFuture = getConnectionsCompleted.get_future();
+
+    m_node.getConnections(std::ref(connections),
+      [&getConnectionsCompleted](std::error_code ec) {
+      auto detachedPromise = std::move(getConnectionsCompleted);
+      detachedPromise.set_value(ec);
+    });
+
+    std::error_code ec = getConnectionsWaitFuture.get();
+
+    if (ec) {
+      //qDebug() << "Failed to get connections: " << ec << ", " << ec.message();
+    }
+
+    return connections;
+  }
+
   CryptoNote::IWalletLegacy* createWallet() override {
     return new CryptoNote::WalletLegacy(m_currency, m_node, m_logManager);
   }
@@ -430,6 +452,27 @@ public:
 
   uint64_t getAlreadyGeneratedCoins() {
     return m_node.getAlreadyGeneratedCoins();
+  }
+
+  std::vector<CryptoNote::p2pConnection> getConnections() {
+    std::vector<CryptoNote::p2pConnection> connections;
+
+    auto getConnectionsCompleted = std::promise<std::error_code>();
+    auto getConnectionsWaitFuture = getConnectionsCompleted.get_future();
+
+    m_node.getConnections(std::ref(connections),
+      [&getConnectionsCompleted](std::error_code ec) {
+      auto detachedPromise = std::move(getConnectionsCompleted);
+      detachedPromise.set_value(ec);
+    });
+
+    std::error_code ec = getConnectionsWaitFuture.get();
+
+    if (ec) {
+      //qDebug() << "Failed to get connections: " << ec << ", " << ec.message();
+    }
+
+    return connections;
   }
 
   CryptoNote::IWalletLegacy* createWallet() override {

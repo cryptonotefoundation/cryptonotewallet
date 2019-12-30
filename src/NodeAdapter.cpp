@@ -284,6 +284,11 @@ quint64 NodeAdapter::getAlreadyGeneratedCoins() {
   return m_node->getAlreadyGeneratedCoins();
 }
 
+std::vector<CryptoNote::p2pConnection> NodeAdapter::getConnections() {
+  Q_CHECK_PTR(m_node);
+  return m_node->getConnections();
+}
+
 void NodeAdapter::peerCountUpdated(Node& _node, size_t _count) {
   Q_UNUSED(_node);
   Q_EMIT peerCountUpdatedSignal(_count);
