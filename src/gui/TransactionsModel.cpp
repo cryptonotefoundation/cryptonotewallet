@@ -331,8 +331,10 @@ QVariant TransactionsModel::getEditRole(const QModelIndex& _index) const {
 QVariant TransactionsModel::getToolTipRole(const QModelIndex& _index) const {
   quint64 numberOfConfirmations = _index.data(ROLE_NUMBER_OF_CONFIRMATIONS).value<quint64>();
   TransactionType transactionType = static_cast<TransactionType>(_index.data(ROLE_TYPE).value<quint8>());
-
-  if(numberOfConfirmations == 0) {
+  TransactionState transactionState = static_cast<TransactionState>(_index.data(ROLE_STATE).value<quint8>());
+  if (transactionState != TransactionState::ACTIVE && transactionState != TransactionState::SENDING) {
+    return QString(tr("Canceled or failed transaction"));
+  } else if (numberOfConfirmations == 0) {
     if (transactionType == TransactionType::INPUT)
       return QString(tr("Incoming transaction, unconfirmed"));
 
@@ -369,7 +371,11 @@ QVariant TransactionsModel::getToolTipRole(const QModelIndex& _index) const {
 QVariant TransactionsModel::getDecorationRole(const QModelIndex& _index) const {
   if(_index.column() == COLUMN_STATE) {
     quint64 numberOfConfirmations = _index.data(ROLE_NUMBER_OF_CONFIRMATIONS).value<quint64>();
-    if(numberOfConfirmations == 0) {
+    TransactionState transactionState = static_cast<TransactionState>(_index.data(ROLE_STATE).value<quint8>());
+
+    if (transactionState != TransactionState::ACTIVE && transactionState != TransactionState::SENDING) {
+      return QPixmap(":icons/cancel");
+    } else if (numberOfConfirmations == 0) {
       return QPixmap(":icons/unconfirmed");
     } else if(numberOfConfirmations < 2) {
       return QPixmap(":icons/clock1");
@@ -398,6 +404,9 @@ QVariant TransactionsModel::getAlignmentRole(const QModelIndex& _index) const {
 QVariant TransactionsModel::getUserRole(const QModelIndex& _index, int _role, CryptoNote::TransactionId _transactionId,
   CryptoNote::WalletLegacyTransaction& _transaction, CryptoNote::TransferId _transferId, CryptoNote::WalletLegacyTransfer& _transfer) const {
   switch(_role) {
+  case ROLE_STATE:
+    return static_cast<quint8>(_transaction.state);
+
   case ROLE_DATE:
     return (_transaction.timestamp > 0 ? QDateTime::fromTime_t(_transaction.timestamp) : QDateTime());
 

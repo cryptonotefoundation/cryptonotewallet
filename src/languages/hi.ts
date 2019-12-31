@@ -637,7 +637,7 @@ Please wait...</source>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="204"/>
-        <location filename="../gui/ui/mainwindow.ui" line="572"/>
+        <location filename="../gui/ui/mainwindow.ui" line="573"/>
         <source>Recent wallets</source>
         <translation>हाल के वॉलेट</translation>
     </message>
@@ -648,158 +648,158 @@ Please wait...</source>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="244"/>
-        <location filename="../gui/ui/mainwindow.ui" line="539"/>
+        <location filename="../gui/ui/mainwindow.ui" line="540"/>
         <source>Help</source>
         <translation>सहायता</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="252"/>
+        <location filename="../gui/ui/mainwindow.ui" line="253"/>
         <source>Wallet</source>
         <translation>वॉलेट</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="306"/>
+        <location filename="../gui/ui/mainwindow.ui" line="307"/>
         <source>toolBar</source>
         <translation>टूलबार</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="341"/>
+        <location filename="../gui/ui/mainwindow.ui" line="342"/>
         <source>Account toolbar</source>
         <translation>अकाउंट टूलबार</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="362"/>
+        <location filename="../gui/ui/mainwindow.ui" line="363"/>
         <source>Overview</source>
         <translation>अवलोकन</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="377"/>
+        <location filename="../gui/ui/mainwindow.ui" line="378"/>
         <source>Send</source>
         <translation>भेजें</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="392"/>
+        <location filename="../gui/ui/mainwindow.ui" line="393"/>
         <source>Receive</source>
         <translation>प्राप्त करें</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="407"/>
+        <location filename="../gui/ui/mainwindow.ui" line="408"/>
         <source>Transactions</source>
         <translation>लेनदेन</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="415"/>
+        <location filename="../gui/ui/mainwindow.ui" line="416"/>
         <source>Exit</source>
         <translation>बाहर जाएँ</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="418"/>
+        <location filename="../gui/ui/mainwindow.ui" line="419"/>
         <source>Ctrl+Q</source>
         <translation>Ctrl + Q</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="433"/>
+        <location filename="../gui/ui/mainwindow.ui" line="434"/>
         <source>Contacts</source>
         <translation>संपर्क</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="441"/>
+        <location filename="../gui/ui/mainwindow.ui" line="442"/>
         <source>Create wallet</source>
         <translation>वॉलेट बनाएँ</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="449"/>
+        <location filename="../gui/ui/mainwindow.ui" line="450"/>
         <source>Open wallet</source>
         <translation>वॉलेट खोलें</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="457"/>
+        <location filename="../gui/ui/mainwindow.ui" line="458"/>
         <source>Encrypt wallet</source>
         <translation>वॉलेट एन्क्रिप्ट करें</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="465"/>
-        <location filename="../gui/ui/mainwindow.ui" line="468"/>
+        <location filename="../gui/ui/mainwindow.ui" line="466"/>
+        <location filename="../gui/ui/mainwindow.ui" line="469"/>
         <source>Change password</source>
         <translation>पासवर्ड बदलें</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="476"/>
+        <location filename="../gui/ui/mainwindow.ui" line="477"/>
         <source>About</source>
         <translation>बारे में</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="484"/>
+        <location filename="../gui/ui/mainwindow.ui" line="485"/>
         <source>About Qt</source>
         <translation>QT के बारे में</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="492"/>
+        <location filename="../gui/ui/mainwindow.ui" line="493"/>
         <source>Backup wallet</source>
         <translation>बैकअप वॉलेट</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="500"/>
+        <location filename="../gui/ui/mainwindow.ui" line="501"/>
         <source>Start on system login</source>
         <translation>सिस्टम लॉगिन पर शुरू करें</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="508"/>
+        <location filename="../gui/ui/mainwindow.ui" line="509"/>
         <source>Minimize to tray</source>
         <translation>ट्रे में छोटा करें</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="516"/>
+        <location filename="../gui/ui/mainwindow.ui" line="517"/>
         <source>Close to tray</source>
         <translation>ट्रे में बंद करें</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="521"/>
+        <location filename="../gui/ui/mainwindow.ui" line="522"/>
         <source>Import private key</source>
         <translation>प्राइवेट की इम्पोर्ट करें</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="610"/>
+        <location filename="../gui/ui/mainwindow.ui" line="611"/>
         <source>Sign message</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="615"/>
+        <location filename="../gui/ui/mainwindow.ui" line="616"/>
         <source>Verify signed message</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="620"/>
+        <location filename="../gui/ui/mainwindow.ui" line="621"/>
         <source>Optimization</source>
         <translation type="unfinished">अनुकूलन</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="625"/>
+        <location filename="../gui/ui/mainwindow.ui" line="626"/>
         <source>Get proof of balance</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="630"/>
+        <location filename="../gui/ui/mainwindow.ui" line="631"/>
         <source>Import keys</source>
         <translation>की इम्पोर्ट हो रही हैं</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="638"/>
+        <location filename="../gui/ui/mainwindow.ui" line="639"/>
         <source>Don&apos;t show wallet optimization transactions</source>
         <translation>वॉलेट अनुकूलन लेनदेन न दिखाएं</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="643"/>
+        <location filename="../gui/ui/mainwindow.ui" line="644"/>
         <source>Lock wallet</source>
         <translation>बटुआ बंद करो</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="646"/>
+        <location filename="../gui/ui/mainwindow.ui" line="647"/>
         <source>Ctrl+L</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="654"/>
+        <location filename="../gui/ui/mainwindow.ui" line="655"/>
         <source>Hide everything when wallet is locked</source>
         <translation>वॉलेट लॉक होने पर सब कुछ छिपाएं</translation>
     </message>
@@ -808,8 +808,8 @@ Please wait...</source>
         <translation type="vanished">माइनिंग</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="526"/>
-        <location filename="../gui/ui/mainwindow.ui" line="529"/>
+        <location filename="../gui/ui/mainwindow.ui" line="527"/>
+        <location filename="../gui/ui/mainwindow.ui" line="530"/>
         <source>Reset wallet</source>
         <translation>वॉलेट रीसेट करें</translation>
     </message>
@@ -823,62 +823,63 @@ Please wait...</source>
         <translation type="vanished">भाषा बदलें</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="534"/>
+        <location filename="../gui/ui/mainwindow.ui" line="535"/>
         <source>Export private key</source>
         <translation>प्राइवेट की एक्सपोर्ट करें</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="542"/>
+        <location filename="../gui/ui/mainwindow.ui" line="543"/>
         <source>F1</source>
         <translation>F1</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="547"/>
+        <location filename="../gui/ui/mainwindow.ui" line="548"/>
         <source>Connection</source>
         <translation>कनेक्शन</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="552"/>
+        <location filename="../gui/ui/mainwindow.ui" line="553"/>
         <source>Open payment request</source>
         <translation>भुगतान रिक्वेस्ट खोलें</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="557"/>
+        <location filename="../gui/ui/mainwindow.ui" line="558"/>
         <source>Export tracking key</source>
         <translation>ट्रैकिंग की एक्सपोर्ट करें</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="562"/>
+        <location filename="../gui/ui/mainwindow.ui" line="563"/>
         <source>Import tracking key</source>
         <translation>ट्रैकिंग की इम्पोर्ट करें</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="567"/>
+        <location filename="../gui/ui/mainwindow.ui" line="568"/>
         <source>Close wallet</source>
         <translation>वॉलेट बंद करें</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="577"/>
+        <location filename="../gui/ui/mainwindow.ui" line="578"/>
+        <location filename="../gui/ui/mainwindow.ui" line="660"/>
         <source>Information</source>
         <translation>जानकारी</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="582"/>
+        <location filename="../gui/ui/mainwindow.ui" line="583"/>
         <source>Open log file</source>
         <translation>लॉग फ़ाइल खोलें</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="590"/>
+        <location filename="../gui/ui/mainwindow.ui" line="591"/>
         <source>Show mnemonic seed</source>
         <translation>म्नेमोनिक सीड दिखाएँ</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="595"/>
+        <location filename="../gui/ui/mainwindow.ui" line="596"/>
         <source>Restore from mnemonic seed</source>
         <translation>म्नेमोनिक सीड से रिस्टोर करें</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="600"/>
+        <location filename="../gui/ui/mainwindow.ui" line="601"/>
         <source>Create nondeterministic wallet</source>
         <translation>नोनडिटर्मिनिस्टिक वॉलेट बनायें</translation>
     </message>
@@ -887,7 +888,7 @@ Please wait...</source>
         <translation type="vanished">पूल माइनिंग स्वतः शुरू करें</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="605"/>
+        <location filename="../gui/ui/mainwindow.ui" line="606"/>
         <source>Sweep unmixable</source>
         <translation>मिक्स नहीं होने वालों को स्वीप करें</translation>
     </message>
@@ -1319,27 +1320,27 @@ Please wait...</source>
     <name>QObject</name>
     <message>
         <location filename="../gui/MainWindow.cpp" line="769"/>
-        <location filename="../main.cpp" line="70"/>
+        <location filename="../main.cpp" line="84"/>
         <source>Help</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="67"/>
+        <location filename="../main.cpp" line="81"/>
         <source>Error</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="107"/>
+        <location filename="../main.cpp" line="121"/>
         <source>Fail</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="107"/>
+        <location filename="../main.cpp" line="121"/>
         <source>%1 wallet already running or cannot create lock file %2. Check your permissions.</source>
         <translation>%1 वॉलेट पहले से चालू है या लॉक फाइल %2 नहीं बना सकता। आपके लिए स्वीकृत अनुमति जाँचें।</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="119"/>
+        <location filename="../main.cpp" line="136"/>
         <source>Loading blockchain...</source>
         <translation>ब्लॉकचैन लोड रही है...</translation>
     </message>
@@ -2960,32 +2961,37 @@ when the wallet is synchronized</source>
         <translation>(n/a)</translation>
     </message>
     <message>
-        <location filename="../gui/TransactionsModel.cpp" line="337"/>
+        <location filename="../gui/TransactionsModel.cpp" line="336"/>
+        <source>Canceled or failed transaction</source>
+        <translation>रद्द या विफल लेनदेन</translation>
+    </message>
+    <message>
+        <location filename="../gui/TransactionsModel.cpp" line="339"/>
         <source>Incoming transaction, unconfirmed</source>
         <translation>इनकमिंग लेनदेन, पुष्टि नहीं  हुए</translation>
     </message>
     <message>
-        <location filename="../gui/TransactionsModel.cpp" line="340"/>
+        <location filename="../gui/TransactionsModel.cpp" line="342"/>
         <source>Mined, confirmations</source>
         <translation>माइन किये हुए, पुष्टि</translation>
     </message>
     <message>
-        <location filename="../gui/TransactionsModel.cpp" line="343"/>
+        <location filename="../gui/TransactionsModel.cpp" line="345"/>
         <source>Wallet optimization transaction, unconfirmed</source>
         <translation>बटुआ अनुकूलन लेनदेन, अपुष्ट</translation>
     </message>
     <message>
-        <location filename="../gui/TransactionsModel.cpp" line="346"/>
+        <location filename="../gui/TransactionsModel.cpp" line="348"/>
         <source>Sent to yourself, unconfirmed</source>
         <translation>खुद को भेजा हुआ, पुष्टि नहीं हुए</translation>
     </message>
     <message>
-        <location filename="../gui/TransactionsModel.cpp" line="349"/>
+        <location filename="../gui/TransactionsModel.cpp" line="351"/>
         <source>Outgoing transaction, unconfirmed</source>
         <translation>आउटगोइंग लेनदेन, पुष्टि नहीं हुए</translation>
     </message>
     <message numerus="yes">
-        <location filename="../gui/TransactionsModel.cpp" line="352"/>
+        <location filename="../gui/TransactionsModel.cpp" line="354"/>
         <source>Incoming transaction, %n confirmation(s)</source>
         <translation>
             <numerusform>इनकमिंग लेनदेन, %n पुष्टि</numerusform>
@@ -2993,7 +2999,7 @@ when the wallet is synchronized</source>
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../gui/TransactionsModel.cpp" line="355"/>
+        <location filename="../gui/TransactionsModel.cpp" line="357"/>
         <source>Mined, %n confirmation(s)</source>
         <translation>
             <numerusform>माइन हुई, %n पुष्टि</numerusform>
@@ -3001,7 +3007,7 @@ when the wallet is synchronized</source>
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../gui/TransactionsModel.cpp" line="358"/>
+        <location filename="../gui/TransactionsModel.cpp" line="360"/>
         <source>Wallet optimization transaction, %n confirmation(s)</source>
         <translation>
             <numerusform>बटुआ अनुकूलन लेनदेन, %n पुष्टि</numerusform>
@@ -3009,7 +3015,7 @@ when the wallet is synchronized</source>
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../gui/TransactionsModel.cpp" line="361"/>
+        <location filename="../gui/TransactionsModel.cpp" line="363"/>
         <source>Sent to yourself, %n confirmation(s)</source>
         <translation>
             <numerusform>खुद को भेजा हुआ, %n पुष्टि</numerusform>
@@ -3017,7 +3023,7 @@ when the wallet is synchronized</source>
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../gui/TransactionsModel.cpp" line="364"/>
+        <location filename="../gui/TransactionsModel.cpp" line="366"/>
         <source>Outgoing transaction, %n confirmation(s)</source>
         <translation>
             <numerusform>आउटगोइंग लेनदेन, %n पुष्टि</numerusform>

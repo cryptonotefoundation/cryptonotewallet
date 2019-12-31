@@ -637,7 +637,7 @@ Please wait...</source>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="204"/>
-        <location filename="../gui/ui/mainwindow.ui" line="572"/>
+        <location filename="../gui/ui/mainwindow.ui" line="573"/>
         <source>Recent wallets</source>
         <translation>최근 지갑</translation>
     </message>
@@ -648,158 +648,158 @@ Please wait...</source>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="244"/>
-        <location filename="../gui/ui/mainwindow.ui" line="539"/>
+        <location filename="../gui/ui/mainwindow.ui" line="540"/>
         <source>Help</source>
         <translation>도움말</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="252"/>
+        <location filename="../gui/ui/mainwindow.ui" line="253"/>
         <source>Wallet</source>
         <translation>지갑</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="306"/>
+        <location filename="../gui/ui/mainwindow.ui" line="307"/>
         <source>toolBar</source>
         <translation>툴바</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="341"/>
+        <location filename="../gui/ui/mainwindow.ui" line="342"/>
         <source>Account toolbar</source>
         <translation>계정 툴바</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="362"/>
+        <location filename="../gui/ui/mainwindow.ui" line="363"/>
         <source>Overview</source>
         <translation>개요</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="377"/>
+        <location filename="../gui/ui/mainwindow.ui" line="378"/>
         <source>Send</source>
         <translation>전송</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="392"/>
+        <location filename="../gui/ui/mainwindow.ui" line="393"/>
         <source>Receive</source>
         <translation>수신</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="407"/>
+        <location filename="../gui/ui/mainwindow.ui" line="408"/>
         <source>Transactions</source>
         <translation>트랜잭션</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="415"/>
+        <location filename="../gui/ui/mainwindow.ui" line="416"/>
         <source>Exit</source>
         <translation>나가기</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="418"/>
+        <location filename="../gui/ui/mainwindow.ui" line="419"/>
         <source>Ctrl+Q</source>
         <translation>Ctrl+Q</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="433"/>
+        <location filename="../gui/ui/mainwindow.ui" line="434"/>
         <source>Contacts</source>
         <translation>연락처</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="441"/>
+        <location filename="../gui/ui/mainwindow.ui" line="442"/>
         <source>Create wallet</source>
         <translation>지갑 생성</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="449"/>
+        <location filename="../gui/ui/mainwindow.ui" line="450"/>
         <source>Open wallet</source>
         <translation>지갑 열기</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="457"/>
+        <location filename="../gui/ui/mainwindow.ui" line="458"/>
         <source>Encrypt wallet</source>
         <translation>지갑 암호화</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="465"/>
-        <location filename="../gui/ui/mainwindow.ui" line="468"/>
+        <location filename="../gui/ui/mainwindow.ui" line="466"/>
+        <location filename="../gui/ui/mainwindow.ui" line="469"/>
         <source>Change password</source>
         <translation>암호 변경</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="476"/>
+        <location filename="../gui/ui/mainwindow.ui" line="477"/>
         <source>About</source>
         <translation>소개</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="484"/>
+        <location filename="../gui/ui/mainwindow.ui" line="485"/>
         <source>About Qt</source>
         <translation>Qt 소개</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="492"/>
+        <location filename="../gui/ui/mainwindow.ui" line="493"/>
         <source>Backup wallet</source>
         <translation>백업 지갑</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="500"/>
+        <location filename="../gui/ui/mainwindow.ui" line="501"/>
         <source>Start on system login</source>
         <translation>시스템 로그인 시작</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="508"/>
+        <location filename="../gui/ui/mainwindow.ui" line="509"/>
         <source>Minimize to tray</source>
         <translation>트레이에 최소화하기</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="516"/>
+        <location filename="../gui/ui/mainwindow.ui" line="517"/>
         <source>Close to tray</source>
         <translation>트레이에 닫기</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="521"/>
+        <location filename="../gui/ui/mainwindow.ui" line="522"/>
         <source>Import private key</source>
         <translation>개인 키 불러오기</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="610"/>
+        <location filename="../gui/ui/mainwindow.ui" line="611"/>
         <source>Sign message</source>
         <translation type="unfinished">메시지에 서명</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="615"/>
+        <location filename="../gui/ui/mainwindow.ui" line="616"/>
         <source>Verify signed message</source>
         <translation type="unfinished">서명 된 메시지 확인</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="620"/>
+        <location filename="../gui/ui/mainwindow.ui" line="621"/>
         <source>Optimization</source>
         <translation>최적화</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="625"/>
+        <location filename="../gui/ui/mainwindow.ui" line="626"/>
         <source>Get proof of balance</source>
         <translation>잔액 확인</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="630"/>
+        <location filename="../gui/ui/mainwindow.ui" line="631"/>
         <source>Import keys</source>
         <translation>키 불러오는 중</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="638"/>
+        <location filename="../gui/ui/mainwindow.ui" line="639"/>
         <source>Don&apos;t show wallet optimization transactions</source>
         <translation>지갑 최적화 거래를 표시하지 않습니다</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="643"/>
+        <location filename="../gui/ui/mainwindow.ui" line="644"/>
         <source>Lock wallet</source>
         <translation>지갑 잠금</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="646"/>
+        <location filename="../gui/ui/mainwindow.ui" line="647"/>
         <source>Ctrl+L</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="654"/>
+        <location filename="../gui/ui/mainwindow.ui" line="655"/>
         <source>Hide everything when wallet is locked</source>
         <translation>지갑이 잠겨있을 때 모든 것을 숨기기</translation>
     </message>
@@ -808,8 +808,8 @@ Please wait...</source>
         <translation type="vanished">마이닝</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="526"/>
-        <location filename="../gui/ui/mainwindow.ui" line="529"/>
+        <location filename="../gui/ui/mainwindow.ui" line="527"/>
+        <location filename="../gui/ui/mainwindow.ui" line="530"/>
         <source>Reset wallet</source>
         <translation>지갑 재설정</translation>
     </message>
@@ -823,62 +823,63 @@ Please wait...</source>
         <translation type="vanished">언어 변경</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="534"/>
+        <location filename="../gui/ui/mainwindow.ui" line="535"/>
         <source>Export private key</source>
         <translation>개인 키 내보내기</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="542"/>
+        <location filename="../gui/ui/mainwindow.ui" line="543"/>
         <source>F1</source>
         <translation>F1</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="547"/>
+        <location filename="../gui/ui/mainwindow.ui" line="548"/>
         <source>Connection</source>
         <translation>연결</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="552"/>
+        <location filename="../gui/ui/mainwindow.ui" line="553"/>
         <source>Open payment request</source>
         <translation>지갑 요청 열기</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="557"/>
+        <location filename="../gui/ui/mainwindow.ui" line="558"/>
         <source>Export tracking key</source>
         <translation>추적 키 내보내기</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="562"/>
+        <location filename="../gui/ui/mainwindow.ui" line="563"/>
         <source>Import tracking key</source>
         <translation>추적 키 불러오기</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="567"/>
+        <location filename="../gui/ui/mainwindow.ui" line="568"/>
         <source>Close wallet</source>
         <translation>지갑 닫기</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="577"/>
+        <location filename="../gui/ui/mainwindow.ui" line="578"/>
+        <location filename="../gui/ui/mainwindow.ui" line="660"/>
         <source>Information</source>
         <translation>정보</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="582"/>
+        <location filename="../gui/ui/mainwindow.ui" line="583"/>
         <source>Open log file</source>
         <translation>로그 파일 열기</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="590"/>
+        <location filename="../gui/ui/mainwindow.ui" line="591"/>
         <source>Show mnemonic seed</source>
         <translation>연상기호 시드 표시</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="595"/>
+        <location filename="../gui/ui/mainwindow.ui" line="596"/>
         <source>Restore from mnemonic seed</source>
         <translation>연상기호 시드에서 복구</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="600"/>
+        <location filename="../gui/ui/mainwindow.ui" line="601"/>
         <source>Create nondeterministic wallet</source>
         <translation>연상기호 지갑 생성</translation>
     </message>
@@ -887,7 +888,7 @@ Please wait...</source>
         <translation type="vanished">자동 풀 마이닝 시작</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="605"/>
+        <location filename="../gui/ui/mainwindow.ui" line="606"/>
         <source>Sweep unmixable</source>
         <translation>혼합불가 제거</translation>
     </message>
@@ -1323,27 +1324,27 @@ Please wait...</source>
     <name>QObject</name>
     <message>
         <location filename="../gui/MainWindow.cpp" line="769"/>
-        <location filename="../main.cpp" line="70"/>
+        <location filename="../main.cpp" line="84"/>
         <source>Help</source>
         <translation>도움말</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="67"/>
+        <location filename="../main.cpp" line="81"/>
         <source>Error</source>
         <translation>오류</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="107"/>
+        <location filename="../main.cpp" line="121"/>
         <source>Fail</source>
         <translation>실패</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="107"/>
+        <location filename="../main.cpp" line="121"/>
         <source>%1 wallet already running or cannot create lock file %2. Check your permissions.</source>
         <translation>%1 지갑이 이미 작동 중이거나 잠금 파일 %2(을)를 만들 수 없습니다. 권한 허가를 확인하세요.</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="119"/>
+        <location filename="../main.cpp" line="136"/>
         <source>Loading blockchain...</source>
         <translation>블록체인 로딩 중...</translation>
     </message>
@@ -2958,60 +2959,65 @@ when the wallet is synchronized</source>
         <translation>해당사항 없음</translation>
     </message>
     <message>
-        <location filename="../gui/TransactionsModel.cpp" line="337"/>
+        <location filename="../gui/TransactionsModel.cpp" line="336"/>
+        <source>Canceled or failed transaction</source>
+        <translation>취소되었거나 실패한 거래</translation>
+    </message>
+    <message>
+        <location filename="../gui/TransactionsModel.cpp" line="339"/>
         <source>Incoming transaction, unconfirmed</source>
         <translation>수신한 트랜잭션, 확인되지 않음</translation>
     </message>
     <message>
-        <location filename="../gui/TransactionsModel.cpp" line="340"/>
+        <location filename="../gui/TransactionsModel.cpp" line="342"/>
         <source>Mined, confirmations</source>
         <translation>마이닝됨, 확인</translation>
     </message>
     <message>
-        <location filename="../gui/TransactionsModel.cpp" line="343"/>
+        <location filename="../gui/TransactionsModel.cpp" line="345"/>
         <source>Wallet optimization transaction, unconfirmed</source>
         <translation>월렛 최적화 거래 미확인</translation>
     </message>
     <message>
-        <location filename="../gui/TransactionsModel.cpp" line="346"/>
+        <location filename="../gui/TransactionsModel.cpp" line="348"/>
         <source>Sent to yourself, unconfirmed</source>
         <translation>나에게 전송됨, 확인되지 않음</translation>
     </message>
     <message>
-        <location filename="../gui/TransactionsModel.cpp" line="349"/>
+        <location filename="../gui/TransactionsModel.cpp" line="351"/>
         <source>Outgoing transaction, unconfirmed</source>
         <translation>지출한 트랜잭션, 확인되지 않음</translation>
     </message>
     <message numerus="yes">
-        <location filename="../gui/TransactionsModel.cpp" line="352"/>
+        <location filename="../gui/TransactionsModel.cpp" line="354"/>
         <source>Incoming transaction, %n confirmation(s)</source>
         <translation>
             <numerusform>수신한 트랜잭션, %n개 확인됨</numerusform>
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../gui/TransactionsModel.cpp" line="355"/>
+        <location filename="../gui/TransactionsModel.cpp" line="357"/>
         <source>Mined, %n confirmation(s)</source>
         <translation>
             <numerusform>마이닝됨, %n개 확인됨</numerusform>
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../gui/TransactionsModel.cpp" line="358"/>
+        <location filename="../gui/TransactionsModel.cpp" line="360"/>
         <source>Wallet optimization transaction, %n confirmation(s)</source>
         <translation>
             <numerusform>월렛 최적화 거래, %n개 확인됨</numerusform>
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../gui/TransactionsModel.cpp" line="361"/>
+        <location filename="../gui/TransactionsModel.cpp" line="363"/>
         <source>Sent to yourself, %n confirmation(s)</source>
         <translation>
             <numerusform>나에게 전송됨, %n개 확인됨</numerusform>
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../gui/TransactionsModel.cpp" line="364"/>
+        <location filename="../gui/TransactionsModel.cpp" line="366"/>
         <source>Outgoing transaction, %n confirmation(s)</source>
         <translation>
             <numerusform>지출한 트랜잭션, %n개 확인됨</numerusform>

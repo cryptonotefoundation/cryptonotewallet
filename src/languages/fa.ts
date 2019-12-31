@@ -2616,6 +2616,10 @@ when the wallet is synchronized</source>
             <numerusform>معاملات بهینه سازی کیف پول ،,%n تاییدیه</numerusform>
         </translation>
     </message>
+    <message>
+        <source>Canceled or failed transaction</source>
+        <translation>معامله لغو یا شکست خورده است</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::WalletAdapter</name>

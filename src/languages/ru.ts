@@ -2634,6 +2634,10 @@ when the wallet is synchronized</source>
             <numerusform>Оптимизация кошелька, %n подтверждений</numerusform>
         </translation>
     </message>
+    <message>
+        <source>Canceled or failed transaction</source>
+        <translation>Отмененная или неудачная транзакция</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::WalletAdapter</name>

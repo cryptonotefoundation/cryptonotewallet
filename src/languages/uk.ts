@@ -2630,6 +2630,10 @@ when the wallet is synchronized</source>
             <numerusform>Оптимізація гаманця, %n підтверджень</numerusform>
         </translation>
     </message>
+    <message>
+        <source>Canceled or failed transaction</source>
+        <translation>Скасована або невдала транзакція</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::WalletAdapter</name>
