@@ -2641,6 +2641,10 @@ kiedy portfel skończy synchronizowanie</translation>
             <numerusform>Transakcja optymalizacji portfela, %n potwiedzeń</numerusform>
         </translation>
     </message>
+    <message>
+        <source>Canceled or failed transaction</source>
+        <translation>Anulowana lub nieudana transakcja</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::WalletAdapter</name>

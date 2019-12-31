@@ -2639,6 +2639,10 @@ wenn die Brieftasche die Synchronisation beendet</translation>
             <numerusform>Wallet-Optimierungstransaktion,%n bestätigungen</numerusform>
         </translation>
     </message>
+    <message>
+        <source>Canceled or failed transaction</source>
+        <translation>Abgebrochene oder fehlgeschlagene Transaktion</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::WalletAdapter</name>

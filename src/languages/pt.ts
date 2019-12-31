@@ -404,7 +404,7 @@ Por favor aguarde...</translation>
     </message>
     <message>
         <source>Start synchronization from this height (leave empty if unsure):</source>
-        <translation>Inicie a sincronização a partir desta altura (deixe em branco se não tiver certeza):</translation>
+        <translation>Inicie a sincronização a partir desta altura (deixe em branco se não tiver a certeza):</translation>
     </message>
 </context>
 <context>
@@ -443,7 +443,7 @@ Por favor aguarde...</translation>
     </message>
     <message>
         <source>Start synchronization from this height (leave empty if unsure):</source>
-        <translation>Inicie a sincronização a partir desta altura (deixe em branco se não tiver certeza):</translation>
+        <translation>Inicie a sincronização a partir desta altura (deixe em branco se não tiver a certeza):</translation>
     </message>
 </context>
 <context>
@@ -486,7 +486,7 @@ Por favor aguarde...</translation>
     </message>
     <message>
         <source>Start synchronization from this height (leave empty if unsure):</source>
-        <translation>Inicie a sincronização a partir desta altura (deixe em branco se não tiver certeza):</translation>
+        <translation>Inicie a sincronização a partir desta altura (deixe em branco se não tiver a certeza):</translation>
     </message>
 </context>
 <context>
@@ -1291,7 +1291,7 @@ Você quer ir à página de dowload?</translation>
     </message>
     <message>
         <source>Start synchronization from this height (leave empty if unsure):</source>
-        <translation>Inicie a sincronização a partir desta altura (deixe em branco se não tiver certeza):</translation>
+        <translation type="unfinished">Inicie a sincronização a partir desta altura (deixe em branco se não tiver a certeza):</translation>
     </message>
 </context>
 <context>
@@ -2643,6 +2643,10 @@ quando a carteira vai terminar de sincronizar</translation>
             <numerusform>Transação de otimização de carteira, %n confirmaçõ</numerusform>
             <numerusform>Transação de otimização de carteira, %n confirmações</numerusform>
         </translation>
+    </message>
+    <message>
+        <source>Canceled or failed transaction</source>
+        <translation>Transação cancelada ou com falha</translation>
     </message>
 </context>
 <context>

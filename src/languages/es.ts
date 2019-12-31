@@ -2636,6 +2636,10 @@ cuando la cartera termine de sincronizar</translation>
             <numerusform>Transacción de optimización de billetera, , %n confirmaciones</numerusform>
         </translation>
     </message>
+    <message>
+        <source>Canceled or failed transaction</source>
+        <translation>Transacción cancelada o fallida</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::WalletAdapter</name>

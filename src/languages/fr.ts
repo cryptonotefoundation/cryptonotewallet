@@ -2643,6 +2643,10 @@ quand le portefeuille aura terminé la synchronisation</translation>
             <numerusform>Transaction d&apos;optimisation de portefeuille, %n confirmations</numerusform>
         </translation>
     </message>
+    <message>
+        <source>Canceled or failed transaction</source>
+        <translation>Transaction annulée ou échouée</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::WalletAdapter</name>

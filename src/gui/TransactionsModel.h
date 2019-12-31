@@ -14,6 +14,8 @@ namespace WalletGui {
 
 enum class TransactionType : quint8 {MINED, INPUT, OUTPUT, INOUT, FUSION};
 
+enum class TransactionState : quint8 {ACTIVE, DELETED, SENDING, CANCELLED, FAILED};
+
 typedef QPair<CryptoNote::TransactionId, CryptoNote::TransferId> TransactionTransferId;
 
 class TransactionsModel : public QAbstractItemModel {
@@ -22,14 +24,14 @@ class TransactionsModel : public QAbstractItemModel {
   Q_ENUMS(Roles)
 
 public:
-  enum Columns{
+  enum Columns {
     COLUMN_STATE = 0, COLUMN_DATE, COLUMN_AMOUNT, COLUMN_FEE, COLUMN_ADDRESS, COLUMN_PAYMENT_ID, COLUMN_HASH,
     COLUMN_HEIGHT, COLUMN_TYPE, COLUMN_SECRET_KEY
   };
 
-  enum Roles{
+  enum Roles {
     ROLE_DATE = Qt::UserRole, ROLE_TYPE, ROLE_HASH, ROLE_ADDRESS, ROLE_AMOUNT, ROLE_PAYMENT_ID, ROLE_ICON,
-    ROLE_TRANSACTION_ID, ROLE_HEIGHT, ROLE_FEE, ROLE_NUMBER_OF_CONFIRMATIONS, ROLE_SECRET_KEY, ROLE_COLUMN, ROLE_ROW
+    ROLE_TRANSACTION_ID, ROLE_HEIGHT, ROLE_FEE, ROLE_NUMBER_OF_CONFIRMATIONS, ROLE_SECRET_KEY, ROLE_COLUMN, ROLE_ROW, ROLE_STATE
   };
 
   static TransactionsModel& instance();
