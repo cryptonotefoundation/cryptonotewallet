@@ -66,7 +66,7 @@ int main(int argc, char* argv[]) {
 
   setlocale(LC_ALL, "");
 
-  QFile File(":/skin/default.qss");
+  QFile File(":/skin/qdarkstyle.qss");
   File.open(QFile::ReadOnly);
   QString StyleSheet = QLatin1String(File.readAll());
   qApp->setStyleSheet(StyleSheet);

@@ -29,7 +29,7 @@ namespace {
 const char SEND_GLASS_FRAME_STYLE_SHEET_TEMPLATE[] =
   "WalletGui--SendGlassFrame {"
     "border: none;"
-    "background-color: #eaCADEF7"
+    "background-color: #ea505F69"
   "}";
 
 const char SEND_FRAME_STYLE_SHEET[] =
@@ -122,7 +122,7 @@ void SendGlassFrame::drawProgressGraph(QPainter &_painter) {
   _painter.setPen(pen);
   _painter.drawArc(rect, 0, 360 * degree);
 
-  pen.setColor(QColor("#30466c"));
+  pen.setColor(QColor("#232629"));
   _painter.setPen(pen);
   _painter.drawArc(rect, startAngle, endAngle);
 }
@@ -137,7 +137,7 @@ void SendGlassFrame::drawProgressLabel(QPainter &_painter) {
   messageRect.moveCenter(QPoint(m_pixmapBuffer.width() / 2, 163));
 
   QPen pen;
-  pen.setColor(QColor("#364a6d"));
+  pen.setColor(QColor("#232629"));
   _painter.setPen(pen);
   _painter.setFont(font);
   _painter.setRenderHint(QPainter::TextAntialiasing);
@@ -154,7 +154,7 @@ void SendGlassFrame::drawProgressValue(QPainter &_painter) {
   messageRect.moveCenter(QPoint(m_pixmapBuffer.width() / 2, 198));
 
   QPen pen;
-  pen.setColor(QColor("#364a6d"));
+  pen.setColor(QColor("#232629"));
   _painter.setPen(pen);
   _painter.setFont(font);
   _painter.drawText(messageRect, Qt::AlignCenter, msg);
