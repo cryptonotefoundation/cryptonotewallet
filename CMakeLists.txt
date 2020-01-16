@@ -221,7 +221,9 @@ file(GLOB_RECURSE FORMS src/gui/ui/*.ui)
 file(GLOB_RECURSE Mnemonics cryptonote/src/Mnemonics/*)
 file(GLOB TRANSLATION_FILES src/languages/*.ts)
 
-set(QRC src/resources.qrc)
+set(QRC
+	src/resources.qrc
+	src/qdarkstyle/style.qrc)
 set_source_files_properties(${TRANSLATION_FILES} PROPERTIES OUTPUT_LOCATION "${CMAKE_BINARY_DIR}/languages")
 
 qt5_wrap_ui(UIS ${FORMS})

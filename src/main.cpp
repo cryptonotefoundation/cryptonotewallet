@@ -66,10 +66,15 @@ int main(int argc, char* argv[]) {
 
   setlocale(LC_ALL, "");
 
-  QFile File(":/skin/qdarkstyle.qss");
-  File.open(QFile::ReadOnly);
-  QString StyleSheet = QLatin1String(File.readAll());
-  qApp->setStyleSheet(StyleSheet);
+  QFile File1(":/qdarkstyle/style.qss");
+  File1.open(QFile::ReadOnly);
+  QString StyleSheet1 = QLatin1String(File1.readAll());
+
+  QFile File2(":/skin/dark.qss");
+  File2.open(QFile::ReadOnly);
+  QString StyleSheet2 = QLatin1String(File2.readAll());
+
+  qApp->setStyleSheet(StyleSheet1 + StyleSheet2);
 
   if (PaymentServer::ipcSendCommandLine())
   exit(0);

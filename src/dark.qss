@@ -1,0 +1,110 @@
+/* Custom Karbo Styles -------------------------------------------------------
+
+--------------------------------------------------------------------------- */
+
+QToolBar {
+  spacing: 0;
+  padding: 0;
+  margin:  0;
+}
+
+QToolBar#accountToolBar, #m_accountFrame { 
+  background-color: #32414B;
+  margin: 0;
+  padding: 0;
+  spacing: 0px;
+  min-height: 100px;
+  
+}
+
+#m_accountFrame QLabel,
+#m_accountFrame QSpacerItem {
+  background-color: #32414B;
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+QToolBar#accountToolBar {
+  height: 101px;
+  border-bottom: 1px solid #84898E;
+}
+
+#m_accountFrame {
+  height: 100px;
+  max-height: 100px;
+}
+
+#m_accountFrame #m_balanceFrame {
+  background-color: #0b1620;
+}
+
+#m_accountFrame #m_balanceFrame QLabel {
+  background-color: #0b1620;
+}
+
+#m_accountFrame #line {
+  background-color: #32414B;
+  border: none;
+  padding: 0px;
+  max-height: 1px;
+}
+
+QToolBar#toolBar {
+  background-color: #0b1620;
+  width: 250px; 
+  min-width: 250px; 
+  spacing: 0; 
+  padding: 0; 
+  margin: 0;
+  border: 0;
+}
+
+QToolBar#toolBar QToolButton{ 
+  background-color: transparent;
+  text-align: left;
+  text-transform: uppercase;
+  font-size: 11px;
+  padding: 10px 5px 10px 5px;
+  margin: 0;
+  spacing:0px;
+  width: 250px;
+  color: #ffffff;
+  border: 1px solid transparent;
+  border-radius: 0;
+  min-width: 200px;
+}
+
+QToolBar#toolBar QToolButton:pressed {
+  background-color: #232629;
+}
+
+QToolBar#toolBar QToolButton:checked {
+  background-color: #19232D;
+  border-left: 1px solid #148CD2;
+}
+
+QToolBar#toolBar QToolButton:hover {
+  background-color: #505F69;
+}
+
+QToolBar#toolBar QToolButton::checked:hover {
+  background-color: #505F69;
+}
+
+QStatusBar#statusBar {
+  background-color: #19232D;
+}
+
+QProgressBar {
+  border: 1px solid transparent;
+  text-align: left;
+}
+
+#m_recentTransactionsView QFrame {
+  background-color: transparent;
+}
+
+#m_recentTransactionsView #m_amountLabel {
+
+}
