@@ -35,21 +35,6 @@ QToolBar#accountToolBar {
   max-height: 100px;
 }
 
-#m_accountFrame #m_balanceFrame {
-  background-color: #0b1620;
-}
-
-#m_accountFrame #m_balanceFrame QLabel {
-  background-color: #0b1620;
-}
-
-#m_accountFrame #line {
-  background-color: #32414B;
-  border: none;
-  padding: 0px;
-  max-height: 1px;
-}
-
 QToolBar#toolBar {
   background-color: #0b1620;
   width: 250px; 
