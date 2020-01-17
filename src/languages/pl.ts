@@ -40,7 +40,7 @@
     </message>
     <message>
         <source>Your account:</source>
-        <translation>Twoje konto:</translation>
+        <translation type="vanished">Twoje konto:</translation>
     </message>
     <message>
         <source>Your receiving address</source>
@@ -56,11 +56,11 @@
     </message>
     <message>
         <source>Total balance</source>
-        <translation>Saldo konta</translation>
+        <translation type="vanished">Saldo konta</translation>
     </message>
     <message>
         <source> krb</source>
-        <translation> krb.</translation>
+        <translation type="vanished"> krb.</translation>
     </message>
     <message>
         <source>Frame</source>
@@ -73,6 +73,26 @@
     <message>
         <source>0.00</source>
         <translation type="unfinished">0.00</translation>
+    </message>
+    <message>
+        <source>Available:</source>
+        <translation>Dostępne:</translation>
+    </message>
+    <message>
+        <source>Unmixable:</source>
+        <translation>Nieosiągalne:</translation>
+    </message>
+    <message>
+        <source>Unconfirmed:</source>
+        <translation>Niepotwierdzony:</translation>
+    </message>
+    <message>
+        <source>Total:</source>
+        <translation>Łącznie:</translation>
+    </message>
+    <message>
+        <source>Your address</source>
+        <translation>Twój adres</translation>
     </message>
 </context>
 <context>
@@ -1042,7 +1062,7 @@ Proszę czekać...</translation>
     </message>
     <message>
         <source>Total:</source>
-        <translation>Łącznie:</translation>
+        <translation type="vanished">Łącznie:</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -1050,7 +1070,7 @@ Proszę czekać...</translation>
     </message>
     <message>
         <source>Unconfirmed:</source>
-        <translation>Niepotwierdzony:</translation>
+        <translation type="vanished">Niepotwierdzony:</translation>
     </message>
     <message>
         <source>Balance:</source>
@@ -1062,19 +1082,19 @@ Proszę czekać...</translation>
     </message>
     <message>
         <source>Balance</source>
-        <translation>Saldo</translation>
+        <translation type="vanished">Saldo</translation>
     </message>
     <message>
         <source>Available balance:</source>
-        <translation>Dostępne saldo:</translation>
+        <translation type="vanished">Dostępne saldo:</translation>
     </message>
     <message>
         <source>Unmixable dust:</source>
-        <translation>Nieosiągalne:</translation>
+        <translation type="vanished">Nieosiągalne:</translation>
     </message>
     <message>
         <source>0.00</source>
-        <translation>0.00</translation>
+        <translation type="vanished">0.00</translation>
     </message>
 </context>
 <context>
@@ -1325,7 +1345,7 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
     </message>
     <message>
         <source>Available balance:</source>
-        <translation>Dostępne saldo:</translation>
+        <translation type="vanished">Dostępne saldo:</translation>
     </message>
     <message>
         <source>Payment ID:</source>

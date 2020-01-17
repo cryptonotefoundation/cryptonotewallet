@@ -27,51 +27,73 @@
         <translation>ढाँचा</translation>
     </message>
     <message>
-        <location filename="../gui/ui/accountframe.ui" line="76"/>
         <source>Your account:</source>
-        <translation>आपका एकाउंट:</translation>
+        <translation type="vanished">आपका एकाउंट:</translation>
     </message>
     <message>
-        <location filename="../gui/ui/accountframe.ui" line="127"/>
+        <location filename="../gui/ui/accountframe.ui" line="99"/>
+        <source>Available:</source>
+        <translation>उपलब्ध:</translation>
+    </message>
+    <message>
+        <location filename="../gui/ui/accountframe.ui" line="133"/>
+        <source>Unmixable:</source>
+        <translation>मिक्स नहीं होने:</translation>
+    </message>
+    <message>
+        <location filename="../gui/ui/accountframe.ui" line="140"/>
+        <source>Unconfirmed:</source>
+        <translatorcomment>अपुष्ट:</translatorcomment>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../gui/ui/accountframe.ui" line="167"/>
+        <source>Total:</source>
+        <translation>कुल:</translation>
+    </message>
+    <message>
+        <location filename="../gui/ui/accountframe.ui" line="253"/>
+        <source>Your address</source>
+        <translation>आपका पता</translation>
+    </message>
+    <message>
+        <location filename="../gui/ui/accountframe.ui" line="295"/>
         <source>Your receiving address</source>
         <translation>आपका प्राप्ति पता </translation>
     </message>
     <message>
-        <location filename="../gui/ui/accountframe.ui" line="130"/>
+        <location filename="../gui/ui/accountframe.ui" line="298"/>
         <source>This is your account address</source>
         <translation>यह आपका अकाउंट एड्रेस है</translation>
     </message>
     <message>
-        <location filename="../gui/ui/accountframe.ui" line="168"/>
+        <location filename="../gui/ui/accountframe.ui" line="320"/>
         <source>Copy address</source>
         <translation>एड्रेस कॉपी करें</translation>
     </message>
     <message>
-        <location filename="../gui/ui/accountframe.ui" line="177"/>
-        <location filename="../gui/ui/accountframe.ui" line="200"/>
+        <location filename="../gui/ui/accountframe.ui" line="329"/>
+        <location filename="../gui/ui/accountframe.ui" line="352"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../gui/ui/accountframe.ui" line="194"/>
+        <location filename="../gui/ui/accountframe.ui" line="346"/>
         <source>Show QR code</source>
         <translation>QR कोड दिखायें</translation>
     </message>
     <message>
-        <location filename="../gui/ui/accountframe.ui" line="243"/>
-        <location filename="../gui/ui/accountframe.ui" line="246"/>
         <source>Total balance</source>
-        <translation>कुल बैलेंस</translation>
+        <translation type="vanished">कुल बैलेंस</translation>
     </message>
     <message>
-        <location filename="../gui/ui/accountframe.ui" line="249"/>
+        <location filename="../gui/ui/accountframe.ui" line="153"/>
         <source>0.00</source>
         <translation>0.00</translation>
     </message>
     <message>
-        <location filename="../gui/ui/accountframe.ui" line="289"/>
         <source> krb</source>
-        <translation>krb</translation>
+        <translation type="vanished">krb</translation>
     </message>
 </context>
 <context>
@@ -1212,37 +1234,15 @@ Please wait...</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../gui/ui/overviewframe.ui" line="88"/>
-        <source>Unconfirmed:</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../gui/ui/overviewframe.ui" line="108"/>
         <source>Balance</source>
-        <translation>बैलेंस</translation>
+        <translation type="vanished">बैलेंस</translation>
     </message>
     <message>
-        <location filename="../gui/ui/overviewframe.ui" line="115"/>
-        <source>Total:</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../gui/ui/overviewframe.ui" line="142"/>
         <source>Available balance:</source>
-        <translation>उपलब्ध बैलेंस:</translation>
+        <translation type="vanished">उपलब्ध बैलेंस:</translation>
     </message>
     <message>
-        <location filename="../gui/ui/overviewframe.ui" line="182"/>
-        <source>Unmixable dust:</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../gui/ui/overviewframe.ui" line="195"/>
-        <source>0.00</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../gui/ui/overviewframe.ui" line="257"/>
+        <location filename="../gui/ui/overviewframe.ui" line="76"/>
         <source>Recent transactions</source>
         <translation></translation>
     </message>
@@ -1557,9 +1557,8 @@ Do you want to go to download page?</source>
         <translation type="obsolete">रिमोट नोड मोड</translation>
     </message>
     <message>
-        <location filename="../gui/ui/sendframe.ui" line="507"/>
         <source>Available balance:</source>
-        <translation>उपलब्ध बैलेंस:</translation>
+        <translation type="vanished">उपलब्ध बैलेंस:</translation>
     </message>
 </context>
 <context>
@@ -1614,23 +1613,23 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <location filename="../gui/ui/signmessagedialog.ui" line="102"/>
-        <location filename="../gui/ui/signmessagedialog.ui" line="232"/>
+        <location filename="../gui/ui/signmessagedialog.ui" line="241"/>
         <source>Message</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/ui/signmessagedialog.ui" line="134"/>
-        <location filename="../gui/ui/signmessagedialog.ui" line="212"/>
+        <location filename="../gui/ui/signmessagedialog.ui" line="137"/>
+        <location filename="../gui/ui/signmessagedialog.ui" line="218"/>
         <source>Signature</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/ui/signmessagedialog.ui" line="178"/>
+        <location filename="../gui/ui/signmessagedialog.ui" line="184"/>
         <source>Verify message</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/ui/signmessagedialog.ui" line="198"/>
+        <location filename="../gui/ui/signmessagedialog.ui" line="204"/>
         <source>Address</source>
         <translation type="unfinished">एड्रेस</translation>
     </message>
@@ -1656,9 +1655,9 @@ Do you want to go to download page?</source>
         <translation>ढाँचा</translation>
     </message>
     <message>
-        <location filename="../gui/ui/transactionframe.ui" line="136"/>
-        <location filename="../gui/ui/transactionframe.ui" line="143"/>
-        <location filename="../gui/ui/transactionframe.ui" line="158"/>
+        <location filename="../gui/ui/transactionframe.ui" line="123"/>
+        <location filename="../gui/ui/transactionframe.ui" line="133"/>
+        <location filename="../gui/ui/transactionframe.ui" line="156"/>
         <source>TextLabel</source>
         <translation>TextLabel</translation>
     </message>
@@ -1798,7 +1797,7 @@ Do you want to go to download page?</source>
 <context>
     <name>WalletGui::AccountFrame</name>
     <message>
-        <location filename="../gui/AccountFrame.cpp" line="40"/>
+        <location filename="../gui/AccountFrame.cpp" line="49"/>
         <source>Copied to clipboard</source>
         <translation>क्लिपबोर्ड पर कॉपी हुआ</translation>
     </message>
@@ -2594,79 +2593,79 @@ Are you sure?</source>
 <context>
     <name>WalletGui::SendFrame</name>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="60"/>
+        <location filename="../gui/SendFrame.cpp" line="59"/>
         <source>Low</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="61"/>
+        <location filename="../gui/SendFrame.cpp" line="60"/>
         <source>Normal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="62"/>
+        <location filename="../gui/SendFrame.cpp" line="61"/>
         <source>High</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="63"/>
+        <location filename="../gui/SendFrame.cpp" line="62"/>
         <source>Highest</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="226"/>
+        <location filename="../gui/SendFrame.cpp" line="220"/>
         <source>Node fee: %1 %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="259"/>
+        <location filename="../gui/SendFrame.cpp" line="253"/>
         <source>Payment request should start with karbowanec:</source>
         <translation>भुगतान अनुरोध karbowanec के साथ शुरू होना चाहिए:</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="273"/>
-        <location filename="../gui/SendFrame.cpp" line="339"/>
+        <location filename="../gui/SendFrame.cpp" line="267"/>
+        <location filename="../gui/SendFrame.cpp" line="333"/>
         <source>Invalid recipient address</source>
         <translation>अमान्य प्राप्तकर्ता पता</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="303"/>
-        <location filename="../gui/SendFrame.cpp" line="458"/>
+        <location filename="../gui/SendFrame.cpp" line="297"/>
+        <location filename="../gui/SendFrame.cpp" line="447"/>
         <source>Insufficient balance.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="312"/>
+        <location filename="../gui/SendFrame.cpp" line="306"/>
         <source>Incorrect password</source>
         <translation>गलत पासवर्ड</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="312"/>
+        <location filename="../gui/SendFrame.cpp" line="306"/>
         <source>Wrong password.</source>
         <translation>गलत पासवर्ड।</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="378"/>
+        <location filename="../gui/SendFrame.cpp" line="372"/>
         <source>Incorrect fee value</source>
         <translation>गलत शुल्क मूल्य</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="387"/>
+        <location filename="../gui/SendFrame.cpp" line="381"/>
         <source>Insufficient balance</source>
         <translation>अपर्याप्त बैलेंस</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="387"/>
+        <location filename="../gui/SendFrame.cpp" line="381"/>
         <source>Available balance is insufficient to send this transaction. Have you excluded a fee?</source>
         <translation>उपलब्ध बैलेंस इस लेनदेन को भेजने के लिए अपर्याप्त है। क्या आपने शुल्क हटा लिया है?</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="394"/>
+        <location filename="../gui/SendFrame.cpp" line="388"/>
         <source>Invalid payment ID</source>
         <translation>अमान्य भुगतान आईडी</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="465"/>
+        <location filename="../gui/SendFrame.cpp" line="454"/>
         <source>You have unmixable dust on balance. Use menu &apos;Wallet -&gt; Sweep unmixable&apos; first.</source>
         <translation type="unfinished"></translation>
     </message>

@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2015 The Cryptonote developers
 // Copyright (c) 2015-2016 XDN developers
-// Copyright (c) 2016-2017 The Karbowanec developers
+// Copyright (c) 2016-2020 The Karbo developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -50,7 +50,6 @@ SendFrame::SendFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::SendFrame
   connect(&WalletAdapter::instance(), &WalletAdapter::walletSynchronizationProgressUpdatedSignal,
     this, &SendFrame::walletSynchronizationInProgress, Qt::QueuedConnection);
 
-  m_ui->m_tickerLabel->setText(CurrencyAdapter::instance().getCurrencyTicker().toUpper());
   m_ui->m_feeSpin->setSuffix(" " + CurrencyAdapter::instance().getCurrencyTicker().toUpper());
   m_ui->m_donateSpin->setSuffix(" " + CurrencyAdapter::instance().getCurrencyTicker().toUpper());
   m_ui->m_remote_label->hide();
@@ -218,11 +217,6 @@ void SendFrame::amountValueChange() {
     if( !remote_node_fee_address.isEmpty() ) {
         quint64 actualBalance = WalletAdapter::instance().getActualBalance();
         dust_balance = WalletAdapter::instance().getUnmixableBalance();
-        if(actualBalance > remote_node_fee) {
-            m_ui->m_balanceLabel->setText(CurrencyAdapter::instance().formatAmount(actualBalance - remote_node_fee - dust_balance));
-        } else {
-            m_ui->m_balanceLabel->setText(CurrencyAdapter::instance().formatAmount(actualBalance - dust_balance));
-        }
         m_ui->m_remote_label->setText(QString(tr("Node fee: %1 %2")).arg(CurrencyAdapter::instance().formatAmount(remote_node_fee)).arg(CurrencyAdapter::instance().getCurrencyTicker().toUpper()));
     }
 }
@@ -422,11 +416,6 @@ void SendFrame::sendTransactionCompleted(CryptoNote::TransactionId _id, bool _er
 
 void SendFrame::walletActualBalanceUpdated(quint64 _balance) {
   dust_balance = WalletAdapter::instance().getUnmixableBalance();
-  if(!remote_node_fee_address.isEmpty() && _balance > remote_node_fee) {
-    m_ui->m_balanceLabel->setText(CurrencyAdapter::instance().formatAmount(_balance - remote_node_fee - dust_balance));
-  } else {
-    m_ui->m_balanceLabel->setText(CurrencyAdapter::instance().formatAmount(_balance - dust_balance));
-  }
 }
 
 bool SendFrame::isValidPaymentId(const QByteArray& _paymentIdString) {

@@ -40,7 +40,7 @@
     </message>
     <message>
         <source>Your account:</source>
-        <translation>Votre compte:</translation>
+        <translation type="vanished">Votre compte:</translation>
     </message>
     <message>
         <source>Your receiving address</source>
@@ -56,11 +56,11 @@
     </message>
     <message>
         <source>Total balance</source>
-        <translation>Solde total</translation>
+        <translation type="vanished">Solde total</translation>
     </message>
     <message>
         <source> krb</source>
-        <translation> krb</translation>
+        <translation type="vanished"> krb</translation>
     </message>
     <message>
         <source>Frame</source>
@@ -73,6 +73,26 @@
     <message>
         <source>0.00</source>
         <translation>0.00</translation>
+    </message>
+    <message>
+        <source>Available:</source>
+        <translation>Disponible:</translation>
+    </message>
+    <message>
+        <source>Unmixable:</source>
+        <translation>Non Mélangeables:</translation>
+    </message>
+    <message>
+        <source>Unconfirmed:</source>
+        <translation>Non confirmé:</translation>
+    </message>
+    <message>
+        <source>Total:</source>
+        <translation>Total:</translation>
+    </message>
+    <message>
+        <source>Your address</source>
+        <translation>Votre adresse</translation>
     </message>
 </context>
 <context>
@@ -1062,7 +1082,7 @@ S&apos;il vous plaît, patientez...</translation>
     </message>
     <message>
         <source>Total:</source>
-        <translation>Total:</translation>
+        <translation type="vanished">Total:</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -1070,7 +1090,7 @@ S&apos;il vous plaît, patientez...</translation>
     </message>
     <message>
         <source>Unconfirmed:</source>
-        <translation>Non confirmé:</translation>
+        <translation type="vanished">Non confirmé:</translation>
     </message>
     <message>
         <source>Balance:</source>
@@ -1082,19 +1102,19 @@ S&apos;il vous plaît, patientez...</translation>
     </message>
     <message>
         <source>Balance</source>
-        <translation>Balance</translation>
+        <translation type="vanished">Balance</translation>
     </message>
     <message>
         <source>Available balance:</source>
-        <translation>Balance disponible:</translation>
+        <translation type="vanished">Balance disponible:</translation>
     </message>
     <message>
         <source>Unmixable dust:</source>
-        <translation>Non Mélangeables:</translation>
+        <translation type="vanished">Non Mélangeables:</translation>
     </message>
     <message>
         <source>0.00</source>
-        <translation>0.00</translation>
+        <translation type="vanished">0.00</translation>
     </message>
 </context>
 <context>
@@ -1349,7 +1369,7 @@ Voulez-vous aller à la page de téléchargement?</translation>
     </message>
     <message>
         <source>Available balance:</source>
-        <translation>Balance disponible:</translation>
+        <translation type="vanished">Balance disponible:</translation>
     </message>
     <message>
         <source>Anonymity level:</source>

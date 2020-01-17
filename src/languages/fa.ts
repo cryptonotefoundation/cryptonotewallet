@@ -40,7 +40,7 @@
     </message>
     <message>
         <source>Your account:</source>
-        <translation>حساب شما :</translation>
+        <translation type="vanished">حساب شما :</translation>
     </message>
     <message>
         <source>Your receiving address</source>
@@ -56,11 +56,11 @@
     </message>
     <message>
         <source>Total balance</source>
-        <translation>موجودی کل</translation>
+        <translation type="vanished">موجودی کل</translation>
     </message>
     <message>
         <source> krb</source>
-        <translation> krb</translation>
+        <translation type="vanished"> krb</translation>
     </message>
     <message>
         <source>Frame</source>
@@ -73,6 +73,26 @@
     <message>
         <source>0.00</source>
         <translation>0.00</translation>
+    </message>
+    <message>
+        <source>Available:</source>
+        <translation>در دسترس:</translation>
+    </message>
+    <message>
+        <source>Unmixable:</source>
+        <translation>موجودی غیرقابل دسترس :</translation>
+    </message>
+    <message>
+        <source>Unconfirmed:</source>
+        <translation>تایید نشده :</translation>
+    </message>
+    <message>
+        <source>Total:</source>
+        <translation>کل :</translation>
+    </message>
+    <message>
+        <source>Your address</source>
+        <translation>نشانی شما</translation>
     </message>
 </context>
 <context>
@@ -1042,7 +1062,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Total:</source>
-        <translation>کل :</translation>
+        <translation type="vanished">کل :</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -1050,7 +1070,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Unconfirmed:</source>
-        <translation>تایید نشده :</translation>
+        <translation type="vanished">تایید نشده :</translation>
     </message>
     <message>
         <source>Balance:</source>
@@ -1062,19 +1082,19 @@ Please wait...</source>
     </message>
     <message>
         <source>Balance</source>
-        <translation>موجودی</translation>
+        <translation type="vanished">موجودی</translation>
     </message>
     <message>
         <source>Available balance:</source>
-        <translation>موجودی در دسترس :</translation>
+        <translation type="vanished">موجودی در دسترس :</translation>
     </message>
     <message>
         <source>Unmixable dust:</source>
-        <translation>موجودی غیرقابل دسترس :</translation>
+        <translation type="vanished">موجودی غیرقابل دسترس :</translation>
     </message>
     <message>
         <source>0.00</source>
-        <translation>0.00</translation>
+        <translation type="vanished">0.00</translation>
     </message>
 </context>
 <context>
@@ -1329,7 +1349,7 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>Available balance:</source>
-        <translation>موجودی در دسترس :</translation>
+        <translation type="vanished">موجودی در دسترس :</translation>
     </message>
     <message>
         <source>Payment ID:</source>

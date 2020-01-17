@@ -6,19 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>580</width>
+    <width>800</width>
     <height>64</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>0</width>
+    <width>500</width>
     <height>64</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>600</width>
+    <width>16777215</width>
     <height>64</height>
    </size>
   </property>
@@ -71,7 +71,7 @@
   <property name="frameShadow">
    <enum>QFrame::Raised</enum>
   </property>
-  <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,0,0">
+  <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,0">
    <property name="leftMargin">
     <number>0</number>
    </property>
@@ -84,19 +84,6 @@
    <property name="bottomMargin">
     <number>0</number>
    </property>
-   <item>
-    <spacer name="horizontalSpacer">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>40</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
    <item>
     <widget class="QLabel" name="m_iconLabel">
      <property name="text">
@@ -126,7 +113,7 @@
       </spacer>
      </item>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,1">
+      <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,0,1">
        <property name="spacing">
         <number>20</number>
        </property>
@@ -138,7 +125,33 @@
         </widget>
        </item>
        <item>
+        <widget class="QLabel" name="m_hashLabel">
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>TextLabel</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+         <property name="indent">
+          <number>-1</number>
+         </property>
+         <property name="textInteractionFlags">
+          <set>Qt::NoTextInteraction</set>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QLabel" name="m_amountLabel">
+         <property name="font">
+          <font>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="text">
           <string>TextLabel</string>
          </property>
@@ -148,25 +161,6 @@
         </widget>
        </item>
       </layout>
-     </item>
-     <item>
-      <widget class="QLabel" name="m_hashLabel">
-       <property name="styleSheet">
-        <string notr="true"/>
-       </property>
-       <property name="text">
-        <string>TextLabel</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-       </property>
-       <property name="indent">
-        <number>-1</number>
-       </property>
-       <property name="textInteractionFlags">
-        <set>Qt::NoTextInteraction</set>
-       </property>
-      </widget>
      </item>
      <item>
       <spacer name="verticalSpacer">

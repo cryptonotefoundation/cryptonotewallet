@@ -495,42 +495,6 @@
        </property>
       </widget>
      </item>
-     <item>
-      <widget class="QLabel" name="label_4">
-       <property name="font">
-        <font>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>Available balance:</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="m_balanceLabel">
-       <property name="font">
-        <font>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string notr="true">0.00 </string>
-       </property>
-       <property name="textInteractionFlags">
-        <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="m_tickerLabel">
-       <property name="text">
-        <string notr="true"/>
-       </property>
-      </widget>
-     </item>
     </layout>
    </item>
   </layout>

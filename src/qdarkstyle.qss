@@ -2091,25 +2091,33 @@ QToolBar#accountToolBar, #m_accountFrame {
 
 QToolBar#accountToolBar {
   height: 101px;
-  /*border-bottom: 1px solid #148CD2;*/
-}
-
-#accountToolBar #totalBalance {
-  margin-bottom: 8px;
-}
-
-#accountToolBar #m_ticker {
-  margin-bottom: 6px;
+  border-bottom: 1px solid #84898E;
 }
 
 #m_accountFrame {
   height: 100px;
+  max-height: 100px;
+}
+
+#m_accountFrame #m_balanceFrame {
+  background-color: #0b1620;
+}
+
+#m_accountFrame #m_balanceFrame QLabel {
+  background-color: #0b1620;
+}
+
+#m_accountFrame #line {
+  background-color: #32414B;
+  border: none;
+  padding: 0px;
+  max-height: 1px;
 }
 
 QToolBar#toolBar {
   background-color: #0b1620;
-  width: 200px; 
-  min-width: 200px; 
+  width: 250px; 
+  min-width: 250px; 
   spacing: 0; 
   padding: 0; 
   margin: 0;
@@ -2124,7 +2132,7 @@ QToolBar#toolBar QToolButton{
   padding: 10px 5px 10px 5px;
   margin: 0;
   spacing:0px;
-  width: 200px;
+  width: 250px;
   color: #ffffff;
   border: 1px solid transparent;
   border-radius: 0;
@@ -2157,13 +2165,10 @@ QProgressBar {
   text-align: left;
 }
 
-#m_overviewFrame #line {
-  background-color: #32414B;
-  border: none;
-  padding: 0px;
-  max-height: 1px;
-}
-
 #m_recentTransactionsView QFrame {
   background-color: transparent;
+}
+
+#m_recentTransactionsView #m_amountLabel {
+
 }

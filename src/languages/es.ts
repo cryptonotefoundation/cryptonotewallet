@@ -40,7 +40,7 @@
     </message>
     <message>
         <source>Your account:</source>
-        <translation>Su cuenta:</translation>
+        <translation type="vanished">Su cuenta:</translation>
     </message>
     <message>
         <source>Your receiving address</source>
@@ -56,11 +56,11 @@
     </message>
     <message>
         <source>Total balance</source>
-        <translation>Saldo total</translation>
+        <translation type="vanished">Saldo total</translation>
     </message>
     <message>
         <source> krb</source>
-        <translation> krb</translation>
+        <translation type="vanished"> krb</translation>
     </message>
     <message>
         <source>Frame</source>
@@ -73,6 +73,26 @@
     <message>
         <source>0.00</source>
         <translation>0.00</translation>
+    </message>
+    <message>
+        <source>Available:</source>
+        <translation>Disponible:</translation>
+    </message>
+    <message>
+        <source>Unmixable:</source>
+        <translation>Inmezclable:</translation>
+    </message>
+    <message>
+        <source>Unconfirmed:</source>
+        <translation>Inconfirmado:</translation>
+    </message>
+    <message>
+        <source>Total:</source>
+        <translation>Total:</translation>
+    </message>
+    <message>
+        <source>Your address</source>
+        <translation>Su dirección</translation>
     </message>
 </context>
 <context>
@@ -1054,7 +1074,7 @@ Por favor, espera...</translation>
     </message>
     <message>
         <source>Total:</source>
-        <translation>Total:</translation>
+        <translation type="vanished">Total:</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -1062,7 +1082,7 @@ Por favor, espera...</translation>
     </message>
     <message>
         <source>Unconfirmed:</source>
-        <translation>Inconfirmado:</translation>
+        <translation type="vanished">Inconfirmado:</translation>
     </message>
     <message>
         <source>Balance:</source>
@@ -1074,19 +1094,19 @@ Por favor, espera...</translation>
     </message>
     <message>
         <source>Balance</source>
-        <translation>Saldo</translation>
+        <translation type="vanished">Saldo</translation>
     </message>
     <message>
         <source>Available balance:</source>
-        <translation>Saldo disponible:</translation>
+        <translation type="vanished">Saldo disponible:</translation>
     </message>
     <message>
         <source>Unmixable dust:</source>
-        <translation>Inmezclable:</translation>
+        <translation type="vanished">Inmezclable:</translation>
     </message>
     <message>
         <source>0.00</source>
-        <translation>0.00</translation>
+        <translation type="vanished">0.00</translation>
     </message>
 </context>
 <context>
@@ -1343,7 +1363,7 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>Available balance:</source>
-        <translation>Saldo disponible:</translation>
+        <translation type="vanished">Saldo disponible:</translation>
     </message>
     <message>
         <source>Payment ID:</source>

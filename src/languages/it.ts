@@ -27,50 +27,67 @@
         <translation>Quadro</translation>
     </message>
     <message>
-        <location filename="../gui/ui/accountframe.ui" line="76"/>
         <source>Your account:</source>
-        <translation>Il tuo account:</translation>
+        <translation type="vanished">Il tuo account:</translation>
     </message>
     <message>
-        <location filename="../gui/ui/accountframe.ui" line="127"/>
+        <location filename="../gui/ui/accountframe.ui" line="99"/>
+        <source>Available:</source>
+        <translation>Disponibile:</translation>
+    </message>
+    <message>
+        <location filename="../gui/ui/accountframe.ui" line="133"/>
+        <source>Unmixable:</source>
+        <translation>Non miscelabile:</translation>
+    </message>
+    <message>
+        <location filename="../gui/ui/accountframe.ui" line="140"/>
+        <source>Unconfirmed:</source>
+        <translation>Non confermato:</translation>
+    </message>
+    <message>
+        <location filename="../gui/ui/accountframe.ui" line="167"/>
+        <source>Total:</source>
+        <translation>Totale:</translation>
+    </message>
+    <message>
+        <location filename="../gui/ui/accountframe.ui" line="253"/>
+        <source>Your address</source>
+        <translation>Il tuo indirizzo</translation>
+    </message>
+    <message>
+        <location filename="../gui/ui/accountframe.ui" line="295"/>
         <source>Your receiving address</source>
         <translation>Il tuo indirizzo di ricezione</translation>
     </message>
     <message>
-        <location filename="../gui/ui/accountframe.ui" line="130"/>
+        <location filename="../gui/ui/accountframe.ui" line="298"/>
         <source>This is your account address</source>
         <translation>Questo è l&apos;indirizzo del tuo account</translation>
     </message>
     <message>
-        <location filename="../gui/ui/accountframe.ui" line="168"/>
+        <location filename="../gui/ui/accountframe.ui" line="320"/>
         <source>Copy address</source>
         <translation>Copia indirizzo</translation>
     </message>
     <message>
-        <location filename="../gui/ui/accountframe.ui" line="177"/>
-        <location filename="../gui/ui/accountframe.ui" line="200"/>
+        <location filename="../gui/ui/accountframe.ui" line="329"/>
+        <location filename="../gui/ui/accountframe.ui" line="352"/>
         <source>...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/ui/accountframe.ui" line="194"/>
+        <location filename="../gui/ui/accountframe.ui" line="346"/>
         <source>Show QR code</source>
         <translation>Mostra codice QR</translation>
     </message>
     <message>
-        <location filename="../gui/ui/accountframe.ui" line="243"/>
-        <location filename="../gui/ui/accountframe.ui" line="246"/>
         <source>Total balance</source>
-        <translation>Saldo totale</translation>
+        <translation type="vanished">Saldo totale</translation>
     </message>
     <message>
-        <location filename="../gui/ui/accountframe.ui" line="249"/>
+        <location filename="../gui/ui/accountframe.ui" line="153"/>
         <source>0.00</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../gui/ui/accountframe.ui" line="289"/>
-        <source> krb</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1194,37 +1211,27 @@ Attendere prego…
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/ui/overviewframe.ui" line="88"/>
         <source>Unconfirmed:</source>
-        <translation>Non confermato:</translation>
+        <translation type="vanished">Non confermato:</translation>
     </message>
     <message>
-        <location filename="../gui/ui/overviewframe.ui" line="108"/>
         <source>Balance</source>
-        <translation>Saldo</translation>
+        <translation type="vanished">Saldo</translation>
     </message>
     <message>
-        <location filename="../gui/ui/overviewframe.ui" line="115"/>
         <source>Total:</source>
-        <translation>Totale:</translation>
+        <translation type="vanished">Totale:</translation>
     </message>
     <message>
-        <location filename="../gui/ui/overviewframe.ui" line="142"/>
         <source>Available balance:</source>
-        <translation>Saldo disponibile:</translation>
+        <translation type="vanished">Saldo disponibile:</translation>
     </message>
     <message>
-        <location filename="../gui/ui/overviewframe.ui" line="182"/>
         <source>Unmixable dust:</source>
-        <translation>Non miscelabile:</translation>
+        <translation type="vanished">Non miscelabile:</translation>
     </message>
     <message>
-        <location filename="../gui/ui/overviewframe.ui" line="195"/>
-        <source>0.00</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../gui/ui/overviewframe.ui" line="257"/>
+        <location filename="../gui/ui/overviewframe.ui" line="76"/>
         <source>Recent transactions</source>
         <translation>Transazioni recenti</translation>
     </message>
@@ -1524,9 +1531,8 @@ Vuoi andare alla pagina dei download?</translation>
         <translation>Modalità in nodo remoto</translation>
     </message>
     <message>
-        <location filename="../gui/ui/sendframe.ui" line="507"/>
         <source>Available balance:</source>
-        <translation>Saldo disponibile:</translation>
+        <translation type="vanished">Saldo disponibile:</translation>
     </message>
 </context>
 <context>
@@ -1581,23 +1587,23 @@ Vuoi andare alla pagina dei download?</translation>
     </message>
     <message>
         <location filename="../gui/ui/signmessagedialog.ui" line="102"/>
-        <location filename="../gui/ui/signmessagedialog.ui" line="232"/>
+        <location filename="../gui/ui/signmessagedialog.ui" line="241"/>
         <source>Message</source>
         <translation>Messaggio</translation>
     </message>
     <message>
-        <location filename="../gui/ui/signmessagedialog.ui" line="134"/>
-        <location filename="../gui/ui/signmessagedialog.ui" line="212"/>
+        <location filename="../gui/ui/signmessagedialog.ui" line="137"/>
+        <location filename="../gui/ui/signmessagedialog.ui" line="218"/>
         <source>Signature</source>
         <translation>Firma</translation>
     </message>
     <message>
-        <location filename="../gui/ui/signmessagedialog.ui" line="178"/>
+        <location filename="../gui/ui/signmessagedialog.ui" line="184"/>
         <source>Verify message</source>
         <translation>Verifica messaggio</translation>
     </message>
     <message>
-        <location filename="../gui/ui/signmessagedialog.ui" line="198"/>
+        <location filename="../gui/ui/signmessagedialog.ui" line="204"/>
         <source>Address</source>
         <translation>Indirizzo</translation>
     </message>
@@ -1623,9 +1629,9 @@ Vuoi andare alla pagina dei download?</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/ui/transactionframe.ui" line="136"/>
-        <location filename="../gui/ui/transactionframe.ui" line="143"/>
-        <location filename="../gui/ui/transactionframe.ui" line="158"/>
+        <location filename="../gui/ui/transactionframe.ui" line="123"/>
+        <location filename="../gui/ui/transactionframe.ui" line="133"/>
+        <location filename="../gui/ui/transactionframe.ui" line="156"/>
         <source>TextLabel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1765,7 +1771,7 @@ Vuoi andare alla pagina dei download?</translation>
 <context>
     <name>WalletGui::AccountFrame</name>
     <message>
-        <location filename="../gui/AccountFrame.cpp" line="40"/>
+        <location filename="../gui/AccountFrame.cpp" line="49"/>
         <source>Copied to clipboard</source>
         <translation>Copiato negli appunti</translation>
     </message>
@@ -2558,79 +2564,79 @@ Are you sure?</source>
 <context>
     <name>WalletGui::SendFrame</name>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="60"/>
+        <location filename="../gui/SendFrame.cpp" line="59"/>
         <source>Low</source>
         <translation>Basso</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="61"/>
+        <location filename="../gui/SendFrame.cpp" line="60"/>
         <source>Normal</source>
         <translation>Normale</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="62"/>
+        <location filename="../gui/SendFrame.cpp" line="61"/>
         <source>High</source>
         <translation>Alto</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="63"/>
+        <location filename="../gui/SendFrame.cpp" line="62"/>
         <source>Highest</source>
         <translation>Massimo</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="226"/>
+        <location filename="../gui/SendFrame.cpp" line="220"/>
         <source>Node fee: %1 %2</source>
         <translation>Tassa sul nodo: %1 %2</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="259"/>
+        <location filename="../gui/SendFrame.cpp" line="253"/>
         <source>Payment request should start with karbowanec:</source>
         <translation>La richiesta di pagamento dovrebbe iniziare con karbowanec:</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="273"/>
-        <location filename="../gui/SendFrame.cpp" line="339"/>
+        <location filename="../gui/SendFrame.cpp" line="267"/>
+        <location filename="../gui/SendFrame.cpp" line="333"/>
         <source>Invalid recipient address</source>
         <translation>Indirizzo del destinatario non valido</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="303"/>
-        <location filename="../gui/SendFrame.cpp" line="458"/>
+        <location filename="../gui/SendFrame.cpp" line="297"/>
+        <location filename="../gui/SendFrame.cpp" line="447"/>
         <source>Insufficient balance.</source>
         <translation>Il saldo insufficiente.</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="312"/>
+        <location filename="../gui/SendFrame.cpp" line="306"/>
         <source>Incorrect password</source>
         <translation>Password errata</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="312"/>
+        <location filename="../gui/SendFrame.cpp" line="306"/>
         <source>Wrong password.</source>
         <translation>Password errata.</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="378"/>
+        <location filename="../gui/SendFrame.cpp" line="372"/>
         <source>Incorrect fee value</source>
         <translation>Valore di commissione errato</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="387"/>
+        <location filename="../gui/SendFrame.cpp" line="381"/>
         <source>Insufficient balance</source>
         <translation>Saldo insufficiente</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="387"/>
+        <location filename="../gui/SendFrame.cpp" line="381"/>
         <source>Available balance is insufficient to send this transaction. Have you excluded a fee?</source>
         <translation>Il Saldo disponibile non è sufficiente per inviare questa transazione. Hai escluso la commissione?</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="394"/>
+        <location filename="../gui/SendFrame.cpp" line="388"/>
         <source>Invalid payment ID</source>
         <translation>ID di pagamento non valido</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="465"/>
+        <location filename="../gui/SendFrame.cpp" line="454"/>
         <source>You have unmixable dust on balance. Use menu &apos;Wallet -&gt; Sweep unmixable&apos; first.</source>
         <translation type="unfinished"></translation>
     </message>

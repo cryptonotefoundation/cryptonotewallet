@@ -40,7 +40,7 @@
     </message>
     <message>
         <source>Your account:</source>
-        <translation>Ваш рахунок:</translation>
+        <translation type="vanished">Ваш рахунок:</translation>
     </message>
     <message>
         <source>Your receiving address</source>
@@ -56,11 +56,11 @@
     </message>
     <message>
         <source>Total balance</source>
-        <translation>Баланс рахунку</translation>
+        <translation type="vanished">Баланс рахунку</translation>
     </message>
     <message>
         <source> krb</source>
-        <translation> крб.</translation>
+        <translation type="vanished"> крб.</translation>
     </message>
     <message>
         <source>Frame</source>
@@ -73,6 +73,26 @@
     <message>
         <source>0.00</source>
         <translation type="unfinished">0.00</translation>
+    </message>
+    <message>
+        <source>Available:</source>
+        <translation>Доступно:</translation>
+    </message>
+    <message>
+        <source>Unmixable:</source>
+        <translation>Незмішуване:</translation>
+    </message>
+    <message>
+        <source>Unconfirmed:</source>
+        <translation>Очікується:</translation>
+    </message>
+    <message>
+        <source>Total:</source>
+        <translation>Всього:</translation>
+    </message>
+    <message>
+        <source>Your address</source>
+        <translation>Ваша адреса</translation>
     </message>
 </context>
 <context>
@@ -1042,7 +1062,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Total:</source>
-        <translation>Всього:</translation>
+        <translation type="vanished">Всього:</translation>
     </message>
     <message>
         <source>Wallet</source>
@@ -1050,7 +1070,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Unconfirmed:</source>
-        <translation>Очікується:</translation>
+        <translation type="vanished">Очікується:</translation>
     </message>
     <message>
         <source>Balance:</source>
@@ -1062,19 +1082,19 @@ Please wait...</source>
     </message>
     <message>
         <source>Balance</source>
-        <translation>Баланс</translation>
+        <translation type="vanished">Баланс</translation>
     </message>
     <message>
         <source>Available balance:</source>
-        <translation>Доступний баланс:</translation>
+        <translation type="vanished">Доступний баланс:</translation>
     </message>
     <message>
         <source>Unmixable dust:</source>
-        <translation>Незмішуване:</translation>
+        <translation type="vanished">Незмішуване:</translation>
     </message>
     <message>
         <source>0.00</source>
-        <translation>0.00</translation>
+        <translation type="vanished">0.00</translation>
     </message>
 </context>
 <context>
@@ -1329,7 +1349,7 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>Available balance:</source>
-        <translation>Доступний баланс:</translation>
+        <translation type="vanished">Доступний баланс:</translation>
     </message>
     <message>
         <source>Payment ID:</source>
