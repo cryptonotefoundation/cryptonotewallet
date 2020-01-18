@@ -14,7 +14,6 @@ QToolBar#accountToolBar, #m_accountFrame {
   padding: 0;
   spacing: 0px;
   min-height: 100px;
-  
 }
 
 #m_accountFrame QLabel,
@@ -39,24 +38,42 @@ QToolBar#accountToolBar {
   font-size: 16px;
 }
 
-#m_accountFrame #m_actualBalanceLabel,
-#m_accountFrame #m_pendingBalanceLabel,
-#m_accountFrame #m_unmixableBalanceLabel,
-#m_accountFrame #m_totalBalanceLabel
+#m_accountFrame #labelAvailable,
+#m_accountFrame #labelPending,
+#m_accountFrame #labelUnmixable,
+#m_accountFrame #labelTotal
 {
-  font-size: 12px;
+  margin: 0;
 }
 
-#m_accountFrame #m_totalBalanceLabel { font-size: 14px; }
-
 #m_accountFrame #m_actualBalanceLabel,
 #m_accountFrame #m_pendingBalanceLabel,
-#m_accountFrame #m_unmixableBalanceLabel,
-#m_accountFrame #m_totalBalanceLabel,
+#m_accountFrame #m_unmixableBalanceLabel
+{
+  font-size: 14px;
+}
+
+#m_accountFrame #m_totalBalanceLabel {
+  font-size: 18px;
+}
+
+#m_accountFrame #m_actualBalanceDust,
+#m_accountFrame #m_pendingBalanceDust,
+#m_accountFrame #m_unmixableBalanceDust,
+#m_accountFrame #m_totalBalanceDust,
 #m_accountFrame #m_tickerLabel1,
 #m_accountFrame #m_tickerLabel2,
 #m_accountFrame #m_tickerLabel3,
 #m_accountFrame #m_tickerLabel4
+{
+  font-size: 10px;
+  color: #D3D3D3;
+}
+
+#m_accountFrame #m_actualBalanceLabel,
+#m_accountFrame #m_pendingBalanceLabel,
+#m_accountFrame #m_unmixableBalanceLabel,
+#m_accountFrame #m_totalBalanceLabel
 {
   color: #ffffff;
 }

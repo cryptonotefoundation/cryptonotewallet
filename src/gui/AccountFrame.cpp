@@ -14,6 +14,19 @@
 
 namespace WalletGui {
 
+QStringList AccountFrame::divideAmount(quint64 _val) {
+  QStringList list;
+  QString str = CurrencyAdapter::instance().formatAmount(_val).remove(',');
+
+  quint32 offset = str.indexOf(".") + 3; // add two digits .00
+  QString before = str.left(offset);
+  QString after  = str.mid(offset);
+
+  list << before << after;
+
+  return list;
+}
+
 AccountFrame::AccountFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::AccountFrame) {
   m_ui->setupUi(this);
   connect(&WalletAdapter::instance(), &WalletAdapter::updateWalletAddressSignal, this, &AccountFrame::updateWalletAddress);
@@ -53,19 +66,34 @@ void AccountFrame::showQR() {
 }
 
 void AccountFrame::updateActualBalance(quint64 _balance) {
-  m_ui->m_actualBalanceLabel->setText(CurrencyAdapter::instance().formatAmount(_balance).remove(','));
+  QStringList actualList = divideAmount(_balance);
+  m_ui->m_actualBalanceLabel->setText(actualList.first());
+  m_ui->m_actualBalanceDust->setText(actualList.last());
+
   quint64 pendingBalance = WalletAdapter::instance().getPendingBalance();
-  m_ui->m_totalBalanceLabel->setText(CurrencyAdapter::instance().formatAmount(_balance + pendingBalance).remove(','));
+
+  QStringList pendingList = divideAmount(_balance + pendingBalance);
+  m_ui->m_totalBalanceLabel->setText(pendingList.first());
+  m_ui->m_totalBalanceDust->setText(pendingList.last());
 }
 
 void AccountFrame::updatePendingBalance(quint64 _balance) {
-  m_ui->m_pendingBalanceLabel->setText(CurrencyAdapter::instance().formatAmount(_balance).remove(','));
+  QStringList pendingList = divideAmount(_balance);
+  m_ui->m_pendingBalanceLabel->setText(pendingList.first());
+  m_ui->m_pendingBalanceDust->setText(pendingList.last());
+
   quint64 actualBalance = WalletAdapter::instance().getActualBalance();
-  m_ui->m_totalBalanceLabel->setText(CurrencyAdapter::instance().formatAmount(_balance + actualBalance).remove(','));
+
+  QStringList totalList = divideAmount(_balance + actualBalance);
+  m_ui->m_totalBalanceLabel->setText(totalList.first());
+  m_ui->m_totalBalanceDust->setText(totalList.last());
 }
 
 void AccountFrame::updateUnmixableBalance(quint64 _balance) {
-  m_ui->m_unmixableBalanceLabel->setText(CurrencyAdapter::instance().formatAmount(_balance).remove(','));
+  QStringList unmixableList = divideAmount(_balance);
+
+  m_ui->m_unmixableBalanceLabel->setText(unmixableList.first());
+  m_ui->m_unmixableBalanceDust->setText(unmixableList.last());
 }
 
 void AccountFrame::reset() {
