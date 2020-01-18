@@ -233,7 +233,7 @@
       <widget class="QLabel" name="m_actualBalanceLabel">
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <pointsize>8</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -286,7 +286,7 @@
       <widget class="QLabel" name="m_pendingBalanceLabel">
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <pointsize>8</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -339,7 +339,7 @@
       <widget class="QLabel" name="m_unmixableBalanceLabel">
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <pointsize>8</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -379,7 +379,7 @@
       <widget class="QLabel" name="label_6">
        <property name="font">
         <font>
-         <pointsize>10</pointsize>
+         <pointsize>8</pointsize>
         </font>
        </property>
        <property name="text">
@@ -394,7 +394,7 @@
       <widget class="QLabel" name="m_totalBalanceLabel">
        <property name="font">
         <font>
-         <pointsize>12</pointsize>
+         <pointsize>8</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>

@@ -35,6 +35,32 @@ QToolBar#accountToolBar {
   max-height: 100px;
 }
 
+#m_accountFrame #m_addressLabel {
+  font-size: 16px;
+}
+
+#m_accountFrame #m_actualBalanceLabel,
+#m_accountFrame #m_pendingBalanceLabel,
+#m_accountFrame #m_unmixableBalanceLabel,
+#m_accountFrame #m_totalBalanceLabel
+{
+  font-size: 12px;
+}
+
+#m_accountFrame #m_totalBalanceLabel { font-size: 14px; }
+
+#m_accountFrame #m_actualBalanceLabel,
+#m_accountFrame #m_pendingBalanceLabel,
+#m_accountFrame #m_unmixableBalanceLabel,
+#m_accountFrame #m_totalBalanceLabel,
+#m_accountFrame #m_tickerLabel1,
+#m_accountFrame #m_tickerLabel2,
+#m_accountFrame #m_tickerLabel3,
+#m_accountFrame #m_tickerLabel4
+{
+  color: #ffffff;
+}
+
 QToolBar#toolBar {
   background-color: #0b1620;
   width: 250px; 
