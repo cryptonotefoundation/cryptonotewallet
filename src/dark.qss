@@ -80,6 +80,7 @@ QToolBar#toolBar QToolButton{
   color: #ffffff;
   border: 1px solid transparent;
   border-radius: 0;
+  min-width: 120px;
 }
 
 QToolBar#toolBar QToolButton:pressed {
