@@ -56,7 +56,7 @@
     </message>
     <message>
         <source>Total balance</source>
-        <translation type="vanished">Saldo konta</translation>
+        <translation>Saldo konta</translation>
     </message>
     <message>
         <source> krb</source>
@@ -72,27 +72,39 @@
     </message>
     <message>
         <source>0.00</source>
-        <translation type="unfinished">0.00</translation>
+        <translation type="obsolete">0.00</translation>
     </message>
     <message>
         <source>Available:</source>
-        <translation>Dostępne:</translation>
+        <translation type="vanished">Dostępne:</translation>
     </message>
     <message>
         <source>Unmixable:</source>
-        <translation>Nieosiągalne:</translation>
+        <translation type="vanished">Nieosiągalne:</translation>
     </message>
     <message>
         <source>Unconfirmed:</source>
-        <translation>Niepotwierdzony:</translation>
+        <translation type="vanished">Niepotwierdzony:</translation>
     </message>
     <message>
         <source>Total:</source>
-        <translation>Łącznie:</translation>
+        <translation type="vanished">Łącznie:</translation>
     </message>
     <message>
         <source>Your address</source>
         <translation>Twój adres</translation>
+    </message>
+    <message>
+        <source>Spendable balance</source>
+        <translation>Dostępne saldo</translation>
+    </message>
+    <message>
+        <source>Awaiting network confirmation</source>
+        <translation>W oczekiwaniu na potwierdzenie sieci</translation>
+    </message>
+    <message>
+        <source>Spendable only with zero privacy level</source>
+        <translation>Można wysłać tylko przy zerowym poziomie prywatności</translation>
     </message>
 </context>
 <context>
@@ -1194,6 +1206,10 @@ Do you want to go to download page?</source>
         <translation>Dostępna jest nowa wersja portfela.
 Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
     </message>
+    <message>
+        <source>Karbo Wallet %1</source>
+        <translation type="unfinished">Karbowaneć v. %1</translation>
+    </message>
 </context>
 <context>
     <name>ReceiveFrame</name>
@@ -1602,7 +1618,23 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
     </message>
     <message>
         <source>Copied to clipboard</source>
-        <translation>Skopiowany do schowka</translation>
+        <translation type="vanished">Skopiowany do schowka</translation>
+    </message>
+    <message>
+        <source>&lt;p style=&quot;line-height:40&quot;&gt;Available: &lt;strong style=&quot;font-size:14px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</source>
+        <translation>&lt;p style=&quot;line-height:40&quot;&gt;Dostępne: &lt;strong style=&quot;font-size:14px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;p style=&quot;line-height:40&quot;&gt;Total: &lt;strong style=&quot;font-size:18px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</source>
+        <translation>&lt;p style=&quot;line-height:40&quot;&gt;Łącznie: &lt;strong style=&quot;font-size:18px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;p style=&quot;line-height:40&quot;&gt;Pending: &lt;strong style=&quot;font-size:14px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</source>
+        <translation>&lt;p style=&quot;line-height:40&quot;&gt;W oczekiwaniu: &lt;strong style=&quot;font-size:14px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;p style=&quot;line-height:20&quot;&gt;Unmixable: &lt;strong style=&quot;font-size:14px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</source>
+        <translation>&lt;p style=&quot;line-height:20&quot;&gt;Nieosiągalne: &lt;strong style=&quot;font-size:14px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
@@ -2111,7 +2143,7 @@ Jesteś pewien?</translation>
     </message>
     <message>
         <source>Karbo Wallet %2</source>
-        <translation>Karbowaneć v. %2</translation>
+        <translation type="vanished">Karbowaneć v. %2</translation>
     </message>
     <message>
         <source>Recent wallet file not found</source>

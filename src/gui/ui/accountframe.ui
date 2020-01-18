@@ -361,7 +361,7 @@
          <string>Spendable only with zero privacy level</string>
         </property>
         <property name="text">
-         <string>Unmixable: 0.00 KRB</string>
+         <string notr="true">Unmixable: 0.00 KRB</string>
         </property>
         <property name="textFormat">
          <enum>Qt::RichText</enum>
