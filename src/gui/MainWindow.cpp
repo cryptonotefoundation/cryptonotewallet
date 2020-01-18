@@ -151,13 +151,12 @@ void MainWindow::initUi() {
   m_ui->accountToolBar->setAllowedAreas(Qt::TopToolBarArea);
 
   accountWidget = m_ui->accountToolBar->addWidget(m_ui->m_accountFrame);
-  m_ui->accountToolBar->setMovable(false);
   addToolBar(Qt::TopToolBarArea, m_ui->accountToolBar);
   addToolBarBreak();
-  addToolBar(Qt::LeftToolBarArea, m_ui->toolBar);
-  QToolButton button;
-  button.setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-  button.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+  addToolBar(Qt::TopToolBarArea, m_ui->toolBar);
+  addToolBarBreak();
+  m_ui->accountToolBar->setMovable(false);
+  m_ui->toolBar->setMovable(false);
 
   m_ui->m_aboutCryptonoteAction->setText(QString(tr("About %1 Wallet")).arg(CurrencyAdapter::instance().getCurrencyDisplayName()));
   m_ui->m_overviewFrame->hide();
@@ -173,6 +172,10 @@ void MainWindow::initUi() {
   m_tabActionGroup->addAction(m_ui->m_transactionsAction);
   m_tabActionGroup->addAction(m_ui->m_addressBookAction);
 
+  QList<QAction*> tabActions = m_tabActionGroup->actions();
+  Q_FOREACH(auto action, tabActions) {
+    //action->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
+  }
   m_syncProgressBar->setMaximum(maxProgressBar);
   m_syncProgressBar->setMinimum(0);
   m_syncProgressBar->setValue(0);

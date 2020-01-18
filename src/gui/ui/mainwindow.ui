@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1095</width>
+    <width>850</width>
     <height>600</height>
    </rect>
   </property>
@@ -26,6 +26,12 @@
    <size>
     <width>16777215</width>
     <height>16777215</height>
+   </size>
+  </property>
+  <property name="baseSize">
+   <size>
+    <width>840</width>
+    <height>600</height>
    </size>
   </property>
   <property name="font">
@@ -191,7 +197,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1095</width>
+     <width>850</width>
      <height>21</height>
     </rect>
    </property>
@@ -275,7 +281,7 @@
   </widget>
   <widget class="QToolBar" name="toolBar">
    <property name="sizePolicy">
-    <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
      <horstretch>0</horstretch>
      <verstretch>0</verstretch>
     </sizepolicy>
@@ -288,14 +294,14 @@
    </property>
    <property name="maximumSize">
     <size>
-     <width>150</width>
-     <height>16777215</height>
+     <width>16777215</width>
+     <height>50</height>
     </size>
    </property>
    <property name="baseSize">
     <size>
-     <width>150</width>
-     <height>0</height>
+     <width>-1</width>
+     <height>50</height>
     </size>
    </property>
    <property name="font">
@@ -307,13 +313,13 @@
     <string>toolBar</string>
    </property>
    <property name="movable">
-    <bool>false</bool>
+    <bool>true</bool>
    </property>
    <property name="allowedAreas">
-    <set>Qt::LeftToolBarArea|Qt::TopToolBarArea</set>
+    <set>Qt::TopToolBarArea</set>
    </property>
    <property name="orientation">
-    <enum>Qt::Vertical</enum>
+    <enum>Qt::Horizontal</enum>
    </property>
    <property name="iconSize">
     <size>
@@ -325,7 +331,7 @@
     <enum>Qt::ToolButtonTextBesideIcon</enum>
    </property>
    <attribute name="toolBarArea">
-    <enum>LeftToolBarArea</enum>
+    <enum>TopToolBarArea</enum>
    </attribute>
    <attribute name="toolBarBreak">
     <bool>false</bool>
@@ -345,7 +351,7 @@
     <enum>TopToolBarArea</enum>
    </attribute>
    <attribute name="toolBarBreak">
-    <bool>false</bool>
+    <bool>true</bool>
    </attribute>
   </widget>
   <action name="m_overviewAction">

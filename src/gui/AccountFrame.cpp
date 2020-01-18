@@ -46,16 +46,10 @@ void AccountFrame::updateWalletAddress(const QString& _address) {
 
 void AccountFrame::copyAddress() {
   QApplication::clipboard()->setText(m_ui->m_addressLabel->text());
-  m_ui->addressStatusLabel->setText(tr("Copied to clipboard"));
-  QTimer::singleShot(1500,this,SLOT(clearLabel()));
 }
 
 void AccountFrame::showQR() {
   Q_EMIT showQRcodeSignal();
-}
-
-void AccountFrame::clearLabel() {
-m_ui->addressStatusLabel->setText(tr(""));
 }
 
 void AccountFrame::updateActualBalance(quint64 _balance) {

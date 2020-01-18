@@ -32,7 +32,6 @@ private:
 
   Q_SLOT void copyAddress();
   Q_SLOT void showQR();
-  Q_SLOT void clearLabel();
 
 Q_SIGNALS:
   void showQRcodeSignal();
