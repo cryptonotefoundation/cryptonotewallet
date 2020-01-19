@@ -172,10 +172,6 @@ void MainWindow::initUi() {
   m_tabActionGroup->addAction(m_ui->m_transactionsAction);
   m_tabActionGroup->addAction(m_ui->m_addressBookAction);
 
-  QList<QAction*> tabActions = m_tabActionGroup->actions();
-  Q_FOREACH(auto action, tabActions) {
-    //action->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
-  }
   m_syncProgressBar->setMaximum(maxProgressBar);
   m_syncProgressBar->setMinimum(0);
   m_syncProgressBar->setValue(0);
