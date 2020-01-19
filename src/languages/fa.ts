@@ -56,7 +56,7 @@
     </message>
     <message>
         <source>Total balance</source>
-        <translation type="vanished">موجودی کل</translation>
+        <translation>موجودی کل</translation>
     </message>
     <message>
         <source> krb</source>
@@ -72,27 +72,39 @@
     </message>
     <message>
         <source>0.00</source>
-        <translation>0.00</translation>
+        <translation type="vanished">0.00</translation>
     </message>
     <message>
         <source>Available:</source>
-        <translation>در دسترس:</translation>
+        <translation type="vanished">در دسترس:</translation>
     </message>
     <message>
         <source>Unmixable:</source>
-        <translation>موجودی غیرقابل دسترس :</translation>
+        <translation type="vanished">موجودی غیرقابل دسترس :</translation>
     </message>
     <message>
         <source>Unconfirmed:</source>
-        <translation>تایید نشده :</translation>
+        <translation type="vanished">تایید نشده :</translation>
     </message>
     <message>
         <source>Total:</source>
-        <translation>کل :</translation>
+        <translation type="vanished">کل :</translation>
     </message>
     <message>
         <source>Your address</source>
         <translation>نشانی شما</translation>
+    </message>
+    <message>
+        <source>Spendable balance</source>
+        <translation>موجودی در دسترس</translation>
+    </message>
+    <message>
+        <source>Awaiting network confirmation</source>
+        <translation>در انتظار تأیید شبکه هستید</translation>
+    </message>
+    <message>
+        <source>Spendable only with zero privacy level</source>
+        <translation>صرفاً با سطح حریم شخصی صفر</translation>
     </message>
 </context>
 <context>
@@ -1194,6 +1206,10 @@ Do you want to go to download page?</source>
         <translation>بروزرسانی جدید در دسترس است.
 آیا میخواهید آن را دریافت نمایید ؟</translation>
     </message>
+    <message>
+        <source>Karbo Wallet %1</source>
+        <translation type="unfinished">کیف پول کربو %1</translation>
+    </message>
 </context>
 <context>
     <name>ReceiveFrame</name>
@@ -1591,7 +1607,23 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>Copied to clipboard</source>
-        <translation>در کلیپبورد ذخیره شد</translation>
+        <translation type="vanished">در کلیپبورد ذخیره شد</translation>
+    </message>
+    <message>
+        <source>&lt;p style=&quot;line-height:40&quot;&gt;Available: &lt;strong style=&quot;font-size:14px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</source>
+        <translation>&lt;p style=&quot;line-height:40&quot;&gt;در دسترس: &lt;strong style=&quot;font-size:14px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;p style=&quot;line-height:40&quot;&gt;Total: &lt;strong style=&quot;font-size:18px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</source>
+        <translation>&lt;p style=&quot;line-height:40&quot;&gt;جمع: &lt;strong style=&quot;font-size:18px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;p style=&quot;line-height:40&quot;&gt;Pending: &lt;strong style=&quot;font-size:14px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</source>
+        <translation>&lt;p style=&quot;line-height:40&quot;&gt;در انتظار: &lt;strong style=&quot;font-size:14px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;p style=&quot;line-height:20&quot;&gt;Unmixable: &lt;strong style=&quot;font-size:14px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</source>
+        <translation>&lt;p style=&quot;line-height:20&quot;&gt;موجودی غیرقابل دسترس : &lt;strong style=&quot;font-size:14px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
@@ -2098,7 +2130,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>Karbo Wallet %2</source>
-        <translation>کیف پول کربو %2</translation>
+        <translation type="vanished">کیف پول کربو %2</translation>
     </message>
     <message>
         <source>Recent wallet file not found</source>

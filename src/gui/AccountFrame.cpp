@@ -14,6 +14,19 @@
 
 namespace WalletGui {
 
+QStringList AccountFrame::divideAmount(quint64 _val) {
+  QStringList list;
+  QString str = CurrencyAdapter::instance().formatAmount(_val).remove(',');
+
+  quint32 offset = str.indexOf(".") + 3; // add two digits .00
+  QString before = str.left(offset);
+  QString after  = str.mid(offset);
+
+  list << before << after;
+
+  return list;
+}
+
 AccountFrame::AccountFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::AccountFrame) {
   m_ui->setupUi(this);
   connect(&WalletAdapter::instance(), &WalletAdapter::updateWalletAddressSignal, this, &AccountFrame::updateWalletAddress);
@@ -24,11 +37,6 @@ AccountFrame::AccountFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::Acc
   connect(&WalletAdapter::instance(), &WalletAdapter::walletUnmixableBalanceUpdatedSignal, this, &AccountFrame::updateUnmixableBalance,
     Qt::QueuedConnection);
   connect(&WalletAdapter::instance(), &WalletAdapter::walletCloseCompletedSignal, this, &AccountFrame::reset);
-
-  m_ui->m_tickerLabel1->setText(CurrencyAdapter::instance().getCurrencyTicker().toUpper());
-  m_ui->m_tickerLabel2->setText(CurrencyAdapter::instance().getCurrencyTicker().toUpper());
-  m_ui->m_tickerLabel3->setText(CurrencyAdapter::instance().getCurrencyTicker().toUpper());
-  m_ui->m_tickerLabel4->setText(CurrencyAdapter::instance().getCurrencyTicker().toUpper());
 
   int id = QFontDatabase::addApplicationFont(":/fonts/mplusm");
   QString family = QFontDatabase::applicationFontFamilies(id).at(0);
@@ -46,32 +54,36 @@ void AccountFrame::updateWalletAddress(const QString& _address) {
 
 void AccountFrame::copyAddress() {
   QApplication::clipboard()->setText(m_ui->m_addressLabel->text());
-  m_ui->addressStatusLabel->setText(tr("Copied to clipboard"));
-  QTimer::singleShot(1500,this,SLOT(clearLabel()));
 }
 
 void AccountFrame::showQR() {
   Q_EMIT showQRcodeSignal();
 }
 
-void AccountFrame::clearLabel() {
-m_ui->addressStatusLabel->setText(tr(""));
-}
-
 void AccountFrame::updateActualBalance(quint64 _balance) {
-  m_ui->m_actualBalanceLabel->setText(CurrencyAdapter::instance().formatAmount(_balance).remove(','));
+  QStringList actualList = divideAmount(_balance);
+  m_ui->m_actualBalanceLabel->setText(QString(tr("<p style=\"height:30\">Available: <strong style=\"font-size:14px; color: #ffffff;\">%1</strong><small style=\"font-size:10px; color: #D3D3D3;\">%2 %3</small></p>")).arg(actualList.first()).arg(actualList.last()).arg(CurrencyAdapter::instance().getCurrencyTicker().toUpper()));
+
   quint64 pendingBalance = WalletAdapter::instance().getPendingBalance();
-  m_ui->m_totalBalanceLabel->setText(CurrencyAdapter::instance().formatAmount(_balance + pendingBalance).remove(','));
+
+  QStringList pendingList = divideAmount(_balance + pendingBalance);
+  m_ui->m_totalBalanceLabel->setText(QString(tr("<p style=\"height:30\">Total: <strong style=\"font-size:18px; color: #ffffff;\">%1</strong><small style=\"font-size:10px; color: #D3D3D3;\">%2 %3</small></p>")).arg(pendingList.first()).arg(pendingList.last()).arg(CurrencyAdapter::instance().getCurrencyTicker().toUpper()));
 }
 
 void AccountFrame::updatePendingBalance(quint64 _balance) {
-  m_ui->m_pendingBalanceLabel->setText(CurrencyAdapter::instance().formatAmount(_balance).remove(','));
+  QStringList pendingList = divideAmount(_balance);
+  m_ui->m_pendingBalanceLabel->setText(QString(tr("<p style=\"height:30\">Pending: <strong style=\"font-size:14px; color: #ffffff;\">%1</strong><small style=\"font-size:10px; color: #D3D3D3;\">%2 %3</small></p>")).arg(pendingList.first()).arg(pendingList.last()).arg(CurrencyAdapter::instance().getCurrencyTicker().toUpper()));
+
   quint64 actualBalance = WalletAdapter::instance().getActualBalance();
-  m_ui->m_totalBalanceLabel->setText(CurrencyAdapter::instance().formatAmount(_balance + actualBalance).remove(','));
+
+  QStringList totalList = divideAmount(_balance + actualBalance);
+  m_ui->m_totalBalanceLabel->setText(QString(tr("<p style=\"height:30\">Total: <strong style=\"font-size:18px; color: #ffffff;\">%1</strong><small style=\"font-size:10px; color: #D3D3D3;\">%2 %3</small></p>")).arg(totalList.first()).arg(totalList.last()).arg(CurrencyAdapter::instance().getCurrencyTicker().toUpper()));
 }
 
 void AccountFrame::updateUnmixableBalance(quint64 _balance) {
-  m_ui->m_unmixableBalanceLabel->setText(CurrencyAdapter::instance().formatAmount(_balance).remove(','));
+  QStringList unmixableList = divideAmount(_balance);
+
+  m_ui->m_unmixableBalanceLabel->setText(QString(tr("<p style=\"height:30\">Unmixable: <strong style=\"font-size:14px; color: #ffffff;\">%1</strong><small style=\"font-size:10px; color: #D3D3D3;\">%2 %3</small></p>")).arg(unmixableList.first()).arg(unmixableList.last()).arg(CurrencyAdapter::instance().getCurrencyTicker().toUpper()));
 }
 
 void AccountFrame::reset() {

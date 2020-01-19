@@ -56,7 +56,7 @@
     </message>
     <message>
         <source>Total balance</source>
-        <translation type="vanished">Saldo total</translation>
+        <translation>Saldo total</translation>
     </message>
     <message>
         <source> krb</source>
@@ -72,27 +72,39 @@
     </message>
     <message>
         <source>0.00</source>
-        <translation>0.00</translation>
+        <translation type="vanished">0.00</translation>
     </message>
     <message>
         <source>Available:</source>
-        <translation>Disponible:</translation>
+        <translation type="vanished">Disponible:</translation>
     </message>
     <message>
         <source>Unmixable:</source>
-        <translation>Inmezclable:</translation>
+        <translation type="vanished">Inmezclable:</translation>
     </message>
     <message>
         <source>Unconfirmed:</source>
-        <translation>Inconfirmado:</translation>
+        <translation type="vanished">Inconfirmado:</translation>
     </message>
     <message>
         <source>Total:</source>
-        <translation>Total:</translation>
+        <translation type="vanished">Total:</translation>
     </message>
     <message>
         <source>Your address</source>
         <translation>Su dirección</translation>
+    </message>
+    <message>
+        <source>Spendable balance</source>
+        <translation>Saldo disponible</translation>
+    </message>
+    <message>
+        <source>Awaiting network confirmation</source>
+        <translation>Esperando confirmación de red</translation>
+    </message>
+    <message>
+        <source>Spendable only with zero privacy level</source>
+        <translation>Gastable solo con cero nivel de privacidad</translation>
     </message>
 </context>
 <context>
@@ -1207,6 +1219,10 @@ Do you want to go to download page?</source>
         <translation>Hay una actualización disponible.
 ¿Quieres ir a la página de descarga?</translation>
     </message>
+    <message>
+        <source>Karbo Wallet %1</source>
+        <translation type="unfinished">Karbo Monedero %1</translation>
+    </message>
 </context>
 <context>
     <name>ReceiveFrame</name>
@@ -1605,7 +1621,23 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <source>Copied to clipboard</source>
-        <translation>Copiado al portapapeles</translation>
+        <translation type="vanished">Copiado al portapapeles</translation>
+    </message>
+    <message>
+        <source>&lt;p style=&quot;line-height:40&quot;&gt;Available: &lt;strong style=&quot;font-size:14px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</source>
+        <translation>&lt;p style=&quot;line-height:40&quot;&gt;Disponible: &lt;strong style=&quot;font-size:14px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;p style=&quot;line-height:40&quot;&gt;Total: &lt;strong style=&quot;font-size:18px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</source>
+        <translation>&lt;p style=&quot;line-height:40&quot;&gt;Total: &lt;strong style=&quot;font-size:18px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;p style=&quot;line-height:40&quot;&gt;Pending: &lt;strong style=&quot;font-size:14px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</source>
+        <translation>&lt;p style=&quot;line-height:40&quot;&gt;Pendiente: &lt;strong style=&quot;font-size:14px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;p style=&quot;line-height:20&quot;&gt;Unmixable: &lt;strong style=&quot;font-size:14px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</source>
+        <translation>&lt;p style=&quot;line-height:20&quot;&gt;Inmezclable: &lt;strong style=&quot;font-size:14px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
@@ -2111,7 +2143,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>Karbo Wallet %2</source>
-        <translation>Karbo Monedero %2</translation>
+        <translation type="vanished">Karbo Monedero %2</translation>
     </message>
     <message>
         <source>Recent wallet file not found</source>

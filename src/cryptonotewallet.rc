@@ -4,8 +4,8 @@ IDI_ICON1               ICON    "images\karbowanez.ico"
 
 #define VER_FILEVERSION             1,0,0,0
 #define VER_FILEVERSION_STR         "1.0.0.0\0"
-#define VER_PRODUCTVERSION          1,3,7
-#define VER_PRODUCTVERSION_STR      "1.3.7\0"
+#define VER_PRODUCTVERSION          1,4,0
+#define VER_PRODUCTVERSION_STR      "1.4.0\0"
 #define VER_FILEDESCRIPTION_STR     "Karbo"
 #define VER_INTERNALNAME_STR        "Karbowanec"
 #define VER_LEGALCOPYRIGHT_STR      "Copyright (C) 2016-2019, Karbowanec Developers"

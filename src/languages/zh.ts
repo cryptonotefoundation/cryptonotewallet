@@ -31,64 +31,75 @@
         <translation type="vanished">您的账户</translation>
     </message>
     <message>
-        <location filename="../gui/ui/accountframe.ui" line="99"/>
         <source>Available:</source>
-        <translation>可用余额：</translation>
+        <translation type="vanished">可用余额：</translation>
     </message>
     <message>
-        <location filename="../gui/ui/accountframe.ui" line="133"/>
         <source>Unmixable:</source>
-        <translation>不可混合的尘额：</translation>
+        <translation type="vanished">不可混合的尘额：</translation>
     </message>
     <message>
-        <location filename="../gui/ui/accountframe.ui" line="140"/>
         <source>Unconfirmed:</source>
-        <translation>未确认：</translation>
+        <translation type="vanished">未确认：</translation>
     </message>
     <message>
-        <location filename="../gui/ui/accountframe.ui" line="167"/>
         <source>Total:</source>
-        <translation>总计：</translation>
+        <translation type="vanished">总计：</translation>
     </message>
     <message>
-        <location filename="../gui/ui/accountframe.ui" line="253"/>
+        <location filename="../gui/ui/accountframe.ui" line="55"/>
         <source>Your address</source>
         <translation>你的地址</translation>
     </message>
     <message>
-        <location filename="../gui/ui/accountframe.ui" line="295"/>
+        <location filename="../gui/ui/accountframe.ui" line="112"/>
         <source>Your receiving address</source>
         <translation>您的收货地址</translation>
     </message>
     <message>
-        <location filename="../gui/ui/accountframe.ui" line="298"/>
+        <location filename="../gui/ui/accountframe.ui" line="115"/>
         <source>This is your account address</source>
         <translation>这是您的账户地址</translation>
     </message>
     <message>
-        <location filename="../gui/ui/accountframe.ui" line="320"/>
+        <location filename="../gui/ui/accountframe.ui" line="137"/>
         <source>Copy address</source>
         <translation>复制地址</translation>
     </message>
     <message>
-        <location filename="../gui/ui/accountframe.ui" line="329"/>
-        <location filename="../gui/ui/accountframe.ui" line="352"/>
+        <location filename="../gui/ui/accountframe.ui" line="146"/>
+        <location filename="../gui/ui/accountframe.ui" line="169"/>
         <source>...</source>
         <translation>...</translation>
     </message>
     <message>
-        <location filename="../gui/ui/accountframe.ui" line="346"/>
+        <location filename="../gui/ui/accountframe.ui" line="163"/>
         <source>Show QR code</source>
         <translation>显示二维码</translation>
     </message>
     <message>
-        <source>Total balance</source>
-        <translation type="vanished">总余额</translation>
+        <location filename="../gui/ui/accountframe.ui" line="241"/>
+        <source>Spendable balance</source>
+        <translation>支出余额</translation>
     </message>
     <message>
-        <location filename="../gui/ui/accountframe.ui" line="153"/>
+        <location filename="../gui/ui/accountframe.ui" line="301"/>
+        <source>Awaiting network confirmation</source>
+        <translation>等待网络确认</translation>
+    </message>
+    <message>
+        <location filename="../gui/ui/accountframe.ui" line="361"/>
+        <source>Spendable only with zero privacy level</source>
+        <translation>仅可在零隐私级别下消费</translation>
+    </message>
+    <message>
+        <location filename="../gui/ui/accountframe.ui" line="418"/>
+        <source>Total balance</source>
+        <translation>总余额</translation>
+    </message>
+    <message>
         <source>0.00</source>
-        <translation>0.00</translation>
+        <translation type="vanished">0.00</translation>
     </message>
     <message>
         <source> krb</source>
@@ -651,180 +662,180 @@ Please wait...</source>
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="37"/>
+        <location filename="../gui/ui/mainwindow.ui" line="43"/>
         <source>MainWindow</source>
         <translation>主窗口</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="200"/>
+        <location filename="../gui/ui/mainwindow.ui" line="206"/>
         <source>File</source>
         <translation>文件</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="204"/>
-        <location filename="../gui/ui/mainwindow.ui" line="573"/>
+        <location filename="../gui/ui/mainwindow.ui" line="210"/>
+        <location filename="../gui/ui/mainwindow.ui" line="579"/>
         <source>Recent wallets</source>
         <translation>最近的钱包</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="225"/>
+        <location filename="../gui/ui/mainwindow.ui" line="231"/>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="244"/>
-        <location filename="../gui/ui/mainwindow.ui" line="540"/>
+        <location filename="../gui/ui/mainwindow.ui" line="250"/>
+        <location filename="../gui/ui/mainwindow.ui" line="546"/>
         <source>Help</source>
         <translation>帮助</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="253"/>
+        <location filename="../gui/ui/mainwindow.ui" line="259"/>
         <source>Wallet</source>
         <translation>钱包</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="307"/>
+        <location filename="../gui/ui/mainwindow.ui" line="313"/>
         <source>toolBar</source>
         <translation>工具栏</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="342"/>
+        <location filename="../gui/ui/mainwindow.ui" line="348"/>
         <source>Account toolbar</source>
         <translation>账户工具栏</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="363"/>
+        <location filename="../gui/ui/mainwindow.ui" line="369"/>
         <source>Overview</source>
         <translation>概览</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="378"/>
+        <location filename="../gui/ui/mainwindow.ui" line="384"/>
         <source>Send</source>
         <translation>发送</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="393"/>
+        <location filename="../gui/ui/mainwindow.ui" line="399"/>
         <source>Receive</source>
         <translation>接收</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="408"/>
+        <location filename="../gui/ui/mainwindow.ui" line="414"/>
         <source>Transactions</source>
         <translation>交易</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="416"/>
+        <location filename="../gui/ui/mainwindow.ui" line="422"/>
         <source>Exit</source>
         <translation>退出</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="419"/>
+        <location filename="../gui/ui/mainwindow.ui" line="425"/>
         <source>Ctrl+Q</source>
         <translation>按键	Ctrl+Q</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="434"/>
+        <location filename="../gui/ui/mainwindow.ui" line="440"/>
         <source>Contacts</source>
         <translation>联系人</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="442"/>
+        <location filename="../gui/ui/mainwindow.ui" line="448"/>
         <source>Create wallet</source>
         <translation>创建钱包</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="450"/>
+        <location filename="../gui/ui/mainwindow.ui" line="456"/>
         <source>Open wallet</source>
         <translation>打开钱包</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="458"/>
+        <location filename="../gui/ui/mainwindow.ui" line="464"/>
         <source>Encrypt wallet</source>
         <translation>加密钱包</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="466"/>
-        <location filename="../gui/ui/mainwindow.ui" line="469"/>
+        <location filename="../gui/ui/mainwindow.ui" line="472"/>
+        <location filename="../gui/ui/mainwindow.ui" line="475"/>
         <source>Change password</source>
         <translation>更改密码</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="477"/>
+        <location filename="../gui/ui/mainwindow.ui" line="483"/>
         <source>About</source>
         <translation>相关信息</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="485"/>
+        <location filename="../gui/ui/mainwindow.ui" line="491"/>
         <source>About Qt</source>
         <translation>关于QT</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="493"/>
+        <location filename="../gui/ui/mainwindow.ui" line="499"/>
         <source>Backup wallet</source>
         <translation>备用钱包</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="501"/>
+        <location filename="../gui/ui/mainwindow.ui" line="507"/>
         <source>Start on system login</source>
         <translation>开始登陆系统</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="509"/>
+        <location filename="../gui/ui/mainwindow.ui" line="515"/>
         <source>Minimize to tray</source>
         <translation>最小化到托盘</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="517"/>
+        <location filename="../gui/ui/mainwindow.ui" line="523"/>
         <source>Close to tray</source>
         <translation>关闭至托盘</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="522"/>
+        <location filename="../gui/ui/mainwindow.ui" line="528"/>
         <source>Import private key</source>
         <translation>导入私钥</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="611"/>
+        <location filename="../gui/ui/mainwindow.ui" line="617"/>
         <source>Sign message</source>
         <translation>签名消息</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="616"/>
+        <location filename="../gui/ui/mainwindow.ui" line="622"/>
         <source>Verify signed message</source>
         <translation>验证已签名的邮件</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="621"/>
+        <location filename="../gui/ui/mainwindow.ui" line="627"/>
         <source>Optimization</source>
         <translation>优化</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="626"/>
+        <location filename="../gui/ui/mainwindow.ui" line="632"/>
         <source>Get proof of balance</source>
         <translation>余额确认</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="631"/>
+        <location filename="../gui/ui/mainwindow.ui" line="637"/>
         <source>Import keys</source>
         <translation>正在导入密钥</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="639"/>
+        <location filename="../gui/ui/mainwindow.ui" line="645"/>
         <source>Don&apos;t show wallet optimization transactions</source>
         <translation>不显示钱包优化交易</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="644"/>
+        <location filename="../gui/ui/mainwindow.ui" line="650"/>
         <source>Lock wallet</source>
         <translation>锁钱包</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="647"/>
+        <location filename="../gui/ui/mainwindow.ui" line="653"/>
         <source>Ctrl+L</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="655"/>
+        <location filename="../gui/ui/mainwindow.ui" line="661"/>
         <source>Hide everything when wallet is locked</source>
         <translation>钱包被锁定时隐藏所有内容</translation>
     </message>
@@ -833,13 +844,13 @@ Please wait...</source>
         <translation type="vanished">挖矿</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="527"/>
-        <location filename="../gui/ui/mainwindow.ui" line="530"/>
+        <location filename="../gui/ui/mainwindow.ui" line="533"/>
+        <location filename="../gui/ui/mainwindow.ui" line="536"/>
         <source>Reset wallet</source>
         <translation>重置钱包</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="229"/>
+        <location filename="../gui/ui/mainwindow.ui" line="235"/>
         <source>Language</source>
         <translation>语言</translation>
     </message>
@@ -848,63 +859,63 @@ Please wait...</source>
         <translation type="vanished">更换语言</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="535"/>
+        <location filename="../gui/ui/mainwindow.ui" line="541"/>
         <source>Export private key</source>
         <translation>导出私钥</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="543"/>
+        <location filename="../gui/ui/mainwindow.ui" line="549"/>
         <source>F1</source>
         <translation>F1</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="548"/>
+        <location filename="../gui/ui/mainwindow.ui" line="554"/>
         <source>Connection</source>
         <translation>连接</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="553"/>
+        <location filename="../gui/ui/mainwindow.ui" line="559"/>
         <source>Open payment request</source>
         <translation>打开付款请求</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="558"/>
+        <location filename="../gui/ui/mainwindow.ui" line="564"/>
         <source>Export tracking key</source>
         <translation>导出跟踪密钥</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="563"/>
+        <location filename="../gui/ui/mainwindow.ui" line="569"/>
         <source>Import tracking key</source>
         <translation>导入跟踪密钥</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="568"/>
+        <location filename="../gui/ui/mainwindow.ui" line="574"/>
         <source>Close wallet</source>
         <translation>关闭钱包</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="578"/>
-        <location filename="../gui/ui/mainwindow.ui" line="660"/>
+        <location filename="../gui/ui/mainwindow.ui" line="584"/>
+        <location filename="../gui/ui/mainwindow.ui" line="666"/>
         <source>Information</source>
         <translation>信息</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="583"/>
+        <location filename="../gui/ui/mainwindow.ui" line="589"/>
         <source>Open log file</source>
         <translation>打开日志文件</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="591"/>
+        <location filename="../gui/ui/mainwindow.ui" line="597"/>
         <source>Show mnemonic seed</source>
         <translation>显示助记种子</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="596"/>
+        <location filename="../gui/ui/mainwindow.ui" line="602"/>
         <source>Restore from mnemonic seed</source>
         <translation>从助记种子恢复</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="601"/>
+        <location filename="../gui/ui/mainwindow.ui" line="607"/>
         <source>Create nondeterministic wallet</source>
         <translation>创建非确定性钱包</translation>
     </message>
@@ -913,7 +924,7 @@ Please wait...</source>
         <translation type="vanished">自动开始从矿池挖矿</translation>
     </message>
     <message>
-        <location filename="../gui/ui/mainwindow.ui" line="606"/>
+        <location filename="../gui/ui/mainwindow.ui" line="612"/>
         <source>Sweep unmixable</source>
         <translation>扫除不可混合的金额</translation>
     </message>
@@ -1342,30 +1353,35 @@ Please wait...</source>
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="769"/>
-        <location filename="../main.cpp" line="84"/>
+        <location filename="../gui/MainWindow.cpp" line="772"/>
+        <location filename="../main.cpp" line="97"/>
         <source>Help</source>
         <translation>帮助</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="81"/>
+        <location filename="../main.cpp" line="94"/>
         <source>Error</source>
         <translation>错误</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="121"/>
+        <location filename="../main.cpp" line="134"/>
         <source>Fail</source>
         <translation>失败</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="121"/>
+        <location filename="../main.cpp" line="134"/>
         <source>%1 wallet already running or cannot create lock file %2. Check your permissions.</source>
         <translation>％1钱包已在运行中或无法创建锁文件％2，请查看您的权限。</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="136"/>
+        <location filename="../main.cpp" line="149"/>
         <source>Loading blockchain...</source>
         <translation>加载区块链…</translation>
+    </message>
+    <message>
+        <location filename="../main.cpp" line="167"/>
+        <source>Karbo Wallet %1</source>
+        <translation type="unfinished">Karbo钱包%1</translation>
     </message>
     <message>
         <location filename="../update.cpp" line="90"/>
@@ -1821,9 +1837,29 @@ Do you want to go to download page?</source>
 <context>
     <name>WalletGui::AccountFrame</name>
     <message>
-        <location filename="../gui/AccountFrame.cpp" line="49"/>
         <source>Copied to clipboard</source>
-        <translation>复制到剪贴板</translation>
+        <translation type="vanished">复制到剪贴板</translation>
+    </message>
+    <message>
+        <location filename="../gui/AccountFrame.cpp" line="65"/>
+        <source>&lt;p style=&quot;line-height:40&quot;&gt;Available: &lt;strong style=&quot;font-size:14px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</source>
+        <translation>&lt;p style=&quot;line-height:40&quot;&gt;可用的： &lt;strong style=&quot;font-size:14px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <location filename="../gui/AccountFrame.cpp" line="70"/>
+        <location filename="../gui/AccountFrame.cpp" line="80"/>
+        <source>&lt;p style=&quot;line-height:40&quot;&gt;Total: &lt;strong style=&quot;font-size:18px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</source>
+        <translation>&lt;p style=&quot;line-height:40&quot;&gt;总： &lt;strong style=&quot;font-size:18px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <location filename="../gui/AccountFrame.cpp" line="75"/>
+        <source>&lt;p style=&quot;line-height:40&quot;&gt;Pending: &lt;strong style=&quot;font-size:14px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</source>
+        <translation>&lt;p style=&quot;line-height:40&quot;&gt;待处理： &lt;strong style=&quot;font-size:14px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <location filename="../gui/AccountFrame.cpp" line="86"/>
+        <source>&lt;p style=&quot;line-height:20&quot;&gt;Unmixable: &lt;strong style=&quot;font-size:14px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</source>
+        <translation>&lt;p style=&quot;line-height:20&quot;&gt;不可混合的尘额： &lt;strong style=&quot;font-size:14px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
@@ -2210,250 +2246,250 @@ Do you want to go to download page?</source>
 <context>
     <name>WalletGui::MainWindow</name>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="199"/>
+        <location filename="../gui/MainWindow.cpp" line="202"/>
         <source>Tracking wallet. Spending unawailable</source>
         <translation>跟踪钱包。支付不可用。</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="200"/>
+        <location filename="../gui/MainWindow.cpp" line="203"/>
         <source>Connected through remote node</source>
         <translation>通过远程节点连接</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="236"/>
+        <location filename="../gui/MainWindow.cpp" line="239"/>
         <source>&amp;Show / Hide</source>
         <translation>显示/隐藏</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="237"/>
+        <location filename="../gui/MainWindow.cpp" line="240"/>
         <source>Show or hide the main window</source>
         <translation>显示或隐藏主窗口</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="349"/>
-        <location filename="../gui/MainWindow.cpp" line="379"/>
+        <location filename="../gui/MainWindow.cpp" line="352"/>
+        <location filename="../gui/MainWindow.cpp" line="382"/>
         <source>New wallet file</source>
         <translation>新钱包文件</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="357"/>
-        <location filename="../gui/MainWindow.cpp" line="386"/>
-        <location filename="../gui/MainWindow.cpp" line="828"/>
+        <location filename="../gui/MainWindow.cpp" line="360"/>
+        <location filename="../gui/MainWindow.cpp" line="389"/>
+        <location filename="../gui/MainWindow.cpp" line="831"/>
         <source>Wallets (*.wallet)</source>
         <translation>钱包（*.wallet）</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="419"/>
+        <location filename="../gui/MainWindow.cpp" line="422"/>
         <source>Open .wallet/.keys file</source>
         <translation>打开.wallet/.key文件</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="421"/>
+        <location filename="../gui/MainWindow.cpp" line="424"/>
         <source>Wallet (*.wallet *.keys)</source>
         <translation>钱包（*.wallet *.keys）</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="426"/>
+        <location filename="../gui/MainWindow.cpp" line="429"/>
         <source>Wrong wallet file extension</source>
         <translation>钱包文件扩展名错误</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="427"/>
+        <location filename="../gui/MainWindow.cpp" line="430"/>
         <source>Wrong wallet file extension, wallet file should have &quot;.wallet&quot;, &quot;.keys&quot; or &quot;.trackingwallet&quot; extension.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="451"/>
+        <location filename="../gui/MainWindow.cpp" line="454"/>
         <source>Recent wallet file not found</source>
         <translation>找不到最近的钱包文件</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="451"/>
+        <location filename="../gui/MainWindow.cpp" line="454"/>
         <source>The recent wallet file is missing. Probably it was removed.</source>
         <translation>最近的钱包文件丢失。 可能已删除。</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="488"/>
+        <location filename="../gui/MainWindow.cpp" line="491"/>
         <source>Wallet keys are not valid</source>
         <translation>钱包密钥无效</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="488"/>
+        <location filename="../gui/MainWindow.cpp" line="491"/>
         <source>The private keys you entered are not valid.</source>
         <translation>您输入的私钥无效。</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="556"/>
+        <location filename="../gui/MainWindow.cpp" line="559"/>
         <source>Tracking key is not valid</source>
         <translation>跟踪密钥无效</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="556"/>
+        <location filename="../gui/MainWindow.cpp" line="559"/>
         <source>The tracking key you entered is not valid.</source>
         <translation>您输入的跟踪密钥无效。</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="519"/>
-        <location filename="../gui/MainWindow.cpp" line="523"/>
-        <location filename="../gui/MainWindow.cpp" line="587"/>
-        <location filename="../gui/MainWindow.cpp" line="591"/>
-        <location filename="../gui/MainWindow.cpp" line="595"/>
-        <location filename="../gui/MainWindow.cpp" line="599"/>
+        <location filename="../gui/MainWindow.cpp" line="522"/>
+        <location filename="../gui/MainWindow.cpp" line="526"/>
+        <location filename="../gui/MainWindow.cpp" line="590"/>
+        <location filename="../gui/MainWindow.cpp" line="594"/>
+        <location filename="../gui/MainWindow.cpp" line="598"/>
+        <location filename="../gui/MainWindow.cpp" line="602"/>
         <source>Key is not valid</source>
         <translation>密钥无效</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="587"/>
+        <location filename="../gui/MainWindow.cpp" line="590"/>
         <source>The public spend key you entered is not valid.</source>
         <translation>您输入的支出公钥无效。</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="591"/>
+        <location filename="../gui/MainWindow.cpp" line="594"/>
         <source>The public view key you entered is not valid.</source>
         <translation>您输入的检视公钥无效。</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="519"/>
-        <location filename="../gui/MainWindow.cpp" line="595"/>
+        <location filename="../gui/MainWindow.cpp" line="522"/>
+        <location filename="../gui/MainWindow.cpp" line="598"/>
         <source>The private spend key you entered is not valid.</source>
         <translation>您输入的支出私钥无效。</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="523"/>
-        <location filename="../gui/MainWindow.cpp" line="599"/>
+        <location filename="../gui/MainWindow.cpp" line="526"/>
+        <location filename="../gui/MainWindow.cpp" line="602"/>
         <source>The private view key you entered is not valid.</source>
         <translation>您输入的检视私钥无效。</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="675"/>
+        <location filename="../gui/MainWindow.cpp" line="678"/>
         <source>Mnemonic seed is not correct</source>
         <translation>助记种子不正确</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="675"/>
+        <location filename="../gui/MainWindow.cpp" line="678"/>
         <source>There must be an error in mnemonic seed. Make sure you entered it correctly.</source>
         <translation>助记种子有误，请确保输入正确的数据。</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="760"/>
+        <location filename="../gui/MainWindow.cpp" line="763"/>
         <source>Language changed to %1</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="761"/>
+        <location filename="../gui/MainWindow.cpp" line="764"/>
         <source>Language was changed</source>
         <translation>语言已更改</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="762"/>
+        <location filename="../gui/MainWindow.cpp" line="765"/>
         <source>Language changed to %1. The change will take effect after restarting the wallet.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="1181"/>
+        <location filename="../gui/MainWindow.cpp" line="1184"/>
         <source>%1 - Karbo Wallet %2</source>
         <translation>%1 - 卡博币钱包%2</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="1229"/>
         <source>Karbo Wallet %2</source>
-        <translation>卡博币钱包%2</translation>
+        <translation type="vanished">卡博币钱包%2</translation>
     </message>
     <message>
         <source>The language will be changed after restarting the wallet.</source>
         <translation type="obsolete">语言更改会在重启钱包后生效</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="772"/>
+        <location filename="../gui/MainWindow.cpp" line="775"/>
         <source>More info can be found at www.karbowanec.com in Documentation section</source>
         <translation>更多信息请阅读www.karbowanec.com的文档部分。</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="797"/>
+        <location filename="../gui/MainWindow.cpp" line="800"/>
         <source>Connection settings changed</source>
         <translation>连接设置已更改</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="797"/>
+        <location filename="../gui/MainWindow.cpp" line="800"/>
         <source>Connection mode will be changed after restarting the wallet.</source>
         <translation>连接模式更改会在重启钱包后生效</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="821"/>
+        <location filename="../gui/MainWindow.cpp" line="824"/>
         <source>Backup wallet to...</source>
         <translation>备份钱包至...</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="841"/>
+        <location filename="../gui/MainWindow.cpp" line="844"/>
         <source>Warning</source>
         <translation>系统提醒</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="841"/>
+        <location filename="../gui/MainWindow.cpp" line="844"/>
         <source>Your wallet will be reset and restored from blockchain.
 Are you sure?</source>
         <translation>您的钱包将会被重置，并从区块链中恢复，您确定吗？</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="1037"/>
+        <location filename="../gui/MainWindow.cpp" line="1040"/>
         <source>Wallet error</source>
         <translation>钱包错误</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="1040"/>
+        <location filename="../gui/MainWindow.cpp" line="1043"/>
         <source>Wallet</source>
         <translation>钱包</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="1095"/>
+        <location filename="../gui/MainWindow.cpp" line="1098"/>
         <source>Incorrect password</source>
         <translation>密码错误</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="1095"/>
+        <location filename="../gui/MainWindow.cpp" line="1098"/>
         <source>Wrong password.</source>
         <translation>密码错误。</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="1111"/>
+        <location filename="../gui/MainWindow.cpp" line="1114"/>
         <source>Encrypted</source>
         <translation>加密</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="1111"/>
+        <location filename="../gui/MainWindow.cpp" line="1114"/>
         <source>Not encrypted</source>
         <translation>未加密</translation>
     </message>
     <message numerus="yes">
-        <location filename="../gui/MainWindow.cpp" line="1120"/>
+        <location filename="../gui/MainWindow.cpp" line="1123"/>
         <source>%n active connection(s)</source>
         <translation>
             <numerusform>%n 有效连接</numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="1128"/>
+        <location filename="../gui/MainWindow.cpp" line="1131"/>
         <source>Synchronization in progress</source>
         <translation>正在同步中</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="1146"/>
+        <location filename="../gui/MainWindow.cpp" line="1149"/>
         <source>Not synchronized</source>
         <translation>未同步</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="1146"/>
+        <location filename="../gui/MainWindow.cpp" line="1149"/>
         <source>Synchronized</source>
         <translation>已同步</translation>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="143"/>
-        <location filename="../gui/MainWindow.cpp" line="1261"/>
+        <location filename="../gui/MainWindow.cpp" line="1232"/>
+        <location filename="../gui/MainWindow.cpp" line="1264"/>
         <source>Karbo Wallet %1</source>
         <translation>Karbo钱包%1</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="162"/>
+        <location filename="../gui/MainWindow.cpp" line="161"/>
         <source>About %1 Wallet</source>
         <translation>关于%1钱包</translation>
     </message>

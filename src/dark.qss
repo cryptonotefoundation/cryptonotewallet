@@ -2,6 +2,12 @@
 
 --------------------------------------------------------------------------- */
 
+#FramelessWindow #windowTitlebar * {
+  spacing: 0;
+  padding: 0;
+  margin:  0;
+}
+
 QToolBar {
   spacing: 0;
   padding: 0;
@@ -14,7 +20,6 @@ QToolBar#accountToolBar, #m_accountFrame {
   padding: 0;
   spacing: 0px;
   min-height: 100px;
-  
 }
 
 #m_accountFrame QLabel,
@@ -27,7 +32,7 @@ QToolBar#accountToolBar, #m_accountFrame {
 
 QToolBar#accountToolBar {
   height: 101px;
-  border-bottom: 1px solid #84898E;
+  /*border-bottom: 1px solid #84898E;*/
 }
 
 #m_accountFrame {
@@ -35,14 +40,22 @@ QToolBar#accountToolBar {
   max-height: 100px;
 }
 
+#m_accountFrame #m_addressLabel {
+  font-size: 16px;
+}
+
+#m_accountFrame #m_accountBalances {
+  background-color: #32414B;
+  border: 0;  margin: 0;
+  padding: 0;
+}
+
 QToolBar#toolBar {
   background-color: #0b1620;
-  width: 250px; 
-  min-width: 250px; 
-  spacing: 0; 
-  padding: 0; 
-  margin: 0;
   border: 0;
+  margin: 0;
+  padding: 0; 
+  spacing: 0; 
 }
 
 QToolBar#toolBar QToolButton{ 
@@ -52,12 +65,11 @@ QToolBar#toolBar QToolButton{
   font-size: 11px;
   padding: 10px 5px 10px 5px;
   margin: 0;
-  spacing:0px;
-  width: 250px;
+  spacing:0;
   color: #ffffff;
   border: 1px solid transparent;
   border-radius: 0;
-  min-width: 200px;
+  min-width: 120px;
 }
 
 QToolBar#toolBar QToolButton:pressed {
@@ -66,7 +78,7 @@ QToolBar#toolBar QToolButton:pressed {
 
 QToolBar#toolBar QToolButton:checked {
   background-color: #19232D;
-  border-left: 1px solid #148CD2;
+  border-top: 1px solid #148CD2;
 }
 
 QToolBar#toolBar QToolButton:hover {

@@ -56,7 +56,7 @@
     </message>
     <message>
         <source>Total balance</source>
-        <translation type="vanished">Gesamtsaldo</translation>
+        <translation>Gesamtsaldo</translation>
     </message>
     <message>
         <source> krb</source>
@@ -72,27 +72,39 @@
     </message>
     <message>
         <source>0.00</source>
-        <translation>0.00</translation>
+        <translation type="vanished">0.00</translation>
     </message>
     <message>
         <source>Available:</source>
-        <translation>Verfügbares:</translation>
+        <translation type="vanished">Verfügbares:</translation>
     </message>
     <message>
         <source>Unmixable:</source>
-        <translation>Unmischbar:</translation>
+        <translation type="vanished">Unmischbar:</translation>
     </message>
     <message>
         <source>Unconfirmed:</source>
-        <translation>Unbestätigt:</translation>
+        <translation type="vanished">Unbestätigt:</translation>
     </message>
     <message>
         <source>Total:</source>
-        <translation>Total:</translation>
+        <translation type="vanished">Total:</translation>
     </message>
     <message>
         <source>Your address</source>
         <translation>Deine Adresse</translation>
+    </message>
+    <message>
+        <source>Spendable balance</source>
+        <translation>Verfügbares Guthaben</translation>
+    </message>
+    <message>
+        <source>Awaiting network confirmation</source>
+        <translation>Warten auf Netzwerkbestätigung</translation>
+    </message>
+    <message>
+        <source>Spendable only with zero privacy level</source>
+        <translation>Aufwendbare nur mit Null-Datenschutzstufe</translation>
     </message>
 </context>
 <context>
@@ -1203,6 +1215,10 @@ Do you want to go to download page?</source>
         <translation>Es ist ein Update verfügbar.
 Möchten Sie die Download Seite besuchen?</translation>
     </message>
+    <message>
+        <source>Karbo Wallet %1</source>
+        <translation type="unfinished">Karbo Brieftasche %1</translation>
+    </message>
 </context>
 <context>
     <name>ReceiveFrame</name>
@@ -1604,7 +1620,23 @@ Möchten Sie die Download Seite besuchen?</translation>
     </message>
     <message>
         <source>Copied to clipboard</source>
-        <translation>In die Zwischenablage kopiert</translation>
+        <translation type="vanished">In die Zwischenablage kopiert</translation>
+    </message>
+    <message>
+        <source>&lt;p style=&quot;line-height:40&quot;&gt;Available: &lt;strong style=&quot;font-size:14px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</source>
+        <translation>&lt;p style=&quot;line-height:40&quot;&gt;Verfügbar: &lt;strong style=&quot;font-size:14px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;p style=&quot;line-height:40&quot;&gt;Total: &lt;strong style=&quot;font-size:18px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</source>
+        <translation>&lt;p style=&quot;line-height:40&quot;&gt;Gesamt: &lt;strong style=&quot;font-size:18px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;p style=&quot;line-height:40&quot;&gt;Pending: &lt;strong style=&quot;font-size:14px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</source>
+        <translation>&lt;p style=&quot;line-height:40&quot;&gt;Steht aus: &lt;strong style=&quot;font-size:14px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;p style=&quot;line-height:20&quot;&gt;Unmixable: &lt;strong style=&quot;font-size:14px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</source>
+        <translation>&lt;p style=&quot;line-height:20&quot;&gt;Unmischbar: &lt;strong style=&quot;font-size:14px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
@@ -2115,7 +2147,7 @@ Bist du sicher?</translation>
     </message>
     <message>
         <source>Karbo Wallet %2</source>
-        <translation>Karbo Brieftasche %2</translation>
+        <translation type="vanished">Karbo Brieftasche %2</translation>
     </message>
     <message>
         <source>Recent wallet file not found</source>
