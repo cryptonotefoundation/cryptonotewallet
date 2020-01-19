@@ -119,6 +119,12 @@
        </property>
        <item>
         <widget class="QLabel" name="m_timeLabel">
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>0</height>
+          </size>
+         </property>
          <property name="text">
           <string>TextLabel</string>
          </property>
@@ -147,7 +153,7 @@
         <widget class="QLabel" name="m_amountLabel">
          <property name="font">
           <font>
-           <pointsize>10</pointsize>
+           <pointsize>8</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
