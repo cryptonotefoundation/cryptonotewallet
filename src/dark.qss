@@ -101,4 +101,5 @@ QProgressBar {
 
 #m_recentTransactionsView #m_amountLabel {
   font-size: 12px;
+  margin-right: 6px;
 }
