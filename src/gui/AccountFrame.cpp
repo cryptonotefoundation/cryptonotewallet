@@ -6,6 +6,7 @@
 #include <QClipboard>
 #include <QTimer>
 #include <QFontDatabase>
+#include <QGraphicsDropShadowEffect>
 #include "AccountFrame.h"
 #include "WalletAdapter.h"
 #include "CurrencyAdapter.h"
@@ -41,8 +42,13 @@ AccountFrame::AccountFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::Acc
   int id = QFontDatabase::addApplicationFont(":/fonts/mplusm");
   QString family = QFontDatabase::applicationFontFamilies(id).at(0);
   QFont monospace(family);
-  monospace.setPixelSize(16);
   m_ui->m_addressLabel->setFont(monospace);
+  // shadow under address
+  QGraphicsDropShadowEffect *textShadow = new QGraphicsDropShadowEffect(this);
+  textShadow->setBlurRadius(4.0);
+  textShadow->setColor(QColor(0, 0, 0));
+  textShadow->setOffset(0,1);
+  m_ui->m_addressLabel->setGraphicsEffect(textShadow);
 }
 
 AccountFrame::~AccountFrame() {

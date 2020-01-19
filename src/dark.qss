@@ -22,14 +22,6 @@ QToolBar#accountToolBar, #m_accountFrame {
   min-height: 100px;
 }
 
-#m_accountFrame QLabel,
-#m_accountFrame QSpacerItem {
-  background-color: #32414B;
-  border: 0;
-  padding: 0;
-  margin: 0;
-}
-
 QToolBar#accountToolBar {
   height: 101px;
   /*border-bottom: 1px solid #84898E;*/
@@ -40,8 +32,13 @@ QToolBar#accountToolBar {
   max-height: 100px;
 }
 
+#m_accountFrame QWidget {
+  background-color: transparent;
+}
+
 #m_accountFrame #m_addressLabel {
-  font-size: 16px;
+  font-size: 13pt;
+  color: #ffffff;
 }
 
 #m_accountFrame #m_accountBalances {
@@ -103,5 +100,5 @@ QProgressBar {
 }
 
 #m_recentTransactionsView #m_amountLabel {
-
+  font-size: 12px;
 }

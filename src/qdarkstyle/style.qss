@@ -61,7 +61,6 @@ See Qt documentation:
 --------------------------------------------------------------------------- */
 QWidget {
   background-color: #19232D;
-  border: 0px solid #32414B;
   padding: 0px;
   color: #F0F0F0;
   selection-background-color: #1464A0;
@@ -369,12 +368,10 @@ QMenuBar::item {
 QMenuBar::item:selected {
   padding: 4px;
   background: transparent;
-  border: 0px solid #32414B;
 }
 
 QMenuBar::item:pressed {
   padding: 4px;
-  border: 0px solid #32414B;
   background-color: #148CD2;
   color: #F0F0F0;
   margin-bottom: 0px;
@@ -387,7 +384,6 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qmenu
 
 --------------------------------------------------------------------------- */
 QMenu {
-  border: 0px solid #32414B;
   color: #F0F0F0;
   margin: 0px;
 }
@@ -828,16 +824,10 @@ https://doc.qt.io/qt-5/stylesheet-examples.html#customizing-qframe
 
 --------------------------------------------------------------------------- */
 QLabel {
-  background-color: #19232D;
-  border: 0px solid #32414B;
-  padding: 2px;
-  margin: 0px;
   color: #F0F0F0;
 }
 
 QLabel::disabled {
-  background-color: #19232D;
-  border: 0px solid #32414B;
   color: #787878;
 }
 
@@ -1350,7 +1340,7 @@ QTabWidget {
 }
 
 QTabWidget QWidget {
-  border: 0px solid #32414B;
+  /*border: 1px solid #32414B;*/
 }
 
 QTabWidget QWidget QWidget
