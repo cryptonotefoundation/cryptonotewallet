@@ -37,7 +37,7 @@ QToolBar#accountToolBar {
 }
 
 #m_accountFrame #m_addressLabel {
-  font-size: 13pt;
+  font-size: 16px;
   color: #ffffff;
 }
 
