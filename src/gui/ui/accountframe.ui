@@ -35,6 +35,9 @@
    <number>0</number>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>4</number>
+   </property>
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
@@ -191,6 +194,18 @@
    </item>
    <item>
     <widget class="QFrame" name="m_accountBalances">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>30</height>
+      </size>
+     </property>
+     <property name="baseSize">
+      <size>
+       <width>0</width>
+       <height>40</height>
+      </size>
+     </property>
      <layout class="QHBoxLayout" name="horizontalLayout_3">
       <property name="spacing">
        <number>0</number>
@@ -215,19 +230,19 @@
         <property name="minimumSize">
          <size>
           <width>0</width>
-          <height>24</height>
+          <height>30</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>24</height>
+          <height>30</height>
          </size>
         </property>
         <property name="baseSize">
          <size>
           <width>0</width>
-          <height>24</height>
+          <height>30</height>
          </size>
         </property>
         <property name="font">
@@ -275,19 +290,19 @@
         <property name="minimumSize">
          <size>
           <width>0</width>
-          <height>24</height>
+          <height>30</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>24</height>
+          <height>30</height>
          </size>
         </property>
         <property name="baseSize">
          <size>
           <width>0</width>
-          <height>24</height>
+          <height>30</height>
          </size>
         </property>
         <property name="font">
@@ -335,19 +350,19 @@
         <property name="minimumSize">
          <size>
           <width>0</width>
-          <height>24</height>
+          <height>30</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>24</height>
+          <height>30</height>
          </size>
         </property>
         <property name="baseSize">
          <size>
           <width>0</width>
-          <height>24</height>
+          <height>30</height>
          </size>
         </property>
         <property name="font">
@@ -392,19 +407,19 @@
         <property name="minimumSize">
          <size>
           <width>0</width>
-          <height>24</height>
+          <height>30</height>
          </size>
         </property>
         <property name="maximumSize">
          <size>
           <width>16777215</width>
-          <height>24</height>
+          <height>30</height>
          </size>
         </property>
         <property name="baseSize">
          <size>
           <width>0</width>
-          <height>24</height>
+          <height>30</height>
          </size>
         </property>
         <property name="font">

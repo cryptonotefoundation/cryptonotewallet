@@ -62,28 +62,28 @@ void AccountFrame::showQR() {
 
 void AccountFrame::updateActualBalance(quint64 _balance) {
   QStringList actualList = divideAmount(_balance);
-  m_ui->m_actualBalanceLabel->setText(QString(tr("<p style=\"line-height:40\">Available: <strong style=\"font-size:14px; color: #ffffff;\">%1</strong><small style=\"font-size:10px; color: #D3D3D3;\">%2 %3</small></p>")).arg(actualList.first()).arg(actualList.last()).arg(CurrencyAdapter::instance().getCurrencyTicker().toUpper()));
+  m_ui->m_actualBalanceLabel->setText(QString(tr("<p style=\"height:30\">Available: <strong style=\"font-size:14px; color: #ffffff;\">%1</strong><small style=\"font-size:10px; color: #D3D3D3;\">%2 %3</small></p>")).arg(actualList.first()).arg(actualList.last()).arg(CurrencyAdapter::instance().getCurrencyTicker().toUpper()));
 
   quint64 pendingBalance = WalletAdapter::instance().getPendingBalance();
 
   QStringList pendingList = divideAmount(_balance + pendingBalance);
-  m_ui->m_totalBalanceLabel->setText(QString(tr("<p style=\"line-height:40\">Total: <strong style=\"font-size:18px; color: #ffffff;\">%1</strong><small style=\"font-size:10px; color: #D3D3D3;\">%2 %3</small></p>")).arg(pendingList.first()).arg(pendingList.last()).arg(CurrencyAdapter::instance().getCurrencyTicker().toUpper()));
+  m_ui->m_totalBalanceLabel->setText(QString(tr("<p style=\"height:30\">Total: <strong style=\"font-size:18px; color: #ffffff;\">%1</strong><small style=\"font-size:10px; color: #D3D3D3;\">%2 %3</small></p>")).arg(pendingList.first()).arg(pendingList.last()).arg(CurrencyAdapter::instance().getCurrencyTicker().toUpper()));
 }
 
 void AccountFrame::updatePendingBalance(quint64 _balance) {
   QStringList pendingList = divideAmount(_balance);
-  m_ui->m_pendingBalanceLabel->setText(QString(tr("<p style=\"line-height:40\">Pending: <strong style=\"font-size:14px; color: #ffffff;\">%1</strong><small style=\"font-size:10px; color: #D3D3D3;\">%2 %3</small></p>")).arg(pendingList.first()).arg(pendingList.last()).arg(CurrencyAdapter::instance().getCurrencyTicker().toUpper()));
+  m_ui->m_pendingBalanceLabel->setText(QString(tr("<p style=\"height:30\">Pending: <strong style=\"font-size:14px; color: #ffffff;\">%1</strong><small style=\"font-size:10px; color: #D3D3D3;\">%2 %3</small></p>")).arg(pendingList.first()).arg(pendingList.last()).arg(CurrencyAdapter::instance().getCurrencyTicker().toUpper()));
 
   quint64 actualBalance = WalletAdapter::instance().getActualBalance();
 
   QStringList totalList = divideAmount(_balance + actualBalance);
-  m_ui->m_totalBalanceLabel->setText(QString(tr("<p style=\"line-height:40\">Total: <strong style=\"font-size:18px; color: #ffffff;\">%1</strong><small style=\"font-size:10px; color: #D3D3D3;\">%2 %3</small></p>")).arg(totalList.first()).arg(totalList.last()).arg(CurrencyAdapter::instance().getCurrencyTicker().toUpper()));
+  m_ui->m_totalBalanceLabel->setText(QString(tr("<p style=\"height:30\">Total: <strong style=\"font-size:18px; color: #ffffff;\">%1</strong><small style=\"font-size:10px; color: #D3D3D3;\">%2 %3</small></p>")).arg(totalList.first()).arg(totalList.last()).arg(CurrencyAdapter::instance().getCurrencyTicker().toUpper()));
 }
 
 void AccountFrame::updateUnmixableBalance(quint64 _balance) {
   QStringList unmixableList = divideAmount(_balance);
 
-  m_ui->m_unmixableBalanceLabel->setText(QString(tr("<p style=\"line-height:20\">Unmixable: <strong style=\"font-size:14px; color: #ffffff;\">%1</strong><small style=\"font-size:10px; color: #D3D3D3;\">%2 %3</small></p>")).arg(unmixableList.first()).arg(unmixableList.last()).arg(CurrencyAdapter::instance().getCurrencyTicker().toUpper()));
+  m_ui->m_unmixableBalanceLabel->setText(QString(tr("<p style=\"height:30\">Unmixable: <strong style=\"font-size:14px; color: #ffffff;\">%1</strong><small style=\"font-size:10px; color: #D3D3D3;\">%2 %3</small></p>")).arg(unmixableList.first()).arg(unmixableList.last()).arg(CurrencyAdapter::instance().getCurrencyTicker().toUpper()));
 }
 
 void AccountFrame::reset() {
