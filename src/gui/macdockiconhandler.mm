@@ -10,9 +10,11 @@
 #include <QWidget>
 
 #undef slots
+#include <AppKit/AppKit.h>
 #include <Cocoa/Cocoa.h>
 #include <objc/objc.h>
 #include <objc/message.h>
+#include <objc/runtime.h>
 
 #if QT_VERSION < 0x050000
 extern void qt_mac_set_dock_menu(QMenu *);
@@ -31,7 +33,13 @@ bool dockClickHandler(id self,SEL _cmd,...) {
 }
 
 void setupDockClickHandler() {
+#if __MAC_OS_X_VERSION_MAX_ALLOWED >= 101400
+    Class delClass = (Class)[[[NSApplication sharedApplication] delegate] class];
+    SEL shouldHandle = sel_registerName("applicationShouldHandleReopen:hasVisibleWindows:");
+    class_replaceMethod(delClass, shouldHandle, (IMP)dockClickHandler, "B@:");
+#else
     Class cls = objc_getClass("NSApplication");
+
     id appInst = objc_msgSend((id)cls, sel_registerName("sharedApplication"));
     
     if (appInst != NULL) {
@@ -43,6 +51,7 @@ void setupDockClickHandler() {
         else
             class_addMethod(delClass, shouldHandle, (IMP)dockClickHandler,"B@:");
     }
+#endif
 }
 
 
