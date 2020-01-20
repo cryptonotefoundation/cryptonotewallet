@@ -42,6 +42,7 @@ AccountFrame::AccountFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::Acc
   int id = QFontDatabase::addApplicationFont(":/fonts/mplusm");
   QString family = QFontDatabase::applicationFontFamilies(id).at(0);
   QFont monospace(family);
+  monospace.setPixelSize(16);
   m_ui->m_addressLabel->setFont(monospace);
   // shadow under address
   QGraphicsDropShadowEffect *textShadow = new QGraphicsDropShadowEffect(this);
