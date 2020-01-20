@@ -55,7 +55,6 @@ public:
   size_t getUnlockedOutputsCount();
   bool isOpen() const;
   void sendTransaction(const std::vector<CryptoNote::WalletLegacyTransfer>& _transfers, quint64 _fee, const QString& _payment_id, quint64 _mixin);
-  void sweepDust(const std::vector<CryptoNote::WalletLegacyTransfer>& _transfers, quint64 _fee, const QString& _payment_id, quint64 _mixin);
   bool changePassword(const QString& _old_pass, const QString& _new_pass);
   void setWalletFile(const QString& _path);
   Crypto::SecretKey getTxKey(Crypto::Hash& txid);

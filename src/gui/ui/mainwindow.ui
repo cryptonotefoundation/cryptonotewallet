@@ -260,7 +260,6 @@
     </property>
     <addaction name="m_encryptWalletAction"/>
     <addaction name="m_changePasswordAction"/>
-    <addaction name="m_sweepUnmixableAction"/>
     <addaction name="m_proofBalanceAction"/>
     <addaction name="separator"/>
     <addaction name="m_showMnemonicSeedAction"/>
@@ -1340,7 +1339,6 @@
   <slot>openConnectionSettings()</slot>
   <slot>openOptimizationSettings()</slot>
   <slot>showStatusInfo()</slot>
-  <slot>sweepUnmixable()</slot>
   <slot>getBalanceProof()</slot>
   <slot>lockWalletWithPassword()</slot>
   <slot>hideFusionTransactions(bool)</slot>
