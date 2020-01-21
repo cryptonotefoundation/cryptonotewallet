@@ -39,6 +39,8 @@ AccountFrame::AccountFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::Acc
     Qt::QueuedConnection);
   connect(&WalletAdapter::instance(), &WalletAdapter::walletCloseCompletedSignal, this, &AccountFrame::reset);
 
+  m_ui->m_unmixableBalanceLabel->setVisible(false);
+
   int id = QFontDatabase::addApplicationFont(":/fonts/mplusm");
   QString family = QFontDatabase::applicationFontFamilies(id).at(0);
   QFont monospace(family);
@@ -91,6 +93,11 @@ void AccountFrame::updateUnmixableBalance(quint64 _balance) {
   QStringList unmixableList = divideAmount(_balance);
 
   m_ui->m_unmixableBalanceLabel->setText(QString(tr("<p style=\"height:30\">Unmixable: <strong style=\"font-size:14px; color: #ffffff;\">%1</strong><small style=\"font-size:10px; color: #D3D3D3;\">%2 %3</small></p>")).arg(unmixableList.first()).arg(unmixableList.last()).arg(CurrencyAdapter::instance().getCurrencyTicker().toUpper()));
+  if (_balance != 0) {
+    m_ui->m_unmixableBalanceLabel->setVisible(true);
+  } else {
+    m_ui->m_unmixableBalanceLabel->setVisible(false);
+  }
 }
 
 void AccountFrame::reset() {
