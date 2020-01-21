@@ -141,7 +141,6 @@ private:
   Q_SLOT void showNormalIfMinimized(bool fToggleHidden = false);
   Q_SLOT void showMnemonicSeed();
   Q_SLOT void restoreFromMnemonicSeed();
-  Q_SLOT void sweepUnmixable();
   Q_SLOT void getBalanceProof();
   Q_SLOT void lockWalletWithPassword();
 

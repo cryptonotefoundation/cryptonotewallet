@@ -99,7 +99,7 @@ quint64 WalletAdapter::getPendingBalance() const {
 
 quint64 WalletAdapter::getUnmixableBalance() const {
   try {
-    return m_wallet == nullptr ? 0 : m_wallet->dustBalance();
+    return m_wallet == nullptr ? 0 : m_wallet->unmixableBalance();
   } catch (std::system_error&) {
     return 0;
   }
@@ -382,17 +382,6 @@ void WalletAdapter::sendTransaction(const std::vector<CryptoNote::WalletLegacyTr
   }
 }
 
-void WalletAdapter::sweepDust(const std::vector<CryptoNote::WalletLegacyTransfer>& _transfers, quint64 _fee, const QString& _paymentId, quint64 _mixin) {
-  Q_CHECK_PTR(m_wallet);
-  try {
-    lock();
-    m_wallet->sendDustTransaction(_transfers, _fee, NodeAdapter::instance().convertPaymentId(_paymentId), _mixin, 0);
-    Q_EMIT walletStateChangedSignal(tr("Sweeping unmixable dust"));
-  } catch (std::system_error&) {
-    unlock();
-  }
-}
-
 quint64 WalletAdapter::estimateFusion(quint64 _threshold) {
   Q_CHECK_PTR(m_wallet);
   try {
@@ -473,7 +462,7 @@ void WalletAdapter::onWalletInitCompleted(int _error, const QString& _errorText)
   case 0: {
     Q_EMIT walletActualBalanceUpdatedSignal(m_wallet->actualBalance());
     Q_EMIT walletPendingBalanceUpdatedSignal(m_wallet->pendingBalance());
-    Q_EMIT walletUnmixableBalanceUpdatedSignal(m_wallet->dustBalance());
+    Q_EMIT walletUnmixableBalanceUpdatedSignal(m_wallet->unmixableBalance());
     Q_EMIT updateWalletAddressSignal(QString::fromStdString(m_wallet->getAddress()));
     Q_EMIT reloadWalletTransactionsSignal();
     Q_EMIT walletStateChangedSignal(tr("Ready"));

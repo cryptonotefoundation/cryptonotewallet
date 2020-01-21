@@ -216,7 +216,6 @@ void SendFrame::amountValueChange() {
 
     if( !remote_node_fee_address.isEmpty() ) {
         quint64 actualBalance = WalletAdapter::instance().getActualBalance();
-        dust_balance = WalletAdapter::instance().getUnmixableBalance();
         m_ui->m_remote_label->setText(QString(tr("Node fee: %1 %2")).arg(CurrencyAdapter::instance().formatAmount(remote_node_fee)).arg(CurrencyAdapter::instance().getCurrencyTicker().toUpper()));
     }
 }
@@ -377,7 +376,7 @@ void SendFrame::sendClicked() {
     for (size_t i = 0; i < walletTransfers.size(); i++) {
       total_transaction_amount += walletTransfers.at(i).amount;
     }
-    if (total_transaction_amount > (WalletAdapter::instance().getActualBalance() - fee - dust_balance)) {
+    if (total_transaction_amount > (WalletAdapter::instance().getActualBalance() - fee)) {
       QMessageBox::critical(this, tr("Insufficient balance"), tr("Available balance is insufficient to send this transaction. Have you excluded a fee?"), QMessageBox::Ok);
       return;
     }
@@ -415,7 +414,7 @@ void SendFrame::sendTransactionCompleted(CryptoNote::TransactionId _id, bool _er
 }
 
 void SendFrame::walletActualBalanceUpdated(quint64 _balance) {
-  dust_balance = WalletAdapter::instance().getUnmixableBalance();
+  unmixable_balance = WalletAdapter::instance().getUnmixableBalance();
 }
 
 bool SendFrame::isValidPaymentId(const QByteArray& _paymentIdString) {
@@ -447,12 +446,21 @@ void SendFrame::sendAllClicked() {
       new ShowMessageEvent(tr("Insufficient balance."), QtCriticalMsg));
     return;
   }
-  dust_balance = WalletAdapter::instance().getUnmixableBalance();
-  if (dust_balance != 0) {
-    QCoreApplication::postEvent(
-      &MainWindow::instance(),
-      new ShowMessageEvent(tr("You have unmixable dust on balance. Use menu 'Wallet -> Sweep unmixable' first."), QtCriticalMsg));
-    return;
+  unmixable_balance = WalletAdapter::instance().getUnmixableBalance();
+  if (unmixable_balance != 0) {
+    int ret = QMessageBox::question(nullptr, tr("Sweep unmixable dust"),
+                                    tr("You have unmixable coins that can be only spent with zero privacy level.\n Shall we continue with zero privacy?"),
+                                    QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
+    switch (ret) {
+      case QMessageBox::Yes:
+          m_ui->m_mixinSlider->setValue(0);
+          break;
+      case QMessageBox::No:
+          return;
+      default:
+          // should never be reached
+          break;
+    }
   }
   remote_node_fee = 0;
   if(!remote_node_fee_address.isEmpty()) {
