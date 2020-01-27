@@ -304,21 +304,6 @@ void NodeAdapter::lastKnownBlockHeightUpdated(Node& _node, uint64_t _height) {
   Q_EMIT lastKnownBlockHeightUpdatedSignal(_height);
 }
 
-void NodeAdapter::startSoloMining(QString _address, size_t _threads_count) {
-  Q_CHECK_PTR(m_node);
-  m_node->startMining(_address.toStdString(), _threads_count);
-}
-
-void NodeAdapter::stopSoloMining() {
-  Q_CHECK_PTR(m_node);
-  m_node->stopMining();
-}
-
-quint64 NodeAdapter::getSpeed() const {
-  Q_CHECK_PTR(m_node);
-  return m_node->getSpeed();
-}
-
 bool NodeAdapter::initInProcessNode() {
   Q_ASSERT(m_node == nullptr);
   m_nodeInitializerThread.start();

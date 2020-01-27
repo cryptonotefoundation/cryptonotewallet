@@ -60,9 +60,6 @@ public:
   void peerCountUpdated(Node& _node, size_t _count) Q_DECL_OVERRIDE;
   void localBlockchainUpdated(Node& _node, uint64_t _height) Q_DECL_OVERRIDE;
   void lastKnownBlockHeightUpdated(Node& _node, uint64_t _height) Q_DECL_OVERRIDE;
-  void startSoloMining(QString _address, size_t _threads_count);
-  void stopSoloMining();
-  quint64 getSpeed() const;
 
 private:
   Node* m_node;
