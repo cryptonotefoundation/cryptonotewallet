@@ -2019,7 +2019,7 @@ Are you sure?</source>
         <translation type="vanished">Счет</translation>
     </message>
     <message>
-        <source>Tracking wallet. Spending unawailable</source>
+        <source>Tracking wallet. Spending unavailable</source>
         <translation>Кошелек отслеживания. Расходы недоступны</translation>
     </message>
     <message>
@@ -2135,8 +2135,8 @@ Are you sure?</source>
         <translation>%1 - Карбованец в. %2</translation>
     </message>
     <message>
-        <source>Karbo Wallet %2</source>
-        <translation>Карбованец в. %2</translation>
+        <source>Karbo Wallet %1</source>
+        <translation>Карбованец в. %1</translation>
     </message>
     <message>
         <source>Recent wallet file not found</source>

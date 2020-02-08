@@ -2027,7 +2027,7 @@ Are you sure?</source>
         <translation type="vanished">toolbar حساب</translation>
     </message>
     <message>
-        <source>Tracking wallet. Spending unawailable</source>
+        <source>Tracking wallet. Spending unavailable</source>
         <translation>ولت پیگیری. ایجاد تراکنش پشتیبانی نمیشود</translation>
     </message>
     <message>

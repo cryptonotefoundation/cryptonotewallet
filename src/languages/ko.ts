@@ -2263,7 +2263,7 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="196"/>
-        <source>Tracking wallet. Spending unawailable</source>
+        <source>Tracking wallet. Spending unavailable</source>
         <translation>지갑 추적. 지출 이용 불가</translation>
     </message>
     <message>
@@ -2408,8 +2408,8 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="1207"/>
-        <source>Karbo Wallet %2</source>
-        <translation>Karbo 지갑 %2</translation>
+        <source>Karbo Wallet %1</source>
+        <translation>Karbo 지갑 %1</translation>
     </message>
     <message>
         <source>The language will be changed after restarting the wallet.</source>

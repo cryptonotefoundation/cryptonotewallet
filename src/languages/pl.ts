@@ -2030,7 +2030,7 @@ Jesteś pewien?</translation>
         <translation type="vanished">Numer rachunku</translation>
     </message>
     <message>
-        <source>Tracking wallet. Spending unawailable</source>
+        <source>Tracking wallet. Spending unavailable</source>
         <translation>Portfel śledzenia. Wydatki niedostępne</translation>
     </message>
     <message>
@@ -2142,8 +2142,8 @@ Jesteś pewien?</translation>
         <translation>%1 - Karbowaniec w. %2</translation>
     </message>
     <message>
-        <source>Karbo Wallet %2</source>
-        <translation>Karbowaneć v. %2</translation>
+        <source>Karbo Wallet %1</source>
+        <translation>Karbowaniec v. %1</translation>
     </message>
     <message>
         <source>Recent wallet file not found</source>

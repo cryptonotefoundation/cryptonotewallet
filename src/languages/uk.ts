@@ -2023,7 +2023,7 @@ Are you sure?</source>
         <translation type="vanished">Рахунок</translation>
     </message>
     <message>
-        <source>Tracking wallet. Spending unawailable</source>
+        <source>Tracking wallet. Spending unavailable</source>
         <translation>Гаманець стеження. Витрати недоступні</translation>
     </message>
     <message>
@@ -2131,8 +2131,8 @@ Are you sure?</source>
         <translation>%1 - Карбованець в. %2</translation>
     </message>
     <message>
-        <source>Karbo Wallet %2</source>
-        <translation>Карбованець в. %2</translation>
+        <source>Karbo Wallet %1</source>
+        <translation>Карбованець в. %1</translation>
     </message>
     <message>
         <source>Recent wallet file not found</source>

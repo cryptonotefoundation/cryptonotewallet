@@ -2039,7 +2039,7 @@ Are you sure?</source>
         <translation type="vanished">Barra de herramientas de cuenta</translation>
     </message>
     <message>
-        <source>Tracking wallet. Spending unawailable</source>
+        <source>Tracking wallet. Spending unavailable</source>
         <translation>Monedero de seguimiento. Gasto no disponible</translation>
     </message>
     <message>
@@ -2142,8 +2142,8 @@ Are you sure?</source>
         <translation>%1 - Karbo Monedero %2</translation>
     </message>
     <message>
-        <source>Karbo Wallet %2</source>
-        <translation>Karbo Monedero %2</translation>
+        <source>Karbo Wallet %1</source>
+        <translation>Karbo Monedero %1</translation>
     </message>
     <message>
         <source>Recent wallet file not found</source>

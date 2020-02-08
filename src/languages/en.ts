@@ -1761,7 +1761,7 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="181"/>
-        <source>Tracking wallet. Spending unawailable</source>
+        <source>Tracking wallet. Spending unavailable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

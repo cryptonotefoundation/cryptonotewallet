@@ -2039,7 +2039,7 @@ Bist du sicher?</translation>
         <translation type="vanished">Kontenleiste</translation>
     </message>
     <message>
-        <source>Tracking wallet. Spending unawailable</source>
+        <source>Tracking wallet. Spending unavailable</source>
         <translation>Tracking-Wallet. Ausgaben unerreichbar</translation>
     </message>
     <message>
@@ -2146,8 +2146,8 @@ Bist du sicher?</translation>
         <translation>%1 - Karbo Brieftasche %2</translation>
     </message>
     <message>
-        <source>Karbo Wallet %2</source>
-        <translation>Karbo Brieftasche %2</translation>
+        <source>Karbo Wallet %1</source>
+        <translation>Karbo Brieftasche %1</translation>
     </message>
     <message>
         <source>Recent wallet file not found</source>

@@ -2048,7 +2048,7 @@ Você tem certeza?</translation>
         <translation type="vanished">Conta</translation>
     </message>
     <message>
-        <source>Tracking wallet. Spending unawailable</source>
+        <source>Tracking wallet. Spending unavailable</source>
         <translation>Rastreamento de carteiras. Os custos não estão disponíveis</translation>
     </message>
     <message>
@@ -2151,8 +2151,8 @@ Você tem certeza?</translation>
         <translation>%1 - Karbo Wallet %2</translation>
     </message>
     <message>
-        <source>Karbo Wallet %2</source>
-        <translation>Karbo Wallet %2</translation>
+        <source>Karbo Wallet %1</source>
+        <translation>Karbo Wallet %1</translation>
     </message>
     <message>
         <source>Recent wallet file not found</source>

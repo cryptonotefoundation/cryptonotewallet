@@ -2246,7 +2246,7 @@ Do you want to go to download page?</source>
     <name>WalletGui::MainWindow</name>
     <message>
         <location filename="../gui/MainWindow.cpp" line="196"/>
-        <source>Tracking wallet. Spending unawailable</source>
+        <source>Tracking wallet. Spending unavailable</source>
         <translation>跟踪钱包。支付不可用。</translation>
     </message>
     <message>
@@ -2391,8 +2391,8 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="1207"/>
-        <source>Karbo Wallet %2</source>
-        <translation>卡博币钱包%2</translation>
+        <source>Karbo Wallet %1</source>
+        <translation>卡博币钱包%1</translation>
     </message>
     <message>
         <source>The language will be changed after restarting the wallet.</source>

@@ -2191,7 +2191,7 @@ Vuoi andare alla pagina dei download?</translation>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="196"/>
-        <source>Tracking wallet. Spending unawailable</source>
+        <source>Tracking wallet. Spending unavailable</source>
         <translation>Portafoglio di tracking. Non è possibile spendere</translation>
     </message>
     <message>
@@ -2421,8 +2421,8 @@ Are you sure?</source>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="1207"/>
-        <source>Karbo Wallet %2</source>
-        <translation>Karbo Wallet %2</translation>
+        <source>Karbo Wallet %1</source>
+        <translation>Karbo Wallet %1</translation>
     </message>
 </context>
 <context>
