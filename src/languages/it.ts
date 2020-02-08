@@ -1341,10 +1341,6 @@ Attendere prego…
         <translation>Caricamento del blockchain…</translation>
     </message>
     <message>
-        <source>Karbo Wallet %1</source>
-        <translation type="obsolete">Karbo Wallet %1</translation>
-    </message>
-    <message>
         <location filename="../update.cpp" line="90"/>
         <source>New version available</source>
         <translation>Nuova versione disponibile</translation>
@@ -2180,6 +2176,7 @@ Vuoi andare alla pagina dei download?</translation>
     <name>WalletGui::MainWindow</name>
     <message>
         <location filename="../gui/MainWindow.cpp" line="141"/>
+        <location filename="../gui/MainWindow.cpp" line="1207"/>
         <location filename="../gui/MainWindow.cpp" line="1231"/>
         <source>Karbo Wallet %1</source>
         <translation>Karbo Wallet %1</translation>
@@ -2418,11 +2415,6 @@ Are you sure?</source>
         <source>%1 - Karbo Wallet %2</source>
         <translatorcomment>%1 - Karbo Wallet %2</translatorcomment>
         <translation></translation>
-    </message>
-    <message>
-        <location filename="../gui/MainWindow.cpp" line="1207"/>
-        <source>Karbo Wallet %1</source>
-        <translation>Karbo Wallet %1</translation>
     </message>
 </context>
 <context>

@@ -1206,10 +1206,6 @@ Do you want to go to download page?</source>
         <translation>بروزرسانی جدید در دسترس است.
 آیا میخواهید آن را دریافت نمایید ؟</translation>
     </message>
-    <message>
-        <source>Karbo Wallet %1</source>
-        <translation type="obsolete">کیف پول کربو %1</translation>
-    </message>
 </context>
 <context>
     <name>ReceiveFrame</name>

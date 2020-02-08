@@ -1210,10 +1210,6 @@ Do you want to go to download page?</source>
         <translation>Ёсць новая версія гаманца.
 Хочаце адкрыць старонку загрузкі?</translation>
     </message>
-    <message>
-        <source>Karbo Wallet %1</source>
-        <translation type="obsolete">Карбованець в. %1</translation>
-    </message>
 </context>
 <context>
     <name>ReceiveFrame</name>
@@ -2048,10 +2044,6 @@ Are you sure?</source>
             <numerusform>%n піра</numerusform>
             <numerusform>%n піраў</numerusform>
         </translation>
-    </message>
-    <message>
-        <source>Karbo Wallet %1</source>
-        <translation>Карбованець в. %1</translation>
     </message>
     <message numerus="yes">
         <source>%n active connection(s)</source>

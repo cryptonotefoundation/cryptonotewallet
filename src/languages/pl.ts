@@ -1206,10 +1206,6 @@ Do you want to go to download page?</source>
         <translation>Dostępna jest nowa wersja portfela.
 Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
     </message>
-    <message>
-        <source>Karbo Wallet %1</source>
-        <translation type="obsolete">Karbowaneć v. %1</translation>
-    </message>
 </context>
 <context>
     <name>ReceiveFrame</name>
@@ -2044,10 +2040,6 @@ Jesteś pewien?</translation>
             <numerusform>%n peery</numerusform>
             <numerusform>%n peerów</numerusform>
         </translation>
-    </message>
-    <message>
-        <source>Karbo Wallet %1</source>
-        <translation>Karbowaneć v. %1</translation>
     </message>
     <message numerus="yes">
         <source>%n active connection(s)</source>

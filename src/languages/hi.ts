@@ -1351,10 +1351,6 @@ Please wait...</source>
         <translation>ब्लॉकचैन लोड रही है...</translation>
     </message>
     <message>
-        <source>Karbo Wallet %1</source>
-        <translation type="obsolete">कार्बो वॉलेट %1</translation>
-    </message>
-    <message>
         <location filename="../update.cpp" line="90"/>
         <source>New version available</source>
         <translation>नया वर्ज़न उपलब्ध है</translation>
@@ -2339,11 +2335,6 @@ Do you want to go to download page?</source>
         <translation>%1 - कार्बो वॉलेट %2</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="1207"/>
-        <source>Karbo Wallet %1</source>
-        <translation>कार्बो वॉलेट %1</translation>
-    </message>
-    <message>
         <source>The language will be changed after restarting the wallet.</source>
         <translation type="vanished">वॉलेट को रीस्टार्ट करने के बाद भाषा बदल दी जाएगी।</translation>
     </message>
@@ -2433,6 +2424,7 @@ Are you sure?</source>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="141"/>
+        <location filename="../gui/MainWindow.cpp" line="1207"/>
         <location filename="../gui/MainWindow.cpp" line="1231"/>
         <source>Karbo Wallet %1</source>
         <translation>कार्बो वॉलेट %1</translation>

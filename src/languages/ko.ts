@@ -1375,10 +1375,6 @@ Please wait...</source>
         <translation>블록체인 로딩 중...</translation>
     </message>
     <message>
-        <source>Karbo Wallet %1</source>
-        <translation type="obsolete">Karbo 지갑 %1</translation>
-    </message>
-    <message>
         <location filename="../update.cpp" line="90"/>
         <source>New version available</source>
         <translation>새로운 버전을 이용하실 수 있습니다</translation>
@@ -2407,7 +2403,9 @@ Do you want to go to download page?</source>
         <translation>%1 - Karbo 지갑 %2</translation>
     </message>
     <message>
+        <location filename="../gui/MainWindow.cpp" line="141"/>
         <location filename="../gui/MainWindow.cpp" line="1207"/>
+        <location filename="../gui/MainWindow.cpp" line="1231"/>
         <source>Karbo Wallet %1</source>
         <translation>Karbo 지갑 %1</translation>
     </message>
@@ -2497,12 +2495,6 @@ Are you sure?</source>
         <location filename="../gui/MainWindow.cpp" line="1126"/>
         <source>Synchronized</source>
         <translation>동기화됨</translation>
-    </message>
-    <message>
-        <location filename="../gui/MainWindow.cpp" line="141"/>
-        <location filename="../gui/MainWindow.cpp" line="1231"/>
-        <source>Karbo Wallet %1</source>
-        <translation>Karbo 지갑 %1</translation>
     </message>
 </context>
 <context>

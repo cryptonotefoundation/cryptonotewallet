@@ -1379,10 +1379,6 @@ Please wait...</source>
         <translation>加载区块链…</translation>
     </message>
     <message>
-        <source>Karbo Wallet %1</source>
-        <translation type="obsolete">Karbo钱包%1</translation>
-    </message>
-    <message>
         <location filename="../update.cpp" line="90"/>
         <source>New version available</source>
         <translation>新版本可用</translation>
@@ -2390,7 +2386,9 @@ Do you want to go to download page?</source>
         <translation>%1 - 卡博币钱包%2</translation>
     </message>
     <message>
+        <location filename="../gui/MainWindow.cpp" line="141"/>
         <location filename="../gui/MainWindow.cpp" line="1207"/>
+        <location filename="../gui/MainWindow.cpp" line="1231"/>
         <source>Karbo Wallet %1</source>
         <translation>卡博币钱包%1</translation>
     </message>
@@ -2480,12 +2478,6 @@ Are you sure?</source>
         <location filename="../gui/MainWindow.cpp" line="1126"/>
         <source>Synchronized</source>
         <translation>已同步</translation>
-    </message>
-    <message>
-        <location filename="../gui/MainWindow.cpp" line="141"/>
-        <location filename="../gui/MainWindow.cpp" line="1231"/>
-        <source>Karbo Wallet %1</source>
-        <translation>Karbo钱包%1</translation>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="159"/>

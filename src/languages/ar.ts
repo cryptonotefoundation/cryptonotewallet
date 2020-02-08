@@ -1391,10 +1391,6 @@ Please wait...</source>
         <translation>جار تحميل البلوكتشين...</translation>
     </message>
     <message>
-        <source>Karbo Wallet %1</source>
-        <translation type="obsolete">محفظة 1% Karbo </translation>
-    </message>
-    <message>
         <location filename="../update.cpp" line="90"/>
         <source>New version available</source>
         <translation>إصدار جديد متاح</translation>
@@ -2382,11 +2378,6 @@ Do you want to go to download page?</source>
         <translation>محفظة 2% Karbo %1</translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="1207"/>
-        <source>Karbo Wallet %1</source>
-        <translation>1حفظة 2% Karbo </translation>
-    </message>
-    <message>
         <source>The language will be changed after restarting the wallet.</source>
         <translation type="vanished">سيتم تغيير اللغة بعد إعادة تشغيل المحفظة.</translation>
     </message>
@@ -2480,6 +2471,7 @@ Are you sure?</source>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="141"/>
+        <location filename="../gui/MainWindow.cpp" line="1207"/>
         <location filename="../gui/MainWindow.cpp" line="1231"/>
         <source>Karbo Wallet %1</source>
         <translation>محفظة 1% Karbo </translation>

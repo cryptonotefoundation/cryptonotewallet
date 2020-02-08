@@ -84,7 +84,7 @@
       </size>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: white;</string>
+      <string notr="true"/>
      </property>
     </widget>
    </item>
@@ -109,7 +109,7 @@
       </size>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: white;</string>
+      <string notr="true"/>
      </property>
      <property name="readOnly">
       <bool>true</bool>

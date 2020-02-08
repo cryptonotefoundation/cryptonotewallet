@@ -1324,10 +1324,6 @@ Please wait...</source>
         <translation>ブロックチェーン ローディング中...</translation>
     </message>
     <message>
-        <source>Karbo Wallet %1</source>
-        <translation type="obsolete">カルボウォレット %1</translation>
-    </message>
-    <message>
         <location filename="../update.cpp" line="90"/>
         <source>New version available</source>
         <translation>利用可能な新バージョン</translation>
@@ -2179,6 +2175,7 @@ Do you want to go to download page?</source>
     <name>WalletGui::MainWindow</name>
     <message>
         <location filename="../gui/MainWindow.cpp" line="141"/>
+        <location filename="../gui/MainWindow.cpp" line="1207"/>
         <location filename="../gui/MainWindow.cpp" line="1231"/>
         <source>Karbo Wallet %1</source>
         <translation>カルボウォレット %1</translation>
@@ -2416,11 +2413,6 @@ Are you sure?</source>
         <source>%1 - Karbo Wallet %2</source>
         <translatorcomment>%1 - カルボウォレット %2</translatorcomment>
         <translation></translation>
-    </message>
-    <message>
-        <location filename="../gui/MainWindow.cpp" line="1207"/>
-        <source>Karbo Wallet %1</source>
-        <translation>カルボウォレット %1</translation>
     </message>
 </context>
 <context>

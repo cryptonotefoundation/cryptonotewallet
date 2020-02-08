@@ -1206,10 +1206,6 @@ Do you want to go to download page?</source>
         <translation>Є нова версія гаманця.
 Бажаєте відкрити сторінку завантаження?</translation>
     </message>
-    <message>
-        <source>Karbo Wallet %1</source>
-        <translation type="obsolete">Карбованець в. %1</translation>
-    </message>
 </context>
 <context>
     <name>ReceiveFrame</name>
@@ -2037,10 +2033,6 @@ Are you sure?</source>
             <numerusform>%n активні підключення</numerusform>
             <numerusform>%n активних підключень</numerusform>
         </translation>
-    </message>
-    <message>
-        <source>Karbo Wallet %1</source>
-        <translation>Карбованець в. %1</translation>
     </message>
     <message>
         <source>&amp;Show / Hide</source>

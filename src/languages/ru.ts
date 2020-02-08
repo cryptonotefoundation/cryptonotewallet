@@ -1206,10 +1206,6 @@ Do you want to go to download page?</source>
         <translation>Есть обновление кошелька.
 Хотите открыть страницу загрузки?</translation>
     </message>
-    <message>
-        <source>Karbo Wallet %1</source>
-        <translation type="obsolete">Карбованец в. %1</translation>
-    </message>
 </context>
 <context>
     <name>ReceiveFrame</name>
@@ -2033,10 +2029,6 @@ Are you sure?</source>
             <numerusform>%n пира</numerusform>
             <numerusform>%n пиров</numerusform>
         </translation>
-    </message>
-    <message>
-        <source>Karbo Wallet %1</source>
-        <translation>Карбованец в. %1</translation>
     </message>
     <message numerus="yes">
         <source>%n active connection(s)</source>

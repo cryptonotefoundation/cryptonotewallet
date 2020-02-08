@@ -1219,10 +1219,6 @@ Do you want to go to download page?</source>
         <translation>Hay una actualización disponible.
 ¿Quieres ir a la página de descarga?</translation>
     </message>
-    <message>
-        <source>Karbo Wallet %1</source>
-        <translation type="obsolete">Karbo Monedero %1</translation>
-    </message>
 </context>
 <context>
     <name>ReceiveFrame</name>
@@ -2052,10 +2048,6 @@ Are you sure?</source>
             <numerusform>%n conexión activa</numerusform>
             <numerusform>%n conexiónes activas</numerusform>
         </translation>
-    </message>
-    <message>
-        <source>Karbo Wallet %1</source>
-        <translation>Karbo Monedero %1</translation>
     </message>
     <message>
         <source>&amp;Show / Hide</source>
