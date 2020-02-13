@@ -7,6 +7,7 @@
 #include <future>
 #include "CryptoNoteWrapper.h"
 #include <CheckpointsData.h>
+#include "Common/StringTools.h"
 #include "CryptoNoteCore/CryptoNoteBasicImpl.h"
 #include "CryptoNoteCore/CryptoNoteFormatUtils.h"
 #include "CryptoNoteCore/Currency.h"
@@ -16,6 +17,7 @@
 #include "CryptoNoteCore/Core.h"
 #include "CryptoNoteCore/Miner.h"
 #include "CryptoNoteCore/MinerConfig.h"
+#include "CryptoNoteCore/TransactionExtra.h"
 #include "Rpc/CoreRpcServerCommandsDefinitions.h"
 #include "Rpc/HttpClient.h"
 #include "CryptoNoteProtocol/CryptoNoteProtocolHandler.h"
@@ -61,28 +63,13 @@ std::string convertPaymentId(const std::string& paymentIdString) {
 }
 
 std::string extractPaymentId(const std::string& extra) {
-  std::vector<CryptoNote::TransactionExtraField> extraFields;
-  std::vector<uint8_t> extraVector;
-  std::copy(extra.begin(), extra.end(), std::back_inserter(extraVector));
+  std::vector<uint8_t> extraVec;
+  extraVec.reserve(extra.size());
+  std::for_each(extra.begin(), extra.end(), [&extraVec](const char el) { extraVec.push_back(el); });
 
-  if (!CryptoNote::parseTransactionExtra(extraVector, extraFields)) {
-    throw std::runtime_error("Can't parse extra");
-  }
-
-  std::string result;
-  CryptoNote::TransactionExtraNonce extraNonce;
-  if (CryptoNote::findTransactionExtraFieldByType(extraFields, extraNonce)) {
-    Crypto::Hash paymentIdHash;
-    if (CryptoNote::getPaymentIdFromTransactionExtraNonce(extraNonce.nonce, paymentIdHash)) {
-      unsigned char* buff = reinterpret_cast<unsigned char *>(&paymentIdHash);
-      for (size_t i = 0; i < sizeof(paymentIdHash); ++i) {
-        result.push_back("0123456789ABCDEF"[buff[i] >> 4]);
-        result.push_back("0123456789ABCDEF"[buff[i] & 15]);
-      }
-    }
-  }
-
-  return result;
+  Crypto::Hash paymentId;
+  std::string res = (CryptoNote::getPaymentIdFromTxExtra(extraVec, paymentId) && paymentId != CryptoNote::NULL_HASH ? Common::podToHex(paymentId) : "");
+  return res;
 }
 
 inline std::string interpret_rpc_response(bool ok, const std::string& status) {
