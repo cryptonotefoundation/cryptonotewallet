@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2015 The Cryptonote developers
-// Copyright (c) 2016-2017 The Karbowanec developers
+// Copyright (c) 2016-2020 The Karbowanec developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -267,6 +267,16 @@ quint64 NodeAdapter::getGreyPeerlistSize() {
 quint64 NodeAdapter::getMinimalFee() const {
   Q_CHECK_PTR(m_node);
   return m_node->getMinimalFee();
+}
+
+quint64 NodeAdapter::getNodeFeeAmount() const {
+  Q_CHECK_PTR(m_node);
+  return m_node->feeAmount();
+}
+
+QString NodeAdapter::getNodeFeeAddress() const {
+  Q_CHECK_PTR(m_node);
+  return QString::fromStdString(m_node->feeAddress());
 }
 
 CryptoNote::BlockHeaderInfo NodeAdapter::getLastLocalBlockHeaderInfo() {

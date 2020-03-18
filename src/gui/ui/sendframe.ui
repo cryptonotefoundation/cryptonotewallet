@@ -488,7 +488,7 @@
         </font>
        </property>
        <property name="toolTip">
-        <string>Wallet is connected through remote node. Additional 0.25% fee will be applied.</string>
+        <string>Wallet is connected through remote node. Additional fee may be applied.</string>
        </property>
        <property name="text">
         <string>Remote mode</string>

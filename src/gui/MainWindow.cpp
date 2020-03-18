@@ -194,7 +194,7 @@ void MainWindow::initUi() {
   m_remoteModeIconLabel->hide();
   m_trackingModeIconLabel->hide();
   m_trackingModeIconLabel->setToolTip(tr("Tracking wallet. Spending unavailable"));
-  m_remoteModeIconLabel->setToolTip(tr("Connected through remote node"));
+  m_remoteModeIconLabel->setToolTip(tr("Wallet is connected through remote node. Additional fee may be applied."));
 
   QString connection = Settings::instance().getConnection();
   if(connection.compare("remote") == 0) {

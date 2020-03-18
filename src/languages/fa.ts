@@ -314,7 +314,11 @@
     </message>
     <message>
         <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet sends 0.25% fee from each transaction to the node, but no more than 1 KRB.</source>
-        <translation>کیف پول به دایمون ریموت در حال اجرا در شبکه محلی و یا جهانی متصل می شود. لطفا نام سرور و یا آی پی آن را به همراه پورت انتخاب و یا وارد نمایید. در حالت در هر تراکنش شما 0.25 درصد کارمزد به اجرا کننده سرور می پردازید اما نه بیشتر از یک کربو.</translation>
+        <translation type="vanished">کیف پول به دایمون ریموت در حال اجرا در شبکه محلی و یا جهانی متصل می شود. لطفا نام سرور و یا آی پی آن را به همراه پورت انتخاب و یا وارد نمایید. در حالت در هر تراکنش شما 0.25 درصد کارمزد به اجرا کننده سرور می پردازید اما نه بیشتر از یک کربو.</translation>
+    </message>
+    <message>
+        <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet includes an additional fee from each transaction to the node, but no more than 1 KRB.</source>
+        <translation>کیف پول به گره از راه دور در حال اجرا در شبکه محلی یا جهانی متصل می شود. لطفا گره را انتخاب کنید یا آدرس IP یا نام دامنه و پورت را مشخص کنید. در این حالت کیف پول شامل هزینه اضافی از هر تراکنش به گره می شود ، اما بیشتر از 1 KRB نیست.</translation>
     </message>
 </context>
 <context>
@@ -748,7 +752,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Sweep unmixable</source>
-        <translation>ارز غیر قابل ارسال را بازگردانی کن</translation>
+        <translation type="vanished">ارز غیر قابل ارسال را بازگردانی کن</translation>
     </message>
     <message>
         <source>Sign message</source>
@@ -1352,8 +1356,8 @@ Do you want to go to download page?</source>
         <translation>ایجاد شناسه پرداخت</translation>
     </message>
     <message>
-        <source>Wallet is connected through remote node. Additional 0.25% fee will be applied.</source>
-        <translation>کیف پول از طریق ریموت دایمون به شبکه متصل است. به همین دلیل با هر تراکنش 0.25 درصد کربو برای سرور اختصاص می گیرد.</translation>
+        <source>Wallet is connected through remote node. Additional fee may be applied.</source>
+        <translation>کیف پول از طریق گره از راه دور متصل می شود. هزینه اضافی ممکن است اعمال شود</translation>
     </message>
     <message>
         <source>Remote node mode</source>
@@ -2028,7 +2032,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>Connected through remote node</source>
-        <translation>به واسطه ریموت دایمون متصل هستید</translation>
+        <translation type="vanished">به واسطه ریموت دایمون متصل هستید</translation>
     </message>
     <message numerus="yes">
         <source>%n active connection(s)</source>
@@ -2126,7 +2130,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>Karbo Wallet %2</source>
-        <translation>کیف پول کربو %2</translation>
+        <translation type="vanished">کیف پول کربو %2</translation>
     </message>
     <message>
         <source>Recent wallet file not found</source>
@@ -2143,6 +2147,10 @@ Are you sure?</source>
     <message>
         <source>Wrong password.</source>
         <translation>گذرواژه اشتباه</translation>
+    </message>
+    <message>
+        <source>Wallet is connected through remote node. Additional fee may be applied.</source>
+        <translation>کیف پول از طریق گره از راه دور متصل می شود. هزینه اضافی ممکن است اعمال شود</translation>
     </message>
 </context>
 <context>

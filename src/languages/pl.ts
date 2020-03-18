@@ -314,7 +314,11 @@
     </message>
     <message>
         <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet sends 0.25% fee from each transaction to the node, but no more than 1 KRB.</source>
-        <translation>Portfel będzie łączyć się ze zdalnym węzłem w sieci lokalnej lub globalnej. Wybierz węzeł lub kliknij &quot;Dodaj węzeł&quot; i podaj adres IP czy nazwę domeny i port. W tym trybie portfel płaci prowizję dla węzła w rozmiarze 0,25% od sumy transakcji, ale nie więcej niż 1 krb.</translation>
+        <translation type="vanished">Portfel będzie łączyć się ze zdalnym węzłem w sieci lokalnej lub globalnej. Wybierz węzeł lub kliknij &quot;Dodaj węzeł&quot; i podaj adres IP czy nazwę domeny i port. W tym trybie portfel płaci prowizję dla węzła w rozmiarze 0,25% od sumy transakcji, ale nie więcej niż 1 krb.</translation>
+    </message>
+    <message>
+        <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet includes an additional fee from each transaction to the node, but no more than 1 KRB.</source>
+        <translation>Portfel będzie łączyć się ze zdalnym węzłem w sieci lokalnej lub globalnej. Wybierz węzeł lub kliknij &quot;Dodaj węzeł&quot; i podaj adres IP czy nazwę domeny i port. W tym trybie może zostać naliczona dodatkowa opłata dla węzła podczas wysłania tranzakcji, ale nie więcej niż 1 KRB.</translation>
     </message>
 </context>
 <context>
@@ -752,7 +756,7 @@ Proszę czekać...</translation>
     </message>
     <message>
         <source>Sweep unmixable</source>
-        <translation>Zmieszaj nieosiągalne wyjścia</translation>
+        <translation type="vanished">Zmieszaj nieosiągalne wyjścia</translation>
     </message>
     <message>
         <source>Sign message</source>
@@ -1348,8 +1352,8 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
         <translation>Wygeneruj identyfikator</translation>
     </message>
     <message>
-        <source>Wallet is connected through remote node. Additional 0.25% fee will be applied.</source>
-        <translation>Portfel jest podłączony za pośrednictwem zdalnego węzła. Będzie pobrana dodatkowa opłata 0,25%.</translation>
+        <source>Wallet is connected through remote node. Additional fee may be applied.</source>
+        <translation>Portfel jest podłączony za pośrednictwem zdalnego węzła. Może być pobierana dodatkowa opłata.</translation>
     </message>
     <message>
         <source>Remote node mode</source>
@@ -2031,7 +2035,7 @@ Jesteś pewien?</translation>
     </message>
     <message>
         <source>Connected through remote node</source>
-        <translation>Połączony za pośrednictwem zdalnego węzła</translation>
+        <translation type="vanished">Połączony za pośrednictwem zdalnego węzła</translation>
     </message>
     <message numerus="yes">
         <source>%n peer(s)</source>
@@ -2152,6 +2156,10 @@ Jesteś pewien?</translation>
     <message>
         <source>Wrong password.</source>
         <translation>Złe hasło.</translation>
+    </message>
+    <message>
+        <source>Wallet is connected through remote node. Additional fee may be applied.</source>
+        <translation>Portfel jest podłączony za pośrednictwem zdalnego węzła. Może być pobierana dodatkowa opłata.</translation>
     </message>
 </context>
 <context>

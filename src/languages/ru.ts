@@ -314,7 +314,11 @@
     </message>
     <message>
         <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet sends 0.25% fee from each transaction to the node, but no more than 1 KRB.</source>
-        <translation>Кошелек будет подключаться к удаленному узлу в локальной или глобальной сети. Выберите узел или укажите IP адрес или домен и порт чтобы добавить новый. В этом режиме кошелек платит комиссию узлу в размере 0,25% от суммы транзакции, но не более 1 крб.</translation>
+        <translation type="vanished">Кошелек будет подключаться к удаленному узлу в локальной или глобальной сети. Выберите узел или укажите IP адрес или домен и порт чтобы добавить новый. В этом режиме кошелек платит комиссию узлу в размере 0,25% от суммы транзакции, но не более 1 крб.</translation>
+    </message>
+    <message>
+        <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet includes an additional fee from each transaction to the node, but no more than 1 KRB.</source>
+        <translation>Кошелек будет подключаться к удаленному узлу в локальной или глобальной сети. Выберите узел или укажите IP адрес или домен и порт чтобы добавить новый. В этом режиме может стягиваться дополнительная комиссия узлу при отправке транзакции. Максимальный размер комиссии: 1 крб.</translation>
     </message>
 </context>
 <context>
@@ -752,7 +756,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Sweep unmixable</source>
-        <translation>Убрать несмешиваемые</translation>
+        <translation type="vanished">Убрать несмешиваемые</translation>
     </message>
     <message>
         <source>Sign message</source>
@@ -1348,8 +1352,8 @@ Do you want to go to download page?</source>
         <translation>Сгенерировать идентификатор</translation>
     </message>
     <message>
-        <source>Wallet is connected through remote node. Additional 0.25% fee will be applied.</source>
-        <translation>Кошелек подключен через удаленный узел. Будет взыматься дополнительная комиссия 0,25%.</translation>
+        <source>Wallet is connected through remote node. Additional fee may be applied.</source>
+        <translation>Кошелек подключен через удаленный узел. Может взыматься дополнительная комиссия.</translation>
     </message>
     <message>
         <source>Remote node mode</source>
@@ -2020,7 +2024,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>Connected through remote node</source>
-        <translation>Подключение через удаленный узел</translation>
+        <translation type="vanished">Подключение через удаленный узел</translation>
     </message>
     <message numerus="yes">
         <source>%n peer(s)</source>
@@ -2145,6 +2149,10 @@ Are you sure?</source>
     <message>
         <source>Wrong password.</source>
         <translation>Неправильный пароль.</translation>
+    </message>
+    <message>
+        <source>Wallet is connected through remote node. Additional fee may be applied.</source>
+        <translation>Кошелек подключен через удаленный узел. Может взыматься дополнительная комиссия.</translation>
     </message>
 </context>
 <context>

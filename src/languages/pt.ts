@@ -330,7 +330,11 @@
     </message>
     <message>
         <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet sends 0.25% fee from each transaction to the node, but no more than 1 KRB.</source>
-        <translation>A carteira se conectará a um node remoto que esteja sendo executado em uma rede local ou global. Selecione o node ou especifique o endereço IP ou o domínio e a porta do novo node. Neste modo, você paga a taxa pelo node na quantidade de 0,25% do valor da transferência, mas não mais que 1 KRB.</translation>
+        <translation type="vanished">A carteira se conectará a um node remoto que esteja sendo executado em uma rede local ou global. Selecione o node ou especifique o endereço IP ou o domínio e a porta do novo node. Neste modo, você paga a taxa pelo node na quantidade de 0,25% do valor da transferência, mas não mais que 1 KRB.</translation>
+    </message>
+    <message>
+        <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet includes an additional fee from each transaction to the node, but no more than 1 KRB.</source>
+        <translation>A carteira se conectará a um node remoto que esteja sendo executado em uma rede local ou global. Selecione o node ou especifique o endereço IP ou o domínio e a porta do novo node. Nesse modo, uma taxa adicional para o nó pode ser cobrada, mas não mais que 1 KRB.</translation>
     </message>
 </context>
 <context>
@@ -772,7 +776,7 @@ Por favor aguarde...</translation>
     </message>
     <message>
         <source>Sweep unmixable</source>
-        <translation>Limpar não-misturável</translation>
+        <translation type="vanished">Limpar não-misturável</translation>
     </message>
     <message>
         <source>Sign message</source>
@@ -1373,8 +1377,8 @@ Você quer ir à página de dowload?</translation>
         <translation>Gerar ID</translation>
     </message>
     <message>
-        <source>Wallet is connected through remote node. Additional 0.25% fee will be applied.</source>
-        <translation>A carteira é conectada através de um nó remoto. Será cobrada uma taxa adicional de 0,25%.</translation>
+        <source>Wallet is connected through remote node. Additional fee may be applied.</source>
+        <translation>A carteira é conectada através de um nó remoto. Taxa adicional pode ser aplicada.</translation>
     </message>
     <message>
         <source>Remote node mode</source>
@@ -2049,7 +2053,7 @@ Você tem certeza?</translation>
     </message>
     <message>
         <source>Connected through remote node</source>
-        <translation>Conecte-se via host remoto</translation>
+        <translation type="vanished">Conecte-se via host remoto</translation>
     </message>
     <message numerus="yes">
         <source>%n active connection(s)</source>
@@ -2161,6 +2165,10 @@ Você tem certeza?</translation>
     <message>
         <source>Wrong password.</source>
         <translation>Senha incorreta.</translation>
+    </message>
+    <message>
+        <source>Wallet is connected through remote node. Additional fee may be applied.</source>
+        <translation>A carteira é conectada através de um nó remoto. Taxa adicional pode ser aplicada.</translation>
     </message>
 </context>
 <context>

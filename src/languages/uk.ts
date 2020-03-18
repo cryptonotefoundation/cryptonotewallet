@@ -314,7 +314,11 @@
     </message>
     <message>
         <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet sends 0.25% fee from each transaction to the node, but no more than 1 KRB.</source>
-        <translation>Гаманець підключатиметься до віддаленого вузла, що запущений у локальній або глобальній мережі. Виберіть вузол, або вкажіть IP адресу чи домен та порт нового вузла. У цьому режимі він сплачує комісію для вузла в розмірі 0,25% від суми переказу, але не більше 1 крб.</translation>
+        <translation type="vanished">Гаманець підключатиметься до віддаленого вузла, що запущений у локальній або глобальній мережі. Виберіть вузол, або вкажіть IP адресу чи домен та порт нового вузла. У цьому режимі він сплачує комісію для вузла в розмірі 0,25% від суми переказу, але не більше 1 крб.</translation>
+    </message>
+    <message>
+        <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet includes an additional fee from each transaction to the node, but no more than 1 KRB.</source>
+        <translation>Гаманець підключатиметься до віддаленого вузла, що запущений у локальній або глобальній мережі. Виберіть вузол, або вкажіть IP адресу чи домен та порт нового вузла. У цьому режимі може стягуватись додаткова комісія для вузла при кожній транзакції. Максимальна сума комісії становить 1 крб.</translation>
     </message>
 </context>
 <context>
@@ -752,7 +756,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Sweep unmixable</source>
-        <translation>Прибрати незмішуване</translation>
+        <translation type="vanished">Прибрати незмішуване</translation>
     </message>
     <message>
         <source>Sign message</source>
@@ -1352,8 +1356,8 @@ Do you want to go to download page?</source>
         <translation>Згенерувати ідентифікатор</translation>
     </message>
     <message>
-        <source>Wallet is connected through remote node. Additional 0.25% fee will be applied.</source>
-        <translation>Гаманець підключений через віддалений вузол. Буде стягуватись додаткова комісія 0,25%.</translation>
+        <source>Wallet is connected through remote node. Additional fee may be applied.</source>
+        <translation>Гаманець підключений через віддалений вузол. Може стягуватись додаткова комісія.</translation>
     </message>
     <message>
         <source>Remote node mode</source>
@@ -2024,7 +2028,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>Connected through remote node</source>
-        <translation>Підключення через віддалений вузол</translation>
+        <translation type="vanished">Підключення через віддалений вузол</translation>
     </message>
     <message numerus="yes">
         <source>%n active connection(s)</source>
@@ -2141,6 +2145,10 @@ Are you sure?</source>
     <message>
         <source>Wrong password.</source>
         <translation>Неправильний пароль.</translation>
+    </message>
+    <message>
+        <source>Wallet is connected through remote node. Additional fee may be applied.</source>
+        <translation>Гаманець підключений через віддалений вузол. Може стягуватись додаткова комісія.</translation>
     </message>
 </context>
 <context>

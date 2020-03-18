@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2015 The Cryptonote developers
-// Copyright (c) 2016-2019 The Karbowanec developers
+// Copyright (c) 2016-2020 The Karbowanec developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -49,6 +49,8 @@ public:
   virtual uint64_t getWhitePeerlistSize() = 0;
   virtual uint64_t getGreyPeerlistSize() = 0;
   virtual uint64_t getMinimalFee() = 0;
+  virtual std::string feeAddress() const = 0;
+  virtual uint64_t feeAmount() const = 0;
   virtual uint8_t getCurrentBlockMajorVersion() = 0;
   virtual uint64_t getAlreadyGeneratedCoins() = 0;
   virtual CryptoNote::BlockHeaderInfo getLastLocalBlockHeaderInfo() = 0;

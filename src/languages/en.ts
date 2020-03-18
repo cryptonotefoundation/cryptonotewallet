@@ -1266,7 +1266,7 @@ Do you want to go to download page?</source>
     </message>
     <message>
         <location filename="../gui/ui/sendframe.ui" line="367"/>
-        <source>Wallet is connected through remote node. Additional 0.25% fee will be applied.</source>
+        <source>Wallet is connected through remote node. Additional fee may be applied.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

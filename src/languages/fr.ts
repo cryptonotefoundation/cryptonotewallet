@@ -334,7 +334,11 @@
     </message>
     <message>
         <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet sends 0.25% fee from each transaction to the node, but no more than 1 KRB.</source>
-        <translation>Le portefeuille se connecte au noeud distant en cours d&apos;exécution sur un réseau local ou global. Veuillez sélectionner un noeud ou spécifier une adresse IP ou un nom de domaine et un port. Dans ce mode, le portefeuille envoie des frais de 0,25% de chaque transaction au nœud, mais pas plus de 1 KRB.</translation>
+        <translation type="vanished">Le portefeuille se connecte au noeud distant en cours d&apos;exécution sur un réseau local ou global. Veuillez sélectionner un noeud ou spécifier une adresse IP ou un nom de domaine et un port. Dans ce mode, le portefeuille envoie des frais de 0,25% de chaque transaction au nœud, mais pas plus de 1 KRB.</translation>
+    </message>
+    <message>
+        <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet includes an additional fee from each transaction to the node, but no more than 1 KRB.</source>
+        <translation>Le portefeuille se connecte au noeud distant en cours d&apos;exécution sur un réseau local ou global. Veuillez sélectionner un noeud ou spécifier une adresse IP ou un nom de domaine et un port. Dans ce mode, des frais supplémentaires pour le nœud peuvent être facturés, mais pas plus de 1 KRB.</translation>
     </message>
 </context>
 <context>
@@ -768,7 +772,7 @@ S&apos;il vous plaît, patientez...</translation>
     </message>
     <message>
         <source>Sweep unmixable</source>
-        <translation>Balayer Non Mélangeables</translation>
+        <translation type="vanished">Balayer Non Mélangeables</translation>
     </message>
     <message>
         <source>Sign message</source>
@@ -1372,8 +1376,8 @@ Voulez-vous aller à la page de téléchargement?</translation>
         <translation>Générer un identifiant de paiement</translation>
     </message>
     <message>
-        <source>Wallet is connected through remote node. Additional 0.25% fee will be applied.</source>
-        <translation>Le portefeuille est connecté via un noeud distant. Des frais supplémentaires de 0,25% seront appliqués.</translation>
+        <source>Wallet is connected through remote node. Additional fee may be applied.</source>
+        <translation>Le portefeuille est connecté via un nœud distant. Des frais supplémentaires peuvent être appliqués.</translation>
     </message>
     <message>
         <source>Remote node mode</source>
@@ -2048,7 +2052,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>Connected through remote node</source>
-        <translation>Connecté via un noeud distant</translation>
+        <translation type="vanished">Connecté via un noeud distant</translation>
     </message>
     <message numerus="yes">
         <source>%n active connection(s)</source>
@@ -2160,6 +2164,10 @@ Are you sure?</source>
     <message>
         <source>Wrong password.</source>
         <translation>Mauvais mot de passe.</translation>
+    </message>
+    <message>
+        <source>Wallet is connected through remote node. Additional fee may be applied.</source>
+        <translation>Le portefeuille est connecté via un nœud distant. Des frais supplémentaires peuvent être appliqués.</translation>
     </message>
 </context>
 <context>

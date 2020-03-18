@@ -248,7 +248,7 @@
         </size>
        </property>
        <property name="text">
-        <string>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet sends 0.25% fee from each transaction to the node, but no more than 1 KRB.</string>
+        <string>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet includes an additional fee from each transaction to the node, but no more than 1 KRB.</string>
        </property>
        <property name="wordWrap">
         <bool>true</bool>

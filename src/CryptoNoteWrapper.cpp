@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2015 The Cryptonote developers
-// Copyright (c) 2016-2019 The Karbowanec developers
+// Copyright (c) 2016-2020 The Karbowanec developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -139,6 +139,14 @@ public:
 
   uint64_t getMinimalFee() {
     return m_node.getMinimalFee();
+  }
+
+  std::string feeAddress() const {
+    return m_node.feeAddress();
+  }
+
+  uint64_t feeAmount() const {
+    return m_node.feeAmount();
   }
 
   uint64_t getDifficulty() {
@@ -363,6 +371,14 @@ public:
 
   uint64_t getMinimalFee() {
     return m_core.getMinimalFee();
+  }
+
+  std::string feeAddress() const {
+    return m_node.feeAddress();
+  }
+
+  uint64_t feeAmount() const {
+    return m_node.feeAmount();
   }
 
   CryptoNote::BlockHeaderInfo getLastLocalBlockHeaderInfo() {

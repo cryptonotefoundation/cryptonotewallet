@@ -318,7 +318,11 @@
     </message>
     <message>
         <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet sends 0.25% fee from each transaction to the node, but no more than 1 KRB.</source>
-        <translation>Гаманец будзе падлучацца да вузла ў лакальнай або глабальнай сеткі. Выберыце вузел або пакажыце IP адрас або дамен і порт каб дадаць новы. У гэтым рэжыме гаманец плаціць камісію вузлу ў памеры 0,25% ад сумы транзакцыі, але не больш за 1 крб.</translation>
+        <translation type="vanished">Гаманец будзе падлучацца да вузла ў лакальнай або глабальнай сеткі. Выберыце вузел або пакажыце IP адрас або дамен і порт каб дадаць новы. У гэтым рэжыме гаманец плаціць камісію вузлу ў памеры 0,25% ад сумы транзакцыі, але не больш за 1 крб.</translation>
+    </message>
+    <message>
+        <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet includes an additional fee from each transaction to the node, but no more than 1 KRB.</source>
+        <translation>Гаманец будзе падлучацца да вузла ў лакальнай або глабальнай сеткі. Выберыце вузел або пакажыце IP адрас або дамен і порт каб дадаць новы. У гэтым рэжыме можа спаганяцца дадатковая камісія вузлу, але не больш за 1 КРБ.</translation>
     </message>
 </context>
 <context>
@@ -756,7 +760,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Sweep unmixable</source>
-        <translation>Прыбраць нязмешвальных</translation>
+        <translation type="vanished">Прыбраць нязмешвальных</translation>
     </message>
     <message>
         <source>Sign message</source>
@@ -1352,8 +1356,8 @@ Do you want to go to download page?</source>
         <translation>Згенераваць ідэнтыфікатар</translation>
     </message>
     <message>
-        <source>Wallet is connected through remote node. Additional 0.25% fee will be applied.</source>
-        <translation>Гаманец падлучаны праз аддалены вузел. Будзе прымяняцца дадатковая плата 0,25%.</translation>
+        <source>Wallet is connected through remote node. Additional fee may be applied.</source>
+        <translation>Гаманец падлучаны праз аддалены вузел. Будзе прымяняцца дадатковая плата.</translation>
     </message>
     <message>
         <source>Remote node mode</source>
@@ -2035,7 +2039,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>Connected through remote node</source>
-        <translation>Падключэнне праз аддалены вузел</translation>
+        <translation type="vanished">Падключэнне праз аддалены вузел</translation>
     </message>
     <message numerus="yes">
         <source>%n peer(s)</source>
@@ -2156,6 +2160,10 @@ Are you sure?</source>
     <message>
         <source>Wrong password.</source>
         <translation>Няправільны пароль.</translation>
+    </message>
+    <message>
+        <source>Wallet is connected through remote node. Additional fee may be applied.</source>
+        <translation>Гаманец падлучаны праз аддалены вузел. Будзе прымяняцца дадатковая плата.</translation>
     </message>
 </context>
 <context>

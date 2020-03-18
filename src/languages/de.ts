@@ -319,7 +319,11 @@
     </message>
     <message>
         <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet sends 0.25% fee from each transaction to the node, but no more than 1 KRB.</source>
-        <translation>Wallet stellt eine Verbindung zum Remote-Knoten her, der im lokalen oder globalen Netzwerk ausgeführt wird. Bitte wählen Sie einen Knoten aus oder geben Sie die IP-Adresse oder den Domänennamen und den Port an. In diesem Modus sendet die Brieftasche 0,25% Gebühr von jeder Transaktion an den Knoten, aber nicht mehr als 1 KRB.</translation>
+        <translation type="vanished">Wallet stellt eine Verbindung zum Remote-Knoten her, der im lokalen oder globalen Netzwerk ausgeführt wird. Bitte wählen Sie einen Knoten aus oder geben Sie die IP-Adresse oder den Domänennamen und den Port an. In diesem Modus sendet die Brieftasche 0,25% Gebühr von jeder Transaktion an den Knoten, aber nicht mehr als 1 KRB.</translation>
+    </message>
+    <message>
+        <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet includes an additional fee from each transaction to the node, but no more than 1 KRB.</source>
+        <translation>Wallet stellt eine Verbindung zum Remote-Knoten her, der im lokalen oder globalen Netzwerk ausgeführt wird. Bitte wählen Sie einen Knoten aus oder geben Sie die IP-Adresse oder den Domänennamen und den Port an. In diesem Modus kann eine zusätzliche Gebühr für den Knoten erhoben werden, jedoch nicht mehr als 1 KRB.</translation>
     </message>
 </context>
 <context>
@@ -757,7 +761,7 @@ Bitte warten...</translation>
     </message>
     <message>
         <source>Sweep unmixable</source>
-        <translation>Unmischbare Beträge zusammenführen</translation>
+        <translation type="vanished">Unmischbare Beträge zusammenführen</translation>
     </message>
     <message>
         <source>Sign message</source>
@@ -1361,8 +1365,8 @@ Möchten Sie die Download Seite besuchen?</translation>
         <translation>Generate Payment ID</translation>
     </message>
     <message>
-        <source>Wallet is connected through remote node. Additional 0.25% fee will be applied.</source>
-        <translation>Brieftasche ist durch einen remote node verbunden. Zusätzlich werden 0.25% Gebühr erhoben.</translation>
+        <source>Wallet is connected through remote node. Additional fee may be applied.</source>
+        <translation>Brieftasche ist durch einen remote node verbunden. Es kann eine zusätzliche Gebühr erhoben werden.</translation>
     </message>
     <message>
         <source>Remote node mode</source>
@@ -2040,7 +2044,7 @@ Bist du sicher?</translation>
     </message>
     <message>
         <source>Connected through remote node</source>
-        <translation>Verbunden durch remote node</translation>
+        <translation type="vanished">Verbunden durch remote node</translation>
     </message>
     <message numerus="yes">
         <source>%n active connection(s)</source>
@@ -2156,6 +2160,10 @@ Bist du sicher?</translation>
     <message>
         <source>Wrong password.</source>
         <translation>Falsches Passwort.</translation>
+    </message>
+    <message>
+        <source>Wallet is connected through remote node. Additional fee may be applied.</source>
+        <translation>Brieftasche ist durch einen remote node verbunden. Es kann eine zusätzliche Gebühr erhoben werden.</translation>
     </message>
 </context>
 <context>
