@@ -5,9 +5,9 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleExecutable</key>
-	<string>KarbowanecWallet</string>
+	<string>@CN_PROJECT_NAME@</string>
 	<key>CFBundleGetInfoString</key>
-	<string>Karbo Wallet</string>
+	<string>Karbo Wallet v. @CN_VERSION@</string>
 	<key>CFBundleIconFile</key>
 	<string>karbowanec.icns</string>
 	<key>CFBundleIdentifier</key>
@@ -15,17 +15,17 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleLongVersionString</key>
-	<string>1.4.1</string>
+	<string>@CN_VERSION@</string>
 	<key>CFBundleName</key>
 	<string>Karbo Wallet</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.4.1</string>
+	<string>@CN_VERSION@</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>karbowanec1.4.1</string>
+	<string>karbowanec@CN_VERSION@</string>
 	<key>CSResourcesFileMapped</key>
 	<true/>
 	<key>NSHumanReadableCopyright</key>

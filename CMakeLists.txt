@@ -71,6 +71,21 @@ link_directories(${Boost_LIBRARY_DIRS})
 set(VERSION "")
 include(cn_version.cmake)
 configure_file("src/CryptoNoteWalletConfig.h.in" "CryptoNoteWalletConfig.h")
+configure_file(
+    "${CMAKE_CURRENT_LIST_DIR}/src/Info.plist.in"
+    "${CMAKE_CURRENT_BINARY_DIR}/Info.plist"
+    @ONLY
+)
+configure_file(
+    "${CMAKE_CURRENT_LIST_DIR}/src/WindowsInstall.nsi.in"
+    "${CMAKE_CURRENT_BINARY_DIR}/WindowsInstall.nsi"
+    @ONLY
+)
+configure_file(
+    "${CMAKE_CURRENT_LIST_DIR}/src/karbowanecwallet.desktop.in"
+    "${CMAKE_CURRENT_BINARY_DIR}/karbowanecwallet.desktop"
+    @ONLY
+)
 
 add_definitions(-DVERSION=\"${CN_VERSION}\")
 add_definitions(-DGIT_REVISION=\"${GIT_REVISION}\")
@@ -443,7 +458,7 @@ endif ()
 if (APPLE)
   set_target_properties(${PROJECT_NAME} PROPERTIES
   MACOSX_BUNDLE TRUE
-  MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_SOURCE_DIR}/Info.plist)
+  MACOSX_BUNDLE_INFO_PLIST ${CMAKE_CURRENT_BINARY_DIR}/Info.plist)
   
   target_link_libraries(${PROJECT_NAME} Qt5::PrintSupport) 
 elseif (UNIX)
@@ -463,7 +478,7 @@ set(CPACK_PACKAGE_CONTACT "https://karbo.org")
 set(CPACK_STRIP_FILES ON)
 if (APPLE)
     set(CPACK_GENERATOR DragNDrop)
-	set(CPACK_BUNDLE_PLIST ${CMAKE_SOURCE_DIR}/Info.plist)
+	set(CPACK_BUNDLE_PLIST ${CMAKE_CURRENT_BINARY_DIR}/Info.plist)
     set(CPACK_PACKAGE_FILE_NAME "${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}")
 	install(TARGETS ${PROJECT_NAME} BUNDLE DESTINATION .)
 elseif (UNIX)
@@ -471,7 +486,7 @@ elseif (UNIX)
 
     install(PROGRAMS ${CMAKE_BINARY_DIR}/${PROJECT_NAME} DESTINATION bin
     PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE)
-    install(FILES src/karbowanecwallet.desktop DESTINATION share/applications)
+    install(FILES ${CMAKE_BINARY_DIR}/karbowanecwallet.desktop DESTINATION share/applications)
     install(FILES src/images/karbowanez.png DESTINATION share/pixmaps RENAME karbowanec.png)
     install(FILES copyright DESTINATION share/doc/karbowanecwallet)
     install(DIRECTORY "${CMAKE_BINARY_DIR}/languages" DESTINATION /opt/karbo/ FILES_MATCHING PATTERN "*.qm")

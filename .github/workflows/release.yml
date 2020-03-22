@@ -67,11 +67,10 @@ jobs:
           cp languages/*.qm "$release_folder/$release_name/languages/"
           cd "$release_folder"
           cp KarbowanecWallet.exe "$release_name/"
-          cp "../../COPYING" "$release_name/COPYING.txt"
           windeployqt --release KarbowanecWallet.exe --dir "$release_name/"
-          cd ../../
+          cd ../
           makensis WindowsInstall.nsi
-          cd "$build_folder/$release_folder"
+          cd "$release_folder"
           Compress-Archive -Path "KarbowanecWallet-Setup.exe" -DestinationPath "$release_name.zip"
           $sha256 = (Get-FileHash "$release_name.zip").Hash
           $asset_path = "./$build_folder/$release_folder/$release_name.zip"

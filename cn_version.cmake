@@ -29,10 +29,7 @@ if(GIT_FOUND)
     list(GET VERSION_MATCHES 2 version_patch)
     set(PROJECT_VERSION_PATCH ${version_patch})
 
-    message(STATUS "Git tag: ${PROJECT_GIT_TAG}")
-    message(STATUS "VERSION_MAJOR: ${PROJECT_VERSION_MAJOR}")
-    message(STATUS "VERSION_MINOR: ${PROJECT_VERSION_MINOR}")
-    message(STATUS "VERSION_PATCH: ${PROJECT_VERSION_PATCH}")
+    message(STATUS "Core git tag: ${PROJECT_GIT_TAG}")
   endif()
 
   execute_process(

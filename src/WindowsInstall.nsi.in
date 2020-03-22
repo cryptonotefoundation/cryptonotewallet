@@ -1,24 +1,24 @@
 Name "Karbo Wallet (64-bit)"
 
 # General Symbol Definitions
-!define PROJECT_NAME "KarbowanecWallet"
-!define PROJECT_VERSION "v.1.4.1b"
+!define PROJECT_NAME "@CN_PROJECT_NAME@"
+!define PROJECT_VERSION "@CN_VERSION@"
 !define REGKEY "SOFTWARE\$(^Name)"
-!define COMPANY "Karbo project"
-!define URL "https://karbo.org"
+!define COMPANY "@PROJECT_VENDOR_NAME@"
+!define URL "@PROJECT_VENDOR_URL@"
 
 RequestExecutionLevel highest
 SetCompressor /SOLID lzma
 
 # define installer name
-OutFile ".\build\Release\${PROJECT_NAME}-Setup.exe"
+OutFile ".\Release\${PROJECT_NAME}-Setup.exe"
 
 # MUI Symbol Definitions
-!define MUI_ICON ".\src\images\karbowanez.ico"
-!define MUI_WELCOMEFINISHPAGE_BITMAP ".\src\images\nsis-wizard.bmp"
+!define MUI_ICON "..\src\images\karbowanez.ico"
+!define MUI_WELCOMEFINISHPAGE_BITMAP "..\src\images\nsis-wizard.bmp"
 !define MUI_HEADERIMAGE
 !define MUI_HEADERIMAGE_RIGHT
-!define MUI_HEADERIMAGE_BITMAP ".\src\images\nsis-header.bmp"
+!define MUI_HEADERIMAGE_BITMAP "..\src\images\nsis-header.bmp"
 !define MUI_FINISHPAGE_NOAUTOCLOSE
 !define MUI_STARTMENUPAGE_REGISTRY_ROOT HKLM
 !define MUI_STARTMENUPAGE_REGISTRY_KEY ${REGKEY}
@@ -27,7 +27,7 @@ OutFile ".\build\Release\${PROJECT_NAME}-Setup.exe"
 !define MUI_FINISHPAGE_RUN "$WINDIR\explorer.exe"
 !define MUI_FINISHPAGE_RUN_PARAMETERS "$INSTDIR\${PROJECT_NAME}.exe"
 !define MUI_UNICON "${NSISDIR}\Contrib\Graphics\Icons\modern-uninstall.ico"
-!define MUI_UNWELCOMEFINISHPAGE_BITMAP "src/images/nsis-wizard.bmp"
+!define MUI_UNWELCOMEFINISHPAGE_BITMAP "..\src\images\nsis-wizard.bmp"
 !define MUI_UNFINISHPAGE_NOAUTOCLOSE
 
 # Included files
@@ -53,9 +53,9 @@ Var StartMenuGroup
 # set desktop as install directory
 InstallDir $PROGRAMFILES64\Karbowanec
 CRCCheck on
-BrandingText "Karbo Wallet"
+BrandingText "@CN_CURRENCY_DISPLAY_NAME@ Wallet"
 ShowInstDetails show
-VIProductVersion 1.4.1.1
+VIProductVersion @PROJECT_VER_MAJOR@.@PROJECT_VER_MINOR@.@PROJECT_VER_PATCH@.@PROJECT_VER_BUILD@
 VIAddVersionKey ProductName "${PROJECT_NAME}"
 VIAddVersionKey ProductVersion "${PROJECT_VERSION}"
 VIAddVersionKey CompanyName "${COMPANY}"
@@ -72,7 +72,7 @@ Section -Main SEC0000
 	SetOutPath $INSTDIR
 	SetOverwrite on
 	# specify file to go in output path
-	File /r ".\build\Release\Karbo-wallet-win64-${PROJECT_VERSION}\*"
+	File /r ".\Release\Karbo-wallet-win64-v.${PROJECT_VERSION}\*"
 	WriteRegStr HKCU "${REGKEY}\Components" Main 1
 SectionEnd
 
