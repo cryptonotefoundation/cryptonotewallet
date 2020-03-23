@@ -151,7 +151,6 @@ jobs:
       - name: Build
         id: build
         run: |
-          BOOST_ROOT=
           sudo apt update -y
           sudo apt install -y qt5-default qttools5-dev qttools5-dev-tools libboost-all-dev
           build_folder="build/release"
@@ -162,7 +161,7 @@ jobs:
           git clone https://github.com/seredat/karbowanec.git cryptonote
           mkdir -p "$build_folder"
           cd "$build_folder"
-          cmake ../..
+          cmake -D ARCH=default -D CMAKE_BUILD_TYPE=Release -D CMAKE_POSITION_INDEPENDENT_CODE:BOOL=true -D BOOST_IGNORE_SYSTEM_PATHS_DEFAULT=ON -D BOOST_ROOT=/usr ../..
           make
           cpack
           tar -czf "$release_name".tar.gz *.deb
@@ -193,9 +192,9 @@ jobs:
       - name: Build
         id: build
         run: |
-          BOOST_ROOT=
+          sudo apt-get purge '*boost*'
           sudo apt update -y
-          sudo apt install -y qt5-default qttools5-dev qttools5-dev-tools libboost-all-dev
+          sudo apt install -y qt5-default qttools5-dev qttools5-dev-tools libboost1.62-all-dev
           build_folder="build/release"
           krb_ver=$(echo "$GITHUB_REF" | sed 's|refs/tags/||')
           release_name=Karbo-wallet-ubuntu-18.04-"$krb_ver"
@@ -204,9 +203,10 @@ jobs:
           git clone https://github.com/seredat/karbowanec.git cryptonote
           mkdir -p "$build_folder"
           cd "$build_folder"
-          cmake ../..
+          cmake -D ARCH=default -D CMAKE_BUILD_TYPE=Release -D CMAKE_POSITION_INDEPENDENT_CODE:BOOL=true -D BOOST_IGNORE_SYSTEM_PATHS_DEFAULT=ON -D BOOST_ROOT=/usr ../..
           make
-          tar -czf "$release_name".tar.gz "$app_name"
+          cpack
+          tar -czf "$release_name".tar.gz *.deb
           sha256=$(shasum -a 256 "$release_name".tar.gz | awk '{print toupper($1)}')
           asset_path="./$build_folder/$release_name".tar.gz
           echo "::set-output name=sha256::${sha256}"
