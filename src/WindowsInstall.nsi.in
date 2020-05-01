@@ -1,11 +1,11 @@
 Name "Karbo Wallet (64-bit)"
 
 # General Symbol Definitions
-!define PROJECT_NAME "@CN_PROJECT_NAME@"
-!define PROJECT_VERSION "@CN_VERSION@"
+!define PROJECT_NAME "@WALLET_NAME@"
+!define PROJECT_VERSION "@WALLET_VERSION@"
 !define REGKEY "SOFTWARE\$(^Name)"
-!define COMPANY "@PROJECT_VENDOR_NAME@"
-!define URL "@PROJECT_VENDOR_URL@"
+!define COMPANY "@WALLET_VENDOR_NAME@"
+!define URL "@WALLET_VENDOR_URL@"
 
 RequestExecutionLevel highest
 SetCompressor /SOLID lzma
@@ -55,7 +55,7 @@ InstallDir $PROGRAMFILES64\Karbowanec
 CRCCheck on
 BrandingText "@CN_CURRENCY_DISPLAY_NAME@ Wallet"
 ShowInstDetails show
-VIProductVersion @PROJECT_VER_MAJOR@.@PROJECT_VER_MINOR@.@PROJECT_VER_PATCH@.@PROJECT_VER_BUILD@
+VIProductVersion @WALLET_VER_MAJOR@.@WALLET_VER_MINOR@.@WALLET_VER_PATCH@.@WALLET_VER_BUILD@
 VIAddVersionKey ProductName "${PROJECT_NAME}"
 VIAddVersionKey ProductVersion "${PROJECT_VERSION}"
 VIAddVersionKey CompanyName "${COMPANY}"

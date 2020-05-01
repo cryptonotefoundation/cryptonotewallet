@@ -1,5 +1,5 @@
 
-set(CN_PROJECT_NAME "KarbowanecWallet")
+set(WALLET_NAME "KarbowanecWallet")
 set(CN_CURRENCY_DISPLAY_NAME "Karbo")
 set(CN_CURRENCY_TICKER "KRB")
 
@@ -17,9 +17,9 @@ if(GIT_FOUND)
     ERROR_STRIP_TRAILING_WHITESPACE)
   if(NOT WALLET_GIT_RESULT EQUAL 0)
     set(WALLET_GIT_TAG "0.0.0")
-	set(PROJECT_VER_MAJOR 0)
-	set(PROJECT_VER_MINOR 0)
-	set(PROJECT_VER_PATCH 0)
+	set(WALLET_VER_MAJOR 0)
+	set(WALLET_VER_MINOR 0)
+	set(WALLET_VER_PATCH 0)
     message(WARNING "Failed to execute Git: ${WALLET_GIT_ERROR}")
   else()
     string(REPLACE "v." "" WALLET_GIT_TAG ${WALLET_GIT_TAG})
@@ -27,20 +27,20 @@ if(GIT_FOUND)
     # Parse and split a version number into separate components
 	string(REGEX REPLACE "([0-9]+)\\.([0-9]+)\\.([0-9]+)(.*)?" "\\1;\\2;\\3;\\4" VERSION_MATCHES ${WALLET_GIT_TAG})
     list(GET VERSION_MATCHES 0 version_major)
-    set(PROJECT_VER_MAJOR ${version_major})
+    set(WALLET_VER_MAJOR ${version_major})
     list(GET VERSION_MATCHES 1 version_minor)
-    set(PROJECT_VER_MINOR ${version_minor})
+    set(WALLET_VER_MINOR ${version_minor})
     list(GET VERSION_MATCHES 2 version_patch)
-    set(PROJECT_VER_PATCH ${version_patch})
+    set(WALLET_VER_PATCH ${version_patch})
 
     message(STATUS "Wallet git tag: ${WALLET_GIT_TAG}")
   endif()
 endif()  
 
-set(PROJECT_VER_BUILD 1) # this one was always 1 anyways
+set(WALLET_VER_BUILD 1) # this one was always 1 anyways
 
-set(PROJECT_VENDOR_NAME "Karbo Developers")
-set(PROJECT_COPYRIGHT "Copyright 2016-2020 ${PROJECT_VENDOR_NAME}")
-set(PROJECT_VENDOR_URL "https://karbo.org")
+set(WALLET_VENDOR_NAME "Karbo Developers")
+set(WALLET_COPYRIGHT "Copyright 2016-2020 ${PROJECT_VENDOR_NAME}")
+set(WALLET_VENDOR_URL "https://karbo.org")
 
-set(CN_VERSION "${PROJECT_VER_MAJOR}.${PROJECT_VER_MINOR}.${PROJECT_VER_PATCH}")
+set(WALLET_VERSION "${WALLET_VER_MAJOR}.${WALLET_VER_MINOR}.${WALLET_VER_PATCH}")

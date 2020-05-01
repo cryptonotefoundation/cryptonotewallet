@@ -15,6 +15,7 @@
 #include <Common/Util.h>
 #include "CommandLineParser.h"
 #include "CurrencyAdapter.h"
+#include "CryptoNoteWalletConfig.h"
 #include "Settings.h"
 
 namespace WalletGui {
@@ -217,7 +218,7 @@ bool Settings::isTrackingMode() const {
 }
 
 QString Settings::getVersion() const {
-  return VERSION;
+  return WALLET_VERSION;
 }
 
 QString Settings::getCurrentTheme() const {

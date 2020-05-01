@@ -1,5 +1,9 @@
 cmake_minimum_required(VERSION 2.8)
 
+# Required for finding Threads on ARM
+enable_language(C)
+enable_language(CXX)
+
 include(CryptoNoteWallet.cmake)
 include(external/ext.cmake)
 
@@ -33,7 +37,7 @@ if(ARCH_ID STREQUAL "ppc64le")
   set(PPC64LE 1)
 endif()
 
-project(${CN_PROJECT_NAME})
+project(${WALLET_NAME})
 
 execute_process(COMMAND git log -1 --pretty=format:%h
 WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
@@ -87,7 +91,7 @@ configure_file(
     @ONLY
 )
 
-add_definitions(-DVERSION=\"${CN_VERSION}\")
+add_definitions(-DVERSION=\"${WALLET_VERSION}\")
 add_definitions(-DGIT_REVISION=\"${GIT_REVISION}\")
 add_definitions(-DUPNP_STATIC -DMINIUPNP_STATICLIB -DUPNPC_BUILD_STATIC)
 
@@ -471,8 +475,8 @@ qt5_use_modules(${PROJECT_NAME} Widgets Gui Network)
 
 # Installation
 
-set(CPACK_PACKAGE_NAME ${CN_PROJECT_NAME})
-set(CPACK_PACKAGE_VERSION ${CN_VERSION})
+set(CPACK_PACKAGE_NAME ${WALLET_NAME})
+set(CPACK_PACKAGE_VERSION ${WALLET_VERSION})
 set(CPACK_PACKAGE_VENDOR "Karbowanec-project")
 set(CPACK_PACKAGE_CONTACT "https://karbo.org")
 set(CPACK_STRIP_FILES ON)
@@ -494,7 +498,7 @@ elseif (UNIX)
     if (RPMBUILD)
         set(CPACK_GENERATOR "RPM;DEB")
         set(CPACK_SYSTEM_NAME x86_64)
-        set(CPACK_RPM_PACKAGE_RELEASE ${CN_VERSION})
+        set(CPACK_RPM_PACKAGE_RELEASE ${WALLET_VERSION})
         set(CPACK_RPM_PACKAGE_LICENSE "MIT")
         set(CPACK_RPM_PACKAGE_GROUP Office)
         set(CPACK_RPM_PACKAGE_REQUIRES "qt5-qtbase >= 5.3.2, qt5-qtbase-gui >= 5.3.2")

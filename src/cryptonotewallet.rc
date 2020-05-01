@@ -9,19 +9,19 @@ IDI_ICON1               ICON    "images\karbowanez.ico"
 
 VS_VERSION_INFO VERSIONINFO
 FILEVERSION     VER_FILEVERSION
-PRODUCTVERSION  PROJECT_VER_MAJOR,PROJECT_VER_MINOR,PROJECT_VER_PATCH,PROJECT_VER_BUILD
+PRODUCTVERSION  WALLET_VER_MAJOR,WALLET_VER_MINOR,WALLET_VER_PATCH,WALLET_VER_BUILD
 BEGIN
     BLOCK "StringFileInfo"
     BEGIN
         BLOCK "040904E4"
         BEGIN
-            VALUE "FileDescription",    PROJECT_DESCRIPTION
+            VALUE "FileDescription",    WALLET_DESCRIPTION
             VALUE "FileVersion",        VER_FILEVERSION_STR
-            VALUE "InternalName",       PROJECT_NAME
-            VALUE "LegalCopyright",     PROJECT_COPYRIGHT
+            VALUE "InternalName",       WALLET_NAME
+            VALUE "LegalCopyright",     WALLET_COPYRIGHT
             VALUE "OriginalFilename",   VER_ORIGINALFILENAME_STR
-            VALUE "ProductName",        PROJECT_NAME
-            VALUE "ProductVersion",     PROJECT_VERSION
+            VALUE "ProductName",        WALLET_NAME
+            VALUE "ProductVersion",     WALLET_VERSION
         END
     END
 
