@@ -793,6 +793,23 @@ QString WalletAdapter::getReserveProof(const quint64 &_reserve, const QString &_
   }
 }
 
+QString WalletAdapter::signMessage(const QString &data) {
+  Q_CHECK_PTR(m_wallet);
+  if(Settings::instance().isTrackingMode()) {
+    QMessageBox::critical(nullptr, tr("Failed to sign message"), tr("This is tracking wallet. The message can be signed only by a full wallet."), QMessageBox::Ok);
+    return QString();
+  }
+
+  std::string sig_str = m_wallet->sign_message(data.toStdString());
+  return QString::fromUtf8(sig_str.data(), sig_str.size());
+}
+
+bool WalletAdapter::verifyMessage(const QString &data, const CryptoNote::AccountPublicAddress &address, const QString &signature) {
+  Q_CHECK_PTR(m_wallet);
+
+  return m_wallet->verify_message(data.toStdString(), address, signature.toStdString());
+}
+
 size_t WalletAdapter::getUnlockedOutputsCount() {
   Q_CHECK_PTR(m_wallet);
   try {

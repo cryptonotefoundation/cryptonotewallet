@@ -64,6 +64,9 @@ public:
   void sendFusionTransaction(const std::list<CryptoNote::TransactionOutputInformation>& _fusion_inputs, quint64 _fee, const QString& _extra, quint64 _mixin);
   bool isFusionTransaction(const CryptoNote::WalletLegacyTransaction& walletTx) const;
 
+  QString signMessage(const QString &data);
+  bool verifyMessage(const QString &data, const CryptoNote::AccountPublicAddress &address, const QString &signature);
+
   void initCompleted(std::error_code _result) Q_DECL_OVERRIDE;
   void saveCompleted(std::error_code _result) Q_DECL_OVERRIDE;
   void synchronizationProgressUpdated(uint32_t _current, uint32_t _total) Q_DECL_OVERRIDE;

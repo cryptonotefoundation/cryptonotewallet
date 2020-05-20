@@ -10,13 +10,10 @@
 #include <QTextStream>
 #include <QTabWidget>
 
-#include "Common/Base58.h"
-#include "Common/StringTools.h"
 #include "CurrencyAdapter.h"
 #include "WalletAdapter.h"
 #include "MainWindow.h"
 #include <boost/utility/value_init.hpp>
-#include "crypto/crypto.h"
 
 namespace WalletGui {
 
@@ -54,14 +51,8 @@ void SignMessageDialog::walletClosed() {
 
 void SignMessageDialog::messageChanged() {
   if (m_ui->m_tabWidget->currentIndex() != 0) { return; }
-  std::string message = m_ui->m_messageEdit->toPlainText().toUtf8().constData();
-  Crypto::Hash hash;
-  Crypto::cn_fast_hash(message.data(), message.size(), hash);
-  CryptoNote::AccountKeys keys;
-  WalletAdapter::instance().getAccountKeys(keys);
-  Crypto::Signature signature;
-  Crypto::generate_signature(hash, keys.address.spendPublicKey, keys.spendSecretKey, signature);
-  QString sig = QString::fromStdString(std::string("SigV1") + Tools::Base58::encode(std::string((const char *)&signature, sizeof(signature))));
+  QString message = m_ui->m_messageEdit->toPlainText().toUtf8();
+  QString sig = WalletAdapter::instance().signMessage(message);
   m_ui->m_signatureEdit->setText(sig);
 }
 
@@ -69,26 +60,14 @@ void SignMessageDialog::verifyMessage() {
   m_ui->m_verificationResult->setText("");
   CryptoNote::AccountPublicAddress acc = boost::value_initialized<CryptoNote::AccountPublicAddress>();
   std::string addr_str = m_ui->m_addressEdit->text().trimmed().toStdString();
-  std::string message = m_ui->m_verifyMessageEdit->toPlainText().toUtf8().constData();
-  std::string signature = m_ui->m_verifySignatureEdit->toPlainText().toStdString();
-  if(addr_str.empty() || message.empty() || signature.empty())
+  QString message = m_ui->m_verifyMessageEdit->toPlainText().toUtf8();
+  QString signature = m_ui->m_verifySignatureEdit->toPlainText();
+  if(addr_str.empty() || message.isEmpty() || signature.isEmpty())
     return;
   if(CurrencyAdapter::instance().getCurrency().parseAccountAddressString(addr_str, acc)) {
-    Crypto::Hash hash;
-    Crypto::cn_fast_hash(message.data(), message.size(), hash);
-    const size_t header_len = strlen("SigV1");
-    std::string decoded;
-    Crypto::Signature s;
-    if (!(signature.size() < header_len) && signature.substr(0, header_len) == "SigV1" &&
-      Tools::Base58::decode(signature.substr(header_len), decoded) && sizeof(s) == decoded.size()) {
-      memcpy(&s, decoded.data(), sizeof(s));
-      if (Crypto::check_signature(hash, acc.spendPublicKey, s)) {
-        m_ui->m_verificationResult->setText(tr("Signature is valid"));
-        m_ui->m_verificationResult->setStyleSheet("QLabel { color : green; }");
-      } else {
-        m_ui->m_verificationResult->setText(tr("Signature is invalid!"));
-        m_ui->m_verificationResult->setStyleSheet("QLabel { color : red; }");
-      }
+    if (WalletAdapter::instance().verifyMessage(message, acc, signature)) {
+      m_ui->m_verificationResult->setText(tr("Signature is valid"));
+      m_ui->m_verificationResult->setStyleSheet("QLabel { color : green; }");
     } else {
       m_ui->m_verificationResult->setText(tr("Signature is invalid!"));
       m_ui->m_verificationResult->setStyleSheet("QLabel { color : red; }");
