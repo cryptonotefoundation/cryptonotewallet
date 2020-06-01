@@ -111,6 +111,7 @@ set(CRYPTONOTE_SOURCES
   cryptonote/external/miniupnpc/upnpdev.c
   cryptonote/external/miniupnpc/upnperrors.c
   cryptonote/external/miniupnpc/upnpreplyparse.c
+  cryptonote/src/Checkpoints/Checkpoints.cpp
   cryptonote/src/Common/Base58.cpp
   cryptonote/src/Common/Base64.cpp
   cryptonote/src/Common/CommandLine.cpp
@@ -159,7 +160,6 @@ set(CRYPTONOTE_SOURCES
   cryptonote/src/CryptoNoteCore/Transaction.cpp
   cryptonote/src/CryptoNoteCore/Account.cpp
   cryptonote/src/CryptoNoteCore/Blockchain.cpp
-  cryptonote/src/CryptoNoteCore/Checkpoints.cpp
   cryptonote/src/CryptoNoteCore/CryptoNoteBasicImpl.cpp
   cryptonote/src/CryptoNoteCore/Core.cpp
   cryptonote/src/CryptoNoteCore/CryptoNoteFormatUtils.cpp

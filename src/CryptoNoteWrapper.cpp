@@ -6,7 +6,8 @@
 #include <limits>
 #include <future>
 #include "CryptoNoteWrapper.h"
-#include <CheckpointsData.h>
+#include "Checkpoints/Checkpoints.h"
+#include "Checkpoints/CheckpointsData.h"
 #include "Common/StringTools.h"
 #include "CryptoNoteCore/CryptoNoteBasicImpl.h"
 #include "CryptoNoteCore/CryptoNoteFormatUtils.h"
