@@ -67,26 +67,44 @@ jobs:
           cp languages/*.qm "$release_folder/$release_name/languages/"
           cd "$release_folder"
           cp KarbowanecWallet.exe "$release_name/"
+          cp "../../COPYING" "$release_name/LICENSE.txt"
           windeployqt --release KarbowanecWallet.exe --dir "$release_name/"
+          Compress-Archive -Path "$release_name/" -DestinationPath "$release_name.zip"
+          $sha256a = (Get-FileHash "$release_name.zip").Hash
+          $asset_path_archive = "./$build_folder/$release_folder/$release_name.zip"
+          echo "::set-output name=sha256a::${sha256a}"
+          echo "::set-output name=release_name_archive::${release_name}.zip"
+          echo "::set-output name=asset_path_archive::${asset_path_archive}"
           cd ../
           makensis WindowsInstall.nsi
           cd "$release_folder"
-          Compress-Archive -Path "KarbowanecWallet-Setup.exe" -DestinationPath "$release_name.zip"
-          $sha256 = (Get-FileHash "$release_name.zip").Hash
-          $asset_path = "./$build_folder/$release_folder/$release_name.zip"
-          echo "::set-output name=sha256::${sha256}"
-          echo "::set-output name=release_name::${release_name}.zip"
-          echo "::set-output name=asset_path::${asset_path}"
+          Compress-Archive -Path "KarbowanecWallet-Setup.exe" -DestinationPath "$release_name-install.zip"
+          $sha256i = (Get-FileHash "$release_name-install.zip").Hash
+          $asset_path_install = "./$build_folder/$release_folder/$release_name-install.zip"
+          echo "::set-output name=sha256i::${sha256i}"
+          echo "::set-output name=release_name_install::${release_name}-install.zip"
+          echo "::set-output name=asset_path_install::${asset_path_install}"
           echo "::set-output name=krb_ver::${krb_ver}"
 
-      - name: Create Release
+      - name: Create Release Archive
         uses: softprops/action-gh-release@v1
         with:
-          files: ${{ steps.pack.outputs.asset_path }}
+          files: ${{ steps.pack.outputs.asset_path_archive }}
           name: Karbo Wallet ${{ steps.pack.outputs.krb_ver }}
           body: |
-            **${{ steps.pack.outputs.release_name }}**
-            ${{ steps.pack.outputs.sha256 }}
+            **${{ steps.pack.outputs.release_name_archive }}**
+            ${{ steps.pack.outputs.sha256a }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Release Installer
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ${{ steps.pack.outputs.asset_path_install }}
+          name: Karbo Wallet ${{ steps.pack.outputs.krb_ver }}
+          body: |
+            **${{ steps.pack.outputs.release_name_install }}**
+            ${{ steps.pack.outputs.sha256i }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
