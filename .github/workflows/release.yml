@@ -114,6 +114,11 @@ jobs:
     steps:
       - uses: actions/checkout@master
 
+      - name: Setup Xcode
+        uses: maxim-lobanov/setup-xcode@1.0
+        with:
+          xcode-version: '10'
+
       - name: Install Qt
         uses: jurplel/install-qt-action@v2
         with:
