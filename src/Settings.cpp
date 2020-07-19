@@ -5,7 +5,6 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include <QCoreApplication>
-#include <QDebug>
 #include <QFile>
 #include <QTime>
 #include <QJsonArray>
@@ -13,6 +12,7 @@
 #include <QSettings>
 #include <QStandardPaths>
 #include <QTextCodec>
+#include <QUrl>
 #include <Common/Util.h>
 #include "CommandLineParser.h"
 #include "CurrencyAdapter.h"
@@ -261,11 +261,16 @@ QVector<NodeSetting> Settings::getRpcNodesList() const {
           nodeSetting.host = nodeSettingObj.value("host").toString();
           nodeSetting.port = nodeSettingObj.value("port").toInt();
           nodeSetting.path = nodeSettingObj.value("path").toString();
-          nodeSetting.ssl = nodeSettingObj.value("ssl").toBool();
-          res.append(nodeSetting);
+          nodeSetting.ssl  = nodeSettingObj.value("ssl").toBool();
       } else {
-        // TODO convert old format
+         // convert old format
+         QUrl remoteNodeUrl = QUrl::fromUserInput(nodeSettingValue.toString());
+         nodeSetting.host = remoteNodeUrl.host();
+         nodeSetting.port = remoteNodeUrl.port();
+         nodeSetting.path = "/";
+         nodeSetting.ssl  = false;
       }
+      res.append(nodeSetting);
     }
   }
 
