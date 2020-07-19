@@ -1,9 +1,12 @@
-name: Release
+name: Build check
 
 on:
   push:
-    tags:
-    - '*'
+    branches:
+      - '**'
+    tags-ignore:
+      - '*'            # We don't want this to run on release
+  pull_request:
 
 jobs:
   build-windows:
@@ -39,10 +42,14 @@ jobs:
         id: build
         env:
           BOOST_ROOT: ${{ env.BOOST_ROOT }}
+          GIT_REDIRECT_STDERR: '2>&1'
+          VCINSTALLDIR: 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\'
         run: |
           $build_folder = "build"
-          $krb_ver = "${{ github.ref }}" -replace '[refs/tags/]'
-          $release_name = "Karbo-wallet-win64-$krb_ver"
+          $krb_ver = git describe --tags --abbrev=0
+          $release_name = "Karbo-wallet-win64-${krb_ver}"
+          $release_folder = "Release"
+          echo "$release_name"
           set CMAKE_PREFIX_PATH="$($qt5_cmake)"
           $qt5_cmake = "${{ env.Qt5_Dir }}/lib/cmake" -replace '[/]', '\\'
           Remove-Item cryptonote -Recurse -ErrorAction Ignore
@@ -52,21 +59,6 @@ jobs:
           Start-Process cmake -ArgumentList "-DBOOST_ROOT=""$env:BOOST_ROOT_1_69_0"" -G ""Visual Studio 16 2019"" -A x64",".." -NoNewWindow -Wait
           Start-Process msbuild -ArgumentList "KarbowanecWallet.sln","/p:Configuration=Release" -NoNewWindow -Wait
           $build_path = "./$build_folder"
-          echo "::set-output name=build_path::${build_path}"
-          echo "::set-output name=release_name::${release_name}"
-          echo "::set-output name=krb_ver::${krb_ver}"
-  
-      - name: Pack
-        shell: powershell
-        id: pack
-        env:
-          VCINSTALLDIR: 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\'
-        run: |
-          $build_folder = "${{ steps.build.outputs.build_path }}"
-          $release_name = "${{ steps.build.outputs.release_name }}"
-          $release_folder = "Release"
-          cd "$build_folder"
-          $krb_ver = "${{ steps.build.outputs.krb_ver }}"
           mkdir "$release_folder/$release_name"
           mkdir "$release_folder/$release_name/languages"
           cp languages/*.qm "$release_folder/$release_name/languages/"
@@ -91,25 +83,25 @@ jobs:
           echo "::set-output name=asset_path_install::${asset_path_install}"
           echo "::set-output name=krb_ver::${krb_ver}"
 
-      - name: Create Release Archive
-        uses: softprops/action-gh-release@v1
+      - name: Create Archive Artifact
+        uses: actions/upload-artifact@v1.0.0
         with:
-          files: ${{ steps.pack.outputs.asset_path_archive }}
-          name: Karbo Wallet ${{ steps.pack.outputs.krb_ver }}
+          path: ${{ steps.build.outputs.asset_path_archive }}
+          name: Karbo Wallet ${{ steps.build.outputs.krb_ver }}
           body: |
-            **${{ steps.pack.outputs.release_name_archive }}**
-            ${{ steps.pack.outputs.sha256a }}
+            **${{ steps.build.outputs.release_name_archive }}**
+            ${{ steps.build.outputs.sha256a }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Create Release Installer
-        uses: softprops/action-gh-release@v1
+      - name: Create Installer Artifact
+        uses: actions/upload-artifact@v1.0.0
         with:
-          files: ${{ steps.pack.outputs.asset_path_install }}
-          name: Karbo Wallet ${{ steps.pack.outputs.krb_ver }}
+          path: ${{ steps.build.outputs.asset_path_install }}
+          name: Karbo Wallet ${{ steps.build.outputs.krb_ver }}
           body: |
-            **${{ steps.pack.outputs.release_name_install }}**
-            ${{ steps.pack.outputs.sha256i }}
+            **${{ steps.build.outputs.release_name_install }}**
+            ${{ steps.build.outputs.sha256i }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -133,16 +125,25 @@ jobs:
           modules: 'qttools5'
           install-deps: 'true'
 
+      - name: Find Tag
+        id: tagger
+        uses: jimschubert/query-tag-action@v1
+        with:
+          include: 'v*'
+          exclude: '*-rc*'
+          commit-ish: 'HEAD~'
+          skip-unshallow: 'true'
+
       - name: Build
         id: build
         run: |
           build_folder="build/release"
-          krb_ver=$(echo ${{ github.ref }} | sed 's|refs/tags/||')
+          krb_ver="${{steps.tagger.outputs.tag}}"
           release_name="Karbo-wallet-macOS-$krb_ver"
           app_name="KarbowanecWallet.app"
           lang_folder="/Contents/Resources/languages"
-          brew install gcc boost@1.60
-          brew link boost@1.60 --force
+          brew install gcc boost
+          brew link boost --force
           rm -rf cryptonote
           git clone https://github.com/seredat/karbowanec.git cryptonote
           mkdir -p "$build_folder"
@@ -161,10 +162,10 @@ jobs:
           echo "::set-output name=asset_path::${asset_path}"
           echo "::set-output name=krb_ver::${krb_ver}"
 
-      - name: Create Release
-        uses: softprops/action-gh-release@v1
+      - name: Create Artifact
+        uses: actions/upload-artifact@v1.0.0
         with:
-          files: ${{ steps.build.outputs.asset_path }}
+          path: ${{ steps.build.outputs.asset_path }}
           name: Karbo Wallet ${{ steps.build.outputs.krb_ver }}
           body: |
             **${{ steps.build.outputs.release_name }}**
@@ -180,14 +181,23 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Find Tag
+        id: tagger
+        uses: jimschubert/query-tag-action@v1
+        with:
+          include: 'v*'
+          exclude: '*-rc*'
+          commit-ish: 'HEAD~'
+          skip-unshallow: 'true'
+
       - name: Build
         id: build
         run: |
           sudo apt update -y
           sudo apt install -y qt5-default qttools5-dev qttools5-dev-tools libboost-all-dev
           build_folder="build/release"
-          krb_ver=$(echo "$GITHUB_REF" | sed 's|refs/tags/||')
-          release_name=Karbo-wallet-ubuntu-20.04-"$krb_ver"
+          krb_ver="${{ steps.build.outputs.krb_ver }}"
+          release_name=Karbo-wallet-ubuntu-20.04-"krb_ver"
           app_name="KarbowanecWallet"
           rm -rf cryptonote
           git clone https://github.com/seredat/karbowanec.git cryptonote
@@ -204,10 +214,10 @@ jobs:
           echo "::set-output name=asset_path::${asset_path}"
           echo "::set-output name=krb_ver::${krb_ver}"
 
-      - name: Create Release
-        uses: softprops/action-gh-release@v1
+      - name: Create Artifact
+        uses: actions/upload-artifact@v1.0.0
         with:
-          files: ${{ steps.build.outputs.asset_path }}
+          path: ${{ steps.build.outputs.asset_path }}
           name: Karbo Wallet ${{ steps.build.outputs.krb_ver }}
           body: |
             **${{ steps.build.outputs.release_name }}**
@@ -223,6 +233,15 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Find Tag
+        id: tagger
+        uses: jimschubert/query-tag-action@v1
+        with:
+          include: 'v*'
+          exclude: '*-rc*'
+          commit-ish: 'HEAD~'
+          skip-unshallow: 'true'
+
       - name: Build
         id: build
         run: |
@@ -230,8 +249,8 @@ jobs:
           sudo apt update -y
           sudo apt install -y qt5-default qttools5-dev qttools5-dev-tools libboost1.62-all-dev
           build_folder="build/release"
-          krb_ver=$(echo "$GITHUB_REF" | sed 's|refs/tags/||')
-          release_name=Karbo-wallet-ubuntu-18.04-"$krb_ver"
+          krb_ver="${{ steps.build.outputs.krb_ver }}"
+          release_name=Karbo-wallet-ubuntu-18.04-"krb_ver"
           app_name="KarbowanecWallet"
           rm -rf cryptonote
           git clone https://github.com/seredat/karbowanec.git cryptonote
@@ -248,10 +267,10 @@ jobs:
           echo "::set-output name=asset_path::${asset_path}"
           echo "::set-output name=krb_ver::${krb_ver}"
 
-      - name: Create Release
-        uses: softprops/action-gh-release@v1
+      - name: Create Artifact
+        uses: actions/upload-artifact@v1.0.0
         with:
-          files: ${{ steps.build.outputs.asset_path }}
+          path: ${{ steps.build.outputs.asset_path }}
           name: Karbo Wallet ${{ steps.build.outputs.krb_ver }}
           body: |
             **${{ steps.build.outputs.release_name }}**
