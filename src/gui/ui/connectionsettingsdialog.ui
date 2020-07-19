@@ -181,7 +181,7 @@
         <widget class="QComboBox" name="remoteNodesComboBox">
          <property name="minimumSize">
           <size>
-           <width>200</width>
+           <width>500</width>
            <height>0</height>
           </size>
          </property>

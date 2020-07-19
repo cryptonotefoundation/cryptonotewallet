@@ -156,10 +156,8 @@ bool NodeAdapter::init() {
       }
 
   } else if(connection.compare("remote") == 0) {
-      QUrl remoteNodeUrl = QUrl::fromUserInput(Settings::instance().getCurrentRemoteNode());
-      bool enableSSL = false;
-      if (remoteNodeUrl.scheme().compare("https") == 0) enableSSL = true;
-      m_node = createRpcNode(CurrencyAdapter::instance().getCurrency(), *this, LoggerAdapter::instance().getLoggerManager(), remoteNodeUrl.host().toStdString(), remoteNodeUrl.port(), enableSSL);
+      const NodeSetting nodeSetting = Settings::instance().getCurrentRemoteNode();
+      m_node = createRpcNode(CurrencyAdapter::instance().getCurrency(), *this, LoggerAdapter::instance().getLoggerManager(), nodeSetting.host.toStdString(), nodeSetting.port, nodeSetting.ssl);
       QTimer initTimer;
       initTimer.setInterval(3000);
       initTimer.setSingleShot(true);

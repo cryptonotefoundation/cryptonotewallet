@@ -3,59 +3,91 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
+#include <iostream>
+#include <QIcon>
 #include "NodeModel.h"
 #include "Settings.h"
 #include "QUrl"
 
 namespace WalletGui {
 
-NodeModel::NodeModel(QObject* _parent) : QStringListModel(_parent) {
-  setStringList(Settings::instance().getRpcNodesList());
+NodeModel::NodeModel(QObject* parent) : QAbstractTableModel(parent),
+                                        m_nodesCurrentIndex(0) {
+  m_RpcNodesList = QVector<NodeSetting>(Settings::instance().getRpcNodesList());
 }
 
 NodeModel::~NodeModel() {
 }
 
-void NodeModel::addNode(const QString& _host, quint16 _port, bool &enableSSL) {
-  QString conn_tpl = QString("%1:%2");
-  if (enableSSL) conn_tpl.insert(0, "https://");
-  insertRow(rowCount());
-  setData(index(rowCount() - 1, 0), QString(conn_tpl).arg(_host).arg(_port));
-}
-
-QVariant NodeModel::data(const QModelIndex& _index, int _role) const {
-  if (!_index.isValid()) {
+QVariant NodeModel::data(const QModelIndex &index, int role) const {
+  if (!index.isValid()) {
     return QVariant();
   }
-
-  switch (_role) {
-  case ROLE_HOST:
-    return QUrl::fromUserInput(stringList()[_index.row()]).host();
-  case ROLE_PORT:
-    return QUrl::fromUserInput(stringList()[_index.row()]).port();
-  default:
-    break;
+  const NodeSetting &data = m_RpcNodesList.at(index.row());
+  QVariant value;
+  if (role == Qt::DisplayRole) {
+    if (index.column() == 1) value = QVariant(data.host);
+    else if (index.column() == 2) value = QVariant(data.port);
+    else if (index.column() == 3) value = QVariant(data.path);
+  } else if (role == Qt::DecorationRole && index.column() == 0) {
+    QString encryptionIconPath = data.ssl ? ":icons/encrypted" : ":icons/decrypted";
+    QPixmap encryptionIcon = QPixmap(encryptionIconPath).scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+    value = QVariant(encryptionIcon);
+  } else if (role == Qt::CheckStateRole && index.column() == 0) {
+    if (m_nodesCurrentIndex == index.row()) return Qt::Checked;
+    else return Qt::Unchecked;
   }
+  return value;
+}
 
-  return QStringListModel::data(_index, _role);
+int NodeModel::rowCount(const QModelIndex &parent) const {
+  return m_RpcNodesList.count();
+}
+
+int NodeModel::columnCount(const QModelIndex &parent) const {
+  Q_UNUSED(parent);
+  return 4;
 }
 
 Qt::ItemFlags NodeModel::flags(const QModelIndex& _index) const {
   return (Qt::ItemIsEnabled | Qt::ItemNeverHasChildren | Qt::ItemIsSelectable);
 }
 
-QVariant NodeModel::headerData(int _section, Qt::Orientation _orientation, int _role) const {
-  if (_orientation != Qt::Horizontal || _role != Qt::DisplayRole) {
-    return QVariant();
+void NodeModel::pushCurrentIndex(int currentIndex) {
+  m_nodesCurrentIndex = currentIndex;
+}
+
+void NodeModel::addNode(const NodeSetting &nodeSetting) {
+  beginResetModel();
+  m_RpcNodesList.append(nodeSetting);
+  endResetModel();
+  Settings::instance().setRpcNodesList(m_RpcNodesList);
+}
+
+void NodeModel::delNode(const int &index) {
+  beginResetModel();
+  m_RpcNodesList.remove(index);
+  endResetModel();
+  Settings::instance().setRpcNodesList(m_RpcNodesList);
+}
+
+int NodeModel::getIndexByData(const NodeSetting &nodeSetting) const {
+  int index = -1;
+  for (int i = 0; i < m_RpcNodesList.count(); i++) {
+    if (m_RpcNodesList[i].host == nodeSetting.host &&
+        m_RpcNodesList[i].port == nodeSetting.port &&
+        m_RpcNodesList[i].path == nodeSetting.path &&
+        m_RpcNodesList[i].ssl == nodeSetting.ssl) {
+      index = i;
+      break;
+    }
   }
-
-  return tr("Node URL");
+  return index;
 }
 
-bool NodeModel::setData(const QModelIndex& _index, const QVariant& _value, int _role) {
-  bool res = QStringListModel::setData(_index, _value, _role);
-  Settings::instance().setRpcNodesList(stringList());
-  return res;
+NodeSetting NodeModel::getDataByIndex(const int &index) const {
+  return m_RpcNodesList[index];
 }
 
 }
+

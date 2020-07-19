@@ -34,6 +34,10 @@ quint16 NewNodeDialog::getPort() const {
   return m_ui->m_portSpin->value();
 }
 
+QString NewNodeDialog::getPath() const {
+  return m_ui->m_pathEdit->text();
+}
+
 bool NewNodeDialog::getEnableSSL() const {
   int state = m_ui->m_enableSSL->checkState();
   bool res = false;

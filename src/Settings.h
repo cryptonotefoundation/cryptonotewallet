@@ -1,15 +1,25 @@
 // Copyright (c) 2011-2015 The Cryptonote developers
-// Copyright (c) 2016-2019 Karbowanec developers
+// Copyright (c) 2016-2020 Karbowanec developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #pragma once
 
-#include <QDir>
 #include <QJsonObject>
+#include <QJsonArray>
 #include <QObject>
+#include <QString>
+#include <QVector>
+#include <QDir>
 
 namespace WalletGui {
+
+struct NodeSetting {
+  QString host;
+  quint16 port;
+  QString path;
+  bool ssl;
+};
 
 class CommandLineParser;
 
@@ -43,9 +53,9 @@ public:
   QString getVersion() const;
   QString getLanguage() const;
   QString getConnection() const;
-  QStringList getRpcNodesList() const;
+  QVector<NodeSetting> getRpcNodesList() const;
   quint16 getCurrentLocalDaemonPort() const;
-  QString getCurrentRemoteNode() const;
+  NodeSetting getCurrentRemoteNode() const;
   QString getCurrentPool() const;
   QString getCurrentTheme() const;
 
@@ -78,8 +88,8 @@ public:
   void setStartOnLoginEnabled(bool _enable);
   void setConnection(const QString& _connection);
   void setCurrentLocalDaemonPort(const quint16& _daemonPort);
-  void setCurrentRemoteNode(const QString& _remoteNode);
-  void setRpcNodesList(const QStringList& _RpcNodesList);
+  void setCurrentRemoteNode(const NodeSetting &remoteNode);
+  void setRpcNodesList(const QVector<NodeSetting> &RpcNodesList);
 #ifdef Q_OS_WIN
   void setMinimizeToTrayEnabled(bool _enable);
   void setCloseToTrayEnabled(bool _enable);

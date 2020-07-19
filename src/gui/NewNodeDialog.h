@@ -23,6 +23,7 @@ public:
 
   QString getHost() const;
   quint16 getPort() const;
+  QString getPath() const;
   bool getEnableSSL() const;
 
 private:

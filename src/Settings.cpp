@@ -1,10 +1,11 @@
 // Copyright (c) 2011-2015 The Cryptonote developers
 // Copyright (c) 2015-2016 XDN developers
-// Copyright (c) 2016-2019 The Karbowanec developers
+// Copyright (c) 2016-2020 The Karbowanec developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include <QCoreApplication>
+#include <QDebug>
 #include <QFile>
 #include <QTime>
 #include <QJsonArray>
@@ -41,6 +42,14 @@ const quint64 DEFAULT_OPTIMIZATION_PERIOD = 1000 * 60 * 30; // 30 minutes
 const quint64 DEFAULT_OPTIMIZATION_THRESHOLD = 10000000000000;
 const quint64 DEFAULT_OPTIMIZATION_MIXIN = 3;
 const char OPTION_SKIP_WALLET_OPTIMIZATION_TRANSACTIONS[] = "skipFusionTransactions";
+
+const QVector<NodeSetting> DEFAULT_NODES_LIST = {
+  {"node.karbo.io", 32348, "/", false},
+  {"node.karbo.org", 32348, "/", false},
+  {"node.karbowanec.com", 32348, "/", false},
+  {"free.rublin.org", 32348, "/", false},
+  {"node.krb.mypool.online", 32348, "/", false}
+};
 
 Settings& Settings::instance() {
   static Settings inst;
@@ -102,17 +111,11 @@ void Settings::load() {
        m_settings.insert("tracking", false);
   }
 
-  QStringList defaultNodesList;
-  defaultNodesList << "node.karbowanec.com:32348" << "node.krb.mypool.online:32348"; // "pool2.democats.org:7671"
-  if (!m_settings.contains(OPTION_RPCNODES)) {
-    setRpcNodesList(QStringList() << defaultNodesList);
+  QVector<NodeSetting> nodesList = getRpcNodesList();
+
+  if (!m_settings.contains(OPTION_RPCNODES) || nodesList.isEmpty()) {
+    setRpcNodesList(DEFAULT_NODES_LIST);
   } else {
-    QStringList nodesList = getRpcNodesList();
-    Q_FOREACH (const QString& node, defaultNodesList) {
-      if (!nodesList.contains(node)) {
-        nodesList << node;
-      }
-    }
     setRpcNodesList(nodesList);
   }
 
@@ -244,10 +247,26 @@ QString Settings::getConnection() const {
     return connection;
 }
 
-QStringList Settings::getRpcNodesList() const {
-  QStringList res;
+QVector<NodeSetting> Settings::getRpcNodesList() const {
+  QVector<NodeSetting> res;
   if (m_settings.contains(OPTION_RPCNODES)) {
-    res << m_settings.value(OPTION_RPCNODES).toVariant().toStringList();
+    const QJsonArray nodeSettingArray(m_settings.value(OPTION_RPCNODES).toArray());
+    for (const QJsonValue nodeSettingValue : nodeSettingArray) {
+      const QJsonObject nodeSettingObj = nodeSettingValue.toObject();
+      NodeSetting nodeSetting;
+      if (nodeSettingObj.contains("host") &&
+          nodeSettingObj.contains("port") &&
+          nodeSettingObj.contains("path") &&
+          nodeSettingObj.contains("ssl")) {
+          nodeSetting.host = nodeSettingObj.value("host").toString();
+          nodeSetting.port = nodeSettingObj.value("port").toInt();
+          nodeSetting.path = nodeSettingObj.value("path").toString();
+          nodeSetting.ssl = nodeSettingObj.value("ssl").toBool();
+          res.append(nodeSetting);
+      } else {
+        // TODO convert old format
+      }
+    }
   }
 
   return res;
@@ -261,12 +280,16 @@ quint16 Settings::getCurrentLocalDaemonPort() const {
     return port;
 }
 
-QString Settings::getCurrentRemoteNode() const {
-    QString remotenode;
-    if (m_settings.contains(OPTION_REMOTE_NODE)) {
-        remotenode = m_settings.value(OPTION_REMOTE_NODE).toString();
-    }
-    return remotenode;
+NodeSetting Settings::getCurrentRemoteNode() const {
+  NodeSetting remotenode;
+  if (m_settings.contains(OPTION_REMOTE_NODE)) {
+    const QJsonObject nodeSettingObj = m_settings.value(OPTION_REMOTE_NODE).toObject();
+    remotenode.host = nodeSettingObj.value("host").toString();
+    remotenode.port = nodeSettingObj.value("port").toInt();
+    remotenode.path = nodeSettingObj.value("path").toString();
+    remotenode.ssl = nodeSettingObj.value("ssl").toBool();
+  }
+  return remotenode;
 }
 
 bool Settings::isStartOnLoginEnabled() const {
@@ -549,16 +572,30 @@ void Settings::setCurrentLocalDaemonPort(const quint16& _daemonPort) {
     saveSettings();
 }
 
-void Settings::setCurrentRemoteNode(const QString& _remoteNode) {
-    if (!_remoteNode.isEmpty()) {
-    m_settings.insert(OPTION_REMOTE_NODE, _remoteNode);
-    }
-    saveSettings();
+void Settings::setCurrentRemoteNode(const NodeSetting &remoteNode) {
+  if (!remoteNode.host.isEmpty()) {
+    QJsonObject nodeSettingObj;
+    nodeSettingObj.insert("host", QJsonValue(remoteNode.host));
+    nodeSettingObj.insert("port", QJsonValue(remoteNode.port));
+    nodeSettingObj.insert("path", QJsonValue(remoteNode.path));
+    nodeSettingObj.insert("ssl", QJsonValue(remoteNode.ssl));
+    m_settings.insert(OPTION_REMOTE_NODE, nodeSettingObj);
+  }
+  saveSettings();
 }
 
-void Settings::setRpcNodesList(const QStringList &_RpcNodesList) {
-  if (getRpcNodesList() != _RpcNodesList) {
-    m_settings.insert(OPTION_RPCNODES, QJsonArray::fromStringList(_RpcNodesList));
+void Settings::setRpcNodesList(const QVector<NodeSetting> &RpcNodesList) {
+  if (!RpcNodesList.isEmpty()) {
+    QJsonArray nodesList;
+    for (const NodeSetting &nodeSetting : RpcNodesList) {
+      QJsonObject nodeSettingObj;
+      nodeSettingObj.insert("host", QJsonValue(nodeSetting.host));
+      nodeSettingObj.insert("port", QJsonValue(nodeSetting.port));
+      nodeSettingObj.insert("path", QJsonValue(nodeSetting.path));
+      nodeSettingObj.insert("ssl", QJsonValue(nodeSetting.ssl));
+      nodesList.append(nodeSettingObj);
+    }
+    m_settings.insert(OPTION_RPCNODES, nodesList);
   }
   saveSettings();
 }
