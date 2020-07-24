@@ -141,8 +141,8 @@ jobs:
           release_name="Karbo-wallet-macOS-$krb_ver"
           app_name="KarbowanecWallet.app"
           lang_folder="/Contents/Resources/languages"
-          brew install gcc boost@1.60
-          brew link boost@1.60 --force
+          brew install gcc boost
+          brew link boost --force
           rm -rf cryptonote
           git clone https://github.com/seredat/karbowanec.git cryptonote
           mkdir -p "$build_folder"
