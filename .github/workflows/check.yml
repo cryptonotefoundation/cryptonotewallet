@@ -89,7 +89,7 @@ jobs:
         uses: actions/upload-artifact@v1.0.0
         with:
           path: ${{ steps.build.outputs.asset_path_archive }}
-          name: Karbo Wallet ${{ steps.build.outputs.krb_ver }}
+          name: ${{ steps.build.outputs.release_name }}
           body: |
             **${{ steps.build.outputs.release_name_archive }}**
             ${{ steps.build.outputs.sha256a }}
@@ -100,7 +100,7 @@ jobs:
         uses: actions/upload-artifact@v1.0.0
         with:
           path: ${{ steps.build.outputs.asset_path_install }}
-          name: Karbo Wallet ${{ steps.build.outputs.krb_ver }}
+          name: ${{ steps.build.outputs.release_name }}
           body: |
             **${{ steps.build.outputs.release_name_install }}**
             ${{ steps.build.outputs.sha256i }}
@@ -168,7 +168,7 @@ jobs:
         uses: actions/upload-artifact@v1.0.0
         with:
           path: ${{ steps.build.outputs.asset_path }}
-          name: Karbo Wallet ${{ steps.build.outputs.krb_ver }}
+          name: ${{ steps.build.outputs.release_name }}
           body: |
             **${{ steps.build.outputs.release_name }}**
             ${{ steps.build.outputs.sha256 }}
@@ -220,7 +220,7 @@ jobs:
         uses: actions/upload-artifact@v1.0.0
         with:
           path: ${{ steps.build.outputs.asset_path }}
-          name: Karbo Wallet ${{ steps.build.outputs.krb_ver }}
+          name: ${{ steps.build.outputs.release_name }}
           body: |
             **${{ steps.build.outputs.release_name }}**
             ${{ steps.build.outputs.sha256 }}
@@ -273,7 +273,7 @@ jobs:
         uses: actions/upload-artifact@v1.0.0
         with:
           path: ${{ steps.build.outputs.asset_path }}
-          name: Karbo Wallet ${{ steps.build.outputs.krb_ver }}
+          name: ${{ steps.build.outputs.release_name }}
           body: |
             **${{ steps.build.outputs.release_name }}**
             ${{ steps.build.outputs.sha256 }}
