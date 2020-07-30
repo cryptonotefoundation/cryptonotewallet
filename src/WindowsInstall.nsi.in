@@ -71,9 +71,6 @@ Section -Main SEC0000
 	# define output path
 	SetOutPath $INSTDIR
 	SetOverwrite on
-	# Copy the OpenSSL binaries
-	File "C:\Program Files\OpenSSL-Win64\bin\libssl*.dll"
-	File "C:\Program Files\OpenSSL-Win64\bin\libcrypto*.dll"
 	# specify file to go in output path
 	File /r ".\Release\Karbo-wallet-win64-v.${PROJECT_VERSION}\*"
 	WriteRegStr HKCU "${REGKEY}\Components" Main 1

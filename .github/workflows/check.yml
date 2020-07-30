@@ -64,6 +64,8 @@ jobs:
           cp languages/*.qm "$release_folder/$release_name/languages/"
           cd "$release_folder"
           cp KarbowanecWallet.exe "$release_name/"
+          cp "C:/Program Files/OpenSSL-Win64/bin/libssl*.dll" "$release_name/"
+          cp "C:/Program Files/OpenSSL-Win64/bin/libcrypto*.dll" "$release_name/"
           cp "../../COPYING" "$release_name/LICENSE.txt"
           windeployqt --release KarbowanecWallet.exe --dir "$release_name/"
           Compress-Archive -Path "$release_name/" -DestinationPath "$release_name.zip"
