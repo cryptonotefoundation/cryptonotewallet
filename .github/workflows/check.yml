@@ -89,7 +89,7 @@ jobs:
         uses: actions/upload-artifact@v1.0.0
         with:
           path: ${{ steps.build.outputs.asset_path_archive }}
-          name: ${{ steps.build.outputs.release_name }}
+          name: ${{ steps.build.outputs.release_name_archive }}
           body: |
             **${{ steps.build.outputs.release_name_archive }}**
             ${{ steps.build.outputs.sha256a }}
@@ -100,7 +100,7 @@ jobs:
         uses: actions/upload-artifact@v1.0.0
         with:
           path: ${{ steps.build.outputs.asset_path_install }}
-          name: ${{ steps.build.outputs.release_name }}
+          name: ${{ steps.build.outputs.release_name_install }}
           body: |
             **${{ steps.build.outputs.release_name_install }}**
             ${{ steps.build.outputs.sha256i }}
