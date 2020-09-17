@@ -151,7 +151,6 @@ set(CRYPTONOTE_SOURCES
   cryptonote/external/miniupnpc/upnpreplyparse.c
   cryptonote/src/Checkpoints/Checkpoints.cpp
   cryptonote/src/Common/Base58.cpp
-  cryptonote/src/Common/Base64.cpp
   cryptonote/src/Common/CommandLine.cpp
   cryptonote/src/Common/FormatTools.cpp
   cryptonote/src/Common/Util.cpp
@@ -357,7 +356,7 @@ elseif (UNIX)
     endif()
     list(REMOVE_ITEM HEADERS ${CMAKE_SOURCE_DIR}/src/gui/macdockiconhandler.h)
 
-    set(ARCH native CACHE STRING "CPU to build for: -march value or default to not pass -march at all")
+    set(ARCH default CACHE STRING "CPU to build for: -march value or default to not pass -march at all")
     message(STATUS "Building on ${CMAKE_SYSTEM_PROCESSOR} for ${ARCH}")
     if ("${ARCH}" STREQUAL "default")
       set(ARCH_FLAG "")
