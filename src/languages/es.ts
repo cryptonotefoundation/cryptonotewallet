@@ -456,11 +456,11 @@ Por favor, espera...</translation>
         <translation>OK</translation>
     </message>
     <message>
-        <source>Private View Key:</source>
+        <source>View Secret Key:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Private Spend Key:</source>
+        <source>Spend Secret Key:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

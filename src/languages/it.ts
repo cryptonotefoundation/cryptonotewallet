@@ -508,12 +508,12 @@ Attendere prego…
     </message>
     <message>
         <location filename="../gui/ui/importkeysdialog.ui" line="86"/>
-        <source>Private View Key:</source>
+        <source>View Secret Key:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../gui/ui/importkeysdialog.ui" line="66"/>
-        <source>Private Spend Key:</source>
+        <source>Spend Secret Key:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
