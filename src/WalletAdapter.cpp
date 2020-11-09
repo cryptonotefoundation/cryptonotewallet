@@ -77,32 +77,32 @@ QString WalletAdapter::getAddress() const {
   try {
     return m_wallet == nullptr ? QString() : QString::fromStdString(m_wallet->getAddress());
   } catch (std::system_error&) {
-    return QString();
   }
+  return QString();
 }
 
 quint64 WalletAdapter::getActualBalance() const {
   try {
     return m_wallet == nullptr ? 0 : m_wallet->actualBalance();
   } catch (std::system_error&) {
-    return 0;
   }
+  return 0;
 }
 
 quint64 WalletAdapter::getPendingBalance() const {
   try {
     return m_wallet == nullptr ? 0 : m_wallet->pendingBalance();
   } catch (std::system_error&) {
-    return 0;
   }
+  return 0;
 }
 
 quint64 WalletAdapter::getUnmixableBalance() const {
   try {
     return m_wallet == nullptr ? 0 : m_wallet->unmixableBalance();
   } catch (std::system_error&) {
-    return 0;
   }
+  return 0;
 }
 
 void WalletAdapter::open(const QString& _password) {
@@ -387,8 +387,8 @@ quint64 WalletAdapter::estimateFusion(quint64 _threshold) {
   try {
     return m_wallet->estimateFusion(_threshold);
   } catch (std::system_error&) {
-    return 0;
   }
+  return 0;
 }
 
 std::list<CryptoNote::TransactionOutputInformation> WalletAdapter::getFusionTransfersToSend(quint64 _threshold, size_t _min_input_count, size_t _max_input_count) {
@@ -396,8 +396,8 @@ std::list<CryptoNote::TransactionOutputInformation> WalletAdapter::getFusionTran
   try {
     return m_wallet->selectFusionTransfersToSend(_threshold, _min_input_count, _max_input_count);
   } catch (std::system_error&) {
-    return {};
   }
+  return {};
 }
 
 void WalletAdapter::sendFusionTransaction(const std::list<CryptoNote::TransactionOutputInformation>& _fusion_inputs, quint64 _fee, const QString& _extra, quint64 _mixin) {
