@@ -137,8 +137,8 @@ jobs:
 
       - name: Install boost and gcc
         run: |
-          brew install gcc boost@1.73
-          brew link boost@1.73 --force
+          brew install gcc boost
+          brew link boost --force
 
       - name: Build
         id: build
