@@ -127,6 +127,11 @@ jobs:
           modules: 'qttools5'
           install-deps: 'true'
 
+      - name: Install boost and gcc
+        run: |
+          brew install gcc boost@1.73
+          brew link boost@1.73 --force
+
       - name: Find Tag
         id: tagger
         uses: jimschubert/query-tag-action@v1
@@ -144,8 +149,6 @@ jobs:
           release_name="Karbo-wallet-macOS-$krb_ver"
           app_name="KarbowanecWallet.app"
           lang_folder="/Contents/Resources/languages"
-          brew install gcc boost
-          brew link boost --force
           rm -rf cryptonote
           git clone https://github.com/seredat/karbowanec.git cryptonote
           mkdir -p "$build_folder"
