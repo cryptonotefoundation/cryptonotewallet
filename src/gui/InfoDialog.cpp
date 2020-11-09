@@ -33,6 +33,7 @@ InfoDialog::InfoDialog(QWidget* _parent) : QDialog(_parent), m_ui(new Ui::InfoDi
   m_ui->m_connectionsView->header()->resizeSection(ConnectionsModel::COLUMN_HEIGHT, 50);
   m_ui->m_connectionsView->header()->resizeSection(ConnectionsModel::COLUMN_LAST_RESPONSE_HEIGHT, 50);
   m_ui->m_connectionsView->header()->resizeSection(ConnectionsModel::COLUMN_VERSION, 45);
+  m_ui->m_connectionsView->setRootIsDecorated(false);
 
   m_ui->m_connectionsView->setContextMenuPolicy(Qt::CustomContextMenu);
   connect(m_ui->m_connectionsView, SIGNAL(customContextMenuRequested(const QPoint &)), this, SLOT(onCustomContextMenu(const QPoint &)));
