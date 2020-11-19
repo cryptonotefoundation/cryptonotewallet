@@ -264,13 +264,13 @@ bool WalletAdapter::save(bool _details, bool _cache) {
 bool WalletAdapter::save(const QString& _file, bool _details, bool _cache) {
   Q_CHECK_PTR(m_wallet);
   if (openFile(_file, false)) {
+    Q_EMIT walletStateChangedSignal(tr("Saving data"));
     try {
       m_wallet->save(m_file, _details, _cache);
     } catch (std::system_error&) {
       closeFile();
       return false;
     }
-    Q_EMIT walletStateChangedSignal(tr("Saving data"));
   } else {
     return false;
   }
@@ -375,8 +375,8 @@ void WalletAdapter::sendTransaction(const std::vector<CryptoNote::WalletLegacyTr
   Q_CHECK_PTR(m_wallet);
   try {
     lock();
-    m_wallet->sendTransaction(_transfers, _fee, NodeAdapter::instance().convertPaymentId(_paymentId), _mixin, 0);
     Q_EMIT walletStateChangedSignal(tr("Sending transaction"));
+    m_wallet->sendTransaction(_transfers, _fee, NodeAdapter::instance().convertPaymentId(_paymentId), _mixin, 0);
   } catch (std::system_error&) {
     unlock();
   }
@@ -404,8 +404,8 @@ void WalletAdapter::sendFusionTransaction(const std::list<CryptoNote::Transactio
   Q_CHECK_PTR(m_wallet);
   try {
     lock();
-    m_wallet->sendFusionTransaction(_fusion_inputs, _fee, _extra.toStdString(), _mixin, 0);
     Q_EMIT walletStateChangedSignal(tr("Optimizing wallet"));
+    m_wallet->sendFusionTransaction(_fusion_inputs, _fee, _extra.toStdString(), _mixin, 0);
   } catch (std::system_error&) {
     unlock();
   }
