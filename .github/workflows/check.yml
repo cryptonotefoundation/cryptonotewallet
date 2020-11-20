@@ -90,9 +90,7 @@ jobs:
         with:
           path: ${{ steps.build.outputs.asset_path_archive }}
           name: ${{ steps.build.outputs.release_name_archive }}
-          body: |
-            **${{ steps.build.outputs.release_name_archive }}**
-            ${{ steps.build.outputs.sha256a }}
+
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -101,9 +99,6 @@ jobs:
         with:
           path: ${{ steps.build.outputs.asset_path_install }}
           name: ${{ steps.build.outputs.release_name_install }}
-          body: |
-            **${{ steps.build.outputs.release_name_install }}**
-            ${{ steps.build.outputs.sha256i }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -172,9 +167,6 @@ jobs:
         with:
           path: ${{ steps.build.outputs.asset_path }}
           name: ${{ steps.build.outputs.release_name }}
-          body: |
-            **${{ steps.build.outputs.release_name }}**
-            ${{ steps.build.outputs.sha256 }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -224,9 +216,6 @@ jobs:
         with:
           path: ${{ steps.build.outputs.asset_path }}
           name: ${{ steps.build.outputs.release_name }}
-          body: |
-            **${{ steps.build.outputs.release_name }}**
-            ${{ steps.build.outputs.sha256 }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -277,9 +266,6 @@ jobs:
         with:
           path: ${{ steps.build.outputs.asset_path }}
           name: ${{ steps.build.outputs.release_name }}
-          body: |
-            **${{ steps.build.outputs.release_name }}**
-            ${{ steps.build.outputs.sha256 }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
