@@ -17,8 +17,8 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup MSBuild.exe
-        uses: warrenbuckley/Setup-MSBuild@v1
+      - name: Add msbuild to PATH
+        uses: microsoft/setup-msbuild@v1.0.2
 
       - name: Install OpenSSL
         run: choco install openssl
@@ -41,7 +41,7 @@ jobs:
         shell: powershell
         id: build
         env:
-          BOOST_ROOT: ${{ env.BOOST_ROOT }}
+          BOOST_ROOT: ${{ env.BOOST_ROOT_1_72_0 }}
           GIT_REDIRECT_STDERR: '2>&1'
           VCINSTALLDIR: 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\'
         run: |
@@ -56,7 +56,7 @@ jobs:
           git clone https://github.com/seredat/karbowanec cryptonote --quiet
           mkdir "$build_folder"
           cd "$build_folder"
-          Start-Process cmake -ArgumentList "-DBOOST_ROOT=""$env:BOOST_ROOT_1_69_0"" -G ""Visual Studio 16 2019"" -A x64",".." -NoNewWindow -Wait
+          Start-Process cmake -ArgumentList "-DBOOST_ROOT=""$env:BOOST_ROOT_1_72_0"" -G ""Visual Studio 16 2019"" -A x64",".." -NoNewWindow -Wait
           Start-Process msbuild -ArgumentList "KarbowanecWallet.sln","/p:Configuration=Release" -NoNewWindow -Wait
           $build_path = "./$build_folder"
           mkdir "$release_folder/$release_name"
@@ -115,19 +115,19 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup Xcode
-        uses: maxim-lobanov/setup-xcode@1.0
-        with:
-          xcode-version: '10'
-
       - name: Install Qt
         uses: jurplel/install-qt-action@v2
         with:
-          version: '5.12.2'
+          version: '5.12.9'
           modules: 'qttools5'
           install-deps: 'true'
 
-      - name: Install boost and gcc
+      - name: Setup Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: '10'
+
+      - name: Install deps
         run: |
           brew install gcc boost
           brew link boost --force
