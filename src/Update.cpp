@@ -46,10 +46,8 @@ void Updater::replyFinished (QNetworkReply *reply)
         else if (ourVersionStr.startsWith('v'))
                  ourVersionStr.remove(0, 1);
 
-        QByteArray response_data = reply->readAll();
-        QJsonDocument json = QJsonDocument::fromJson(response_data);
-
-        QString remoteVersionStr = json[0]["name"].toString();
+        QJsonArray jsonArray = QJsonDocument::fromJson(reply->readAll()).array();
+        QString remoteVersionStr = jsonArray[0].toObject()["name"].toString();
         if (remoteVersionStr.startsWith(QStringLiteral("v.")))
             remoteVersionStr.remove(0, 2);
         else if (remoteVersionStr.startsWith('v'))
