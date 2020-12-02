@@ -1205,8 +1205,8 @@ Please wait...</source>
         <translation>Доступна новая версия</translation>
     </message>
     <message>
-        <source>There is update available.
-Do you want to go to download page?</source>
+        <source>There is an update available.
+Do you want to go to the download page?</source>
         <translation>Есть обновление кошелька.
 Хотите открыть страницу загрузки?</translation>
     </message>

@@ -1,62 +1,21 @@
-// Copyright (c) 2016 The Karbowanec developers
+// Copyright (c) 2016-2020 The Karbowanec developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
+
 #include "Update.h"
 #include "Settings.h"
-#include <QDesktopServices>
 #include <QApplication>
+#include <QDesktopServices>
+#include <QJsonDocument>
 #include <QMessageBox>
-
-#include <iostream>
-#include <sstream>
-#include <vector>
-#include <iterator>
+#include <QtNetwork>
+#include <QVersionNumber>
 
 using namespace WalletGui;
 
 Updater::Updater(QObject *parent) :
     QObject(parent)
 {
-}
-// http://stackoverflow.com/questions/2941491/compare-versions-as-strings/2941895#2941895
-class Version
-{
-    // An internal utility structure just used to make the std::copy in the constructor easy to write.
-    struct VersionDigit
-    {
-        int value;
-        operator int() const {return value;}
-    };
-    friend std::istream& operator>>(std::istream& str, Version::VersionDigit& digit);
-    public:
-        Version(std::string const& versionStr)
-        {
-            // To Make processing easier in VersionDigit prepend a '.'
-            std::stringstream   versionStream(std::string(".") + versionStr);
-
-            // Copy all parts of the version number into the version Info vector.
-            std::copy(  std::istream_iterator<VersionDigit>(versionStream),
-                        std::istream_iterator<VersionDigit>(),
-                        std::back_inserter(versionInfo)
-                     );
-        }
-
-        // Test if two version numbers are the same.
-        bool operator<(Version const& rhs) const
-        {
-            return std::lexicographical_compare(versionInfo.begin(), versionInfo.end(), rhs.versionInfo.begin(), rhs.versionInfo.end());
-        }
-
-    private:
-        std::vector<int>    versionInfo;
-};
-
-// Read a single digit from the version.
-std::istream& operator>>(std::istream& str, Version::VersionDigit& digit)
-{
-    str.get();
-    str >> digit.value;
-    return str;
 }
 
 void Updater::checkForUpdate()
@@ -66,7 +25,9 @@ void Updater::checkForUpdate()
     {
         connect(manager, SIGNAL(finished(QNetworkReply*)),
                 this, SLOT(replyFinished(QNetworkReply*)));
-        manager->get(QNetworkRequest(QUrl(KRBCOIN_UPDATE_URL)));
+        QNetworkRequest request((QUrl(KARBO_UPDATE_URL)));
+        request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+        manager->get(request);
     }
 }
 
@@ -79,20 +40,31 @@ void Updater::replyFinished (QNetworkReply *reply)
     }
     else
     {
-        Version ourVersion = Settings::instance().getVersion().split("-")[0].toStdString();
+        QString ourVersionStr = Settings::instance().getVersion().split("-")[0];
+        if (ourVersionStr.startsWith(QStringLiteral("v.")))
+            ourVersionStr.remove(0, 2);
+        else if (ourVersionStr.startsWith('v'))
+                 ourVersionStr.remove(0, 1);
 
-		QString result = reply->readAll().data();      
+        QByteArray response_data = reply->readAll();
+        QJsonDocument json = QJsonDocument::fromJson(response_data);
 
-        Version remoteVersion = result.toStdString();
+        QString remoteVersionStr = json[0]["name"].toString();
+        if (remoteVersionStr.startsWith(QStringLiteral("v.")))
+            remoteVersionStr.remove(0, 2);
+        else if (remoteVersionStr.startsWith('v'))
+                 remoteVersionStr.remove(0, 1);
 
-         if (ourVersion < remoteVersion) {
+        int suffixIndex;
+        QVersionNumber ourVersion = QVersionNumber::fromString(ourVersionStr, &suffixIndex);
+        QVersionNumber remoteVersion = QVersionNumber::fromString(remoteVersionStr, &suffixIndex);
 
-             if (QMessageBox::warning(nullptr, QObject::tr("New version available"), QObject::tr("There is update available.\nDo you want to go to download page?"), QMessageBox::Ok, QMessageBox::Cancel) == QMessageBox::Ok) {
-                 QString link = "http://karbowanec.com/#downloads";
-                 QDesktopServices::openUrl(QUrl(link));
+        bool r = QVersionNumber::compare(ourVersion, remoteVersion) < 0;
+        if (r) {
+             if (QMessageBox::warning(nullptr, QObject::tr("New version available"), QObject::tr("There is an update available.\nDo you want to go to the download page?"), QMessageBox::Ok, QMessageBox::Cancel) == QMessageBox::Ok) {
+                 QDesktopServices::openUrl(QUrl(KARBO_DOWNLOAD_URL));
              }
-
-         }
+        }
     }
     reply->deleteLater();
 }

@@ -1205,8 +1205,8 @@ Proszę czekać...</translation>
         <translation>Dostępna aktualizacja</translation>
     </message>
     <message>
-        <source>There is update available.
-Do you want to go to download page?</source>
+        <source>There is an update available.
+Do you want to go to the download page?</source>
         <translation>Dostępna jest nowa wersja portfela.
 Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
     </message>

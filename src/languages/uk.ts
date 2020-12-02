@@ -1205,8 +1205,8 @@ Please wait...</source>
         <translation>Доступне оновлення гаманця</translation>
     </message>
     <message>
-        <source>There is update available.
-Do you want to go to download page?</source>
+        <source>There is an update available.
+Do you want to go to the download page?</source>
         <translation>Є нова версія гаманця.
 Бажаєте відкрити сторінку завантаження?</translation>
     </message>

@@ -1218,8 +1218,8 @@ Por favor, espera...</translation>
         <translation>Nueva versión disponible</translation>
     </message>
     <message>
-        <source>There is update available.
-Do you want to go to download page?</source>
+        <source>There is an update available.
+Do you want to go to the download page?</source>
         <translation>Hay una actualización disponible.
 ¿Quieres ir a la página de descarga?</translation>
     </message>

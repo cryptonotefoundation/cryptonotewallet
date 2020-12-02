@@ -1350,8 +1350,8 @@ Attendere prego…
     </message>
     <message>
         <location filename="../update.cpp" line="90"/>
-        <source>There is update available.
-Do you want to go to download page?</source>
+        <source>There is an update available.
+Do you want to go to the download page?</source>
         <translation>C&apos;è un aggiornamento disponibile.
 Vuoi andare alla pagina dei download?</translation>
     </message>

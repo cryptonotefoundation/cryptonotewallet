@@ -1214,8 +1214,8 @@ Bitte warten...</translation>
         <translation>Neue Version verfügbar</translation>
     </message>
     <message>
-        <source>There is update available.
-Do you want to go to download page?</source>
+        <source>There is an update available.
+Do you want to go to the download page?</source>
         <translation>Es ist ein Update verfügbar.
 Möchten Sie die Download Seite besuchen?</translation>
     </message>
