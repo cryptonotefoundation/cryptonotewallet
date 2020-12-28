@@ -1205,8 +1205,8 @@ Please wait...</source>
         <translation>نسخه جدید در دسترس است</translation>
     </message>
     <message>
-        <source>There is update available.
-Do you want to go to download page?</source>
+        <source>There is an update available.
+Do you want to go to the download page?</source>
         <translation>بروزرسانی جدید در دسترس است.
 آیا میخواهید آن را دریافت نمایید ؟</translation>
     </message>

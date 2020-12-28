@@ -1209,8 +1209,8 @@ Please wait...</source>
         <translation>Даступна абнаўленне гаманца</translation>
     </message>
     <message>
-        <source>There is update available.
-Do you want to go to download page?</source>
+        <source>There is an update available.
+Do you want to go to the download page?</source>
         <translation>Ёсць новая версія гаманца.
 Хочаце адкрыць старонку загрузкі?</translation>
     </message>

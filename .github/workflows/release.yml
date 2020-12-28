@@ -23,7 +23,7 @@ jobs:
       - name: Install Qt
         uses: jurplel/install-qt-action@v2
         with:
-          version: '5.12.2'
+          version: '5.15.2'
           host: 'windows'
           target: 'desktop'
           modules: 'qttools5'
@@ -128,7 +128,7 @@ jobs:
       - name: Install Qt
         uses: jurplel/install-qt-action@v2
         with:
-          version: '5.12.2'
+          version: '5.15.2'
           modules: 'qttools5'
           install-deps: 'true'
 

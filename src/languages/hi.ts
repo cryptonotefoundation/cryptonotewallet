@@ -1360,8 +1360,8 @@ Please wait...</source>
     </message>
     <message>
         <location filename="../update.cpp" line="90"/>
-        <source>There is update available.
-Do you want to go to download page?</source>
+        <source>There is an update available.
+Do you want to go to the download page?</source>
         <translation>अपडेट उपलब्ध है। क्या आप पेज डाउनलोड करना चाहेंगे?</translation>
     </message>
 </context>

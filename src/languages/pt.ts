@@ -1226,8 +1226,8 @@ Por favor aguarde...</translation>
         <translation>Nova versão disponível</translation>
     </message>
     <message>
-        <source>There is update available.
-Do you want to go to download page?</source>
+        <source>There is an update available.
+Do you want to go to the download page?</source>
         <translation>Há uma nova versão disponível.
 Você quer ir à página de dowload?</translation>
     </message>
