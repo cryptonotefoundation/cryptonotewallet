@@ -335,6 +335,30 @@ Proszę czekać...</translation>
     </message>
 </context>
 <context>
+    <name>ExportRawTransactionDialog</name>
+    <message>
+        <source>Export raw transaction</source>
+        <translation>Eksportuj surową transakcję</translation>
+    </message>
+    <message>
+        <source>You can broadcast this transaction to the network e.g. via block explorer or RPC request to any public node.</source>
+        <translatorcomment>Możesz transmitować tę transakcję do sieci np. za pośrednictwem eksploratora bloków lub żądania RPC do dowolnego węzła publicznego.</translatorcomment>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Save to file</source>
+        <translation>Zapisz do pliku</translation>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation>Kopiuj</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation></translation>
+    </message>
+</context>
+<context>
     <name>ExportTrackingKeyDialog</name>
     <message>
         <source>Export tracking key</source>
@@ -1418,6 +1442,10 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
         <source>Send All</source>
         <translation>Wyślij wszystko</translation>
     </message>
+    <message>
+        <source>Prepare transaction but do not relay</source>
+        <translation>Przygotuj transakcję, ale nie transmituj</translation>
+    </message>
 </context>
 <context>
     <name>ShowPaymentRequestDialog</name>
@@ -1876,6 +1904,17 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
     <message>
         <source>Last resp. height</source>
         <translation>Wysokość ostatniej odpowiedzi</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui::ExportRawTransactionDialog</name>
+    <message>
+        <source>Save transaction to...</source>
+        <translation>Zapisz transakcję do...</translation>
+    </message>
+    <message>
+        <source>Raw hex transaction (*.txt)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2961,12 +3000,16 @@ kiedy portfel skończy synchronizowanie</translation>
         </translation>
     </message>
     <message>
+        <source>Preparing transaction</source>
+        <translation>Przygotowanie transakcji</translation>
+    </message>
+    <message>
         <source>Failed to sign message</source>
-        <translation type="unfinished"></translation>
+        <translation>Nie udało się podpisać wiadomość</translation>
     </message>
     <message>
         <source>This is tracking wallet. The message can be signed only by a full wallet.</source>
-        <translation type="unfinished"></translation>
+        <translation>To jest portfel śledzący. Wiadomość może być podpisana tylko pełnym portfelem.</translation>
     </message>
 </context>
 </TS>

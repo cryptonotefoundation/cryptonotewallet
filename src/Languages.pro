@@ -75,6 +75,7 @@ gui/SendGlassFrame.cpp \
 gui/SignMessageDialog.cpp \
 gui/OptimizationSettings.cpp \
 gui/GetBalanceProofDialog.cpp \
+gui/ExportRawTxDialog.cpp \
  
 
 HEADERS = CommandLineParser.h \
@@ -139,6 +140,7 @@ gui/SendGlassFrame.h \
 gui/SignMessageDialog.h \
 gui/OptimizationSettings.h \
 gui/GetBalanceProofDialog.h \
+gui/ExportRawTxDialog.h \
 
 
 FORMS = gui/ui/aboutdialog.ui \
@@ -180,6 +182,7 @@ gui/ui/nowalletframe.ui \
 gui/ui/signmessagedialog.ui \
 gui/ui/optimizationsettingsdialog.ui \
 gui/ui/getbalanceproofdialog.ui \
+gui/ui/exportrawtxdialog.ui \
 
 
 TRANSLATIONS = 	languages/uk.ts \

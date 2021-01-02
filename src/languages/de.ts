@@ -340,6 +340,29 @@ Bitte warten...</translation>
     </message>
 </context>
 <context>
+    <name>ExportRawTransactionDialog</name>
+    <message>
+        <source>Export raw transaction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You can broadcast this transaction to the network e.g. via block explorer or RPC request to any public node.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save to file</source>
+        <translation>Speichern unter</translation>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation>Kopieren</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Schliessen</translation>
+    </message>
+</context>
+<context>
     <name>ExportTrackingKeyDialog</name>
     <message>
         <source>Export tracking key</source>
@@ -1435,6 +1458,10 @@ Möchten Sie die Download Seite besuchen?</translation>
         <source>Send All</source>
         <translation>Sende alles</translation>
     </message>
+    <message>
+        <source>Prepare transaction but do not relay</source>
+        <translation>Transaktion vorbereiten, aber nicht weiterleiten</translation>
+    </message>
 </context>
 <context>
     <name>ShowPaymentRequestDialog</name>
@@ -1885,6 +1912,17 @@ Externer Port für das P2P-Netzwerkprotokoll (wenn Portweiterleitung mit NAT ver
     <message>
         <source>Last resp. height</source>
         <translation>Die Höhe der letzten Antwort</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui::ExportRawTransactionDialog</name>
+    <message>
+        <source>Save transaction to...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Raw hex transaction (*.txt)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2462,7 +2500,7 @@ wenn die Brieftasche die Synchronisation beendet</translation>
     </message>
     <message>
         <source>Address is invalid!</source>
-        <translation type="unfinished">Adresse ist ungültig!</translation>
+        <translation>Adresse ist ungültig!</translation>
     </message>
 </context>
 <context>
@@ -2961,8 +2999,12 @@ Kann keinen neuen Schlüssel generieren</translation>
         </translation>
     </message>
     <message>
+        <source>Preparing transaction</source>
+        <translation>Transaktion vorbereiten</translation>
+    </message>
+    <message>
         <source>Failed to sign message</source>
-        <translation type="unfinished"></translation>
+        <translation>Nachricht konnte nicht signiert werden</translation>
     </message>
     <message>
         <source>This is tracking wallet. The message can be signed only by a full wallet.</source>
