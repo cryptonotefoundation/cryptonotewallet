@@ -24,6 +24,7 @@
 #include "ConfirmSendDialog.h"
 #include "PasswordDialog.h"
 #include <CryptoNoteConfig.h>
+#include "ExportRawTxDialog.h"
 
 #include "ui_sendframe.h"
 
@@ -393,7 +394,16 @@ void SendFrame::sendClicked() {
         return;
       }
 
-      WalletAdapter::instance().sendTransaction(walletTransfers, fee, m_ui->m_paymentIdEdit->text(), m_ui->m_mixinSlider->value());
+      if (!m_ui->dontRelayCheckBox->isChecked()) {
+        WalletAdapter::instance().sendTransaction(walletTransfers, fee, m_ui->m_paymentIdEdit->text(), m_ui->m_mixinSlider->value());
+      } else {
+        QString rawTx = WalletAdapter::instance().prepareRawTransaction(walletTransfers, fee, m_ui->m_paymentIdEdit->text(), m_ui->m_mixinSlider->value());
+        if (!rawTx.isEmpty()) {
+          ExportRawTransactionDialog dlg(&MainWindow::instance());
+          dlg.setTransaction(rawTx);
+          dlg.exec();
+        }
+      }
     }
   }
 }
