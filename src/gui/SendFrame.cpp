@@ -482,13 +482,6 @@ void SendFrame::sendAllClicked() {
     }
   }
 
-  QVector<float> donations;
-  donations.clear();
-  Q_FOREACH (TransferFrame * transfer, m_transfers) {
-    float amount = transfer->getAmountString().toFloat();
-    float donationpercent = amount * 0.1 / 100; // donation is 0.1%
-    donations.push_back(donationpercent);
-    }
   quint64 priorityFee = CurrencyAdapter::instance().parseAmount(QString::number(getMinimalFee() * m_ui->m_prioritySlider->value()));
   quint64 amount = actualBalance - (priorityFee + m_nodeFee);
   if (m_ui->donateCheckBox->isChecked()) {
