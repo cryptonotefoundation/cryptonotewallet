@@ -137,6 +137,8 @@ void SendFrame::addRecipientClicked() {
 
   connect(newTransfer, &TransferFrame::amountValueChangedSignal, this, &SendFrame::amountValueChange, Qt::QueuedConnection);
   connect(newTransfer, &TransferFrame::insertPaymentIDSignal, this, &SendFrame::insertPaymentID, Qt::QueuedConnection);
+
+  amountValueChange();
 }
 
 double SendFrame::getMinimalFee() {
@@ -290,6 +292,8 @@ void SendFrame::parsePaymentRequest(QString _request) {
 }
 
 void SendFrame::sendClicked() {
+  amountValueChange();
+
   quint64 actualBalance = WalletAdapter::instance().getActualBalance();
   if (actualBalance < NodeAdapter::instance().getMinimalFee()) {
     QCoreApplication::postEvent(
