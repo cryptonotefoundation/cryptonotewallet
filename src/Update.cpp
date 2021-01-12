@@ -36,7 +36,7 @@ void Updater::replyFinished (QNetworkReply *reply)
     if(reply->error())
     {
         QString error = QString(tr("Error: %1")).arg(reply->errorString());
-        QMessageBox::information(nullptr, tr("Unable to check for update"), error, QMessageBox::Ok);
+        qDebug() << tr("Unable to check for update") << ": " << error;
     }
     else
     {
