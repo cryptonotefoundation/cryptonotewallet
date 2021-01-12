@@ -927,6 +927,18 @@ Bitte warten...</translation>
         <source>OK</source>
         <translation>OK</translation>
     </message>
+    <message>
+        <source>Path:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>/</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SSL:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NewPasswordDialog</name>
@@ -1221,6 +1233,21 @@ Möchten Sie die Download Seite besuchen?</translation>
     </message>
 </context>
 <context>
+    <name>QRCodeDialog</name>
+    <message>
+        <source>QR Code</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save QR to file</source>
+        <translation>QR in einer Datei speichern</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Schliessen</translation>
+    </message>
+</context>
+<context>
     <name>ReceiveFrame</name>
     <message>
         <source>Frame</source>
@@ -1228,11 +1255,11 @@ Möchten Sie die Download Seite besuchen?</translation>
     </message>
     <message>
         <source>Copy address</source>
-        <translation>Adresse kopieren</translation>
+        <translation type="vanished">Adresse kopieren</translation>
     </message>
     <message>
         <source>Save QR to file</source>
-        <translation>QR in einer Datei speichern</translation>
+        <translation type="vanished">QR in einer Datei speichern</translation>
     </message>
     <message>
         <source>Request payment</source>
@@ -1240,7 +1267,7 @@ Möchten Sie die Download Seite besuchen?</translation>
     </message>
     <message>
         <source>Use this form to request payment.</source>
-        <translation>Verwenden Sie dieses Formular, um die Zahlung anzufordern.</translation>
+        <translation type="vanished">Verwenden Sie dieses Formular, um die Zahlung anzufordern.</translation>
     </message>
     <message>
         <source>Label:</source>
@@ -1268,7 +1295,7 @@ Möchten Sie die Download Seite besuchen?</translation>
     </message>
     <message>
         <source>Close</source>
-        <translation>Schliessen</translation>
+        <translation type="vanished">Schliessen</translation>
     </message>
     <message>
         <source>Enter desired label for payer&apos;s address book</source>
@@ -1637,6 +1664,10 @@ Möchten Sie die Download Seite besuchen?</translation>
     <message>
         <source>&lt;p style=&quot;height:30&quot;&gt;Unmixable: &lt;strong style=&quot;font-size:14px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</source>
         <translation>&lt;p style=&quot;height:30&quot;&gt;Unmischbar: &lt;strong style=&quot;font-size:14px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <source>QR Code</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2208,7 +2239,7 @@ Bist du sicher?</translation>
     <name>WalletGui::NodeModel</name>
     <message>
         <source>Node URL</source>
-        <translation>Node URL</translation>
+        <translation type="vanished">Node URL</translation>
     </message>
 </context>
 <context>
@@ -2282,6 +2313,13 @@ Bist du sicher?</translation>
     </message>
 </context>
 <context>
+    <name>WalletGui::QRCodeDialog</name>
+    <message>
+        <source>Save QR Code</source>
+        <translation>QR Code speichern</translation>
+    </message>
+</context>
+<context>
     <name>WalletGui::QRLabel</name>
     <message>
         <source>&amp;Save Image...</source>
@@ -2304,7 +2342,7 @@ Bist du sicher?</translation>
     </message>
     <message>
         <source>Save QR Code</source>
-        <translation>QR Code speichern</translation>
+        <translation type="vanished">QR Code speichern</translation>
     </message>
 </context>
 <context>
@@ -2921,6 +2959,14 @@ Kann keinen neuen Schlüssel generieren</translation>
             <numerusform>%n Tag und</numerusform>
             <numerusform>%n Tage und</numerusform>
         </translation>
+    </message>
+    <message>
+        <source>Failed to sign message</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This is tracking wallet. The message can be signed only by a full wallet.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

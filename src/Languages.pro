@@ -60,6 +60,7 @@ gui/ConnectionSettings.cpp \
 gui/NewNodeDialog.cpp \
 gui/NodeModel.cpp \
 gui/QRLabel.cpp \
+gui/QRCodeDialog.cpp \
 gui/OpenUriDialog.cpp \
 gui/ConfirmSendDialog.cpp \
 gui/ExportTrackingKeyDialog.cpp \
@@ -123,6 +124,7 @@ gui/ConnectionSettings.h \
 gui/NewNodeDialog.h \
 gui/NodeModel.h \
 gui/QRLabel.h \
+gui/QRCodeDialog.h \
 gui/OpenUriDialog.h \
 gui/ConfirmSendDialog.h \
 gui/ExportTrackingKeyDialog.h \
@@ -166,6 +168,7 @@ gui/ui/connectionsettingsdialog.ui \
 gui/ui/newnodedialog.ui \
 gui/ui/showpaymentrequest.ui \
 gui/ui/openuridialog.ui \
+gui/ui/qrcodedialog.ui \
 gui/ui/confirmsenddialog.ui \
 gui/ui/importtrackingkeydialog.ui \
 gui/ui/exporttrackingkeydialog.ui \

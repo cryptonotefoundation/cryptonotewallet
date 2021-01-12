@@ -23,8 +23,6 @@ public:
   ReceiveFrame(QWidget* _parent);
   ~ReceiveFrame();
 
-  Q_SLOT void closePaymentRequestForm();
-
 private:
   QScopedPointer<Ui::ReceiveFrame> m_ui;
 
@@ -35,11 +33,7 @@ private:
   QString wallet_address;
   QString requestUri;
 
-  Q_SLOT void copyAddress();
-  Q_SLOT void saveQRcodeToFile();
-  Q_SLOT void requestPaymentClicked();
   Q_SLOT void generatePaymentIdClicked();
-
   Q_SLOT void createRequestPaymentClicked();
 
 };

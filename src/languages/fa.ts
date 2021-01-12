@@ -918,6 +918,18 @@ Please wait...</source>
         <source>OK</source>
         <translation>تایید</translation>
     </message>
+    <message>
+        <source>Path:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>/</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>SSL:</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NewPasswordDialog</name>
@@ -1212,6 +1224,21 @@ Do you want to go to the download page?</source>
     </message>
 </context>
 <context>
+    <name>QRCodeDialog</name>
+    <message>
+        <source>QR Code</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save QR to file</source>
+        <translation>ذخیره کد کیو آر به عنوان فایل</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation></translation>
+    </message>
+</context>
+<context>
     <name>ReceiveFrame</name>
     <message>
         <source>Frame</source>
@@ -1219,11 +1246,11 @@ Do you want to go to the download page?</source>
     </message>
     <message>
         <source>Copy address</source>
-        <translation>تهیه رونوشت از آدرس</translation>
+        <translation type="vanished">تهیه رونوشت از آدرس</translation>
     </message>
     <message>
         <source>Save QR to file</source>
-        <translation>ذخیره کد کیو آر به عنوان فایل</translation>
+        <translation type="vanished">ذخیره کد کیو آر به عنوان فایل</translation>
     </message>
     <message>
         <source>Request payment</source>
@@ -1231,7 +1258,7 @@ Do you want to go to the download page?</source>
     </message>
     <message>
         <source>Use this form to request payment.</source>
-        <translation>از این فرم برای درخواست پرداخت استفاده نمایید</translation>
+        <translation type="vanished">از این فرم برای درخواست پرداخت استفاده نمایید</translation>
     </message>
     <message>
         <source>Label:</source>
@@ -1259,7 +1286,7 @@ Do you want to go to the download page?</source>
     </message>
     <message>
         <source>Close</source>
-        <translation>بستن</translation>
+        <translation type="vanished">بستن</translation>
     </message>
     <message>
         <source>Enter desired label for payer&apos;s address book</source>
@@ -1624,6 +1651,10 @@ Do you want to go to the download page?</source>
     <message>
         <source>&lt;p style=&quot;height:30&quot;&gt;Unmixable: &lt;strong style=&quot;font-size:14px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</source>
         <translation>&lt;p style=&quot;height:30&quot;&gt;موجودی غیرقابل دسترس : &lt;strong style=&quot;font-size:14px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <source>QR Code</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2195,7 +2226,7 @@ Are you sure?</source>
     <name>WalletGui::NodeModel</name>
     <message>
         <source>Node URL</source>
-        <translation>Node URL</translation>
+        <translation type="vanished">Node URL</translation>
     </message>
 </context>
 <context>
@@ -2269,6 +2300,13 @@ Are you sure?</source>
     </message>
 </context>
 <context>
+    <name>WalletGui::QRCodeDialog</name>
+    <message>
+        <source>Save QR Code</source>
+        <translation>ذخیره کیو آر کد</translation>
+    </message>
+</context>
+<context>
     <name>WalletGui::QRLabel</name>
     <message>
         <source>&amp;Save Image...</source>
@@ -2291,7 +2329,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>Save QR Code</source>
-        <translation>ذخیره کیو آر کد</translation>
+        <translation type="vanished">ذخیره کیو آر کد</translation>
     </message>
 </context>
 <context>
@@ -2896,6 +2934,14 @@ when the wallet is synchronized</source>
         <translation>
             <numerusform>%n روز و</numerusform>
         </translation>
+    </message>
+    <message>
+        <source>Failed to sign message</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This is tracking wallet. The message can be signed only by a full wallet.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

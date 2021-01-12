@@ -16,7 +16,6 @@
 #include "ReceiveFrame.h"
 #include "CurrencyAdapter.h"
 #include "WalletAdapter.h"
-#include "QRLabel.h"
 #include "ShowPaymentRequestDialog.h"
 
 #include "ui_receiveframe.h"
@@ -25,8 +24,6 @@ namespace WalletGui {
 
 ReceiveFrame::ReceiveFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::ReceiveFrame) {
   m_ui->setupUi(this);
-  m_ui->m_addressQRFrame->hide();
-  m_ui->m_requestPaymentFrame->hide();
   m_ui->m_requestAmountSpin->setSuffix(" " + CurrencyAdapter::instance().getCurrencyTicker().toUpper());
   connect(&WalletAdapter::instance(), &WalletAdapter::updateWalletAddressSignal, this, &ReceiveFrame::updateWalletAddress);
   connect(&WalletAdapter::instance(), &WalletAdapter::walletCloseCompletedSignal, this, &ReceiveFrame::walletClosed, Qt::QueuedConnection);
@@ -37,44 +34,10 @@ ReceiveFrame::~ReceiveFrame() {
 
 void ReceiveFrame::updateWalletAddress(const QString& _address) {
   wallet_address = _address;
-  m_ui->m_qrLabel->showQRCode(_address);
-  m_ui->m_addressQRFrame->show();
 }
 
 void ReceiveFrame::walletClosed() {
-  m_ui->m_qrLabel->clear();
-}
-
-void ReceiveFrame::copyAddress() {
-  QApplication::clipboard()->setText(wallet_address);
-}
-
-void ReceiveFrame::saveQRcodeToFile() {
-  QString fileName = QFileDialog::getSaveFileName(&MainWindow::instance(), tr("Save QR Code"), QDir::homePath(), "PNG (*.png)");
-  if (!fileName.isEmpty()) {
-    QPixmap qrcode = m_ui->m_qrLabel->grab();
-    QFile f(fileName);
-    if (f.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
-      QByteArray ba;
-      QBuffer buffer(&ba);
-      buffer.open(QIODevice::WriteOnly);
-      qrcode.save(&buffer, "PNG");
-      f.write(ba);
-      f.close();
-    }
-  }
-}
-
-void ReceiveFrame::requestPaymentClicked() {
-  m_ui->m_addressQRFrame->hide();
-  m_ui->m_bottomButtonsFrame->hide();
-  m_ui->m_requestPaymentFrame->show();
-}
-
-void ReceiveFrame::closePaymentRequestForm() {
-  m_ui->m_requestPaymentFrame->hide();
-  m_ui->m_addressQRFrame->show();
-  m_ui->m_bottomButtonsFrame->show();
+  // do nothing
 }
 
 void ReceiveFrame::generatePaymentIdClicked() {

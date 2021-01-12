@@ -1,7 +1,7 @@
 // Copyright (c) 2011-2016 The Cryptonote developers
 // Copyright (c) 2011-2013 The Bitcoin Core developers
 // Copyright (c) 2015-2016 XDN developers
-// Copyright (c) 2016-2019 The Karbowanec developers
+// Copyright (c) 2016-20219 The Karbowanec developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -129,7 +129,6 @@ void MainWindow::connectToSignals() {
   });
   connect(&NodeAdapter::instance(), &NodeAdapter::peerCountUpdatedSignal, this, &MainWindow::peerCountUpdated, Qt::QueuedConnection);
   connect(m_ui->m_exitAction, &QAction::triggered, qApp, &QApplication::quit);
-  connect(m_ui->m_accountFrame, &AccountFrame::showQRcodeSignal, this, &MainWindow::onShowQR, Qt::QueuedConnection);
   connect(m_ui->m_sendFrame, &SendFrame::uriOpenSignal, this, &MainWindow::onUriOpenSignal, Qt::QueuedConnection);
   connect(m_ui->m_noWalletFrame, &NoWalletFrame::createWalletClickedSignal, this, &MainWindow::createWallet, Qt::QueuedConnection);
   connect(m_ui->m_noWalletFrame, &NoWalletFrame::openWalletClickedSignal, this, &MainWindow::openWallet, Qt::QueuedConnection);
@@ -880,11 +879,6 @@ void MainWindow::verifyMessage() {
   dlg.exec();
 }
 
-void MainWindow::onShowQR() {
-  m_ui->m_receiveAction->trigger();
-  m_ui->m_receiveFrame->closePaymentRequestForm();
-}
-
 void MainWindow::handlePaymentRequest(QString _request) {
   if (Settings::instance().isTrackingMode()) {
       isTrackingMode();
@@ -1163,7 +1157,6 @@ void MainWindow::walletOpened(bool _error, const QString& _error_text) {
     m_ui->m_overviewAction->trigger();
     accountWidget->setVisible(true);
     m_ui->m_overviewFrame->show();
-    m_ui->m_receiveFrame->closePaymentRequestForm();
 
     checkTrackingMode();
     updateRecentActionList();

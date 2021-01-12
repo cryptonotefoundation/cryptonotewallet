@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2015 The Cryptonote developers
-// Copyright (c) 2016-2020 The Karbo developers
+// Copyright (c) 2016-2021 The Karbo developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -10,6 +10,7 @@
 #include "AccountFrame.h"
 #include "WalletAdapter.h"
 #include "CurrencyAdapter.h"
+#include "QRCodeDialog.h"
 
 #include "ui_accountframe.h"
 
@@ -66,7 +67,8 @@ void AccountFrame::copyAddress() {
 }
 
 void AccountFrame::showQR() {
-  Q_EMIT showQRcodeSignal();
+  QRCodeDialog dlg(tr("QR Code"), m_ui->m_addressLabel->text(), this);
+  dlg.exec();
 }
 
 void AccountFrame::updateActualBalance(quint64 _balance) {

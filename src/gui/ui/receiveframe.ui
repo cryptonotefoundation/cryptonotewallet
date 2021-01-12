@@ -21,60 +21,6 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QFrame" name="m_addressQRFrame">
-     <property name="minimumSize">
-      <size>
-       <width>0</width>
-       <height>40</height>
-      </size>
-     </property>
-     <property name="frameShape">
-      <enum>QFrame::NoFrame</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_2">
-      <property name="leftMargin">
-       <number>0</number>
-      </property>
-      <property name="topMargin">
-       <number>0</number>
-      </property>
-      <property name="rightMargin">
-       <number>0</number>
-      </property>
-      <property name="bottomMargin">
-       <number>0</number>
-      </property>
-      <item>
-       <layout class="QHBoxLayout" name="qrCodeFrame">
-        <item>
-         <widget class="WalletGui::QRLabel" name="m_qrLabel">
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer_2">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-       </layout>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item>
     <widget class="QFrame" name="m_requestPaymentFrame">
      <property name="minimumSize">
       <size>
@@ -101,31 +47,7 @@
          <string>Request payment</string>
         </property>
         <layout class="QGridLayout" name="gridLayout">
-         <item row="0" column="0" colspan="2">
-          <widget class="QLabel" name="label">
-           <property name="text">
-            <string>Use this form to request payment.</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="0">
-          <widget class="QLabel" name="label_7">
-           <property name="text">
-            <string>Label:</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="1" colspan="2">
-          <widget class="QLineEdit" name="m_payerLabel">
-           <property name="maxLength">
-            <number>64</number>
-           </property>
-           <property name="placeholderText">
-            <string>Enter desired label for payer's address book</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="3" colspan="4">
+         <item row="0" column="3" colspan="3">
           <spacer name="horizontalSpacer_3">
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
@@ -139,13 +61,56 @@
           </spacer>
          </item>
          <item row="2" column="0">
+          <widget class="QLabel" name="label_6">
+           <property name="text">
+            <string>PaymentID:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_7">
+           <property name="text">
+            <string>Label:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
           <widget class="QLabel" name="label_3">
            <property name="text">
             <string>Amount:</string>
            </property>
           </widget>
          </item>
-         <item row="2" column="1">
+         <item row="0" column="1" colspan="2">
+          <widget class="QLineEdit" name="m_payerLabel">
+           <property name="maxLength">
+            <number>64</number>
+           </property>
+           <property name="placeholderText">
+            <string>Enter desired label for payer's address book</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="5">
+          <widget class="QPushButton" name="m_generatePaymentIdButton">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>24</height>
+            </size>
+           </property>
+           <property name="baseSize">
+            <size>
+             <width>0</width>
+             <height>24</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Generate Payment ID</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
           <widget class="QDoubleSpinBox" name="m_requestAmountSpin">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
@@ -188,27 +153,7 @@
            </property>
           </widget>
          </item>
-         <item row="2" column="2" colspan="5">
-          <spacer name="horizontalSpacer_4">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>547</width>
-             <height>20</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item row="3" column="0">
-          <widget class="QLabel" name="label_6">
-           <property name="text">
-            <string>PaymentID:</string>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="1" colspan="5">
+         <item row="2" column="1" colspan="4">
           <widget class="QLineEdit" name="m_requestPaymentIdEdit">
            <property name="maxLength">
             <number>64</number>
@@ -218,75 +163,14 @@
            </property>
           </widget>
          </item>
-         <item row="3" column="6">
-          <widget class="QPushButton" name="m_generatePaymentIdButton">
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>24</height>
-            </size>
-           </property>
-           <property name="baseSize">
-            <size>
-             <width>0</width>
-             <height>24</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>Generate Payment ID</string>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="6">
-          <widget class="QPushButton" name="m_createPaymentRequest">
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>24</height>
-            </size>
-           </property>
-           <property name="baseSize">
-            <size>
-             <width>0</width>
-             <height>24</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>Create payment request</string>
-           </property>
-           <property name="icon">
-            <iconset resource="../../resources.qrc">
-             <normaloff>:/icons/btn-receive</normaloff>:/icons/btn-receive</iconset>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="5">
-          <widget class="QPushButton" name="m_closePaymentRequestFormButton">
-           <property name="minimumSize">
-            <size>
-             <width>0</width>
-             <height>24</height>
-            </size>
-           </property>
-           <property name="baseSize">
-            <size>
-             <width>0</width>
-             <height>24</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>Close</string>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="0" colspan="5">
-          <spacer name="horizontalSpacer_5">
+         <item row="1" column="2" colspan="4">
+          <spacer name="horizontalSpacer_4">
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
            <property name="sizeHint" stdset="0">
             <size>
-             <width>488</width>
+             <width>547</width>
              <height>20</height>
             </size>
            </property>
@@ -345,45 +229,6 @@
        <number>0</number>
       </property>
       <item>
-       <widget class="QPushButton" name="m_copyAddress">
-        <property name="text">
-         <string>Copy address</string>
-        </property>
-        <property name="icon">
-         <iconset resource="../../resources.qrc">
-          <normaloff>:/icons/copy_white</normaloff>:/icons/copy_white</iconset>
-        </property>
-        <property name="default">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="m_saveQR">
-        <property name="text">
-         <string>Save QR to file</string>
-        </property>
-        <property name="icon">
-         <iconset resource="../../resources.qrc">
-          <normaloff>:/icons/save</normaloff>:/icons/save</iconset>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="m_requestPaymentButton">
-        <property name="enabled">
-         <bool>true</bool>
-        </property>
-        <property name="text">
-         <string>Request payment</string>
-        </property>
-        <property name="icon">
-         <iconset resource="../../resources.qrc">
-          <normaloff>:/icons/btn-receive</normaloff>:/icons/btn-receive</iconset>
-        </property>
-       </widget>
-      </item>
-      <item>
        <spacer name="horizontalSpacer">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
@@ -396,25 +241,39 @@
         </property>
        </spacer>
       </item>
+      <item>
+       <widget class="QPushButton" name="m_createPaymentRequest">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="baseSize">
+         <size>
+          <width>0</width>
+          <height>24</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Create payment request</string>
+        </property>
+        <property name="icon">
+         <iconset resource="../../resources.qrc">
+          <normaloff>:/icons/btn-receive</normaloff>:/icons/btn-receive</iconset>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
    </item>
   </layout>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>WalletGui::QRLabel</class>
-   <extends>QLabel</extends>
-   <header>gui/QRLabel.h</header>
-  </customwidget>
- </customwidgets>
  <tabstops>
   <tabstop>m_payerLabel</tabstop>
   <tabstop>m_requestAmountSpin</tabstop>
   <tabstop>m_requestPaymentIdEdit</tabstop>
   <tabstop>m_generatePaymentIdButton</tabstop>
-  <tabstop>m_closePaymentRequestFormButton</tabstop>
-  <tabstop>m_createPaymentRequest</tabstop>
  </tabstops>
  <resources>
   <include location="../../resources.qrc"/>
@@ -429,70 +288,6 @@
     <hint type="sourcelabel">
      <x>736</x>
      <y>161</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>422</x>
-     <y>295</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>m_copyAddress</sender>
-   <signal>clicked()</signal>
-   <receiver>ReceiveFrame</receiver>
-   <slot>copyAddress()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>818</x>
-     <y>26</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>422</x>
-     <y>295</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>m_requestPaymentButton</sender>
-   <signal>clicked()</signal>
-   <receiver>ReceiveFrame</receiver>
-   <slot>requestPaymentClicked()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>273</x>
-     <y>568</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>422</x>
-     <y>295</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>m_saveQR</sender>
-   <signal>clicked()</signal>
-   <receiver>ReceiveFrame</receiver>
-   <slot>saveQRcodeToFile()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>163</x>
-     <y>568</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>422</x>
-     <y>295</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>m_closePaymentRequestFormButton</sender>
-   <signal>clicked()</signal>
-   <receiver>ReceiveFrame</receiver>
-   <slot>closePaymentRequestForm()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>552</x>
-     <y>190</y>
     </hint>
     <hint type="destinationlabel">
      <x>422</x>
