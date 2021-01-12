@@ -275,7 +275,7 @@
     </message>
     <message>
         <source>Confirm sending %1 KRB</source>
-        <translation type="unfinished">Confirmer l&apos;envoi de %1 KRB</translation>
+        <translation>Confirmer l&apos;envoi de %1 KRB</translation>
     </message>
 </context>
 <context>
@@ -352,6 +352,29 @@
 Please wait...</source>
         <translation>%1 portefeuille sauvegarde les données.
 S&apos;il vous plaît, patientez...</translation>
+    </message>
+</context>
+<context>
+    <name>ExportRawTransactionDialog</name>
+    <message>
+        <source>Export raw transaction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You can broadcast this transaction to the network e.g. via block explorer or RPC request to any public node.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save to file</source>
+        <translation>Enregistrer dans le fichier</translation>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation>Copier</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Fermer</translation>
     </message>
 </context>
 <context>
@@ -1446,6 +1469,10 @@ Voulez-vous aller à la page de téléchargement?</translation>
         <source>Send All</source>
         <translation>Envoyer tout</translation>
     </message>
+    <message>
+        <source>Prepare transaction but do not relay</source>
+        <translation>Préparer la transaction mais ne pas relayer</translation>
+    </message>
 </context>
 <context>
     <name>ShowPaymentRequestDialog</name>
@@ -1893,6 +1920,17 @@ Voulez-vous aller à la page de téléchargement?</translation>
     <message>
         <source>Last resp. height</source>
         <translation>La hauteur de la dernière réponse</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui::ExportRawTransactionDialog</name>
+    <message>
+        <source>Save transaction to...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Raw hex transaction (*.txt)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2961,8 +2999,12 @@ quand le portefeuille aura terminé la synchronisation</translation>
         </translation>
     </message>
     <message>
+        <source>Preparing transaction</source>
+        <translation>Préparation de la transaction</translation>
+    </message>
+    <message>
         <source>Failed to sign message</source>
-        <translation type="unfinished"></translation>
+        <translation>Échec de la signature du message</translation>
     </message>
     <message>
         <source>This is tracking wallet. The message can be signed only by a full wallet.</source>

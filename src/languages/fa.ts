@@ -335,6 +335,29 @@ Please wait...</source>
     </message>
 </context>
 <context>
+    <name>ExportRawTransactionDialog</name>
+    <message>
+        <source>Export raw transaction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You can broadcast this transaction to the network e.g. via block explorer or RPC request to any public node.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save to file</source>
+        <translation>ذخیره به عنوان فایل</translation>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation>رونویسی کردن</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation></translation>
+    </message>
+</context>
+<context>
     <name>ExportTrackingKeyDialog</name>
     <message>
         <source>Export tracking key</source>
@@ -1422,6 +1445,10 @@ Do you want to go to the download page?</source>
         <source>Send All</source>
         <translation>ارسال همه</translation>
     </message>
+    <message>
+        <source>Prepare transaction but do not relay</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ShowPaymentRequestDialog</name>
@@ -1873,6 +1900,17 @@ Do you want to go to the download page?</source>
     <message>
         <source>Last resp. height</source>
         <translation>ارتفاع آخرین پاسخ</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui::ExportRawTransactionDialog</name>
+    <message>
+        <source>Save transaction to...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Raw hex transaction (*.txt)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2934,6 +2972,10 @@ when the wallet is synchronized</source>
         <translation>
             <numerusform>%n روز و</numerusform>
         </translation>
+    </message>
+    <message>
+        <source>Preparing transaction</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Failed to sign message</source>

@@ -34,7 +34,7 @@
         <x>0</x>
         <y>0</y>
         <width>846</width>
-        <height>538</height>
+        <height>522</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="m_send_frame_layout">
@@ -142,6 +142,16 @@
           <property name="rightMargin">
            <number>0</number>
           </property>
+          <item row="1" column="4">
+           <widget class="QCheckBox" name="donateCheckBox">
+            <property name="text">
+             <string>Donate 0.1% to development fund:</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
           <item row="1" column="0">
            <widget class="QLabel" name="label_2">
             <property name="minimumSize">
@@ -161,77 +171,21 @@
             </property>
            </widget>
           </item>
-          <item row="1" column="4">
-           <widget class="QCheckBox" name="donateCheckBox">
-            <property name="text">
-             <string>Donate 0.1% to development fund:</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="0">
-           <widget class="QLabel" name="label_3">
-            <property name="minimumSize">
-             <size>
-              <width>75</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>100</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>Priority:</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="1">
-           <widget class="QSlider" name="m_mixinSlider">
-            <property name="maximumSize">
-             <size>
-              <width>200</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="baseSize">
-             <size>
-              <width>200</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="minimum">
-             <number>0</number>
-            </property>
-            <property name="maximum">
-             <number>19</number>
-            </property>
-            <property name="pageStep">
-             <number>1</number>
-            </property>
-            <property name="value">
-             <number>7</number>
-            </property>
-            <property name="sliderPosition">
-             <number>7</number>
-            </property>
-            <property name="tracking">
-             <bool>false</bool>
-            </property>
+          <item row="1" column="3">
+           <spacer name="horizontalSpacer">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
-            <property name="tickPosition">
-             <enum>QSlider::TicksBothSides</enum>
+            <property name="sizeType">
+             <enum>QSizePolicy::Expanding</enum>
             </property>
-            <property name="tickInterval">
-             <number>1</number>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>100</width>
+              <height>20</height>
+             </size>
             </property>
-           </widget>
+           </spacer>
           </item>
           <item row="0" column="5">
            <widget class="QDoubleSpinBox" name="m_feeSpin">
@@ -275,59 +229,6 @@
              <double>0.000100000000000</double>
             </property>
            </widget>
-          </item>
-          <item row="1" column="5">
-           <widget class="QDoubleSpinBox" name="m_donateSpin">
-            <property name="minimumSize">
-             <size>
-              <width>150</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="baseSize">
-             <size>
-              <width>150</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="cursor">
-             <cursorShape>IBeamCursor</cursorShape>
-            </property>
-            <property name="locale">
-             <locale language="English" country="UnitedStates"/>
-            </property>
-            <property name="decimals">
-             <number>12</number>
-            </property>
-            <property name="maximum">
-             <double>999999999999999.000000000000000</double>
-            </property>
-            <property name="singleStep">
-             <double>0.100000000000000</double>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="3">
-           <spacer name="horizontalSpacer">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeType">
-             <enum>QSizePolicy::Expanding</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>100</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
           </item>
           <item row="0" column="1">
            <layout class="QGridLayout" name="m_priorityGridLayout">
@@ -376,6 +277,43 @@
             </item>
            </layout>
           </item>
+          <item row="1" column="5">
+           <widget class="QDoubleSpinBox" name="m_donateSpin">
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="baseSize">
+             <size>
+              <width>150</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>IBeamCursor</cursorShape>
+            </property>
+            <property name="locale">
+             <locale language="English" country="UnitedStates"/>
+            </property>
+            <property name="decimals">
+             <number>12</number>
+            </property>
+            <property name="maximum">
+             <double>999999999999999.000000000000000</double>
+            </property>
+            <property name="singleStep">
+             <double>0.100000000000000</double>
+            </property>
+           </widget>
+          </item>
           <item row="1" column="2">
            <widget class="QLabel" name="m_mixinLabel">
             <property name="text">
@@ -383,10 +321,79 @@
             </property>
            </widget>
           </item>
+          <item row="1" column="1">
+           <widget class="QSlider" name="m_mixinSlider">
+            <property name="maximumSize">
+             <size>
+              <width>200</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="baseSize">
+             <size>
+              <width>200</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="minimum">
+             <number>0</number>
+            </property>
+            <property name="maximum">
+             <number>19</number>
+            </property>
+            <property name="pageStep">
+             <number>1</number>
+            </property>
+            <property name="value">
+             <number>7</number>
+            </property>
+            <property name="sliderPosition">
+             <number>7</number>
+            </property>
+            <property name="tracking">
+             <bool>false</bool>
+            </property>
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="tickPosition">
+             <enum>QSlider::TicksBothSides</enum>
+            </property>
+            <property name="tickInterval">
+             <number>1</number>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_3">
+            <property name="minimumSize">
+             <size>
+              <width>75</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>100</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Priority:</string>
+            </property>
+           </widget>
+          </item>
           <item row="0" column="4">
            <widget class="QCheckBox" name="m_manualFeeCheckBox">
             <property name="text">
              <string>Manual fee override:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0" colspan="6">
+           <widget class="QCheckBox" name="dontRelayCheckBox">
+            <property name="text">
+             <string>Prepare transaction but do not relay</string>
             </property>
            </widget>
           </item>
@@ -400,60 +407,19 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QPushButton" name="m_sendButton">
+      <widget class="QPushButton" name="m_advancedButton">
        <property name="minimumSize">
         <size>
-         <width>100</width>
-         <height>0</height>
+         <width>0</width>
+         <height>30</height>
         </size>
        </property>
-       <property name="text">
-        <string>Send</string>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>30</height>
+        </size>
        </property>
-       <property name="icon">
-        <iconset resource="../../resources.qrc">
-         <normaloff>:/icons/btn-send</normaloff>:/icons/btn-send</iconset>
-       </property>
-       <property name="default">
-        <bool>true</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="m_sendAllButton">
-       <property name="text">
-        <string>Send All</string>
-       </property>
-       <property name="icon">
-        <iconset resource="../../resources.qrc">
-         <normaloff>:/icons/sweep</normaloff>:/icons/sweep</iconset>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="m_clearAllButton">
-       <property name="text">
-        <string>Clear All</string>
-       </property>
-       <property name="icon">
-        <iconset resource="../../resources.qrc">
-         <normaloff>:/icons/remove</normaloff>:/icons/remove</iconset>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="m_addRecipientButton">
-       <property name="text">
-        <string>Add Recipient</string>
-       </property>
-       <property name="icon">
-        <iconset resource="../../resources.qrc">
-         <normaloff>:/icons/add_recepient</normaloff>:/icons/add_recepient</iconset>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="m_advancedButton">
        <property name="text">
         <string>Advanced</string>
        </property>
@@ -467,17 +433,73 @@
       </widget>
      </item>
      <item>
-      <spacer name="horizontalSpacer_2">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
+      <widget class="QPushButton" name="m_sendAllButton">
+       <property name="minimumSize">
         <size>
-         <width>40</width>
-         <height>20</height>
+         <width>0</width>
+         <height>30</height>
         </size>
        </property>
-      </spacer>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Send All</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../../resources.qrc">
+         <normaloff>:/icons/sweep</normaloff>:/icons/sweep</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="m_clearAllButton">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Clear All</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../../resources.qrc">
+         <normaloff>:/icons/remove</normaloff>:/icons/remove</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="m_addRecipientButton">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Add Recipient</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../../resources.qrc">
+         <normaloff>:/icons/add_recepient</normaloff>:/icons/add_recepient</iconset>
+       </property>
+      </widget>
      </item>
      <item>
       <widget class="QLabel" name="m_remote_label">
@@ -495,6 +517,39 @@
        </property>
       </widget>
      </item>
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="m_sendButton">
+       <property name="minimumSize">
+        <size>
+         <width>100</width>
+         <height>40</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Send</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../../resources.qrc">
+         <normaloff>:/icons/btn-send</normaloff>:/icons/btn-send</iconset>
+       </property>
+       <property name="default">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
     </layout>
    </item>
   </layout>
@@ -509,11 +564,9 @@
   <tabstop>m_mixinSlider</tabstop>
   <tabstop>donateCheckBox</tabstop>
   <tabstop>m_donateSpin</tabstop>
-  <tabstop>m_sendButton</tabstop>
   <tabstop>m_sendAllButton</tabstop>
   <tabstop>m_clearAllButton</tabstop>
   <tabstop>m_addRecipientButton</tabstop>
-  <tabstop>m_advancedButton</tabstop>
  </tabstops>
  <resources>
   <include location="../../resources.qrc"/>

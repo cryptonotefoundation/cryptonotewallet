@@ -393,6 +393,34 @@ Please wait...</source>
     </message>
 </context>
 <context>
+    <name>ExportRawTransactionDialog</name>
+    <message>
+        <location filename="../gui/ui/exportrawtxdialog.ui" line="26"/>
+        <source>Export raw transaction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gui/ui/exportrawtxdialog.ui" line="53"/>
+        <source>You can broadcast this transaction to the network e.g. via block explorer or RPC request to any public node.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gui/ui/exportrawtxdialog.ui" line="75"/>
+        <source>Save to file</source>
+        <translation>फाइल में सेव करें</translation>
+    </message>
+    <message>
+        <location filename="../gui/ui/exportrawtxdialog.ui" line="86"/>
+        <source>Copy</source>
+        <translation>कॉपी करें</translation>
+    </message>
+    <message>
+        <location filename="../gui/ui/exportrawtxdialog.ui" line="97"/>
+        <source>Close</source>
+        <translation></translation>
+    </message>
+</context>
+<context>
     <name>ExportTrackingKeyDialog</name>
     <message>
         <location filename="../gui/ui/exporttrackingkeydialog.ui" line="53"/>
@@ -803,7 +831,7 @@ Please wait...</source>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="621"/>
         <source>Optimization</source>
-        <translation type="unfinished">अनुकूलन</translation>
+        <translation>अनुकूलन</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="626"/>
@@ -1390,12 +1418,12 @@ Do you want to go to the download page?</source>
     <message>
         <location filename="../gui/ui/qrcodedialog.ui" line="94"/>
         <source>Save QR to file</source>
-        <translation type="unfinished">QR को फ़ाइल में सेव करें</translation>
+        <translation>QR को फ़ाइल में सेव करें</translation>
     </message>
     <message>
         <location filename="../gui/ui/qrcodedialog.ui" line="101"/>
         <source>Close</source>
-        <translation type="unfinished"></translation>
+        <translation>बंद करें</translation>
     </message>
 </context>
 <context>
@@ -1512,7 +1540,7 @@ Do you want to go to the download page?</source>
         <translation type="vanished">गुमनाम स्तर:</translation>
     </message>
     <message>
-        <location filename="../gui/ui/sendframe.ui" line="167"/>
+        <location filename="../gui/ui/sendframe.ui" line="148"/>
         <source>Donate 0.1% to development fund:</source>
         <translation>विकास कोष में 0.1% दान करें:</translation>
     </message>
@@ -1540,12 +1568,12 @@ Do you want to go to the download page?</source>
         <translation>Payment ID:</translation>
     </message>
     <message>
-        <location filename="../gui/ui/sendframe.ui" line="160"/>
+        <location filename="../gui/ui/sendframe.ui" line="170"/>
         <source>Anonymity:</source>
         <translation>गुमनाम स्तर:</translation>
     </message>
     <message>
-        <location filename="../gui/ui/sendframe.ui" line="189"/>
+        <location filename="../gui/ui/sendframe.ui" line="382"/>
         <source>Priority:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1555,37 +1583,42 @@ Do you want to go to the download page?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/ui/sendframe.ui" line="411"/>
+        <location filename="../gui/ui/sendframe.ui" line="396"/>
+        <source>Prepare transaction but do not relay</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gui/ui/sendframe.ui" line="542"/>
         <source>Send</source>
         <translation>भेजें</translation>
     </message>
     <message>
-        <location filename="../gui/ui/sendframe.ui" line="425"/>
+        <location filename="../gui/ui/sendframe.ui" line="450"/>
         <source>Send All</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/ui/sendframe.ui" line="436"/>
+        <location filename="../gui/ui/sendframe.ui" line="473"/>
         <source>Clear All</source>
         <translation>सभी हटायें</translation>
     </message>
     <message>
-        <location filename="../gui/ui/sendframe.ui" line="447"/>
+        <location filename="../gui/ui/sendframe.ui" line="496"/>
         <source>Add Recipient</source>
         <translation>प्राप्तकर्ता को जोड़ें</translation>
     </message>
     <message>
-        <location filename="../gui/ui/sendframe.ui" line="458"/>
+        <location filename="../gui/ui/sendframe.ui" line="424"/>
         <source>Advanced</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/ui/sendframe.ui" line="491"/>
+        <location filename="../gui/ui/sendframe.ui" line="513"/>
         <source>Wallet is connected through remote node. Additional fee may be applied.</source>
         <translation>वॉलेट रिमोट नोड के माध्यम से जुड़ा हुआ है। अतिरिक्त शुल्क लागू किया जा सकता है।</translation>
     </message>
     <message>
-        <location filename="../gui/ui/sendframe.ui" line="494"/>
+        <location filename="../gui/ui/sendframe.ui" line="516"/>
         <source>Remote mode</source>
         <translation>रिमोट नोड मोड</translation>
     </message>
@@ -1668,7 +1701,7 @@ Do you want to go to the download page?</source>
     <message>
         <location filename="../gui/ui/signmessagedialog.ui" line="204"/>
         <source>Address</source>
-        <translation type="unfinished">एड्रेस</translation>
+        <translation>एड्रेस</translation>
     </message>
 </context>
 <context>
@@ -2129,6 +2162,19 @@ Do you want to go to the download page?</source>
         <location filename="../gui/ConnectionsModel.cpp" line="166"/>
         <source>Last resp. height</source>
         <translation>अंतिम प्रतिक्रिया की ऊंचाई</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui::ExportRawTransactionDialog</name>
+    <message>
+        <location filename="../gui/ExportRawTxDialog.cpp" line="35"/>
+        <source>Save transaction to...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../gui/ExportRawTxDialog.cpp" line="35"/>
+        <source>Raw hex transaction (*.txt)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2617,7 +2663,7 @@ Are you sure?</source>
     <message>
         <location filename="../gui/QRCodeDialog.cpp" line="42"/>
         <source>Save QR Code</source>
-        <translation type="unfinished">QR कोड सेव करें</translation>
+        <translation>QR कोड सेव करें</translation>
     </message>
 </context>
 <context>
@@ -2661,85 +2707,85 @@ Are you sure?</source>
 <context>
     <name>WalletGui::SendFrame</name>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="59"/>
+        <location filename="../gui/SendFrame.cpp" line="60"/>
         <source>Low</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="60"/>
+        <location filename="../gui/SendFrame.cpp" line="61"/>
         <source>Normal</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="61"/>
+        <location filename="../gui/SendFrame.cpp" line="62"/>
         <source>High</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="62"/>
+        <location filename="../gui/SendFrame.cpp" line="63"/>
         <source>Highest</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="84"/>
-        <location filename="../gui/SendFrame.cpp" line="226"/>
+        <location filename="../gui/SendFrame.cpp" line="85"/>
+        <location filename="../gui/SendFrame.cpp" line="227"/>
         <source>Node fee: %1 %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="253"/>
+        <location filename="../gui/SendFrame.cpp" line="254"/>
         <source>Payment request should start with karbowanec:</source>
         <translation>भुगतान अनुरोध karbowanec के साथ शुरू होना चाहिए:</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="267"/>
-        <location filename="../gui/SendFrame.cpp" line="333"/>
+        <location filename="../gui/SendFrame.cpp" line="268"/>
+        <location filename="../gui/SendFrame.cpp" line="334"/>
         <source>Invalid recipient address</source>
         <translation>अमान्य प्राप्तकर्ता पता</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="297"/>
-        <location filename="../gui/SendFrame.cpp" line="447"/>
+        <location filename="../gui/SendFrame.cpp" line="298"/>
+        <location filename="../gui/SendFrame.cpp" line="457"/>
         <source>Insufficient balance.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="306"/>
+        <location filename="../gui/SendFrame.cpp" line="307"/>
         <source>Incorrect password</source>
         <translation>गलत पासवर्ड</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="306"/>
+        <location filename="../gui/SendFrame.cpp" line="307"/>
         <source>Wrong password.</source>
         <translation>गलत पासवर्ड।</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="372"/>
+        <location filename="../gui/SendFrame.cpp" line="373"/>
         <source>Incorrect fee value</source>
         <translation>गलत शुल्क मूल्य</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="381"/>
+        <location filename="../gui/SendFrame.cpp" line="382"/>
         <source>Insufficient balance</source>
         <translation>अपर्याप्त बैलेंस</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="381"/>
+        <location filename="../gui/SendFrame.cpp" line="382"/>
         <source>Available balance is insufficient to send this transaction. Have you excluded a fee?</source>
         <translation>उपलब्ध बैलेंस इस लेनदेन को भेजने के लिए अपर्याप्त है। क्या आपने शुल्क हटा लिया है?</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="388"/>
+        <location filename="../gui/SendFrame.cpp" line="389"/>
         <source>Invalid payment ID</source>
         <translation>अमान्य भुगतान आईडी</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="452"/>
+        <location filename="../gui/SendFrame.cpp" line="462"/>
         <source>Sweep unmixable dust</source>
         <translation>मिक्स नहीं होने वालों को स्वीप करें</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="453"/>
+        <location filename="../gui/SendFrame.cpp" line="463"/>
         <source>You have unmixable coins that can be only spent with zero privacy level.
  Shall we continue with zero privacy?</source>
         <translation>आपके पास गैर-मिश्रित सिक्के हैं जो केवल शून्य गोपनीयता स्तर के साथ खर्च किए जा सकते हैं।
@@ -3138,18 +3184,23 @@ when the wallet is synchronized</source>
         <translation type="vanished">मिक्स नहीं होने वाला डस्ट साफ़ हो रहा है</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="407"/>
+        <location filename="../WalletAdapter.cpp" line="389"/>
+        <source>Preparing transaction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../WalletAdapter.cpp" line="420"/>
         <source>Optimizing wallet</source>
         <translation>बटुए का अनुकूलन</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="468"/>
-        <location filename="../WalletAdapter.cpp" line="494"/>
+        <location filename="../WalletAdapter.cpp" line="481"/>
+        <location filename="../WalletAdapter.cpp" line="507"/>
         <source>Ready</source>
         <translation>तैयार</translation>
     </message>
     <message numerus="yes">
-        <location filename="../WalletAdapter.cpp" line="539"/>
+        <location filename="../WalletAdapter.cpp" line="552"/>
         <source>%n blocks per second</source>
         <translation>
             <numerusform>%n ब्लॉक प्रति सेकंड</numerusform>
@@ -3157,12 +3208,12 @@ when the wallet is synchronized</source>
         </translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="542"/>
+        <location filename="../WalletAdapter.cpp" line="555"/>
         <source>est. completion in</source>
         <translation>स्था। में पूरा करना</translation>
     </message>
     <message numerus="yes">
-        <location filename="../WalletAdapter.cpp" line="544"/>
+        <location filename="../WalletAdapter.cpp" line="557"/>
         <source>%n day(s) and</source>
         <translation>
             <numerusform>%n दिन और</numerusform>
@@ -3170,213 +3221,213 @@ when the wallet is synchronized</source>
         </translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="552"/>
+        <location filename="../WalletAdapter.cpp" line="565"/>
         <source>Synchronizing</source>
         <translation>सिंक्रनाइज़ हो रहा है</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="592"/>
+        <location filename="../WalletAdapter.cpp" line="605"/>
         <source>Object was not initialized</source>
         <translation>वस्तु शुरू नहीं हुई थी</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="593"/>
+        <location filename="../WalletAdapter.cpp" line="606"/>
         <source>The password is wrong</source>
         <translation>पासवर्ड गलत है</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="594"/>
+        <location filename="../WalletAdapter.cpp" line="607"/>
         <source>The object is already initialized</source>
         <translation>वस्तु पहले ही शुरू हो चुकी है</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="595"/>
+        <location filename="../WalletAdapter.cpp" line="608"/>
         <source>Internal error occurred</source>
         <translation>आंतरिक त्रुटि हुई</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="596"/>
+        <location filename="../WalletAdapter.cpp" line="609"/>
         <source>MixIn count is too big</source>
         <translation>मिक्सलन संख्या बहुत बड़ी है</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="597"/>
+        <location filename="../WalletAdapter.cpp" line="610"/>
         <source>Bad address</source>
         <translation>गलत पता</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="598"/>
+        <location filename="../WalletAdapter.cpp" line="611"/>
         <source>Transaction size is too big</source>
         <translation>लेनदेन की साइज़ बहुत बड़ी है</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="599"/>
+        <location filename="../WalletAdapter.cpp" line="612"/>
         <source>Wrong amount</source>
         <translation>ग़लत राशि</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="600"/>
+        <location filename="../WalletAdapter.cpp" line="613"/>
         <source>Sum overflow</source>
         <translation>कुल ज्यादा है</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="601"/>
+        <location filename="../WalletAdapter.cpp" line="614"/>
         <source>The destination is empty</source>
         <translation>गंतव्य खाली है</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="602"/>
+        <location filename="../WalletAdapter.cpp" line="615"/>
         <source>Impossible to cancel transaction</source>
         <translation>लेनदेन रद्द करना असंभव है</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="603"/>
+        <location filename="../WalletAdapter.cpp" line="616"/>
         <source>The wallet is in wrong state (maybe loading or saving), try again later</source>
         <translation>वॉलेट गलत स्थिति में है (शायद लोड हो रहा है या सेव हो रहा है), बाद में पुनः प्रयास करें</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="604"/>
+        <location filename="../WalletAdapter.cpp" line="617"/>
         <source>The operation you&apos;ve requested has been cancelled</source>
         <translation>आपके द्वारा अनुरोधित ऑपरेशन रद्द कर दिया गया है</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="605"/>
+        <location filename="../WalletAdapter.cpp" line="618"/>
         <source>Transaction transfer impossible</source>
         <translation>लेनदेन हस्तांतरण असंभव है</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="606"/>
+        <location filename="../WalletAdapter.cpp" line="619"/>
         <source>Wrong version</source>
         <translation>गलत वर्ज़न</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="607"/>
+        <location filename="../WalletAdapter.cpp" line="620"/>
         <source>Transaction fee is too small</source>
         <translation>लेनदेन शुल्क बहुत कम है</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="608"/>
+        <location filename="../WalletAdapter.cpp" line="621"/>
         <source>Cannot generate new key</source>
         <translation>नई की को बनाया नहीं जा सकता</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="609"/>
+        <location filename="../WalletAdapter.cpp" line="622"/>
         <source>Index is out of range</source>
         <translation>सूचकांक सीमा से बाहर है</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="610"/>
+        <location filename="../WalletAdapter.cpp" line="623"/>
         <source>Address already exists</source>
         <translation>पता पहले से मौजूद है</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="611"/>
+        <location filename="../WalletAdapter.cpp" line="624"/>
         <source>The wallet is in tracking mode</source>
         <translation>वॉलेट ट्रैकिंग मोड में है</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="612"/>
+        <location filename="../WalletAdapter.cpp" line="625"/>
         <source>Wrong parameters passed</source>
         <translation>गलत पैरामीटर पारित किया</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="613"/>
+        <location filename="../WalletAdapter.cpp" line="626"/>
         <source>Object not found</source>
         <translation>वस्तु नहीं मिली</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="614"/>
+        <location filename="../WalletAdapter.cpp" line="627"/>
         <source>Requested wallet not found</source>
         <translation>अनुरोधित वॉलेट नहीं मिला</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="615"/>
+        <location filename="../WalletAdapter.cpp" line="628"/>
         <source>Change address required</source>
         <translation>पता बदलने की आवश्यकता</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="616"/>
+        <location filename="../WalletAdapter.cpp" line="629"/>
         <source>Change address not found</source>
         <translation>पता बदलना नहीं मिला</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="617"/>
+        <location filename="../WalletAdapter.cpp" line="630"/>
         <source>Destination address required</source>
         <translation>गंतव्य पता आवश्यक है</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="618"/>
+        <location filename="../WalletAdapter.cpp" line="631"/>
         <source>Destination address not found</source>
         <translation>गंतव्य पता नहीं मिला</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="619"/>
+        <location filename="../WalletAdapter.cpp" line="632"/>
         <source>Wrong payment id format</source>
         <translation>गलत भुगतान आईडी प्रारूप</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="620"/>
+        <location filename="../WalletAdapter.cpp" line="633"/>
         <source>Wrong transaction extra format</source>
         <translation>गलत लेनदेन अतिरिक्त प्रारूप</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="621"/>
+        <location filename="../WalletAdapter.cpp" line="634"/>
         <source>Unknown error</source>
         <translation>अज्ञात त्रुटि</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="701"/>
+        <location filename="../WalletAdapter.cpp" line="714"/>
         <source>  Warning: last block was received %1 hours %2 minutes ago</source>
         <translation>  चेतावनी: अंतिम ब्लॉक %1 घंटे %2 मिनट पहले प्राप्त हुआ था</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="702"/>
+        <location filename="../WalletAdapter.cpp" line="715"/>
         <source>Wallet synchronized. Height: %1  |  Time (UTC): %2%3</source>
         <translation>  वॉलेट सिंक्रनाइज़ किया गया।  ऊंचाई: %1 | समय (UTC): %2%3</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="754"/>
+        <location filename="../WalletAdapter.cpp" line="767"/>
         <source>Mnemonic seed is not correct</source>
         <translation>म्नेमोनिक सीड सही नहीं है</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="754"/>
+        <location filename="../WalletAdapter.cpp" line="767"/>
         <source>There must be an error in mnemonic seed. Make sure you entered it correctly.</source>
         <translation>म्नेमोनिक सीड में कोई त्रुटि है। सुनिश्चित करें कि आपने इसे सही तरीके से दर्ज किया है।</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="769"/>
+        <location filename="../WalletAdapter.cpp" line="782"/>
         <source>Failed to get the transaction proof</source>
         <translation>लेन-देन प्रमाण प्राप्त करने में विफल</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="769"/>
+        <location filename="../WalletAdapter.cpp" line="782"/>
         <source>Failed to get the transaction proof.</source>
         <translation>लेन-देन प्रमाण प्राप्त करने में विफल.</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="779"/>
-        <location filename="../WalletAdapter.cpp" line="791"/>
+        <location filename="../WalletAdapter.cpp" line="792"/>
+        <location filename="../WalletAdapter.cpp" line="804"/>
         <source>Failed to get the reserve proof</source>
         <translation>रिज़र्व का प्रमाण प्राप्त करने में विफल</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="779"/>
+        <location filename="../WalletAdapter.cpp" line="792"/>
         <source>This is tracking wallet. The reserve proof can be generated only by a full wallet.</source>
         <translation>यह वॉलेट ट्रैकिंग है। आरक्षित प्रमाण केवल एक पूर्ण बटुए के द्वारा उत्पन्न किया जा सकता है।</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="791"/>
+        <location filename="../WalletAdapter.cpp" line="804"/>
         <source>Failed to get the reserve proof.</source>
         <translation>रिज़र्व का प्रमाण प्राप्त करने में विफल.</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="800"/>
+        <location filename="../WalletAdapter.cpp" line="813"/>
         <source>Failed to sign message</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="800"/>
+        <location filename="../WalletAdapter.cpp" line="813"/>
         <source>This is tracking wallet. The message can be signed only by a full wallet.</source>
         <translation type="unfinished"></translation>
     </message>

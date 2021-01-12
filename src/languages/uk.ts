@@ -335,6 +335,29 @@ Please wait...</source>
     </message>
 </context>
 <context>
+    <name>ExportRawTransactionDialog</name>
+    <message>
+        <source>Export raw transaction</source>
+        <translation>Експорт транзакції</translation>
+    </message>
+    <message>
+        <source>You can broadcast this transaction to the network e.g. via block explorer or RPC request to any public node.</source>
+        <translation>Ви можете транслювати цю транзакцію в мережу, наприклад через провідник блоків або запит RPC до будь-якого загальнодоступного вузла.</translation>
+    </message>
+    <message>
+        <source>Save to file</source>
+        <translation>Зберегти у файл</translation>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation>Скопіювати</translation>
+    </message>
+    <message>
+        <source>Close</source>
+        <translation>Закрити</translation>
+    </message>
+</context>
+<context>
     <name>ExportTrackingKeyDialog</name>
     <message>
         <source>Export tracking key</source>
@@ -1227,7 +1250,7 @@ Do you want to go to the download page?</source>
     <name>QRCodeDialog</name>
     <message>
         <source>QR Code</source>
-        <translation type="unfinished"></translation>
+        <translation>QR-код</translation>
     </message>
     <message>
         <source>Save QR to file</source>
@@ -1422,6 +1445,10 @@ Do you want to go to the download page?</source>
         <source>Send All</source>
         <translation>Вислати все</translation>
     </message>
+    <message>
+        <source>Prepare transaction but do not relay</source>
+        <translation>Підготувати транзакцію, але не передавати в мережу</translation>
+    </message>
 </context>
 <context>
     <name>ShowPaymentRequestDialog</name>
@@ -1454,7 +1481,7 @@ Do you want to go to the download page?</source>
     <name>SignMessageDialog</name>
     <message>
         <source>Sign or verify message</source>
-        <translation type="unfinished"></translation>
+        <translation>Підписати чи перевірити повідомлення</translation>
     </message>
     <message>
         <source>Close</source>
@@ -1619,7 +1646,7 @@ Do you want to go to the download page?</source>
     <name>WalletGui::AboutDialog</name>
     <message>
         <source>About %1 Wallet</source>
-        <translation>Про гаманець Карбованця</translation>
+        <translation>Про гаманець %1</translation>
     </message>
 </context>
 <context>
@@ -1638,7 +1665,7 @@ Do you want to go to the download page?</source>
     </message>
     <message>
         <source>&lt;p style=&quot;height:30&quot;&gt;Available: &lt;strong style=&quot;font-size:14px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</source>
-        <translation type="unfinished">&lt;p style=&quot;height:30&quot;&gt;Доступно: &lt;strong style=&quot;font-size:14px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</translation>
+        <translation>&lt;p style=&quot;height:30&quot;&gt;Доступно: &lt;strong style=&quot;font-size:14px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p style=&quot;height:30&quot;&gt;Total: &lt;strong style=&quot;font-size:18px; color: #ffffff;&quot;&gt;%1&lt;/strong&gt;&lt;small style=&quot;font-size:10px; color: #D3D3D3;&quot;&gt;%2 %3&lt;/small&gt;&lt;/p&gt;</source>
@@ -1654,7 +1681,7 @@ Do you want to go to the download page?</source>
     </message>
     <message>
         <source>QR Code</source>
-        <translation type="unfinished"></translation>
+        <translation>QR-код</translation>
     </message>
 </context>
 <context>
@@ -1869,6 +1896,17 @@ Do you want to go to the download page?</source>
     <message>
         <source>Last resp. height</source>
         <translation>Висота останньої відповіді</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui::ExportRawTransactionDialog</name>
+    <message>
+        <source>Save transaction to...</source>
+        <translation>Зберегти транзакцію в...</translation>
+    </message>
+    <message>
+        <source>Raw hex transaction (*.txt)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2954,12 +2992,16 @@ when the wallet is synchronized</source>
         <translation>буде завершено через</translation>
     </message>
     <message>
+        <source>Preparing transaction</source>
+        <translation>Підготовка транзакції</translation>
+    </message>
+    <message>
         <source>Failed to sign message</source>
-        <translation type="unfinished"></translation>
+        <translation>Не вдалося підписати повідомлення</translation>
     </message>
     <message>
         <source>This is tracking wallet. The message can be signed only by a full wallet.</source>
-        <translation type="unfinished"></translation>
+        <translation>Це гаманець стеження. Повідомлення може бути підписане лише повним гаманцем.</translation>
     </message>
 </context>
 </TS>
