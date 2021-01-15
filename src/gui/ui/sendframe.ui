@@ -716,6 +716,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>dontRelayCheckBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>SendFrame</receiver>
+   <slot>dontRelayToggled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>432</x>
+     <y>514</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>432</x>
+     <y>294</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>sendClicked()</slot>
@@ -725,5 +741,6 @@
   <slot>mixinValueChanged(int)</slot>
   <slot>priorityValueChanged(int)</slot>
   <slot>advancedClicked(bool)</slot>
+  <slot>dontRelayToggled(bool)</slot>
  </slots>
 </ui>

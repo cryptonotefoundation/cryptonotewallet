@@ -2459,6 +2459,14 @@ Czy kontynuować bez prywatności?</translation>
         <source>Invalid amount</source>
         <translation>Nieprawidłowa kwota</translation>
     </message>
+    <message>
+        <source>Prepare</source>
+        <translation>Przygotować</translation>
+    </message>
+    <message>
+        <source>Send</source>
+        <translation></translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::SendGlassFrame</name>

@@ -2745,7 +2745,7 @@ Are you sure?</source>
     </message>
     <message>
         <location filename="../gui/SendFrame.cpp" line="304"/>
-        <location filename="../gui/SendFrame.cpp" line="469"/>
+        <location filename="../gui/SendFrame.cpp" line="483"/>
         <source>Insufficient balance.</source>
         <translation></translation>
     </message>
@@ -2765,32 +2765,42 @@ Are you sure?</source>
         <translation>अवैध राशि</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="376"/>
+        <location filename="../gui/SendFrame.cpp" line="384"/>
         <source>Incorrect fee value</source>
         <translation>गलत शुल्क मूल्य</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="385"/>
+        <location filename="../gui/SendFrame.cpp" line="393"/>
         <source>Insufficient balance</source>
         <translation>अपर्याप्त बैलेंस</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="385"/>
+        <location filename="../gui/SendFrame.cpp" line="393"/>
         <source>Available balance is insufficient to send this transaction. Have you excluded a fee?</source>
         <translation>उपलब्ध बैलेंस इस लेनदेन को भेजने के लिए अपर्याप्त है। क्या आपने शुल्क हटा लिया है?</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="401"/>
+        <location filename="../gui/SendFrame.cpp" line="347"/>
         <source>Invalid payment ID</source>
         <translation>अमान्य भुगतान आईडी</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="474"/>
+        <location filename="../gui/SendFrame.cpp" line="468"/>
+        <source>Prepare</source>
+        <translation>तैयार</translation>
+    </message>
+    <message>
+        <location filename="../gui/SendFrame.cpp" line="472"/>
+        <source>Send</source>
+        <translation>भेजें</translation>
+    </message>
+    <message>
+        <location filename="../gui/SendFrame.cpp" line="488"/>
         <source>Sweep unmixable dust</source>
         <translation>मिक्स नहीं होने वालों को स्वीप करें</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="475"/>
+        <location filename="../gui/SendFrame.cpp" line="489"/>
         <source>You have unmixable coins that can be only spent with zero privacy level.
  Shall we continue with zero privacy?</source>
         <translation>आपके पास गैर-मिश्रित सिक्के हैं जो केवल शून्य गोपनीयता स्तर के साथ खर्च किए जा सकते हैं।

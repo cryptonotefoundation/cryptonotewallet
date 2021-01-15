@@ -2799,7 +2799,7 @@ Are you sure?</source>
     </message>
     <message>
         <location filename="../gui/SendFrame.cpp" line="304"/>
-        <location filename="../gui/SendFrame.cpp" line="469"/>
+        <location filename="../gui/SendFrame.cpp" line="483"/>
         <source>Insufficient balance.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2819,32 +2819,42 @@ Are you sure?</source>
         <translation>مبلغ غير صحيح</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="376"/>
+        <location filename="../gui/SendFrame.cpp" line="384"/>
         <source>Incorrect fee value</source>
         <translation>قيمة رسوم غير صحيحة</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="385"/>
+        <location filename="../gui/SendFrame.cpp" line="393"/>
         <source>Insufficient balance</source>
         <translation>رصيد غير كافٍ</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="385"/>
+        <location filename="../gui/SendFrame.cpp" line="393"/>
         <source>Available balance is insufficient to send this transaction. Have you excluded a fee?</source>
         <translation>الرصيد المتاح غير كاف لإرسال هذه المعاملة. هل استثنيت الرسوم؟</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="401"/>
+        <location filename="../gui/SendFrame.cpp" line="347"/>
         <source>Invalid payment ID</source>
         <translation>رقم دفع غير صالح</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="474"/>
+        <location filename="../gui/SendFrame.cpp" line="468"/>
+        <source>Prepare</source>
+        <translation>إعداد</translation>
+    </message>
+    <message>
+        <location filename="../gui/SendFrame.cpp" line="472"/>
+        <source>Send</source>
+        <translation>إرسال</translation>
+    </message>
+    <message>
+        <location filename="../gui/SendFrame.cpp" line="488"/>
         <source>Sweep unmixable dust</source>
         <translation>زر الدفعات القديمة</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="475"/>
+        <location filename="../gui/SendFrame.cpp" line="489"/>
         <source>You have unmixable coins that can be only spent with zero privacy level.
  Shall we continue with zero privacy?</source>
         <translation>لديك عملات غير قابلة للخلط لا يمكن إنفاقها إلا بمستوى خصوصية صفري.

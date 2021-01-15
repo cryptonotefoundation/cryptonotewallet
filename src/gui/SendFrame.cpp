@@ -463,6 +463,18 @@ void SendFrame::advancedClicked(bool _show) {
   }
 }
 
+void SendFrame::dontRelayToggled(bool _dont) {
+  if (_dont) {
+    m_ui->m_sendButton->setText(QString(tr("Prepare")));
+    m_ui->m_sendButton->setIcon(QIcon(":icons/save"));
+    m_ui->m_sendButton->setIconSize(QSize(16, 16));
+  } else {
+    m_ui->m_sendButton->setText(QString(tr("Send")));
+    m_ui->m_sendButton->setIcon(QIcon(":icons/btn-send"));
+    m_ui->m_sendButton->setIconSize(QSize(16, 16));
+  }
+}
+
 void SendFrame::sendAllClicked() {
   quint64 actualBalance = WalletAdapter::instance().getActualBalance();
   if (actualBalance < NodeAdapter::instance().getMinimalFee()) {

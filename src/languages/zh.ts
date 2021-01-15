@@ -2785,7 +2785,7 @@ Are you sure?</source>
     </message>
     <message>
         <location filename="../gui/SendFrame.cpp" line="304"/>
-        <location filename="../gui/SendFrame.cpp" line="469"/>
+        <location filename="../gui/SendFrame.cpp" line="483"/>
         <source>Insufficient balance.</source>
         <translation>余额不足。</translation>
     </message>
@@ -2805,32 +2805,42 @@ Are you sure?</source>
         <translation>无效金额</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="376"/>
+        <location filename="../gui/SendFrame.cpp" line="384"/>
         <source>Incorrect fee value</source>
         <translation>费用数值不正确</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="385"/>
+        <location filename="../gui/SendFrame.cpp" line="393"/>
         <source>Insufficient balance</source>
         <translation>余额不足</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="385"/>
+        <location filename="../gui/SendFrame.cpp" line="393"/>
         <source>Available balance is insufficient to send this transaction. Have you excluded a fee?</source>
         <translation>可用余额不足，无法发送本次交易。您是否已包括交易手续费在内？</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="401"/>
+        <location filename="../gui/SendFrame.cpp" line="347"/>
         <source>Invalid payment ID</source>
         <translation>付款ID无效</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="474"/>
+        <location filename="../gui/SendFrame.cpp" line="468"/>
+        <source>Prepare</source>
+        <translation>准备</translation>
+    </message>
+    <message>
+        <location filename="../gui/SendFrame.cpp" line="472"/>
+        <source>Send</source>
+        <translation>发送</translation>
+    </message>
+    <message>
+        <location filename="../gui/SendFrame.cpp" line="488"/>
         <source>Sweep unmixable dust</source>
         <translation>扫除不可混合的金额</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="475"/>
+        <location filename="../gui/SendFrame.cpp" line="489"/>
         <source>You have unmixable coins that can be only spent with zero privacy level.
  Shall we continue with zero privacy?</source>
         <translation>您有不可混合使用的硬币，只能在零隐私级别下使用。

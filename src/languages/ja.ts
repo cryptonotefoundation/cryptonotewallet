@@ -2715,7 +2715,7 @@ Are you sure?</source>
     </message>
     <message>
         <location filename="../gui/SendFrame.cpp" line="304"/>
-        <location filename="../gui/SendFrame.cpp" line="469"/>
+        <location filename="../gui/SendFrame.cpp" line="483"/>
         <source>Insufficient balance.</source>
         <translation>残高不足。</translation>
     </message>
@@ -2735,32 +2735,42 @@ Are you sure?</source>
         <translation>数量が無効です</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="376"/>
+        <location filename="../gui/SendFrame.cpp" line="384"/>
         <source>Incorrect fee value</source>
         <translation>正しくない手数料の値</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="385"/>
+        <location filename="../gui/SendFrame.cpp" line="393"/>
         <source>Insufficient balance</source>
         <translation>残高不足</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="385"/>
+        <location filename="../gui/SendFrame.cpp" line="393"/>
         <source>Available balance is insufficient to send this transaction. Have you excluded a fee?</source>
         <translation>このトランザクションを送信するための利用可能残高が不足しています。手数料を除外しましたか？</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="401"/>
+        <location filename="../gui/SendFrame.cpp" line="347"/>
         <source>Invalid payment ID</source>
         <translation>無効なペイメントID</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="474"/>
+        <location filename="../gui/SendFrame.cpp" line="468"/>
+        <source>Prepare</source>
+        <translation>作る</translation>
+    </message>
+    <message>
+        <location filename="../gui/SendFrame.cpp" line="472"/>
+        <source>Send</source>
+        <translation>送信</translation>
+    </message>
+    <message>
+        <location filename="../gui/SendFrame.cpp" line="488"/>
         <source>Sweep unmixable dust</source>
         <translation>スイープ混合不可</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="475"/>
+        <location filename="../gui/SendFrame.cpp" line="489"/>
         <source>You have unmixable coins that can be only spent with zero privacy level.
  Shall we continue with zero privacy?</source>
         <translation>プライバシーレベルがゼロの場合にのみ使用できる、混合できないコインがあります。

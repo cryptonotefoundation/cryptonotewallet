@@ -2772,7 +2772,7 @@ Are you sure?</source>
     </message>
     <message>
         <location filename="../gui/SendFrame.cpp" line="304"/>
-        <location filename="../gui/SendFrame.cpp" line="469"/>
+        <location filename="../gui/SendFrame.cpp" line="483"/>
         <source>Insufficient balance.</source>
         <translation>잔액 불충분.</translation>
     </message>
@@ -2792,32 +2792,42 @@ Are you sure?</source>
         <translation>잘못된 금액</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="376"/>
+        <location filename="../gui/SendFrame.cpp" line="384"/>
         <source>Incorrect fee value</source>
         <translation>유효하지 않은 비용값</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="385"/>
+        <location filename="../gui/SendFrame.cpp" line="393"/>
         <source>Insufficient balance</source>
         <translation>잔액 부족</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="385"/>
+        <location filename="../gui/SendFrame.cpp" line="393"/>
         <source>Available balance is insufficient to send this transaction. Have you excluded a fee?</source>
         <translation>사용 가능한 잔액으로 이 거래를 보낼 수 없습니다. 수수료를 제외했습니까?</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="401"/>
+        <location filename="../gui/SendFrame.cpp" line="347"/>
         <source>Invalid payment ID</source>
         <translation>유효하지 않은 지불 ID</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="474"/>
+        <location filename="../gui/SendFrame.cpp" line="468"/>
+        <source>Prepare</source>
+        <translation>준비</translation>
+    </message>
+    <message>
+        <location filename="../gui/SendFrame.cpp" line="472"/>
+        <source>Send</source>
+        <translation>전송</translation>
+    </message>
+    <message>
+        <location filename="../gui/SendFrame.cpp" line="488"/>
         <source>Sweep unmixable dust</source>
         <translation>혼합불가 제거</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="475"/>
+        <location filename="../gui/SendFrame.cpp" line="489"/>
         <source>You have unmixable coins that can be only spent with zero privacy level.
  Shall we continue with zero privacy?</source>
         <translation>개인 정보 보호 수준이 0 인 경우에만 사용할 수있는 혼합 불가능한 동전이 있습니다.

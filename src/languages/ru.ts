@@ -2451,6 +2451,14 @@ Are you sure?</source>
         <source>Invalid amount</source>
         <translation>Недопустимая сумма</translation>
     </message>
+    <message>
+        <source>Prepare</source>
+        <translation>Подготовить</translation>
+    </message>
+    <message>
+        <source>Send</source>
+        <translation></translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::SendGlassFrame</name>

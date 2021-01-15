@@ -2466,6 +2466,14 @@ Pouvons-nous continuer sans aucune confidentialité?</translation>
         <source>Invalid amount</source>
         <translation>Montant invalide</translation>
     </message>
+    <message>
+        <source>Prepare</source>
+        <translation>Préparer</translation>
+    </message>
+    <message>
+        <source>Send</source>
+        <translation>Envoyer</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::SendGlassFrame</name>

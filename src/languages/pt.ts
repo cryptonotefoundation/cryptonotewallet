@@ -2471,6 +2471,14 @@ Devemos continuar com zero privacidade?</translation>
         <source>Invalid amount</source>
         <translation>Quantidade inválida</translation>
     </message>
+    <message>
+        <source>Prepare</source>
+        <translation>Preparar</translation>
+    </message>
+    <message>
+        <source>Send</source>
+        <translation>Enviar</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::SendGlassFrame</name>

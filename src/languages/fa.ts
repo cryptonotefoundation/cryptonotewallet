@@ -2449,6 +2449,14 @@ Are you sure?</source>
         <source>Invalid amount</source>
         <translation>مقدار نامعتبر است</translation>
     </message>
+    <message>
+        <source>Prepare</source>
+        <translation>آماده کردن</translation>
+    </message>
+    <message>
+        <source>Send</source>
+        <translation>ارسال</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::SendGlassFrame</name>

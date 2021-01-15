@@ -2462,6 +2462,14 @@ Sollen wir mit null Privatsphäre weitermachen?</translation>
         <source>Invalid amount</source>
         <translation>Ungültiger Betrag</translation>
     </message>
+    <message>
+        <source>Prepare</source>
+        <translation>Bereiten</translation>
+    </message>
+    <message>
+        <source>Send</source>
+        <translation>Senden</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::SendGlassFrame</name>

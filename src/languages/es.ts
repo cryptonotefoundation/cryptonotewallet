@@ -2458,6 +2458,14 @@ Are you sure?</source>
         <source>Invalid amount</source>
         <translation>Cantidad inválida</translation>
     </message>
+    <message>
+        <source>Prepare</source>
+        <translation>Preparar</translation>
+    </message>
+    <message>
+        <source>Send</source>
+        <translation>Enviar</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::SendGlassFrame</name>

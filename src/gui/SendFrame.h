@@ -62,6 +62,7 @@ private:
   Q_SLOT void openUriClicked();
   Q_SLOT void generatePaymentIdClicked();
   Q_SLOT void advancedClicked(bool _show);
+  Q_SLOT void dontRelayToggled(bool _dont);
 
 Q_SIGNALS:
   void uriOpenSignal();
