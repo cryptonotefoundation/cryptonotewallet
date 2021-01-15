@@ -48,8 +48,7 @@ WalletAdapter& WalletAdapter::instance() {
 }
 
 WalletAdapter::WalletAdapter() : QObject(), m_wallet(nullptr), m_mutex(), m_isBackupInProgress(false),
-  m_syncSpeed(0), m_syncPeriod(0),
-  m_isSynchronized(false), m_newTransactionsNotificationTimer(),
+  m_syncSpeed(0), m_syncPeriod(0), m_isSynchronized(false), m_newTransactionsNotificationTimer(),
   m_lastWalletTransactionId(std::numeric_limits<quint64>::max()) {
   connect(this, &WalletAdapter::walletInitCompletedSignal, this, &WalletAdapter::onWalletInitCompleted, Qt::QueuedConnection);
   connect(this, &WalletAdapter::walletSendTransactionCompletedSignal, this, &WalletAdapter::onWalletSendTransactionCompleted, Qt::QueuedConnection);
@@ -523,6 +522,13 @@ void WalletAdapter::synchronizationProgressUpdated(uint32_t _current, uint32_t _
     m_perfData.clear();
   }
   m_isSynchronized = false;
+
+  if (NodeAdapter::instance().isOffline()) {
+    Q_EMIT walletStateChangedSignal(QString(tr("Offline")));
+    Q_EMIT walletSynchronizationProgressUpdatedSignal(_current, _total);
+    return;
+  }
+
   const uint32_t speedCalcPeriod = 10;
   const uint32_t periodDay = 60 * 60 * 24;
   const uint32_t syncPeriodMax = std::numeric_limits<uint32_t>::max();

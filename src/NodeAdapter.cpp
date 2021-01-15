@@ -405,6 +405,11 @@ CryptoNote::NetNodeConfig NodeAdapter::makeNetNodeConfig() const {
   return config;
 }
 
+bool NodeAdapter::isOffline() {
+  Q_ASSERT(m_node == nullptr);
+  return getConnectionsCount() == 0;
+}
+
 }
 
 #include "NodeAdapter.moc"

@@ -54,7 +54,7 @@ SendFrame::SendFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::SendFrame
   m_ui->m_feeSpin->setSuffix(" " + CurrencyAdapter::instance().getCurrencyTicker().toUpper());
   m_ui->m_donateSpin->setSuffix(" " + CurrencyAdapter::instance().getCurrencyTicker().toUpper());
   m_ui->m_remote_label->hide();
-  m_ui->m_sendButton->setEnabled(false);
+  //m_ui->m_sendButton->setEnabled(false);
   m_ui->m_feeSpin->setMinimum(getMinimalFee());
 
   QLabel *label1 = new QLabel(tr("Low"), this);
@@ -100,8 +100,10 @@ void SendFrame::walletSynchronized(int _error, const QString& _error_text) {
 }
 
 void SendFrame::walletSynchronizationInProgress(quint64 _current, quint64 _total) {
-  m_glassFrame->install(this);
-  m_glassFrame->updateSynchronizationState(_current, _total);
+  if (!NodeAdapter::instance().isOffline()) {
+    m_glassFrame->install(this);
+    m_glassFrame->updateSynchronizationState(_current, _total);
+  }
 }
 
 void SendFrame::setAddress(const QString& _address) {
