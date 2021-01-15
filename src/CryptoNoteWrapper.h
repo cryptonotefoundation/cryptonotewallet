@@ -65,6 +65,7 @@ public:
   virtual void peerCountUpdated(Node& node, size_t count) = 0;
   virtual void localBlockchainUpdated(Node& node, uint64_t height) = 0;
   virtual void lastKnownBlockHeightUpdated(Node& node, uint64_t height) = 0;
+  virtual void connectionStatusUpdated(bool _connected) = 0;
 };
 
 Node* createRpcNode(const CryptoNote::Currency& currency, INodeCallback& callback, Logging::LoggerManager& logManager, const std::string& nodeHost, unsigned short nodePort, bool enableSSL);

@@ -177,6 +177,7 @@ bool NodeAdapter::init() {
       }
 
   } else {
+      // Trying to connect to local daemon...
       QUrl localNodeUrl = QUrl::fromUserInput(QString("127.0.0.1:%1").arg(CryptoNote::RPC_DEFAULT_PORT));
       m_node = createRpcNode(CurrencyAdapter::instance().getCurrency(), *this, LoggerAdapter::instance().getLoggerManager(), localNodeUrl.host().toStdString(), localNodeUrl.port(), false);
       QTimer initTimer;
@@ -190,6 +191,7 @@ bool NodeAdapter::init() {
       connect(&initTimer, &QTimer::timeout, &waitLoop, &QEventLoop::quit);
       connect(this, &NodeAdapter::peerCountUpdatedSignal, &waitLoop, &QEventLoop::quit);
       connect(this, &NodeAdapter::localBlockchainUpdatedSignal, &waitLoop, &QEventLoop::quit);
+      connect(this, &NodeAdapter::connectionStatusUpdatedSignal, &waitLoop, &QEventLoop::quit);
       waitLoop.exec();
       if (initTimer.isActive()) {
         initTimer.stop();
@@ -198,6 +200,7 @@ bool NodeAdapter::init() {
       }
       delete m_node;
       m_node = nullptr;
+      // Attempt connecting to local daemon timed out, launching builtin node...
       return initInProcessNode();
   }
 
@@ -312,6 +315,10 @@ void NodeAdapter::localBlockchainUpdated(Node& _node, uint64_t _height) {
 void NodeAdapter::lastKnownBlockHeightUpdated(Node& _node, uint64_t _height) {
   Q_UNUSED(_node);
   Q_EMIT lastKnownBlockHeightUpdatedSignal(_height);
+}
+
+void NodeAdapter::connectionStatusUpdated(bool _connected) {
+  Q_EMIT connectionStatusUpdatedSignal(_connected);
 }
 
 bool NodeAdapter::initInProcessNode() {

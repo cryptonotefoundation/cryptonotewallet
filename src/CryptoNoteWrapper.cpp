@@ -92,7 +92,7 @@ inline std::string interpret_rpc_response(bool ok, const std::string& status) {
 Node::~Node() {
 }
 
-class RpcNode : CryptoNote::INodeObserver, public Node {
+class RpcNode : CryptoNote::INodeObserver, public CryptoNote::INodeRpcProxyObserver, public Node {
 public:
   Logging::LoggerManager& m_logManager;
   RpcNode(const CryptoNote::Currency& currency, INodeCallback& callback, Logging::LoggerManager& logManager, const std::string& nodeHost, unsigned short nodePort, bool &enableSSL) :
@@ -101,7 +101,8 @@ public:
     m_dispatcher(),
     m_logManager(logManager),
     m_node(nodeHost, nodePort, "/", enableSSL) {
-    m_node.addObserver(this);
+    m_node.addObserver(dynamic_cast<INodeObserver*>(this));
+    m_node.addObserver(dynamic_cast<INodeRpcProxyObserver*>(this));
   }
 
   ~RpcNode() override {
@@ -239,6 +240,11 @@ private:
 
   void lastKnownBlockHeightUpdated(uint64_t height) {
     m_callback.lastKnownBlockHeightUpdated(*this, height);
+  }
+
+  // INodeRpcProxyObserver
+  void connectionStatusUpdated(bool _connected) {
+    m_callback.connectionStatusUpdated(_connected);
   }
 };
 
@@ -432,8 +438,7 @@ private:
   std::future<bool> m_nodeServerFuture;
 
   void peerCountUpdated(size_t count) {
-    //m_callback.peerCountUpdated(*this, count);
-    m_callback.peerCountUpdated(*this, m_nodeServer.get_connections_count() - 1);
+    m_callback.peerCountUpdated(*this, count);
   }
 
   void localBlockchainUpdated(uint64_t height) {
@@ -442,6 +447,11 @@ private:
 
   void lastKnownBlockHeightUpdated(uint64_t height) {
     m_callback.lastKnownBlockHeightUpdated(*this, height);
+  }
+
+  // dummy, used only for INodeRpcProxyObserver
+  void connectionStatusUpdated(bool _connected) {
+    m_callback.connectionStatusUpdated(_connected);
   }
 };
 
