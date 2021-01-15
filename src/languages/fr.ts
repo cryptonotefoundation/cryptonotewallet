@@ -2462,6 +2462,10 @@ Are you sure?</source>
         <translation>Vous avez des pièces incassables qui ne peuvent être dépensées qu&apos;avec un niveau de confidentialité nul.
 Pouvons-nous continuer sans aucune confidentialité?</translation>
     </message>
+    <message>
+        <source>Invalid amount</source>
+        <translation>Montant invalide</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::SendGlassFrame</name>
@@ -3000,6 +3004,10 @@ quand le portefeuille aura terminé la synchronisation</translation>
     </message>
     <message>
         <source>This is tracking wallet. The message can be signed only by a full wallet.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Offline</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

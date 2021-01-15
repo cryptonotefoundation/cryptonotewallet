@@ -2458,6 +2458,10 @@ Bist du sicher?</translation>
         <translation>Sie haben nicht mischbare Münzen, die nur bei einem Datenschutzniveau von Null ausgegeben werden können.
 Sollen wir mit null Privatsphäre weitermachen?</translation>
     </message>
+    <message>
+        <source>Invalid amount</source>
+        <translation>Ungültiger Betrag</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::SendGlassFrame</name>
@@ -3000,6 +3004,10 @@ Kann keinen neuen Schlüssel generieren</translation>
     </message>
     <message>
         <source>This is tracking wallet. The message can be signed only by a full wallet.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Offline</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -2447,6 +2447,10 @@ Are you sure?</source>
         <translation>У вас есть несмешиваемые монеты, которые можно потратить только с нулевым уровнем конфиденциальности.
 Продолжать с нулевой приватностью?</translation>
     </message>
+    <message>
+        <source>Invalid amount</source>
+        <translation>Недопустимая сумма</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::SendGlassFrame</name>
@@ -2998,6 +3002,10 @@ when the wallet is synchronized</source>
     <message>
         <source>This is tracking wallet. The message can be signed only by a full wallet.</source>
         <translation>Это отслеживающий кошелек. Сообщение может быть подписано только полным кошельком.</translation>
+    </message>
+    <message>
+        <source>Offline</source>
+        <translation>Не в сети</translation>
     </message>
 </context>
 </TS>

@@ -2467,6 +2467,10 @@ Você tem certeza?</translation>
         <translation>Você tem moedas não misturáveis que só podem ser gastas com nível de privacidade zero.
 Devemos continuar com zero privacidade?</translation>
     </message>
+    <message>
+        <source>Invalid amount</source>
+        <translation>Quantidade inválida</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::SendGlassFrame</name>
@@ -3005,6 +3009,10 @@ quando a carteira vai terminar de sincronizar</translation>
     </message>
     <message>
         <source>This is tracking wallet. The message can be signed only by a full wallet.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Offline</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

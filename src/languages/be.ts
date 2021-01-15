@@ -2458,6 +2458,10 @@ Are you sure?</source>
         <translation>У вас ёсць нязмешвальныя монеты, якія можна выдаткаваць толькі з нулевым узроўнем канфідэнцыяльнасці.
 Працягваць з нулевай прыватнасцю?</translation>
     </message>
+    <message>
+        <source>Invalid amount</source>
+        <translation>Няправільная сума</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::SendGlassFrame</name>
@@ -2996,7 +3000,7 @@ when the wallet is synchronized</source>
     </message>
     <message>
         <source>Preparing transaction</source>
-        <translation type="unfinished"></translation>
+        <translation>Падрыхтоўка транзакцыі</translation>
     </message>
     <message>
         <source>Failed to sign message</source>
@@ -3005,6 +3009,10 @@ when the wallet is synchronized</source>
     <message>
         <source>This is tracking wallet. The message can be signed only by a full wallet.</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Offline</source>
+        <translation>Па-за сеткай</translation>
     </message>
 </context>
 </TS>

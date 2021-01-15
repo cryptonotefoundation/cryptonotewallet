@@ -2455,6 +2455,10 @@ Jesteś pewien?</translation>
         <translation>Masz nie mieszające się monety, które można wydać tylko przy zerowym poziomie prywatności.
 Czy kontynuować bez prywatności?</translation>
     </message>
+    <message>
+        <source>Invalid amount</source>
+        <translation>Nieprawidłowa kwota</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::SendGlassFrame</name>
@@ -3002,6 +3006,10 @@ kiedy portfel skończy synchronizowanie</translation>
     <message>
         <source>This is tracking wallet. The message can be signed only by a full wallet.</source>
         <translation>To jest portfel śledzący. Wiadomość może być podpisana tylko pełnym portfelem.</translation>
+    </message>
+    <message>
+        <source>Offline</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

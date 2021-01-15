@@ -2467,14 +2467,14 @@ Do you want to go to the download page?</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../gui/MainWindow.cpp" line="1154"/>
+        <location filename="../gui/MainWindow.cpp" line="1155"/>
         <source>%1 - Karbo Wallet %2</source>
         <translation>%1 - 卡博币钱包%2</translation>
     </message>
     <message>
         <location filename="../gui/MainWindow.cpp" line="140"/>
-        <location filename="../gui/MainWindow.cpp" line="1200"/>
-        <location filename="../gui/MainWindow.cpp" line="1224"/>
+        <location filename="../gui/MainWindow.cpp" line="1201"/>
+        <location filename="../gui/MainWindow.cpp" line="1225"/>
         <source>Karbo Wallet %1</source>
         <translation>卡博币钱包%1</translation>
     </message>
@@ -2768,64 +2768,69 @@ Are you sure?</source>
     </message>
     <message>
         <location filename="../gui/SendFrame.cpp" line="85"/>
-        <location filename="../gui/SendFrame.cpp" line="227"/>
+        <location filename="../gui/SendFrame.cpp" line="231"/>
         <source>Node fee: %1 %2</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="254"/>
+        <location filename="../gui/SendFrame.cpp" line="258"/>
         <source>Payment request should start with karbowanec:</source>
         <translation>付款请求应从karbowanec开始</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="268"/>
-        <location filename="../gui/SendFrame.cpp" line="334"/>
+        <location filename="../gui/SendFrame.cpp" line="272"/>
+        <location filename="../gui/SendFrame.cpp" line="330"/>
         <source>Invalid recipient address</source>
         <translation>收件人地址无效</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="298"/>
-        <location filename="../gui/SendFrame.cpp" line="457"/>
+        <location filename="../gui/SendFrame.cpp" line="304"/>
+        <location filename="../gui/SendFrame.cpp" line="469"/>
         <source>Insufficient balance.</source>
         <translation>余额不足。</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="307"/>
+        <location filename="../gui/SendFrame.cpp" line="313"/>
         <source>Incorrect password</source>
         <translation>密码错误</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="307"/>
+        <location filename="../gui/SendFrame.cpp" line="313"/>
         <source>Wrong password.</source>
         <translation>密码错误。</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="373"/>
+        <location filename="../gui/SendFrame.cpp" line="340"/>
+        <source>Invalid amount</source>
+        <translation>无效金额</translation>
+    </message>
+    <message>
+        <location filename="../gui/SendFrame.cpp" line="376"/>
         <source>Incorrect fee value</source>
         <translation>费用数值不正确</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="382"/>
+        <location filename="../gui/SendFrame.cpp" line="385"/>
         <source>Insufficient balance</source>
         <translation>余额不足</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="382"/>
+        <location filename="../gui/SendFrame.cpp" line="385"/>
         <source>Available balance is insufficient to send this transaction. Have you excluded a fee?</source>
         <translation>可用余额不足，无法发送本次交易。您是否已包括交易手续费在内？</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="389"/>
+        <location filename="../gui/SendFrame.cpp" line="401"/>
         <source>Invalid payment ID</source>
         <translation>付款ID无效</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="462"/>
+        <location filename="../gui/SendFrame.cpp" line="474"/>
         <source>Sweep unmixable dust</source>
         <translation>扫除不可混合的金额</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="463"/>
+        <location filename="../gui/SendFrame.cpp" line="475"/>
         <source>You have unmixable coins that can be only spent with zero privacy level.
  Shall we continue with zero privacy?</source>
         <translation>您有不可混合使用的硬币，只能在零隐私级别下使用。
@@ -3155,28 +3160,28 @@ when the wallet is synchronized</source>
 <context>
     <name>WalletGui::WalletAdapter</name>
     <message>
-        <location filename="../WalletAdapter.cpp" line="111"/>
+        <location filename="../WalletAdapter.cpp" line="110"/>
         <source>Opening wallet</source>
         <translation>正在打开钱包</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="166"/>
+        <location filename="../WalletAdapter.cpp" line="165"/>
         <source>Creating wallet</source>
         <translation>正在创建钱包</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="199"/>
-        <location filename="../WalletAdapter.cpp" line="207"/>
+        <location filename="../WalletAdapter.cpp" line="198"/>
+        <location filename="../WalletAdapter.cpp" line="206"/>
         <source>Importing keys</source>
         <translation>正在导入密钥</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="267"/>
+        <location filename="../WalletAdapter.cpp" line="266"/>
         <source>Saving data</source>
         <translation>正在保存数据</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="378"/>
+        <location filename="../WalletAdapter.cpp" line="377"/>
         <source>Sending transaction</source>
         <translation>正在发送交易</translation>
     </message>
@@ -3185,248 +3190,253 @@ when the wallet is synchronized</source>
         <translation type="vanished">正在扫除不可混合的尘额</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="389"/>
+        <location filename="../WalletAdapter.cpp" line="388"/>
         <source>Preparing transaction</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="420"/>
+        <location filename="../WalletAdapter.cpp" line="419"/>
         <source>Optimizing wallet</source>
         <translation>优化钱包</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="481"/>
-        <location filename="../WalletAdapter.cpp" line="507"/>
+        <location filename="../WalletAdapter.cpp" line="480"/>
+        <location filename="../WalletAdapter.cpp" line="506"/>
         <source>Ready</source>
         <translation>已就绪</translation>
     </message>
+    <message>
+        <location filename="../WalletAdapter.cpp" line="527"/>
+        <source>Offline</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message numerus="yes">
-        <location filename="../WalletAdapter.cpp" line="552"/>
+        <location filename="../WalletAdapter.cpp" line="558"/>
         <source>%n blocks per second</source>
         <translation>
             <numerusform>每秒%n个区块</numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="555"/>
+        <location filename="../WalletAdapter.cpp" line="561"/>
         <source>est. completion in</source>
         <translation>预计完成时间</translation>
     </message>
     <message numerus="yes">
-        <location filename="../WalletAdapter.cpp" line="557"/>
+        <location filename="../WalletAdapter.cpp" line="563"/>
         <source>%n day(s) and</source>
         <translation>
             <numerusform>%n天</numerusform>
         </translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="565"/>
+        <location filename="../WalletAdapter.cpp" line="571"/>
         <source>Synchronizing</source>
         <translation>同步中</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="605"/>
+        <location filename="../WalletAdapter.cpp" line="611"/>
         <source>Object was not initialized</source>
         <translation>对象未初始化</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="606"/>
+        <location filename="../WalletAdapter.cpp" line="612"/>
         <source>The password is wrong</source>
         <translation>密码错误</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="607"/>
+        <location filename="../WalletAdapter.cpp" line="613"/>
         <source>The object is already initialized</source>
         <translation>对象已初始化</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="608"/>
+        <location filename="../WalletAdapter.cpp" line="614"/>
         <source>Internal error occurred</source>
         <translation>发生内部错误</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="609"/>
+        <location filename="../WalletAdapter.cpp" line="615"/>
         <source>MixIn count is too big</source>
         <translation>MixIn计数过大</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="610"/>
+        <location filename="../WalletAdapter.cpp" line="616"/>
         <source>Bad address</source>
         <translation>地址错误</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="611"/>
+        <location filename="../WalletAdapter.cpp" line="617"/>
         <source>Transaction size is too big</source>
         <translation>交易规模过大</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="612"/>
+        <location filename="../WalletAdapter.cpp" line="618"/>
         <source>Wrong amount</source>
         <translation>数额错误</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="613"/>
+        <location filename="../WalletAdapter.cpp" line="619"/>
         <source>Sum overflow</source>
         <translation>总和溢位</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="614"/>
+        <location filename="../WalletAdapter.cpp" line="620"/>
         <source>The destination is empty</source>
         <translation>目的地不存在</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="615"/>
+        <location filename="../WalletAdapter.cpp" line="621"/>
         <source>Impossible to cancel transaction</source>
         <translation>无法取消交易</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="616"/>
+        <location filename="../WalletAdapter.cpp" line="622"/>
         <source>The wallet is in wrong state (maybe loading or saving), try again later</source>
         <translation>钱包状态有误（可能正在加载或保存中），请稍后再试</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="617"/>
+        <location filename="../WalletAdapter.cpp" line="623"/>
         <source>The operation you&apos;ve requested has been cancelled</source>
         <translation>您请求的操作已取消</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="618"/>
+        <location filename="../WalletAdapter.cpp" line="624"/>
         <source>Transaction transfer impossible</source>
         <translation>无法进行交易转移</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="619"/>
+        <location filename="../WalletAdapter.cpp" line="625"/>
         <source>Wrong version</source>
         <translation>版本错误</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="620"/>
+        <location filename="../WalletAdapter.cpp" line="626"/>
         <source>Transaction fee is too small</source>
         <translation>交易费用太小</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="621"/>
+        <location filename="../WalletAdapter.cpp" line="627"/>
         <source>Cannot generate new key</source>
         <translation>无法生成新的密钥</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="622"/>
+        <location filename="../WalletAdapter.cpp" line="628"/>
         <source>Index is out of range</source>
         <translation>指数超出范围</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="623"/>
+        <location filename="../WalletAdapter.cpp" line="629"/>
         <source>Address already exists</source>
         <translation>地址已存在</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="624"/>
+        <location filename="../WalletAdapter.cpp" line="630"/>
         <source>The wallet is in tracking mode</source>
         <translation>钱包处于跟踪模式</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="625"/>
+        <location filename="../WalletAdapter.cpp" line="631"/>
         <source>Wrong parameters passed</source>
         <translation>传递的参数错误</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="626"/>
+        <location filename="../WalletAdapter.cpp" line="632"/>
         <source>Object not found</source>
         <translation>对象未找到</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="627"/>
+        <location filename="../WalletAdapter.cpp" line="633"/>
         <source>Requested wallet not found</source>
         <translation>请求的钱包未找到</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="628"/>
+        <location filename="../WalletAdapter.cpp" line="634"/>
         <source>Change address required</source>
         <translation>需要更改地址</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="629"/>
+        <location filename="../WalletAdapter.cpp" line="635"/>
         <source>Change address not found</source>
         <translation>更改地址未找到</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="630"/>
+        <location filename="../WalletAdapter.cpp" line="636"/>
         <source>Destination address required</source>
         <translation>需要目标地址</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="631"/>
+        <location filename="../WalletAdapter.cpp" line="637"/>
         <source>Destination address not found</source>
         <translation>目标地址未找到</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="632"/>
+        <location filename="../WalletAdapter.cpp" line="638"/>
         <source>Wrong payment id format</source>
         <translation>付款ID格式错误</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="633"/>
+        <location filename="../WalletAdapter.cpp" line="639"/>
         <source>Wrong transaction extra format</source>
         <translation>交易额外格式错误</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="634"/>
+        <location filename="../WalletAdapter.cpp" line="640"/>
         <source>Unknown error</source>
         <translation>未知错误</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="714"/>
+        <location filename="../WalletAdapter.cpp" line="720"/>
         <source>  Warning: last block was received %1 hours %2 minutes ago</source>
         <translation>  系统提醒：上个区块已于%1小时%2分钟前收到</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="715"/>
+        <location filename="../WalletAdapter.cpp" line="721"/>
         <source>Wallet synchronized. Height: %1  |  Time (UTC): %2%3</source>
         <translation>钱包已同步。高度：%1 | 时间（UTC）：%2%3</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="767"/>
+        <location filename="../WalletAdapter.cpp" line="773"/>
         <source>Mnemonic seed is not correct</source>
         <translation>助记种子不正确</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="767"/>
+        <location filename="../WalletAdapter.cpp" line="773"/>
         <source>There must be an error in mnemonic seed. Make sure you entered it correctly.</source>
         <translation>助记种子有误，请确保输入正确的数据。</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="782"/>
+        <location filename="../WalletAdapter.cpp" line="789"/>
         <source>Failed to get the transaction proof</source>
         <translation>未能获得交易证明</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="782"/>
+        <location filename="../WalletAdapter.cpp" line="789"/>
         <source>Failed to get the transaction proof.</source>
         <translation>无法获得交易证明。</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="792"/>
-        <location filename="../WalletAdapter.cpp" line="804"/>
+        <location filename="../WalletAdapter.cpp" line="797"/>
+        <location filename="../WalletAdapter.cpp" line="810"/>
         <source>Failed to get the reserve proof</source>
         <translation>无法获得储备金证明</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="792"/>
+        <location filename="../WalletAdapter.cpp" line="797"/>
         <source>This is tracking wallet. The reserve proof can be generated only by a full wallet.</source>
         <translation>这是跟踪钱包。 储备证明只能由完整的钱包生成。</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="804"/>
+        <location filename="../WalletAdapter.cpp" line="810"/>
         <source>Failed to get the reserve proof.</source>
         <translation>无法获得储备金证明。</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="813"/>
+        <location filename="../WalletAdapter.cpp" line="818"/>
         <source>Failed to sign message</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="813"/>
+        <location filename="../WalletAdapter.cpp" line="818"/>
         <source>This is tracking wallet. The message can be signed only by a full wallet.</source>
         <translation type="unfinished"></translation>
     </message>

@@ -2443,6 +2443,10 @@ Are you sure?</source>
         <translation>У вас є незмішуваний баланс який можна вислати лишень з нульовим рівнем приватності.
 Продовжити з нульовим рівнем?</translation>
     </message>
+    <message>
+        <source>Invalid amount</source>
+        <translation>Неправильна сума</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::SendGlassFrame</name>
@@ -2994,6 +2998,10 @@ when the wallet is synchronized</source>
     <message>
         <source>This is tracking wallet. The message can be signed only by a full wallet.</source>
         <translation>Це гаманець стеження. Повідомлення може бути підписане лише повним гаманцем.</translation>
+    </message>
+    <message>
+        <source>Offline</source>
+        <translation>Не в мережі</translation>
     </message>
 </context>
 </TS>

@@ -2445,6 +2445,10 @@ Are you sure?</source>
         <translation>شما سکه های غیر قابل مخلوطی دارید که فقط با سطح حریم شخصی صفر می توانید هزینه کنید.
 آیا ما با حریم صفر ادامه خواهیم داد؟</translation>
     </message>
+    <message>
+        <source>Invalid amount</source>
+        <translation>مقدار نامعتبر است</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::SendGlassFrame</name>
@@ -2975,6 +2979,10 @@ when the wallet is synchronized</source>
     </message>
     <message>
         <source>This is tracking wallet. The message can be signed only by a full wallet.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Offline</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
