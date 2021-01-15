@@ -341,6 +341,14 @@ void SendFrame::sendClicked() {
       return;
     }
 
+    if (!m_ui->m_paymentIdEdit->text().isEmpty()) {
+      QByteArray paymentIdString = m_ui->m_paymentIdEdit->text().toUtf8();
+      if (!isValidPaymentId(paymentIdString)) {
+        QCoreApplication::postEvent(&MainWindow::instance(), new ShowMessageEvent(tr("Invalid payment ID"), QtCriticalMsg));
+        return;
+      }
+    }
+
     walletTransfer.amount = amount;
     walletTransfers.push_back(walletTransfer);
     QString label = transfer->getLabel();
@@ -396,12 +404,6 @@ void SendFrame::sendClicked() {
   }
   if (dlg.exec() == QDialog::Accepted) {
     if (WalletAdapter::instance().isOpen()) {
-      QByteArray paymentIdString = m_ui->m_paymentIdEdit->text().toUtf8();
-      if (!isValidPaymentId(paymentIdString)) {
-        QCoreApplication::postEvent(&MainWindow::instance(), new ShowMessageEvent(tr("Invalid payment ID"), QtCriticalMsg));
-        return;
-      }
-
       if (!m_ui->dontRelayCheckBox->isChecked()) {
         WalletAdapter::instance().sendTransaction(walletTransfers, fee, m_ui->m_paymentIdEdit->text(), m_ui->m_mixinSlider->value());
       } else {
