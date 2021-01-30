@@ -2465,7 +2465,7 @@ Czy kontynuować bez prywatności?</translation>
     </message>
     <message>
         <source>Send</source>
-        <translation></translation>
+        <translation>Wyślij</translation>
     </message>
 </context>
 <context>

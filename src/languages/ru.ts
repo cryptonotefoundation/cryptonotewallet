@@ -2457,7 +2457,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>Send</source>
-        <translation></translation>
+        <translation>Выслать</translation>
     </message>
 </context>
 <context>
