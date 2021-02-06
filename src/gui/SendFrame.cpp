@@ -305,20 +305,12 @@ void SendFrame::sendClicked() {
     return;
   }
 
-  if (Settings::instance().isEncrypted()) {
-    PasswordDialog pass_dlg(false, this);
-    if (pass_dlg.exec() == QDialog::Accepted) {
-      QString password = pass_dlg.getPassword();
-      if (!WalletAdapter::instance().tryOpen(password)) {
-        QMessageBox::critical(nullptr, tr("Incorrect password"), tr("Wrong password."), QMessageBox::Ok);
-        return;
-      }
-    }
-    else {
+  if (!m_ui->m_paymentIdEdit->text().isEmpty()) {
+    QByteArray paymentIdString = m_ui->m_paymentIdEdit->text().toUtf8();
+    if (!isValidPaymentId(paymentIdString)) {
+      QCoreApplication::postEvent(&MainWindow::instance(), new ShowMessageEvent(tr("Invalid payment ID"), QtCriticalMsg));
       return;
     }
-  } else if (!WalletAdapter::instance().tryOpen("")) {
-    return;
   }
 
   std::vector<CryptoNote::WalletLegacyTransfer> walletTransfers;
@@ -339,14 +331,6 @@ void SendFrame::sendClicked() {
         &MainWindow::instance(),
         new ShowMessageEvent(tr("Invalid amount"), QtCriticalMsg));
       return;
-    }
-
-    if (!m_ui->m_paymentIdEdit->text().isEmpty()) {
-      QByteArray paymentIdString = m_ui->m_paymentIdEdit->text().toUtf8();
-      if (!isValidPaymentId(paymentIdString)) {
-        QCoreApplication::postEvent(&MainWindow::instance(), new ShowMessageEvent(tr("Invalid payment ID"), QtCriticalMsg));
-        return;
-      }
     }
 
     walletTransfer.amount = amount;
@@ -391,6 +375,22 @@ void SendFrame::sendClicked() {
   }
   if (total_transaction_amount > (WalletAdapter::instance().getActualBalance() - fee)) {
     QMessageBox::critical(this, tr("Insufficient balance"), tr("Available balance is insufficient to send this transaction. Have you excluded a fee?"), QMessageBox::Ok);
+    return;
+  }
+
+  if (Settings::instance().isEncrypted()) {
+    PasswordDialog pass_dlg(false, this);
+    if (pass_dlg.exec() == QDialog::Accepted) {
+      QString password = pass_dlg.getPassword();
+      if (!WalletAdapter::instance().tryOpen(password)) {
+        QMessageBox::critical(nullptr, tr("Incorrect password"), tr("Wrong password."), QMessageBox::Ok);
+        return;
+      }
+    }
+    else {
+      return;
+    }
+  } else if (!WalletAdapter::instance().tryOpen("")) {
     return;
   }
 
