@@ -248,6 +248,25 @@
     </message>
 </context>
 <context>
+    <name>CoinsFrame</name>
+    <message>
+        <source>Frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search...</source>
+        <translation>Buscar...</translation>
+    </message>
+    <message>
+        <source>Send selected</source>
+        <translation>Enviar selecionado</translation>
+    </message>
+    <message>
+        <source>Selected amount: </source>
+        <translation>Total selecionado: </translation>
+    </message>
+</context>
+<context>
     <name>ConfirmSendDialog</name>
     <message>
         <source>Comfirm sending %1 KRB</source>
@@ -834,6 +853,10 @@ Por favor aguarde...</translation>
         <source>Hide everything when wallet is locked</source>
         <translation>Ocultar tudo quando a carteira estiver bloqueada</translation>
     </message>
+    <message>
+        <source>Coins</source>
+        <translation>Moedas</translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
@@ -1120,6 +1143,77 @@ Por favor aguarde...</translation>
     <message>
         <source>Wallet optimization is a background task performed in order to aggregate transactions outputs that are below optimization target into bigger ones. It allows to send larger amounts of KRB within one transaction. Wallet optimization is free for all users but takes some time.</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>OutputDetailsDialog</name>
+    <message>
+        <source>Output</source>
+        <translation>Saída</translation>
+    </message>
+    <message>
+        <source>Spent at height</source>
+        <translation>Gasto na altura</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation>Status</translation>
+    </message>
+    <message>
+        <source>Global index</source>
+        <translation>Índice global</translation>
+    </message>
+    <message>
+        <source>Input index in spending transaction</source>
+        <translation>Índice de entrada na transação de gastos</translation>
+    </message>
+    <message>
+        <source>Public key (stealth address)</source>
+        <translation>Chave pública (endereço secreto)</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Quantidade</translation>
+    </message>
+    <message>
+        <source>Spent in transaction</source>
+        <translation>Gastado em transação</translation>
+    </message>
+    <message>
+        <source>Transaction hash</source>
+        <translation>Hash de transação</translation>
+    </message>
+    <message>
+        <source>Key image</source>
+        <translation>Imagem da chave</translation>
+    </message>
+    <message>
+        <source>Index in transaction</source>
+        <translation>Índice em transação</translation>
+    </message>
+    <message>
+        <source>Timestamp</source>
+        <translation>Timestamp</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Tipo</translation>
+    </message>
+    <message>
+        <source>Transaction public key</source>
+        <translation>Chave pública de transação</translation>
+    </message>
+    <message>
+        <source>&lt;&lt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&gt;&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ok</source>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -1771,6 +1865,37 @@ Você quer ir à página de dowload?</translation>
     </message>
 </context>
 <context>
+    <name>WalletGui::CoinsFrame</name>
+    <message>
+        <source>Copy transaction &amp;hash</source>
+        <translation>Cópia e transações amp;hash</translation>
+    </message>
+    <message>
+        <source>Copy &amp;key</source>
+        <translation>Copiar &amp;chave</translation>
+    </message>
+    <message>
+        <source>Copy &amp;global index</source>
+        <translation>Copiar índice &amp;global</translation>
+    </message>
+    <message>
+        <source>Show &amp;details</source>
+        <translation>&amp;Leia mais</translation>
+    </message>
+    <message>
+        <source>All types</source>
+        <translation>Todos os tipos</translation>
+    </message>
+    <message>
+        <source>Spent</source>
+        <translation>Gasto</translation>
+    </message>
+    <message>
+        <source>Unspent</source>
+        <translation>Não gasto</translation>
+    </message>
+</context>
+<context>
     <name>WalletGui::CommandLineParser</name>
     <message>
         <source>Used to deploy test nets. Checkpoints and hardcoded seeds are ignored, network id is changed. Use it with –data-dir flag. The wallet must be launched with –testnet flag</source>
@@ -1855,6 +1980,10 @@ Você quer ir à página de dowload?</translation>
     <message>
         <source>height</source>
         <translation>Altura</translation>
+    </message>
+    <message>
+        <source>Use LevelDB instead of RocksDB</source>
+        <translation>Use LevelDB em vez de RocksDB</translation>
     </message>
 </context>
 <context>
@@ -2342,6 +2471,85 @@ Você tem certeza?</translation>
     <message>
         <source>Wallet is closed</source>
         <translation>Carteira é fechada</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui::OutputsModel</name>
+    <message>
+        <source>Status</source>
+        <translation>Status</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Tipo</translation>
+    </message>
+    <message>
+        <source>Public key (stealth address)</source>
+        <translation>Chave pública (endereço secreto)</translation>
+    </message>
+    <message>
+        <source>Transaction hash</source>
+        <translation>Hash de transação</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Quantidade</translation>
+    </message>
+    <message>
+        <source>Global index</source>
+        <translation>Índice global</translation>
+    </message>
+    <message>
+        <source>Index in transaction</source>
+        <translation>Índice em transação</translation>
+    </message>
+    <message>
+        <source>Transaction public key</source>
+        <translation>Chave pública de transação</translation>
+    </message>
+    <message>
+        <source>Spent at height</source>
+        <translation>Gasto na altura</translation>
+    </message>
+    <message>
+        <source>Timestamp</source>
+        <translation>Timestamp</translation>
+    </message>
+    <message>
+        <source>Spent in transaction</source>
+        <translation>Gastado em transação</translation>
+    </message>
+    <message>
+        <source>Key image</source>
+        <translation>Imagem da chave</translation>
+    </message>
+    <message>
+        <source>As input</source>
+        <translation>Como entrada</translation>
+    </message>
+    <message>
+        <source>Spent</source>
+        <translation>Gasto</translation>
+    </message>
+    <message>
+        <source>Unspent</source>
+        <translation>Não gasto</translation>
+    </message>
+    <message>
+        <source>Key</source>
+        <translation>Chave</translation>
+    </message>
+    <message>
+        <source>Multisignature</source>
+        <translation>Multisignature</translation>
+    </message>
+    <message>
+        <source>Invalid</source>
+        <translation>Inválido</translation>
+    </message>
+    <message>
+        <source>Pending</source>
+        <translation>Pendente</translation>
     </message>
 </context>
 <context>
@@ -3021,7 +3229,7 @@ quando a carteira vai terminar de sincronizar</translation>
     </message>
     <message>
         <source>Offline</source>
-        <translation type="unfinished"></translation>
+        <translation>Desligado</translation>
     </message>
 </context>
 </TS>

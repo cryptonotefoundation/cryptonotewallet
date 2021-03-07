@@ -685,6 +685,22 @@
    </hints>
   </connection>
   <connection>
+   <sender>m_feeSpin</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>SendFrame</receiver>
+   <slot>feeValueChanged(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>188</x>
+     <y>522</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>432</x>
+     <y>294</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
    <sender>m_manualFeeCheckBox</sender>
    <signal>toggled(bool)</signal>
    <receiver>m_feeSpin</receiver>
@@ -732,6 +748,54 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>donateCheckBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>SendFrame</receiver>
+   <slot>donateToggled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>602</x>
+     <y>483</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>432</x>
+     <y>294</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_manualFeeCheckBox</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>SendFrame</receiver>
+   <slot>feeOverrideToggled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>602</x>
+     <y>447</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>432</x>
+     <y>294</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_donateSpin</sender>
+   <signal>valueChanged(double)</signal>
+   <receiver>SendFrame</receiver>
+   <slot>donateValueChanged(double)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>780</x>
+     <y>483</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>432</x>
+     <y>294</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>sendClicked()</slot>
@@ -740,7 +804,11 @@
   <slot>addRecipientClicked()</slot>
   <slot>mixinValueChanged(int)</slot>
   <slot>priorityValueChanged(int)</slot>
+  <slot>feeValueChanged(double)</slot>
+  <slot>donateValueChanged(double)</slot>
   <slot>advancedClicked(bool)</slot>
   <slot>dontRelayToggled(bool)</slot>
+  <slot>donateToggled(bool)</slot>
+  <slot>feeOverrideToggled(bool)</slot>
  </slots>
 </ui>
