@@ -9,6 +9,8 @@ jobs:
   build-windows:
     name: Windows
     runs-on: windows-latest
+    env:
+      BOOST_ROOT: C:\thirdparties\boost-1.72.0
     steps:
       - uses: actions/checkout@master
         with:
@@ -16,6 +18,13 @@ jobs:
 
       - name: Add msbuild to PATH
         uses: microsoft/setup-msbuild@v1.0.2
+
+      - name: Install Boost
+        shell: cmd
+        run: |
+          choco install wget --no-progress
+          wget -nv -O boost-installer.exe "https://sourceforge.net/projects/boost/files/boost-binaries/1.72.0/boost_1_72_0-msvc-14.2-64.exe/download"
+          boost-installer.exe /dir=%BOOST_ROOT% /sp- /verysilent /suppressmsgboxes /norestart
 
       - name: Install OpenSSL
         run: choco install openssl
@@ -38,7 +47,6 @@ jobs:
         shell: powershell
         id: build
         env:
-          BOOST_ROOT: ${{ env.BOOST_ROOT_1_72_0 }}
           GIT_REDIRECT_STDERR: '2>&1'
           VCINSTALLDIR: 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\'
         run: |
@@ -51,7 +59,7 @@ jobs:
           git clone https://github.com/seredat/karbowanec cryptonote --quiet
           mkdir "$build_folder"
           cd "$build_folder"
-          Start-Process cmake -ArgumentList "-DBOOST_ROOT=""$env:BOOST_ROOT_1_72_0"" -G ""Visual Studio 16 2019"" -A x64 -DARCH=default",".." -NoNewWindow -Wait
+          Start-Process cmake -ArgumentList "-DBOOST_ROOT=""$env:BOOST_ROOT"" -DBOOST_INCLUDE_DIRS=""$env:BOOST_ROOT/include"" -G ""Visual Studio 16 2019"" -A x64 -DARCH=default",".." -NoNewWindow -Wait
           Start-Process msbuild -ArgumentList "KarbowanecWallet.sln","/p:Configuration=Release" -NoNewWindow -Wait
           $build_path = "./$build_folder"
           echo "::set-output name=build_path::${build_path}"
