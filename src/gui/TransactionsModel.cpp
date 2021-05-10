@@ -84,29 +84,6 @@ QVariant TransactionsModel::headerData(int _section, Qt::Orientation _orientatio
 
   switch(_role) {
   case Qt::DisplayRole:
-    switch(_section) {
-    case COLUMN_STATE:
-      return QVariant();
-    case COLUMN_DATE:
-      return tr("Date");
-    case COLUMN_TYPE:
-      return tr("Type");
-    case COLUMN_HASH:
-      return tr("Hash");
-    case COLUMN_SECRET_KEY:
-      return tr("Key");
-    case COLUMN_ADDRESS:
-      return tr("Address");
-    case COLUMN_AMOUNT:
-      return tr("Amount");
-    case COLUMN_FEE:
-      return tr("Fee");
-    case COLUMN_PAYMENT_ID:
-      return tr("PaymentID");
-    default:
-      break;
-    }
-
   case Qt::EditRole:
     switch(_section) {
     case COLUMN_STATE:
