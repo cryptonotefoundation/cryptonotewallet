@@ -76,6 +76,9 @@ gui/SignMessageDialog.cpp \
 gui/OptimizationSettings.cpp \
 gui/GetBalanceProofDialog.cpp \
 gui/ExportRawTxDialog.cpp \
+gui/CoinsFrame.cpp \
+gui/OutputsModel.cpp \
+gui/OutputDetailsDialog.cpp \
  
 
 HEADERS = CommandLineParser.h \
@@ -141,6 +144,9 @@ gui/SignMessageDialog.h \
 gui/OptimizationSettings.h \
 gui/GetBalanceProofDialog.h \
 gui/ExportRawTxDialog.h \
+gui/CoinsFrame.h \
+gui/OutputsModel.h \
+gui/OutputDetailsDialog.h \
 
 
 FORMS = gui/ui/aboutdialog.ui \
@@ -183,6 +189,8 @@ gui/ui/signmessagedialog.ui \
 gui/ui/optimizationsettingsdialog.ui \
 gui/ui/getbalanceproofdialog.ui \
 gui/ui/exportrawtxdialog.ui \
+gui/ui/coinsframe.ui \
+gui/ui/outputdetailsdialog.ui \
 
 
 TRANSLATIONS = 	languages/uk.ts \

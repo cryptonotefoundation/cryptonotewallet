@@ -232,6 +232,25 @@
     </message>
 </context>
 <context>
+    <name>CoinsFrame</name>
+    <message>
+        <source>Frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search...</source>
+        <translation>Пошук...</translation>
+    </message>
+    <message>
+        <source>Send selected</source>
+        <translation>Надіслати вибране</translation>
+    </message>
+    <message>
+        <source>Selected amount: </source>
+        <translation>Разом у вибраному: </translation>
+    </message>
+</context>
+<context>
     <name>ConfirmSendDialog</name>
     <message>
         <source>Confirm sending %1 KRB</source>
@@ -791,7 +810,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Import keys</source>
-        <translation type="unfinished">Імпортувати ключі</translation>
+        <translation>Імпортувати ключі</translation>
     </message>
     <message>
         <source>Don&apos;t show wallet optimization transactions</source>
@@ -808,6 +827,10 @@ Please wait...</source>
     <message>
         <source>Hide everything when wallet is locked</source>
         <translation>Сховати все, коли гаманець заблокований</translation>
+    </message>
+    <message>
+        <source>Coins</source>
+        <translation>Монети</translation>
     </message>
 </context>
 <context>
@@ -1095,6 +1118,77 @@ Please wait...</source>
     <message>
         <source>Wallet optimization is a background task performed in order to aggregate transactions outputs that are below optimization target into bigger ones. It allows to send larger amounts of KRB within one transaction. Wallet optimization is free for all users but takes some time.</source>
         <translation>Оптимізація гаманця - це фонове завдання, що виконується для об&apos;єднання виходів транзакцій, які нижче цільового показника оптимізації, в більш великі. Це дозволяє відправляти великі суми KRB в одній транзакції. Оптимізація гаманця безкоштовна для всіх користувачів, але займає деякий час.</translation>
+    </message>
+</context>
+<context>
+    <name>OutputDetailsDialog</name>
+    <message>
+        <source>Output</source>
+        <translation>Вихід</translation>
+    </message>
+    <message>
+        <source>Spent at height</source>
+        <translation>Витрачено на висоті</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation>Стан</translation>
+    </message>
+    <message>
+        <source>Global index</source>
+        <translation>Глобальний індекс</translation>
+    </message>
+    <message>
+        <source>Input index in spending transaction</source>
+        <translation>Індекс входу в витратній транзакції</translation>
+    </message>
+    <message>
+        <source>Public key (stealth address)</source>
+        <translation>Публічний ключ (стелс-адреса)</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Сума</translation>
+    </message>
+    <message>
+        <source>Spent in transaction</source>
+        <translation>Витрачено в транзакції</translation>
+    </message>
+    <message>
+        <source>Transaction hash</source>
+        <translation>Хеш транзакції</translation>
+    </message>
+    <message>
+        <source>Key image</source>
+        <translation>Зображення ключа</translation>
+    </message>
+    <message>
+        <source>Index in transaction</source>
+        <translation>Індекс в транзакції</translation>
+    </message>
+    <message>
+        <source>Timestamp</source>
+        <translation>Мітка часу</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Тип</translation>
+    </message>
+    <message>
+        <source>Transaction public key</source>
+        <translation>Публічний ключ транзакції</translation>
+    </message>
+    <message>
+        <source>&lt;&lt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&gt;&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ok</source>
+        <translation>Гаразд</translation>
     </message>
 </context>
 <context>
@@ -1746,6 +1840,37 @@ Do you want to go to the download page?</source>
     </message>
 </context>
 <context>
+    <name>WalletGui::CoinsFrame</name>
+    <message>
+        <source>Copy transaction &amp;hash</source>
+        <translation>Скопіювати &amp;хеш транзакції</translation>
+    </message>
+    <message>
+        <source>Copy &amp;key</source>
+        <translation>Копіювати &amp;ключ</translation>
+    </message>
+    <message>
+        <source>Copy &amp;global index</source>
+        <translation>Скопіювати &amp;глобальний індекс</translation>
+    </message>
+    <message>
+        <source>Show &amp;details</source>
+        <translation>&amp;Детальніше</translation>
+    </message>
+    <message>
+        <source>All types</source>
+        <translation>Всі типи</translation>
+    </message>
+    <message>
+        <source>Spent</source>
+        <translation>Витрачено</translation>
+    </message>
+    <message>
+        <source>Unspent</source>
+        <translation>Не витрачено</translation>
+    </message>
+</context>
+<context>
     <name>WalletGui::CommandLineParser</name>
     <message>
         <source>Used to deploy test nets. Checkpoints and hardcoded seeds are ignored, network id is changed. Use it with –data-dir flag. The wallet must be launched with –testnet flag</source>
@@ -1826,6 +1951,10 @@ Do you want to go to the download page?</source>
     <message>
         <source>height</source>
         <translation>Висота</translation>
+    </message>
+    <message>
+        <source>Use LevelDB instead of RocksDB</source>
+        <translation>Використовувати LevelDB замість RocksDB</translation>
     </message>
 </context>
 <context>
@@ -2318,6 +2447,85 @@ Are you sure?</source>
     <message>
         <source>Wallet is closed</source>
         <translation>Гаманець закритий</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui::OutputsModel</name>
+    <message>
+        <source>Status</source>
+        <translation>Стан</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Тип</translation>
+    </message>
+    <message>
+        <source>Public key (stealth address)</source>
+        <translation>Публічний ключ (стелс-адреса)</translation>
+    </message>
+    <message>
+        <source>Transaction hash</source>
+        <translation>Хеш транзакції</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Сума</translation>
+    </message>
+    <message>
+        <source>Global index</source>
+        <translation>Глобальний індекс</translation>
+    </message>
+    <message>
+        <source>Index in transaction</source>
+        <translation>Індекс в транзакції</translation>
+    </message>
+    <message>
+        <source>Transaction public key</source>
+        <translation>Публічний ключ транзакції</translation>
+    </message>
+    <message>
+        <source>Spent at height</source>
+        <translation>Витрачено на висоті</translation>
+    </message>
+    <message>
+        <source>Timestamp</source>
+        <translation>Мітка часу</translation>
+    </message>
+    <message>
+        <source>Spent in transaction</source>
+        <translation>Витрачено в транзакції</translation>
+    </message>
+    <message>
+        <source>Key image</source>
+        <translation>Зображення ключа</translation>
+    </message>
+    <message>
+        <source>As input</source>
+        <translation>Як вхід</translation>
+    </message>
+    <message>
+        <source>Spent</source>
+        <translation>Витрачено</translation>
+    </message>
+    <message>
+        <source>Unspent</source>
+        <translation>Не витрачено</translation>
+    </message>
+    <message>
+        <source>Key</source>
+        <translation>Ключ</translation>
+    </message>
+    <message>
+        <source>Multisignature</source>
+        <translation>Мультипідпис</translation>
+    </message>
+    <message>
+        <source>Invalid</source>
+        <translation>Недійсний</translation>
+    </message>
+    <message>
+        <source>Pending</source>
+        <translation>В очікуванні</translation>
     </message>
 </context>
 <context>

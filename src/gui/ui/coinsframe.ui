@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CoinsFrame</class>
+ <widget class="QFrame" name="CoinsFrame">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>675</width>
+    <height>486</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Frame</string>
+  </property>
+  <property name="frameShape">
+   <enum>QFrame::StyledPanel</enum>
+  </property>
+  <property name="frameShadow">
+   <enum>QFrame::Raised</enum>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <item>
+      <widget class="QComboBox" name="m_typeSelect"/>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="m_searchFor">
+       <property name="placeholderText">
+        <string>Search...</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="m_clearAllButton">
+       <property name="icon">
+        <iconset resource="../../resources.qrc">
+         <normaloff>:/icons/remove</normaloff>:/icons/remove</iconset>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QTreeView" name="m_outputsView">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>280</height>
+      </size>
+     </property>
+     <property name="sizeAdjustPolicy">
+      <enum>QAbstractScrollArea::AdjustIgnored</enum>
+     </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::CurrentChanged|QAbstractItemView::EditKeyPressed|QAbstractItemView::SelectedClicked</set>
+     </property>
+     <property name="alternatingRowColors">
+      <bool>true</bool>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::ExtendedSelection</enum>
+     </property>
+     <property name="rootIsDecorated">
+      <bool>false</bool>
+     </property>
+     <property name="uniformRowHeights">
+      <bool>true</bool>
+     </property>
+     <property name="itemsExpandable">
+      <bool>false</bool>
+     </property>
+     <property name="sortingEnabled">
+      <bool>false</bool>
+     </property>
+     <attribute name="headerCascadingSectionResizes">
+      <bool>true</bool>
+     </attribute>
+     <attribute name="headerShowSortIndicator" stdset="0">
+      <bool>false</bool>
+     </attribute>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="m_sendButton">
+       <property name="text">
+        <string>Send selected</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../../resources.qrc">
+         <normaloff>:/icons/send</normaloff>:/icons/send</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Selected amount: </string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="m_selectedAmount">
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="../../resources.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>m_outputsView</sender>
+   <signal>doubleClicked(QModelIndex)</signal>
+   <receiver>CoinsFrame</receiver>
+   <slot>outputDoubleClicked(QModelIndex)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>337</x>
+     <y>158</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>337</x>
+     <y>179</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_clearAllButton</sender>
+   <signal>clicked()</signal>
+   <receiver>CoinsFrame</receiver>
+   <slot>resetFilterClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>652</x>
+     <y>21</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>337</x>
+     <y>242</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_sendButton</sender>
+   <signal>clicked()</signal>
+   <receiver>CoinsFrame</receiver>
+   <slot>sendClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>58</x>
+     <y>503</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>386</x>
+     <y>287</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>outputDoubleClicked(QModelIndex)</slot>
+  <slot>pasteClicked()</slot>
+  <slot>sendClicked()</slot>
+  <slot>addressEdited(QString)</slot>
+  <slot>addressBookClicked()</slot>
+  <slot>resetFilterClicked()</slot>
+ </slots>
+</ui>

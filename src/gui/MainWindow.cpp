@@ -1,7 +1,7 @@
 // Copyright (c) 2011-2016 The Cryptonote developers
 // Copyright (c) 2011-2013 The Bitcoin Core developers
 // Copyright (c) 2015-2016 XDN developers
-// Copyright (c) 2016-20219 The Karbowanec developers
+// Copyright (c) 2016-2021 The Karbo developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -53,6 +53,7 @@
 #include "MnemonicSeedDialog.h"
 #include "ConfirmSendDialog.h"
 #include "TranslatorManager.h"
+#include "CoinsFrame.h"
 
 #ifdef Q_OS_MAC
 #include "macdockiconhandler.h"
@@ -134,6 +135,7 @@ void MainWindow::connectToSignals() {
   connect(m_ui->m_noWalletFrame, &NoWalletFrame::openWalletClickedSignal, this, &MainWindow::openWallet, Qt::QueuedConnection);
   connect(m_ui->m_addressBookFrame, &AddressBookFrame::payToSignal, this, &MainWindow::payTo);
   connect(m_connectionStateIconLabel, SIGNAL(clicked()), this, SLOT(showStatusInfo()));
+  connect(m_ui->m_coinsFrame, &CoinsFrame::sendOutputsSignal, this, &MainWindow::onSendOutputs, Qt::QueuedConnection);
 }
 
 void MainWindow::setMainWindowTitle() {
@@ -162,12 +164,14 @@ void MainWindow::initUi() {
   m_ui->m_receiveFrame->hide();
   m_ui->m_transactionsFrame->hide();
   m_ui->m_addressBookFrame->hide();
+  m_ui->m_coinsFrame->hide();
 
   m_tabActionGroup->addAction(m_ui->m_overviewAction);
   m_tabActionGroup->addAction(m_ui->m_sendAction);
   m_tabActionGroup->addAction(m_ui->m_receiveAction);
   m_tabActionGroup->addAction(m_ui->m_transactionsAction);
   m_tabActionGroup->addAction(m_ui->m_addressBookAction);
+  m_tabActionGroup->addAction(m_ui->m_coinsAction);
 
   m_syncProgressBar->setMaximum(maxProgressBar);
   m_syncProgressBar->setMinimum(0);
@@ -897,6 +901,16 @@ void MainWindow::onUriOpenSignal() {
   m_ui->m_sendAction->trigger();
 }
 
+void MainWindow::onSendOutputs(QList<CryptoNote::TransactionOutputInformation> _selectedOutputs) {
+  if (Settings::instance().isTrackingMode()) {
+    isTrackingMode();
+    return;
+  }
+
+  m_ui->m_sendFrame->sendOutputs(_selectedOutputs);
+  m_ui->m_sendAction->trigger();
+}
+
 void MainWindow::encryptWallet() {
   if (Settings::instance().isEncrypted()) {
     bool error = false;
@@ -1036,6 +1050,7 @@ void MainWindow::lockWalletWithPassword() {
     m_ui->m_sendFrame->hide();
     m_ui->m_transactionsFrame->hide();
     m_ui->m_addressBookFrame->hide();
+    m_ui->m_coinsFrame->hide();
   }
   bool keep_asking = true;
   bool wrong_pass = false;
@@ -1193,6 +1208,7 @@ void MainWindow::walletClosed() {
   m_ui->m_sendFrame->hide();
   m_ui->m_transactionsFrame->hide();
   m_ui->m_addressBookFrame->hide();
+  m_ui->m_coinsFrame->hide();
   m_ui->m_noWalletFrame->show();
   m_encryptionStateIconLabel->hide();
   m_trackingModeIconLabel->hide();

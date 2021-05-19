@@ -232,6 +232,25 @@
     </message>
 </context>
 <context>
+    <name>CoinsFrame</name>
+    <message>
+        <source>Frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search...</source>
+        <translation>Szukaj...</translation>
+    </message>
+    <message>
+        <source>Send selected</source>
+        <translation>Wyślij wybrane</translation>
+    </message>
+    <message>
+        <source>Selected amount: </source>
+        <translation>Razem w wybranym: </translation>
+    </message>
+</context>
+<context>
     <name>ConfirmSendDialog</name>
     <message>
         <source>Confirm sending %1 KRB</source>
@@ -810,6 +829,10 @@ Proszę czekać...</translation>
         <source>Hide everything when wallet is locked</source>
         <translation>Ukryj wszystko, gdy portfel jest zablokowany</translation>
     </message>
+    <message>
+        <source>Coins</source>
+        <translation>Monety</translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
@@ -1096,6 +1119,77 @@ Proszę czekać...</translation>
     <message>
         <source>Wallet optimization is a background task performed in order to aggregate transactions outputs that are below optimization target into bigger ones. It allows to send larger amounts of KRB within one transaction. Wallet optimization is free for all users but takes some time.</source>
         <translation>Optymalizacja portfela to zadanie wykonywane w tle w celu agregowania wyjść transakcji, które znajdują się poniżej celu optymalizacji, w większe. Umożliwia to wysyłanie większych kwot KRB w jednej transakcji. Optymalizacja portfela jest bezpłatna dla wszystkich użytkowników, ale zajmuje trochę czasu.</translation>
+    </message>
+</context>
+<context>
+    <name>OutputDetailsDialog</name>
+    <message>
+        <source>Output</source>
+        <translation>Wyjście</translation>
+    </message>
+    <message>
+        <source>Spent at height</source>
+        <translation>Spędzone na wysokości</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation>Stan</translation>
+    </message>
+    <message>
+        <source>Global index</source>
+        <translation>Indeks globalny</translation>
+    </message>
+    <message>
+        <source>Input index in spending transaction</source>
+        <translation>Indeks wejścia w transakcji wydatkującej</translation>
+    </message>
+    <message>
+        <source>Public key (stealth address)</source>
+        <translation>Klucz publiczny (ukryty adres)</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Suma</translation>
+    </message>
+    <message>
+        <source>Spent in transaction</source>
+        <translation>Wydane w transakcji</translation>
+    </message>
+    <message>
+        <source>Transaction hash</source>
+        <translation>Hash transakcji</translation>
+    </message>
+    <message>
+        <source>Key image</source>
+        <translation>Obraz klucza</translation>
+    </message>
+    <message>
+        <source>Index in transaction</source>
+        <translation>Indeks w transakcji</translation>
+    </message>
+    <message>
+        <source>Timestamp</source>
+        <translation>Sygnatura czasowa</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Typ</translation>
+    </message>
+    <message>
+        <source>Transaction public key</source>
+        <translation>Klucz publiczny transakcji</translation>
+    </message>
+    <message>
+        <source>&lt;&lt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&gt;&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ok</source>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -1754,6 +1848,37 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
     </message>
 </context>
 <context>
+    <name>WalletGui::CoinsFrame</name>
+    <message>
+        <source>Copy transaction &amp;hash</source>
+        <translation>Skopiuj &amp;hash transakcji</translation>
+    </message>
+    <message>
+        <source>Copy &amp;key</source>
+        <translation>Kopiuj &amp;klucz</translation>
+    </message>
+    <message>
+        <source>Copy &amp;global index</source>
+        <translation>Skopiuj indeks &amp;globalny</translation>
+    </message>
+    <message>
+        <source>Show &amp;details</source>
+        <translation>&amp;Pokaż szczegóły</translation>
+    </message>
+    <message>
+        <source>All types</source>
+        <translation>Wszystkie typy</translation>
+    </message>
+    <message>
+        <source>Spent</source>
+        <translation>Wydany</translation>
+    </message>
+    <message>
+        <source>Unspent</source>
+        <translation>Nie wydany</translation>
+    </message>
+</context>
+<context>
     <name>WalletGui::CommandLineParser</name>
     <message>
         <source>Used to deploy test nets. Checkpoints and hardcoded seeds are ignored, network id is changed. Use it with –data-dir flag. The wallet must be launched with –testnet flag</source>
@@ -1834,6 +1959,10 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
     <message>
         <source>height</source>
         <translation>Wysokość</translation>
+    </message>
+    <message>
+        <source>Use LevelDB instead of RocksDB</source>
+        <translation>Użyj LevelDB zamiast RocksDB</translation>
     </message>
 </context>
 <context>
@@ -2330,6 +2459,85 @@ Jesteś pewien?</translation>
     <message>
         <source>Wallet is closed</source>
         <translation>Portfel jest zamknięty</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui::OutputsModel</name>
+    <message>
+        <source>Status</source>
+        <translation>Stan</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Typ</translation>
+    </message>
+    <message>
+        <source>Public key (stealth address)</source>
+        <translation>Klucz publiczny (ukryty adres)</translation>
+    </message>
+    <message>
+        <source>Transaction hash</source>
+        <translation>Hash transakcji</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Suma</translation>
+    </message>
+    <message>
+        <source>Global index</source>
+        <translation>Indeks globalny</translation>
+    </message>
+    <message>
+        <source>Index in transaction</source>
+        <translation>Indeks w transakcji</translation>
+    </message>
+    <message>
+        <source>Transaction public key</source>
+        <translation>Klucz publiczny transakcji</translation>
+    </message>
+    <message>
+        <source>Spent at height</source>
+        <translation>Spędzone na wysokości</translation>
+    </message>
+    <message>
+        <source>Timestamp</source>
+        <translation>Sygnatura czasowa</translation>
+    </message>
+    <message>
+        <source>Spent in transaction</source>
+        <translation>Wydane w transakcji</translation>
+    </message>
+    <message>
+        <source>Key image</source>
+        <translation>Obraz klucza</translation>
+    </message>
+    <message>
+        <source>As input</source>
+        <translation>Jako wejście</translation>
+    </message>
+    <message>
+        <source>Spent</source>
+        <translation>Wydany</translation>
+    </message>
+    <message>
+        <source>Unspent</source>
+        <translation>Nie wydany</translation>
+    </message>
+    <message>
+        <source>Key</source>
+        <translation>Klucz</translation>
+    </message>
+    <message>
+        <source>Multisignature</source>
+        <translation>Multisignature</translation>
+    </message>
+    <message>
+        <source>Invalid</source>
+        <translation>Nieważny</translation>
+    </message>
+    <message>
+        <source>Pending</source>
+        <translation>W oczekiwaniu</translation>
     </message>
 </context>
 <context>
@@ -3017,7 +3225,7 @@ kiedy portfel skończy synchronizowanie</translation>
     </message>
     <message>
         <source>Offline</source>
-        <translation type="unfinished"></translation>
+        <translation>Offline</translation>
     </message>
 </context>
 </TS>

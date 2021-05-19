@@ -248,6 +248,25 @@
     </message>
 </context>
 <context>
+    <name>CoinsFrame</name>
+    <message>
+        <source>Frame</source>
+        <translation type="unfinished">Cadre</translation>
+    </message>
+    <message>
+        <source>Search...</source>
+        <translation>Chercher...</translation>
+    </message>
+    <message>
+        <source>Send selected</source>
+        <translation>Envoyer la sélection</translation>
+    </message>
+    <message>
+        <source>Selected amount: </source>
+        <translation>Montant sélectionné: </translation>
+    </message>
+</context>
+<context>
     <name>ConfirmSendDialog</name>
     <message>
         <source>Comfirm sending %1 KRB</source>
@@ -825,6 +844,10 @@ S&apos;il vous plaît, patientez...</translation>
         <source>Hide everything when wallet is locked</source>
         <translation>Cachez tout lorsque le portefeuille est verrouillé</translation>
     </message>
+    <message>
+        <source>Coins</source>
+        <translation>Monnaie</translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
@@ -1115,6 +1138,77 @@ S&apos;il vous plaît, patientez...</translation>
     <message>
         <source>Wallet optimization is a background task performed in order to aggregate transactions outputs that are below optimization target into bigger ones. It allows to send larger amounts of KRB within one transaction. Wallet optimization is free for all users but takes some time.</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>OutputDetailsDialog</name>
+    <message>
+        <source>Output</source>
+        <translation>Output</translation>
+    </message>
+    <message>
+        <source>Spent at height</source>
+        <translation>Dépensé en hauteur</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation>Statut</translation>
+    </message>
+    <message>
+        <source>Global index</source>
+        <translation>Indice global</translation>
+    </message>
+    <message>
+        <source>Input index in spending transaction</source>
+        <translation>Indice d&apos;entrée dans la transaction de dépense</translation>
+    </message>
+    <message>
+        <source>Public key (stealth address)</source>
+        <translation>Clé publique (adresse furtive)</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Montant</translation>
+    </message>
+    <message>
+        <source>Spent in transaction</source>
+        <translation>Dépensé en transaction</translation>
+    </message>
+    <message>
+        <source>Transaction hash</source>
+        <translation>Hachage de transaction</translation>
+    </message>
+    <message>
+        <source>Key image</source>
+        <translation>Image de la clé</translation>
+    </message>
+    <message>
+        <source>Index in transaction</source>
+        <translation>Index en transaction</translation>
+    </message>
+    <message>
+        <source>Timestamp</source>
+        <translation>Horodatage</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Type</translation>
+    </message>
+    <message>
+        <source>Transaction public key</source>
+        <translation>Clé publique de transaction</translation>
+    </message>
+    <message>
+        <source>&lt;&lt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&gt;&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ok</source>
+        <translation>Ok</translation>
     </message>
 </context>
 <context>
@@ -1770,6 +1864,37 @@ Voulez-vous aller à la page de téléchargement?</translation>
     </message>
 </context>
 <context>
+    <name>WalletGui::CoinsFrame</name>
+    <message>
+        <source>Copy transaction &amp;hash</source>
+        <translation>Copier la transaction &amp;hash</translation>
+    </message>
+    <message>
+        <source>Copy &amp;key</source>
+        <translation>Copier la &amp;clé</translation>
+    </message>
+    <message>
+        <source>Copy &amp;global index</source>
+        <translation>Copier l&apos;index &amp;global</translation>
+    </message>
+    <message>
+        <source>Show &amp;details</source>
+        <translation>Aficher &amp;details</translation>
+    </message>
+    <message>
+        <source>All types</source>
+        <translation>Tous les types</translation>
+    </message>
+    <message>
+        <source>Spent</source>
+        <translation>Dépensé</translation>
+    </message>
+    <message>
+        <source>Unspent</source>
+        <translation>Non dépensé</translation>
+    </message>
+</context>
+<context>
     <name>WalletGui::CommandLineParser</name>
     <message>
         <source>Used to deploy test nets. Checkpoints and hardcoded seeds are ignored, network id is changed. Use it with –data-dir flag. The wallet must be launched with –testnet flag</source>
@@ -1850,6 +1975,10 @@ Voulez-vous aller à la page de téléchargement?</translation>
     <message>
         <source>height</source>
         <translation>La taille</translation>
+    </message>
+    <message>
+        <source>Use LevelDB instead of RocksDB</source>
+        <translation>Utilisez LevelDB au lieu de RocksDB</translation>
     </message>
 </context>
 <context>
@@ -2337,6 +2466,85 @@ Are you sure?</source>
     <message>
         <source>Wallet is closed</source>
         <translation>Le portefeuille est fermé</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui::OutputsModel</name>
+    <message>
+        <source>Status</source>
+        <translation>Statut</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Type</translation>
+    </message>
+    <message>
+        <source>Public key (stealth address)</source>
+        <translation>Clé publique (adresse furtive)</translation>
+    </message>
+    <message>
+        <source>Transaction hash</source>
+        <translation>Hachage de transaction</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Montant</translation>
+    </message>
+    <message>
+        <source>Global index</source>
+        <translation>Indice global</translation>
+    </message>
+    <message>
+        <source>Index in transaction</source>
+        <translation>Index en transaction</translation>
+    </message>
+    <message>
+        <source>Transaction public key</source>
+        <translation>Clé publique de transaction</translation>
+    </message>
+    <message>
+        <source>Spent at height</source>
+        <translation>Dépensé en hauteur</translation>
+    </message>
+    <message>
+        <source>Timestamp</source>
+        <translation>Horodatage</translation>
+    </message>
+    <message>
+        <source>Spent in transaction</source>
+        <translation>Dépensé en transaction</translation>
+    </message>
+    <message>
+        <source>Key image</source>
+        <translation>Image de la clé</translation>
+    </message>
+    <message>
+        <source>As input</source>
+        <translation>Сomme entrée</translation>
+    </message>
+    <message>
+        <source>Spent</source>
+        <translation>Dépensé</translation>
+    </message>
+    <message>
+        <source>Unspent</source>
+        <translation>Non dépensé</translation>
+    </message>
+    <message>
+        <source>Key</source>
+        <translation>Clé</translation>
+    </message>
+    <message>
+        <source>Multisignature</source>
+        <translation>Multisignature</translation>
+    </message>
+    <message>
+        <source>Invalid</source>
+        <translation>Invalide</translation>
+    </message>
+    <message>
+        <source>Pending</source>
+        <translation>En attente</translation>
     </message>
 </context>
 <context>
@@ -3016,7 +3224,7 @@ quand le portefeuille aura terminé la synchronisation</translation>
     </message>
     <message>
         <source>Offline</source>
-        <translation type="unfinished"></translation>
+        <translation>Hors ligne</translation>
     </message>
 </context>
 </TS>

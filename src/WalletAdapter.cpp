@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2016 The Cryptonote developers
 // Copyright (c) 2015-2016 XDN developers
-// Copyright (c) 2016-2019 The Karbowanec developers
+// Copyright (c) 2016-2021 The Karbo developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -370,12 +370,63 @@ Crypto::SecretKey WalletAdapter::getTxKey(Crypto::Hash& txid) {
   return CryptoNote::NULL_SECRET_KEY;
 }
 
+std::vector<CryptoNote::TransactionOutputInformation> WalletAdapter::getOutputs() {
+  Q_CHECK_PTR(m_wallet);
+  try {
+    return m_wallet->getOutputs();
+  } catch (std::system_error&) {
+  }
+  return {};
+}
+
+std::vector<CryptoNote::TransactionOutputInformation> WalletAdapter::getLockedOutputs() {
+  Q_CHECK_PTR(m_wallet);
+  try {
+    return m_wallet->getLockedOutputs();
+  } catch (std::system_error&) {
+  }
+  return {};
+}
+
+std::vector<CryptoNote::TransactionOutputInformation> WalletAdapter::getUnlockedOutputs() {
+  Q_CHECK_PTR(m_wallet);
+  try {
+    return m_wallet->getLockedOutputs();
+  } catch (std::system_error&) {
+  }
+  return {};
+}
+
+std::vector<CryptoNote::TransactionSpentOutputInformation> WalletAdapter::getSpentOutputs() {
+  Q_CHECK_PTR(m_wallet);
+  try {
+    return m_wallet->getSpentOutputs();
+  } catch (std::system_error&) {
+  }
+  return {};
+}
+
 void WalletAdapter::sendTransaction(const std::vector<CryptoNote::WalletLegacyTransfer>& _transfers, quint64 _fee, const QString& _payment_id, quint64 _mixin) {
   Q_CHECK_PTR(m_wallet);
   try {
     lock();
     Q_EMIT walletStateChangedSignal(tr("Sending transaction"));
     m_wallet->sendTransaction(_transfers, _fee, NodeAdapter::instance().convertPaymentId(_payment_id), _mixin, 0);
+  } catch (std::system_error&) {
+    unlock();
+  }
+}
+
+// Prerequisites: deduce fee from transfers, selected outs amount and tansfers amount + fee should match
+void WalletAdapter::sendTransaction(const std::vector<CryptoNote::WalletLegacyTransfer>& _transfers, const std::list<CryptoNote::TransactionOutputInformation>& _selectedOuts, quint64 _fee, const QString& _payment_id, quint64 _mixin) {
+  Q_CHECK_PTR(m_wallet);
+
+  // can validate here that transfer amount + fee = selected outs amounts
+
+  try {
+    lock();
+    Q_EMIT walletStateChangedSignal(tr("Sending transaction"));
+    m_wallet->sendTransaction(_transfers, _selectedOuts, _fee, NodeAdapter::instance().convertPaymentId(_payment_id), _mixin, 0);
   } catch (std::system_error&) {
     unlock();
   }
@@ -388,6 +439,19 @@ QString WalletAdapter::prepareRawTransaction(const std::vector<CryptoNote::Walle
     Q_EMIT walletStateChangedSignal(tr("Preparing transaction"));
     CryptoNote::TransactionId transactionId;
     return QString::fromStdString(m_wallet->prepareRawTransaction(transactionId, _transfers, _fee, NodeAdapter::instance().convertPaymentId(_payment_id), _mixin, 0));
+  } catch (std::system_error&) {
+    unlock();
+  }
+  return QString();
+}
+
+QString WalletAdapter::prepareRawTransaction(const std::vector<CryptoNote::WalletLegacyTransfer>& _transfers, const std::list<CryptoNote::TransactionOutputInformation>& _selectedOuts, quint64 _fee, const QString& _payment_id, quint64 _mixin) {
+  Q_CHECK_PTR(m_wallet);
+  try {
+    lock();
+    Q_EMIT walletStateChangedSignal(tr("Preparing transaction"));
+    CryptoNote::TransactionId transactionId;
+    return QString::fromStdString(m_wallet->prepareRawTransaction(transactionId, _transfers, _selectedOuts, _fee, NodeAdapter::instance().convertPaymentId(_payment_id), _mixin, 0));
   } catch (std::system_error&) {
     unlock();
   }

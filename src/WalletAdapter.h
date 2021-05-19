@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2016 The Cryptonote developers
 // Copyright (c) 2015-2016 XDN developers
-// Copyright (c) 2016-2019 The Karbowanec developers
+// Copyright (c) 2016-2021 The Karbo developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -55,9 +55,16 @@ public:
   Crypto::SecretKey getTxKey(Crypto::Hash& txid);
   size_t getUnlockedOutputsCount();
 
+  std::vector<CryptoNote::TransactionOutputInformation> getOutputs();
+  std::vector<CryptoNote::TransactionOutputInformation> getLockedOutputs();
+  std::vector<CryptoNote::TransactionOutputInformation> getUnlockedOutputs();
+  std::vector<CryptoNote::TransactionSpentOutputInformation> getSpentOutputs();
+
   void sendTransaction(const std::vector<CryptoNote::WalletLegacyTransfer>& _transfers, quint64 _fee, const QString& _payment_id, quint64 _mixin);
+  void sendTransaction(const std::vector<CryptoNote::WalletLegacyTransfer>& _transfers, const std::list<CryptoNote::TransactionOutputInformation>& _selectedOuts, quint64 _fee, const QString& _payment_id, quint64 _mixin);
 
   QString prepareRawTransaction(const std::vector<CryptoNote::WalletLegacyTransfer>& _transfers, quint64 _fee, const QString& _payment_id, quint64 _mixin);
+  QString prepareRawTransaction(const std::vector<CryptoNote::WalletLegacyTransfer>& _transfers, const std::list<CryptoNote::TransactionOutputInformation>& _selectedOuts, quint64 _fee, const QString& _payment_id, quint64 _mixin);
 
   quint64 estimateFusion(quint64 _threshold);
   std::list<CryptoNote::TransactionOutputInformation> getFusionTransfersToSend(quint64 _threshold, size_t _min_input_count, size_t _max_input_count);

@@ -232,6 +232,25 @@
     </message>
 </context>
 <context>
+    <name>CoinsFrame</name>
+    <message>
+        <source>Frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search...</source>
+        <translation>جستجو کردن...</translation>
+    </message>
+    <message>
+        <source>Send selected</source>
+        <translation>ارسال انتخاب شده است</translation>
+    </message>
+    <message>
+        <source>Selected amount: </source>
+        <translation>میزان انتخاب شده: </translation>
+    </message>
+</context>
+<context>
     <name>ConfirmSendDialog</name>
     <message>
         <source>Confirm sending %1 KRB</source>
@@ -805,6 +824,10 @@ Please wait...</source>
         <source>Hide everything when wallet is locked</source>
         <translation>هنگام قفل کردن کیف پول همه چیز را مخفی کنید</translation>
     </message>
+    <message>
+        <source>Coins</source>
+        <translation>سکه</translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
@@ -1095,6 +1118,77 @@ Please wait...</source>
     <message>
         <source>Wallet optimization is a background task performed in order to aggregate transactions outputs that are below optimization target into bigger ones. It allows to send larger amounts of KRB within one transaction. Wallet optimization is free for all users but takes some time.</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>OutputDetailsDialog</name>
+    <message>
+        <source>Output</source>
+        <translation>خروجی</translation>
+    </message>
+    <message>
+        <source>Spent at height</source>
+        <translation>در ارتفاع خرج شد</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation>وضعیت</translation>
+    </message>
+    <message>
+        <source>Global index</source>
+        <translation>شاخص جهانی</translation>
+    </message>
+    <message>
+        <source>Input index in spending transaction</source>
+        <translation>شاخص ورودی در معامله هزینه</translation>
+    </message>
+    <message>
+        <source>Public key (stealth address)</source>
+        <translation>کلید عمومی (آدرس مخفی کاری)</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>مقدار</translation>
+    </message>
+    <message>
+        <source>Spent in transaction</source>
+        <translation>در معامله خرج شده</translation>
+    </message>
+    <message>
+        <source>Transaction hash</source>
+        <translation>هش معامله</translation>
+    </message>
+    <message>
+        <source>Key image</source>
+        <translation>تصویر کلید</translation>
+    </message>
+    <message>
+        <source>Index in transaction</source>
+        <translation>فهرست در معامله</translation>
+    </message>
+    <message>
+        <source>Timestamp</source>
+        <translation>مهر زمان</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>نوع</translation>
+    </message>
+    <message>
+        <source>Transaction public key</source>
+        <translation>کپی هش &amp;تراکنش</translation>
+    </message>
+    <message>
+        <source>&lt;&lt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&gt;&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ok</source>
+        <translation>تایید</translation>
     </message>
 </context>
 <context>
@@ -1439,7 +1533,7 @@ Do you want to go to the download page?</source>
     </message>
     <message>
         <source>Prepare transaction but do not relay</source>
-        <translation type="unfinished"></translation>
+        <translation>معامله را آماده کنید اما رله نکنید</translation>
     </message>
 </context>
 <context>
@@ -1746,6 +1840,37 @@ Do you want to go to the download page?</source>
     </message>
 </context>
 <context>
+    <name>WalletGui::CoinsFrame</name>
+    <message>
+        <source>Copy transaction &amp;hash</source>
+        <translation>کپی هش &amp;تراکنش</translation>
+    </message>
+    <message>
+        <source>Copy &amp;key</source>
+        <translation>کلید کپی</translation>
+    </message>
+    <message>
+        <source>Copy &amp;global index</source>
+        <translation>نمایه جهانی را کپی کنید</translation>
+    </message>
+    <message>
+        <source>Show &amp;details</source>
+        <translation>نمایش &amp;جزییات</translation>
+    </message>
+    <message>
+        <source>All types</source>
+        <translation>همه ی موارد</translation>
+    </message>
+    <message>
+        <source>Spent</source>
+        <translation>خرج کرد</translation>
+    </message>
+    <message>
+        <source>Unspent</source>
+        <translation>خرج نشده</translation>
+    </message>
+</context>
+<context>
     <name>WalletGui::CommandLineParser</name>
     <message>
         <source>Used to deploy test nets. Checkpoints and hardcoded seeds are ignored, network id is changed. Use it with –data-dir flag. The wallet must be launched with –testnet flag</source>
@@ -1821,11 +1946,15 @@ Do you want to go to the download page?</source>
     </message>
     <message>
         <source>Rollback to height</source>
-        <translation type="unfinished"></translation>
+        <translation>برگشت به ارتفاع</translation>
     </message>
     <message>
         <source>height</source>
         <translation>آخرین بلوک</translation>
+    </message>
+    <message>
+        <source>Use LevelDB instead of RocksDB</source>
+        <translation>به جای RocksDB از LevelDB استفاده کنید</translation>
     </message>
 </context>
 <context>
@@ -2320,6 +2449,86 @@ Are you sure?</source>
     <message>
         <source>Wallet is closed</source>
         <translation>کیف پول بسته است</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui::OutputsModel</name>
+    <message>
+        <source>Status</source>
+        <translation>وضعیت</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>نوع</translation>
+    </message>
+    <message>
+        <source>Public key (stealth address)</source>
+        <translation>کلید عمومی (آدرس مخفی کاری)</translation>
+    </message>
+    <message>
+        <source>Transaction hash</source>
+        <translation>هش معامله</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>مقدار</translation>
+    </message>
+    <message>
+        <source>Global index</source>
+        <translation>شاخص جهانی</translation>
+    </message>
+    <message>
+        <source>Index in transaction</source>
+        <translation>فهرست در معامله</translation>
+    </message>
+    <message>
+        <source>Transaction public key</source>
+        <translatorcomment>کلید عمومی معامله</translatorcomment>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Spent at height</source>
+        <translation>در ارتفاع خرج شد</translation>
+    </message>
+    <message>
+        <source>Timestamp</source>
+        <translation>مهر زمان</translation>
+    </message>
+    <message>
+        <source>Spent in transaction</source>
+        <translation>در معامله خرج شده</translation>
+    </message>
+    <message>
+        <source>Key image</source>
+        <translation>تصویر کلید</translation>
+    </message>
+    <message>
+        <source>As input</source>
+        <translation>به عنوان ورودی</translation>
+    </message>
+    <message>
+        <source>Spent</source>
+        <translation>خرج کرد</translation>
+    </message>
+    <message>
+        <source>Unspent</source>
+        <translation>خرج نشده</translation>
+    </message>
+    <message>
+        <source>Key</source>
+        <translation>کلید</translation>
+    </message>
+    <message>
+        <source>Multisignature</source>
+        <translation>چند علامت</translation>
+    </message>
+    <message>
+        <source>Invalid</source>
+        <translation>بی اعتبار</translation>
+    </message>
+    <message>
+        <source>Pending</source>
+        <translation>در انتظار</translation>
     </message>
 </context>
 <context>
@@ -2979,7 +3188,7 @@ when the wallet is synchronized</source>
     </message>
     <message>
         <source>Preparing transaction</source>
-        <translation type="unfinished"></translation>
+        <translation>آماده سازی معامله</translation>
     </message>
     <message>
         <source>Failed to sign message</source>
@@ -2991,7 +3200,7 @@ when the wallet is synchronized</source>
     </message>
     <message>
         <source>Offline</source>
-        <translation type="unfinished"></translation>
+        <translation>آفلاین</translation>
     </message>
 </context>
 </TS>

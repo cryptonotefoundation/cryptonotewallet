@@ -232,6 +232,25 @@
     </message>
 </context>
 <context>
+    <name>CoinsFrame</name>
+    <message>
+        <source>Frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search...</source>
+        <translation>Поиск...</translation>
+    </message>
+    <message>
+        <source>Send selected</source>
+        <translation>Отправить выбранное</translation>
+    </message>
+    <message>
+        <source>Selected amount: </source>
+        <translation>Всего в выбранном: </translation>
+    </message>
+</context>
+<context>
     <name>ConfirmSendDialog</name>
     <message>
         <source>Confirm sending %1 KRB</source>
@@ -809,6 +828,10 @@ Please wait...</source>
         <source>Hide everything when wallet is locked</source>
         <translation>Скрыть все, когда кошелек заблокирован</translation>
     </message>
+    <message>
+        <source>Coins</source>
+        <translation>Монеты</translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
@@ -1095,6 +1118,77 @@ Please wait...</source>
     <message>
         <source>Wallet optimization is a background task performed in order to aggregate transactions outputs that are below optimization target into bigger ones. It allows to send larger amounts of KRB within one transaction. Wallet optimization is free for all users but takes some time.</source>
         <translation>Оптимизация кошелька - это фоновая задача, выполняемая для суммирования выходов транзакций, которые ниже целевого показателя оптимизации, в более крупные. Это позволяет отправлять большие суммы KRB в одной транзакции. Оптимизация кошелька бесплатна для всех пользователей, но занимает некоторое время.</translation>
+    </message>
+</context>
+<context>
+    <name>OutputDetailsDialog</name>
+    <message>
+        <source>Output</source>
+        <translation>Выход</translation>
+    </message>
+    <message>
+        <source>Spent at height</source>
+        <translation>Потрачено на высоте</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation>Состояние</translation>
+    </message>
+    <message>
+        <source>Global index</source>
+        <translation>Глобальный индекс</translation>
+    </message>
+    <message>
+        <source>Input index in spending transaction</source>
+        <translation>Индекс входа в расходующей транзакции</translation>
+    </message>
+    <message>
+        <source>Public key (stealth address)</source>
+        <translation>Публичный ключ (стэлс адрес)</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Сумма</translation>
+    </message>
+    <message>
+        <source>Spent in transaction</source>
+        <translation>Потрачено в транзакции</translation>
+    </message>
+    <message>
+        <source>Transaction hash</source>
+        <translation>Хеш транзакции</translation>
+    </message>
+    <message>
+        <source>Key image</source>
+        <translation>Изображение ключа</translation>
+    </message>
+    <message>
+        <source>Index in transaction</source>
+        <translation>Индекс в транзакции</translation>
+    </message>
+    <message>
+        <source>Timestamp</source>
+        <translation>Отметка времени</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Тип</translation>
+    </message>
+    <message>
+        <source>Transaction public key</source>
+        <translation>Публичный ключ транзакции</translation>
+    </message>
+    <message>
+        <source>&lt;&lt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&gt;&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Ok</source>
+        <translation>Хорошо</translation>
     </message>
 </context>
 <context>
@@ -1742,6 +1836,37 @@ Do you want to go to the download page?</source>
     </message>
 </context>
 <context>
+    <name>WalletGui::CoinsFrame</name>
+    <message>
+        <source>Copy transaction &amp;hash</source>
+        <translation>Копировать &amp;хеш транзакции</translation>
+    </message>
+    <message>
+        <source>Copy &amp;key</source>
+        <translation>Копировать &amp;ключ</translation>
+    </message>
+    <message>
+        <source>Copy &amp;global index</source>
+        <translation>Копировать &amp;глобальный индекс</translation>
+    </message>
+    <message>
+        <source>Show &amp;details</source>
+        <translation>&amp;Подробнее</translation>
+    </message>
+    <message>
+        <source>All types</source>
+        <translation>Все типы</translation>
+    </message>
+    <message>
+        <source>Spent</source>
+        <translation>Потрачено</translation>
+    </message>
+    <message>
+        <source>Unspent</source>
+        <translation>Не потрачено</translation>
+    </message>
+</context>
+<context>
     <name>WalletGui::CommandLineParser</name>
     <message>
         <source>Used to deploy test nets. Checkpoints and hardcoded seeds are ignored, network id is changed. Use it with –data-dir flag. The wallet must be launched with –testnet flag</source>
@@ -1822,6 +1947,10 @@ Do you want to go to the download page?</source>
     <message>
         <source>height</source>
         <translation>Высота</translation>
+    </message>
+    <message>
+        <source>Use LevelDB instead of RocksDB</source>
+        <translation>Использовать LevelDB вместо RocksDB</translation>
     </message>
 </context>
 <context>
@@ -2322,6 +2451,85 @@ Are you sure?</source>
     <message>
         <source>Wallet is closed</source>
         <translation>Кошелек закрыт</translation>
+    </message>
+</context>
+<context>
+    <name>WalletGui::OutputsModel</name>
+    <message>
+        <source>Status</source>
+        <translation>Состояние</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>Тип</translation>
+    </message>
+    <message>
+        <source>Public key (stealth address)</source>
+        <translation>Публичный ключ (стэлс адрес)</translation>
+    </message>
+    <message>
+        <source>Transaction hash</source>
+        <translation>Хеш транзакции</translation>
+    </message>
+    <message>
+        <source>Amount</source>
+        <translation>Сумма</translation>
+    </message>
+    <message>
+        <source>Global index</source>
+        <translation>Глобальный индекс</translation>
+    </message>
+    <message>
+        <source>Index in transaction</source>
+        <translation>Индекс в транзакции</translation>
+    </message>
+    <message>
+        <source>Transaction public key</source>
+        <translation>Публичный ключ транзакции</translation>
+    </message>
+    <message>
+        <source>Spent at height</source>
+        <translation>Потрачено на высоте</translation>
+    </message>
+    <message>
+        <source>Timestamp</source>
+        <translation>Отметка времени</translation>
+    </message>
+    <message>
+        <source>Spent in transaction</source>
+        <translation>Потрачено в транзакции</translation>
+    </message>
+    <message>
+        <source>Key image</source>
+        <translation>Изображение ключа</translation>
+    </message>
+    <message>
+        <source>As input</source>
+        <translation>Как вход</translation>
+    </message>
+    <message>
+        <source>Spent</source>
+        <translation>Потрачено</translation>
+    </message>
+    <message>
+        <source>Unspent</source>
+        <translation>Не потрачено</translation>
+    </message>
+    <message>
+        <source>Key</source>
+        <translation>Ключ</translation>
+    </message>
+    <message>
+        <source>Multisignature</source>
+        <translation>Мультиподпись</translation>
+    </message>
+    <message>
+        <source>Invalid</source>
+        <translation>Недействительный</translation>
+    </message>
+    <message>
+        <source>Pending</source>
+        <translation>В ожидании</translation>
     </message>
 </context>
 <context>

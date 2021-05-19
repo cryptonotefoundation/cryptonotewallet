@@ -42,6 +42,7 @@
         <file alias="sweep">icons/broom.png</file>
         <file alias="tx-fusion">icons/tx_fusion.png</file>
         <file alias="qrcode_white">icons/qrcode_white.png</file>
+        <file alias="coins">icons/coins.png</file>
     </qresource>
     <qresource prefix="/images">
         <file alias="splash">images/splash.png</file>
