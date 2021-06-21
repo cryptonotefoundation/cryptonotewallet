@@ -49,11 +49,14 @@ include_directories(${CMAKE_BINARY_DIR}
     src
     cryptonote/external
     cryptonote/include
-    cryptonote/src)
+    cryptonote/src
+    external/libqrencode
+    external/qcustomplot)
 
 find_package(Qt5Gui REQUIRED)
 find_package(Qt5Widgets REQUIRED)
 find_package(Qt5Network REQUIRED)
+find_package(Qt5PrintSupport REQUIRED)
 find_package(Qt5LinguistTools REQUIRED)
 
 # We have to look for Homebrew OpenSSL a bit differently
@@ -186,6 +189,7 @@ set(CRYPTONOTE_SOURCES
   cryptonote/src/crypto/slow-hash.c
   cryptonote/src/crypto/slow-hash.cpp
   cryptonote/src/crypto/tree-hash.c
+  cryptonote/src/crypto/yespower.c
   cryptonote/src/CryptoNoteCore/BlockchainIndices.cpp
   cryptonote/src/CryptoNoteCore/BlockchainMessages.cpp
   cryptonote/src/CryptoNoteCore/BlockIndex.cpp
@@ -208,6 +212,7 @@ set(CRYPTONOTE_SOURCES
   cryptonote/src/CryptoNoteCore/TransactionPool.cpp
   cryptonote/src/CryptoNoteCore/TransactionPrefixImpl.cpp
   cryptonote/src/CryptoNoteCore/TransactionUtils.cpp
+  cryptonote/src/CryptoNoteProtocol/CryptoNoteProtocolHandler.cpp
   cryptonote/src/InProcessNode/InProcessNode.cpp
   cryptonote/src/InProcessNode/InProcessNodeErrors.cpp
   cryptonote/src/NodeRpcProxy/NodeErrors.cpp
@@ -258,7 +263,6 @@ set(CRYPTONOTE_SOURCES
   cryptonote/src/P2p/LevinProtocol.cpp
   cryptonote/src/P2p/NetNodeConfig.cpp
   cryptonote/src/P2p/PeerListManager.cpp
-  cryptonote/src/CryptoNoteProtocol/CryptoNoteProtocolHandler.cpp
   cryptonote/src/Logging/ILogger.cpp
   cryptonote/src/Logging/LoggerGroup.cpp
   cryptonote/src/Logging/CommonLogger.cpp
@@ -277,6 +281,7 @@ file(GLOB_RECURSE SOURCES src/*.cpp)
 file(GLOB_RECURSE HEADERS src/*.h)
 file(GLOB_RECURSE FORMS src/gui/ui/*.ui)
 file(GLOB_RECURSE Mnemonics cryptonote/src/Mnemonics/*)
+file(GLOB_RECURSE QCustomPlot external/qcustomplot/*)
 file(GLOB TRANSLATION_FILES src/languages/*.ts)
 
 set(QRC
@@ -479,6 +484,7 @@ set(CRYPTONOTE_SOURCES ${CRYPTONOTE_SOURCES} ${PLATFORM_SOURCES})
 
 add_library(${CRYPTONOTE_LIB} STATIC ${CRYPTONOTE_SOURCES})
 add_library(Mnemonics ${Mnemonics})
+add_library(QCustomPlot ${QCustomPlot})
 set_target_properties(${CRYPTONOTE_LIB} PROPERTIES COMPILE_DEFINITIONS _GNU_SOURCE)
 
 if (APPLE OR ${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
@@ -488,10 +494,12 @@ target_link_libraries(${CRYPTONOTE_LIB} ${Boost_LIBRARIES})
 endif ()
 set_target_properties(Mnemonics PROPERTIES COMPILE_DEFINITIONS _GNU_SOURCE)
 target_link_libraries(Mnemonics ${Boost_LIBRARIES})
+set_target_properties(QCustomPlot PROPERTIES COMPILE_DEFINITIONS _GNU_SOURCE)
+target_link_libraries(QCustomPlot Qt5::Core Qt5::PrintSupport)
 
 add_executable(${PROJECT_NAME} ${BUILD_PLATFORM} ${BUILD_RESOURCES} ${SOURCES} ${HEADERS} ${UIS} ${RCC})
 set_target_properties(${PROJECT_NAME} PROPERTIES COMPILE_DEFINITIONS _GNU_SOURCE)
-target_link_libraries(${PROJECT_NAME} ${Boost_LIBRARIES} ${QTMAIN} ${CRYPTONOTE_LIB} ${QRENCODE_LIB} Mnemonics)
+target_link_libraries(${PROJECT_NAME} ${Boost_LIBRARIES} ${QTMAIN} ${CRYPTONOTE_LIB} ${QRENCODE_LIB} Mnemonics QCustomPlot)
 add_dependencies(${PROJECT_NAME} translations)
 if (WIN32)
   add_dependencies(${PROJECT_NAME} translations_delault)
@@ -516,7 +524,7 @@ elseif (WIN32)
   target_link_libraries(${PROJECT_NAME} Imm32 Iphlpapi Winmm)
 endif (APPLE)
 
-qt5_use_modules(${PROJECT_NAME} Widgets Gui Network)
+qt5_use_modules(${PROJECT_NAME} Core Widgets Gui Network PrintSupport)
 
 # Installation
 

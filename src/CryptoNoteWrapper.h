@@ -27,6 +27,10 @@ namespace Logging {
 
 namespace WalletGui {
 
+enum class NodeType {
+  UNKNOWN, IN_PROCESS, RPC
+};
+
 class Node {
 public:
   virtual ~Node() = 0;
@@ -40,6 +44,7 @@ public:
   virtual uint64_t getLastLocalBlockTimestamp() const = 0;
   virtual uint64_t getPeerCount() = 0;
   virtual uint64_t getDifficulty() = 0;
+  virtual uint64_t getNextReward() = 0;
   virtual uint64_t getTxCount() = 0;
   virtual uint64_t getTxPoolSize() = 0;
   virtual uint64_t getAltBlocksCount() = 0;
@@ -54,8 +59,12 @@ public:
   virtual uint8_t getCurrentBlockMajorVersion() = 0;
   virtual uint64_t getAlreadyGeneratedCoins() = 0;
   virtual CryptoNote::BlockHeaderInfo getLastLocalBlockHeaderInfo() = 0;
-
   virtual std::vector<CryptoNote::p2pConnection> getConnections() = 0;
+  virtual bool getBlockTemplate(CryptoNote::Block& b, const CryptoNote::AccountKeys& acc, const CryptoNote::BinaryArray& ex_nonce, CryptoNote::difficulty_type& diffic, uint32_t& height) = 0;
+  virtual bool handleBlockFound(CryptoNote::Block& b) = 0;
+  virtual bool getBlockLongHash(Crypto::cn_context &context, const CryptoNote::Block& block, Crypto::Hash& res) = 0;
+
+  virtual NodeType getNodeType() const = 0;
 
   virtual CryptoNote::IWalletLegacy* createWallet() = 0;
 };
