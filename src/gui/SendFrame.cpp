@@ -311,16 +311,8 @@ void SendFrame::sendOutputs(QList<CryptoNote::TransactionOutputInformation> _sel
   // disable send all in this case
   m_ui->m_sendAllButton->setEnabled(false);
 
-  bool zeroMixinAgreed = false;
   for (auto& out : _selectedOutputs) {
     m_selectedOutputsAmount += out.amount;
-    // if unmixable force mixin zero
-    if (!CryptoNote::is_valid_decomposed_amount(out.amount)) {
-      if(!zeroMixinAgreed && !confirmZeroMixin())
-         return;
-      m_ui->m_mixinSlider->setEnabled(false);
-      zeroMixinAgreed = true;
-    }
   }
 
   m_selectedOutputs = _selectedOutputs;
@@ -330,6 +322,10 @@ void SendFrame::sendOutputs(QList<CryptoNote::TransactionOutputInformation> _sel
 
 void SendFrame::sendClicked() {
   amountValueChanged();
+
+  if (WalletAdapter::instance().getUnmixableBalance() != 0 && m_ui->m_mixinSlider->value() != 0 && !confirmZeroMixin()) {
+    return;
+  }
 
   quint64 actualBalance = WalletAdapter::instance().getActualBalance();
   if (actualBalance <= NodeAdapter::instance().getMinimalFee()) {
