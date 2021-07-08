@@ -109,10 +109,10 @@ void MiningFrame::timerEvent(QTimerEvent* _event) {
     if (soloHashRate == 0) {
       return;
     }
-    double kHashRate = soloHashRate / 1000.0;
+    double hashRate = soloHashRate;
     m_ui->m_soloLabel->setText(tr("Mining"));
-    m_ui->m_hashratelcdNumber->display(kHashRate);
-    addPoint(QDateTime::currentDateTime().toTime_t(), kHashRate);
+    m_ui->m_hashratelcdNumber->display(hashRate);
+    addPoint(QDateTime::currentDateTime().toTime_t(), hashRate);
     plot();
 
     return;
