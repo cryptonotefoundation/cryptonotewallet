@@ -54,7 +54,7 @@ private:
   void walletClosed();
   bool isSoloRunning() const;
   quint32 getHashRate() const;
-  double m_maxHr = 0.1;
+  double m_maxHr = 10;
 
   Q_SLOT void startStopSoloClicked(QAbstractButton* _button);
   Q_SLOT void enableSolo();
