@@ -48,7 +48,7 @@ namespace WalletGui {
     bool set_block_template(const Block& bl, const difficulty_type& diffic);
     bool on_block_chain_update();
     bool start(size_t threads_count);
-    uint64_t get_speed();
+    double get_speed();
     void send_stop_signal();
     bool stop();
     bool is_mining();
@@ -93,6 +93,7 @@ namespace WalletGui {
     std::atomic<uint64_t> m_last_hr_merge_time;
     std::atomic<uint64_t> m_hashes;
     std::atomic<uint64_t> m_current_hash_rate;
+    std::atomic<double> m_hash_rate;
     std::mutex m_last_hash_rates_lock;
     std::list<uint64_t> m_last_hash_rates;
     bool m_do_mining;

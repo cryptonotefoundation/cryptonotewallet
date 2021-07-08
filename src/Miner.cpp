@@ -71,6 +71,7 @@ namespace WalletGui
     m_hashes(0),
     m_do_mining(false),
     m_current_hash_rate(0),
+    m_hash_rate(0),
     m_update_block_template_interval(30),
     m_update_merge_hr_interval(2) {
   }
@@ -171,8 +172,8 @@ namespace WalletGui
         m_last_hash_rates.pop_front();
 
       uint64_t total_hr = std::accumulate(m_last_hash_rates.begin(), m_last_hash_rates.end(), static_cast<uint64_t>(0));
-      float hr = static_cast<float>(total_hr) / static_cast<float>(m_last_hash_rates.size());
-      qDebug() << "Hashrate: " << hr << " H/s";
+      m_hash_rate = static_cast<float>(total_hr) / static_cast<float>(m_last_hash_rates.size());
+      qDebug() << "Hashrate: " << m_hash_rate << " H/s";
     }
     
     m_last_hr_merge_time = millisecondsSinceEpoch();
@@ -225,10 +226,10 @@ namespace WalletGui
   }
   
   //-----------------------------------------------------------------------------------------------------
-  uint64_t Miner::get_speed()
+  double Miner::get_speed()
   {
     if(is_mining())
-      return m_current_hash_rate;
+      return m_hash_rate;
     else
       return 0;
   }
