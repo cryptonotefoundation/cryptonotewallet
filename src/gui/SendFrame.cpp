@@ -147,16 +147,8 @@ void SendFrame::addRecipientClicked() {
 }
 
 double SendFrame::getMinimalFee() {
-  double fee(0);
-  if (NodeAdapter::instance().getCurrentBlockMajorVersion() < CryptoNote::BLOCK_MAJOR_VERSION_4) {
-    fee = CurrencyAdapter::instance().formatAmount(CurrencyAdapter::instance().getMinimumFee()).toDouble();
-  } else {
-    fee = CurrencyAdapter::instance().formatAmount(NodeAdapter::instance().getMinimalFee()).toDouble();
-  }
-  int digits = 2; // round up fee to 2 digits after leading zeroes
-  double scale = pow(10., floor(log10(fabs(fee))) + (1 - digits));
-  double roundedFee = ceil(fee / scale) * scale;
-  return roundedFee;
+  double fee = CurrencyAdapter::instance().formatAmount(NodeAdapter::instance().getMinimalFee()).toDouble();
+  return fee;
 }
 
 void SendFrame::clearAllClicked() {
