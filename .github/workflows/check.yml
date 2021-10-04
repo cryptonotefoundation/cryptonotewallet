@@ -132,7 +132,7 @@ jobs:
 
       - name: Install other deps
         run: |
-          brew install gcc boost
+          brew install gcc boost openssl
           brew link boost --force
 
       - name: Find Tag
