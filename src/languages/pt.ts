@@ -1983,7 +1983,7 @@ Você quer ir à página de dowload?</translation>
     </message>
     <message>
         <source>Use LevelDB instead of RocksDB</source>
-        <translation>Use LevelDB em vez de RocksDB</translation>
+        <translation type="vanished">Use LevelDB em vez de RocksDB</translation>
     </message>
 </context>
 <context>

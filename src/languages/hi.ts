@@ -1513,12 +1513,12 @@ Please wait...</source>
         <translation>ब्लॉकचैन लोड रही है...</translation>
     </message>
     <message>
-        <location filename="../update.cpp" line="62"/>
+        <location filename="../Update.cpp" line="62"/>
         <source>New version available</source>
         <translation>नया वर्ज़न उपलब्ध है</translation>
     </message>
     <message>
-        <location filename="../update.cpp" line="62"/>
+        <location filename="../Update.cpp" line="62"/>
         <source>There is an update available.
 Do you want to go to the download page?</source>
         <translation>अपडेट उपलब्ध है। क्या आप पेज डाउनलोड करना चाहेंगे?</translation>
@@ -1929,12 +1929,12 @@ Do you want to go to the download page?</source>
 <context>
     <name>Updater</name>
     <message>
-        <location filename="../update.cpp" line="38"/>
+        <location filename="../Update.cpp" line="38"/>
         <source>Error: %1</source>
         <translation>त्रुटि: %1</translation>
     </message>
     <message>
-        <location filename="../update.cpp" line="39"/>
+        <location filename="../Update.cpp" line="39"/>
         <source>Unable to check for update</source>
         <translation>अपडेट की जाँच करने में असमर्थ</translation>
     </message>
@@ -2101,37 +2101,37 @@ Do you want to go to the download page?</source>
 <context>
     <name>WalletGui::CoinsFrame</name>
     <message>
-        <location filename="../gui/CoinsFrame.cpp" line="52"/>
+        <location filename="../gui/CoinsFrame.cpp" line="53"/>
         <source>Copy transaction &amp;hash</source>
         <translation>लेनदेन  hash कॉपी करें</translation>
     </message>
     <message>
-        <location filename="../gui/CoinsFrame.cpp" line="53"/>
+        <location filename="../gui/CoinsFrame.cpp" line="54"/>
         <source>Copy &amp;key</source>
         <translation>कॉपी कुंजी</translation>
     </message>
     <message>
-        <location filename="../gui/CoinsFrame.cpp" line="54"/>
+        <location filename="../gui/CoinsFrame.cpp" line="55"/>
         <source>Copy &amp;global index</source>
         <translation>वैश्विक सूचकांक की प्रतिलिपि बनाएँ</translation>
     </message>
     <message>
-        <location filename="../gui/CoinsFrame.cpp" line="55"/>
+        <location filename="../gui/CoinsFrame.cpp" line="56"/>
         <source>Show &amp;details</source>
         <translation>details दिखाएँ</translation>
     </message>
     <message>
-        <location filename="../gui/CoinsFrame.cpp" line="57"/>
+        <location filename="../gui/CoinsFrame.cpp" line="58"/>
         <source>All types</source>
         <translation>सभी प्रकार</translation>
     </message>
     <message>
-        <location filename="../gui/CoinsFrame.cpp" line="58"/>
+        <location filename="../gui/CoinsFrame.cpp" line="59"/>
         <source>Spent</source>
         <translation>खर्च की</translation>
     </message>
     <message>
-        <location filename="../gui/CoinsFrame.cpp" line="59"/>
+        <location filename="../gui/CoinsFrame.cpp" line="60"/>
         <source>Unspent</source>
         <translation>खर्च नहीं हुआ</translation>
     </message>
@@ -2237,12 +2237,11 @@ Do you want to go to the download page?</source>
         <translation>मिनीमाइज मोड़ में एप्लीकेशन को रन करें</translation>
     </message>
     <message>
-        <location filename="../CommandLineParser.cpp" line="32"/>
         <source>Use LevelDB instead of RocksDB</source>
-        <translation>उपयोग LevelDB बजाय RocksDB</translation>
+        <translation type="vanished">उपयोग LevelDB बजाय RocksDB</translation>
     </message>
     <message>
-        <location filename="../CommandLineParser.cpp" line="34"/>
+        <location filename="../CommandLineParser.cpp" line="32"/>
         <source>Karbowanec wallet</source>
         <translation>karbowanec वॉलेट</translation>
     </message>
@@ -2813,99 +2812,99 @@ Are you sure?</source>
 <context>
     <name>WalletGui::OutputsModel</name>
     <message>
-        <location filename="../gui/OutputsModel.cpp" line="66"/>
+        <location filename="../gui/OutputsModel.cpp" line="67"/>
         <source>Status</source>
         <translation>स्थिति</translation>
     </message>
     <message>
-        <location filename="../gui/OutputsModel.cpp" line="68"/>
+        <location filename="../gui/OutputsModel.cpp" line="69"/>
         <source>Type</source>
         <translation>प्रकार</translation>
     </message>
     <message>
-        <location filename="../gui/OutputsModel.cpp" line="70"/>
+        <location filename="../gui/OutputsModel.cpp" line="71"/>
         <source>Public key (stealth address)</source>
         <translation>सार्वजनिक कुंजी (चुपके पता)</translation>
     </message>
     <message>
-        <location filename="../gui/OutputsModel.cpp" line="72"/>
+        <location filename="../gui/OutputsModel.cpp" line="73"/>
         <source>Transaction hash</source>
         <translation>लेन-देन हैश</translation>
     </message>
     <message>
-        <location filename="../gui/OutputsModel.cpp" line="74"/>
+        <location filename="../gui/OutputsModel.cpp" line="75"/>
         <source>Amount</source>
         <translation>राशि</translation>
     </message>
     <message>
-        <location filename="../gui/OutputsModel.cpp" line="76"/>
+        <location filename="../gui/OutputsModel.cpp" line="77"/>
         <source>Global index</source>
         <translation>वैश्विक सूचकांक</translation>
     </message>
     <message>
-        <location filename="../gui/OutputsModel.cpp" line="78"/>
+        <location filename="../gui/OutputsModel.cpp" line="79"/>
         <source>Index in transaction</source>
         <translation>लेनदेन में सूचकांक</translation>
     </message>
     <message>
-        <location filename="../gui/OutputsModel.cpp" line="80"/>
+        <location filename="../gui/OutputsModel.cpp" line="81"/>
         <source>Transaction public key</source>
         <translation>लेन-देन सार्वजनिक कुंजी</translation>
     </message>
     <message>
-        <location filename="../gui/OutputsModel.cpp" line="82"/>
+        <location filename="../gui/OutputsModel.cpp" line="83"/>
         <source>Spent at height</source>
         <translation>ऊंचाई पर बिताया</translation>
     </message>
     <message>
-        <location filename="../gui/OutputsModel.cpp" line="84"/>
+        <location filename="../gui/OutputsModel.cpp" line="85"/>
         <source>Timestamp</source>
         <translation>समय-चिह्न</translation>
     </message>
     <message>
-        <location filename="../gui/OutputsModel.cpp" line="86"/>
+        <location filename="../gui/OutputsModel.cpp" line="87"/>
         <source>Spent in transaction</source>
         <translation>लेन-देन में खर्च किया</translation>
     </message>
     <message>
-        <location filename="../gui/OutputsModel.cpp" line="88"/>
+        <location filename="../gui/OutputsModel.cpp" line="89"/>
         <source>Key image</source>
         <translation>कुंजी की छवि</translation>
     </message>
     <message>
-        <location filename="../gui/OutputsModel.cpp" line="90"/>
+        <location filename="../gui/OutputsModel.cpp" line="91"/>
         <source>As input</source>
         <translation>इनपुट के रूप में</translation>
     </message>
     <message>
-        <location filename="../gui/OutputsModel.cpp" line="169"/>
-        <location filename="../gui/OutputsModel.cpp" line="267"/>
+        <location filename="../gui/OutputsModel.cpp" line="170"/>
+        <location filename="../gui/OutputsModel.cpp" line="268"/>
         <source>Spent</source>
         <translation>खर्च की</translation>
     </message>
     <message>
-        <location filename="../gui/OutputsModel.cpp" line="171"/>
-        <location filename="../gui/OutputsModel.cpp" line="269"/>
+        <location filename="../gui/OutputsModel.cpp" line="172"/>
+        <location filename="../gui/OutputsModel.cpp" line="270"/>
         <source>Unspent</source>
         <translation>खर्च नहीं हुआ</translation>
     </message>
     <message>
-        <location filename="../gui/OutputsModel.cpp" line="179"/>
+        <location filename="../gui/OutputsModel.cpp" line="180"/>
         <source>Key</source>
         <translation>की</translation>
     </message>
     <message>
-        <location filename="../gui/OutputsModel.cpp" line="181"/>
+        <location filename="../gui/OutputsModel.cpp" line="182"/>
         <source>Multisignature</source>
         <translation>बहुवचन</translation>
     </message>
     <message>
-        <location filename="../gui/OutputsModel.cpp" line="183"/>
+        <location filename="../gui/OutputsModel.cpp" line="184"/>
         <source>Invalid</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../gui/OutputsModel.cpp" line="200"/>
+        <location filename="../gui/OutputsModel.cpp" line="201"/>
         <source>Pending</source>
         <translation>विचाराधीन</translation>
     </message>
@@ -2987,80 +2986,80 @@ Are you sure?</source>
     </message>
     <message>
         <location filename="../gui/SendFrame.cpp" line="87"/>
-        <location filename="../gui/SendFrame.cpp" line="216"/>
+        <location filename="../gui/SendFrame.cpp" line="208"/>
         <source>Node fee: %1 %2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="243"/>
+        <location filename="../gui/SendFrame.cpp" line="235"/>
         <source>Payment request should start with karbowanec:</source>
         <translation>भुगतान अनुरोध karbowanec के साथ शुरू होना चाहिए:</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="257"/>
-        <location filename="../gui/SendFrame.cpp" line="356"/>
+        <location filename="../gui/SendFrame.cpp" line="249"/>
+        <location filename="../gui/SendFrame.cpp" line="344"/>
         <source>Invalid recipient address</source>
         <translation>अमान्य प्राप्तकर्ता पता</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="288"/>
-        <location filename="../gui/SendFrame.cpp" line="338"/>
-        <location filename="../gui/SendFrame.cpp" line="590"/>
+        <location filename="../gui/SendFrame.cpp" line="280"/>
+        <location filename="../gui/SendFrame.cpp" line="326"/>
+        <location filename="../gui/SendFrame.cpp" line="578"/>
         <source>Insufficient balance.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="420"/>
+        <location filename="../gui/SendFrame.cpp" line="408"/>
         <source>Incorrect password</source>
         <translation>गलत पासवर्ड</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="420"/>
+        <location filename="../gui/SendFrame.cpp" line="408"/>
         <source>Wrong password.</source>
         <translation>गलत पासवर्ड।</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="366"/>
+        <location filename="../gui/SendFrame.cpp" line="354"/>
         <source>Invalid amount</source>
         <translation>अवैध राशि</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="402"/>
+        <location filename="../gui/SendFrame.cpp" line="390"/>
         <source>Incorrect fee value</source>
         <translation>गलत शुल्क मूल्य</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="411"/>
+        <location filename="../gui/SendFrame.cpp" line="399"/>
         <source>Insufficient balance</source>
         <translation>अपर्याप्त बैलेंस</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="411"/>
+        <location filename="../gui/SendFrame.cpp" line="399"/>
         <source>Available balance is insufficient to send this transaction. Have you excluded a fee?</source>
         <translation>उपलब्ध बैलेंस इस लेनदेन को भेजने के लिए अपर्याप्त है। क्या आपने शुल्क हटा लिया है?</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="345"/>
+        <location filename="../gui/SendFrame.cpp" line="333"/>
         <source>Invalid payment ID</source>
         <translation>अमान्य भुगतान आईडी</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="550"/>
+        <location filename="../gui/SendFrame.cpp" line="538"/>
         <source>Prepare</source>
         <translation>तैयार</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="554"/>
+        <location filename="../gui/SendFrame.cpp" line="542"/>
         <source>Send</source>
         <translation>भेजें</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="568"/>
+        <location filename="../gui/SendFrame.cpp" line="556"/>
         <source>Sweep unmixable dust</source>
         <translation>मिक्स नहीं होने वालों को स्वीप करें</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="569"/>
+        <location filename="../gui/SendFrame.cpp" line="557"/>
         <source>You have unmixable coins that can be only spent with zero privacy level.
  Shall we continue with zero privacy?</source>
         <translation>आपके पास गैर-मिश्रित सिक्के हैं जो केवल शून्य गोपनीयता स्तर के साथ खर्च किए जा सकते हैं।
@@ -3296,97 +3295,89 @@ when the wallet is synchronized</source>
 <context>
     <name>WalletGui::TransactionsModel</name>
     <message>
-        <location filename="../gui/TransactionsModel.cpp" line="91"/>
-        <location filename="../gui/TransactionsModel.cpp" line="115"/>
+        <location filename="../gui/TransactionsModel.cpp" line="92"/>
         <source>Date</source>
         <translation>तारीख</translation>
     </message>
     <message>
-        <location filename="../gui/TransactionsModel.cpp" line="93"/>
-        <location filename="../gui/TransactionsModel.cpp" line="117"/>
+        <location filename="../gui/TransactionsModel.cpp" line="94"/>
         <source>Type</source>
         <translation>प्रकार</translation>
     </message>
     <message>
-        <location filename="../gui/TransactionsModel.cpp" line="95"/>
-        <location filename="../gui/TransactionsModel.cpp" line="119"/>
+        <location filename="../gui/TransactionsModel.cpp" line="96"/>
         <source>Hash</source>
         <translation>हैश</translation>
     </message>
     <message>
-        <location filename="../gui/TransactionsModel.cpp" line="97"/>
-        <location filename="../gui/TransactionsModel.cpp" line="121"/>
+        <location filename="../gui/TransactionsModel.cpp" line="98"/>
         <source>Key</source>
         <translation>की</translation>
     </message>
     <message>
-        <location filename="../gui/TransactionsModel.cpp" line="99"/>
-        <location filename="../gui/TransactionsModel.cpp" line="123"/>
+        <location filename="../gui/TransactionsModel.cpp" line="100"/>
         <source>Address</source>
         <translation>एड्रेस</translation>
     </message>
     <message>
-        <location filename="../gui/TransactionsModel.cpp" line="101"/>
-        <location filename="../gui/TransactionsModel.cpp" line="125"/>
+        <location filename="../gui/TransactionsModel.cpp" line="102"/>
         <source>Amount</source>
         <translation>राशि</translation>
     </message>
     <message>
-        <location filename="../gui/TransactionsModel.cpp" line="103"/>
-        <location filename="../gui/TransactionsModel.cpp" line="127"/>
+        <location filename="../gui/TransactionsModel.cpp" line="104"/>
         <source>Fee</source>
         <translation>शुल्क</translation>
     </message>
     <message>
-        <location filename="../gui/TransactionsModel.cpp" line="105"/>
-        <location filename="../gui/TransactionsModel.cpp" line="129"/>
+        <location filename="../gui/TransactionsModel.cpp" line="106"/>
         <source>PaymentID</source>
         <translation>PaymentID</translation>
     </message>
     <message>
-        <location filename="../gui/TransactionsModel.cpp" line="235"/>
-        <location filename="../gui/TransactionsModel.cpp" line="296"/>
+        <location filename="../gui/TransactionsModel.cpp" line="212"/>
+        <location filename="../gui/TransactionsModel.cpp" line="273"/>
         <source>me (%1)</source>
         <translation>मुझे (%1)</translation>
     </message>
     <message>
-        <location filename="../gui/TransactionsModel.cpp" line="237"/>
-        <location filename="../gui/TransactionsModel.cpp" line="298"/>
+        <location filename="../gui/TransactionsModel.cpp" line="214"/>
+        <location filename="../gui/TransactionsModel.cpp" line="275"/>
         <source>(n/a)</source>
         <translation>(n/a)</translation>
     </message>
     <message>
-        <location filename="../gui/TransactionsModel.cpp" line="336"/>
+        <location filename="../gui/TransactionsModel.cpp" line="313"/>
         <source>Canceled or failed transaction</source>
         <translation>रद्द या विफल लेनदेन</translation>
     </message>
     <message>
-        <location filename="../gui/TransactionsModel.cpp" line="339"/>
+        <location filename="../gui/TransactionsModel.cpp" line="316"/>
         <source>Incoming transaction, unconfirmed</source>
         <translation>इनकमिंग लेनदेन, पुष्टि नहीं  हुए</translation>
     </message>
     <message>
-        <location filename="../gui/TransactionsModel.cpp" line="342"/>
+        <location filename="../gui/TransactionsModel.cpp" line="319"/>
         <source>Mined, confirmations</source>
         <translation>माइन किये हुए, पुष्टि</translation>
     </message>
     <message>
-        <location filename="../gui/TransactionsModel.cpp" line="345"/>
+        <location filename="../gui/TransactionsModel.cpp" line="322"/>
         <source>Wallet optimization transaction, unconfirmed</source>
         <translation>बटुआ अनुकूलन लेनदेन, अपुष्ट</translation>
     </message>
     <message>
-        <location filename="../gui/TransactionsModel.cpp" line="348"/>
+        <location filename="../gui/TransactionsModel.cpp" line="325"/>
         <source>Sent to yourself, unconfirmed</source>
         <translation>खुद को भेजा हुआ, पुष्टि नहीं हुए</translation>
     </message>
     <message>
-        <location filename="../gui/TransactionsModel.cpp" line="351"/>
+        <location filename="../gui/TransactionsModel.cpp" line="328"/>
         <source>Outgoing transaction, unconfirmed</source>
         <translation>आउटगोइंग लेनदेन, पुष्टि नहीं हुए</translation>
     </message>
     <message numerus="yes">
-        <location filename="../gui/TransactionsModel.cpp" line="354"/>
+        <location filename="../gui/TransactionsModel.cpp" line="331"/>
         <source>Incoming transaction, %n confirmation(s)</source>
         <translation>
             <numerusform>इनकमिंग लेनदेन, %n पुष्टि</numerusform>
@@ -3394,7 +3385,7 @@ when the wallet is synchronized</source>
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../gui/TransactionsModel.cpp" line="357"/>
+        <location filename="../gui/TransactionsModel.cpp" line="334"/>
         <source>Mined, %n confirmation(s)</source>
         <translation>
             <numerusform>माइन हुई, %n पुष्टि</numerusform>
@@ -3402,7 +3393,7 @@ when the wallet is synchronized</source>
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../gui/TransactionsModel.cpp" line="360"/>
+        <location filename="../gui/TransactionsModel.cpp" line="337"/>
         <source>Wallet optimization transaction, %n confirmation(s)</source>
         <translation>
             <numerusform>बटुआ अनुकूलन लेनदेन, %n पुष्टि</numerusform>
@@ -3410,7 +3401,7 @@ when the wallet is synchronized</source>
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../gui/TransactionsModel.cpp" line="363"/>
+        <location filename="../gui/TransactionsModel.cpp" line="340"/>
         <source>Sent to yourself, %n confirmation(s)</source>
         <translation>
             <numerusform>खुद को भेजा हुआ, %n पुष्टि</numerusform>
@@ -3418,7 +3409,7 @@ when the wallet is synchronized</source>
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../gui/TransactionsModel.cpp" line="366"/>
+        <location filename="../gui/TransactionsModel.cpp" line="343"/>
         <source>Outgoing transaction, %n confirmation(s)</source>
         <translation>
             <numerusform>आउटगोइंग लेनदेन, %n पुष्टि</numerusform>
@@ -3678,23 +3669,23 @@ when the wallet is synchronized</source>
         <translation>म्नेमोनिक सीड में कोई त्रुटि है। सुनिश्चित करें कि आपने इसे सही तरीके से दर्ज किया है।</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="852"/>
+        <location filename="../WalletAdapter.cpp" line="853"/>
         <source>Failed to get the transaction proof</source>
         <translation>लेन-देन प्रमाण प्राप्त करने में विफल</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="852"/>
+        <location filename="../WalletAdapter.cpp" line="853"/>
         <source>Failed to get the transaction proof.</source>
         <translation>लेन-देन प्रमाण प्राप्त करने में विफल.</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="862"/>
+        <location filename="../WalletAdapter.cpp" line="861"/>
         <location filename="../WalletAdapter.cpp" line="874"/>
         <source>Failed to get the reserve proof</source>
         <translation>रिज़र्व का प्रमाण प्राप्त करने में विफल</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="862"/>
+        <location filename="../WalletAdapter.cpp" line="861"/>
         <source>This is tracking wallet. The reserve proof can be generated only by a full wallet.</source>
         <translation>यह वॉलेट ट्रैकिंग है। आरक्षित प्रमाण केवल एक पूर्ण बटुए के द्वारा उत्पन्न किया जा सकता है।</translation>
     </message>
@@ -3704,12 +3695,12 @@ when the wallet is synchronized</source>
         <translation>रिज़र्व का प्रमाण प्राप्त करने में विफल.</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="883"/>
+        <location filename="../WalletAdapter.cpp" line="882"/>
         <source>Failed to sign message</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="883"/>
+        <location filename="../WalletAdapter.cpp" line="882"/>
         <source>This is tracking wallet. The message can be signed only by a full wallet.</source>
         <translation type="unfinished"></translation>
     </message>

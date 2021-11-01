@@ -55,7 +55,7 @@ gui/TransactionsFrame.cpp \
 gui/TransactionsListModel.cpp \
 gui/TransactionsModel.cpp \
 gui/TransferFrame.cpp \
-update.cpp \
+Update.cpp \
 gui/ConnectionSettings.cpp \
 gui/NewNodeDialog.cpp \
 gui/NodeModel.cpp \

@@ -1970,7 +1970,7 @@ Externer Port für das P2P-Netzwerkprotokoll (wenn Portweiterleitung mit NAT ver
     </message>
     <message>
         <source>Use LevelDB instead of RocksDB</source>
-        <translation>Verwenden LevelDB statt RocksDB</translation>
+        <translation type="vanished">Verwenden LevelDB statt RocksDB</translation>
     </message>
 </context>
 <context>

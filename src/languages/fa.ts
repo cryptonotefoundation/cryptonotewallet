@@ -1954,7 +1954,7 @@ Do you want to go to the download page?</source>
     </message>
     <message>
         <source>Use LevelDB instead of RocksDB</source>
-        <translation>به جای RocksDB از LevelDB استفاده کنید</translation>
+        <translation type="vanished">به جای RocksDB از LevelDB استفاده کنید</translation>
     </message>
 </context>
 <context>

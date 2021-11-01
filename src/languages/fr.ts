@@ -1978,7 +1978,7 @@ Voulez-vous aller à la page de téléchargement?</translation>
     </message>
     <message>
         <source>Use LevelDB instead of RocksDB</source>
-        <translation>Utilisez LevelDB au lieu de RocksDB</translation>
+        <translation type="vanished">Utilisez LevelDB au lieu de RocksDB</translation>
     </message>
 </context>
 <context>

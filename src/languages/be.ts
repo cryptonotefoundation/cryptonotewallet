@@ -1965,7 +1965,7 @@ Do you want to go to the download page?</source>
     </message>
     <message>
         <source>Use LevelDB instead of RocksDB</source>
-        <translation>Выкарыстоўваць LevelDB замест RocksDB</translation>
+        <translation type="vanished">Выкарыстоўваць LevelDB замест RocksDB</translation>
     </message>
 </context>
 <context>

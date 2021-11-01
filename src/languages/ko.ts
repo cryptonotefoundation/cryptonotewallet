@@ -1537,12 +1537,12 @@ Please wait...</source>
         <translation>블록체인 로딩 중...</translation>
     </message>
     <message>
-        <location filename="../update.cpp" line="62"/>
+        <location filename="../Update.cpp" line="62"/>
         <source>New version available</source>
         <translation>새로운 버전을 이용하실 수 있습니다</translation>
     </message>
     <message>
-        <location filename="../update.cpp" line="62"/>
+        <location filename="../Update.cpp" line="62"/>
         <source>There is an update available.
 Do you want to go to the download page?</source>
         <translation>이용 가능한 업데이트가 없습니다. 다운로드 페이지로 가길 원하시나요?</translation>
@@ -1953,12 +1953,12 @@ Do you want to go to the download page?</source>
 <context>
     <name>Updater</name>
     <message>
-        <location filename="../update.cpp" line="38"/>
+        <location filename="../Update.cpp" line="38"/>
         <source>Error: %1</source>
         <translation>오류: %1</translation>
     </message>
     <message>
-        <location filename="../update.cpp" line="39"/>
+        <location filename="../Update.cpp" line="39"/>
         <source>Unable to check for update</source>
         <translation>업데이트를 확인할 수 없습니다</translation>
     </message>
@@ -2125,37 +2125,37 @@ Do you want to go to the download page?</source>
 <context>
     <name>WalletGui::CoinsFrame</name>
     <message>
-        <location filename="../gui/CoinsFrame.cpp" line="52"/>
+        <location filename="../gui/CoinsFrame.cpp" line="53"/>
         <source>Copy transaction &amp;hash</source>
         <translation>트랜잭션 해시 복사</translation>
     </message>
     <message>
-        <location filename="../gui/CoinsFrame.cpp" line="53"/>
+        <location filename="../gui/CoinsFrame.cpp" line="54"/>
         <source>Copy &amp;key</source>
         <translation>키 복사</translation>
     </message>
     <message>
-        <location filename="../gui/CoinsFrame.cpp" line="54"/>
+        <location filename="../gui/CoinsFrame.cpp" line="55"/>
         <source>Copy &amp;global index</source>
         <translation>글로벌 인덱스 복사</translation>
     </message>
     <message>
-        <location filename="../gui/CoinsFrame.cpp" line="55"/>
+        <location filename="../gui/CoinsFrame.cpp" line="56"/>
         <source>Show &amp;details</source>
         <translation>세부정보 표시</translation>
     </message>
     <message>
-        <location filename="../gui/CoinsFrame.cpp" line="57"/>
+        <location filename="../gui/CoinsFrame.cpp" line="58"/>
         <source>All types</source>
         <translation>모든 유형</translation>
     </message>
     <message>
-        <location filename="../gui/CoinsFrame.cpp" line="58"/>
+        <location filename="../gui/CoinsFrame.cpp" line="59"/>
         <source>Spent</source>
         <translation>지출</translation>
     </message>
     <message>
-        <location filename="../gui/CoinsFrame.cpp" line="59"/>
+        <location filename="../gui/CoinsFrame.cpp" line="60"/>
         <source>Unspent</source>
         <translation>미사용</translation>
     </message>
@@ -2265,12 +2265,11 @@ Do you want to go to the download page?</source>
         <translation>최소화된 모드에서 앱을 작동하세요</translation>
     </message>
     <message>
-        <location filename="../CommandLineParser.cpp" line="32"/>
         <source>Use LevelDB instead of RocksDB</source>
-        <translation>RocksDB 대신 LevelDB 사용</translation>
+        <translation type="vanished">RocksDB 대신 LevelDB 사용</translation>
     </message>
     <message>
-        <location filename="../CommandLineParser.cpp" line="34"/>
+        <location filename="../CommandLineParser.cpp" line="32"/>
         <source>Karbowanec wallet</source>
         <translation>Karbowanec 지갑</translation>
     </message>
@@ -2840,99 +2839,99 @@ Are you sure?</source>
 <context>
     <name>WalletGui::OutputsModel</name>
     <message>
-        <location filename="../gui/OutputsModel.cpp" line="66"/>
+        <location filename="../gui/OutputsModel.cpp" line="67"/>
         <source>Status</source>
         <translation>상태</translation>
     </message>
     <message>
-        <location filename="../gui/OutputsModel.cpp" line="68"/>
+        <location filename="../gui/OutputsModel.cpp" line="69"/>
         <source>Type</source>
         <translation>유형</translation>
     </message>
     <message>
-        <location filename="../gui/OutputsModel.cpp" line="70"/>
+        <location filename="../gui/OutputsModel.cpp" line="71"/>
         <source>Public key (stealth address)</source>
         <translation>공개 키 (스텔스 주소)</translation>
     </message>
     <message>
-        <location filename="../gui/OutputsModel.cpp" line="72"/>
+        <location filename="../gui/OutputsModel.cpp" line="73"/>
         <source>Transaction hash</source>
         <translation>거래 해시</translation>
     </message>
     <message>
-        <location filename="../gui/OutputsModel.cpp" line="74"/>
+        <location filename="../gui/OutputsModel.cpp" line="75"/>
         <source>Amount</source>
         <translation>금액</translation>
     </message>
     <message>
-        <location filename="../gui/OutputsModel.cpp" line="76"/>
+        <location filename="../gui/OutputsModel.cpp" line="77"/>
         <source>Global index</source>
         <translation>글로벌 인덱스</translation>
     </message>
     <message>
-        <location filename="../gui/OutputsModel.cpp" line="78"/>
+        <location filename="../gui/OutputsModel.cpp" line="79"/>
         <source>Index in transaction</source>
         <translation>거래 색인</translation>
     </message>
     <message>
-        <location filename="../gui/OutputsModel.cpp" line="80"/>
+        <location filename="../gui/OutputsModel.cpp" line="81"/>
         <source>Transaction public key</source>
         <translation>거래 공개 키</translation>
     </message>
     <message>
-        <location filename="../gui/OutputsModel.cpp" line="82"/>
+        <location filename="../gui/OutputsModel.cpp" line="83"/>
         <source>Spent at height</source>
         <translation>높이에 지출</translation>
     </message>
     <message>
-        <location filename="../gui/OutputsModel.cpp" line="84"/>
+        <location filename="../gui/OutputsModel.cpp" line="85"/>
         <source>Timestamp</source>
         <translation>타임 스탬프</translation>
     </message>
     <message>
-        <location filename="../gui/OutputsModel.cpp" line="86"/>
+        <location filename="../gui/OutputsModel.cpp" line="87"/>
         <source>Spent in transaction</source>
         <translation>거래에 사용</translation>
     </message>
     <message>
-        <location filename="../gui/OutputsModel.cpp" line="88"/>
+        <location filename="../gui/OutputsModel.cpp" line="89"/>
         <source>Key image</source>
         <translation>키 이미지</translation>
     </message>
     <message>
-        <location filename="../gui/OutputsModel.cpp" line="90"/>
+        <location filename="../gui/OutputsModel.cpp" line="91"/>
         <source>As input</source>
         <translation>입력으로</translation>
     </message>
     <message>
-        <location filename="../gui/OutputsModel.cpp" line="169"/>
-        <location filename="../gui/OutputsModel.cpp" line="267"/>
+        <location filename="../gui/OutputsModel.cpp" line="170"/>
+        <location filename="../gui/OutputsModel.cpp" line="268"/>
         <source>Spent</source>
         <translation>지출</translation>
     </message>
     <message>
-        <location filename="../gui/OutputsModel.cpp" line="171"/>
-        <location filename="../gui/OutputsModel.cpp" line="269"/>
+        <location filename="../gui/OutputsModel.cpp" line="172"/>
+        <location filename="../gui/OutputsModel.cpp" line="270"/>
         <source>Unspent</source>
         <translation>미사용</translation>
     </message>
     <message>
-        <location filename="../gui/OutputsModel.cpp" line="179"/>
+        <location filename="../gui/OutputsModel.cpp" line="180"/>
         <source>Key</source>
         <translation>열쇠</translation>
     </message>
     <message>
-        <location filename="../gui/OutputsModel.cpp" line="181"/>
+        <location filename="../gui/OutputsModel.cpp" line="182"/>
         <source>Multisignature</source>
         <translation>다중 서명</translation>
     </message>
     <message>
-        <location filename="../gui/OutputsModel.cpp" line="183"/>
+        <location filename="../gui/OutputsModel.cpp" line="184"/>
         <source>Invalid</source>
         <translation>유효하지 않음</translation>
     </message>
     <message>
-        <location filename="../gui/OutputsModel.cpp" line="200"/>
+        <location filename="../gui/OutputsModel.cpp" line="201"/>
         <source>Pending</source>
         <translation>보류 중</translation>
     </message>
@@ -3014,80 +3013,80 @@ Are you sure?</source>
     </message>
     <message>
         <location filename="../gui/SendFrame.cpp" line="87"/>
-        <location filename="../gui/SendFrame.cpp" line="216"/>
+        <location filename="../gui/SendFrame.cpp" line="208"/>
         <source>Node fee: %1 %2</source>
         <translation>노드 요금 : %1 %2</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="243"/>
+        <location filename="../gui/SendFrame.cpp" line="235"/>
         <source>Payment request should start with karbowanec:</source>
         <translation>지불 요청이 karbowanec으로 시작되어야 합니다:</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="257"/>
-        <location filename="../gui/SendFrame.cpp" line="356"/>
+        <location filename="../gui/SendFrame.cpp" line="249"/>
+        <location filename="../gui/SendFrame.cpp" line="344"/>
         <source>Invalid recipient address</source>
         <translation>유효하지 않은 수신자 주소</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="288"/>
-        <location filename="../gui/SendFrame.cpp" line="338"/>
-        <location filename="../gui/SendFrame.cpp" line="590"/>
+        <location filename="../gui/SendFrame.cpp" line="280"/>
+        <location filename="../gui/SendFrame.cpp" line="326"/>
+        <location filename="../gui/SendFrame.cpp" line="578"/>
         <source>Insufficient balance.</source>
         <translation>잔액 불충분.</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="420"/>
+        <location filename="../gui/SendFrame.cpp" line="408"/>
         <source>Incorrect password</source>
         <translation>잘못된 비밀번호</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="420"/>
+        <location filename="../gui/SendFrame.cpp" line="408"/>
         <source>Wrong password.</source>
         <translation>잘못된 비밀번호.</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="366"/>
+        <location filename="../gui/SendFrame.cpp" line="354"/>
         <source>Invalid amount</source>
         <translation>잘못된 금액</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="402"/>
+        <location filename="../gui/SendFrame.cpp" line="390"/>
         <source>Incorrect fee value</source>
         <translation>유효하지 않은 비용값</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="411"/>
+        <location filename="../gui/SendFrame.cpp" line="399"/>
         <source>Insufficient balance</source>
         <translation>잔액 부족</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="411"/>
+        <location filename="../gui/SendFrame.cpp" line="399"/>
         <source>Available balance is insufficient to send this transaction. Have you excluded a fee?</source>
         <translation>사용 가능한 잔액으로 이 거래를 보낼 수 없습니다. 수수료를 제외했습니까?</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="345"/>
+        <location filename="../gui/SendFrame.cpp" line="333"/>
         <source>Invalid payment ID</source>
         <translation>유효하지 않은 지불 ID</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="550"/>
+        <location filename="../gui/SendFrame.cpp" line="538"/>
         <source>Prepare</source>
         <translation>준비</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="554"/>
+        <location filename="../gui/SendFrame.cpp" line="542"/>
         <source>Send</source>
         <translation>전송</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="568"/>
+        <location filename="../gui/SendFrame.cpp" line="556"/>
         <source>Sweep unmixable dust</source>
         <translation>혼합불가 제거</translation>
     </message>
     <message>
-        <location filename="../gui/SendFrame.cpp" line="569"/>
+        <location filename="../gui/SendFrame.cpp" line="557"/>
         <source>You have unmixable coins that can be only spent with zero privacy level.
  Shall we continue with zero privacy?</source>
         <translation>개인 정보 보호 수준이 0 인 경우에만 사용할 수있는 혼합 불가능한 동전이 있습니다.
@@ -3289,125 +3288,117 @@ when the wallet is synchronized</source>
 <context>
     <name>WalletGui::TransactionsModel</name>
     <message>
-        <location filename="../gui/TransactionsModel.cpp" line="91"/>
-        <location filename="../gui/TransactionsModel.cpp" line="115"/>
+        <location filename="../gui/TransactionsModel.cpp" line="92"/>
         <source>Date</source>
         <translation>날짜</translation>
     </message>
     <message>
-        <location filename="../gui/TransactionsModel.cpp" line="93"/>
-        <location filename="../gui/TransactionsModel.cpp" line="117"/>
+        <location filename="../gui/TransactionsModel.cpp" line="94"/>
         <source>Type</source>
         <translation>유형</translation>
     </message>
     <message>
-        <location filename="../gui/TransactionsModel.cpp" line="95"/>
-        <location filename="../gui/TransactionsModel.cpp" line="119"/>
+        <location filename="../gui/TransactionsModel.cpp" line="96"/>
         <source>Hash</source>
         <translation>해시</translation>
     </message>
     <message>
-        <location filename="../gui/TransactionsModel.cpp" line="97"/>
-        <location filename="../gui/TransactionsModel.cpp" line="121"/>
+        <location filename="../gui/TransactionsModel.cpp" line="98"/>
         <source>Key</source>
         <translation>열쇠</translation>
     </message>
     <message>
-        <location filename="../gui/TransactionsModel.cpp" line="99"/>
-        <location filename="../gui/TransactionsModel.cpp" line="123"/>
+        <location filename="../gui/TransactionsModel.cpp" line="100"/>
         <source>Address</source>
         <translation>주소</translation>
     </message>
     <message>
-        <location filename="../gui/TransactionsModel.cpp" line="101"/>
-        <location filename="../gui/TransactionsModel.cpp" line="125"/>
+        <location filename="../gui/TransactionsModel.cpp" line="102"/>
         <source>Amount</source>
         <translation>금액</translation>
     </message>
     <message>
-        <location filename="../gui/TransactionsModel.cpp" line="103"/>
-        <location filename="../gui/TransactionsModel.cpp" line="127"/>
+        <location filename="../gui/TransactionsModel.cpp" line="104"/>
         <source>Fee</source>
         <translation>비용</translation>
     </message>
     <message>
-        <location filename="../gui/TransactionsModel.cpp" line="105"/>
-        <location filename="../gui/TransactionsModel.cpp" line="129"/>
+        <location filename="../gui/TransactionsModel.cpp" line="106"/>
         <source>PaymentID</source>
         <translation>지불 ID</translation>
     </message>
     <message>
-        <location filename="../gui/TransactionsModel.cpp" line="235"/>
-        <location filename="../gui/TransactionsModel.cpp" line="296"/>
+        <location filename="../gui/TransactionsModel.cpp" line="212"/>
+        <location filename="../gui/TransactionsModel.cpp" line="273"/>
         <source>me (%1)</source>
         <translation>나 (%1)</translation>
     </message>
     <message>
-        <location filename="../gui/TransactionsModel.cpp" line="237"/>
-        <location filename="../gui/TransactionsModel.cpp" line="298"/>
+        <location filename="../gui/TransactionsModel.cpp" line="214"/>
+        <location filename="../gui/TransactionsModel.cpp" line="275"/>
         <source>(n/a)</source>
         <translation>해당사항 없음</translation>
     </message>
     <message>
-        <location filename="../gui/TransactionsModel.cpp" line="336"/>
+        <location filename="../gui/TransactionsModel.cpp" line="313"/>
         <source>Canceled or failed transaction</source>
         <translation>취소되었거나 실패한 거래</translation>
     </message>
     <message>
-        <location filename="../gui/TransactionsModel.cpp" line="339"/>
+        <location filename="../gui/TransactionsModel.cpp" line="316"/>
         <source>Incoming transaction, unconfirmed</source>
         <translation>수신한 트랜잭션, 확인되지 않음</translation>
     </message>
     <message>
-        <location filename="../gui/TransactionsModel.cpp" line="342"/>
+        <location filename="../gui/TransactionsModel.cpp" line="319"/>
         <source>Mined, confirmations</source>
         <translation>마이닝됨, 확인</translation>
     </message>
     <message>
-        <location filename="../gui/TransactionsModel.cpp" line="345"/>
+        <location filename="../gui/TransactionsModel.cpp" line="322"/>
         <source>Wallet optimization transaction, unconfirmed</source>
         <translation>월렛 최적화 거래 미확인</translation>
     </message>
     <message>
-        <location filename="../gui/TransactionsModel.cpp" line="348"/>
+        <location filename="../gui/TransactionsModel.cpp" line="325"/>
         <source>Sent to yourself, unconfirmed</source>
         <translation>나에게 전송됨, 확인되지 않음</translation>
     </message>
     <message>
-        <location filename="../gui/TransactionsModel.cpp" line="351"/>
+        <location filename="../gui/TransactionsModel.cpp" line="328"/>
         <source>Outgoing transaction, unconfirmed</source>
         <translation>지출한 트랜잭션, 확인되지 않음</translation>
     </message>
     <message numerus="yes">
-        <location filename="../gui/TransactionsModel.cpp" line="354"/>
+        <location filename="../gui/TransactionsModel.cpp" line="331"/>
         <source>Incoming transaction, %n confirmation(s)</source>
         <translation>
             <numerusform>수신한 트랜잭션, %n개 확인됨</numerusform>
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../gui/TransactionsModel.cpp" line="357"/>
+        <location filename="../gui/TransactionsModel.cpp" line="334"/>
         <source>Mined, %n confirmation(s)</source>
         <translation>
             <numerusform>마이닝됨, %n개 확인됨</numerusform>
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../gui/TransactionsModel.cpp" line="360"/>
+        <location filename="../gui/TransactionsModel.cpp" line="337"/>
         <source>Wallet optimization transaction, %n confirmation(s)</source>
         <translation>
             <numerusform>월렛 최적화 거래, %n개 확인됨</numerusform>
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../gui/TransactionsModel.cpp" line="363"/>
+        <location filename="../gui/TransactionsModel.cpp" line="340"/>
         <source>Sent to yourself, %n confirmation(s)</source>
         <translation>
             <numerusform>나에게 전송됨, %n개 확인됨</numerusform>
         </translation>
     </message>
     <message numerus="yes">
-        <location filename="../gui/TransactionsModel.cpp" line="366"/>
+        <location filename="../gui/TransactionsModel.cpp" line="343"/>
         <source>Outgoing transaction, %n confirmation(s)</source>
         <translation>
             <numerusform>지출한 트랜잭션, %n개 확인됨</numerusform>
@@ -3664,23 +3655,23 @@ when the wallet is synchronized</source>
         <translation>연상기호 시드에 오류가 있어야 합니다. 올바르게 입력했는지 확인하세요.</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="852"/>
+        <location filename="../WalletAdapter.cpp" line="853"/>
         <source>Failed to get the transaction proof</source>
         <translation>거래 증명을받지 못했습니다</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="852"/>
+        <location filename="../WalletAdapter.cpp" line="853"/>
         <source>Failed to get the transaction proof.</source>
         <translation>거래 증명을받지 못했습니다.</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="862"/>
+        <location filename="../WalletAdapter.cpp" line="861"/>
         <location filename="../WalletAdapter.cpp" line="874"/>
         <source>Failed to get the reserve proof</source>
         <translation>준비금 증명을받지 못했습니다</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="862"/>
+        <location filename="../WalletAdapter.cpp" line="861"/>
         <source>This is tracking wallet. The reserve proof can be generated only by a full wallet.</source>
         <translation>지갑 추적 중입니다. 예약 증명은 전체 지갑으로 만 생성 할 수 있습니다.</translation>
     </message>
@@ -3690,12 +3681,12 @@ when the wallet is synchronized</source>
         <translation>준비금 증명을받지 못했습니다.</translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="883"/>
+        <location filename="../WalletAdapter.cpp" line="882"/>
         <source>Failed to sign message</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../WalletAdapter.cpp" line="883"/>
+        <location filename="../WalletAdapter.cpp" line="882"/>
         <source>This is tracking wallet. The message can be signed only by a full wallet.</source>
         <translation type="unfinished"></translation>
     </message>
