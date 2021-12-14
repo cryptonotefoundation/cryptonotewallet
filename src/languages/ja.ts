@@ -2708,7 +2708,7 @@ Are you sure?</source>
     <message>
         <location filename="../gui/MiningFrame.cpp" line="112"/>
         <source>Mining</source>
-        <translation type="unfinished">マイニング</translation>
+        <translation>マイニング</translation>
     </message>
     <message>
         <location filename="../gui/MiningFrame.cpp" line="152"/>

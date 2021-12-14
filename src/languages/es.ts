@@ -2400,7 +2400,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>Mining</source>
-        <translation type="unfinished">Mining</translation>
+        <translation>Mining</translation>
     </message>
     <message>
         <source>%1</source>

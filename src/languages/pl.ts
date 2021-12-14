@@ -2405,7 +2405,7 @@ Jesteś pewien?</translation>
     </message>
     <message>
         <source>Mining</source>
-        <translation type="unfinished">Karbowanie</translation>
+        <translation>Karbowanie</translation>
     </message>
     <message>
         <source>%1</source>

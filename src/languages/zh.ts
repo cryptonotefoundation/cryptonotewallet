@@ -1016,37 +1016,37 @@ Please wait...</source>
     <message>
         <location filename="../gui/ui/miningframe.ui" line="68"/>
         <source>Start mining</source>
-        <translation type="unfinished">开始挖矿</translation>
+        <translation>开始挖矿</translation>
     </message>
     <message>
         <location filename="../gui/ui/miningframe.ui" line="42"/>
         <source>Stop mining</source>
-        <translation type="unfinished">停止挖矿</translation>
+        <translation>停止挖矿</translation>
     </message>
     <message>
         <location filename="../gui/ui/miningframe.ui" line="33"/>
         <source>State</source>
-        <translation type="unfinished">状况</translation>
+        <translation>状况</translation>
     </message>
     <message>
         <location filename="../gui/ui/miningframe.ui" line="81"/>
         <source>Speed, H/s:</source>
-        <translation type="unfinished">速度，H/s:</translation>
+        <translation>速度，H/s:</translation>
     </message>
     <message>
         <location filename="../gui/ui/miningframe.ui" line="88"/>
         <source>Stopped</source>
-        <translation type="unfinished">已停止</translation>
+        <translation>已停止</translation>
     </message>
     <message>
         <location filename="../gui/ui/miningframe.ui" line="95"/>
         <source>Difficulty:</source>
-        <translation type="unfinished">难度:</translation>
+        <translation>难度:</translation>
     </message>
     <message>
         <location filename="../gui/ui/miningframe.ui" line="58"/>
         <source>Mining status:</source>
-        <translation type="unfinished">挖矿状态：</translation>
+        <translation>挖矿状态：</translation>
     </message>
     <message>
         <source>Remove pool</source>
@@ -1055,12 +1055,12 @@ Please wait...</source>
     <message>
         <location filename="../gui/ui/miningframe.ui" line="117"/>
         <source>Settings</source>
-        <translation type="unfinished">设置</translation>
+        <translation>设置</translation>
     </message>
     <message>
         <location filename="../gui/ui/miningframe.ui" line="129"/>
         <source>CPU cores</source>
-        <translation type="unfinished">CPU内核</translation>
+        <translation>CPU内核</translation>
     </message>
     <message>
         <source>Solo mining</source>
@@ -2774,7 +2774,7 @@ Are you sure?</source>
     <message>
         <location filename="../gui/MiningFrame.cpp" line="112"/>
         <source>Mining</source>
-        <translation type="unfinished">挖矿</translation>
+        <translation>挖矿</translation>
     </message>
     <message>
         <location filename="../gui/MiningFrame.cpp" line="152"/>

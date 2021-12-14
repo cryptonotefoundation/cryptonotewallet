@@ -2393,7 +2393,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>Mining</source>
-        <translation type="unfinished">Карбування</translation>
+        <translation>Карбування</translation>
     </message>
     <message>
         <source>%1</source>

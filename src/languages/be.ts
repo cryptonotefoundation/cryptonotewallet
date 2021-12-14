@@ -2408,7 +2408,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>Mining</source>
-        <translation type="unfinished">Чаканка</translation>
+        <translation>Чаканка</translation>
     </message>
     <message>
         <source>%1</source>

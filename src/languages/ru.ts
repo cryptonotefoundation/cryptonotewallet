@@ -2397,7 +2397,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>Mining</source>
-        <translation type="unfinished">Майнинг</translation>
+        <translation>Майнинг</translation>
     </message>
     <message>
         <source>%1</source>

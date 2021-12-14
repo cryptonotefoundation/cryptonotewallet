@@ -2702,7 +2702,7 @@ Are you sure?</source>
     <message>
         <location filename="../gui/MiningFrame.cpp" line="112"/>
         <source>Mining</source>
-        <translation type="unfinished"></translation>
+        <translation>Mining</translation>
     </message>
     <message>
         <location filename="../gui/MiningFrame.cpp" line="152"/>

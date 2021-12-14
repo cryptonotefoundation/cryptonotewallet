@@ -2788,7 +2788,7 @@ Are you sure?</source>
     <message>
         <location filename="../gui/MiningFrame.cpp" line="112"/>
         <source>Mining</source>
-        <translation type="unfinished">تعدين</translation>
+        <translation>تعدين</translation>
     </message>
     <message>
         <location filename="../gui/MiningFrame.cpp" line="152"/>

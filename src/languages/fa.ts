@@ -2391,7 +2391,7 @@ Are you sure?</source>
     </message>
     <message>
         <source>Mining</source>
-        <translation type="unfinished">استخراح</translation>
+        <translation>استخراح</translation>
     </message>
     <message>
         <source>%1</source>
