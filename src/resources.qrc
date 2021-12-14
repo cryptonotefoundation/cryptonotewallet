@@ -27,6 +27,7 @@
         <file alias="export">icons/export.png</file>
         <file alias="tx-inout">icons/tx_inout.png</file>
         <file alias="unconfirmed">icons/unconfirmed.png</file>
+        <file alias="mining">icons/mining.png</file>
         <file alias="edit">icons/edit.png</file>
         <file alias="add_recepient">icons/add_recepient.png</file>
         <file alias="qrcode">icons/qrcode.png</file>

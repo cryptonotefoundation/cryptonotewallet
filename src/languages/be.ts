@@ -698,7 +698,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Mining</source>
-        <translation type="vanished">Чаканка</translation>
+        <translation>Чаканка</translation>
     </message>
     <message>
         <source>Reset wallet</source>
@@ -836,6 +836,10 @@ Please wait...</source>
         <source>Coins</source>
         <translation>Манеты</translation>
     </message>
+    <message>
+        <source>Start mining automatically</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
@@ -845,7 +849,7 @@ Please wait...</source>
     </message>
     <message>
         <source>CPU cores</source>
-        <translation type="vanished">Ядра працэсара</translation>
+        <translation>Ядра працэсара</translation>
     </message>
     <message>
         <source>Select pool</source>
@@ -853,7 +857,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Stopped</source>
-        <translation type="vanished">Спынена</translation>
+        <translation>Спынена</translation>
     </message>
     <message>
         <source>Add pool</source>
@@ -861,7 +865,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Start mining</source>
-        <translation type="vanished">Пачаць чаканку</translation>
+        <translation>Пачаць чаканку</translation>
     </message>
     <message>
         <source>Pause mining</source>
@@ -869,7 +873,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="vanished">Налады</translation>
+        <translation>Налады</translation>
     </message>
     <message>
         <source>Pool mining</source>
@@ -877,7 +881,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Stop mining</source>
-        <translation type="vanished">Прыпыніць чаканку</translation>
+        <translation>Прыпыніць чаканку</translation>
     </message>
     <message>
         <source>Solo mining</source>
@@ -893,7 +897,23 @@ Please wait...</source>
     </message>
     <message>
         <source>Mining status:</source>
-        <translation type="vanished">Стан чаканкі:</translation>
+        <translation>Стан чаканкі:</translation>
+    </message>
+    <message>
+        <source>Frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>State</source>
+        <translation>Стан</translation>
+    </message>
+    <message>
+        <source>Speed, H/s:</source>
+        <translation>Хуткасць, H/s:</translation>
+    </message>
+    <message>
+        <source>Difficulty:</source>
+        <translation>Цяжкасць:</translation>
     </message>
 </context>
 <context>
@@ -2368,11 +2388,11 @@ Are you sure?</source>
     </message>
     <message>
         <source>Starting...</source>
-        <translation type="vanished">Запуск...</translation>
+        <translation>Запуск...</translation>
     </message>
     <message>
         <source>Stopped</source>
-        <translation type="vanished">Спынена</translation>
+        <translation>Спынена</translation>
     </message>
     <message>
         <source>Mining solo. Hashrate: %1 H/s</source>
@@ -2385,6 +2405,14 @@ Are you sure?</source>
     <message>
         <source>Mining in pool. Hashrate: %1 H/s</source>
         <translation type="vanished">Чаканка ў пуле. Хешрейт: %1 H/s</translation>
+    </message>
+    <message>
+        <source>Mining</source>
+        <translation>Чаканка</translation>
+    </message>
+    <message>
+        <source>%1</source>
+        <translation type="unfinished">%1</translation>
     </message>
 </context>
 <context>

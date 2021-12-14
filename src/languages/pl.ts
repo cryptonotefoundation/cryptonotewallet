@@ -695,7 +695,7 @@ Proszę czekać...</translation>
     </message>
     <message>
         <source>Mining</source>
-        <translation type="vanished">Karbowanie</translation>
+        <translation>Karbowanie</translation>
     </message>
     <message>
         <source>Reset wallet</source>
@@ -833,6 +833,10 @@ Proszę czekać...</translation>
         <source>Coins</source>
         <translation>Monety</translation>
     </message>
+    <message>
+        <source>Start mining automatically</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
@@ -842,7 +846,7 @@ Proszę czekać...</translation>
     </message>
     <message>
         <source>CPU cores</source>
-        <translation type="vanished">Rdzenie CPU</translation>
+        <translation>Rdzenie CPU</translation>
     </message>
     <message>
         <source>Select pool</source>
@@ -850,7 +854,7 @@ Proszę czekać...</translation>
     </message>
     <message>
         <source>Stopped</source>
-        <translation type="vanished">Zatrzymano</translation>
+        <translation>Zatrzymano</translation>
     </message>
     <message>
         <source>Add pool</source>
@@ -858,7 +862,7 @@ Proszę czekać...</translation>
     </message>
     <message>
         <source>Start mining</source>
-        <translation type="vanished">Zacznij karbować</translation>
+        <translation>Zacznij karbować</translation>
     </message>
     <message>
         <source>Pause mining</source>
@@ -866,7 +870,7 @@ Proszę czekać...</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="vanished">Ustawienia</translation>
+        <translation>Ustawienia</translation>
     </message>
     <message>
         <source>Pool mining</source>
@@ -874,7 +878,7 @@ Proszę czekać...</translation>
     </message>
     <message>
         <source>Stop mining</source>
-        <translation type="vanished">Zatrzymaj karbowanie</translation>
+        <translation>Zatrzymaj karbowanie</translation>
     </message>
     <message>
         <source>Solo mining</source>
@@ -890,7 +894,23 @@ Proszę czekać...</translation>
     </message>
     <message>
         <source>Mining status:</source>
-        <translation type="vanished">Stan karbowania:</translation>
+        <translation>Stan karbowania:</translation>
+    </message>
+    <message>
+        <source>Frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>State</source>
+        <translation>Stan</translation>
+    </message>
+    <message>
+        <source>Speed, H/s:</source>
+        <translation>Prędkość, H/s:</translation>
+    </message>
+    <message>
+        <source>Difficulty:</source>
+        <translation>Trudność:</translation>
     </message>
 </context>
 <context>
@@ -2365,11 +2385,11 @@ Jesteś pewien?</translation>
     </message>
     <message>
         <source>Starting...</source>
-        <translation type="vanished">Uruchamiam...</translation>
+        <translation>Uruchamiam...</translation>
     </message>
     <message>
         <source>Stopped</source>
-        <translation type="vanished">Zatrzymano</translation>
+        <translation>Zatrzymano</translation>
     </message>
     <message>
         <source>Mining solo. Hashrate: %1 H/s</source>
@@ -2382,6 +2402,14 @@ Jesteś pewien?</translation>
     <message>
         <source>Mining in pool. Hashrate: %1 H/s</source>
         <translation type="vanished">Trwa karbowanie w kopalni. Hashrate: %1 H/s</translation>
+    </message>
+    <message>
+        <source>Mining</source>
+        <translation>Karbowanie</translation>
+    </message>
+    <message>
+        <source>%1</source>
+        <translation type="unfinished">%1</translation>
     </message>
 </context>
 <context>

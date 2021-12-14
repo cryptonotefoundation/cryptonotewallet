@@ -690,7 +690,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Mining</source>
-        <translation type="vanished">استخراح</translation>
+        <translation>استخراح</translation>
     </message>
     <message>
         <source>Reset wallet</source>
@@ -828,12 +828,16 @@ Please wait...</source>
         <source>Coins</source>
         <translation>سکه</translation>
     </message>
+    <message>
+        <source>Start mining automatically</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
     <message>
         <source>Frame</source>
-        <translation type="vanished">پنجره</translation>
+        <translation>پنجره</translation>
     </message>
     <message>
         <source>Mining status</source>
@@ -841,7 +845,7 @@ Please wait...</source>
     </message>
     <message>
         <source>CPU cores</source>
-        <translation type="vanished">تعداد هسته پردازنده</translation>
+        <translation>تعداد هسته پردازنده</translation>
     </message>
     <message>
         <source>Select pool</source>
@@ -849,7 +853,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Stopped</source>
-        <translation type="vanished">متوقف شده</translation>
+        <translation>متوقف شده</translation>
     </message>
     <message>
         <source>Add pool</source>
@@ -857,7 +861,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Start mining</source>
-        <translation type="vanished">شروع استخراج</translation>
+        <translation>شروع استخراج</translation>
     </message>
     <message>
         <source>Pause mining</source>
@@ -865,7 +869,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="vanished">تنظیمات</translation>
+        <translation>تنظیمات</translation>
     </message>
     <message>
         <source>Pool mining</source>
@@ -873,7 +877,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Stop mining</source>
-        <translation type="vanished">توقف کامل استخراج</translation>
+        <translation>توقف کامل استخراج</translation>
     </message>
     <message>
         <source>Solo mining</source>
@@ -889,7 +893,19 @@ Please wait...</source>
     </message>
     <message>
         <source>Mining status:</source>
-        <translation type="vanished">وضعیت استخراج :</translation>
+        <translation>وضعیت استخراج :</translation>
+    </message>
+    <message>
+        <source>State</source>
+        <translation>حالت</translation>
+    </message>
+    <message>
+        <source>Speed, H/s:</source>
+        <translation>سرعت، H/s:</translation>
+    </message>
+    <message>
+        <source>Difficulty:</source>
+        <translation>سختی:</translation>
     </message>
 </context>
 <context>
@@ -2355,11 +2371,11 @@ Are you sure?</source>
     </message>
     <message>
         <source>Starting...</source>
-        <translation type="vanished">در حال شروع...</translation>
+        <translation>در حال شروع...</translation>
     </message>
     <message>
         <source>Stopped</source>
-        <translation type="vanished">متوقف شده</translation>
+        <translation>متوقف شده</translation>
     </message>
     <message>
         <source>Mining solo. Hashrate: %1 H/s</source>
@@ -2372,6 +2388,14 @@ Are you sure?</source>
     <message>
         <source>Mining in pool. Hashrate: %1 H/s</source>
         <translation type="vanished">استخراج در استخر. هش ریت: %1 H/s</translation>
+    </message>
+    <message>
+        <source>Mining</source>
+        <translation>استخراح</translation>
+    </message>
+    <message>
+        <source>%1</source>
+        <translation type="unfinished">%1</translation>
     </message>
 </context>
 <context>

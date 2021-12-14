@@ -40,7 +40,6 @@ gui/MainWindow.cpp \
 gui/MiningFrame.cpp \
 gui/NewAddressDialog.cpp \
 gui/NewPasswordDialog.cpp \
-gui/NewPoolDialog.cpp \
 gui/OverviewFrame.cpp \
 gui/PasswordDialog.cpp \
 gui/PoolModel.cpp \

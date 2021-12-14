@@ -710,7 +710,7 @@ S&apos;il vous plaît, patientez...</translation>
     </message>
     <message>
         <source>Mining</source>
-        <translation type="vanished">Mining</translation>
+        <translation>Mining</translation>
     </message>
     <message>
         <source>Reset wallet</source>
@@ -848,12 +848,16 @@ S&apos;il vous plaît, patientez...</translation>
         <source>Coins</source>
         <translation>Monnaie</translation>
     </message>
+    <message>
+        <source>Start mining automatically</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
     <message>
         <source>Frame</source>
-        <translation type="vanished">Cadre</translation>
+        <translation>Cadre</translation>
     </message>
     <message>
         <source>Mining status</source>
@@ -861,7 +865,7 @@ S&apos;il vous plaît, patientez...</translation>
     </message>
     <message>
         <source>CPU cores</source>
-        <translation type="vanished">Cœurs de processeurs</translation>
+        <translation>Cœurs de processeurs</translation>
     </message>
     <message>
         <source>Select pool</source>
@@ -869,7 +873,7 @@ S&apos;il vous plaît, patientez...</translation>
     </message>
     <message>
         <source>Stopped</source>
-        <translation type="vanished">Arrêté</translation>
+        <translation>Arrêté</translation>
     </message>
     <message>
         <source>Add pool</source>
@@ -877,7 +881,7 @@ S&apos;il vous plaît, patientez...</translation>
     </message>
     <message>
         <source>Start mining</source>
-        <translation type="vanished">Démarrer l&apos;exploitation</translation>
+        <translation>Démarrer l&apos;exploitation</translation>
     </message>
     <message>
         <source>Pause mining</source>
@@ -885,7 +889,7 @@ S&apos;il vous plaît, patientez...</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="vanished">Paramètres</translation>
+        <translation>Paramètres</translation>
     </message>
     <message>
         <source>Pool mining</source>
@@ -893,7 +897,7 @@ S&apos;il vous plaît, patientez...</translation>
     </message>
     <message>
         <source>Stop mining</source>
-        <translation type="vanished">Arrêter l&apos;exploitation</translation>
+        <translation>Arrêter l&apos;exploitation</translation>
     </message>
     <message>
         <source>Solo mining</source>
@@ -909,7 +913,19 @@ S&apos;il vous plaît, patientez...</translation>
     </message>
     <message>
         <source>Mining status:</source>
-        <translation type="vanished">Statut de l&apos;exploitation:</translation>
+        <translation>Statut de l&apos;exploitation:</translation>
+    </message>
+    <message>
+        <source>State</source>
+        <translation>Etat</translation>
+    </message>
+    <message>
+        <source>Speed, H/s:</source>
+        <translation>Vitesse, H/s:</translation>
+    </message>
+    <message>
+        <source>Difficulty:</source>
+        <translation>Difficulté:</translation>
     </message>
 </context>
 <context>
@@ -2372,11 +2388,11 @@ Are you sure?</source>
     </message>
     <message>
         <source>Starting...</source>
-        <translation type="vanished">Départ...</translation>
+        <translation>Départ...</translation>
     </message>
     <message>
         <source>Stopped</source>
-        <translation type="vanished">Arrêté</translation>
+        <translation>Arrêté</translation>
     </message>
     <message>
         <source>Mining solo. Hashrate: %1 H/s</source>
@@ -2389,6 +2405,14 @@ Are you sure?</source>
     <message>
         <source>Mining in pool. Hashrate: %1 H/s</source>
         <translation type="vanished">L&apos;extraction en groupment. Hashrate: %1 H/s</translation>
+    </message>
+    <message>
+        <source>Mining</source>
+        <translation>Mining</translation>
+    </message>
+    <message>
+        <source>%1</source>
+        <translation type="unfinished">%1</translation>
     </message>
 </context>
 <context>

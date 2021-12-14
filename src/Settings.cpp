@@ -297,6 +297,18 @@ NodeSetting Settings::getCurrentRemoteNode() const {
   return remotenode;
 }
 
+quint16 Settings::getMiningThreads() const {
+  if (m_settings.contains("miningThreads")) {
+    return m_settings.value("miningThreads").toVariant().toInt();
+  } else {
+    return 0;
+  }
+}
+
+bool Settings::isMiningOnLaunchEnabled() const {
+  return m_settings.contains("autostartMininig") ? m_settings.value("autostartMininig").toBool() : false;
+}
+
 bool Settings::isStartOnLoginEnabled() const {
   bool res = false;
 #ifdef Q_OS_MAC
@@ -503,6 +515,13 @@ void Settings::setTrackingMode(bool _tracking) {
   }
 }
 
+void Settings::setMiningOnLaunchEnabled(bool _automining) {
+  if (isMiningOnLaunchEnabled() != _automining) {
+    m_settings.insert("autostartMininig", _automining);
+    saveSettings();
+  }
+}
+
 void Settings::setCurrentTheme(const QString& _theme) {
 }
 
@@ -601,6 +620,13 @@ void Settings::setRpcNodesList(const QVector<NodeSetting> &RpcNodesList) {
       nodesList.append(nodeSettingObj);
     }
     m_settings.insert(OPTION_RPCNODES, nodesList);
+  }
+  saveSettings();
+}
+
+void Settings::setMiningThreads(const quint16& _threads) {
+  if (_threads != 0) {
+    m_settings.insert("miningThreads", _threads);
   }
   saveSettings();
 }

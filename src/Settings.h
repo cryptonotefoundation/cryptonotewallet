@@ -56,7 +56,7 @@ public:
   QVector<NodeSetting> getRpcNodesList() const;
   quint16 getCurrentLocalDaemonPort() const;
   NodeSetting getCurrentRemoteNode() const;
-  QString getCurrentPool() const;
+  quint16 getMiningThreads() const;
   QString getCurrentTheme() const;
 
   bool isOptimizationEnabled() const;
@@ -71,6 +71,7 @@ public:
 
   bool isEncrypted() const;
   bool isStartOnLoginEnabled() const;
+  bool isMiningOnLaunchEnabled() const;
   bool isTrackingMode() const;
   bool skipFusionTransactions() const;
   bool hideEverythingOnLocked() const;
@@ -86,10 +87,12 @@ public:
   void setCurrentTheme(const QString& _theme);
   void setLanguage(const QString& _language);
   void setStartOnLoginEnabled(bool _enable);
+  void setMiningOnLaunchEnabled(bool _enable);
   void setConnection(const QString& _connection);
   void setCurrentLocalDaemonPort(const quint16& _daemonPort);
   void setCurrentRemoteNode(const NodeSetting &remoteNode);
   void setRpcNodesList(const QVector<NodeSetting> &RpcNodesList);
+  void setMiningThreads(const quint16& _threads);
 #ifdef Q_OS_WIN
   void setMinimizeToTrayEnabled(bool _enable);
   void setCloseToTrayEnabled(bool _enable);

@@ -164,6 +164,7 @@ void MainWindow::initUi() {
   m_ui->m_receiveFrame->hide();
   m_ui->m_transactionsFrame->hide();
   m_ui->m_addressBookFrame->hide();
+  m_ui->m_miningFrame->hide();
   m_ui->m_coinsFrame->hide();
 
   m_tabActionGroup->addAction(m_ui->m_overviewAction);
@@ -171,6 +172,7 @@ void MainWindow::initUi() {
   m_tabActionGroup->addAction(m_ui->m_receiveAction);
   m_tabActionGroup->addAction(m_ui->m_transactionsAction);
   m_tabActionGroup->addAction(m_ui->m_addressBookAction);
+  m_tabActionGroup->addAction(m_ui->m_miningAction);
   m_tabActionGroup->addAction(m_ui->m_coinsAction);
 
   m_syncProgressBar->setMaximum(maxProgressBar);
@@ -207,6 +209,7 @@ void MainWindow::initUi() {
 
   m_ui->m_showMnemonicSeedAction->setEnabled(false);
 
+  m_ui->m_miningOnLaunchAction->setChecked(Settings::instance().isMiningOnLaunchEnabled());
   m_ui->m_startOnLoginAction->setChecked(Settings::instance().isStartOnLoginEnabled());
   m_ui->m_hideFusionTransactions->setChecked(Settings::instance().skipFusionTransactions());
   m_ui->m_hideEverythingOnLocked->setChecked(Settings::instance().hideEverythingOnLocked());
@@ -977,6 +980,11 @@ void MainWindow::setStartOnLogin(bool _on) {
   m_ui->m_startOnLoginAction->setChecked(Settings::instance().isStartOnLoginEnabled());
 }
 
+void MainWindow::setMiningOnLaunch(bool _on) {
+  Settings::instance().setMiningOnLaunchEnabled(_on);
+  m_ui->m_miningOnLaunchAction->setChecked(Settings::instance().isMiningOnLaunchEnabled());
+}
+
 void MainWindow::setMinimizeToTray(bool _on) {
 #ifdef Q_OS_WIN
   Settings::instance().setMinimizeToTrayEnabled(_on);
@@ -991,7 +999,7 @@ void MainWindow::setCloseToTray(bool _on) {
 #endif
 }
 
-void MainWindow::setHideFusionTransactions(bool _on) {
+void MainWindow::hideFusionTransactions(bool _on) {
   Settings::instance().setSkipFusionTransactions(_on);
   m_ui->m_hideFusionTransactions->setChecked(Settings::instance().skipFusionTransactions());
   m_ui->m_transactionsFrame->reloadTransactions();
@@ -1208,6 +1216,7 @@ void MainWindow::walletClosed() {
   m_ui->m_sendFrame->hide();
   m_ui->m_transactionsFrame->hide();
   m_ui->m_addressBookFrame->hide();
+  m_ui->m_miningFrame->hide();
   m_ui->m_coinsFrame->hide();
   m_ui->m_noWalletFrame->show();
   m_encryptionStateIconLabel->hide();
@@ -1274,6 +1283,7 @@ void MainWindow::createTrayIconMenu()
     trayIconMenu->addAction(m_ui->m_receiveAction);
     trayIconMenu->addAction(m_ui->m_transactionsAction);
     trayIconMenu->addAction(m_ui->m_addressBookAction);
+    trayIconMenu->addAction(m_ui->m_miningAction);
     trayIconMenu->addSeparator();
     trayIconMenu->addAction(m_ui->m_openWalletAction);
     trayIconMenu->addAction(m_ui->m_closeWalletAction);
