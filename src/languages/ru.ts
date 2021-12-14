@@ -1950,7 +1950,7 @@ Do you want to go to the download page?</source>
     </message>
     <message>
         <source>Use LevelDB instead of RocksDB</source>
-        <translation>Использовать LevelDB вместо RocksDB</translation>
+        <translation type="vanished">Использовать LevelDB вместо RocksDB</translation>
     </message>
 </context>
 <context>

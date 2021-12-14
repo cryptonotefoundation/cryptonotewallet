@@ -147,16 +147,8 @@ void SendFrame::addRecipientClicked() {
 }
 
 double SendFrame::getMinimalFee() {
-  double fee(0);
-  if (NodeAdapter::instance().getCurrentBlockMajorVersion() < CryptoNote::BLOCK_MAJOR_VERSION_4) {
-    fee = CurrencyAdapter::instance().formatAmount(CurrencyAdapter::instance().getMinimumFee()).toDouble();
-  } else {
-    fee = CurrencyAdapter::instance().formatAmount(NodeAdapter::instance().getMinimalFee()).toDouble();
-  }
-  int digits = 2; // round up fee to 2 digits after leading zeroes
-  double scale = pow(10., floor(log10(fabs(fee))) + (1 - digits));
-  double roundedFee = ceil(fee / scale) * scale;
-  return roundedFee;
+  double fee = CurrencyAdapter::instance().formatAmount(NodeAdapter::instance().getMinimalFee()).toDouble();
+  return fee;
 }
 
 void SendFrame::clearAllClicked() {
@@ -311,16 +303,8 @@ void SendFrame::sendOutputs(QList<CryptoNote::TransactionOutputInformation> _sel
   // disable send all in this case
   m_ui->m_sendAllButton->setEnabled(false);
 
-  bool zeroMixinAgreed = false;
   for (auto& out : _selectedOutputs) {
     m_selectedOutputsAmount += out.amount;
-    // if unmixable force mixin zero
-    if (!CryptoNote::is_valid_decomposed_amount(out.amount)) {
-      if(!zeroMixinAgreed && !confirmZeroMixin())
-         return;
-      m_ui->m_mixinSlider->setEnabled(false);
-      zeroMixinAgreed = true;
-    }
   }
 
   m_selectedOutputs = _selectedOutputs;
@@ -330,6 +314,10 @@ void SendFrame::sendOutputs(QList<CryptoNote::TransactionOutputInformation> _sel
 
 void SendFrame::sendClicked() {
   amountValueChanged();
+
+  if (WalletAdapter::instance().getUnmixableBalance() != 0 && m_ui->m_mixinSlider->value() != 0 && !confirmZeroMixin()) {
+    return;
+  }
 
   quint64 actualBalance = WalletAdapter::instance().getActualBalance();
   if (actualBalance <= NodeAdapter::instance().getMinimalFee()) {

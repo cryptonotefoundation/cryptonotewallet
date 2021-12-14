@@ -1962,7 +1962,7 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
     </message>
     <message>
         <source>Use LevelDB instead of RocksDB</source>
-        <translation>Użyj LevelDB zamiast RocksDB</translation>
+        <translation type="vanished">Użyj LevelDB zamiast RocksDB</translation>
     </message>
 </context>
 <context>

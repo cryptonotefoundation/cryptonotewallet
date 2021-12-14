@@ -104,7 +104,7 @@ jobs:
           echo "::set-output name=krb_ver::${krb_ver}"
 
       - name: Create Release Archive
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v0.1.8
         with:
           files: ${{ steps.pack.outputs.asset_path_archive }}
           name: Karbo Wallet ${{ steps.pack.outputs.krb_ver }}
@@ -115,7 +115,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create Release Installer
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v0.1.8
         with:
           files: ${{ steps.pack.outputs.asset_path_install }}
           name: Karbo Wallet ${{ steps.pack.outputs.krb_ver }}
@@ -143,11 +143,11 @@ jobs:
       - name: Setup Xcode
         uses: maxim-lobanov/setup-xcode@v1
         with:
-          xcode-version: '10'
+          xcode-version: latest-stable
 
       - name: Install other deps
         run: |
-          brew install gcc boost
+          brew install gcc boost openssl
           brew link boost --force
 
       - name: Build
@@ -179,7 +179,7 @@ jobs:
           MACOSX_DEPLOYMENT_TARGET: '10.12'
 
       - name: Create Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v0.1.8
         with:
           files: ${{ steps.build.outputs.asset_path }}
           name: Karbo Wallet ${{ steps.build.outputs.krb_ver }}
@@ -222,7 +222,7 @@ jobs:
           echo "::set-output name=krb_ver::${krb_ver}"
 
       - name: Create Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v0.1.8
         with:
           files: ${{ steps.build.outputs.asset_path }}
           name: Karbo Wallet ${{ steps.build.outputs.krb_ver }}
@@ -266,7 +266,7 @@ jobs:
           echo "::set-output name=krb_ver::${krb_ver}"
 
       - name: Create Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v0.1.8
         with:
           files: ${{ steps.build.outputs.asset_path }}
           name: Karbo Wallet ${{ steps.build.outputs.krb_ver }}
