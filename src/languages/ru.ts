@@ -694,7 +694,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Mining</source>
-        <translation type="vanished">Майнинг</translation>
+        <translation>Майнинг</translation>
     </message>
     <message>
         <source>Reset wallet</source>
@@ -832,6 +832,10 @@ Please wait...</source>
         <source>Coins</source>
         <translation>Монеты</translation>
     </message>
+    <message>
+        <source>Start mining automatically</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
@@ -841,7 +845,7 @@ Please wait...</source>
     </message>
     <message>
         <source>CPU cores</source>
-        <translation type="vanished">Ядра CPU</translation>
+        <translation>Ядра CPU</translation>
     </message>
     <message>
         <source>Select pool</source>
@@ -849,7 +853,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Stopped</source>
-        <translation type="vanished">Остановлен</translation>
+        <translation>Остановлен</translation>
     </message>
     <message>
         <source>Add pool</source>
@@ -857,7 +861,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Start mining</source>
-        <translation type="vanished">Начать майнинг</translation>
+        <translation>Начать майнинг</translation>
     </message>
     <message>
         <source>Pause mining</source>
@@ -865,7 +869,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="vanished">Настройки</translation>
+        <translation>Настройки</translation>
     </message>
     <message>
         <source>Pool mining</source>
@@ -873,7 +877,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Stop mining</source>
-        <translation type="vanished">Остановить майнинг</translation>
+        <translation>Остановить майнинг</translation>
     </message>
     <message>
         <source>Solo mining</source>
@@ -889,7 +893,23 @@ Please wait...</source>
     </message>
     <message>
         <source>Mining status:</source>
-        <translation type="vanished">Состояние майнинга:</translation>
+        <translation>Состояние майнинга:</translation>
+    </message>
+    <message>
+        <source>Frame</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>State</source>
+        <translation>Состояние</translation>
+    </message>
+    <message>
+        <source>Speed, H/s:</source>
+        <translation>Скорость, H/s:</translation>
+    </message>
+    <message>
+        <source>Difficulty:</source>
+        <translation>Сложность:</translation>
     </message>
 </context>
 <context>
@@ -2357,11 +2377,11 @@ Are you sure?</source>
     </message>
     <message>
         <source>Starting...</source>
-        <translation type="vanished">Запуск...</translation>
+        <translation>Запуск...</translation>
     </message>
     <message>
         <source>Stopped</source>
-        <translation type="vanished">Остановлен</translation>
+        <translation>Остановлен</translation>
     </message>
     <message>
         <source>Mining solo. Hashrate: %1 H/s</source>
@@ -2374,6 +2394,14 @@ Are you sure?</source>
     <message>
         <source>Mining in pool. Hashrate: %1 H/s</source>
         <translation type="vanished">Майнинг в пуле. Скорость: %1 H/s</translation>
+    </message>
+    <message>
+        <source>Mining</source>
+        <translation type="unfinished">Майнинг</translation>
+    </message>
+    <message>
+        <source>%1</source>
+        <translation type="unfinished">%1</translation>
     </message>
 </context>
 <context>
