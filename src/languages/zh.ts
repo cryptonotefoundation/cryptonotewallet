@@ -999,7 +999,7 @@ Please wait...</source>
     <message>
         <location filename="../gui/ui/miningframe.ui" line="14"/>
         <source>Frame</source>
-        <translation type="unfinished">框架 </translation>
+        <translation type="unfinished">框架</translation>
     </message>
     <message>
         <source>Pool mining</source>

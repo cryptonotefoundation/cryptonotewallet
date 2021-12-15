@@ -2278,7 +2278,7 @@ Você tem certeza?</translation>
     </message>
     <message>
         <source>&amp;Show / Hide</source>
-        <translation>&amp; Show / Hide</translation>
+        <translation type="unfinished">&amp;Show / Hide</translation>
     </message>
     <message>
         <source>Show or hide the main window</source>

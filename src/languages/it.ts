@@ -2666,7 +2666,7 @@ Are you sure?</source>
     <message numerus="yes">
         <location filename="../gui/MainWindow.cpp" line="1117"/>
         <source>%n active connection(s)</source>
-        <translation type="unfinished">
+        <translation>
             <numerusform>%n connessione attiva</numerusform>
             <numerusform>%n connessioni attive</numerusform>
         </translation>
