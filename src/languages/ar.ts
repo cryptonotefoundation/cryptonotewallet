@@ -870,17 +870,17 @@ Please wait...</source>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="676"/>
         <source>Start mining automatically</source>
-        <translation type="unfinished"></translation>
+        <translation>ابدأ التعدين تلقائيًا</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="681"/>
         <source>Sign message</source>
-        <translation type="unfinished">العنوان</translation>
+        <translation>توقيع الرسالة</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="686"/>
         <source>Verify signed message</source>
-        <translation type="unfinished"></translation>
+        <translation>تحقق من الرسالة الموقعة</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="691"/>

@@ -828,7 +828,7 @@ Attendere prego…
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="676"/>
         <source>Start mining automatically</source>
-        <translation type="unfinished"></translation>
+        <translation>Inizia il mining automaticamente</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="681"/>

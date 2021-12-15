@@ -830,7 +830,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Start mining automatically</source>
-        <translation type="unfinished"></translation>
+        <translation>استخراج خودکار را شروع کنید</translation>
     </message>
 </context>
 <context>

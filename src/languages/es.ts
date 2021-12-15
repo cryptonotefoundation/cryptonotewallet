@@ -840,7 +840,7 @@ Por favor, espera...</translation>
     </message>
     <message>
         <source>Start mining automatically</source>
-        <translation type="unfinished"></translation>
+        <translation>Comencar mining automáticamente</translation>
     </message>
 </context>
 <context>

@@ -853,7 +853,7 @@ Please wait...</source>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="676"/>
         <source>Start mining automatically</source>
-        <translation type="unfinished"></translation>
+        <translation>자동 마이닝 시작</translation>
     </message>
     <message>
         <location filename="../gui/ui/mainwindow.ui" line="681"/>

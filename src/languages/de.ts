@@ -839,7 +839,7 @@ Bitte warten...</translation>
     </message>
     <message>
         <source>Start mining automatically</source>
-        <translation type="unfinished"></translation>
+        <translation>Mining automatisch starten</translation>
     </message>
 </context>
 <context>

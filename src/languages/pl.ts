@@ -835,7 +835,7 @@ Proszę czekać...</translation>
     </message>
     <message>
         <source>Start mining automatically</source>
-        <translation type="unfinished"></translation>
+        <translation>Uruchamiać karbowanie automatycznie</translation>
     </message>
 </context>
 <context>
