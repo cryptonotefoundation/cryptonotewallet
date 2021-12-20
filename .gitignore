@@ -2,3 +2,6 @@
 /build
 /tags
 *.user
+CMakeSettings.json
+.vs/
+out/
