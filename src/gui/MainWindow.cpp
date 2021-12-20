@@ -189,13 +189,23 @@ void MainWindow::initUi() {
   statusBar()->addPermanentWidget(m_connectionStateIconLabel);
   statusBar()->addPermanentWidget(m_encryptionStateIconLabel);
   statusBar()->addPermanentWidget(m_synchronizationStateIconLabel);
-  
+
+  m_synchronizationStateIconLabel->setFixedSize(16,16);
+  m_synchronizationStateIconLabel->setScaledContents( true );
+  m_connectionStateIconLabel->setFixedSize(16,16);
+  m_encryptionStateIconLabel->setFixedSize(16,16);
+  m_encryptionStateIconLabel->setScaledContents( true );
+  m_trackingModeIconLabel->setFixedSize(16,16);
+  m_trackingModeIconLabel->setScaledContents( true );
+  m_remoteModeIconLabel->setFixedSize(16,16);
+  m_remoteModeIconLabel->setScaledContents( true );
+
   m_ui->m_overviewAction->toggle();
   encryptedFlagChanged(false);
   
   qobject_cast<AnimatedLabel*>(m_synchronizationStateIconLabel)->setSprite(QPixmap(":icons/sync_sprite"), QSize(16, 16), 5, 24);
-  m_connectionStateIconLabel->setIcon(QPixmap(":icons/disconnected").scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
-  m_trackingModeIconLabel->setPixmap(QPixmap(":icons/tracking").scaledToHeight(16, Qt::SmoothTransformation));
+  m_connectionStateIconLabel->setIcon(QPixmap(":icons/disconnected").scaled(96, 96, Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+  m_trackingModeIconLabel->setPixmap(QPixmap(":icons/tracking").scaledToHeight(96, Qt::SmoothTransformation));
   m_remoteModeIconLabel->hide();
   m_trackingModeIconLabel->hide();
   m_trackingModeIconLabel->setToolTip(tr("Tracking wallet. Spending unavailable"));
@@ -204,7 +214,7 @@ void MainWindow::initUi() {
   QString connection = Settings::instance().getConnection();
   if(connection.compare("remote") == 0) {
     m_remoteModeIconLabel->show();
-    m_remoteModeIconLabel->setPixmap(QPixmap(":icons/remote_mode").scaledToHeight(16, Qt::SmoothTransformation));
+    m_remoteModeIconLabel->setPixmap(QPixmap(":icons/remote_mode").scaledToHeight(96, Qt::SmoothTransformation));
   }
 
   m_ui->m_showMnemonicSeedAction->setEnabled(false);
@@ -1103,7 +1113,7 @@ void MainWindow::encryptedFlagChanged(bool _encrypted) {
   m_ui->m_encryptWalletAction->setEnabled(!_encrypted);
   m_ui->m_changePasswordAction->setEnabled(_encrypted);
   QString encryptionIconPath = _encrypted ? ":icons/encrypted" : ":icons/decrypted";
-  QPixmap encryptionIcon = QPixmap(encryptionIconPath).scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+  QPixmap encryptionIcon = QPixmap(encryptionIconPath).scaled(96, 96, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
   m_encryptionStateIconLabel->setPixmap(encryptionIcon);
   QString encryptionLabelTooltip = _encrypted ? tr("Encrypted") : tr("Not encrypted");
   m_encryptionStateIconLabel->setToolTip(encryptionLabelTooltip);
@@ -1112,7 +1122,7 @@ void MainWindow::encryptedFlagChanged(bool _encrypted) {
 
 void MainWindow::peerCountUpdated(quint64 _peerCount) {
   QString connectionIconPath = _peerCount > 0 ? ":icons/connected" : ":icons/disconnected";
-  QPixmap connectionIcon = QPixmap(connectionIconPath).scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+  QPixmap connectionIcon = QPixmap(connectionIconPath).scaled(96, 96, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
   m_connectionStateIconLabel->setIcon(connectionIcon);
   m_connectionStateIconLabel->setToolTip(QString(tr("%n active connection(s)", "", _peerCount)));
 }
@@ -1137,7 +1147,7 @@ void MainWindow::walletSynchronizationInProgress(uint32_t _current, uint32_t _to
 }
 
 void MainWindow::walletSynchronized(int _error, const QString& _error_text) {
-  QPixmap syncIcon = QPixmap(":icons/synced").scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+  QPixmap syncIcon = QPixmap(":icons/synced").scaled(96, 96, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
   qobject_cast<AnimatedLabel*>(m_synchronizationStateIconLabel)->stopAnimation();
   m_synchronizationStateIconLabel->setPixmap(syncIcon);
   QString syncLabelTooltip = _error > 0 ? tr("Not synchronized") : tr("Synchronized");

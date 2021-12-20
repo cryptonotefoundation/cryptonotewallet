@@ -351,9 +351,9 @@ QVariant TransactionsModel::getDecorationRole(const QModelIndex& _index) const {
     TransactionState transactionState = static_cast<TransactionState>(_index.data(ROLE_STATE).value<quint8>());
 
     if (transactionState != TransactionState::ACTIVE && transactionState != TransactionState::SENDING) {
-      return QPixmap(":icons/cancel");
+      return QPixmap(":icons/cancel").scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
     } else if (numberOfConfirmations == 0) {
-      return QPixmap(":icons/unconfirmed");
+      return QPixmap(":icons/unconfirmed").scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);;
     } else if(numberOfConfirmations < 2) {
       return QPixmap(":icons/clock1");
     } else if(numberOfConfirmations < 4) {
@@ -365,7 +365,7 @@ QVariant TransactionsModel::getDecorationRole(const QModelIndex& _index) const {
     } else if(numberOfConfirmations < 10) {
       return QPixmap(":icons/clock5");
     } else {
-      return QPixmap(":icons/transaction");
+      return QPixmap(":icons/transaction").scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);;
     }
   } else if (_index.column() == COLUMN_ADDRESS) {
     return _index.data(ROLE_ICON).value<QPixmap>().scaled(20, 20, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);

@@ -260,7 +260,7 @@
         </property>
         <property name="icon">
          <iconset resource="../../resources.qrc">
-          <normaloff>:/icons/btn-receive</normaloff>:/icons/btn-receive</iconset>
+          <normaloff>:/icons/qrcode</normaloff>:/icons/qrcode</iconset>
         </property>
        </widget>
       </item>

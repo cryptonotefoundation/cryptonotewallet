@@ -110,7 +110,6 @@
        </property>
        <property name="font">
         <font>
-         <weight>50</weight>
          <bold>false</bold>
         </font>
        </property>
@@ -179,7 +178,7 @@
        </property>
        <property name="icon">
         <iconset resource="../../resources.qrc">
-         <normaloff>:/icons/qrcode_white</normaloff>:/icons/qrcode_white</iconset>
+         <normaloff>:/icons/qrcode</normaloff>:/icons/qrcode</iconset>
        </property>
       </widget>
      </item>
@@ -254,7 +253,6 @@
         <property name="font">
          <font>
           <pointsize>8</pointsize>
-          <weight>50</weight>
           <bold>false</bold>
          </font>
         </property>
@@ -314,7 +312,6 @@
         <property name="font">
          <font>
           <pointsize>8</pointsize>
-          <weight>50</weight>
           <bold>false</bold>
          </font>
         </property>
@@ -374,7 +371,6 @@
         <property name="font">
          <font>
           <pointsize>8</pointsize>
-          <weight>50</weight>
           <bold>false</bold>
          </font>
         </property>
@@ -431,7 +427,6 @@
         <property name="font">
          <font>
           <pointsize>8</pointsize>
-          <weight>50</weight>
           <bold>false</bold>
          </font>
         </property>
