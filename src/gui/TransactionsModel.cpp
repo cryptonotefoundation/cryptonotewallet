@@ -7,7 +7,7 @@
 #include <QFont>
 #include <QMetaEnum>
 #include <QPixmap>
-#include <QDebug>
+#include <QPixmapCache>
 
 #include "crypto/crypto.h"
 #include "CryptoNoteCore/CryptoNoteBasic.h"
@@ -349,24 +349,31 @@ QVariant TransactionsModel::getDecorationRole(const QModelIndex& _index) const {
   if(_index.column() == COLUMN_STATE) {
     quint64 numberOfConfirmations = _index.data(ROLE_NUMBER_OF_CONFIRMATIONS).value<quint64>();
     TransactionState transactionState = static_cast<TransactionState>(_index.data(ROLE_STATE).value<quint8>());
-
+    QString file;
     if (transactionState != TransactionState::ACTIVE && transactionState != TransactionState::SENDING) {
-      return QPixmap(":icons/cancel").scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+      file = QString(":icons/cancel");
     } else if (numberOfConfirmations == 0) {
-      return QPixmap(":icons/unconfirmed").scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);;
+      file = QString(":icons/unconfirmed");
     } else if(numberOfConfirmations < 2) {
-      return QPixmap(":icons/clock1");
+      file = QString(":icons/clock1");
     } else if(numberOfConfirmations < 4) {
-      return QPixmap(":icons/clock2");
+      file = QString(":icons/clock2");
     } else if(numberOfConfirmations < 6) {
-      return QPixmap(":icons/clock3");
+      file = QString(":icons/clock3");
     } else if(numberOfConfirmations < 8) {
-      return QPixmap(":icons/clock4");
+      file = QString(":icons/clock4");
     } else if(numberOfConfirmations < 10) {
-      return QPixmap(":icons/clock5");
+      file = QString(":icons/clock5");
     } else {
-      return QPixmap(":icons/transaction").scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);;
+      file = QString(":icons/transaction");
     }
+    QPixmap pixmap;
+    if (!QPixmapCache::find(file, pixmap)) {
+      pixmap.load(file);
+      QPixmapCache::insert(file, pixmap);
+    }
+    return pixmap.scaled(16, 16, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+
   } else if (_index.column() == COLUMN_ADDRESS) {
     return _index.data(ROLE_ICON).value<QPixmap>().scaled(20, 20, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
   }
@@ -509,6 +516,7 @@ void TransactionsModel::updateWalletTransaction(CryptoNote::TransactionId _id) {
   quint32 firstRow = m_transactionRow.value(_id).first;
   quint32 lastRow = firstRow + m_transactionRow.value(_id).second - 1;
   Q_EMIT dataChanged(index(firstRow, COLUMN_DATE), index(lastRow, COLUMN_DATE));
+  Q_EMIT dataChanged(index(firstRow, COLUMN_STATE), index(lastRow, COLUMN_STATE));
 }
 
 void TransactionsModel::localBlockchainUpdated(quint64 _height) {
