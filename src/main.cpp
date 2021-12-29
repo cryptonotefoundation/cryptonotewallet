@@ -45,10 +45,9 @@ inline void newLogString(const QString& _string) {
 }
 
 int main(int argc, char* argv[]) {
-
+  QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+  QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
   QApplication app(argc, argv);
-  app.setAttribute(Qt::AA_EnableHighDpiScaling);
-  app.setAttribute(Qt::AA_UseHighDpiPixmaps);
   app.setApplicationName(CurrencyAdapter::instance().getCurrencyName() + "wallet");
   app.setApplicationVersion(Settings::instance().getVersion());
   app.setQuitOnLastWindowClosed(false);
