@@ -351,24 +351,24 @@ QVariant TransactionsModel::getDecorationRole(const QModelIndex& _index) const {
     TransactionState transactionState = static_cast<TransactionState>(_index.data(ROLE_STATE).value<quint8>());
     QString file;
     if (transactionState != TransactionState::ACTIVE && transactionState != TransactionState::SENDING) {
-      file = QString(":icons/cancel");
+      file = QString(":icons/cancelled");
     } else if (numberOfConfirmations == 0) {
       file = QString(":icons/unconfirmed");
     } else if(numberOfConfirmations < 2) {
       file = QString(":icons/clock1");
     } else if(numberOfConfirmations < 4) {
       file = QString(":icons/clock2");
-    } else if(numberOfConfirmations < 6) {
+    } else if(numberOfConfirmations < 5) {
       file = QString(":icons/clock3");
-    } else if(numberOfConfirmations < 8) {
+    } else if(numberOfConfirmations < 6) {
       file = QString(":icons/clock4");
-    } else if(numberOfConfirmations < 10) {
+    } else if(numberOfConfirmations < 7) {
       file = QString(":icons/clock5");
     } else {
       file = QString(":icons/transaction");
     }
     QPixmap pixmap;
-    if (!QPixmapCache::find(file, pixmap)) {
+    if (!QPixmapCache::find(file, &pixmap)) {
       pixmap.load(file);
       QPixmapCache::insert(file, pixmap);
     }

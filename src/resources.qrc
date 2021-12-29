@@ -21,6 +21,7 @@
         <file alias="clock4">icons/clock4.svg</file>
         <file alias="clock5">icons/clock5.svg</file>
         <file alias="transaction">icons/transaction.svg</file>
+        <file alias="check">icons/check.svg</file>
         <file alias="connected">icons/connected.svg</file>
         <file alias="disconnected">icons/disconnected.svg</file>
         <file alias="tx-inout">icons/tx_inout.svg</file>
@@ -35,6 +36,7 @@
         <file alias="down_arrow.png">icons/down_arrow.png</file>
         <file alias="copy_white">icons/copy.svg</file>
         <file alias="cancel">icons/cancel.svg</file>
+        <file alias="cancelled">icons/cancelled.svg</file>
         <file alias="remote_mode">icons/remote_mode.svg</file>
         <file alias="tracking">icons/tracking_mode.svg</file>
         <file alias="sweep">icons/broom.svg</file>

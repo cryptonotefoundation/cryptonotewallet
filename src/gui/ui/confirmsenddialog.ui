@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>474</width>
-    <height>90</height>
+    <height>96</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -76,7 +76,7 @@
        </property>
        <property name="icon">
         <iconset resource="../../resources.qrc">
-         <normaloff>:/icons/transaction</normaloff>:/icons/transaction</iconset>
+         <normaloff>:/icons/check</normaloff>:/icons/check</iconset>
        </property>
       </widget>
      </item>
