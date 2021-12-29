@@ -60,16 +60,16 @@ public:
   quint64 getAlreadyGeneratedCoins();
   std::vector<CryptoNote::p2pConnection> getConnections();
   CryptoNote::BlockHeaderInfo getLastLocalBlockHeaderInfo();
+  bool getBlockTemplate(CryptoNote::Block& b, const CryptoNote::AccountKeys& acc, const CryptoNote::BinaryArray& extraNonce, CryptoNote::difficulty_type& difficulty, uint32_t& height);
+  bool handleBlockFound(CryptoNote::Block& b);
+  bool getBlockLongHash(Crypto::cn_context &context, const CryptoNote::Block& block, Crypto::Hash& res);
+  NodeType getNodeType() const;
+  bool isOffline();
+
   void peerCountUpdated(Node& _node, size_t _count) Q_DECL_OVERRIDE;
   void localBlockchainUpdated(Node& _node, uint64_t _height) Q_DECL_OVERRIDE;
   void lastKnownBlockHeightUpdated(Node& _node, uint64_t _height) Q_DECL_OVERRIDE;
   void connectionStatusUpdated(bool _connected) Q_DECL_OVERRIDE;
-  bool isOffline();
-  bool getBlockTemplate(CryptoNote::Block& b, const CryptoNote::AccountKeys& acc, const CryptoNote::BinaryArray& extraNonce, CryptoNote::difficulty_type& difficulty, uint32_t& height);
-  bool handleBlockFound(CryptoNote::Block& b);
-  bool getBlockLongHash(Crypto::cn_context &context, const CryptoNote::Block& block, Crypto::Hash& res);
-
-  NodeType getNodeType() const;
 
 private:
   Node* m_node;

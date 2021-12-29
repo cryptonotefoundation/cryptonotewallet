@@ -311,6 +311,22 @@ std::vector<CryptoNote::p2pConnection> NodeAdapter::getConnections() {
   return m_node->getConnections();
 }
 
+bool NodeAdapter::getBlockTemplate(CryptoNote::Block& b, const CryptoNote::AccountKeys& acc, const CryptoNote::BinaryArray& extraNonce, CryptoNote::difficulty_type& difficulty, uint32_t& height) {
+  Q_CHECK_PTR(m_node);
+  return m_node->getBlockTemplate(b, acc, extraNonce, difficulty, height);
+}
+
+bool NodeAdapter::handleBlockFound(CryptoNote::Block& b) {
+  Q_CHECK_PTR(m_node);
+  return m_node->handleBlockFound(b);
+}
+
+bool NodeAdapter::getBlockLongHash(Crypto::cn_context &context, const CryptoNote::Block& block, Crypto::Hash& res) {
+  Q_CHECK_PTR(m_node);
+  return m_node->getBlockLongHash(context, block, res);
+}
+
+
 void NodeAdapter::peerCountUpdated(Node& _node, size_t _count) {
   Q_UNUSED(_node);
   Q_EMIT peerCountUpdatedSignal(_count);
@@ -330,20 +346,6 @@ void NodeAdapter::connectionStatusUpdated(bool _connected) {
   Q_EMIT connectionStatusUpdatedSignal(_connected);
 }
 
-bool NodeAdapter::getBlockTemplate(CryptoNote::Block& b, const CryptoNote::AccountKeys& acc, const CryptoNote::BinaryArray& extraNonce, CryptoNote::difficulty_type& difficulty, uint32_t& height) {
-  Q_CHECK_PTR(m_node);
-  return m_node->getBlockTemplate(b, acc, extraNonce, difficulty, height);
-}
-
-bool NodeAdapter::handleBlockFound(CryptoNote::Block& b) {
-  Q_CHECK_PTR(m_node);
-  return m_node->handleBlockFound(b);
-}
-
-bool NodeAdapter::getBlockLongHash(Crypto::cn_context &context, const CryptoNote::Block& block, Crypto::Hash& res) {
-  Q_CHECK_PTR(m_node);
-  return m_node->getBlockLongHash(context, block, res);
-}
 
 bool NodeAdapter::initInProcessNode() {
   Q_ASSERT(m_node == nullptr);

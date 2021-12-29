@@ -97,7 +97,7 @@ inline std::string interpret_rpc_response(bool ok, const std::string& status) {
 Node::~Node() {
 }
 
-class RpcNode : CryptoNote::INodeObserver, public CryptoNote::INodeRpcProxyObserver, public Node {
+class RpcNode : public CryptoNote::INodeObserver, public CryptoNote::INodeRpcProxyObserver, public Node {
 public:
   Logging::LoggerManager& m_logManager;
   RpcNode(const CryptoNote::Currency& currency, INodeCallback& callback, Logging::LoggerManager& logManager, const std::string& nodeHost, unsigned short nodePort, bool &enableSSL) :
@@ -140,71 +140,71 @@ public:
     return m_node.getLastLocalBlockTimestamp();
   }
 
-  uint64_t getPeerCount() {
+  uint64_t getPeerCount() override {
     return m_node.getPeerCount();
   }
 
-  uint64_t getMinimalFee() {
+  uint64_t getMinimalFee() override {
     return m_node.getMinimalFee();
   }
 
-  std::string feeAddress() const {
+  std::string feeAddress() const override {
     return m_node.feeAddress();
   }
 
-  uint64_t feeAmount() const {
+  uint64_t feeAmount() const override {
     return m_node.feeAmount();
   }
 
-  uint64_t getDifficulty() {
+  uint64_t getDifficulty() override {
     return m_node.getNextDifficulty();
   }
 
-  uint64_t getTxCount() {
+  uint64_t getTxCount() override {
     return m_node.getTransactionsCount();
   }
 
-  uint64_t getTxPoolSize() {
+  uint64_t getTxPoolSize() override {
     return m_node.getTransactionsPoolSize();
   }
 
-  uint64_t getAltBlocksCount() {
+  uint64_t getAltBlocksCount() override {
     return m_node.getAltBlocksCount();
   }
 
-  uint64_t getConnectionsCount() {
+  uint64_t getConnectionsCount() override {
     return m_node.getOutConnectionsCount();
   }
 
-  uint64_t getOutgoingConnectionsCount() {
+  uint64_t getOutgoingConnectionsCount() override {
     return m_node.getOutConnectionsCount();
   }
 
-  uint64_t getIncomingConnectionsCount() {
+  uint64_t getIncomingConnectionsCount() override {
     return m_node.getIncConnectionsCount();
   }
 
-  uint64_t getWhitePeerlistSize() {
+  uint64_t getWhitePeerlistSize() override {
     return m_node.getWhitePeerlistSize();
   }
 
-  uint64_t getGreyPeerlistSize() {
+  uint64_t getGreyPeerlistSize() override {
     return m_node.getGreyPeerlistSize();
   }
 
-  CryptoNote::BlockHeaderInfo getLastLocalBlockHeaderInfo() {
+  CryptoNote::BlockHeaderInfo getLastLocalBlockHeaderInfo() override {
     return m_node.getLastLocalBlockHeaderInfo();
   }
 
-  uint8_t getCurrentBlockMajorVersion() {
+  uint8_t getCurrentBlockMajorVersion() override {
     return getLastLocalBlockHeaderInfo().majorVersion;
   }
 
-  uint64_t getNextReward() {
+  uint64_t getNextReward() override {
     return m_node.getNextReward();
   }
 
-  bool getBlockTemplate(CryptoNote::Block& b, const CryptoNote::AccountKeys& acc, const CryptoNote::BinaryArray& ex_nonce, CryptoNote::difficulty_type& diffic, uint32_t& height) {
+  bool getBlockTemplate(CryptoNote::Block& b, const CryptoNote::AccountKeys& acc, const CryptoNote::BinaryArray& ex_nonce, CryptoNote::difficulty_type& diffic, uint32_t& height) override {
     try {
       CryptoNote::COMMAND_RPC_GETBLOCKTEMPLATE::request req = AUTO_VAL_INIT(req);
       CryptoNote::COMMAND_RPC_GETBLOCKTEMPLATE::response rsp = AUTO_VAL_INIT(rsp);
@@ -239,7 +239,7 @@ public:
     return false;
   }
 
-  bool handleBlockFound(CryptoNote::Block& b) {
+  bool handleBlockFound(CryptoNote::Block& b) override {
     try {
       CryptoNote::COMMAND_RPC_SUBMITBLOCK::request req;
       req.emplace_back(Common::toHex(CryptoNote::toBinaryArray(b)));
@@ -266,16 +266,16 @@ public:
     return false;
   }
   
-  bool getBlockLongHash(Crypto::cn_context &context, const CryptoNote::Block& block, Crypto::Hash& res) {
+  bool getBlockLongHash(Crypto::cn_context &context, const CryptoNote::Block& block, Crypto::Hash& res) override {
     // unsupported
     return false;
   }
 
-  uint64_t getAlreadyGeneratedCoins() {
+  uint64_t getAlreadyGeneratedCoins() override {
     return m_node.getAlreadyGeneratedCoins();
   }
 
-  std::vector<CryptoNote::p2pConnection> getConnections() {
+  std::vector<CryptoNote::p2pConnection> getConnections() override {
     std::vector<CryptoNote::p2pConnection> connections;
 
     auto getConnectionsCompleted = std::promise<std::error_code>();
@@ -296,7 +296,7 @@ public:
     return connections;
   }
 
-  NodeType getNodeType() const {
+  NodeType getNodeType() const override {
     return NodeType::RPC;
   }
 
@@ -310,25 +310,25 @@ private:
   CryptoNote::NodeRpcProxy m_node;
   System::Dispatcher m_dispatcher;
 
-  void peerCountUpdated(size_t count) {
+  void peerCountUpdated(size_t count) override {
     m_callback.peerCountUpdated(*this, count);
   }
 
-  void localBlockchainUpdated(uint64_t height) {
+  void localBlockchainUpdated(uint32_t height) {
     m_callback.localBlockchainUpdated(*this, height);
   }
 
-  void lastKnownBlockHeightUpdated(uint64_t height) {
+  void lastKnownBlockHeightUpdated(uint32_t height) {
     m_callback.lastKnownBlockHeightUpdated(*this, height);
   }
 
   // INodeRpcProxyObserver
-  void connectionStatusUpdated(bool _connected) {
+  void connectionStatusUpdated(bool _connected) override {
     m_callback.connectionStatusUpdated(_connected);
   }
 };
 
-class InprocessNode : CryptoNote::INodeObserver, public Node {
+class InprocessNode : public CryptoNote::INodeObserver, public Node {
 public:
   Logging::LoggerManager& m_logManager;
   InprocessNode(const CryptoNote::Currency& currency, Logging::LoggerManager& logManager, const CryptoNote::CoreConfig& coreConfig,
@@ -354,7 +354,6 @@ public:
 
       m_core.set_cryptonote_protocol(&m_protocolHandler);
       m_protocolHandler.set_p2p_endpoint(&m_nodeServer);
-
   }
 
   ~InprocessNode() override {
@@ -382,7 +381,7 @@ public:
     }
 
     m_node.init([this, callback](std::error_code ec) {
-      m_node.addObserver(this);
+      m_node.addObserver(dynamic_cast<INodeObserver*>(this));
       callback(ec);
     });
 
@@ -416,87 +415,87 @@ public:
     return m_node.getLastLocalBlockTimestamp();
   }
 
-  uint64_t getPeerCount() {
+  uint64_t getPeerCount() override {
     return m_nodeServer.get_connections_count();
   }
 
-  uint64_t getDifficulty() {
+  uint64_t getDifficulty() override {
     return m_core.getNextBlockDifficulty();
   }
 
-  uint64_t getTxCount() {
+  uint64_t getTxCount() override {
     return m_core.getBlockchainTotalTransactions() - m_core.getCurrentBlockchainHeight();
   }
 
-  uint64_t getTxPoolSize() {
+  uint64_t getTxPoolSize() override {
     return m_core.getPoolTransactionsCount();
   }
 
-  uint64_t getAltBlocksCount() {
+  uint64_t getAltBlocksCount() override {
     return m_core.getAlternativeBlocksCount();
   }
 
-  uint64_t getConnectionsCount() {
+  uint64_t getConnectionsCount() override {
     return m_nodeServer.get_connections_count();
   }
 
-  uint64_t getOutgoingConnectionsCount() {
+  uint64_t getOutgoingConnectionsCount() override {
     return m_nodeServer.get_outgoing_connections_count();
   }
 
-  uint64_t getIncomingConnectionsCount() {
+  uint64_t getIncomingConnectionsCount() override {
     return m_nodeServer.get_connections_count() - m_nodeServer.get_outgoing_connections_count();
   }
 
-  uint64_t getWhitePeerlistSize() {
+  uint64_t getWhitePeerlistSize() override {
     return m_nodeServer.getPeerlistManager().get_white_peers_count();
   }
 
-  uint64_t getGreyPeerlistSize() {
+  uint64_t getGreyPeerlistSize() override {
     return m_nodeServer.getPeerlistManager().get_gray_peers_count();
   }
 
-  uint64_t getMinimalFee() {
+  uint64_t getMinimalFee() override {
     return m_core.getMinimalFee();
   }
 
-  std::string feeAddress() const {
+  std::string feeAddress() const override {
     return m_node.feeAddress();
   }
 
-  uint64_t feeAmount() const {
+  uint64_t feeAmount() const override {
     return m_node.feeAmount();
   }
 
-  CryptoNote::BlockHeaderInfo getLastLocalBlockHeaderInfo() {
+  CryptoNote::BlockHeaderInfo getLastLocalBlockHeaderInfo() override {
     return m_node.getLastLocalBlockHeaderInfo();
   }
 
-  uint8_t getCurrentBlockMajorVersion() {
+  uint8_t getCurrentBlockMajorVersion() override {
     return getLastLocalBlockHeaderInfo().majorVersion;
   }
 
-  uint64_t getNextReward() {
+  uint64_t getNextReward() override {
     return m_node.getNextReward();
   }
 
-  bool getBlockTemplate(CryptoNote::Block& b, const CryptoNote::AccountKeys& acc, const CryptoNote::BinaryArray& ex_nonce, CryptoNote::difficulty_type& diffic, uint32_t& height) {
+  bool getBlockTemplate(CryptoNote::Block& b, const CryptoNote::AccountKeys& acc, const CryptoNote::BinaryArray& ex_nonce, CryptoNote::difficulty_type& diffic, uint32_t& height) override {
     return m_core.get_block_template(b, acc, diffic, height, ex_nonce);
   }
 
-  bool handleBlockFound(CryptoNote::Block& b) {
+  bool handleBlockFound(CryptoNote::Block& b) override {
     return m_core.handle_block_found(b);
   }
   
-  bool getBlockLongHash(Crypto::cn_context &context, const CryptoNote::Block& block, Crypto::Hash& res) {
+  bool getBlockLongHash(Crypto::cn_context &context, const CryptoNote::Block& block, Crypto::Hash& res) override {
     return m_core.get_block_long_hash(context, block, res);
   }
 
-  uint64_t getAlreadyGeneratedCoins() {
+  uint64_t getAlreadyGeneratedCoins() override {
     return m_node.getAlreadyGeneratedCoins();
   }
 
-  std::vector<CryptoNote::p2pConnection> getConnections() {
+  std::vector<CryptoNote::p2pConnection> getConnections() override {
     std::vector<CryptoNote::p2pConnection> connections;
 
     auto getConnectionsCompleted = std::promise<std::error_code>();
@@ -517,7 +516,7 @@ public:
     return connections;
   }
 
-  NodeType getNodeType() const {
+  NodeType getNodeType() const override {
     return NodeType::IN_PROCESS;
   }
 
@@ -537,15 +536,15 @@ private:
   CryptoNote::InProcessNode m_node;
   std::future<bool> m_nodeServerFuture;
 
-  void peerCountUpdated(size_t count) {
+  void peerCountUpdated(size_t count) override {
     m_callback.peerCountUpdated(*this, count);
   }
 
-  void localBlockchainUpdated(uint64_t height) {
+  void localBlockchainUpdated(uint32_t height) override {
     m_callback.localBlockchainUpdated(*this, height);
   }
 
-  void lastKnownBlockHeightUpdated(uint64_t height) {
+  void lastKnownBlockHeightUpdated(uint32_t height) override {
     m_callback.lastKnownBlockHeightUpdated(*this, height);
   }
 
