@@ -15,11 +15,11 @@
         <file alias="transactions">icons/transactions.svg</file>
         <file alias="send">icons/send.svg</file>
         <file alias="overview">icons/overview.svg</file>
-        <file alias="clock1">icons/clock1.png</file>
-        <file alias="clock2">icons/clock2.png</file>
-        <file alias="clock3">icons/clock3.png</file>
-        <file alias="clock4">icons/clock4.png</file>
-        <file alias="clock5">icons/clock5.png</file>
+        <file alias="clock1">icons/clock1.svg</file>
+        <file alias="clock2">icons/clock2.svg</file>
+        <file alias="clock3">icons/clock3.svg</file>
+        <file alias="clock4">icons/clock4.svg</file>
+        <file alias="clock5">icons/clock5.svg</file>
         <file alias="transaction">icons/transaction.svg</file>
         <file alias="connected">icons/connected.svg</file>
         <file alias="disconnected">icons/disconnected.svg</file>
