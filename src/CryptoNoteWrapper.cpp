@@ -314,11 +314,11 @@ private:
     m_callback.peerCountUpdated(*this, count);
   }
 
-  void localBlockchainUpdated(uint32_t height) {
+  void localBlockchainUpdated(uint32_t height) override {
     m_callback.localBlockchainUpdated(*this, height);
   }
 
-  void lastKnownBlockHeightUpdated(uint32_t height) {
+  void lastKnownBlockHeightUpdated(uint32_t height) override {
     m_callback.lastKnownBlockHeightUpdated(*this, height);
   }
 
