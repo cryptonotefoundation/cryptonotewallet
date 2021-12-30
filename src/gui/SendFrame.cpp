@@ -457,8 +457,9 @@ void SendFrame::mixinValueChanged(int _value) {
 
 void SendFrame::priorityValueChanged(int _value) {
   double send_fee = getMinimalFee() * _value;
-  m_ui->m_feeSpin->setValue(send_fee);
-
+  if (!m_ui->m_manualFeeCheckBox->isChecked()) {
+    m_ui->m_feeSpin->setValue(send_fee);
+  }
   if (m_selectedOutputsAmount > 0) {
     recalculateAmountsSendOutputs();
   }
