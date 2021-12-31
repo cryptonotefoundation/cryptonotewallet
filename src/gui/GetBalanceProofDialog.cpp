@@ -22,9 +22,13 @@ GetBalanceProofDialog::GetBalanceProofDialog(QWidget* _parent) : QDialog(_parent
   m_ui->setupUi(this);
   connect(&WalletAdapter::instance(), &WalletAdapter::walletActualBalanceUpdatedSignal, this, &GetBalanceProofDialog::walletBalanceUpdated, Qt::QueuedConnection);
   m_ui->m_amountSpin->setSuffix(" " + CurrencyAdapter::instance().getCurrencyTicker().toUpper());
-  m_amount = WalletAdapter::instance().getActualBalance();
-  m_ui->m_amountSpin->setValue(CurrencyAdapter::instance().formatAmount(m_amount).toDouble());
-  genProof();
+  m_amount = WalletAdapter::instance().getActualBalance(); 
+  if (m_amount == 0) {
+    disableAll();
+  } else {
+    m_ui->m_amountSpin->setValue(CurrencyAdapter::instance().formatAmount(m_amount).toDouble());
+    genProof();
+  }
 }
 
 GetBalanceProofDialog::~GetBalanceProofDialog() {
@@ -34,12 +38,18 @@ void GetBalanceProofDialog::walletBalanceUpdated() {
   if (this->isVisible()) {
     m_amount = WalletAdapter::instance().getActualBalance();
     m_ui->m_amountSpin->setValue(CurrencyAdapter::instance().formatAmount(m_amount).toDouble());
+    if (m_amount == 0) {
+      disableAll();
+    }
   }
 }
 
 void GetBalanceProofDialog::genProof() {
   m_message = m_ui->m_messageEdit->toPlainText().toUtf8().constData();
   m_amount = static_cast<quint64>(CurrencyAdapter::instance().parseAmount(m_ui->m_amountSpin->cleanText()));
+  if (m_amount == 0) {
+    WalletAdapter::instance().getActualBalance();
+  }
   quint64 balance = WalletAdapter::instance().getActualBalance();
   if (balance != 0 && (m_amount > balance || m_amount == 0)) {
       m_amount = balance;
@@ -68,6 +78,14 @@ void GetBalanceProofDialog::saveProof() {
         f.close();
       }
    }
+}
+
+void GetBalanceProofDialog::disableAll() {
+  m_ui->m_amountSpin->setDisabled(true);
+  m_ui->m_messageEdit->setDisabled(true);
+  m_ui->m_signatureEdit->setDisabled(true);
+  m_ui->m_copyProofButton->setDisabled(true);
+  m_ui->m_saveProofButton->setDisabled(true);
 }
 
 }

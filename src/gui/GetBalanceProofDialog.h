@@ -27,6 +27,8 @@ private:
     Q_SLOT void copyProof();
     Q_SLOT void saveProof();
 
+    void disableAll();
+
     QScopedPointer<Ui::GetBalanceProofDialog> m_ui;
 };
 
