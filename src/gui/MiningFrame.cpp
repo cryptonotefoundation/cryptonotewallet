@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2016 The Cryptonote developers
 // Copyright (c) 2015-2016 XDN developers
-// Copyright (c) 2016-2017 The Karbowanec developers
+// Copyright (c) 2016-2022 The Karbowanec developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -16,6 +16,8 @@
 #include "CryptoNoteWrapper.h"
 #include "CurrencyAdapter.h"
 #include "Settings.h"
+#include "Logging/LoggerManager.h"
+#include "LoggerAdapter.h"
 
 #include "ui_miningframe.h"
 
@@ -24,7 +26,10 @@ namespace WalletGui {
 const quint32 HASHRATE_TIMER_INTERVAL = 1000;
 const quint32 MINER_ROUTINE_TIMER_INTERVAL = 60000;
 
-MiningFrame::MiningFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::MiningFrame), m_miner(new Miner(this)), m_soloHashRateTimerId(-1) {
+MiningFrame::MiningFrame(QWidget* _parent) :
+    QFrame(_parent), m_ui(new Ui::MiningFrame),
+    m_miner(new Miner(this, LoggerAdapter::instance().getLoggerManager())),
+    m_soloHashRateTimerId(-1) {
   m_ui->setupUi(this);
   initCpuCoreList();
 

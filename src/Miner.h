@@ -1,5 +1,5 @@
 // Copyright (c) 2012-2016, The CryptoNote developers, The Bytecoin developers
-// Copyright (c) 2016-2019, The Karbo developers
+// Copyright (c) 2016-2022, The Karbo developers
 //
 // This file is part of Karbo.
 //
@@ -42,7 +42,7 @@ namespace WalletGui {
     Q_OBJECT
 
   public:
-    Miner(QObject* _parent);
+    Miner(QObject* _parent, Logging::ILogger& log);
     ~Miner();
 
     bool set_block_template(const Block& bl, const difficulty_type& diffic);
@@ -97,6 +97,8 @@ namespace WalletGui {
     std::mutex m_last_hash_rates_lock;
     std::list<uint64_t> m_last_hash_rates;
     bool m_do_mining;
+
+    Logging::LoggerRef m_logger;
 
   Q_SIGNALS:
     void minerMessageSignal(const QString& _message);
