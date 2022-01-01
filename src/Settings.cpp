@@ -135,6 +135,11 @@ bool Settings::isTestnet() const {
   return m_cmdLineParser->hasTestnetOption();
 }
 
+bool Settings::withoutCheckpoints() const {
+  Q_ASSERT(m_cmdLineParser != nullptr);
+  return m_cmdLineParser->hasWithoutCheckpointsOption();
+}
+
 bool Settings::hasAllowLocalIpOption() const {
   Q_ASSERT(m_cmdLineParser != nullptr);
   return m_cmdLineParser->hasAllowLocalIpOption();

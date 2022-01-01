@@ -22,6 +22,7 @@ public:
   bool hasHelpOption() const;
   bool hasVersionOption() const;
   bool hasTestnetOption() const;
+  bool hasWithoutCheckpointsOption() const;
   bool hasMinimizedOption() const;
   bool hasAllowLocalIpOption() const;
   bool hasHideMyPortOption() const;
@@ -42,6 +43,7 @@ private:
   QCommandLineOption m_helpOption;
   QCommandLineOption m_versionOption;
   QCommandLineOption m_testnetOption;
+  QCommandLineOption m_withoutCheckpointsOption;
   QCommandLineOption m_p2pBindIpOption;
   QCommandLineOption m_p2pBindPortOption;
   QCommandLineOption m_p2pExternalOption;

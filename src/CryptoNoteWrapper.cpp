@@ -27,10 +27,10 @@
 #include "P2p/NetNode.h"
 #include "WalletLegacy/WalletLegacy.h"
 #include "Logging/LoggerManager.h"
+#include "LoggerAdapter.h"
 #include "System/Dispatcher.h"
 #include "CurrencyAdapter.h"
 #include "Settings.h"
-#include <QDebug>
 
 #ifndef AUTO_VAL_INIT
 #define AUTO_VAL_INIT(n) boost::value_initialized<decltype(n)>()
@@ -100,12 +100,15 @@ Node::~Node() {
 class RpcNode : public CryptoNote::INodeObserver, public CryptoNote::INodeRpcProxyObserver, public Node {
 public:
   Logging::LoggerManager& m_logManager;
-  RpcNode(const CryptoNote::Currency& currency, INodeCallback& callback, Logging::LoggerManager& logManager, const std::string& nodeHost, unsigned short nodePort, bool &enableSSL) :
+  RpcNode(const CryptoNote::Currency& currency, INodeCallback& callback, Logging::LoggerManager& logManager,
+          const std::string& nodeHost, unsigned short nodePort, bool &enableSSL) :
     m_callback(callback),
     m_currency(currency),
     m_dispatcher(),
     m_logManager(logManager),
-    m_node(nodeHost, nodePort, "/", enableSSL) {
+    m_logger(m_logManager, "RpcNode"),
+    m_node(nodeHost, nodePort, "/", enableSSL)
+  {
     m_node.addObserver(dynamic_cast<INodeObserver*>(this));
     m_node.addObserver(dynamic_cast<INodeRpcProxyObserver*>(this));
   }
@@ -114,6 +117,7 @@ public:
   }
 
   void init(const std::function<void(std::error_code)>& callback) override {
+    m_logger(Logging::INFO) << "Initializing RpcNode...";
     m_node.init(callback);
   }
 
@@ -215,7 +219,7 @@ public:
       std::string err = interpret_rpc_response(true, rsp.status);
       if (err.empty()) {
         if (!CryptoNote::fromBinaryArray(b, Common::fromHex(rsp.blocktemplate_blob))) {
-          qDebug() << "Failed to parse block binary array";
+          m_logger(Logging::INFO) << "Failed to parse block binary array";
           return false;
         }
         diffic = rsp.difficulty;
@@ -224,15 +228,15 @@ public:
         return true;
       }
       else {
-        qDebug() << "Failed to invoke request: " << QString::fromStdString(err);
+        m_logger(Logging::INFO) << "Failed to invoke request: " << err;
       }
     }
     catch (const CryptoNote::ConnectException&) {
-      qDebug() << "Wallet failed to connect to daemon.";
+      m_logger(Logging::INFO) << "Wallet failed to connect to daemon.";
       return false;
     }
     catch (const std::exception& e) {
-      qDebug() << "Failed to invoke rpc method: " << e.what();
+      m_logger(Logging::INFO) << "Failed to invoke RPC method: " << e.what();
       return false;
     }
 
@@ -251,15 +255,15 @@ public:
         return true;
       }
         else {
-        qDebug() << "Failed to invoke request: " << QString::fromStdString(err);
+        m_logger(Logging::INFO) << "Failed to invoke request: " << err;
       }
     }
     catch (const CryptoNote::ConnectException&) {
-      qDebug() << "Wallet failed to connect to daemon.";
+      m_logger(Logging::INFO) << "Wallet failed to connect to daemon.";
       return false;
     }
     catch (const std::exception& e) {
-      qDebug() << "Failed to invoke rpc method: " << e.what();
+      m_logger(Logging::INFO) << "Failed to invoke RPC method: " << e.what();
       return false;
     }
 
@@ -290,7 +294,7 @@ public:
     std::error_code ec = getConnectionsWaitFuture.get();
 
     if (ec) {
-      //qDebug() << "Failed to get connections: " << ec << ", " << ec.message();
+     m_logger(Logging::INFO) << "Failed to get connections: " << ec << ", " << ec.message();
     }
 
     return connections;
@@ -309,6 +313,7 @@ private:
   const CryptoNote::Currency& m_currency;
   CryptoNote::NodeRpcProxy m_node;
   System::Dispatcher m_dispatcher;
+  Logging::LoggerRef m_logger;
 
   void peerCountUpdated(size_t count) override {
     m_callback.peerCountUpdated(*this, count);
@@ -336,19 +341,25 @@ public:
     m_currency(currency), m_dispatcher(),
     m_callback(callback),
     m_logManager(logManager),
+    m_logger(m_logManager, "InprocessNode"),
     m_coreConfig(coreConfig),
     m_netNodeConfig(netNodeConfig),
     m_protocolHandler(currency, m_dispatcher, m_core, nullptr, logManager),
     m_core(currency, &m_protocolHandler, logManager, m_dispatcher, true),
     m_nodeServer(m_dispatcher, m_protocolHandler, logManager),
-    m_node(m_core, m_protocolHandler) {
+    m_node(m_core, m_protocolHandler)
+  {
 
-      CryptoNote::Checkpoints checkpoints(logManager);
-      checkpoints.load_checkpoints_from_dns();
-      for (const CryptoNote::CheckpointData& checkpoint : CryptoNote::CHECKPOINTS) {
-        checkpoints.add_checkpoint(checkpoint.height, checkpoint.blockId);
-      }
-      if (!Settings::instance().isTestnet()) {
+      if (Settings::instance().withoutCheckpoints()) {
+        m_logger(Logging::INFO) << "Loading without checkpoints";
+      } else if (Settings::instance().isTestnet()) {
+        m_logger(Logging::INFO) << "Running in Testnet mode";
+      } else {
+        CryptoNote::Checkpoints checkpoints(logManager);
+        checkpoints.load_checkpoints_from_dns();
+        for (const CryptoNote::CheckpointData& checkpoint : CryptoNote::CHECKPOINTS) {
+          checkpoints.add_checkpoint(checkpoint.height, checkpoint.blockId);
+        }
         m_core.set_checkpoints(std::move(checkpoints));
       }
 
@@ -361,6 +372,9 @@ public:
   }
 
   void init(const std::function<void(std::error_code)>& callback) override {
+
+    m_logger(Logging::INFO) << "Initializing InprocessNode...";
+
     try {
       if (!m_core.init(m_coreConfig, CryptoNote::MinerConfig(), true)) {
         callback(make_error_code(CryptoNote::error::NOT_INITIALIZED));
@@ -510,7 +524,7 @@ public:
     std::error_code ec = getConnectionsWaitFuture.get();
 
     if (ec) {
-      //qDebug() << "Failed to get connections: " << ec << ", " << ec.message();
+      m_logger(Logging::INFO) << "Failed to get connections: " << ec << ", " << ec.message();
     }
 
     return connections;
@@ -535,6 +549,7 @@ private:
   CryptoNote::NodeServer m_nodeServer;
   CryptoNote::InProcessNode m_node;
   std::future<bool> m_nodeServerFuture;
+  Logging::LoggerRef m_logger;
 
   void peerCountUpdated(size_t count) override {
     m_callback.peerCountUpdated(*this, count);

@@ -10,6 +10,7 @@
 #include <string>
 #include <system_error>
 #include <INode.h>
+#include <Logging/LoggerRef.h>
 
 namespace CryptoNote {
 

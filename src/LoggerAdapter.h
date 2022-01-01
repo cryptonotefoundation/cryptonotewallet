@@ -13,6 +13,7 @@ class LoggerAdapter {
 public:
   static LoggerAdapter& instance();
   void init();
+  void log(std::string message);
   Logging::LoggerManager& getLoggerManager();
 
 private:

@@ -59,7 +59,9 @@ void Updater::replyFinished (QNetworkReply *reply)
 
         bool r = QVersionNumber::compare(ourVersion, remoteVersion) < 0;
         if (r) {
-             if (QMessageBox::warning(nullptr, QObject::tr("New version available"), QObject::tr("There is an update available.\nDo you want to go to the download page?"), QMessageBox::Ok, QMessageBox::Cancel) == QMessageBox::Ok) {
+             if (QMessageBox::warning(nullptr, QObject::tr("New version available"),
+                                      QObject::tr("There is an update available.\nDo you want to go to the download page?"),
+                                      QMessageBox::Ok, QMessageBox::Cancel) == QMessageBox::Ok) {
                  QDesktopServices::openUrl(QUrl(KARBO_DOWNLOAD_URL));
              }
         }

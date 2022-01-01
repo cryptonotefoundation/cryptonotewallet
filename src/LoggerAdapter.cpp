@@ -5,6 +5,7 @@
 #include <QCoreApplication>
 
 #include "LoggerAdapter.h"
+#include "Logging/LoggerRef.h"
 #include "Settings.h"
 
 namespace WalletGui {
@@ -33,6 +34,11 @@ LoggerAdapter::~LoggerAdapter() {
 
 Logging::LoggerManager& LoggerAdapter::getLoggerManager() {
   return m_logManager;
+}
+
+void LoggerAdapter::log(std::string message) {
+  Logging::LoggerRef logger(m_logManager, "wallet");
+  logger(Logging::INFO) << message;
 }
 
 }
