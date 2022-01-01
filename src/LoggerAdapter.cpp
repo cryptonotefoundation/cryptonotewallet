@@ -38,7 +38,7 @@ Logging::LoggerManager& LoggerAdapter::getLoggerManager() {
 }
 
 void LoggerAdapter::log(std::string message) {
-  Logging::LoggerRef logger(m_logManager, "wallet");
+  Logging::LoggerRef logger(m_logManager, "General");
   logger(Logging::INFO) << message;
 }
 

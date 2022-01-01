@@ -1,5 +1,5 @@
 // Copyright (c) 2011-2015 The Cryptonote developers
-// Copyright (c) 2016-2020 The Karbowanec developers
+// Copyright (c) 2016-2022 The Karbowanec developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -134,11 +134,12 @@ bool NodeAdapter::init() {
   QString connection = Settings::instance().getConnection();
 
   if(connection.compare("embedded") == 0) {
-
+      LoggerAdapter::instance().log("Initializing embedded node...");
       m_node = nullptr;
       return initInProcessNode();
 
   } else if(connection.compare("local") == 0) {
+      LoggerAdapter::instance().log("Initializing with local node...");
       QUrl localNodeUrl = QUrl::fromUserInput(QString("127.0.0.1:%1").arg(Settings::instance().getCurrentLocalDaemonPort()));
       m_node = createRpcNode(CurrencyAdapter::instance().getCurrency(), *this, LoggerAdapter::instance().getLoggerManager(), localNodeUrl.host().toStdString(), localNodeUrl.port(), false);
       QTimer initTimer;
@@ -160,6 +161,7 @@ bool NodeAdapter::init() {
       }
 
   } else if(connection.compare("remote") == 0) {
+      LoggerAdapter::instance().log("Initializing with remote node...");
       const NodeSetting nodeSetting = Settings::instance().getCurrentRemoteNode();
       m_node = createRpcNode(CurrencyAdapter::instance().getCurrency(), *this, LoggerAdapter::instance().getLoggerManager(), nodeSetting.host.toStdString(), nodeSetting.port, nodeSetting.ssl);
       QTimer initTimer;
@@ -181,7 +183,7 @@ bool NodeAdapter::init() {
       }
 
   } else {
-      // Trying to connect to local daemon...
+      LoggerAdapter::instance().log("Trying to connect to local daemon...");
       QUrl localNodeUrl = QUrl::fromUserInput(QString("127.0.0.1:%1").arg(CryptoNote::RPC_DEFAULT_PORT));
       m_node = createRpcNode(CurrencyAdapter::instance().getCurrency(), *this, LoggerAdapter::instance().getLoggerManager(), localNodeUrl.host().toStdString(), localNodeUrl.port(), false);
       QTimer initTimer;
@@ -204,7 +206,7 @@ bool NodeAdapter::init() {
       }
       delete m_node;
       m_node = nullptr;
-      // Attempt connecting to local daemon timed out, launching builtin node...
+      LoggerAdapter::instance().log("Attempt connecting to local daemon timed out, launching builtin node...");
       return initInProcessNode();
   }
 
