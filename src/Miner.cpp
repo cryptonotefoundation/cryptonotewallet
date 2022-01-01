@@ -386,7 +386,7 @@ namespace WalletGui
         }
         uint32_t bh = boost::get<BaseInput>(b.baseTransaction.inputs[0]).blockIndex;
 
-        m_logger(Logging::INFO) << "Found block for difficulty: " << local_diff;
+        m_logger(Logging::INFO) << "Found block " << Common::podToHex(id) << " at height " << bh << " for difficulty: " << local_diff << ", POW " << Common::podToHex(pow);
         Q_EMIT minerMessageSignal(QString("Found block %1 at height %2 for difficulty %3, POW %4").arg(QString::fromStdString(Common::podToHex(id))).arg(bh).arg(local_diff).arg(QString::fromStdString(Common::podToHex(pow))));
 
         if(!NodeAdapter::instance().handleBlockFound(b)) {
