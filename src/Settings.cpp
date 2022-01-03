@@ -47,8 +47,7 @@ const QVector<NodeSetting> DEFAULT_NODES_LIST = {
   {"node.karbo.io", 32348, "/", false},
   {"node.karbo.org", 32348, "/", false},
   {"node.karbowanec.com", 32348, "/", false},
-  {"free.rublin.org", 32348, "/", false},
-  {"node.krb.mypool.online", 32348, "/", false}
+  {"free.rublin.org", 32348, "/", false}
 };
 
 Settings& Settings::instance() {
