@@ -196,7 +196,7 @@ quint32 Settings::getRollBack() const {
 
 QString Settings::getWalletFile() const {
   return m_settings.contains("walletFile") ? m_settings.value("walletFile").toString() :
-    getDataDir().absoluteFilePath(QCoreApplication::applicationName() + ".wallet");
+    ""; //getDataDir().absoluteFilePath(QCoreApplication::applicationName() + ".wallet");
 }
 
 QString Settings::getWalletName() const {

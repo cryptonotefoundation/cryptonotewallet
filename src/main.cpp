@@ -175,7 +175,11 @@ int main(int argc, char* argv[]) {
   d->checkForUpdate();
 
   MainWindow::instance().show();
-  WalletAdapter::instance().open("");
+  QString lastWallet = Settings::instance().getWalletFile();
+  if (!lastWallet.isEmpty()) {
+    WalletAdapter::instance().setWalletFile(lastWallet);
+    WalletAdapter::instance().open("");
+  }
 
   QTimer::singleShot(1000, paymentServer, SLOT(uiReady()));
   QObject::connect(paymentServer, &PaymentServer::receivedURI, &MainWindow::instance(), &MainWindow::handlePaymentRequest, Qt::QueuedConnection);

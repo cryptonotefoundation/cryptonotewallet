@@ -419,9 +419,9 @@ void MainWindow::createNonDeterministicWallet() {
 
 void MainWindow::openWallet() {
   QString walletDirectory = "";
-  QString lastwalletDir = QFileInfo(Settings::instance().getWalletFile()).absolutePath();
-  if (!lastwalletDir.isEmpty()) {
-    walletDirectory = lastwalletDir;
+  QString lastWalletDir = QFileInfo(Settings::instance().getWalletFile()).absolutePath();
+  if (!lastWalletDir.isEmpty()) {
+    walletDirectory = lastWalletDir;
   } else {
 #ifdef Q_OS_WIN
     walletDirectory = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
