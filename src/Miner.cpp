@@ -230,7 +230,7 @@ namespace WalletGui
   double Miner::get_speed()
   {
     if(is_mining())
-      return m_hash_rate;
+      return m_hash_rate.load();
     else
       return 0;
   }
@@ -239,8 +239,6 @@ namespace WalletGui
   void Miner::send_stop_signal() 
   {
     m_stop_mining = true;
-    m_current_hash_rate = 0;
-    m_last_hash_rates.clear();
   }
 
   //-----------------------------------------------------------------------------------------------------
@@ -257,6 +255,10 @@ namespace WalletGui
     }
 
     m_threads.clear();
+
+    m_current_hash_rate = 0;
+    m_hash_rate = 0;
+    m_last_hash_rates.clear();
 
     m_logger(Logging::INFO) << "Mining stopped, " << m_threads.size() << " threads finished" ;
     Q_EMIT minerMessageSignal(QString("Mining stopped, %1 threads finished").arg(threadsCount));

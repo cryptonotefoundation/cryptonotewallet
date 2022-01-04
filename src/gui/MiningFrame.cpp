@@ -7,6 +7,9 @@
 #include <QDebug>
 #include <QThread>
 #include <QUrl>
+#include <QtConcurrent/QtConcurrent>
+#include <QtConcurrent/QtConcurrentRun>
+#include <QDebug>
 
 #include "MiningFrame.h"
 #include "MainWindow.h"
@@ -178,6 +181,8 @@ void MiningFrame::startSolo() {
   m_ui->m_startSolo->setChecked(true);
   m_ui->m_startSolo->setEnabled(false);
   m_ui->m_stopSolo->setEnabled(true);
+  m_ui->m_cpuCoresSpin->setEnabled(false);
+  m_ui->m_cpuDial->setEnabled(false);
   m_solo_mining = true;
 }
 
@@ -193,6 +198,8 @@ void MiningFrame::stopSolo() {
     m_ui->m_hashratelcdNumber->display(0.0);
     m_ui->m_startSolo->setEnabled(true);
     m_ui->m_stopSolo->setEnabled(false);
+    m_ui->m_cpuCoresSpin->setEnabled(true);
+    m_ui->m_cpuDial->setEnabled(true);
     m_solo_mining = false;
   }
 }
@@ -257,6 +264,13 @@ void MiningFrame::updateMinerLog(const QString& _message) {
 
   QScrollBar *sb = m_ui->m_minerLog->verticalScrollBar();
   sb->setValue(sb->maximum());
+}
+
+void MiningFrame::coreDealTurned(int _cores) {
+  qDebug() << "Cores " << _cores;
+  QTimer::singleShot(600, [this, _cores]() {
+    Settings::instance().setMiningThreads(_cores);
+  } );
 }
 
 }

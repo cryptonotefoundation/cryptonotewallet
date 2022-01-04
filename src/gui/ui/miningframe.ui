@@ -310,6 +310,22 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>m_cpuCoresSpin</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>MiningFrame</receiver>
+   <slot>coreDealTurned(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>501</x>
+     <y>86</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>379</x>
+     <y>266</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>startStopClicked(QAbstractButton*)</slot>
@@ -317,6 +333,7 @@
   <slot>stakeAmountChanged(int)</slot>
   <slot>stakeTermChanged(int)</slot>
   <slot>stakeMixinChanged(int)</slot>
+  <slot>coreDealTurned(int)</slot>
  </slots>
  <buttongroups>
   <buttongroup name="m_soloButtonGroup"/>
