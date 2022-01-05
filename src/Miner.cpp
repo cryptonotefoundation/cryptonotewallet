@@ -23,6 +23,7 @@
 #include <sstream>
 #include <thread>
 #include <QDebug>
+#include <QTime>
 
 #include <boost/algorithm/string/classification.hpp>
 #include <boost/algorithm/string/split.hpp>
@@ -221,8 +222,11 @@ namespace WalletGui
       m_threads.push_back(std::thread(std::bind(&Miner::worker_thread, this, i)));
     }
 
+    QDateTime date = QDateTime::currentDateTime();
+    QString formattedTime = date.toString("dd.MM.yyyy hh:mm:ss");
+
     m_logger(Logging::INFO) << "Mining has started with " << threads_count << " thread(s), at difficulty " << m_diffic << " good luck!";
-    Q_EMIT minerMessageSignal(QString("Mining has started with %1 thread(s) at difficulty %2, good luck!").arg(threads_count).arg(m_diffic));
+    Q_EMIT minerMessageSignal(QString("%1 Mining has started with %2 thread(s) at difficulty %3, good luck!").arg(formattedTime).arg(threads_count).arg(m_diffic));
     return true;
   }
   
@@ -388,8 +392,11 @@ namespace WalletGui
         }
         uint32_t bh = boost::get<BaseInput>(b.baseTransaction.inputs[0]).blockIndex;
 
+        QDateTime date = QDateTime::currentDateTime();
+        QString formattedTime = date.toString("dd.MM.yyyy hh:mm:ss");
+
         m_logger(Logging::INFO) << "Found block " << Common::podToHex(id) << " at height " << bh << " for difficulty: " << local_diff << ", POW " << Common::podToHex(pow);
-        Q_EMIT minerMessageSignal(QString("Found block %1 at height %2 for difficulty %3, POW %4").arg(QString::fromStdString(Common::podToHex(id))).arg(bh).arg(local_diff).arg(QString::fromStdString(Common::podToHex(pow))));
+        Q_EMIT minerMessageSignal(QString("%1 Found block %2 at height %3 for difficulty %4, POW %5").arg(formattedTime).arg(QString::fromStdString(Common::podToHex(id))).arg(bh).arg(local_diff).arg(QString::fromStdString(Common::podToHex(pow))));
 
         if(!NodeAdapter::instance().handleBlockFound(b)) {
           m_logger(Logging::ERROR) << "Failed to submit block";
