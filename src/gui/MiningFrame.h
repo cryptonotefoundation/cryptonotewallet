@@ -31,6 +31,8 @@ public:
   void addPoint(double x, double y);
   void plot();
 
+  bool isSoloRunning() const;
+
 protected:
   void timerEvent(QTimerEvent* _event) Q_DECL_OVERRIDE;
 
@@ -52,7 +54,6 @@ private:
 
   void walletOpened();
   void walletClosed();
-  bool isSoloRunning() const;
   quint32 getHashRate() const;
   double m_maxHr = 10;
 

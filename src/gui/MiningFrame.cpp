@@ -161,12 +161,16 @@ void MiningFrame::walletOpened() {
 }
 
 void MiningFrame::walletClosed() {
-  stopSolo();
+  //stopSolo();
   m_wallet_closed = true;
-  m_ui->m_startSolo->setEnabled(false);
-  m_ui->m_stopSolo->isChecked();
+  //m_ui->m_startSolo->setEnabled(false);
+  //m_ui->m_stopSolo->isChecked();
 
   // TODO: consider setting all dials to zeroes
+}
+
+bool MiningFrame::isSoloRunning() const {
+  return m_solo_mining;
 }
 
 void MiningFrame::startSolo() {
@@ -196,10 +200,12 @@ void MiningFrame::stopSolo() {
     addPoint(QDateTime::currentDateTime().toTime_t(), 0);
     m_ui->m_soloLabel->setText(tr("Stopped"));
     m_ui->m_hashratelcdNumber->display(0.0);
-    m_ui->m_startSolo->setEnabled(true);
-    m_ui->m_stopSolo->setEnabled(false);
-    m_ui->m_cpuCoresSpin->setEnabled(true);
-    m_ui->m_cpuDial->setEnabled(true);
+    if (!m_wallet_closed) {
+      m_ui->m_startSolo->setEnabled(true);
+      m_ui->m_stopSolo->setEnabled(false);
+      m_ui->m_cpuCoresSpin->setEnabled(true);
+      m_ui->m_cpuDial->setEnabled(true);
+    }
     m_solo_mining = false;
   }
 }

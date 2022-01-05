@@ -1233,9 +1233,13 @@ void MainWindow::walletClosed() {
   m_ui->m_sendFrame->hide();
   m_ui->m_transactionsFrame->hide();
   m_ui->m_addressBookFrame->hide();
-  m_ui->m_miningFrame->hide();
   m_ui->m_coinsFrame->hide();
-  m_ui->m_noWalletFrame->show();
+  if (!m_ui->m_miningFrame->isSoloRunning()) {
+    m_ui->m_noWalletFrame->show();
+    m_ui->m_miningFrame->hide();
+  } else {
+    m_ui->m_miningFrame->show();
+  }
   m_encryptionStateIconLabel->hide();
   m_trackingModeIconLabel->hide();
   m_synchronizationStateIconLabel->hide();
@@ -1245,6 +1249,10 @@ void MainWindow::walletClosed() {
   QList<QAction*> tabActions = m_tabActionGroup->actions();
   Q_FOREACH(auto action, tabActions) {
     action->setEnabled(false);
+  }
+  if (m_ui->m_miningFrame->isSoloRunning()) {
+    m_ui->m_miningAction->setEnabled(true);
+    m_ui->m_miningAction->setChecked(true);
   }
   Settings::instance().setTrackingMode(false);
   updateRecentActionList();
