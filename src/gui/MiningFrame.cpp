@@ -267,7 +267,6 @@ void MiningFrame::updateMinerLog(const QString& _message) {
 }
 
 void MiningFrame::coreDealTurned(int _cores) {
-  qDebug() << "Cores " << _cores;
   QTimer::singleShot(600, [this, _cores]() {
     Settings::instance().setMiningThreads(_cores);
   } );
