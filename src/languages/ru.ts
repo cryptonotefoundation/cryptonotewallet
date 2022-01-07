@@ -84,7 +84,7 @@
     </message>
     <message>
         <source>Your address</source>
-        <translation>Ваш адресс</translation>
+        <translation>Ваш адрес</translation>
     </message>
     <message>
         <source>Spendable balance</source>
