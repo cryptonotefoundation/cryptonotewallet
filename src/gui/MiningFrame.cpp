@@ -212,7 +212,7 @@ void MiningFrame::stopSolo() {
 
 void MiningFrame::enableSolo() {
   m_sychronized = true;
-  if (!m_solo_mining) {
+  if (!m_solo_mining && !m_miner->is_mining()) {
     m_ui->m_startSolo->setEnabled(true);
     m_ui->m_stopSolo->setEnabled(false);
     if (Settings::instance().isMiningOnLaunchEnabled() && m_sychronized) {
@@ -249,9 +249,7 @@ void MiningFrame::onSynchronizationCompleted() {
     m_ui->m_startSolo->setEnabled(false);
     return;
   }
-  if (!m_miner->is_mining()) {
-    m_ui->m_startSolo->setEnabled(true);
-  }
+  enableSolo();
 }
 
 void MiningFrame::updateBalance(quint64 _balance) {
