@@ -51,6 +51,7 @@ private:
   bool m_wallet_closed = false;
   bool m_solo_mining = false;
   bool m_sychronized = false;
+  bool m_mining_was_stopped = false;
 
   void walletOpened();
   void walletClosed();

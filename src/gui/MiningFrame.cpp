@@ -207,6 +207,7 @@ void MiningFrame::stopSolo() {
       m_ui->m_cpuDial->setEnabled(true);
     }
     m_solo_mining = false;
+    m_mining_was_stopped = true;
   }
 }
 
@@ -215,7 +216,7 @@ void MiningFrame::enableSolo() {
   if (!m_solo_mining && !m_miner->is_mining()) {
     m_ui->m_startSolo->setEnabled(true);
     m_ui->m_stopSolo->setEnabled(false);
-    if (Settings::instance().isMiningOnLaunchEnabled() && m_sychronized) {
+    if (!m_mining_was_stopped && Settings::instance().isMiningOnLaunchEnabled() && m_sychronized) {
       startSolo();
     }
   }
