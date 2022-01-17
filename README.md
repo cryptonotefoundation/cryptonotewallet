@@ -35,3 +35,4 @@ wsl --install
 ## Do this to start making BALTx
 * xmrig -c config.json 
 * View your status at https://pool.bmorecoin.com/#worker_stats
+*
