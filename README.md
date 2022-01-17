@@ -15,7 +15,7 @@ wsl --install
 * 1: sudo apt update
 * 2: sudo apt upgrade
 * 3: sudo apt install git gcc make cmake libboost1.67-dev qt5-default build-essential
-* 4: git clone https://github.com/BMoreToken/cryptonotewallet bmorecoinwallet
+* 4: git clone https://github.com/BMoreToken/bmorecoinwallet
 * 5 : cd bmorecoinwallet
 * 6: git clone https://github.com/BMoreToken/bmorecoin cryptonote
 * 7: mkdir build; cd build
