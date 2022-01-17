@@ -28,10 +28,11 @@ wsl --install
 * cd ~
 * wget https://github.com/xmrig/xmrig/releases/download/v6.16.2/xmrig-6.16.2-linux-x64.tar.gz
 * tar -xvf xmrig-6.16.2-linux-x64.tar.gz
+* sudo mv xmrig-6.16.2/xmrig /bin/xmrig
 * nano config.json
 <pre>create config.json file using sample below ( nano/vi/vim/pico ) using your new wallet address</pre>
 ## Do this to start making BALTx
-* ./xmrig-6.16.2/xmrig -c config.json 
+* xmrig -c config.json 
 * View your status at https://pool.bmorecoin.com/#worker_stats
 ### sample config.json
 <pre>
