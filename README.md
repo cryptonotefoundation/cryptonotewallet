@@ -16,7 +16,8 @@ https://www.cmake.org/
 https://www.boost.org/
 https://www.qt.io
 On Ubuntu it is possible to install them using apt:
-
+sudo apt update
+sudo apt upgrade
 sudo apt install git gcc make cmake libboost-all-dev qt5-default
 Building
 To acquire the source via git and build the release version, run the following commands:
