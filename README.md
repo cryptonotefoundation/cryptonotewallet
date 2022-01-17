@@ -1,3 +1,4 @@
+<pre>
 Linux / Ubuntu
 Prerequisites
 Dependencies: GCC 4.7.3 or later, CMake 2.8.6 or later, Boost 1.55 or later, and Qt 5.9 or later. You may download them from:
@@ -40,7 +41,7 @@ cmake -G "Visual Studio 17 2022 Win64" -DBOOST_LIBRARYDIR:PATH=c:/local/boost_1_
 msbuild bmorecoin.sln /p:Configuration=Release
 If the build is successful the binaries will be in the Release folder.
 
-
+</pre>
 
 
 
