@@ -21,13 +21,17 @@ wsl --install
 * 7: mkdir build; cd build
 * 8: cmake ..
 * 9: make
-* 10: ./bmorecoin
+* 10: ./bmorecoin &
 
-# How to get BALTx 
-* Download: https://github.com/xmrig/xmrig/releases/tag/v6.16.2
-* Use the address from your wallet to mine coins
+# How to get BALTx ( use ubuntu from above if in windows )
+## Do this once to install
+* wget https://github.com/xmrig/xmrig/releases/download/v6.16.2/xmrig-6.16.2-linux-x64.tar.gz
+* tar -xvf xmrig-6.16.2-linux-x64.tar.gz
+* create config.json file using sample below ( nano/vi/vim/pico ) using your new wallet address
+## Do this to start making BALTx
 * xmrig.exe -c config.json 
-## sample config.json
+* View your status at https://pool.bmorecoin.com/#worker_stats
+### sample config.json
 
 
 
