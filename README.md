@@ -1,4 +1,12 @@
 <pre>
+Windows: Use Ubuntu
+https://www.microsoft.com/en-us/p/ubuntu/9nblggh4msv6?activetab=pivot:overviewtab
+https://docs.microsoft.com/en-us/windows/wsl/install
+
+Powershell as Admin
+wsl --install
+Reboot
+
 Linux / Ubuntu
 Prerequisites
 Dependencies: GCC 4.7.3 or later, CMake 2.8.6 or later, Boost 1.55 or later, and Qt 5.9 or later. You may download them from:
