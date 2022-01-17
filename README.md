@@ -1,10 +1,10 @@
 # Windows 11/10: Use Ubuntu for Windows
-## Ubuntu
+## Ubuntu for Windows
 * https://www.microsoft.com/en-us/p/ubuntu/9nblggh4msv6
 * Open in "Store" and install
 ## WSL
 * https://docs.microsoft.com/en-us/windows/wsl/install
-* run Powershell as Admin to install 
+* run Powershell "as Admin" to install wsl
 <pre>
 wsl --install
 </pre>
