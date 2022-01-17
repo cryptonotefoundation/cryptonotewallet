@@ -34,8 +34,24 @@ wsl --install
 * View your status at https://pool.bmorecoin.com/#worker_stats
 ### sample config.json
 <pre>
-ok
-
+{
+    "autosave": true,
+    "cpu": true,
+    "opencl": false,
+    "cuda": false,
+    "pools": [
+        {
+            "coin": null,
+            "algo": "cn/0",
+            "url": "pool.bmorecoin.com:3333",
+            "user": "bxdhToH3hn5QUH7tWzitYpREug4Z8f3h5Ewgw5ddzozAANYCtkJmRdXB6Z9wouqkhfe5QTa1nEcvoBasBhgWb41B2Bj4DdSuj",
+            "pass": "x",
+            "tls": false,
+            "keepalive": true,
+            "nicehash": false
+        }
+    ]
+}
 </pre>
 
 
