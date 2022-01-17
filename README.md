@@ -25,6 +25,7 @@ wsl --install
 
 # How to get BALTx ( use ubuntu from above if in windows )
 ## Do this once to install
+* cd ~
 * wget https://github.com/xmrig/xmrig/releases/download/v6.16.2/xmrig-6.16.2-linux-x64.tar.gz
 * tar -xvf xmrig-6.16.2-linux-x64.tar.gz
 * nano config.json
