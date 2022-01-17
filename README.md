@@ -41,7 +41,6 @@ wsl --install
     "cpu": true,
     "opencl": false,
     "cuda": false,
-    ,
     "cpu": {
         "enabled": true,
         "cn/0": [-1, -1, -1, -1]
