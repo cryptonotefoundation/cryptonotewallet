@@ -3,7 +3,7 @@
 ######################################################################
 
 TEMPLATE = app
-TARGET = conceal-desktop
+TARGET = bmorecoin
 INCLUDEPATH += .
 
 # The following define makes your compiler warn you if you use any
