@@ -23,7 +23,11 @@ wsl --install
 * 9: make
 * 10: ./bmorecoin
 
-# CAN SOMEONE TEST IN YUM???
-* thanks!
+# How to get BALTx 
+* Download: https://github.com/xmrig/xmrig/releases/tag/v6.16.2
+* Use the address from your wallet to mine coins
+* xmrig.exe -c config.json 
+## sample config.json
+
 
 
