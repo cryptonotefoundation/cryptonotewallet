@@ -28,14 +28,9 @@ jobs:
           ccx_version=$(echo "$GITHUB_REF" | sed 's|refs/tags/||')
           release_name=ccx-desktop-ubuntu-1804-v"$ccx_version"
           build_folder="build/release"
-
           make -j4 build-release
           mkdir $release_name
-          mkdir -p $release_name/icon
-          ls $build_folder
           mv $build_folder/bmorecoin $release_name
-          cp bmorecoin.desktop $release_name
-          cp src/images/bmorecoin.png $release_name/icon
           tar -czf "$release_name".tar.gz "$release_name"
           sha256=$(shasum -a 256 "$release_name".tar.gz | awk '{print toupper($1)}')
 
