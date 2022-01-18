@@ -1,3 +1,5 @@
+[![Ubuntu 18.04](https://github.com/BMoreToken/bmorecoinwallet/actions/workflows/ubuntu18.yml/badge.svg)](https://github.com/BMoreToken/bmorecoinwallet/actions/workflows/ubuntu18.yml)
+
 # Windows 11/10: Use Ubuntu for Windows
 ## Ubuntu for Windows
 * https://www.microsoft.com/en-us/p/ubuntu/9nblggh4msv6
