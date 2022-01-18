@@ -44,7 +44,7 @@ jobs:
         uses: softprops/action-gh-release@v0.1.12
         with:
           files: ${{ steps.build.outputs.release_name }}
-          name: BMoreCoin Desktop Wallet v${{ steps.build.outputs.ccx_version }}
+          name: BMoreCoin Desktop Wallet ${{ steps.build.outputs.ccx_version }}
           body: |
             [Download for Ubuntu 18.04](../../releases/download/${{ steps.build.outputs.ccx_version }}/${{ steps.build.outputs.release_name }}) **${{ steps.build.outputs.release_name }}**
             `SHA256 : ${{ steps.build.outputs.sha256 }}`
