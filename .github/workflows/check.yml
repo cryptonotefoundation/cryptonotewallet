@@ -36,7 +36,7 @@ jobs:
           modules: "qttools5 qtcharts"
           install-deps: "true"
 
-      - name: Clone conceal-core
+      - name: Clone bmorecoin
         shell: powershell
         run: |
           Remove-Item cryptonote -Recurse -Force -ErrorAction Ignore
@@ -144,6 +144,7 @@ jobs:
           appimage_name=BMoreCoin_Desktop-dev-"$ccx_version"-x86_64.AppImage
 
           cd appimage
+          chmod +x create-appimage.sh
           ./create-appimage.sh
           mv BMoreCoin_Desktop*.AppImage ../$appimage_name
           cd ..
