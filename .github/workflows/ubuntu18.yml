@@ -32,7 +32,8 @@ jobs:
           make -j4 build-release
           mkdir $release_name
           mkdir -p $release_name/icon
-          mv $build_folder/bmorecoinwallet $release_name
+          ls $build_folder
+          mv $build_folder/bmorecoin $release_name
           cp bmorecoin.desktop $release_name
           cp src/images/bmorecoin.png $release_name/icon
           tar -czf "$release_name".tar.gz "$release_name"
