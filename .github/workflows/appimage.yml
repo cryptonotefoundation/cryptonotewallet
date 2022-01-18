@@ -40,6 +40,7 @@ jobs:
           release_name="${{steps.build.outputs.release_name}}"
 
           cd appimage
+          chmod +x create-appimage.sh
           ./create-appimage.sh
           mv BMoreCoin_Desktop*.AppImage ../$release_name
           cd ..
