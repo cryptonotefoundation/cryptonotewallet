@@ -72,7 +72,7 @@ jobs:
           cd "$build_folder"
 
           cmake -G "Visual Studio 15 2017 Win64" ..
-          ls *.sln
+          dir
           msbuild bmorecoinwallet.sln /p:Configuration=Release /m:2
 
           echo "::set-output name=build_folder::${build_folder}"
