@@ -1,0 +1,62 @@
+name: AppImage
+
+on:
+  push:
+    tags:
+      - "*"
+
+jobs:
+ build-appimage:
+    name: AppImage
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: |
+          sudo apt update -y
+          sudo apt install -y qt5-default qttools5-dev qttools5-dev-tools libqt5charts5-dev libboost-all-dev
+
+      - name: Clone bmorecoin
+        run: |
+          rm -rf cryptonote
+          git clone https://github.com/BMoreToken/bmorecoin.git cryptonote
+
+      - name: Build
+        id: build
+        run: |
+          ccx_version=$(echo "$GITHUB_REF" | sed 's|refs/tags/||')
+          release_name=BMoreCoin_Desktop-v"$ccx_version"-x86_64.AppImage
+
+          make -j2 build-release
+
+          echo "::set-output name=ccx_version::$ccx_version"
+          echo "::set-output name=release_name::$release_name"
+
+      - name: Create AppImage
+        id: appimage
+        run: |
+          ccx_version="${{steps.build.outputs.ccx_version}}"
+          release_name="${{steps.build.outputs.release_name}}"
+
+          cd appimage
+          ./create-appimage.sh
+          mv BMoreCoin_Desktop*.AppImage ../$release_name
+          cd ..
+          ls -l $release_name
+          sha256=$(shasum -a 256 "$release_name" | awk '{print toupper($1)}')
+
+          echo "::set-output name=sha256::${sha256}"
+
+      # since https://github.com/softprops/action-gh-release/pull/145 body is replaced instead of being appended
+      # use v0.1.12 for now
+      - name: Create Release
+        uses: softprops/action-gh-release@v0.1.12
+        with:
+          files: ${{ steps.build.outputs.release_name }}
+          name: BMoreCoin Desktop ${{ steps.build.outputs.ccx_version }}
+          body: |
+            [Download AppImage](../../releases/download/${{ steps.build.outputs.ccx_version }}/${{ steps.build.outputs.release_name }}) **${{ steps.build.outputs.release_name }}**
+            `SHA256 : ${{ steps.appimage.outputs.sha256 }}`
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
