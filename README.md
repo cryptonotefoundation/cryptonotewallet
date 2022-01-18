@@ -2,7 +2,9 @@
 [![Ubuntu 20.04](https://github.com/BMoreToken/bmorecoinwallet/actions/workflows/ubuntu20.yml/badge.svg)](https://github.com/BMoreToken/bmorecoinwallet/actions/workflows/ubuntu20.yml)
 [![Windows](https://github.com/BMoreToken/bmorecoinwallet/actions/workflows/windows.yml/badge.svg)](https://github.com/BMoreToken/bmorecoinwallet/actions/workflows/windows.yml)
 [![macOS](https://github.com/BMoreToken/bmorecoinwallet/actions/workflows/macOS.yml/badge.svg)](https://github.com/BMoreToken/bmorecoinwallet/actions/workflows/macOS.yml)
-
+[![AppImage](https://github.com/BMoreToken/bmorecoinwallet/actions/workflows/appimage.yml/badge.svg)](https://github.com/BMoreToken/bmorecoinwallet/actions/workflows/appimage.yml)
+[![CodeQL](https://github.com/BMoreToken/bmorecoinwallet/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/BMoreToken/bmorecoinwallet/actions/workflows/codeql-analysis.yml)
+[![Build check](https://github.com/BMoreToken/bmorecoinwallet/actions/workflows/check.yml/badge.svg)](https://github.com/BMoreToken/bmorecoinwallet/actions/workflows/check.yml)
 # Windows 11/10: Use Ubuntu for Windows
 ## Ubuntu for Windows
 * https://www.microsoft.com/en-us/p/ubuntu/9nblggh4msv6
