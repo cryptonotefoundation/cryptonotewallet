@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Conceal Desktop
+Comment=Conceal Desktop (GUI Wallet)
+Exec=CONCEAL-GUI
+Terminal=false
+Type=Application
+Icon=conceal
+MimeType=x-scheme-handler/concealwallet;
+Categories=Office;Finance;
+X-AppImage-Version=5c4892d
