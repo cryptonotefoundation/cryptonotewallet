@@ -1,6 +1,7 @@
 [![Ubuntu 18.04](https://github.com/BMoreToken/bmorecoinwallet/actions/workflows/ubuntu18.yml/badge.svg)](https://github.com/BMoreToken/bmorecoinwallet/actions/workflows/ubuntu18.yml)
+[![Ubuntu 20.04](https://github.com/BMoreToken/bmorecoinwallet/actions/workflows/ubuntu20.yml/badge.svg)](https://github.com/BMoreToken/bmorecoinwallet/actions/workflows/ubuntu20.yml)
 [![Windows](https://github.com/BMoreToken/bmorecoinwallet/actions/workflows/windows.yml/badge.svg)](https://github.com/BMoreToken/bmorecoinwallet/actions/workflows/windows.yml)
-
+[![macOS](https://github.com/BMoreToken/bmorecoinwallet/actions/workflows/macOS.yml/badge.svg)](https://github.com/BMoreToken/bmorecoinwallet/actions/workflows/macOS.yml)
 
 # Windows 11/10: Use Ubuntu for Windows
 ## Ubuntu for Windows
