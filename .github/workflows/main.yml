@@ -1,0 +1,118 @@
+name: Windows
+
+on:
+  push:
+    tags:
+      - "*"
+
+jobs:
+  build-windows:
+    name: Windows
+    runs-on: windows-2016
+    env:
+      BOOST_ROOT: C:/tools/boost/x86_64
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup msbuild
+        uses: microsoft/setup-msbuild@v1.0.2
+
+      - name: Install Boost
+        shell: powershell
+        run: |
+          echo "${env:BOOST_ROOT}"
+          $Url = "https://sourceforge.net/projects/boost/files/boost-binaries/1.72.0/boost_1_72_0-msvc-14.1-64.exe"
+          (New-Object System.Net.WebClient).DownloadFile($Url, "$env:TEMP\boost.exe")
+          Start-Process -Wait -FilePath "$env:TEMP\boost.exe" "/SILENT","/SP-","/SUPPRESSMSGBOXES","/DIR=${env:BOOST_ROOT}"
+
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v2
+        with:
+          host: "windows"
+          target: "desktop"
+          modules: "qttools5 qtcharts"
+          install-deps: "true"
+
+      - name: Clone bmorecoin
+        shell: powershell
+        run: |
+          Remove-Item cryptonote -Recurse -Force -ErrorAction Ignore
+          git clone https://github.com/BMoreToken/bmoretoken cryptonote
+
+      - name: Pre-build setup
+        shell: powershell
+        run: |
+          $search = "set\(CN_VERSION "
+          $ccx_version = ((Get-Content CryptoNoteWallet.cmake | Select-String $search) | %{$_ -replace $search, ""}) | %{$_ -replace "\)", ""}
+          $ccx_version = $ccx_version + ".0"
+
+          # Update "CMakeLists.txt" with cmake dir
+          $qt5_cmake = "${{ env.Qt5_Dir }}/lib/cmake" -replace '[/]', '\\'
+          $file = "CMakeLists.txt"
+          $find = '^set\(CMAKE_PREFIX_PATH.+'
+          $replace = "set(CMAKE_PREFIX_PATH `"$($qt5_cmake)`")"
+          (Get-Content $file) | %{$_ -replace $find, $replace} | Set-Content $file
+
+          # Update BMoreCoinWallet.nsi with the current version
+          $file = "BMoreCoinWallet.nsi"
+          $find = "^!define VERSION.+"
+          $replace = "!define VERSION '$ccx_version.0'"
+          (Get-Content $file) | %{$_ -replace $find, $replace} | Set-Content $file
+
+      - name: Build
+        shell: powershell
+        id: build
+        run: |
+          $build_folder = "build"
+          $release_folder = "Release"
+          $ccx_version = "${{ github.ref }}" -replace 'refs/tags/'
+          $release_name = "ccx-desktop-win64-v$ccx_version"
+
+          New-Item "$build_folder\$release_folder" -ItemType Directory
+          cd "$build_folder"
+
+          cmake -G "Visual Studio 15 2017 Win64" ..
+          msbuild bmorecoinwallet.sln /p:Configuration=Release /m:2
+
+          echo "::set-output name=build_folder::${build_folder}"
+          echo "::set-output name=release_folder::${release_folder}"
+          echo "::set-output name=release_name::${release_name}"
+          echo "::set-output name=ccx_version::${ccx_version}"
+
+      - name: Pack
+        shell: powershell
+        id: pack
+        run: |
+          $build_folder = "${{ steps.build.outputs.build_folder }}"
+          $release_name = "${{ steps.build.outputs.release_name }}"
+          $release_folder = "${{ steps.build.outputs.release_folder }}"
+
+          cd "$build_folder/$release_folder"
+          mkdir "Final"
+          choco install openssl -y
+          cp "C:\Program Files\OpenSSL-Win64\libcrypto*.dll" "Final/"
+          cp "C:\Program Files\OpenSSL-Win64\libssl*.dll" "Final/"
+          windeployqt --release CONCEAL-GUI.exe --dir "Final/" --no-translations --no-opengl-sw
+          cd ../../
+          makensis ConcealWallet.nsi
+          cd "$build_folder/$release_folder"
+          Compress-Archive -Path Conceal-Setup.exe -DestinationPath "$release_name.zip"
+
+          $sha256 = (Get-FileHash "$release_name.zip").Hash
+          $asset_path = "./$build_folder/$release_folder/$release_name.zip"
+          echo "::set-output name=sha256::${sha256}"
+          echo "::set-output name=release_name::${release_name}.zip"
+          echo "::set-output name=asset_path::${asset_path}"
+
+      # since https://github.com/softprops/action-gh-release/pull/145 body is replaced instead of being appended
+      # use v0.1.12 for now
+      - name: Create Release
+        uses: softprops/action-gh-release@v0.1.12
+        with:
+          files: ${{ steps.pack.outputs.asset_path }}
+          name: BMoreCoin Desktop Wallet ${{ steps.build.outputs.ccx_version }}
+          body: |
+            [Download for Windows](../../releases/download/${{ steps.build.outputs.ccx_version }}/${{ steps.pack.outputs.release_name }}) **${{ steps.pack.outputs.release_name }}**
+            `SHA256 : ${{ steps.pack.outputs.sha256 }}`
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
