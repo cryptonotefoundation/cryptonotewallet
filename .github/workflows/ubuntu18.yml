@@ -29,7 +29,7 @@ jobs:
           release_name=ccx-desktop-ubuntu-1804-v"$ccx_version"
           build_folder="build/release"
 
-          make -j4
+          make -j4 build-release
           mkdir $release_name
           mkdir -p $release_name/icon
           mv $build_folder/bmorecoinwallet $release_name
