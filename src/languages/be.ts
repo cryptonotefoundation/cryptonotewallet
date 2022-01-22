@@ -335,6 +335,14 @@
         <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet includes an additional fee from each transaction to the node, but no more than 1 KRB.</source>
         <translation>Гаманец будзе падлучацца да вузла ў лакальнай або глабальнай сеткі. Выберыце вузел або пакажыце IP адрас або дамен і порт каб дадаць новы. У гэтым рэжыме можа спаганяцца дадатковая камісія вузлу, але не больш за 1 КРБ.</translation>
     </message>
+    <message>
+        <source>Mode</source>
+        <translation>Рэжым</translation>
+    </message>
+    <message>
+        <source>Connections</source>
+        <translation>Падлучэння</translation>
+    </message>
 </context>
 <context>
     <name>ExitWidget</name>
@@ -1987,6 +1995,18 @@ Do you want to go to the download page?</source>
         <source>Use LevelDB instead of RocksDB</source>
         <translation type="vanished">Выкарыстоўваць LevelDB замест RocksDB</translation>
     </message>
+    <message>
+        <source>Do not load checkpoints for full blocks validation</source>
+        <translation>Не загружаць чекпойнты для поўнай праверкі блокаў</translation>
+    </message>
+    <message>
+        <source>Keep files in the same directory as wallet executable</source>
+        <translation>Захоўвайце файлы ў тым жа каталогу, што і выкананы файл кашалька</translation>
+    </message>
+    <message>
+        <source>Allow deep reorganization to make it possible to self-heal chain split</source>
+        <translation>Дазволіць глыбокую рэарганізацыю, каб зрабіць магчымым самавылечыць раскол блокчейна</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::ConfirmSendDialog</name>
@@ -2374,6 +2394,14 @@ Are you sure?</source>
     <message>
         <source>Wallet is connected through remote node. Additional fee may be applied.</source>
         <translation>Гаманец падлучаны праз аддалены вузел. Будзе прымяняцца дадатковая плата.</translation>
+    </message>
+    <message>
+        <source>Zero balance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You cannot generate balance proof of zero.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

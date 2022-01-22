@@ -336,6 +336,14 @@
         <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet includes an additional fee from each transaction to the node, but no more than 1 KRB.</source>
         <translation>Wallet stellt eine Verbindung zum Remote-Knoten her, der im lokalen oder globalen Netzwerk ausgeführt wird. Bitte wählen Sie einen Knoten aus oder geben Sie die IP-Adresse oder den Domänennamen und den Port an. In diesem Modus kann eine zusätzliche Gebühr für den Knoten erhoben werden, jedoch nicht mehr als 1 KRB.</translation>
     </message>
+    <message>
+        <source>Mode</source>
+        <translation>Modus</translation>
+    </message>
+    <message>
+        <source>Connections</source>
+        <translation>Verbindungen</translation>
+    </message>
 </context>
 <context>
     <name>ExitWidget</name>
@@ -1988,6 +1996,18 @@ Externer Port für das P2P-Netzwerkprotokoll (wenn Portweiterleitung mit NAT ver
         <source>Use LevelDB instead of RocksDB</source>
         <translation type="vanished">Verwenden LevelDB statt RocksDB</translation>
     </message>
+    <message>
+        <source>Do not load checkpoints for full blocks validation</source>
+        <translation>Laden keine Checkpoints für die vollständige Validierung von Blöcken</translation>
+    </message>
+    <message>
+        <source>Keep files in the same directory as wallet executable</source>
+        <translation>Bewahren Sie die Dateien im selben Verzeichnis wie die ausführbare Brieftasche auf</translation>
+    </message>
+    <message>
+        <source>Allow deep reorganization to make it possible to self-heal chain split</source>
+        <translation>Ermöglichen Sie eine tiefgreifende Reorganisation, um eine Selbstheilung der Blockchain-Splits zu ermöglichen</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::ConfirmSendDialog</name>
@@ -2370,6 +2390,14 @@ Bist du sicher?</translation>
     <message>
         <source>Wallet is connected through remote node. Additional fee may be applied.</source>
         <translation>Brieftasche ist durch einen remote node verbunden. Es kann eine zusätzliche Gebühr erhoben werden.</translation>
+    </message>
+    <message>
+        <source>Zero balance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You cannot generate balance proof of zero.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -331,6 +331,14 @@
         <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet includes an additional fee from each transaction to the node, but no more than 1 KRB.</source>
         <translation>Гаманець підключатиметься до віддаленого вузла, що запущений у локальній або глобальній мережі. Виберіть вузол, або вкажіть IP адресу чи домен та порт нового вузла. У цьому режимі може стягуватись додаткова комісія для вузла при кожній транзакції. Максимальна сума комісії становить 1 крб.</translation>
     </message>
+    <message>
+        <source>Mode</source>
+        <translation>Режим</translation>
+    </message>
+    <message>
+        <source>Connections</source>
+        <translation>З&apos;єднання</translation>
+    </message>
 </context>
 <context>
     <name>ExitWidget</name>
@@ -1976,6 +1984,18 @@ Do you want to go to the download page?</source>
         <source>Use LevelDB instead of RocksDB</source>
         <translation type="vanished">Використовувати LevelDB замість RocksDB</translation>
     </message>
+    <message>
+        <source>Do not load checkpoints for full blocks validation</source>
+        <translation>Не завантажувати контрольні точки для повної перевірки блоків</translation>
+    </message>
+    <message>
+        <source>Keep files in the same directory as wallet executable</source>
+        <translation>Зберігати файли в тому ж каталозі, що й виконуваний файл гаманця</translation>
+    </message>
+    <message>
+        <source>Allow deep reorganization to make it possible to self-heal chain split</source>
+        <translation>Дозволити глибоку реорганізацію, щоб зробити можливим самовідновлення розділення блокчейну</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::ConfirmSendDialog</name>
@@ -2359,6 +2379,14 @@ Are you sure?</source>
     <message>
         <source>Wallet is connected through remote node. Additional fee may be applied.</source>
         <translation>Гаманець підключений через віддалений вузол. Може стягуватись додаткова комісія.</translation>
+    </message>
+    <message>
+        <source>Zero balance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You cannot generate balance proof of zero.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -351,6 +351,14 @@
         <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet includes an additional fee from each transaction to the node, but no more than 1 KRB.</source>
         <translation>A carteira se conectará a um node remoto que esteja sendo executado em uma rede local ou global. Selecione o node ou especifique o endereço IP ou o domínio e a porta do novo node. Nesse modo, uma taxa adicional para o nó pode ser cobrada, mas não mais que 1 KRB.</translation>
     </message>
+    <message>
+        <source>Mode</source>
+        <translation>Modo</translation>
+    </message>
+    <message>
+        <source>Connections</source>
+        <translation>Conexões</translation>
+    </message>
 </context>
 <context>
     <name>ExitWidget</name>
@@ -2005,6 +2013,18 @@ Você quer ir à página de dowload?</translation>
         <source>Use LevelDB instead of RocksDB</source>
         <translation type="vanished">Use LevelDB em vez de RocksDB</translation>
     </message>
+    <message>
+        <source>Do not load checkpoints for full blocks validation</source>
+        <translation>Não carregue checkpoints para validação completa dos blocos</translation>
+    </message>
+    <message>
+        <source>Keep files in the same directory as wallet executable</source>
+        <translation>Mantenha os arquivos no mesmo diretório que o executável da carteira</translation>
+    </message>
+    <message>
+        <source>Allow deep reorganization to make it possible to self-heal chain split</source>
+        <translation>Permitir uma reorganização profunda para possibilitar a autocura da divisão do blockchain</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::ConfirmSendDialog</name>
@@ -2383,6 +2403,14 @@ Você tem certeza?</translation>
     <message>
         <source>Wallet is connected through remote node. Additional fee may be applied.</source>
         <translation>A carteira é conectada através de um nó remoto. Taxa adicional pode ser aplicada.</translation>
+    </message>
+    <message>
+        <source>Zero balance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You cannot generate balance proof of zero.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

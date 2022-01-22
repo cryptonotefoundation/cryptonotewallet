@@ -331,6 +331,14 @@
         <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet includes an additional fee from each transaction to the node, but no more than 1 KRB.</source>
         <translation>Portfel będzie łączyć się ze zdalnym węzłem w sieci lokalnej lub globalnej. Wybierz węzeł lub kliknij &quot;Dodaj węzeł&quot; i podaj adres IP czy nazwę domeny i port. W tym trybie może zostać naliczona dodatkowa opłata dla węzła podczas wysłania tranzakcji, ale nie więcej niż 1 KRB.</translation>
     </message>
+    <message>
+        <source>Mode</source>
+        <translation>Tryb</translation>
+    </message>
+    <message>
+        <source>Connections</source>
+        <translation>Połączenia</translation>
+    </message>
 </context>
 <context>
     <name>ExitWidget</name>
@@ -1984,6 +1992,18 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
         <source>Use LevelDB instead of RocksDB</source>
         <translation type="vanished">Użyj LevelDB zamiast RocksDB</translation>
     </message>
+    <message>
+        <source>Do not load checkpoints for full blocks validation</source>
+        <translation>Nie ładuj punktów kontrolnych dla pełnej walidacji bloków</translation>
+    </message>
+    <message>
+        <source>Keep files in the same directory as wallet executable</source>
+        <translation>Przechowuj pliki w tym samym katalogu, co plik wykonywalny portfela</translation>
+    </message>
+    <message>
+        <source>Allow deep reorganization to make it possible to self-heal chain split</source>
+        <translation>Pozwól na głęboką reorganizację, aby umożliwić samonaprawianie podziału łańcucha bloków</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::ConfirmSendDialog</name>
@@ -2371,6 +2391,14 @@ Jesteś pewien?</translation>
     <message>
         <source>Wallet is connected through remote node. Additional fee may be applied.</source>
         <translation>Portfel jest podłączony za pośrednictwem zdalnego węzła. Może być pobierana dodatkowa opłata.</translation>
+    </message>
+    <message>
+        <source>Zero balance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You cannot generate balance proof of zero.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

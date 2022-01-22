@@ -331,6 +331,14 @@
         <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet includes an additional fee from each transaction to the node, but no more than 1 KRB.</source>
         <translation>کیف پول به گره از راه دور در حال اجرا در شبکه محلی یا جهانی متصل می شود. لطفا گره را انتخاب کنید یا آدرس IP یا نام دامنه و پورت را مشخص کنید. در این حالت کیف پول شامل هزینه اضافی از هر تراکنش به گره می شود ، اما بیشتر از 1 KRB نیست.</translation>
     </message>
+    <message>
+        <source>Mode</source>
+        <translation>حالت</translation>
+    </message>
+    <message>
+        <source>Connections</source>
+        <translation>اتصالات</translation>
+    </message>
 </context>
 <context>
     <name>ExitWidget</name>
@@ -1972,6 +1980,18 @@ Do you want to go to the download page?</source>
         <source>Use LevelDB instead of RocksDB</source>
         <translation type="vanished">به جای RocksDB از LevelDB استفاده کنید</translation>
     </message>
+    <message>
+        <source>Do not load checkpoints for full blocks validation</source>
+        <translation>برای تأیید اعتبار کامل بلوک‌ها، نقاط بازرسی را بارگیری نکنید</translation>
+    </message>
+    <message>
+        <source>Keep files in the same directory as wallet executable</source>
+        <translation>فایل‌ها را در همان فهرستی که کیف پول قابل اجرا است نگه دارید</translation>
+    </message>
+    <message>
+        <source>Allow deep reorganization to make it possible to self-heal chain split</source>
+        <translation>به سازماندهی مجدد عمیق اجازه دهید تا امکان خودترمیمی تقسیم بلاک چین فراهم شود</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::ConfirmSendDialog</name>
@@ -2357,6 +2377,14 @@ Are you sure?</source>
     <message>
         <source>Wallet is connected through remote node. Additional fee may be applied.</source>
         <translation>کیف پول از طریق گره از راه دور متصل می شود. هزینه اضافی ممکن است اعمال شود</translation>
+    </message>
+    <message>
+        <source>Zero balance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You cannot generate balance proof of zero.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

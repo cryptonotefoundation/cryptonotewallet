@@ -351,6 +351,14 @@
         <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet includes an additional fee from each transaction to the node, but no more than 1 KRB.</source>
         <translation>Le portefeuille se connecte au noeud distant en cours d&apos;exécution sur un réseau local ou global. Veuillez sélectionner un noeud ou spécifier une adresse IP ou un nom de domaine et un port. Dans ce mode, des frais supplémentaires pour le nœud peuvent être facturés, mais pas plus de 1 KRB.</translation>
     </message>
+    <message>
+        <source>Mode</source>
+        <translation>Mode</translation>
+    </message>
+    <message>
+        <source>Connections</source>
+        <translation>Les connections</translation>
+    </message>
 </context>
 <context>
     <name>ExitWidget</name>
@@ -1996,6 +2004,18 @@ Voulez-vous aller à la page de téléchargement?</translation>
         <source>Use LevelDB instead of RocksDB</source>
         <translation type="vanished">Utilisez LevelDB au lieu de RocksDB</translation>
     </message>
+    <message>
+        <source>Do not load checkpoints for full blocks validation</source>
+        <translation>Ne chargez pas les points de contrôle pour une validation complète des blocs</translation>
+    </message>
+    <message>
+        <source>Keep files in the same directory as wallet executable</source>
+        <translation>Conserver les fichiers dans le même répertoire que l&apos;exécutable du portefeuille</translation>
+    </message>
+    <message>
+        <source>Allow deep reorganization to make it possible to self-heal chain split</source>
+        <translation>Autoriser une réorganisation en profondeur pour permettre l&apos;auto-guérison de la scission de la blockchain</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::ConfirmSendDialog</name>
@@ -2374,6 +2394,14 @@ Are you sure?</source>
     <message>
         <source>Wallet is connected through remote node. Additional fee may be applied.</source>
         <translation>Le portefeuille est connecté via un nœud distant. Des frais supplémentaires peuvent être appliqués.</translation>
+    </message>
+    <message>
+        <source>Zero balance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You cannot generate balance proof of zero.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

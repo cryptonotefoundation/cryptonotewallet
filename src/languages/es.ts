@@ -337,6 +337,14 @@
         <source>Wallet will connect to remote node running in local or global network. Please select node or specify IP address or domain name and port. In this mode wallet includes an additional fee from each transaction to the node, but no more than 1 KRB.</source>
         <translation>El monedero se conectará al nodo remoto que se ejecuta en la red local o global. Por favor, seleccione nodo o especifique la dirección IP o el nombre de dominio y puerto. En este modo, se puede cobrar una tarifa adicional al nodo, pero no más de 1 KRB.</translation>
     </message>
+    <message>
+        <source>Mode</source>
+        <translation>Modo</translation>
+    </message>
+    <message>
+        <source>Connections</source>
+        <translation>Conexiones</translation>
+    </message>
 </context>
 <context>
     <name>ExitWidget</name>
@@ -1986,6 +1994,18 @@ Do you want to go to the download page?</source>
         <source>Use LevelDB instead of RocksDB</source>
         <translation type="vanished">Utilice LevelDB en lugar de RocksDB</translation>
     </message>
+    <message>
+        <source>Do not load checkpoints for full blocks validation</source>
+        <translation>No cargue checkpoints para la validación completa de bloques</translation>
+    </message>
+    <message>
+        <source>Keep files in the same directory as wallet executable</source>
+        <translation>Mantenga los archivos en el mismo directorio que el ejecutable de la billetera</translation>
+    </message>
+    <message>
+        <source>Allow deep reorganization to make it possible to self-heal chain split</source>
+        <translation>Permitir una reorganización profunda para hacer posible la autocuración de la división de la cadena de bloques</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::ConfirmSendDialog</name>
@@ -2366,6 +2386,14 @@ Are you sure?</source>
     <message>
         <source>Wallet is connected through remote node. Additional fee may be applied.</source>
         <translation>El monedero está conectado a través de un nodo remoto. Se puede aplicar una una tasa adicional.</translation>
+    </message>
+    <message>
+        <source>Zero balance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You cannot generate balance proof of zero.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
