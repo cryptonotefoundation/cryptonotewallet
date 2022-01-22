@@ -37,6 +37,7 @@ public:
   bool hasHideMyPortOption() const;
   bool isTestnet() const;
   bool withoutCheckpoints() const;
+  bool alowReorg() const;
   QDir getDataDir() const;
   QString getP2pBindIp() const;
   quint16 getLocalRpcPort() const;

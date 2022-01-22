@@ -28,6 +28,7 @@ public:
   bool hasAllowLocalIpOption() const;
   bool hasHideMyPortOption() const;
   bool hasPortableOption() const;
+  bool hasAllowReorgOption() const;
   QString getErrorText() const;
   QString getHelpText() const;
   QString getP2pBindIp() const;
@@ -58,6 +59,7 @@ private:
   QCommandLineOption m_portableOption;
   QCommandLineOption m_dataDirOption;
   QCommandLineOption m_rollBackOption;
+  QCommandLineOption m_allowReorgOption;
   QCommandLineOption m_minimized;
 };
 

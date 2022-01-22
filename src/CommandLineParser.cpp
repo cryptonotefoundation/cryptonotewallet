@@ -30,6 +30,7 @@ CommandLineParser::CommandLineParser(QObject* _parent) : QObject(_parent), m_par
   m_portableOption("portable", tr("Keep files in the same directory as wallet executable")),
   m_dataDirOption("data-dir", tr("Specify data directory"), tr("directory"), QString::fromLocal8Bit(Tools::getDefaultDataDirectory().c_str())),
   m_rollBackOption("rollback", tr("Rollback to height"), tr("height"), QString::number(std::numeric_limits<uint32_t>::max())),
+  m_allowReorgOption("allow-reorg", tr("Allow deep reorganization to make it possible to self-heal chain split")),
   m_minimized("minimized", tr("Run application in minimized mode")) {
   m_parser.setApplicationDescription(tr("Karbowanec wallet"));
   m_parser.addHelpOption();
@@ -48,6 +49,7 @@ CommandLineParser::CommandLineParser(QObject* _parent) : QObject(_parent), m_par
   m_parser.addOption(m_portableOption);
   m_parser.addOption(m_dataDirOption);
   m_parser.addOption(m_rollBackOption);
+  m_parser.addOption(m_allowReorgOption);
   m_parser.addOption(m_minimized);
 }
 
@@ -93,6 +95,10 @@ bool CommandLineParser::hasHideMyPortOption() const {
 
 bool CommandLineParser::hasPortableOption() const {
   return m_parser.isSet(m_portableOption);
+}
+
+bool CommandLineParser::hasAllowReorgOption() const {
+  return m_parser.isSet(m_allowReorgOption);
 }
 
 QString CommandLineParser::getErrorText() const {
