@@ -85,6 +85,7 @@ jobs:
           cp "C:/Program Files/OpenSSL-Win64/bin/libssl*.dll" "$release_name/"
           cp "C:/Program Files/OpenSSL-Win64/bin/libcrypto*.dll" "$release_name/"
           cp "../../COPYING" "$release_name/LICENSE.txt"
+          cp "../../*.bat" "$release_name/"
           windeployqt --release KarbowanecWallet.exe --dir "$release_name/"
           Compress-Archive -Path "$release_name/" -DestinationPath "$release_name.zip"
           $sha256a = (Get-FileHash "$release_name.zip").Hash
