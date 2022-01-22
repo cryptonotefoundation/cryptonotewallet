@@ -92,9 +92,12 @@ void ConnectionSettingsDialog::initConnectionSettings() {
   m_ui->m_localDaemonPort->setValue(localDaemonPort);
 
   updateNodeSelect();
+
+  quint16 connections = Settings::instance().getConnectionsCount();
+  m_ui->m_connectionsCount->setValue(connections);
 }
 
-QString ConnectionSettingsDialog::setConnectionMode() const {
+QString ConnectionSettingsDialog::getConnectionMode() const {
   QString connectionMode;
   if (m_ui->radioButton_1->isChecked()) {
     connectionMode = "auto";
@@ -108,14 +111,18 @@ QString ConnectionSettingsDialog::setConnectionMode() const {
   return connectionMode;
 }
 
-NodeSetting ConnectionSettingsDialog::setRemoteNode() const {
+NodeSetting ConnectionSettingsDialog::getRemoteNode() const {
   return m_nodeModel->getDataByIndex(m_ui->remoteNodesComboBox->currentIndex());
 }
 
-quint16 ConnectionSettingsDialog::setLocalDaemonPort() const {
-  quint16 localDaemonPort;
-  localDaemonPort = m_ui->m_localDaemonPort->value();
+quint16 ConnectionSettingsDialog::getLocalDaemonPort() const {
+  quint16 localDaemonPort = m_ui->m_localDaemonPort->value();
   return localDaemonPort;
+}
+
+quint16 ConnectionSettingsDialog::getConnectionsCount() const {
+  quint16 count = m_ui->m_connectionsCount->value();
+  return count;
 }
 
 void ConnectionSettingsDialog::addNodeClicked() {

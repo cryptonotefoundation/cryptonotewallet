@@ -775,23 +775,23 @@ void MainWindow::DisplayCmdLineHelp() {
 }
 
 void MainWindow::openConnectionSettings() {
-    ConnectionSettingsDialog dlg(&MainWindow::instance());
-    dlg.initConnectionSettings();
-    dlg.setConnectionMode();
-    dlg.setRemoteNode();
-    dlg.setLocalDaemonPort();
-    if (dlg.exec() == QDialog::Accepted) {
-      QString connection = dlg.setConnectionMode();
-      Settings::instance().setConnection(connection);
+  ConnectionSettingsDialog dlg(&MainWindow::instance());
+  dlg.initConnectionSettings();
+  if (dlg.exec() == QDialog::Accepted) {
+    QString connection = dlg.getConnectionMode();
+    Settings::instance().setConnection(connection);
 
-      NodeSetting remoteNode = dlg.setRemoteNode();
-      Settings::instance().setCurrentRemoteNode(remoteNode);
+    NodeSetting remoteNode = dlg.getRemoteNode();
+    Settings::instance().setCurrentRemoteNode(remoteNode);
 
-      quint16 daemonPort = dlg.setLocalDaemonPort();
-      Settings::instance().setCurrentLocalDaemonPort(daemonPort);
+    quint16 daemonPort = dlg.getLocalDaemonPort();
+    Settings::instance().setCurrentLocalDaemonPort(daemonPort);
 
-      QMessageBox::information(this, tr("Connection settings changed"), tr("Connection mode will be changed after restarting the wallet."), QMessageBox::Ok);
-    }
+    quint16 connCount = dlg.getConnectionsCount();
+    Settings::instance().setConnectionsCount(connCount);
+
+    QMessageBox::information(this, tr("Connection settings changed"), tr("Connection mode will be changed after restarting the wallet."), QMessageBox::Ok);
+  }
 }
 
 void MainWindow::openOptimizationSettings() {

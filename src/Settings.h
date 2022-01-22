@@ -43,6 +43,7 @@ public:
   quint16 getLocalRpcPort() const;
   quint16 getP2pBindPort() const;
   quint16 getP2pExternalPort() const;
+  quint16 getConnectionsCount() const;
   QStringList getExclusiveNodes() const;
   QStringList getPeers() const;
   QStringList getPriorityNodes() const;
@@ -91,6 +92,7 @@ public:
   void setStartOnLoginEnabled(bool _enable);
   void setMiningOnLaunchEnabled(bool _enable);
   void setConnection(const QString& _connection);
+  void setConnectionsCount(const quint16& _count);
   void setCurrentLocalDaemonPort(const quint16& _daemonPort);
   void setCurrentRemoteNode(const NodeSetting &remoteNode);
   void setRpcNodesList(const QVector<NodeSetting> &RpcNodesList);
@@ -113,9 +115,6 @@ public:
 private:
   QJsonObject m_settings;
   QString m_addressBookFile;
-  QString m_currentLang;
-  QString m_connectionMode;
-  quint16 m_daemonPort;
   CommandLineParser* m_cmdLineParser;
 
   Settings();

@@ -25,6 +25,7 @@ Q_DECL_CONSTEXPR char OPTION_WALLET_FILE[] = "walletFile";
 Q_DECL_CONSTEXPR char OPTION_ENCRYPTED[] = "encrypted";
 Q_DECL_CONSTEXPR char OPTION_LANGUAGE[] = "Language";
 Q_DECL_CONSTEXPR char OPTION_CONNECTION[] = "connectionMode";
+Q_DECL_CONSTEXPR char OPTION_CONNECTIONS[] = "connectionsCount";
 Q_DECL_CONSTEXPR char OPTION_RPCNODES[] = "remoteNodes";
 Q_DECL_CONSTEXPR char OPTION_DAEMON_PORT[] = "daemonPort";
 Q_DECL_CONSTEXPR char OPTION_REMOTE_NODE[] = "remoteNode";
@@ -78,36 +79,8 @@ void Settings::load() {
       m_addressBookFile.replace(m_addressBookFile.lastIndexOf(".wallet"), 7, ".addressbook");
     }
 
-    if (!m_settings.contains(OPTION_LANGUAGE)) {
-         m_currentLang = "uk";
-    }
-
-    if (!m_settings.contains(OPTION_CONNECTION)) {
-         m_connectionMode = "auto";
-    }
-
-    if (!m_settings.contains(OPTION_DAEMON_PORT)) {
-         m_daemonPort = CryptoNote::RPC_DEFAULT_PORT;
-    }
-
   } else {
     m_addressBookFile = getDataDir().absoluteFilePath(QCoreApplication::applicationName() + ".addressbook");
-  }
-
-  if (m_settings.contains(OPTION_LANGUAGE)) {
-        m_currentLang = m_settings.value(OPTION_LANGUAGE).toString();
-  }
-
-  if (m_settings.contains(OPTION_CONNECTION)) {
-        m_connectionMode = m_settings.value(OPTION_CONNECTION).toString();
-  }
-
-  if (!m_settings.contains(OPTION_DAEMON_PORT)) {
-        m_settings.insert(OPTION_DAEMON_PORT, CryptoNote::RPC_DEFAULT_PORT); // default daemon port
-  }
-
-  if (!m_settings.contains("tracking")) {
-       m_settings.insert("tracking", false);
   }
 
   QVector<NodeSetting> nodesList = getRpcNodesList();
@@ -167,6 +140,14 @@ quint16 Settings::getP2pBindPort() const {
 quint16 Settings::getP2pExternalPort() const {
   Q_ASSERT(m_cmdLineParser != nullptr);
   return m_cmdLineParser->getP2pExternalPort();
+}
+
+quint16 Settings::getConnectionsCount() const {
+  if (m_settings.contains(OPTION_CONNECTIONS)) {
+    return m_settings.value(OPTION_CONNECTIONS).toVariant().toInt();
+  }
+
+  return CryptoNote::P2P_DEFAULT_CONNECTIONS_COUNT;
 }
 
 QStringList Settings::getPeers() const {
@@ -238,22 +219,20 @@ QString Settings::getCurrentTheme() const {
 }
 
 QString Settings::getLanguage() const {
-    QString currentLang;
-    if (m_settings.contains(OPTION_LANGUAGE)) {
-        currentLang = m_settings.value(OPTION_LANGUAGE).toString();
-    }
-    return currentLang;
+  QString currentLang = "uk";
+  if (m_settings.contains(OPTION_LANGUAGE)) {
+    currentLang = m_settings.value(OPTION_LANGUAGE).toString();
+  }
+  return currentLang;
 }
 
 QString Settings::getConnection() const {
-    QString connection;
-    if (m_settings.contains(OPTION_CONNECTION)) {
-        connection = m_settings.value(OPTION_CONNECTION).toString();
-    }
-    else {
-    connection = "auto"; // default
-    }
-    return connection;
+  QString connection = "auto"; // default
+  if (m_settings.contains(OPTION_CONNECTION)) {
+    connection = m_settings.value(OPTION_CONNECTION).toString();
+  }
+
+  return connection;
 }
 
 QVector<NodeSetting> Settings::getRpcNodesList() const {
@@ -287,11 +266,11 @@ QVector<NodeSetting> Settings::getRpcNodesList() const {
 }
 
 quint16 Settings::getCurrentLocalDaemonPort() const {
-    quint16 port;
-    if (m_settings.contains(OPTION_DAEMON_PORT)) {
-        port = m_settings.value(OPTION_DAEMON_PORT).toVariant().toInt();
-    }
-    return port;
+  if (m_settings.contains(OPTION_DAEMON_PORT)) {
+    return m_settings.value(OPTION_DAEMON_PORT).toVariant().toInt();
+  }
+
+  return CryptoNote::RPC_DEFAULT_PORT;
 }
 
 NodeSetting Settings::getCurrentRemoteNode() const {
@@ -598,6 +577,11 @@ void Settings::setStartOnLoginEnabled(bool _enable) {
 void Settings::setConnection(const QString& _connection) {
     m_settings.insert(OPTION_CONNECTION, _connection);
     saveSettings();
+}
+
+void Settings::setConnectionsCount(const quint16& _count) {
+  m_settings.insert(OPTION_CONNECTIONS, _count);
+  saveSettings();
 }
 
 void Settings::setCurrentLocalDaemonPort(const quint16& _daemonPort) {

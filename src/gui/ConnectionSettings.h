@@ -48,9 +48,10 @@ public:
   ConnectionSettingsDialog(QWidget* _parent);
   ~ConnectionSettingsDialog();
 
-  QString setConnectionMode() const;
-  quint16 setLocalDaemonPort() const;
-  NodeSetting setRemoteNode() const;
+  QString getConnectionMode() const;
+  quint16 getLocalDaemonPort() const;
+  quint16 getConnectionsCount() const;
+  NodeSetting getRemoteNode() const;
   void initConnectionSettings();
 
 private:

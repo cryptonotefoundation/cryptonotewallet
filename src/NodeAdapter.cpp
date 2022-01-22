@@ -401,10 +401,12 @@ CryptoNote::NetNodeConfig NodeAdapter::makeNetNodeConfig() const {
   boost::any p2pAllowLocalIp = Settings::instance().hasAllowLocalIpOption();
   boost::any dataDir = std::string(Settings::instance().getDataDir().absolutePath().toLocal8Bit().data());
   boost::any hideMyPort = Settings::instance().hasHideMyPortOption();
+  boost::any connectionsCount = Settings::instance().getConnectionsCount();
   options.insert(std::make_pair("p2p-bind-ip", boost::program_options::variable_value(p2pBindIp, false)));
   options.insert(std::make_pair("p2p-bind-port", boost::program_options::variable_value(p2pBindPort, false)));
   options.insert(std::make_pair("p2p-external-port", boost::program_options::variable_value(p2pExternalPort, false)));
   options.insert(std::make_pair("allow-local-ip", boost::program_options::variable_value(p2pAllowLocalIp, false)));
+  options.insert(std::make_pair("connections", boost::program_options::variable_value(connectionsCount, false)));
   std::vector<std::string> peerList = convertStringListToVector(Settings::instance().getPeers());
   if (!peerList.empty()) {
     options.insert(std::make_pair("add-peer", boost::program_options::variable_value(peerList, false)));
