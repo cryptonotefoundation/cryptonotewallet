@@ -401,7 +401,7 @@ CryptoNote::NetNodeConfig NodeAdapter::makeNetNodeConfig() const {
   boost::any p2pAllowLocalIp = Settings::instance().hasAllowLocalIpOption();
   boost::any dataDir = std::string(Settings::instance().getDataDir().absolutePath().toLocal8Bit().data());
   boost::any hideMyPort = Settings::instance().hasHideMyPortOption();
-  boost::any connectionsCount = Settings::instance().getConnectionsCount();
+  boost::any connectionsCount = static_cast<uint32_t>(Settings::instance().getConnectionsCount());
   options.insert(std::make_pair("p2p-bind-ip", boost::program_options::variable_value(p2pBindIp, false)));
   options.insert(std::make_pair("p2p-bind-port", boost::program_options::variable_value(p2pBindPort, false)));
   options.insert(std::make_pair("p2p-external-port", boost::program_options::variable_value(p2pExternalPort, false)));
@@ -436,7 +436,6 @@ CryptoNote::NetNodeConfig NodeAdapter::makeNetNodeConfig() const {
   }
 
   options.insert(std::make_pair("data-dir", boost::program_options::variable_value(dataDir, false)));
-  int size = options.size();
   config.init(options);
   config.setTestnet(Settings::instance().isTestnet());
   return config;
