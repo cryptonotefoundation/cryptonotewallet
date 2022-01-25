@@ -219,10 +219,11 @@ QString Settings::getCurrentTheme() const {
 }
 
 QString Settings::getLanguage() const {
-  QString currentLang = "uk";
+  QString currentLang; // default should be empty, in order system's will be used
   if (m_settings.contains(OPTION_LANGUAGE)) {
     currentLang = m_settings.value(OPTION_LANGUAGE).toString();
   }
+
   return currentLang;
 }
 
