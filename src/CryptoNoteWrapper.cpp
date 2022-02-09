@@ -506,7 +506,7 @@ public:
   }
   
   bool getBlockLongHash(Crypto::cn_context &context, const CryptoNote::Block& block, Crypto::Hash& res) override {
-    return m_core.get_block_long_hash(context, block, res);
+    return m_core.getBlockLongHash(context, block, res);
   }
 
   uint64_t getAlreadyGeneratedCoins() override {
