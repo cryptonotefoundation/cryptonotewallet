@@ -184,7 +184,7 @@ void WalletAdapter::createNonDeterministic() {
   m_wallet->addObserver(this);
   Settings::instance().setEncrypted(false);
   try {
-    m_wallet->initAndGenerate("");
+    m_wallet->initAndGenerateNonDeterministic("");
   } catch (std::system_error&) {
     delete m_wallet;
     m_wallet = nullptr;
