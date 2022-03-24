@@ -31,7 +31,7 @@ CoinsFrame::CoinsFrame(QWidget* _parent) : QFrame(_parent), m_ui(new Ui::CoinsFr
   m_ui->setupUi(this);
   m_ui->m_outputsView->setSortingEnabled(true);
   m_ui->m_outputsView->sortByColumn(4, Qt::DescendingOrder);
-  m_visibleOutputsModel->setSortRole(Qt::EditRole);
+  m_visibleOutputsModel->setSortRole(/*Qt::EditRole*/15);
   m_visibleOutputsModel->setDynamicSortFilter(true);
   m_ui->m_outputsView->setModel(m_visibleOutputsModel.data());
   m_ui->m_outputsView->header()->setSectionResizeMode(QHeaderView::Interactive);

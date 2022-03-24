@@ -19,8 +19,9 @@ OutputDetailsDialog::OutputDetailsDialog(const QModelIndex& _index, QWidget* _pa
   m_ui(new Ui::OutputDetailsDialog)
 {
   m_ui->setupUi(this);
-  QModelIndex modelIndex = OutputsModel::instance().index(_index.data(OutputsModel::ROLE_ROW).toInt(), 0);
-  m_dataMapper.setModel(&OutputsModel::instance());
+  OutputsModel &m_OutputsModel = OutputsModel::instance();
+  QModelIndex modelIndex = m_OutputsModel.index(_index.data(OutputsModel::ROLE_ROW).toInt(), 0);
+  m_dataMapper.setModel(&m_OutputsModel);
   m_dataMapper.addMapping(m_ui->m_stateLabel, OutputsModel::COLUMN_STATE, "text");
   m_dataMapper.addMapping(m_ui->m_typeLabel, OutputsModel::COLUMN_TYPE, "text");
   m_dataMapper.addMapping(m_ui->m_keyLabel, OutputsModel::COLUMN_OUTPUT_KEY, "text");

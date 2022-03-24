@@ -109,9 +109,11 @@ QVariant OutputsModel::data(const QModelIndex& _index, int _role) const {
 
   switch(_role) {
   case Qt::DisplayRole:
+  case Qt::EditRole:
     return getDisplayRole(_index);
 
-  case Qt::EditRole:
+  //case Qt::EditRole:
+  case 15:
     return getEditRole(_index);
 
   case Qt::DecorationRole:
@@ -192,10 +194,8 @@ QVariant OutputsModel::getDisplayRole(const QModelIndex& _index) const {
   case COLUMN_TX_HASH:
     return _index.data(ROLE_TX_HASH).toByteArray().toHex().toUpper();
 
-  case COLUMN_AMOUNT: {
-    qint64 amount = _index.data(ROLE_AMOUNT).value<qint64>();
-    return CurrencyAdapter::instance().formatAmount(amount);
-  }
+  case COLUMN_AMOUNT:
+    return CurrencyAdapter::instance().formatAmount(_index.data(ROLE_AMOUNT).value<qint64>());
 
   case COLUMN_GLOBAL_OUTPUT_INDEX: {
     quint32 index = _index.data(ROLE_GLOBAL_OUTPUT_INDEX).value<qint32>();
@@ -297,10 +297,8 @@ QVariant OutputsModel::getEditRole(const QModelIndex& _index) const {
   case COLUMN_TX_HASH:
     return _index.data(ROLE_TX_HASH).toByteArray().toHex().toUpper();
 
-  case COLUMN_AMOUNT: {
-    qint64 amount = _index.data(ROLE_AMOUNT).value<qint64>();
-    return amount;
-  }
+  case COLUMN_AMOUNT:
+    return _index.data(ROLE_AMOUNT).value<qint64>();
 
   case COLUMN_GLOBAL_OUTPUT_INDEX: {
     quint32 index = _index.data(ROLE_GLOBAL_OUTPUT_INDEX).value<qint32>();
