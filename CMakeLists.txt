@@ -253,11 +253,11 @@ set(CRYPTONOTE_SOURCES
   cryptonote/src/System/Ipv4Address.cpp
   cryptonote/src/System/SocketStream.cpp
   cryptonote/src/System/TcpStream.cpp
+  cryptonote/src/HTTP/httplib.h
   cryptonote/src/HTTP/HttpRequest.cpp
   cryptonote/src/HTTP/HttpParser.cpp
   cryptonote/src/HTTP/HttpParserErrorCodes.cpp
   cryptonote/src/HTTP/HttpResponse.cpp
-  cryptonote/src/Rpc/HttpClient.cpp
   cryptonote/src/Rpc/JsonRpc.cpp
   cryptonote/src/P2p/NetNode.cpp
   cryptonote/src/P2p/LevinProtocol.cpp
@@ -506,6 +506,7 @@ if (WIN32)
 endif ()
 
 if (OPENSSL_FOUND)
+  add_definitions(-DCPPHTTPLIB_OPENSSL_SUPPORT)
   target_link_libraries(${PROJECT_NAME} ${OPENSSL_LIBRARIES})
   if (MSVC)
     target_link_libraries(${PROJECT_NAME} Rpcrt4 ws2_32 advapi32 crypt32 gdi32 user32)
