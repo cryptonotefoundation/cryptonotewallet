@@ -52,7 +52,7 @@ int OutputsModel::columnCount(const QModelIndex& _parent) const {
 }
 
 int OutputsModel::rowCount(const QModelIndex& _parent) const {
-  return m_spentOutputs.size();
+  return m_utputs.size();
 }
 
 QVariant OutputsModel::headerData(int _section, Qt::Orientation _orientation, int _role) const {
@@ -105,7 +105,7 @@ QVariant OutputsModel::data(const QModelIndex& _index, int _role) const {
     return QVariant();
   }
 
-  CryptoNote::TransactionSpentOutputInformation _output = m_spentOutputs.value(_index.row());
+  CryptoNote::TransactionSpentOutputInformation _output = m_utputs.value(_index.row());
 
   switch(_role) {
   case Qt::DisplayRole:
@@ -434,30 +434,37 @@ QVariant OutputsModel::getUserRole(const QModelIndex& _index, int _role, CryptoN
 void OutputsModel::reloadWalletTransactions() {
   reset();
   std::vector<CryptoNote::TransactionOutputInformation> unspent = WalletAdapter::instance().getOutputs();
-  m_unspentOutputs = QVector<CryptoNote::TransactionOutputInformation>::fromStdVector(unspent);
-  unspent.clear();
-  unspent.shrink_to_fit();
   std::vector<CryptoNote::TransactionSpentOutputInformation> spent = WalletAdapter::instance().getSpentOutputs();
-  m_spentOutputs = QVector<CryptoNote::TransactionSpentOutputInformation>::fromStdVector(spent);
+  m_utputs = QVector<CryptoNote::TransactionSpentOutputInformation>::fromStdVector(spent);
   spent.clear();
   spent.shrink_to_fit();
 
-  quint32 outputsCount = m_unspentOutputs.size() + m_spentOutputs.size();
+  quint32 outputsCount = unspent.size() + m_utputs.size();
 
-  for (const auto& o : m_unspentOutputs) {
-    CryptoNote::TransactionSpentOutputInformation s = *static_cast<const CryptoNote::TransactionSpentOutputInformation *>(&o);
+  for (const auto& o : unspent) {
+    //CryptoNote::TransactionSpentOutputInformation s = *static_cast<const CryptoNote::TransactionSpentOutputInformation *>(&o); // crashes here
+    CryptoNote::TransactionSpentOutputInformation s;
+    s.type = o.type;
+    s.amount = o.amount;
+    s.globalOutputIndex = o.globalOutputIndex;
+    s.outputInTransaction = o.outputInTransaction;
+    s.transactionHash = o.transactionHash;
+    s.transactionPublicKey = o.transactionPublicKey;
+    s.outputKey = o.outputKey;
+    s.requiredSignatures = o.requiredSignatures;
+
     s.spendingBlockHeight = std::numeric_limits<uint32_t>::max();
     s.spendingTransactionHash = CryptoNote::NULL_HASH;
     s.timestamp = 0;
     s.keyImage = {};
     s.inputInTransaction = std::numeric_limits<uint32_t>::max();
 
-    m_spentOutputs.append(s);
+    m_utputs.append(s);
   }
-  m_unspentOutputs.clear();
+  unspent.clear();
 
   // need to sort them
-  qSort(m_spentOutputs.begin(), m_spentOutputs.end(), transactionSpentOutputInformationLessThan);
+  qSort(m_utputs.begin(), m_utputs.end(), transactionSpentOutputInformationLessThan);
 
   beginInsertRows(QModelIndex(), 0, outputsCount - 1);
   endInsertRows();
@@ -470,8 +477,7 @@ void OutputsModel::appendTransaction(CryptoNote::TransactionId _id) {
 
 void OutputsModel::reset() {
   beginResetModel();
-  m_unspentOutputs.clear();
-  m_spentOutputs.clear();
+  m_utputs.clear();
   endResetModel();
 }
 

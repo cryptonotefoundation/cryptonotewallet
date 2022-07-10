@@ -46,8 +46,7 @@ public:
   QModelIndex parent(const QModelIndex& _index) const Q_DECL_OVERRIDE;
 
 private:
-  QVector<CryptoNote::TransactionOutputInformation> m_unspentOutputs;
-  QVector<CryptoNote::TransactionSpentOutputInformation> m_spentOutputs;
+  QVector<CryptoNote::TransactionSpentOutputInformation> m_utputs;
 
   static bool transactionSpentOutputInformationLessThan(const CryptoNote::TransactionSpentOutputInformation &left,
                                                  const CryptoNote::TransactionSpentOutputInformation &right)
