@@ -137,6 +137,26 @@ quint16 Settings::getP2pBindPort() const {
   return m_cmdLineParser->getP2pBindPort();
 }
 
+QString Settings::getRpcBindIp() const {
+  Q_ASSERT(m_cmdLineParser != nullptr);
+  return m_cmdLineParser->getRpcBindIp();
+}
+
+quint16 Settings::getRpcBindPort() const {
+  Q_ASSERT(m_cmdLineParser != nullptr);
+  return m_cmdLineParser->getRpcBindPort();
+}
+
+bool Settings::hasRunRpc() const {
+  Q_ASSERT(m_cmdLineParser != nullptr);
+  return m_cmdLineParser->hasRpcOption();
+}
+
+bool Settings::hasRestrictedRpc() const {
+  Q_ASSERT(m_cmdLineParser != nullptr);
+  return m_cmdLineParser->hasRestrictedRpcOption();
+}
+
 quint16 Settings::getP2pExternalPort() const {
   Q_ASSERT(m_cmdLineParser != nullptr);
   return m_cmdLineParser->getP2pExternalPort();

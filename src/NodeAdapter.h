@@ -11,6 +11,7 @@
 #include <INode.h>
 #include <IWalletLegacy.h>
 #include "CryptoNoteWrapper.h"
+#include "Rpc/RpcServerConfig.h"
 
 namespace CryptoNote {
 
@@ -82,15 +83,16 @@ private:
   bool initInProcessNode();
   CryptoNote::CoreConfig makeCoreConfig() const;
   CryptoNote::NetNodeConfig makeNetNodeConfig() const;
+  CryptoNote::RpcServerConfig makeRpcServerConfig() const;
 
 Q_SIGNALS:
   void localBlockchainUpdatedSignal(quint64 _height);
   void lastKnownBlockHeightUpdatedSignal(quint64 _height);
   void nodeInitCompletedSignal();
   void peerCountUpdatedSignal(quintptr _count);
-  void initNodeSignal(Node** _node, const CryptoNote::Currency* currency, INodeCallback* _callback, Logging::LoggerManager* _loggerManager,
-    const CryptoNote::CoreConfig& _coreConfig, const CryptoNote::NetNodeConfig& _netNodeConfig);
-  void deinitNodeSignal(Node** _node);
+  void initNodeSignal(WalletGui::Node** _node, const CryptoNote::Currency* currency, INodeCallback* _callback, Logging::LoggerManager* _loggerManager,
+    const CryptoNote::CoreConfig& _coreConfig, const CryptoNote::NetNodeConfig& _netNodeConfig, const CryptoNote::RpcServerConfig& _rpcServerConfig);
+  void deinitNodeSignal(WalletGui::Node** _node);
   void connectionFailedSignal();
   void connectionStatusUpdatedSignal(bool _connected);
 };

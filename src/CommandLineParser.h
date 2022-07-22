@@ -29,10 +29,14 @@ public:
   bool hasHideMyPortOption() const;
   bool hasPortableOption() const;
   bool hasAllowReorgOption() const;
+  bool hasRpcOption() const;
+  bool hasRestrictedRpcOption() const;
   QString getErrorText() const;
   QString getHelpText() const;
   QString getP2pBindIp() const;
   quint16 getP2pBindPort() const;
+  QString getRpcBindIp() const;
+  quint16 getRpcBindPort() const;
   quint16 getP2pExternalPort() const;
   QStringList getPeers() const;
   QStringList getPiorityNodes() const;
@@ -49,6 +53,10 @@ private:
   QCommandLineOption m_withoutCheckpointsOption;
   QCommandLineOption m_p2pBindIpOption;
   QCommandLineOption m_p2pBindPortOption;
+  QCommandLineOption m_rpcBindIpOption;
+  QCommandLineOption m_rpcBindPortOption;
+  QCommandLineOption m_rpcOption;
+  QCommandLineOption m_restrictedRpcOption;
   QCommandLineOption m_p2pExternalOption;
   QCommandLineOption m_allowLocalIpOption;
   QCommandLineOption m_addPeerOption;

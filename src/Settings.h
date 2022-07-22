@@ -38,11 +38,14 @@ public:
   bool isTestnet() const;
   bool withoutCheckpoints() const;
   bool alowReorg() const;
+  bool hasRunRpc() const;
+  bool hasRestrictedRpc() const;
   QDir getDataDir() const;
   QString getP2pBindIp() const;
-  quint16 getLocalRpcPort() const;
   quint16 getP2pBindPort() const;
   quint16 getP2pExternalPort() const;
+  QString getRpcBindIp() const;
+  quint16 getRpcBindPort() const;
   quint16 getConnectionsCount() const;
   QStringList getExclusiveNodes() const;
   QStringList getPeers() const;

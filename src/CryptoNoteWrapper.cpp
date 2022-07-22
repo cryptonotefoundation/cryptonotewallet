@@ -20,8 +20,10 @@
 #include "CryptoNoteCore/Miner.h"
 #include "CryptoNoteCore/MinerConfig.h"
 #include "CryptoNoteCore/TransactionExtra.h"
+#include "HTTP/httplib.h"
 #include "Rpc/CoreRpcServerCommandsDefinitions.h"
-#include "Rpc/HttpClient.h"
+#include "Rpc/RpcServer.h"
+#include "Rpc/JsonRpc.h"
 #include "CryptoNoteProtocol/CryptoNoteProtocolHandler.h"
 #include "InProcessNode/InProcessNode.h"
 #include "P2p/NetNode.h"
@@ -214,8 +216,8 @@ public:
       CryptoNote::COMMAND_RPC_GETBLOCKTEMPLATE::response rsp = AUTO_VAL_INIT(rsp);
       req.miner_spend_key = Common::podToHex(acc.spendSecretKey);
       req.miner_view_key = Common::podToHex(acc.viewSecretKey);
-      CryptoNote::HttpClient httpClient(m_dispatcher, m_node.m_nodeHost, m_node.m_nodePort, false);
-      CryptoNote::invokeJsonRpcCommand(httpClient, "getblocktemplate", req, rsp);
+      httplib::Client httpClient (m_node.m_nodeHost, m_node.m_nodePort);
+      CryptoNote::JsonRpc::invokeJsonRpcCommand(httpClient, "getblocktemplate", req, rsp);
       std::string err = interpret_rpc_response(true, rsp.status);
       if (err.empty()) {
         if (!CryptoNote::fromBinaryArray(b, Common::fromHex(rsp.blocktemplate_blob))) {
@@ -231,10 +233,6 @@ public:
         m_logger(Logging::INFO) << "Failed to invoke request: " << err;
       }
     }
-    catch (const CryptoNote::ConnectException&) {
-      m_logger(Logging::INFO) << "Wallet failed to connect to daemon.";
-      return false;
-    }
     catch (const std::exception& e) {
       m_logger(Logging::INFO) << "Failed to invoke RPC method: " << e.what();
       return false;
@@ -248,8 +246,8 @@ public:
       CryptoNote::COMMAND_RPC_SUBMITBLOCK::request req;
       req.emplace_back(Common::toHex(CryptoNote::toBinaryArray(b)));
       CryptoNote::COMMAND_RPC_SUBMITBLOCK::response res;
-      CryptoNote::HttpClient httpClient(m_dispatcher, m_node.m_nodeHost, m_node.m_nodePort, false);
-      CryptoNote::invokeJsonRpcCommand(httpClient, "submitblock", req, res);
+      httplib::Client httpClient(m_node.m_nodeHost, m_node.m_nodePort);
+      CryptoNote::JsonRpc::invokeJsonRpcCommand(httpClient, "submitblock", req, res);
       std::string err = interpret_rpc_response(true, res.status);
       if (err.empty()) {
         return true;
@@ -257,10 +255,6 @@ public:
         else {
         m_logger(Logging::INFO) << "Failed to invoke request: " << err;
       }
-    }
-    catch (const CryptoNote::ConnectException&) {
-      m_logger(Logging::INFO) << "Wallet failed to connect to daemon.";
-      return false;
     }
     catch (const std::exception& e) {
       m_logger(Logging::INFO) << "Failed to invoke RPC method: " << e.what();
@@ -337,15 +331,16 @@ class InprocessNode : public CryptoNote::INodeObserver, public Node {
 public:
   Logging::LoggerManager& m_logManager;
   InprocessNode(const CryptoNote::Currency& currency, Logging::LoggerManager& logManager, const CryptoNote::CoreConfig& coreConfig,
-    const CryptoNote::NetNodeConfig& netNodeConfig, INodeCallback& callback) :
+    const CryptoNote::NetNodeConfig& netNodeConfig, const CryptoNote::RpcServerConfig& rpcServerConfig, INodeCallback& callback) :
     m_currency(currency), m_dispatcher(),
     m_callback(callback),
     m_logManager(logManager),
     m_logger(m_logManager, "InprocessNode"),
     m_coreConfig(coreConfig),
     m_netNodeConfig(netNodeConfig),
+    m_rpcServerConfig(rpcServerConfig),
     m_protocolHandler(currency, m_dispatcher, m_core, nullptr, logManager),
-    m_core(currency, &m_protocolHandler, logManager, m_dispatcher, true),
+    m_core(currency, &m_protocolHandler, logManager, m_dispatcher, true, false, false),
     m_nodeServer(m_dispatcher, m_protocolHandler, logManager),
     m_node(m_core, m_protocolHandler)
   {
@@ -393,6 +388,14 @@ public:
         callback(make_error_code(CryptoNote::error::NOT_INITIALIZED));
         return;
       }
+
+      if (Settings::instance().hasRunRpc()) {
+        m_logger(Logging::INFO) << "Starting core rpc server...";
+        m_rpcServer = new CryptoNote::RpcServer(m_rpcServerConfig, m_dispatcher, m_logManager, m_core, m_nodeServer, m_protocolHandler);
+        m_rpcServer->start();
+        m_logger(Logging::INFO) << "Core rpc server started ok";
+      }
+
     } catch (std::runtime_error& _err) {
       callback(make_error_code(CryptoNote::error::NOT_INITIALIZED));
       return;
@@ -405,6 +408,7 @@ public:
 
     m_nodeServer.run();
     m_nodeServer.deinit();
+    m_rpcServer->stop();
     m_core.deinit();
     m_node.shutdown();
   }
@@ -548,12 +552,14 @@ private:
   System::Dispatcher m_dispatcher;
   CryptoNote::CoreConfig m_coreConfig;
   CryptoNote::NetNodeConfig m_netNodeConfig;
+  CryptoNote::RpcServerConfig m_rpcServerConfig;
   CryptoNote::Core m_core;
   CryptoNote::CryptoNoteProtocolHandler m_protocolHandler;
   CryptoNote::NodeServer m_nodeServer;
   CryptoNote::InProcessNode m_node;
   std::future<bool> m_nodeServerFuture;
   Logging::LoggerRef m_logger;
+  CryptoNote::RpcServer* m_rpcServer;
 
   void peerCountUpdated(size_t count) override {
     m_callback.peerCountUpdated(*this, count);
@@ -578,8 +584,8 @@ Node* createRpcNode(const CryptoNote::Currency& currency, INodeCallback& callbac
 }
 
 Node* createInprocessNode(const CryptoNote::Currency& currency, Logging::LoggerManager& logManager,
-  const CryptoNote::CoreConfig& coreConfig, const CryptoNote::NetNodeConfig& netNodeConfig, INodeCallback& callback) {
-  return new InprocessNode(currency, logManager, coreConfig, netNodeConfig, callback);
+  const CryptoNote::CoreConfig& coreConfig, const CryptoNote::NetNodeConfig& netNodeConfig, const CryptoNote::RpcServerConfig& rpcServerConfig, INodeCallback& callback) {
+  return new InprocessNode(currency, logManager, coreConfig, netNodeConfig, rpcServerConfig, callback);
 }
 
 }

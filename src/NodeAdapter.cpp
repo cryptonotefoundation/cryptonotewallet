@@ -9,15 +9,17 @@
 #include <QTimer>
 #include <QUrl>
 
-#include <CryptoNoteCore/CoreConfig.h>
-#include <P2p/NetNodeConfig.h>
-#include <Wallet/WalletErrors.h>
+#include <boost/filesystem.hpp>
+#include <boost/program_options.hpp>
 
+#include "CryptoNoteCore/CoreConfig.h"
 #include "CurrencyAdapter.h"
 #include "LoggerAdapter.h"
 #include "NodeAdapter.h"
+#include "P2p/NetNodeConfig.h"
+#include "Rpc/RpcServerConfig.h"
 #include "Settings.h"
-#include <boost/program_options/variables_map.hpp>
+#include "Wallet/WalletErrors.h"
 
 namespace WalletGui {
 
@@ -51,8 +53,8 @@ public:
   }
 
   void start(Node** _node, const CryptoNote::Currency* currency,  INodeCallback* _callback, Logging::LoggerManager* _loggerManager,
-    const CryptoNote::CoreConfig& _coreConfig, const CryptoNote::NetNodeConfig& _netNodeConfig) {
-    (*_node) = createInprocessNode(*currency, *_loggerManager, _coreConfig, _netNodeConfig, *_callback);
+    const CryptoNote::CoreConfig& _coreConfig, const CryptoNote::NetNodeConfig& _netNodeConfig, const CryptoNote::RpcServerConfig& _rpcServerConfig) {
+    (*_node) = createInprocessNode(*currency, *_loggerManager, _coreConfig, _netNodeConfig, _rpcServerConfig, *_callback);
     try {
       (*_node)->init([this](std::error_code _err) {
           if (_err) {
@@ -91,6 +93,7 @@ NodeAdapter::NodeAdapter() : QObject(), m_node(nullptr), m_nodeInitializerThread
 
   qRegisterMetaType<CryptoNote::CoreConfig>("CryptoNote::CoreConfig");
   qRegisterMetaType<CryptoNote::NetNodeConfig>("CryptoNote::NetNodeConfig");
+  qRegisterMetaType<CryptoNote::RpcServerConfig>("CryptoNote::RpcServerConfig");
 
   connect(m_nodeInitializer, &InProcessNodeInitializer::nodeInitCompletedSignal, this, &NodeAdapter::nodeInitCompletedSignal, Qt::QueuedConnection);
   connect(this, &NodeAdapter::initNodeSignal, m_nodeInitializer, &InProcessNodeInitializer::start, Qt::QueuedConnection);
@@ -354,7 +357,8 @@ bool NodeAdapter::initInProcessNode() {
   m_nodeInitializerThread.start();
   CryptoNote::CoreConfig coreConfig = makeCoreConfig();
   CryptoNote::NetNodeConfig netNodeConfig = makeNetNodeConfig();
-  Q_EMIT initNodeSignal(&m_node, &CurrencyAdapter::instance().getCurrency(), this, &LoggerAdapter::instance().getLoggerManager(), coreConfig, netNodeConfig);
+  CryptoNote::RpcServerConfig rpcServerConfig = makeRpcServerConfig();
+  Q_EMIT initNodeSignal(&m_node, &CurrencyAdapter::instance().getCurrency(), this, &LoggerAdapter::instance().getLoggerManager(), coreConfig, netNodeConfig, rpcServerConfig);
   QEventLoop waitLoop;
   connect(m_nodeInitializer, &InProcessNodeInitializer::nodeInitCompletedSignal, &waitLoop, &QEventLoop::quit);
   connect(m_nodeInitializer, &InProcessNodeInitializer::nodeInitFailedSignal, &waitLoop, &QEventLoop::exit);
@@ -438,6 +442,39 @@ CryptoNote::NetNodeConfig NodeAdapter::makeNetNodeConfig() const {
   options.insert(std::make_pair("data-dir", boost::program_options::variable_value(dataDir, false)));
   config.init(options);
   config.setTestnet(Settings::instance().isTestnet());
+  return config;
+}
+
+CryptoNote::RpcServerConfig NodeAdapter::makeRpcServerConfig() const {
+  CryptoNote::RpcServerConfig config;
+  boost::filesystem::path dataDir = std::string(Settings::instance().getDataDir().absolutePath().toLocal8Bit().data());
+  config.setDataDir(dataDir.string());
+  boost::program_options::variables_map options;
+  boost::any rpcBindIp = Settings::instance().getRpcBindIp().toStdString();
+  boost::any rpcBindPort = static_cast<uint16_t>(Settings::instance().getRpcBindPort());
+
+  options.insert(std::make_pair("rpc-bind-ip", boost::program_options::variable_value(rpcBindIp, false)));
+  options.insert(std::make_pair("rpc-bind-port", boost::program_options::variable_value(rpcBindPort, false)));
+
+  // dummy defaults
+  std::string dummy = "", cors = "*";
+  uint16_t sslport = CryptoNote::RPC_DEFAULT_SSL_PORT;
+  bool no = false;
+  options.insert(std::make_pair("rpc-bind-ssl-port", boost::program_options::variable_value(sslport, false)));
+  options.insert(std::make_pair("rpc-bind-ssl-enable", boost::program_options::variable_value(no, false)));
+  options.insert(std::make_pair("rpc-chain-file", boost::program_options::variable_value(dummy, false)));
+  options.insert(std::make_pair("rpc-key-file", boost::program_options::variable_value(dummy, false)));
+  options.insert(std::make_pair("rpc-bind-ssl-enable", boost::program_options::variable_value(dummy, false)));
+  options.insert(std::make_pair("enable-cors", boost::program_options::variable_value(cors, false)));
+  options.insert(std::make_pair("contact", boost::program_options::variable_value(dummy, false)));
+  options.insert(std::make_pair("fee-address", boost::program_options::variable_value(dummy, false)));
+  options.insert(std::make_pair("fee-amount", boost::program_options::variable_value(dummy, false)));
+  options.insert(std::make_pair("view-key", boost::program_options::variable_value(dummy, false)));
+
+  options.insert(std::make_pair("restricted-rpc", boost::program_options::variable_value(Settings::instance().hasRestrictedRpc(), false)));
+
+  config.init(options);
+
   return config;
 }
 
