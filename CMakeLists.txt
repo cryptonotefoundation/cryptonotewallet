@@ -218,6 +218,9 @@ set(CRYPTONOTE_SOURCES
   cryptonote/src/NodeRpcProxy/NodeErrors.cpp
   cryptonote/src/NodeRpcProxy/NodeRpcProxy.cpp
   cryptonote/src/P2p/NetNodeConfig.cpp
+  cryptonote/src/Rpc/RpcServer.cpp
+  cryptonote/src/Rpc/RpcServerConfig.cpp
+  cryptonote/src/Rpc/HttpServer.cpp
   cryptonote/src/Serialization/BinaryInputStreamSerializer.cpp
   cryptonote/src/Serialization/BinaryOutputStreamSerializer.cpp
   cryptonote/src/Serialization/JsonInputValueSerializer.cpp

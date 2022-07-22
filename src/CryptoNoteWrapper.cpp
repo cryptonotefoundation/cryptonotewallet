@@ -22,6 +22,7 @@
 #include "CryptoNoteCore/TransactionExtra.h"
 #include "Rpc/CoreRpcServerCommandsDefinitions.h"
 #include "Rpc/HttpClient.h"
+#include "Rpc/RpcServer.h"
 #include "CryptoNoteProtocol/CryptoNoteProtocolHandler.h"
 #include "InProcessNode/InProcessNode.h"
 #include "P2p/NetNode.h"
@@ -345,7 +346,7 @@ public:
     m_coreConfig(coreConfig),
     m_netNodeConfig(netNodeConfig),
     m_protocolHandler(currency, m_dispatcher, m_core, nullptr, logManager),
-    m_core(currency, &m_protocolHandler, logManager, m_dispatcher, true),
+    m_core(currency, &m_protocolHandler, logManager, m_dispatcher, true, false, false),
     m_nodeServer(m_dispatcher, m_protocolHandler, logManager),
     m_node(m_core, m_protocolHandler)
   {
@@ -393,6 +394,15 @@ public:
         callback(make_error_code(CryptoNote::error::NOT_INITIALIZED));
         return;
       }
+
+      m_logger(Logging::INFO) << "Starting core rpc server...";
+      m_rpcServer = new CryptoNote::RpcServer(m_dispatcher, m_logManager, m_core, m_nodeServer, m_protocolHandler);
+      m_rpcServer->start("127.0.0.1",
+                      32348,
+                      32448,
+                      false);
+      m_logger(Logging::INFO) << "Core rpc server started ok";
+
     } catch (std::runtime_error& _err) {
       callback(make_error_code(CryptoNote::error::NOT_INITIALIZED));
       return;
@@ -405,6 +415,7 @@ public:
 
     m_nodeServer.run();
     m_nodeServer.deinit();
+    m_rpcServer->stop();
     m_core.deinit();
     m_node.shutdown();
   }
@@ -554,6 +565,7 @@ private:
   CryptoNote::InProcessNode m_node;
   std::future<bool> m_nodeServerFuture;
   Logging::LoggerRef m_logger;
+  CryptoNote::RpcServer* m_rpcServer;
 
   void peerCountUpdated(size_t count) override {
     m_callback.peerCountUpdated(*this, count);
