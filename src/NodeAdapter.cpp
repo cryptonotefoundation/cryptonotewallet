@@ -459,7 +459,7 @@ CryptoNote::RpcServerConfig NodeAdapter::makeRpcServerConfig() const {
   // dummy defaults
   std::string dummy = "", cors = "*";
   uint16_t sslport = CryptoNote::RPC_DEFAULT_SSL_PORT;
-  bool no = false, yes = true;
+  bool no = false;
   options.insert(std::make_pair("rpc-bind-ssl-port", boost::program_options::variable_value(sslport, false)));
   options.insert(std::make_pair("rpc-bind-ssl-enable", boost::program_options::variable_value(no, false)));
   options.insert(std::make_pair("rpc-chain-file", boost::program_options::variable_value(dummy, false)));
@@ -471,10 +471,7 @@ CryptoNote::RpcServerConfig NodeAdapter::makeRpcServerConfig() const {
   options.insert(std::make_pair("fee-amount", boost::program_options::variable_value(dummy, false)));
   options.insert(std::make_pair("view-key", boost::program_options::variable_value(dummy, false)));
 
-  // We actually want to restrict it
-  // TODO: add to config but reversed
-  options.insert(std::make_pair("restricted-rpc", boost::program_options::variable_value(yes, false)));
-
+  options.insert(std::make_pair("restricted-rpc", boost::program_options::variable_value(!Settings::instance().unrestrictedRpc(), false)));
 
   config.init(options);
 

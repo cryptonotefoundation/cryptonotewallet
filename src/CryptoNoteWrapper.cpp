@@ -389,10 +389,12 @@ public:
         return;
       }
 
+
       m_logger(Logging::INFO) << "Starting core rpc server...";
       m_rpcServer = new CryptoNote::RpcServer(m_rpcServerConfig, m_dispatcher, m_logManager, m_core, m_nodeServer, m_protocolHandler);
       m_rpcServer->start();
       m_logger(Logging::INFO) << "Core rpc server started ok";
+
 
     } catch (std::runtime_error& _err) {
       callback(make_error_code(CryptoNote::error::NOT_INITIALIZED));

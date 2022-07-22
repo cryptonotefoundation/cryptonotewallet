@@ -147,6 +147,11 @@ quint16 Settings::getRpcBindPort() const {
   return m_cmdLineParser->getRpcBindPort();
 }
 
+bool Settings::unrestrictedRpc() const {
+  Q_ASSERT(m_cmdLineParser != nullptr);
+  return m_cmdLineParser->hasUnrestrictedRpcOption();
+}
+
 quint16 Settings::getP2pExternalPort() const {
   Q_ASSERT(m_cmdLineParser != nullptr);
   return m_cmdLineParser->getP2pExternalPort();

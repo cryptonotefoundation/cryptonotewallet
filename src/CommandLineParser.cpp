@@ -19,6 +19,7 @@ CommandLineParser::CommandLineParser(QObject* _parent) : QObject(_parent), m_par
   m_p2pBindPortOption("p2p-bind-port", tr("Port for p2p network protocol"), tr("port"), QString::number(CryptoNote::P2P_DEFAULT_PORT)),
   m_rpcBindIpOption("rpc-bind-ip", tr("Interface for RPC server"), tr("ip"), "127.0.0.1"),
   m_rpcBindPortOption("rpc-bind-port", tr("Port for RPC server"), tr("port"), QString::number(CryptoNote::RPC_DEFAULT_PORT)),
+  m_unrestrictedRpcOption("unrestricted-rpc", tr("Allow all RPC server queries")),
   m_p2pExternalOption("p2p-external-port", tr("External port for p2p network protocol (if port forwarding used with NAT)"),
     tr("port"), 0),
   m_allowLocalIpOption("allow-local-ip", tr("Allow local ip add to peer list, mostly in debug purposes")),
@@ -43,6 +44,7 @@ CommandLineParser::CommandLineParser(QObject* _parent) : QObject(_parent), m_par
   m_parser.addOption(m_p2pBindPortOption);
   m_parser.addOption(m_rpcBindIpOption);
   m_parser.addOption(m_rpcBindPortOption);
+  m_parser.addOption(m_unrestrictedRpcOption);
   m_parser.addOption(m_p2pExternalOption);
   m_parser.addOption(m_allowLocalIpOption);
   m_parser.addOption(m_addPeerOption);
@@ -127,6 +129,10 @@ QString CommandLineParser::getRpcBindIp() const {
 
 quint16 CommandLineParser::getRpcBindPort() const {
   return m_parser.value(m_rpcBindPortOption).toUShort();
+}
+
+bool CommandLineParser::hasUnrestrictedRpcOption() const {
+  return m_parser.isSet(m_unrestrictedRpcOption);
 }
 
 quint16 CommandLineParser::getP2pExternalPort() const {
