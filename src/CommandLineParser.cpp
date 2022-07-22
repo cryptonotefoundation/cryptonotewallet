@@ -17,6 +17,8 @@ CommandLineParser::CommandLineParser(QObject* _parent) : QObject(_parent), m_par
   m_withoutCheckpointsOption("without-checkpoints", tr("Do not load checkpoints for full blocks validation")),
   m_p2pBindIpOption("p2p-bind-ip", tr("Interface for p2p network protocol"), tr("ip"), "0.0.0.0"),
   m_p2pBindPortOption("p2p-bind-port", tr("Port for p2p network protocol"), tr("port"), QString::number(CryptoNote::P2P_DEFAULT_PORT)),
+  m_rpcBindIpOption("rpc-bind-ip", tr("Interface for RPC server"), tr("ip"), "127.0.0.1"),
+  m_rpcBindPortOption("rpc-bind-port", tr("Port for RPC server"), tr("port"), QString::number(CryptoNote::RPC_DEFAULT_PORT)),
   m_p2pExternalOption("p2p-external-port", tr("External port for p2p network protocol (if port forwarding used with NAT)"),
     tr("port"), 0),
   m_allowLocalIpOption("allow-local-ip", tr("Allow local ip add to peer list, mostly in debug purposes")),
@@ -39,6 +41,8 @@ CommandLineParser::CommandLineParser(QObject* _parent) : QObject(_parent), m_par
   m_parser.addOption(m_withoutCheckpointsOption);
   m_parser.addOption(m_p2pBindIpOption);
   m_parser.addOption(m_p2pBindPortOption);
+  m_parser.addOption(m_rpcBindIpOption);
+  m_parser.addOption(m_rpcBindPortOption);
   m_parser.addOption(m_p2pExternalOption);
   m_parser.addOption(m_allowLocalIpOption);
   m_parser.addOption(m_addPeerOption);
@@ -115,6 +119,14 @@ QString CommandLineParser::getP2pBindIp() const {
 
 quint16 CommandLineParser::getP2pBindPort() const {
   return m_parser.value(m_p2pBindPortOption).toUShort();
+}
+
+QString CommandLineParser::getRpcBindIp() const {
+  return m_parser.value(m_rpcBindIpOption);
+}
+
+quint16 CommandLineParser::getRpcBindPort() const {
+  return m_parser.value(m_rpcBindPortOption).toUShort();
 }
 
 quint16 CommandLineParser::getP2pExternalPort() const {

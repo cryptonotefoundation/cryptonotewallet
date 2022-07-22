@@ -11,6 +11,7 @@
 #include <system_error>
 #include <INode.h>
 #include <Logging/LoggerRef.h>
+#include <Rpc/RpcServerConfig.h>
 
 namespace CryptoNote {
 
@@ -19,6 +20,7 @@ class IWalletLegacy;
 class Currency;
 class CoreConfig;
 class NetNodeConfig;
+class RpcServerConfig;
 
 }
 
@@ -80,6 +82,6 @@ public:
 
 Node* createRpcNode(const CryptoNote::Currency& currency, INodeCallback& callback, Logging::LoggerManager& logManager, const std::string& nodeHost, unsigned short nodePort, bool enableSSL);
 Node* createInprocessNode(const CryptoNote::Currency& currency, Logging::LoggerManager& logManager,
-  const CryptoNote::CoreConfig& coreConfig, const CryptoNote::NetNodeConfig& netNodeConfig, INodeCallback& callback);
+  const CryptoNote::CoreConfig& coreConfig, const CryptoNote::NetNodeConfig& netNodeConfig, const CryptoNote::RpcServerConfig& rpcServerConfig, INodeCallback& callback);
 
 }

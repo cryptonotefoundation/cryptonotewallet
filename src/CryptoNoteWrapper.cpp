@@ -331,13 +331,14 @@ class InprocessNode : public CryptoNote::INodeObserver, public Node {
 public:
   Logging::LoggerManager& m_logManager;
   InprocessNode(const CryptoNote::Currency& currency, Logging::LoggerManager& logManager, const CryptoNote::CoreConfig& coreConfig,
-    const CryptoNote::NetNodeConfig& netNodeConfig, INodeCallback& callback) :
+    const CryptoNote::NetNodeConfig& netNodeConfig, const CryptoNote::RpcServerConfig& rpcServerConfig, INodeCallback& callback) :
     m_currency(currency), m_dispatcher(),
     m_callback(callback),
     m_logManager(logManager),
     m_logger(m_logManager, "InprocessNode"),
     m_coreConfig(coreConfig),
     m_netNodeConfig(netNodeConfig),
+    m_rpcServerConfig(rpcServerConfig),
     m_protocolHandler(currency, m_dispatcher, m_core, nullptr, logManager),
     m_core(currency, &m_protocolHandler, logManager, m_dispatcher, true, false, false),
     m_nodeServer(m_dispatcher, m_protocolHandler, logManager),
@@ -389,11 +390,8 @@ public:
       }
 
       m_logger(Logging::INFO) << "Starting core rpc server...";
-      m_rpcServer = new CryptoNote::RpcServer(m_dispatcher, m_logManager, m_core, m_nodeServer, m_protocolHandler);
-      m_rpcServer->start("127.0.0.1",
-                      32348,
-                      32448,
-                      false);
+      m_rpcServer = new CryptoNote::RpcServer(m_rpcServerConfig, m_dispatcher, m_logManager, m_core, m_nodeServer, m_protocolHandler);
+      m_rpcServer->start();
       m_logger(Logging::INFO) << "Core rpc server started ok";
 
     } catch (std::runtime_error& _err) {
@@ -552,6 +550,7 @@ private:
   System::Dispatcher m_dispatcher;
   CryptoNote::CoreConfig m_coreConfig;
   CryptoNote::NetNodeConfig m_netNodeConfig;
+  CryptoNote::RpcServerConfig m_rpcServerConfig;
   CryptoNote::Core m_core;
   CryptoNote::CryptoNoteProtocolHandler m_protocolHandler;
   CryptoNote::NodeServer m_nodeServer;
@@ -583,8 +582,8 @@ Node* createRpcNode(const CryptoNote::Currency& currency, INodeCallback& callbac
 }
 
 Node* createInprocessNode(const CryptoNote::Currency& currency, Logging::LoggerManager& logManager,
-  const CryptoNote::CoreConfig& coreConfig, const CryptoNote::NetNodeConfig& netNodeConfig, INodeCallback& callback) {
-  return new InprocessNode(currency, logManager, coreConfig, netNodeConfig, callback);
+  const CryptoNote::CoreConfig& coreConfig, const CryptoNote::NetNodeConfig& netNodeConfig, const CryptoNote::RpcServerConfig& rpcServerConfig, INodeCallback& callback) {
+  return new InprocessNode(currency, logManager, coreConfig, netNodeConfig, rpcServerConfig, callback);
 }
 
 }
