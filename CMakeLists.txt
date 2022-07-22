@@ -215,12 +215,30 @@ set(CRYPTONOTE_SOURCES
   cryptonote/src/CryptoNoteProtocol/CryptoNoteProtocolHandler.cpp
   cryptonote/src/InProcessNode/InProcessNode.cpp
   cryptonote/src/InProcessNode/InProcessNodeErrors.cpp
+  cryptonote/src/HTTP/httplib.h
+  cryptonote/src/HTTP/HttpRequest.cpp
+  cryptonote/src/HTTP/HttpParser.cpp
+  cryptonote/src/HTTP/HttpParserErrorCodes.cpp
+  cryptonote/src/HTTP/HttpResponse.cpp
+  cryptonote/src/Logging/ILogger.cpp
+  cryptonote/src/Logging/LoggerGroup.cpp
+  cryptonote/src/Logging/CommonLogger.cpp
+  cryptonote/src/Logging/LoggerManager.cpp
+  cryptonote/src/Logging/FileLogger.cpp
+  cryptonote/src/Logging/StreamLogger.cpp
+  cryptonote/src/Logging/ConsoleLogger.cpp
+  cryptonote/src/Logging/LoggerMessage.cpp
+  cryptonote/src/Logging/LoggerRef.cpp
   cryptonote/src/NodeRpcProxy/NodeErrors.cpp
   cryptonote/src/NodeRpcProxy/NodeRpcProxy.cpp
+  cryptonote/src/P2p/LevinProtocol.cpp
   cryptonote/src/P2p/NetNodeConfig.cpp
+  cryptonote/src/P2p/NetNode.cpp
+  cryptonote/src/P2p/NetNodeConfig.cpp
+  cryptonote/src/P2p/PeerListManager.cpp
+  cryptonote/src/Rpc/JsonRpc.cpp
   cryptonote/src/Rpc/RpcServer.cpp
   cryptonote/src/Rpc/RpcServerConfig.cpp
-  cryptonote/src/Rpc/HttpServer.cpp
   cryptonote/src/Serialization/BinaryInputStreamSerializer.cpp
   cryptonote/src/Serialization/BinaryOutputStreamSerializer.cpp
   cryptonote/src/Serialization/JsonInputValueSerializer.cpp
@@ -229,6 +247,13 @@ set(CRYPTONOTE_SOURCES
   cryptonote/src/Serialization/KVBinaryOutputStreamSerializer.cpp
   cryptonote/src/Serialization/BlockchainExplorerDataSerialization.cpp
   cryptonote/src/Serialization/SerializationOverloads.cpp
+  cryptonote/src/System/ContextGroup.cpp
+  cryptonote/src/System/Event.cpp
+  cryptonote/src/System/EventLock.cpp
+  cryptonote/src/System/InterruptedException.cpp
+  cryptonote/src/System/Ipv4Address.cpp
+  cryptonote/src/System/SocketStream.cpp
+  cryptonote/src/System/TcpStream.cpp
   cryptonote/src/Transfers/BlockchainSynchronizer.cpp
   cryptonote/src/Transfers/SynchronizationState.cpp
   cryptonote/src/Transfers/TransfersConsumer.cpp
@@ -249,32 +274,6 @@ set(CRYPTONOTE_SOURCES
   cryptonote/src/WalletLegacy/WalletTransactionSender.cpp
   cryptonote/src/WalletLegacy/WalletUnconfirmedTransactions.cpp
   cryptonote/src/WalletLegacy/WalletUserTransactionsCache.cpp
-  cryptonote/src/System/ContextGroup.cpp
-  cryptonote/src/System/Event.cpp
-  cryptonote/src/System/EventLock.cpp
-  cryptonote/src/System/InterruptedException.cpp
-  cryptonote/src/System/Ipv4Address.cpp
-  cryptonote/src/System/SocketStream.cpp
-  cryptonote/src/System/TcpStream.cpp
-  cryptonote/src/HTTP/HttpRequest.cpp
-  cryptonote/src/HTTP/HttpParser.cpp
-  cryptonote/src/HTTP/HttpParserErrorCodes.cpp
-  cryptonote/src/HTTP/HttpResponse.cpp
-  cryptonote/src/Rpc/HttpClient.cpp
-  cryptonote/src/Rpc/JsonRpc.cpp
-  cryptonote/src/P2p/NetNode.cpp
-  cryptonote/src/P2p/LevinProtocol.cpp
-  cryptonote/src/P2p/NetNodeConfig.cpp
-  cryptonote/src/P2p/PeerListManager.cpp
-  cryptonote/src/Logging/ILogger.cpp
-  cryptonote/src/Logging/LoggerGroup.cpp
-  cryptonote/src/Logging/CommonLogger.cpp
-  cryptonote/src/Logging/LoggerManager.cpp
-  cryptonote/src/Logging/FileLogger.cpp
-  cryptonote/src/Logging/StreamLogger.cpp
-  cryptonote/src/Logging/ConsoleLogger.cpp
-  cryptonote/src/Logging/LoggerMessage.cpp
-  cryptonote/src/Logging/LoggerRef.cpp
   cryptonote/src/BlockchainExplorer/BlockchainExplorer.cpp
   cryptonote/src/BlockchainExplorer/BlockchainExplorerDataBuilder.cpp
   cryptonote/src/BlockchainExplorer/BlockchainExplorerErrors.cpp
@@ -509,6 +508,7 @@ if (WIN32)
 endif ()
 
 if (OPENSSL_FOUND)
+  add_definitions(-DCPPHTTPLIB_OPENSSL_SUPPORT)
   target_link_libraries(${PROJECT_NAME} ${OPENSSL_LIBRARIES})
   if (MSVC)
     target_link_libraries(${PROJECT_NAME} Rpcrt4 ws2_32 advapi32 crypt32 gdi32 user32)

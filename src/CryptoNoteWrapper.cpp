@@ -20,9 +20,10 @@
 #include "CryptoNoteCore/Miner.h"
 #include "CryptoNoteCore/MinerConfig.h"
 #include "CryptoNoteCore/TransactionExtra.h"
+#include "HTTP/httplib.h"
 #include "Rpc/CoreRpcServerCommandsDefinitions.h"
-#include "Rpc/HttpClient.h"
 #include "Rpc/RpcServer.h"
+#include "Rpc/JsonRpc.h"
 #include "CryptoNoteProtocol/CryptoNoteProtocolHandler.h"
 #include "InProcessNode/InProcessNode.h"
 #include "P2p/NetNode.h"
@@ -215,8 +216,8 @@ public:
       CryptoNote::COMMAND_RPC_GETBLOCKTEMPLATE::response rsp = AUTO_VAL_INIT(rsp);
       req.miner_spend_key = Common::podToHex(acc.spendSecretKey);
       req.miner_view_key = Common::podToHex(acc.viewSecretKey);
-      CryptoNote::HttpClient httpClient(m_dispatcher, m_node.m_nodeHost, m_node.m_nodePort, false);
-      CryptoNote::invokeJsonRpcCommand(httpClient, "getblocktemplate", req, rsp);
+      httplib::Client httpClient (m_node.m_nodeHost, m_node.m_nodePort);
+      CryptoNote::JsonRpc::invokeJsonRpcCommand(httpClient, "getblocktemplate", req, rsp);
       std::string err = interpret_rpc_response(true, rsp.status);
       if (err.empty()) {
         if (!CryptoNote::fromBinaryArray(b, Common::fromHex(rsp.blocktemplate_blob))) {
@@ -232,10 +233,6 @@ public:
         m_logger(Logging::INFO) << "Failed to invoke request: " << err;
       }
     }
-    catch (const CryptoNote::ConnectException&) {
-      m_logger(Logging::INFO) << "Wallet failed to connect to daemon.";
-      return false;
-    }
     catch (const std::exception& e) {
       m_logger(Logging::INFO) << "Failed to invoke RPC method: " << e.what();
       return false;
@@ -249,8 +246,8 @@ public:
       CryptoNote::COMMAND_RPC_SUBMITBLOCK::request req;
       req.emplace_back(Common::toHex(CryptoNote::toBinaryArray(b)));
       CryptoNote::COMMAND_RPC_SUBMITBLOCK::response res;
-      CryptoNote::HttpClient httpClient(m_dispatcher, m_node.m_nodeHost, m_node.m_nodePort, false);
-      CryptoNote::invokeJsonRpcCommand(httpClient, "submitblock", req, res);
+      httplib::Client httpClient(m_node.m_nodeHost, m_node.m_nodePort);
+      CryptoNote::JsonRpc::invokeJsonRpcCommand(httpClient, "submitblock", req, res);
       std::string err = interpret_rpc_response(true, res.status);
       if (err.empty()) {
         return true;
@@ -258,10 +255,6 @@ public:
         else {
         m_logger(Logging::INFO) << "Failed to invoke request: " << err;
       }
-    }
-    catch (const CryptoNote::ConnectException&) {
-      m_logger(Logging::INFO) << "Wallet failed to connect to daemon.";
-      return false;
     }
     catch (const std::exception& e) {
       m_logger(Logging::INFO) << "Failed to invoke RPC method: " << e.what();
