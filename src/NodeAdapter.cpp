@@ -471,7 +471,7 @@ CryptoNote::RpcServerConfig NodeAdapter::makeRpcServerConfig() const {
   options.insert(std::make_pair("fee-amount", boost::program_options::variable_value(dummy, false)));
   options.insert(std::make_pair("view-key", boost::program_options::variable_value(dummy, false)));
 
-  options.insert(std::make_pair("restricted-rpc", boost::program_options::variable_value(!Settings::instance().unrestrictedRpc(), false)));
+  options.insert(std::make_pair("restricted-rpc", boost::program_options::variable_value(Settings::instance().hasRestrictedRpc(), false)));
 
   config.init(options);
 
