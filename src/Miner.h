@@ -31,7 +31,6 @@
 #include "CryptoNoteCore/Difficulty.h"
 #include "CryptoNoteCore/OnceInInterval.h"
 #include "Logging/LoggerRef.h"
-#include <System/Dispatcher.h>
 #include "Serialization/ISerializer.h"
 #include "WalletAdapter.h"
 

@@ -53,6 +53,8 @@
 #include <QThread>
 #include <QTimerEvent>
 
+#undef ERROR
+
 using namespace Logging;
 using namespace CryptoNote;
 
