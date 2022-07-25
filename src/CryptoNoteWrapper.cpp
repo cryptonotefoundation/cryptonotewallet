@@ -408,7 +408,6 @@ public:
 
     m_nodeServer.run();
     m_nodeServer.deinit();
-    m_rpcServer->stop();
     m_core.deinit();
     m_node.shutdown();
   }
