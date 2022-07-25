@@ -119,7 +119,7 @@ public:
   }
 
   void init(const std::function<void(std::error_code)>& callback) override {
-    m_logger(Logging::INFO) << "Initializing RpcNode...";
+    m_logger(Logging::DEBUGGING) << "Initializing RpcNode...";
     m_node.init(callback);
   }
 
@@ -339,6 +339,7 @@ public:
     m_coreConfig(coreConfig),
     m_netNodeConfig(netNodeConfig),
     m_rpcServerConfig(rpcServerConfig),
+    m_rpcServer(nullptr),
     m_protocolHandler(currency, m_dispatcher, m_core, nullptr, logManager),
     m_core(currency, &m_protocolHandler, logManager, m_dispatcher, true, false, false),
     m_nodeServer(m_dispatcher, m_protocolHandler, logManager),
@@ -408,6 +409,9 @@ public:
 
     m_nodeServer.run();
     m_nodeServer.deinit();
+    if (Settings::instance().hasRunRpc() && m_rpcServer != nullptr) {
+      m_rpcServer->stop();
+    }
     m_core.deinit();
     m_node.shutdown();
   }
