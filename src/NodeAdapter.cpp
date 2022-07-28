@@ -137,80 +137,84 @@ bool NodeAdapter::init() {
   QString connection = Settings::instance().getConnection();
 
   if(connection.compare("embedded") == 0) {
-      LoggerAdapter::instance().log("Initializing embedded node...");
-      m_node = nullptr;
-      return initInProcessNode();
+
+    LoggerAdapter::instance().log("Initializing embedded node...");
+    m_node = nullptr;
+    return initInProcessNode();
 
   } else if(connection.compare("local") == 0) {
-      LoggerAdapter::instance().log("Initializing with local node...");
-      QUrl localNodeUrl = QUrl::fromUserInput(QString("127.0.0.1:%1").arg(Settings::instance().getCurrentLocalDaemonPort()));
-      m_node = createRpcNode(CurrencyAdapter::instance().getCurrency(), *this, LoggerAdapter::instance().getLoggerManager(), localNodeUrl.host().toStdString(), localNodeUrl.port(), false);
-      QTimer initTimer;
-      initTimer.setInterval(3000);
-      initTimer.setSingleShot(true);
-      initTimer.start();
-          m_node->init([this](std::error_code _err) {
-              Q_UNUSED(_err);
-            });
-      QEventLoop waitLoop;
-      connect(&initTimer, &QTimer::timeout, &waitLoop, &QEventLoop::quit);
-      connect(this, &NodeAdapter::peerCountUpdatedSignal, &waitLoop, &QEventLoop::quit);
-      connect(this, &NodeAdapter::localBlockchainUpdatedSignal, &waitLoop, &QEventLoop::quit);
-      waitLoop.exec();
-      if (initTimer.isActive()) {
-        initTimer.stop();
-        Q_EMIT nodeInitCompletedSignal();
-        return true;
-      }
+
+    LoggerAdapter::instance().log("Initializing with local node...");
+    QUrl localNodeUrl = QUrl::fromUserInput(QString("127.0.0.1:%1").arg(Settings::instance().getCurrentLocalDaemonPort()));
+    m_node = createRpcNode(CurrencyAdapter::instance().getCurrency(), *this, LoggerAdapter::instance().getLoggerManager(), localNodeUrl.host().toStdString(), localNodeUrl.port(), false);
+    QTimer initTimer;
+    initTimer.setInterval(3000);
+    initTimer.setSingleShot(true);
+    initTimer.start();
+    m_node->init([this](std::error_code _err) {
+      Q_UNUSED(_err);
+    });
+    QEventLoop waitLoop;
+    connect(&initTimer, &QTimer::timeout, &waitLoop, &QEventLoop::quit);
+    connect(this, &NodeAdapter::peerCountUpdatedSignal, &waitLoop, &QEventLoop::quit);
+    connect(this, &NodeAdapter::localBlockchainUpdatedSignal, &waitLoop, &QEventLoop::quit);
+    waitLoop.exec();
+    if (initTimer.isActive()) {
+      initTimer.stop();
+      Q_EMIT nodeInitCompletedSignal();
+      return true;
+    }
 
   } else if(connection.compare("remote") == 0) {
-      LoggerAdapter::instance().log("Initializing with remote node...");
-      const NodeSetting nodeSetting = Settings::instance().getCurrentRemoteNode();
-      m_node = createRpcNode(CurrencyAdapter::instance().getCurrency(), *this, LoggerAdapter::instance().getLoggerManager(), nodeSetting.host.toStdString(), nodeSetting.port, nodeSetting.ssl);
-      QTimer initTimer;
-      initTimer.setInterval(3000);
-      initTimer.setSingleShot(true);
-      initTimer.start();
-      m_node->init([this](std::error_code _err) {
-          Q_UNUSED(_err);
-        });
-      QEventLoop waitLoop;
-      connect(&initTimer, &QTimer::timeout, &waitLoop, &QEventLoop::quit);
-      connect(this, &NodeAdapter::peerCountUpdatedSignal, &waitLoop, &QEventLoop::quit);
-      connect(this, &NodeAdapter::localBlockchainUpdatedSignal, &waitLoop, &QEventLoop::quit);
-      waitLoop.exec();
-      if (initTimer.isActive()) {
-        initTimer.stop();
-        Q_EMIT nodeInitCompletedSignal();
-        return true;
-      }
+
+    LoggerAdapter::instance().log("Initializing with remote node...");
+    const NodeSetting nodeSetting = Settings::instance().getCurrentRemoteNode();
+    m_node = createRpcNode(CurrencyAdapter::instance().getCurrency(), *this, LoggerAdapter::instance().getLoggerManager(), nodeSetting.host.toStdString(), nodeSetting.port, nodeSetting.ssl);
+    QTimer initTimer;
+    initTimer.setInterval(3000);
+    initTimer.setSingleShot(true);
+    initTimer.start();
+    m_node->init([this](std::error_code _err) {
+      Q_UNUSED(_err);
+    });
+    QEventLoop waitLoop;
+    connect(&initTimer, &QTimer::timeout, &waitLoop, &QEventLoop::quit);
+    connect(this, &NodeAdapter::peerCountUpdatedSignal, &waitLoop, &QEventLoop::quit);
+    connect(this, &NodeAdapter::localBlockchainUpdatedSignal, &waitLoop, &QEventLoop::quit);
+    waitLoop.exec();
+    if (initTimer.isActive()) {
+      initTimer.stop();
+      Q_EMIT nodeInitCompletedSignal();
+      return true;
+    }
 
   } else {
-      LoggerAdapter::instance().log("Trying to connect to local daemon...");
-      QUrl localNodeUrl = QUrl::fromUserInput(QString("127.0.0.1:%1").arg(CryptoNote::RPC_DEFAULT_PORT));
-      m_node = createRpcNode(CurrencyAdapter::instance().getCurrency(), *this, LoggerAdapter::instance().getLoggerManager(), localNodeUrl.host().toStdString(), localNodeUrl.port(), false);
-      QTimer initTimer;
-      initTimer.setInterval(3000);
-      initTimer.setSingleShot(true);
-      initTimer.start();
-      m_node->init([this](std::error_code _err) {
-        Q_UNUSED(_err);
-      });
-      QEventLoop waitLoop;
-      connect(&initTimer, &QTimer::timeout, &waitLoop, &QEventLoop::quit);
-      connect(this, &NodeAdapter::peerCountUpdatedSignal, &waitLoop, &QEventLoop::quit);
-      connect(this, &NodeAdapter::localBlockchainUpdatedSignal, &waitLoop, &QEventLoop::quit);
-      connect(this, &NodeAdapter::connectionStatusUpdatedSignal, &waitLoop, &QEventLoop::quit);
-      waitLoop.exec();
-      if (initTimer.isActive()) {
-        initTimer.stop();
-        Q_EMIT nodeInitCompletedSignal();
-        return true;
-      }
-      delete m_node;
-      m_node = nullptr;
-      LoggerAdapter::instance().log("Attempt connecting to local daemon timed out, launching builtin node...");
-      return initInProcessNode();
+
+    LoggerAdapter::instance().log("Trying to connect to local daemon...");
+    QUrl localNodeUrl = QUrl::fromUserInput(QString("127.0.0.1:%1").arg(CryptoNote::RPC_DEFAULT_PORT));
+    m_node = createRpcNode(CurrencyAdapter::instance().getCurrency(), *this, LoggerAdapter::instance().getLoggerManager(), localNodeUrl.host().toStdString(), localNodeUrl.port(), false);
+    QTimer initTimer;
+    initTimer.setInterval(3000);
+    initTimer.setSingleShot(true);
+    initTimer.start();
+    m_node->init([this](std::error_code _err) {
+      Q_UNUSED(_err);
+    });
+    QEventLoop waitLoop;
+    connect(&initTimer, &QTimer::timeout, &waitLoop, &QEventLoop::quit);
+    connect(this, &NodeAdapter::peerCountUpdatedSignal, &waitLoop, &QEventLoop::quit);
+    connect(this, &NodeAdapter::localBlockchainUpdatedSignal, &waitLoop, &QEventLoop::quit);
+    waitLoop.exec();
+    if (initTimer.isActive()) {
+      initTimer.stop();
+      Q_EMIT nodeInitCompletedSignal();
+      return true;
+    }
+    delete m_node;
+    m_node = nullptr;
+    LoggerAdapter::instance().log("Attempt connecting to local daemon timed out, launching builtin node...");
+    return initInProcessNode();
+
   }
 
   return true;
