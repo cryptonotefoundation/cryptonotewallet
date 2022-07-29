@@ -22,9 +22,10 @@
 
 #include "MainWindow.h"
 
-#include <Common/Base58.h>
-#include <Common/StringTools.h>
-#include <Common/Util.h>
+#include "Common/Base58.h"
+#include "Common/StringTools.h"
+#include "Common/Util.h"
+#include "CryptoNoteCore/CryptoNoteTools.h"
 #include "AboutDialog.h"
 #include "AnimatedLabel.h"
 #include "AddressBookModel.h"
@@ -484,7 +485,10 @@ void MainWindow::importKey() {
     CryptoNote::AccountKeys keys;
     if (Tools::Base58::decode_addr(keyString.toStdString(), addressPrefix, data) && addressPrefix == CurrencyAdapter::instance().getAddressPrefix() &&
       data.size() == sizeof(keys)) {
-      std::memcpy(&keys, data.data(), sizeof(keys));
+      //std::memcpy(&keys, data.data(), sizeof(keys));
+      if (!fromBinaryArray(keys, Common::asBinaryArray(data))) {
+        QMessageBox::warning(this, tr("Wallet keys are not valid"), tr("Failed to parse account keys"), QMessageBox::Ok);
+      }
       if (WalletAdapter::instance().isOpen()) {
         WalletAdapter::instance().close();
       }
