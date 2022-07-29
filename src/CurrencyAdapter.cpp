@@ -22,7 +22,7 @@ CurrencyAdapter::CurrencyAdapter() : m_currency(CryptoNote::CurrencyBuilder(Logg
 CurrencyAdapter::~CurrencyAdapter() {
 }
 
-const CryptoNote::Currency& CurrencyAdapter::getCurrency() {
+CryptoNote::Currency& CurrencyAdapter::getCurrency() {
   return m_currency;
 }
 

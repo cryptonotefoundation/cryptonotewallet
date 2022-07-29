@@ -17,7 +17,6 @@
 #include "LoggerAdapter.h"
 #include "NodeAdapter.h"
 #include "P2p/NetNodeConfig.h"
-#include "Rpc/RpcServerConfig.h"
 #include "Settings.h"
 #include "Wallet/WalletErrors.h"
 
@@ -484,6 +483,15 @@ CryptoNote::RpcServerConfig NodeAdapter::makeRpcServerConfig() const {
 
 bool NodeAdapter::isOffline() {
   return getConnectionsCount() == 0;
+}
+
+CryptoNote::INode* NodeAdapter::getNode() {
+  Q_CHECK_PTR(m_node);
+  return m_node->getNode();
+}
+
+System::Dispatcher &NodeAdapter::getDispatcher() {
+  return m_node->getDispatcher();
 }
 
 }

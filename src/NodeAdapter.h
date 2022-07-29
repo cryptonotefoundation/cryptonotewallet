@@ -12,6 +12,7 @@
 #include <IWalletLegacy.h>
 #include "CryptoNoteWrapper.h"
 #include "Rpc/RpcServerConfig.h"
+#include "System/Dispatcher.h"
 
 namespace CryptoNote {
 
@@ -71,6 +72,9 @@ public:
   void localBlockchainUpdated(Node& _node, uint64_t _height) Q_DECL_OVERRIDE;
   void lastKnownBlockHeightUpdated(Node& _node, uint64_t _height) Q_DECL_OVERRIDE;
   void connectionStatusUpdated(bool _connected) Q_DECL_OVERRIDE;
+
+  CryptoNote::INode* getNode();
+  System::Dispatcher& getDispatcher();
 
 private:
   Node* m_node;

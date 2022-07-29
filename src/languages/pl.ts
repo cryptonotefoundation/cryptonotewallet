@@ -845,6 +845,10 @@ Proszę czekać...</translation>
         <source>Start mining automatically</source>
         <translation>Uruchamiać karbowanie automatycznie</translation>
     </message>
+    <message>
+        <source>Wallet RPC interface</source>
+        <translation>Interfejs RPC portfela</translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
@@ -2004,6 +2008,22 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
         <source>Allow deep reorganization to make it possible to self-heal chain split</source>
         <translation>Pozwól na głęboką reorganizację, aby umożliwić samonaprawianie podziału łańcucha bloków</translation>
     </message>
+    <message>
+        <source>Interface for RPC server</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Port for RPC server</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Run RPC server</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disallow some RPC server queries</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::ConfirmSendDialog</name>
@@ -2394,11 +2414,19 @@ Jesteś pewien?</translation>
     </message>
     <message>
         <source>Zero balance</source>
-        <translation type="unfinished"></translation>
+        <translation>Zerowe saldo</translation>
     </message>
     <message>
         <source>You cannot generate balance proof of zero.</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wallet RPC settings changed</source>
+        <translation>Zmieniono ustawienia RPC portfela</translation>
+    </message>
+    <message>
+        <source>Changes will take effect when you restart the wallet.</source>
+        <translation>Zmiany zaczną obowiązywać po ponownym uruchomieniu portfela.</translation>
     </message>
 </context>
 <context>
@@ -3282,6 +3310,57 @@ kiedy portfel skończy synchronizowanie</translation>
     <message>
         <source>Offline</source>
         <translation>Offline</translation>
+    </message>
+</context>
+<context>
+    <name>WalletRpcSettingsDialog</name>
+    <message>
+        <source>Wallet RPC settings</source>
+        <translation>Ustawienia RPC portfela</translation>
+    </message>
+    <message>
+        <source>Run Wallet RPC interface</source>
+        <translation>Uruchamiać interfejs RPC portfela</translation>
+    </message>
+    <message>
+        <source>Interface</source>
+        <translation>Interfejs</translation>
+    </message>
+    <message>
+        <source>Bind to IP:</source>
+        <translation>Powiąż z IP:</translation>
+    </message>
+    <message>
+        <source>127.0.0.1</source>
+        <translation type="unfinished">127.0.0.1</translation>
+    </message>
+    <message>
+        <source>Port: </source>
+        <translation>Port: </translation>
+    </message>
+    <message>
+        <source>Authorization</source>
+        <translation>Autoryzacja</translation>
+    </message>
+    <message>
+        <source>Username:</source>
+        <translation>Użytkownik:</translation>
+    </message>
+    <message>
+        <source>Password:</source>
+        <translation>Hasło:</translation>
+    </message>
+    <message>
+        <source>Note! Use this only in a secure environment as the password is stored in plain text config.</source>
+        <translation>Uwaga! Używaj tego tylko w bezpiecznym środowisku, ponieważ hasło jest przechowywane w postaci zwykłego tekstu w pliku konfiguracyjnym.</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Anuluj</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Zapisz</translation>
     </message>
 </context>
 </TS>

@@ -17,7 +17,11 @@
 #include <atomic>
 #include <fstream>
 
+#include <boost/program_options.hpp>
+
 #include <IWalletLegacy.h>
+
+#include "Wallet/WalletRpcServer.h"
 
 namespace WalletGui {
 
@@ -99,17 +103,20 @@ public:
 private:
   std::fstream m_file;
   CryptoNote::IWalletLegacy* m_wallet;
+  Tools::wallet_rpc_server* m_wallet_rpc;
   QMutex m_mutex;
   std::atomic<bool> m_isBackupInProgress;
   std::atomic<bool> m_isSynchronized;
   std::atomic<quint64> m_lastWalletTransactionId;
   QTimer m_newTransactionsNotificationTimer;
   QPushButton* m_closeButton;
-
+  Logging::LoggerRef m_logger;
   uint32_t m_syncSpeed;
   uint32_t m_syncPeriod;
   struct PerfType { uint32_t height; QTime time; };
   std::vector<PerfType> m_perfData;
+
+  boost::program_options::variables_map m_wrpcOptions;
 
   WalletAdapter();
   ~WalletAdapter();
@@ -151,7 +158,5 @@ Q_SIGNALS:
   void updateBlockStatusTextSignal();
   void updateBlockStatusTextWithDelaySignal();
 };
-
-
 
 }

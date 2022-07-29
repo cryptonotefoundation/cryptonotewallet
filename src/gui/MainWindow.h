@@ -144,6 +144,7 @@ private:
   Q_SLOT void restoreFromMnemonicSeed();
   Q_SLOT void getBalanceProof();
   Q_SLOT void lockWalletWithPassword();
+  Q_SLOT void openWalletRpcSettings();
 
   bool isObscured(QWidget *w);
   bool checkPoint(const QPoint &p, const QWidget *w);

@@ -848,6 +848,10 @@ Please wait...</source>
         <source>Start mining automatically</source>
         <translation>Запускаць чаканку пры старце</translation>
     </message>
+    <message>
+        <source>Wallet RPC interface</source>
+        <translation>RPC-інтэрфейс гаманца</translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
@@ -2007,6 +2011,22 @@ Do you want to go to the download page?</source>
         <source>Allow deep reorganization to make it possible to self-heal chain split</source>
         <translation>Дазволіць глыбокую рэарганізацыю, каб зрабіць магчымым самавылечыць раскол блокчейна</translation>
     </message>
+    <message>
+        <source>Interface for RPC server</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Port for RPC server</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Run RPC server</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disallow some RPC server queries</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::ConfirmSendDialog</name>
@@ -2397,11 +2417,19 @@ Are you sure?</source>
     </message>
     <message>
         <source>Zero balance</source>
-        <translation type="unfinished"></translation>
+        <translation>Нулявы баланс</translation>
     </message>
     <message>
         <source>You cannot generate balance proof of zero.</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wallet RPC settings changed</source>
+        <translation>Налады Wallet RPC зменены</translation>
+    </message>
+    <message>
+        <source>Changes will take effect when you restart the wallet.</source>
+        <translation>Змены ўступяць у сілу пасля перазапуску гаманца.</translation>
     </message>
 </context>
 <context>
@@ -3285,6 +3313,57 @@ when the wallet is synchronized</source>
     <message>
         <source>Offline</source>
         <translation>Па-за сеткай</translation>
+    </message>
+</context>
+<context>
+    <name>WalletRpcSettingsDialog</name>
+    <message>
+        <source>Wallet RPC settings</source>
+        <translation>Налады RPC гаманца</translation>
+    </message>
+    <message>
+        <source>Run Wallet RPC interface</source>
+        <translation>Запускаць RPC-інтэрфейс гаманца</translation>
+    </message>
+    <message>
+        <source>Interface</source>
+        <translation>Інтэрфейс</translation>
+    </message>
+    <message>
+        <source>Bind to IP:</source>
+        <translation>Прывязка да IP:</translation>
+    </message>
+    <message>
+        <source>127.0.0.1</source>
+        <translation type="unfinished">127.0.0.1</translation>
+    </message>
+    <message>
+        <source>Port: </source>
+        <translation>Порт: </translation>
+    </message>
+    <message>
+        <source>Authorization</source>
+        <translation>Аўтарызацыя</translation>
+    </message>
+    <message>
+        <source>Username:</source>
+        <translation>Імя карыстальніка:</translation>
+    </message>
+    <message>
+        <source>Password:</source>
+        <translation>Пароль:</translation>
+    </message>
+    <message>
+        <source>Note! Use this only in a secure environment as the password is stored in plain text config.</source>
+        <translation>Заўвага! Выкарыстоўвайце гэта толькі ў бяспечным асяроддзі, так як пароль захоўваецца ў выглядзе звычайнага тэксту ў файле канфігурацыі.</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Адмяніць</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Захаваць</translation>
     </message>
 </context>
 </TS>

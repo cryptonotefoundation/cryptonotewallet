@@ -20,7 +20,6 @@
 #include "CryptoNoteCore/Miner.h"
 #include "CryptoNoteCore/MinerConfig.h"
 #include "CryptoNoteCore/TransactionExtra.h"
-#include "HTTP/httplib.h"
 #include "Rpc/CoreRpcServerCommandsDefinitions.h"
 #include "Rpc/RpcServer.h"
 #include "Rpc/JsonRpc.h"
@@ -30,7 +29,6 @@
 #include "WalletLegacy/WalletLegacy.h"
 #include "Logging/LoggerManager.h"
 #include "LoggerAdapter.h"
-#include "System/Dispatcher.h"
 #include "CurrencyAdapter.h"
 #include "Settings.h"
 
@@ -211,56 +209,12 @@ public:
   }
 
   bool getBlockTemplate(CryptoNote::Block& b, const CryptoNote::AccountKeys& acc, const CryptoNote::BinaryArray& ex_nonce, CryptoNote::difficulty_type& diffic, uint32_t& height) override {
-    try {
-      CryptoNote::COMMAND_RPC_GETBLOCKTEMPLATE::request req = AUTO_VAL_INIT(req);
-      CryptoNote::COMMAND_RPC_GETBLOCKTEMPLATE::response rsp = AUTO_VAL_INIT(rsp);
-      req.miner_spend_key = Common::podToHex(acc.spendSecretKey);
-      req.miner_view_key = Common::podToHex(acc.viewSecretKey);
-      httplib::Client httpClient (m_node.m_nodeHost, m_node.m_nodePort);
-      CryptoNote::JsonRpc::invokeJsonRpcCommand(httpClient, "getblocktemplate", req, rsp);
-      std::string err = interpret_rpc_response(true, rsp.status);
-      if (err.empty()) {
-        if (!CryptoNote::fromBinaryArray(b, Common::fromHex(rsp.blocktemplate_blob))) {
-          m_logger(Logging::INFO) << "Failed to parse block binary array";
-          return false;
-        }
-        diffic = rsp.difficulty;
-        height = rsp.height;
-
-        return true;
-      }
-      else {
-        m_logger(Logging::INFO) << "Failed to invoke request: " << err;
-      }
-    }
-    catch (const std::exception& e) {
-      m_logger(Logging::INFO) << "Failed to invoke RPC method: " << e.what();
-      return false;
-    }
-
+    // not implemented
     return false;
   }
 
   bool handleBlockFound(CryptoNote::Block& b) override {
-    try {
-      CryptoNote::COMMAND_RPC_SUBMITBLOCK::request req;
-      req.emplace_back(Common::toHex(CryptoNote::toBinaryArray(b)));
-      CryptoNote::COMMAND_RPC_SUBMITBLOCK::response res;
-      httplib::Client httpClient(m_node.m_nodeHost, m_node.m_nodePort);
-      CryptoNote::JsonRpc::invokeJsonRpcCommand(httpClient, "submitblock", req, res);
-      std::string err = interpret_rpc_response(true, res.status);
-      if (err.empty()) {
-        return true;
-      }
-        else {
-        m_logger(Logging::INFO) << "Failed to invoke request: " << err;
-      }
-    }
-    catch (const std::exception& e) {
-      m_logger(Logging::INFO) << "Failed to invoke RPC method: " << e.what();
-      return false;
-    }
-
+    // not implemented
     return false;
   }
   
@@ -300,6 +254,14 @@ public:
 
   CryptoNote::IWalletLegacy* createWallet() override {
     return new CryptoNote::WalletLegacy(m_currency, m_node, m_logManager);
+  }
+
+  System::Dispatcher& getDispatcher() override {
+     return m_dispatcher;
+  }
+
+  CryptoNote::INode* getNode() override {
+    return &m_node;
   }
 
 private:
@@ -547,6 +509,14 @@ public:
 
   CryptoNote::IWalletLegacy* createWallet() override {
     return new CryptoNote::WalletLegacy(m_currency, m_node, m_logManager);
+  }
+
+  System::Dispatcher& getDispatcher() override {
+     return m_dispatcher;
+  }
+
+  CryptoNote::INode* getNode() override {
+    return &m_node;
   }
 
 private:

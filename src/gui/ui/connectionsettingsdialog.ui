@@ -409,4 +409,7 @@
    </hints>
   </connection>
  </connections>
+ <slots>
+  <slot>saveSettingClicked()</slot>
+ </slots>
 </ui>

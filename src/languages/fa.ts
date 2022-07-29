@@ -840,6 +840,10 @@ Please wait...</source>
         <source>Start mining automatically</source>
         <translation>استخراج خودکار را شروع کنید</translation>
     </message>
+    <message>
+        <source>Wallet RPC interface</source>
+        <translation>واسط RPC کیف پول</translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
@@ -1282,7 +1286,7 @@ Please wait...</source>
     </message>
     <message>
         <source>Wallet:</source>
-        <translation type="unfinished">کیف پول</translation>
+        <translation>کیف پول:</translation>
     </message>
 </context>
 <context>
@@ -1992,6 +1996,22 @@ Do you want to go to the download page?</source>
         <source>Allow deep reorganization to make it possible to self-heal chain split</source>
         <translation>به سازماندهی مجدد عمیق اجازه دهید تا امکان خودترمیمی تقسیم بلاک چین فراهم شود</translation>
     </message>
+    <message>
+        <source>Interface for RPC server</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Port for RPC server</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Run RPC server</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disallow some RPC server queries</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::ConfirmSendDialog</name>
@@ -2380,11 +2400,19 @@ Are you sure?</source>
     </message>
     <message>
         <source>Zero balance</source>
-        <translation type="unfinished"></translation>
+        <translation>تعادل صفر</translation>
     </message>
     <message>
         <source>You cannot generate balance proof of zero.</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wallet RPC settings changed</source>
+        <translation>تنظیمات کیف پول RPC تغییر کرد</translation>
+    </message>
+    <message>
+        <source>Changes will take effect when you restart the wallet.</source>
+        <translation>با راه اندازی مجدد کیف پول، تغییرات اعمال خواهند شد.</translation>
     </message>
 </context>
 <context>
@@ -3253,6 +3281,57 @@ when the wallet is synchronized</source>
     <message>
         <source>Offline</source>
         <translation>آفلاین</translation>
+    </message>
+</context>
+<context>
+    <name>WalletRpcSettingsDialog</name>
+    <message>
+        <source>Wallet RPC settings</source>
+        <translation>تنظیمات کیف پول RPC</translation>
+    </message>
+    <message>
+        <source>Run Wallet RPC interface</source>
+        <translation>رابط RPC کیف پول را راه اندازی کنید</translation>
+    </message>
+    <message>
+        <source>Interface</source>
+        <translation>رابط</translation>
+    </message>
+    <message>
+        <source>Bind to IP:</source>
+        <translation>اتصال به IP:</translation>
+    </message>
+    <message>
+        <source>127.0.0.1</source>
+        <translation type="unfinished">127.0.0.1</translation>
+    </message>
+    <message>
+        <source>Port: </source>
+        <translation>پورت : </translation>
+    </message>
+    <message>
+        <source>Authorization</source>
+        <translation>مجوز</translation>
+    </message>
+    <message>
+        <source>Username:</source>
+        <translation>نام کاربری:</translation>
+    </message>
+    <message>
+        <source>Password:</source>
+        <translation>رمز عبور :</translation>
+    </message>
+    <message>
+        <source>Note! Use this only in a secure environment as the password is stored in plain text config.</source>
+        <translation>توجه داشته باشید! این را فقط در یک محیط امن استفاده کنید، زیرا رمز عبور به صورت متن ساده در فایل پیکربندی ذخیره می شود.</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>لغو</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>ذخیره</translation>
     </message>
 </context>
 </TS>

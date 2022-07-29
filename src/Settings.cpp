@@ -43,6 +43,13 @@ const quint64 DEFAULT_OPTIMIZATION_PERIOD = 1000 * 60 * 30; // 30 minutes
 const quint64 DEFAULT_OPTIMIZATION_THRESHOLD = 10000000000000;
 const quint64 DEFAULT_OPTIMIZATION_MIXIN = 3;
 const char OPTION_SKIP_WALLET_OPTIMIZATION_TRANSACTIONS[] = "skipFusionTransactions";
+const char LOCALHOST[] = "127.0.0.1";
+const char OPTION_WALLET_RPC[] = "WalletRpc";
+const char OPTION_WALLET_RPC_ENABLED[] = "enabled";
+const char OPTION_WALLET_RPC_BIND_IP[] = "walletRpcBindIp";
+const char OPTION_WALLET_RPC_BIND_PORT[] = "walletRpcBindPort";
+const char OPTION_WALLET_RPC_USER[] = "walletRpcUser";
+const char OPTION_WALLET_RPC_PASSWORD[] = "walletRpcPassword";
 
 const QVector<NodeSetting> DEFAULT_NODES_LIST = {
   {"node.karbo.io", 32348, "/", false},
@@ -467,6 +474,64 @@ bool Settings::hideEverythingOnLocked() const {
   return m_settings.contains("hideEverythingOnLocked") ? m_settings.value("hideEverythingOnLocked").toBool() : false;
 }
 
+bool Settings::runWalletRpc() const {
+  if (!m_settings.contains(OPTION_WALLET_RPC)) {
+    return false;
+  }
+
+  QJsonObject walletRpcObject = m_settings.value(OPTION_WALLET_RPC).toObject();
+  return walletRpcObject.contains(OPTION_WALLET_RPC_ENABLED) ? walletRpcObject.value(OPTION_WALLET_RPC_ENABLED).toBool() : false;
+}
+
+QString Settings::getWalletRpcBindIp() const {
+  if (m_settings.contains(OPTION_WALLET_RPC)) {
+     QJsonObject walletRpcObject = m_settings.value(OPTION_WALLET_RPC).toObject();
+     if (walletRpcObject.contains(OPTION_WALLET_RPC_BIND_IP)) {
+       return walletRpcObject.value(OPTION_WALLET_RPC_BIND_IP).toString();
+     }
+  }
+
+  return LOCALHOST;
+}
+
+quint16 Settings::getWalletRpcBindPort() const {
+  if (m_settings.contains(OPTION_WALLET_RPC)) {
+    QJsonObject walletRpcObject = m_settings.value(OPTION_WALLET_RPC).toObject();
+    if (walletRpcObject.contains(OPTION_WALLET_RPC_BIND_PORT)) {
+      return walletRpcObject.value(OPTION_WALLET_RPC_BIND_PORT).toVariant().toInt();
+    }
+  }
+
+  return CryptoNote::WALLET_RPC_DEFAULT_PORT;
+}
+
+QString Settings::getWalletRpcUser() const {
+  QString walletRpcUser = "";
+
+  if (m_settings.contains(OPTION_WALLET_RPC)) {
+    QJsonObject walletRpcObject = m_settings.value(OPTION_WALLET_RPC).toObject();
+    if (walletRpcObject.contains(OPTION_WALLET_RPC_USER)) {
+       walletRpcUser = walletRpcObject.value(OPTION_WALLET_RPC_USER).toString();
+    }
+  }
+
+  return walletRpcUser;
+}
+
+QString Settings::getWalletRpcPassword() const {
+  QString walletRpcPassword = "";
+
+  if (m_settings.contains(OPTION_WALLET_RPC)) {
+    QJsonObject walletRpcObject = m_settings.value(OPTION_WALLET_RPC).toObject();
+    if (walletRpcObject.contains(OPTION_WALLET_RPC_PASSWORD)) {
+       walletRpcPassword = walletRpcObject.value(OPTION_WALLET_RPC_PASSWORD).toString();
+    }
+  }
+
+  return walletRpcPassword;
+}
+
+
 void Settings::setWalletFile(const QString& _file) {
   if (_file.endsWith(".wallet") || _file.endsWith(".keys")) {
     m_settings.insert("walletFile", _file);
@@ -793,6 +858,91 @@ void Settings::setSkipFusionTransactions(bool _skip) {
 
     optimizationObject.insert(OPTION_SKIP_WALLET_OPTIMIZATION_TRANSACTIONS, _skip);
     m_settings.insert(OPTION_WALLET_OPTIMIZATION, optimizationObject);
+    saveSettings();
+  }
+}
+
+void Settings::setRunWalletRpc(bool _enable) {
+  if (_enable == runWalletRpc()) {
+    return;
+  }
+
+  {
+    QJsonObject walletRpcObject;
+    if (m_settings.contains(OPTION_WALLET_RPC)) {
+      walletRpcObject = m_settings.value(OPTION_WALLET_RPC).toObject();
+    }
+
+    walletRpcObject.insert(OPTION_WALLET_RPC_ENABLED, _enable);
+    m_settings.insert(OPTION_WALLET_RPC, walletRpcObject);
+    saveSettings();
+  }
+}
+
+void Settings::setWalletRpcBindIp(const QString& _ip) {
+  if (_ip == getWalletRpcBindIp()) {
+    return;
+  }
+
+  {
+    QJsonObject walletRpcObject;
+    if (m_settings.contains(OPTION_WALLET_RPC)) {
+      walletRpcObject = m_settings.value(OPTION_WALLET_RPC).toObject();
+    }
+
+    walletRpcObject.insert(OPTION_WALLET_RPC_BIND_IP, _ip);
+    m_settings.insert(OPTION_WALLET_RPC, walletRpcObject);
+    saveSettings();
+  }
+}
+
+void Settings::setWalletRpcBindPort(const quint16& _port) {
+  if (_port == getWalletRpcBindPort()) {
+    return;
+  }
+
+  {
+    QJsonObject walletRpcObject;
+    if (m_settings.contains(OPTION_WALLET_RPC)) {
+      walletRpcObject = m_settings.value(OPTION_WALLET_RPC).toObject();
+    }
+
+    walletRpcObject.insert(OPTION_WALLET_RPC_BIND_PORT, _port);
+    m_settings.insert(OPTION_WALLET_RPC, walletRpcObject);
+    saveSettings();
+  }
+}
+
+void Settings::setWalletRpcUser(const QString& _user) {
+  if (_user == getWalletRpcUser()) {
+    return;
+  }
+
+  {
+    QJsonObject walletRpcObject;
+    if (m_settings.contains(OPTION_WALLET_RPC)) {
+      walletRpcObject = m_settings.value(OPTION_WALLET_RPC).toObject();
+    }
+
+    walletRpcObject.insert(OPTION_WALLET_RPC_USER, _user);
+    m_settings.insert(OPTION_WALLET_RPC, walletRpcObject);
+    saveSettings();
+  }
+}
+
+void Settings::setWalletRpcPassword(const QString& _pwd) {
+  if (_pwd == getWalletRpcPassword()) {
+    return;
+  }
+
+  {
+    QJsonObject walletRpcObject;
+    if (m_settings.contains(OPTION_WALLET_RPC)) {
+      walletRpcObject = m_settings.value(OPTION_WALLET_RPC).toObject();
+    }
+
+    walletRpcObject.insert(OPTION_WALLET_RPC_PASSWORD, _pwd);
+    m_settings.insert(OPTION_WALLET_RPC, walletRpcObject);
     saveSettings();
   }
 }

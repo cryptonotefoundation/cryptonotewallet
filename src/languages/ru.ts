@@ -844,6 +844,10 @@ Please wait...</source>
         <source>Start mining automatically</source>
         <translation>Запускать майнинг при старте</translation>
     </message>
+    <message>
+        <source>Wallet RPC interface</source>
+        <translation>RPC-интерфейс кошелька</translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
@@ -1992,6 +1996,22 @@ Do you want to go to the download page?</source>
         <source>Allow deep reorganization to make it possible to self-heal chain split</source>
         <translation>Разрешить глубокую реорганизацию, чтобы сделать возможным самовосстановление разделения блокчейна</translation>
     </message>
+    <message>
+        <source>Interface for RPC server</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Port for RPC server</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Run RPC server</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disallow some RPC server queries</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::ConfirmSendDialog</name>
@@ -2386,11 +2406,19 @@ Are you sure?</source>
     </message>
     <message>
         <source>Zero balance</source>
-        <translation type="unfinished"></translation>
+        <translation>Нулевой баланс</translation>
     </message>
     <message>
         <source>You cannot generate balance proof of zero.</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wallet RPC settings changed</source>
+        <translation>Настройки RPC кошелька изменены</translation>
+    </message>
+    <message>
+        <source>Changes will take effect when you restart the wallet.</source>
+        <translation>Изменения вступят в силу после перезапуска кошелька.</translation>
     </message>
 </context>
 <context>
@@ -3278,6 +3306,57 @@ when the wallet is synchronized</source>
     <message>
         <source>Offline</source>
         <translation>Не в сети</translation>
+    </message>
+</context>
+<context>
+    <name>WalletRpcSettingsDialog</name>
+    <message>
+        <source>Wallet RPC settings</source>
+        <translation>Настройки RPC кошелька</translation>
+    </message>
+    <message>
+        <source>Run Wallet RPC interface</source>
+        <translation>Запускать RPC-интерфейс кошелька</translation>
+    </message>
+    <message>
+        <source>Interface</source>
+        <translation>Интерфейс</translation>
+    </message>
+    <message>
+        <source>Bind to IP:</source>
+        <translation>Привязать к IP:</translation>
+    </message>
+    <message>
+        <source>127.0.0.1</source>
+        <translation type="unfinished">127.0.0.1</translation>
+    </message>
+    <message>
+        <source>Port: </source>
+        <translation>Порт: </translation>
+    </message>
+    <message>
+        <source>Authorization</source>
+        <translation>Авторизация</translation>
+    </message>
+    <message>
+        <source>Username:</source>
+        <translation>Пользователь:</translation>
+    </message>
+    <message>
+        <source>Password:</source>
+        <translation>Пароль:</translation>
+    </message>
+    <message>
+        <source>Note! Use this only in a secure environment as the password is stored in plain text config.</source>
+        <translation>Примечание! Используйте это только в безопасной среде, так как пароль хранится в виде простого текста в файле конфигурации.</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Отменить</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Сохранить</translation>
     </message>
 </context>
 </TS>

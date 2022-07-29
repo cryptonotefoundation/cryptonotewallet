@@ -860,6 +860,10 @@ S&apos;il vous plaît, patientez...</translation>
         <source>Start mining automatically</source>
         <translation>Commencer à miner automatiquement</translation>
     </message>
+    <message>
+        <source>Wallet RPC interface</source>
+        <translation>Interface RPC du portefeuille</translation>
+    </message>
 </context>
 <context>
     <name>MiningFrame</name>
@@ -2016,6 +2020,22 @@ Voulez-vous aller à la page de téléchargement?</translation>
         <source>Allow deep reorganization to make it possible to self-heal chain split</source>
         <translation>Autoriser une réorganisation en profondeur pour permettre l&apos;auto-guérison de la scission de la blockchain</translation>
     </message>
+    <message>
+        <source>Interface for RPC server</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Port for RPC server</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Run RPC server</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disallow some RPC server queries</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::ConfirmSendDialog</name>
@@ -2397,11 +2417,19 @@ Are you sure?</source>
     </message>
     <message>
         <source>Zero balance</source>
-        <translation type="unfinished"></translation>
+        <translation>Solde nul</translation>
     </message>
     <message>
         <source>You cannot generate balance proof of zero.</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Wallet RPC settings changed</source>
+        <translation>Les paramètres RPC du portefeuille ont été modifiés</translation>
+    </message>
+    <message>
+        <source>Changes will take effect when you restart the wallet.</source>
+        <translation>Les modifications prendront effet lorsque vous redémarrerez le portefeuille.</translation>
     </message>
 </context>
 <context>
@@ -3277,6 +3305,57 @@ quand le portefeuille aura terminé la synchronisation</translation>
     <message>
         <source>Offline</source>
         <translation>Hors ligne</translation>
+    </message>
+</context>
+<context>
+    <name>WalletRpcSettingsDialog</name>
+    <message>
+        <source>Wallet RPC settings</source>
+        <translation>Paramètres RPC du portefeuille</translation>
+    </message>
+    <message>
+        <source>Run Wallet RPC interface</source>
+        <translation>Lancer l&apos;interface RPC du portefeuille</translation>
+    </message>
+    <message>
+        <source>Interface</source>
+        <translation>Interface</translation>
+    </message>
+    <message>
+        <source>Bind to IP:</source>
+        <translation>Lier à IP&#xa0;:</translation>
+    </message>
+    <message>
+        <source>127.0.0.1</source>
+        <translation type="unfinished">127.0.0.1</translation>
+    </message>
+    <message>
+        <source>Port: </source>
+        <translation>Port: </translation>
+    </message>
+    <message>
+        <source>Authorization</source>
+        <translation>Autorisation</translation>
+    </message>
+    <message>
+        <source>Username:</source>
+        <translation>Nom d&apos;utilisateur:</translation>
+    </message>
+    <message>
+        <source>Password:</source>
+        <translation>Mot de passe:</translation>
+    </message>
+    <message>
+        <source>Note! Use this only in a secure environment as the password is stored in plain text config.</source>
+        <translation>Noter! Utilisez-le uniquement dans un environnement sécurisé, car le mot de passe est stocké en texte brut dans le fichier de configuration.</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Annuler</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>Sauvegarder</translation>
     </message>
 </context>
 </TS>

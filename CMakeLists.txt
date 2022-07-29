@@ -100,6 +100,7 @@ endif ()
 set(Boost_NO_BOOST_CMAKE ON)
 set(Boost_USE_STATIC_LIBS ON)
 if(WIN32)
+  add_definitions(-D WIN32_LEAN_AND_MEAN)
   set(Boost_USE_STATIC_RUNTIME OFF)
 else(WIN32)
   set(Boost_USE_STATIC_RUNTIME ON)
@@ -263,6 +264,7 @@ set(CRYPTONOTE_SOURCES
   cryptonote/src/Wallet/LegacyKeysImporter.cpp
   cryptonote/src/Wallet/WalletAsyncContextCounter.cpp
   cryptonote/src/Wallet/WalletErrors.cpp
+  cryptonote/src/Wallet/WalletRpcServer.cpp
   cryptonote/src/Wallet/WalletSerializationV1.cpp
   cryptonote/src/Wallet/WalletSerializationV2.cpp
   cryptonote/src/Wallet/WalletUtils.cpp

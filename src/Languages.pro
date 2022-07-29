@@ -78,6 +78,7 @@ gui/ExportRawTxDialog.cpp \
 gui/CoinsFrame.cpp \
 gui/OutputsModel.cpp \
 gui/OutputDetailsDialog.cpp \
+gui/WalletRpcSettings.cpp \
  
 
 HEADERS = CommandLineParser.h \
@@ -146,6 +147,7 @@ gui/ExportRawTxDialog.h \
 gui/CoinsFrame.h \
 gui/OutputsModel.h \
 gui/OutputDetailsDialog.h \
+gui/WalletRpcSettings.h \
 
 
 FORMS = gui/ui/aboutdialog.ui \
@@ -190,6 +192,7 @@ gui/ui/getbalanceproofdialog.ui \
 gui/ui/exportrawtxdialog.ui \
 gui/ui/coinsframe.ui \
 gui/ui/outputdetailsdialog.ui \
+gui/ui/walletrpcsettingsdialog.ui \
 
 
 TRANSLATIONS = 	languages/uk.ts \
