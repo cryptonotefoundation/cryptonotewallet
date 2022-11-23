@@ -125,7 +125,7 @@
    <sender>m_okButton</sender>
    <signal>clicked()</signal>
    <receiver>ImportKeyDialog</receiver>
-   <slot>accept()</slot>
+   <slot>onAccept()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>594</x>
@@ -153,8 +153,25 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>m_keyEdit</sender>
+   <signal>textChanged()</signal>
+   <receiver>ImportKeyDialog</receiver>
+   <slot>onTextChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>323</x>
+     <y>93</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>323</x>
+     <y>138</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>selectPathClicked()</slot>
+  <slot>onTextChanged()</slot>
  </slots>
 </ui>

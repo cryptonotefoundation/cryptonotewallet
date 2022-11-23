@@ -2126,6 +2126,26 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
         <source>Wallets (*.wallet)</source>
         <translation>Portfele (*.wallet)</translation>
     </message>
+    <message>
+        <source>File path is empty</source>
+        <translation>Ścieżka do pliku jest pusta</translation>
+    </message>
+    <message>
+        <source>Please enter the path where to save the wallet file and its name.</source>
+        <translation>Podaj ścieżkę, w której chcesz zapisać plik portfela i jego nazwę.</translation>
+    </message>
+    <message>
+        <source>Wallet keys are not valid</source>
+        <translation>Klucze portfela są nieprawidłowe</translation>
+    </message>
+    <message>
+        <source>Failed to parse account keys</source>
+        <translation>Nie udało się odczytać kluczy konta</translation>
+    </message>
+    <message>
+        <source>The private keys you entered are not valid.</source>
+        <translation>Podane klucze prywatne są nieprawidłowe.</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::ImportKeysDialog</name>
@@ -2136,6 +2156,26 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
     <message>
         <source>Wallets (*.wallet)</source>
         <translation>Portfele (*.wallet)</translation>
+    </message>
+    <message>
+        <source>File path is empty</source>
+        <translation>Ścieżka do pliku jest pusta</translation>
+    </message>
+    <message>
+        <source>Please enter the path where to save the wallet file and its name.</source>
+        <translation>Podaj ścieżkę, w której chcesz zapisać plik portfela i jego nazwę.</translation>
+    </message>
+    <message>
+        <source>Key is not valid</source>
+        <translation>Klucz jest nieprawidłowy</translation>
+    </message>
+    <message>
+        <source>The private spend key you entered is not valid.</source>
+        <translation>Podany klucz prywatny wydatków jest nieprawidłowy.</translation>
+    </message>
+    <message>
+        <source>The private view key you entered is not valid.</source>
+        <translation>Podany klucz prywatny przeglądu jest nieprawidłowy.</translation>
     </message>
 </context>
 <context>
@@ -2151,6 +2191,42 @@ Czy chesz otworzyć stronę pobierania w przeglądarce?</translation>
     <message>
         <source>Tracking wallets (*.wallet)</source>
         <translation type="unfinished">Portfel śledzenia (*.wallet)</translation>
+    </message>
+    <message>
+        <source>File path is empty</source>
+        <translation>Ścieżka do pliku jest pusta</translation>
+    </message>
+    <message>
+        <source>Please enter the path where to save the wallet file and its name.</source>
+        <translation>Podaj ścieżkę, w której chcesz zapisać plik portfela i jego nazwę.</translation>
+    </message>
+    <message>
+        <source>Tracking key is not valid</source>
+        <translation type="unfinished">Klucz śledzenia jest nieprawidłowy</translation>
+    </message>
+    <message>
+        <source>The tracking key you entered is not valid.</source>
+        <translation type="unfinished">Podany klucz śledzenia nie jest prawidłowy.</translation>
+    </message>
+    <message>
+        <source>Key is not valid</source>
+        <translation type="unfinished">Klucz jest nieprawidłowy</translation>
+    </message>
+    <message>
+        <source>The public spend key you entered is not valid.</source>
+        <translation type="unfinished">Podany klucz publiczny wydatków jest nieprawidłowy.</translation>
+    </message>
+    <message>
+        <source>The public view key you entered is not valid.</source>
+        <translation type="unfinished">Podany klucz publiczny przeglądu jest nieprawidłowy.</translation>
+    </message>
+    <message>
+        <source>The private spend key you entered is not valid.</source>
+        <translation type="unfinished">Podany klucz prywatny wydatków jest nieprawidłowy.</translation>
+    </message>
+    <message>
+        <source>The private view key you entered is not valid.</source>
+        <translation type="unfinished">Podany klucz prywatny przeglądu jest nieprawidłowy.</translation>
     </message>
 </context>
 <context>
@@ -2326,15 +2402,15 @@ Jesteś pewien?</translation>
     </message>
     <message>
         <source>Mnemonic seed is not correct</source>
-        <translation>Mnemonik jest nieprawidłowy</translation>
+        <translation type="vanished">Mnemonik jest nieprawidłowy</translation>
     </message>
     <message>
         <source>There must be an error in mnemonic seed. Make sure you entered it correctly.</source>
-        <translation>Musi istnieć błąd w mnemoniku. Upewnij się, że został prawidłowo wprowadzony.</translation>
+        <translation type="vanished">Musi istnieć błąd w mnemoniku. Upewnij się, że został prawidłowo wprowadzony.</translation>
     </message>
     <message>
         <source>Wallet keys are not valid</source>
-        <translation>Klucze portfela są nieprawidłowe</translation>
+        <translation type="vanished">Klucze portfela są nieprawidłowe</translation>
     </message>
     <message>
         <source>Tracking key is not valid</source>
@@ -2346,27 +2422,27 @@ Jesteś pewien?</translation>
     </message>
     <message>
         <source>Key is not valid</source>
-        <translation>Klucz jest nieprawidłowy</translation>
+        <translation type="vanished">Klucz jest nieprawidłowy</translation>
     </message>
     <message>
         <source>The public spend key you entered is not valid.</source>
-        <translation>Podany klucz publiczny wydatków jest nieprawidłowy.</translation>
+        <translation type="vanished">Podany klucz publiczny wydatków jest nieprawidłowy.</translation>
     </message>
     <message>
         <source>The public view key you entered is not valid.</source>
-        <translation>Podany klucz publiczny przeglądu jest nieprawidłowy.</translation>
+        <translation type="vanished">Podany klucz publiczny przeglądu jest nieprawidłowy.</translation>
     </message>
     <message>
         <source>The private spend key you entered is not valid.</source>
-        <translation>Podany klucz prywatny wydatków jest nieprawidłowy.</translation>
+        <translation type="vanished">Podany klucz prywatny wydatków jest nieprawidłowy.</translation>
     </message>
     <message>
         <source>The private view key you entered is not valid.</source>
-        <translation>Podany klucz prywatny przeglądu jest nieprawidłowy.</translation>
+        <translation type="vanished">Podany klucz prywatny przeglądu jest nieprawidłowy.</translation>
     </message>
     <message>
         <source>The private keys you entered are not valid.</source>
-        <translation>Podane klucze prywatne są nieprawidłowe.</translation>
+        <translation type="vanished">Podane klucze prywatne są nieprawidłowe.</translation>
     </message>
     <message>
         <source>Wrong wallet file extension</source>
@@ -2673,6 +2749,22 @@ Jesteś pewien?</translation>
     <message>
         <source>Wallets (*.wallet)</source>
         <translation>Portfele (*.wallet)</translation>
+    </message>
+    <message>
+        <source>Mnemonic seed is not correct</source>
+        <translation>Mnemonik jest nieprawidłowy</translation>
+    </message>
+    <message>
+        <source>There must be an error in mnemonic seed. Make sure you entered it correctly.</source>
+        <translation>Musi istnieć błąd w mnemoniku. Upewnij się, że został prawidłowo wprowadzony.</translation>
+    </message>
+    <message>
+        <source>File path is empty</source>
+        <translation>Ścieżka do pliku jest pusta</translation>
+    </message>
+    <message>
+        <source>Please enter the path where to save the wallet file and its name.</source>
+        <translation>Podaj ścieżkę, w której chcesz zapisać plik portfela i jego nazwę.</translation>
     </message>
 </context>
 <context>

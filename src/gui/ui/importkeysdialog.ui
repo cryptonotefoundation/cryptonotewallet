@@ -20,54 +20,21 @@
    <string>Import private keys</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="1" column="0" colspan="4">
-    <widget class="QLineEdit" name="m_viewKeyEdit"/>
-   </item>
-   <item row="7" column="2" colspan="2">
-    <widget class="QToolButton" name="m_selectPathButton">
-     <property name="text">
-      <string>Select folder</string>
-     </property>
-    </widget>
-   </item>
-   <item row="5" column="2" colspan="2">
+   <item row="6" column="2" colspan="2">
     <widget class="QSpinBox" name="m_syncHeight">
      <property name="maximum">
       <number>999999999</number>
      </property>
     </widget>
    </item>
-   <item row="3" column="0" colspan="4">
-    <widget class="QLineEdit" name="m_spendKeyEdit"/>
-   </item>
-   <item row="6" column="0" colspan="4">
+   <item row="7" column="0" colspan="4">
     <widget class="QLabel" name="label_2">
      <property name="text">
       <string>Where to save new wallet file:</string>
      </property>
     </widget>
    </item>
-   <item row="7" column="0" colspan="2">
-    <widget class="QLineEdit" name="m_pathEdit"/>
-   </item>
-   <item row="9" column="1">
-    <widget class="QPushButton" name="m_cancelButton">
-     <property name="text">
-      <string>Cancel</string>
-     </property>
-     <property name="autoDefault">
-      <bool>false</bool>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="0" colspan="4">
-    <widget class="QLabel" name="label_3">
-     <property name="text">
-      <string>Spend Secret Key:</string>
-     </property>
-    </widget>
-   </item>
-   <item row="9" column="0">
+   <item row="10" column="0">
     <spacer name="horizontalSpacer">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -80,21 +47,17 @@
      </property>
     </spacer>
    </item>
-   <item row="0" column="0" colspan="4">
-    <widget class="QLabel" name="label">
-     <property name="text">
-      <string>View Secret Key:</string>
-     </property>
-    </widget>
+   <item row="1" column="0" colspan="4">
+    <widget class="QLineEdit" name="m_spendKeyEdit"/>
    </item>
-   <item row="5" column="0">
+   <item row="6" column="0">
     <widget class="QLabel" name="label_4">
      <property name="text">
       <string>Start synchronization from this height (leave empty if unsure):</string>
      </property>
     </widget>
    </item>
-   <item row="9" column="2" colspan="2">
+   <item row="10" column="2" colspan="2">
     <widget class="QPushButton" name="m_okButton">
      <property name="text">
       <string>OK</string>
@@ -106,6 +69,59 @@
       <bool>true</bool>
      </property>
     </widget>
+   </item>
+   <item row="10" column="1">
+    <widget class="QPushButton" name="m_cancelButton">
+     <property name="text">
+      <string>Cancel</string>
+     </property>
+     <property name="autoDefault">
+      <bool>false</bool>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0" colspan="4">
+    <widget class="QLineEdit" name="m_viewKeyEdit"/>
+   </item>
+   <item row="0" column="0">
+    <widget class="QLabel" name="label_3">
+     <property name="text">
+      <string>Spend Secret Key:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="2" colspan="2">
+    <widget class="QToolButton" name="m_selectPathButton">
+     <property name="text">
+      <string>Select folder</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>View Secret Key:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="8" column="0" colspan="2">
+    <widget class="QLineEdit" name="m_pathEdit"/>
+   </item>
+   <item row="4" column="0" colspan="4">
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>10</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
    </item>
   </layout>
  </widget>
@@ -131,7 +147,7 @@
    <sender>m_okButton</sender>
    <signal>clicked()</signal>
    <receiver>ImportKeysDialog</receiver>
-   <slot>accept()</slot>
+   <slot>onAccept()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>594</x>
@@ -159,8 +175,41 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>m_spendKeyEdit</sender>
+   <signal>textEdited(QString)</signal>
+   <receiver>ImportKeysDialog</receiver>
+   <slot>onTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>323</x>
+     <y>45</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>323</x>
+     <y>141</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_viewKeyEdit</sender>
+   <signal>textEdited(QString)</signal>
+   <receiver>ImportKeysDialog</receiver>
+   <slot>onTextChanged(QString)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>323</x>
+     <y>99</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>323</x>
+     <y>141</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>selectPathClicked()</slot>
+  <slot>onTextChanged(QString)</slot>
  </slots>
 </ui>

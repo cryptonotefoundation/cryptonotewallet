@@ -2129,6 +2129,26 @@ Do you want to go to the download page?</source>
         <source>Wallets (*.wallet)</source>
         <translation>Гаманцы (*.wallet)</translation>
     </message>
+    <message>
+        <source>File path is empty</source>
+        <translation>Шлях да файла пусты</translation>
+    </message>
+    <message>
+        <source>Please enter the path where to save the wallet file and its name.</source>
+        <translation>Калі ласка, увядзіце шлях для захавання файла кашалька і яго імя.</translation>
+    </message>
+    <message>
+        <source>Wallet keys are not valid</source>
+        <translation>Ключы гаманца нядзейныя</translation>
+    </message>
+    <message>
+        <source>Failed to parse account keys</source>
+        <translation>Не ўдалося прачытаць ключы ўліковага запісу</translation>
+    </message>
+    <message>
+        <source>The private keys you entered are not valid.</source>
+        <translation>Уведзеныя прыватныя ключы няправільныя.</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::ImportKeysDialog</name>
@@ -2139,6 +2159,26 @@ Do you want to go to the download page?</source>
     <message>
         <source>Wallets (*.wallet)</source>
         <translation></translation>
+    </message>
+    <message>
+        <source>File path is empty</source>
+        <translation>Шлях да файла пусты</translation>
+    </message>
+    <message>
+        <source>Please enter the path where to save the wallet file and its name.</source>
+        <translation>Калі ласка, увядзіце шлях для захавання файла кашалька і яго імя.</translation>
+    </message>
+    <message>
+        <source>Key is not valid</source>
+        <translation>Ключ нядзейны</translation>
+    </message>
+    <message>
+        <source>The private spend key you entered is not valid.</source>
+        <translation>Уведзены прыватны ключ расходавання няправільны.</translation>
+    </message>
+    <message>
+        <source>The private view key you entered is not valid.</source>
+        <translation>Уведзены прыватны ключ прагляду няправільны.</translation>
     </message>
 </context>
 <context>
@@ -2154,6 +2194,42 @@ Do you want to go to the download page?</source>
     <message>
         <source>Tracking wallets (*.wallet)</source>
         <translation>Гаманцы адсочвання (*.wallet)</translation>
+    </message>
+    <message>
+        <source>File path is empty</source>
+        <translation>Шлях да файла пусты</translation>
+    </message>
+    <message>
+        <source>Please enter the path where to save the wallet file and its name.</source>
+        <translation>Калі ласка, увядзіце шлях для захавання файла кашалька і яго імя.</translation>
+    </message>
+    <message>
+        <source>Tracking key is not valid</source>
+        <translation type="unfinished">Ключ адсочвання нядзейны</translation>
+    </message>
+    <message>
+        <source>The tracking key you entered is not valid.</source>
+        <translation type="unfinished">Уведзены ключ сачэння няправільны.</translation>
+    </message>
+    <message>
+        <source>Key is not valid</source>
+        <translation type="unfinished">Ключ нядзейны</translation>
+    </message>
+    <message>
+        <source>The public spend key you entered is not valid.</source>
+        <translation type="unfinished">Уведзены публічны ключ расходавання няправільны.</translation>
+    </message>
+    <message>
+        <source>The public view key you entered is not valid.</source>
+        <translation type="unfinished">Уведзены публічны ключ прагляду няправільны.</translation>
+    </message>
+    <message>
+        <source>The private spend key you entered is not valid.</source>
+        <translation type="unfinished">Уведзены прыватны ключ расходавання няправільны.</translation>
+    </message>
+    <message>
+        <source>The private view key you entered is not valid.</source>
+        <translation type="unfinished">Уведзены прыватны ключ прагляду няправільны.</translation>
     </message>
 </context>
 <context>
@@ -2329,15 +2405,15 @@ Are you sure?</source>
     </message>
     <message>
         <source>Mnemonic seed is not correct</source>
-        <translation>Мнеманічна фраза не з&apos;яўляецца правільнай</translation>
+        <translation type="vanished">Мнеманічна фраза не з&apos;яўляецца правільнай</translation>
     </message>
     <message>
         <source>There must be an error in mnemonic seed. Make sure you entered it correctly.</source>
-        <translation>Павінна быць памылка ў мнеманічнай фразе. Пераканайцеся што вы ўвялі яе правільна.</translation>
+        <translation type="vanished">Павінна быць памылка ў мнеманічнай фразе. Пераканайцеся што вы ўвялі яе правільна.</translation>
     </message>
     <message>
         <source>Wallet keys are not valid</source>
-        <translation>Ключы гаманца нядзейныя</translation>
+        <translation type="vanished">Ключы гаманца нядзейныя</translation>
     </message>
     <message>
         <source>Tracking key is not valid</source>
@@ -2349,27 +2425,27 @@ Are you sure?</source>
     </message>
     <message>
         <source>Key is not valid</source>
-        <translation>Ключ нядзейны</translation>
+        <translation type="vanished">Ключ нядзейны</translation>
     </message>
     <message>
         <source>The public spend key you entered is not valid.</source>
-        <translation>Уведзены публічны ключ расходавання няправільны.</translation>
+        <translation type="vanished">Уведзены публічны ключ расходавання няправільны.</translation>
     </message>
     <message>
         <source>The public view key you entered is not valid.</source>
-        <translation>Уведзены публічны ключ прагляду няправільны.</translation>
+        <translation type="vanished">Уведзены публічны ключ прагляду няправільны.</translation>
     </message>
     <message>
         <source>The private spend key you entered is not valid.</source>
-        <translation>Уведзены прыватны ключ расходавання няправільны.</translation>
+        <translation type="vanished">Уведзены прыватны ключ расходавання няправільны.</translation>
     </message>
     <message>
         <source>The private view key you entered is not valid.</source>
-        <translation>Уведзены прыватны ключ прагляду няправільны.</translation>
+        <translation type="vanished">Уведзены прыватны ключ прагляду няправільны.</translation>
     </message>
     <message>
         <source>The private keys you entered are not valid.</source>
-        <translation>Уведзеныя прыватныя ключы няправільныя.</translation>
+        <translation type="vanished">Уведзеныя прыватныя ключы няправільныя.</translation>
     </message>
     <message>
         <source>Wrong wallet file extension</source>
@@ -2676,6 +2752,22 @@ Are you sure?</source>
     <message>
         <source>Wallets (*.wallet)</source>
         <translation>Гаманец (*.wallet)</translation>
+    </message>
+    <message>
+        <source>Mnemonic seed is not correct</source>
+        <translation>Мнеманічна фраза не з&apos;яўляецца правільнай</translation>
+    </message>
+    <message>
+        <source>There must be an error in mnemonic seed. Make sure you entered it correctly.</source>
+        <translation>Павінна быць памылка ў мнеманічнай фразе. Пераканайцеся што вы ўвялі яе правільна.</translation>
+    </message>
+    <message>
+        <source>File path is empty</source>
+        <translation>Шлях да файла пусты</translation>
+    </message>
+    <message>
+        <source>Please enter the path where to save the wallet file and its name.</source>
+        <translation>Калі ласка, увядзіце шлях для захавання файла кашалька і яго імя.</translation>
     </message>
 </context>
 <context>

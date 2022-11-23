@@ -2138,6 +2138,26 @@ Voulez-vous aller à la page de téléchargement?</translation>
         <source>Wallets (*.wallet)</source>
         <translation>Portefeuilles (*.wallet)</translation>
     </message>
+    <message>
+        <source>File path is empty</source>
+        <translation>Le chemin du fichier est vide</translation>
+    </message>
+    <message>
+        <source>Please enter the path where to save the wallet file and its name.</source>
+        <translation>Veuillez entrer le chemin où enregistrer le fichier du portefeuille et son nom.</translation>
+    </message>
+    <message>
+        <source>Wallet keys are not valid</source>
+        <translation>Les clés du portefeuille ne sont pas valides</translation>
+    </message>
+    <message>
+        <source>Failed to parse account keys</source>
+        <translation>Impossible de lire les clés de compte</translation>
+    </message>
+    <message>
+        <source>The private keys you entered are not valid.</source>
+        <translation>Les clés privées que vous avez entrées ne sont pas valides.</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::ImportKeysDialog</name>
@@ -2148,6 +2168,26 @@ Voulez-vous aller à la page de téléchargement?</translation>
     <message>
         <source>Wallets (*.wallet)</source>
         <translation>Portefeuilles (*.wallet)</translation>
+    </message>
+    <message>
+        <source>File path is empty</source>
+        <translation>Le chemin du fichier est vide</translation>
+    </message>
+    <message>
+        <source>Please enter the path where to save the wallet file and its name.</source>
+        <translation>Veuillez entrer le chemin où enregistrer le fichier du portefeuille et son nom.</translation>
+    </message>
+    <message>
+        <source>Key is not valid</source>
+        <translation>La clé n&apos;est pas valide</translation>
+    </message>
+    <message>
+        <source>The private spend key you entered is not valid.</source>
+        <translation>La clé de dépenses privée que vous avez entrée n&apos;est pas valide.</translation>
+    </message>
+    <message>
+        <source>The private view key you entered is not valid.</source>
+        <translation>La clé de vue privée que vous avez entrée n&apos;est pas valide.</translation>
     </message>
 </context>
 <context>
@@ -2163,6 +2203,42 @@ Voulez-vous aller à la page de téléchargement?</translation>
     <message>
         <source>Tracking wallets (*.wallet)</source>
         <translation>Suivi des portefeuilles (*.wallet)</translation>
+    </message>
+    <message>
+        <source>File path is empty</source>
+        <translation>Le chemin du fichier est vide</translation>
+    </message>
+    <message>
+        <source>Please enter the path where to save the wallet file and its name.</source>
+        <translation>Veuillez entrer le chemin où enregistrer le fichier du portefeuille et son nom.</translation>
+    </message>
+    <message>
+        <source>Tracking key is not valid</source>
+        <translation type="unfinished">La clé de suivi n&apos;est pas valide</translation>
+    </message>
+    <message>
+        <source>The tracking key you entered is not valid.</source>
+        <translation type="unfinished">La clé de suivi que vous avez entrée n&apos;est pas valide.</translation>
+    </message>
+    <message>
+        <source>Key is not valid</source>
+        <translation type="unfinished">La clé n&apos;est pas valide</translation>
+    </message>
+    <message>
+        <source>The public spend key you entered is not valid.</source>
+        <translation type="unfinished">La clé de dépenses publiques que vous avez entrée n&apos;est pas valide.</translation>
+    </message>
+    <message>
+        <source>The public view key you entered is not valid.</source>
+        <translation type="unfinished">La clé de vue publique que vous avez entrée n&apos;est pas valide.</translation>
+    </message>
+    <message>
+        <source>The private spend key you entered is not valid.</source>
+        <translation type="unfinished">La clé de dépenses privée que vous avez entrée n&apos;est pas valide.</translation>
+    </message>
+    <message>
+        <source>The private view key you entered is not valid.</source>
+        <translation type="unfinished">La clé de vue privée que vous avez entrée n&apos;est pas valide.</translation>
     </message>
 </context>
 <context>
@@ -2329,19 +2405,19 @@ Are you sure?</source>
     </message>
     <message>
         <source>Mnemonic seed is not correct</source>
-        <translation>La graine mnémonique n&apos;est pas correcte</translation>
+        <translation type="vanished">La graine mnémonique n&apos;est pas correcte</translation>
     </message>
     <message>
         <source>There must be an error in mnemonic seed. Make sure you entered it correctly.</source>
-        <translation>Il doit y avoir une erreur dans la graine mnémotechnique. Assurez-vous que vous l&apos;avez entré correctement.</translation>
+        <translation type="vanished">Il doit y avoir une erreur dans la graine mnémotechnique. Assurez-vous que vous l&apos;avez entré correctement.</translation>
     </message>
     <message>
         <source>Wallet keys are not valid</source>
-        <translation>Les clés du portefeuille ne sont pas valides</translation>
+        <translation type="vanished">Les clés du portefeuille ne sont pas valides</translation>
     </message>
     <message>
         <source>The private keys you entered are not valid.</source>
-        <translation>Les clés privées que vous avez entrées ne sont pas valides.</translation>
+        <translation type="vanished">Les clés privées que vous avez entrées ne sont pas valides.</translation>
     </message>
     <message>
         <source>Tracking key is not valid</source>
@@ -2353,23 +2429,23 @@ Are you sure?</source>
     </message>
     <message>
         <source>Key is not valid</source>
-        <translation>La clé n&apos;est pas valide</translation>
+        <translation type="vanished">La clé n&apos;est pas valide</translation>
     </message>
     <message>
         <source>The public spend key you entered is not valid.</source>
-        <translation>La clé de dépenses publiques que vous avez entrée n&apos;est pas valide.</translation>
+        <translation type="vanished">La clé de dépenses publiques que vous avez entrée n&apos;est pas valide.</translation>
     </message>
     <message>
         <source>The public view key you entered is not valid.</source>
-        <translation>La clé de vue publique que vous avez entrée n&apos;est pas valide.</translation>
+        <translation type="vanished">La clé de vue publique que vous avez entrée n&apos;est pas valide.</translation>
     </message>
     <message>
         <source>The private spend key you entered is not valid.</source>
-        <translation>La clé de dépenses privée que vous avez entrée n&apos;est pas valide.</translation>
+        <translation type="vanished">La clé de dépenses privée que vous avez entrée n&apos;est pas valide.</translation>
     </message>
     <message>
         <source>The private view key you entered is not valid.</source>
-        <translation>La clé de vue privée que vous avez entrée n&apos;est pas valide.</translation>
+        <translation type="vanished">La clé de vue privée que vous avez entrée n&apos;est pas valide.</translation>
     </message>
     <message>
         <source>Wrong wallet file extension</source>
@@ -2676,6 +2752,22 @@ Are you sure?</source>
     <message>
         <source>Wallets (*.wallet)</source>
         <translation>Portefeuilles (*.wallet)</translation>
+    </message>
+    <message>
+        <source>Mnemonic seed is not correct</source>
+        <translation>La graine mnémonique n&apos;est pas correcte</translation>
+    </message>
+    <message>
+        <source>There must be an error in mnemonic seed. Make sure you entered it correctly.</source>
+        <translation>Il doit y avoir une erreur dans la graine mnémotechnique. Assurez-vous que vous l&apos;avez entré correctement.</translation>
+    </message>
+    <message>
+        <source>File path is empty</source>
+        <translation>Le chemin du fichier est vide</translation>
+    </message>
+    <message>
+        <source>Please enter the path where to save the wallet file and its name.</source>
+        <translation>Veuillez entrer le chemin où enregistrer le fichier du portefeuille et son nom.</translation>
     </message>
 </context>
 <context>

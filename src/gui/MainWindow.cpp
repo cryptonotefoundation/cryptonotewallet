@@ -61,14 +61,6 @@
 #include "macdockiconhandler.h"
 #endif
 
-#include "Mnemonics/electrum-words.h"
-
-extern "C"
-{
-#include "crypto/keccak.h"
-#include "crypto/crypto-ops.h"
-}
-
 namespace WalletGui {
 
 MainWindow* MainWindow::m_instance = nullptr;
@@ -471,9 +463,8 @@ void MainWindow::openRecent(){
 void MainWindow::importKey() {
   ImportKeyDialog dlg(this);
   if (dlg.exec() == QDialog::Accepted) {
-    QString keyString = dlg.getKeyString().trimmed();
     QString filePath = dlg.getFilePath();
-    if (keyString.isEmpty() || filePath.isEmpty()) {
+    if (filePath.isEmpty()) {
       return;
     }
 
@@ -481,29 +472,18 @@ void MainWindow::importKey() {
       filePath.append(".wallet");
     }
 
-    uint64_t addressPrefix;
-    std::string data;
-    CryptoNote::AccountKeys keys;
-    if (Tools::Base58::decode_addr(keyString.toStdString(), addressPrefix, data) && addressPrefix == CurrencyAdapter::instance().getAddressPrefix() &&
-      data.size() == sizeof(keys)) {
-      //std::memcpy(&keys, data.data(), sizeof(keys));
-      if (!fromBinaryArray(keys, Common::asBinaryArray(data))) {
-        QMessageBox::warning(this, tr("Wallet keys are not valid"), tr("Failed to parse account keys"), QMessageBox::Ok);
-      }
-      if (WalletAdapter::instance().isOpen()) {
-        WalletAdapter::instance().close();
-      }
-      WalletAdapter::instance().setWalletFile(filePath);
+    CryptoNote::AccountKeys keys = dlg.getAccountKeys();
 
-      quint32 syncHeight = dlg.getSyncHeight();
-      if (syncHeight != 0) {
-        WalletAdapter::instance().createWithKeys(keys, syncHeight);
-      } else {
-        WalletAdapter::instance().createWithKeys(keys);
-      }
+    if (WalletAdapter::instance().isOpen()) {
+      WalletAdapter::instance().close();
+    }
+    WalletAdapter::instance().setWalletFile(filePath);
 
+    quint32 syncHeight = dlg.getSyncHeight();
+    if (syncHeight != 0) {
+      WalletAdapter::instance().createWithKeys(keys, syncHeight);
     } else {
-      QMessageBox::warning(this, tr("Wallet keys are not valid"), tr("The private keys you entered are not valid."), QMessageBox::Ok);
+      WalletAdapter::instance().createWithKeys(keys);
     }
   }
 }
@@ -511,10 +491,8 @@ void MainWindow::importKey() {
 void MainWindow::importKeys() {
   ImportKeysDialog dlg(this);
   if (dlg.exec() == QDialog::Accepted) {
-    QString viewKeyString = dlg.getViewKeyString().trimmed();
-    QString spendKeyString = dlg.getSpendKeyString().trimmed();
     QString filePath = dlg.getFilePath();
-    if (viewKeyString.isEmpty() || spendKeyString.isEmpty() || filePath.isEmpty()) {
+    if (filePath.isEmpty()) {
       return;
     }
 
@@ -522,31 +500,7 @@ void MainWindow::importKeys() {
       filePath.append(".wallet");
     }
 
-    uint64_t addressPrefix;
-    std::string data;
-    CryptoNote::AccountKeys keys;
-
-    std::string private_spend_key_string = spendKeyString.toStdString();
-    std::string private_view_key_string = viewKeyString.toStdString();
-
-    Crypto::Hash private_spend_key_hash;
-    Crypto::Hash private_view_key_hash;
-
-    size_t size;
-    if (!Common::fromHex(private_spend_key_string, &private_spend_key_hash, sizeof(private_spend_key_hash), size) || size != sizeof(private_spend_key_hash)) {
-      QMessageBox::warning(this, tr("Key is not valid"), tr("The private spend key you entered is not valid."), QMessageBox::Ok);
-      return;
-    }
-    if (!Common::fromHex(private_view_key_string, &private_view_key_hash, sizeof(private_view_key_hash), size) || size != sizeof(private_view_key_hash)) {
-      QMessageBox::warning(this, tr("Key is not valid"), tr("The private view key you entered is not valid."), QMessageBox::Ok);
-      return;
-    }
-
-    keys.spendSecretKey = *(struct Crypto::SecretKey *) &private_spend_key_hash;
-    keys.viewSecretKey = *(struct Crypto::SecretKey *) &private_view_key_hash;
-
-    Crypto::secret_key_to_public_key(keys.spendSecretKey, keys.address.spendPublicKey);
-    Crypto::secret_key_to_public_key(keys.viewSecretKey, keys.address.viewPublicKey);
+    CryptoNote::AccountKeys keys = dlg.getAccountKeys();
 
     if (WalletAdapter::instance().isOpen()) {
         WalletAdapter::instance().close();
@@ -579,69 +533,20 @@ void MainWindow::importTrackingKey() {
       filePath.append(".wallet");
     }
 
-    CryptoNote::AccountKeys keys;
+    CryptoNote::AccountKeys keys = dlg.getAccountKeys();
 
-    //  XDN style tracking key import
-    //  uint64_t addressPrefix;
-    //  std::string data;
-
-    //  if (Tools::Base58::decode_addr(keyString.toStdString(), addressPrefix, data) && addressPrefix == CurrencyAdapter::instance().getAddressPrefix() &&
-    //    data.size() == sizeof(keys)) {
-    //    std::memcpy(&keys, data.data(), sizeof(keys));
-
-    // To prevent confusing with import of private key / paperwallet lets use Bytecoin style tracking keys, they look different
-    std::string public_spend_key_string = keyString.mid(0,64).toStdString();
-    std::string public_view_key_string = keyString.mid(64,64).toStdString();
-    std::string private_spend_key_string = keyString.mid(128,64).toStdString();
-    std::string private_view_key_string = keyString.mid(192,64).toStdString();
-
-    Crypto::Hash public_spend_key_hash;
-    Crypto::Hash public_view_key_hash;
-    Crypto::Hash private_spend_key_hash;
-    Crypto::Hash private_view_key_hash;
-
-    size_t size;
-    if (!Common::fromHex(public_spend_key_string, &public_spend_key_hash, sizeof(public_spend_key_hash), size) || size != sizeof(public_spend_key_hash)) {
-      QMessageBox::warning(this, tr("Key is not valid"), tr("The public spend key you entered is not valid."), QMessageBox::Ok);
-      return;
+    if (WalletAdapter::instance().isOpen()) {
+      WalletAdapter::instance().close();
     }
-    if (!Common::fromHex(public_view_key_string, &public_view_key_hash, sizeof(public_view_key_hash), size) || size != sizeof(public_view_key_hash)) {
-      QMessageBox::warning(this, tr("Key is not valid"), tr("The public view key you entered is not valid."), QMessageBox::Ok);
-      return;
+    Settings::instance().setTrackingMode(true);
+    WalletAdapter::instance().setWalletFile(filePath);
+
+    quint32 syncHeight = dlg.getSyncHeight();
+    if (syncHeight != 0) {
+      WalletAdapter::instance().createWithKeys(keys, syncHeight);
+    } else {
+      WalletAdapter::instance().createWithKeys(keys);
     }
-    if (!Common::fromHex(private_spend_key_string, &private_spend_key_hash, sizeof(private_spend_key_hash), size) || size != sizeof(private_spend_key_hash)) {
-      QMessageBox::warning(this, tr("Key is not valid"), tr("The private spend key you entered is not valid."), QMessageBox::Ok);
-      return;
-    }
-    if (!Common::fromHex(private_view_key_string, &private_view_key_hash, sizeof(private_view_key_hash), size) || size != sizeof(private_view_key_hash)) {
-      QMessageBox::warning(this, tr("Key is not valid"), tr("The private view key you entered is not valid."), QMessageBox::Ok);
-      return;
-    }
-
-    Crypto::PublicKey public_spend_key = *(struct Crypto::PublicKey *) &public_spend_key_hash;
-    Crypto::PublicKey public_view_key = *(struct Crypto::PublicKey *) &public_view_key_hash;
-    Crypto::SecretKey private_spend_key = *(struct Crypto::SecretKey *) &private_spend_key_hash;
-    Crypto::SecretKey private_view_key = *(struct Crypto::SecretKey *) &private_view_key_hash;
-
-    keys.address.spendPublicKey = public_spend_key;
-    keys.address.viewPublicKey = public_view_key;
-    keys.spendSecretKey = private_spend_key;
-    keys.viewSecretKey = private_view_key;
-
-      if (WalletAdapter::instance().isOpen()) {
-        WalletAdapter::instance().close();
-      }
-      Settings::instance().setTrackingMode(true);
-      WalletAdapter::instance().setWalletFile(filePath);
-
-      quint32 syncHeight = dlg.getSyncHeight();
-      if (syncHeight != 0) {
-        WalletAdapter::instance().createWithKeys(keys, syncHeight);
-      } else {
-        WalletAdapter::instance().createWithKeys(keys);
-      }
-
-   // }
   }
 }
 
@@ -659,9 +564,8 @@ void MainWindow::isTrackingMode() {
 void MainWindow::restoreFromMnemonicSeed() {
   RestoreFromMnemonicSeedDialog dlg(this);
   if (dlg.exec() == QDialog::Accepted) {
-    QString mnemonicString = dlg.getSeedString().trimmed();
     QString filePath = dlg.getFilePath();
-    if (mnemonicString.isEmpty() || filePath.isEmpty()) {
+    if (filePath.isEmpty()) {
       return;
     }
 
@@ -669,28 +573,18 @@ void MainWindow::restoreFromMnemonicSeed() {
       filePath.append(".wallet");
     }
 
-    CryptoNote::AccountKeys keys;
-    std::string seed_language = "English";
-    if(Crypto::ElectrumWords::words_to_bytes(mnemonicString.toStdString(), keys.spendSecretKey, seed_language)) {
-      Crypto::secret_key_to_public_key(keys.spendSecretKey,keys.address.spendPublicKey);
-      Crypto::SecretKey second;
-      keccak((uint8_t *)&keys.spendSecretKey, sizeof(Crypto::SecretKey), (uint8_t *)&second, sizeof(Crypto::SecretKey));
-      Crypto::generate_deterministic_keys(keys.address.viewPublicKey,keys.viewSecretKey,second);
+    CryptoNote::AccountKeys keys = dlg.getAccountKeys();
 
-      if (WalletAdapter::instance().isOpen()) {
-        WalletAdapter::instance().close();
-      }
-      WalletAdapter::instance().setWalletFile(filePath);
+    if (WalletAdapter::instance().isOpen()) {
+      WalletAdapter::instance().close();
+    }
+    WalletAdapter::instance().setWalletFile(filePath);
 
-      quint32 syncHeight = dlg.getSyncHeight();
-      if (syncHeight != 0) {
-        WalletAdapter::instance().createWithKeys(keys, syncHeight);
-      } else {
-        WalletAdapter::instance().createWithKeys(keys);
-      }
+    quint32 syncHeight = dlg.getSyncHeight();
+    if (syncHeight != 0) {
+      WalletAdapter::instance().createWithKeys(keys, syncHeight);
     } else {
-      QMessageBox::critical(nullptr, tr("Mnemonic seed is not correct"), tr("There must be an error in mnemonic seed. Make sure you entered it correctly."), QMessageBox::Ok);
-      return;
+      WalletAdapter::instance().createWithKeys(keys);
     }
   }
 }

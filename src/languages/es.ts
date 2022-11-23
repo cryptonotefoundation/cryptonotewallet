@@ -2129,6 +2129,26 @@ Do you want to go to the download page?</source>
         <source>Wallets (*.wallet)</source>
         <translation>Monederos (*.wallet)</translation>
     </message>
+    <message>
+        <source>File path is empty</source>
+        <translation>La ruta del archivo está vacía</translation>
+    </message>
+    <message>
+        <source>Please enter the path where to save the wallet file and its name.</source>
+        <translation>Ingrese la ruta donde guardar el archivo de la billetera y su nombre.</translation>
+    </message>
+    <message>
+        <source>Wallet keys are not valid</source>
+        <translation>Las claves de monedero son inválidos</translation>
+    </message>
+    <message>
+        <source>Failed to parse account keys</source>
+        <translation>Error al leer las claves de la cuenta</translation>
+    </message>
+    <message>
+        <source>The private keys you entered are not valid.</source>
+        <translation>Las claves privadas que ingresó son inválidos.</translation>
+    </message>
 </context>
 <context>
     <name>WalletGui::ImportKeysDialog</name>
@@ -2139,6 +2159,26 @@ Do you want to go to the download page?</source>
     <message>
         <source>Wallets (*.wallet)</source>
         <translation>Monederos (*.wallet)</translation>
+    </message>
+    <message>
+        <source>File path is empty</source>
+        <translation>La ruta del archivo está vacía</translation>
+    </message>
+    <message>
+        <source>Please enter the path where to save the wallet file and its name.</source>
+        <translation>Ingrese la ruta donde guardar el archivo de la billetera y su nombre.</translation>
+    </message>
+    <message>
+        <source>Key is not valid</source>
+        <translation>La clave no es válida</translation>
+    </message>
+    <message>
+        <source>The private spend key you entered is not valid.</source>
+        <translation>La clave de gasto privado que ingresó es inválido.</translation>
+    </message>
+    <message>
+        <source>The private view key you entered is not valid.</source>
+        <translation>La clave de vista privada que ingresó es inválido.</translation>
     </message>
 </context>
 <context>
@@ -2154,6 +2194,42 @@ Do you want to go to the download page?</source>
     <message>
         <source>Tracking wallets (*.wallet)</source>
         <translation>Seguimiento de monederos (*.wallet)</translation>
+    </message>
+    <message>
+        <source>File path is empty</source>
+        <translation>La ruta del archivo está vacía</translation>
+    </message>
+    <message>
+        <source>Please enter the path where to save the wallet file and its name.</source>
+        <translation>Ingrese la ruta donde guardar el archivo de la billetera y su nombre.</translation>
+    </message>
+    <message>
+        <source>Tracking key is not valid</source>
+        <translation type="unfinished">La clave de seguimiento es inválido</translation>
+    </message>
+    <message>
+        <source>The tracking key you entered is not valid.</source>
+        <translation type="unfinished">La clave de seguimiento que ingresó es inválido.</translation>
+    </message>
+    <message>
+        <source>Key is not valid</source>
+        <translation type="unfinished">La clave no es válida</translation>
+    </message>
+    <message>
+        <source>The public spend key you entered is not valid.</source>
+        <translation type="unfinished">La clave de gasto público que ingresó es inválido.</translation>
+    </message>
+    <message>
+        <source>The public view key you entered is not valid.</source>
+        <translation type="unfinished">La clave de vista pública que ingresó es inválido.</translation>
+    </message>
+    <message>
+        <source>The private spend key you entered is not valid.</source>
+        <translation type="unfinished">La clave de gasto privado que ingresó es inválido.</translation>
+    </message>
+    <message>
+        <source>The private view key you entered is not valid.</source>
+        <translation type="unfinished">La clave de vista privada que ingresó es inválido.</translation>
     </message>
 </context>
 <context>
@@ -2321,19 +2397,19 @@ Are you sure?</source>
     </message>
     <message>
         <source>Mnemonic seed is not correct</source>
-        <translation>Frase mnemónica es incorrecta</translation>
+        <translation type="vanished">Frase mnemónica es incorrecta</translation>
     </message>
     <message>
         <source>There must be an error in mnemonic seed. Make sure you entered it correctly.</source>
-        <translation>Debe haber un error en la frase mnemónica. Asegúrate de haberlo ingresado correctamente.</translation>
+        <translation type="vanished">Debe haber un error en la frase mnemónica. Asegúrate de haberlo ingresado correctamente.</translation>
     </message>
     <message>
         <source>Wallet keys are not valid</source>
-        <translation>Las claves de monedero son inválidos</translation>
+        <translation type="vanished">Las claves de monedero son inválidos</translation>
     </message>
     <message>
         <source>The private keys you entered are not valid.</source>
-        <translation>Las claves privadas que ingresó son inválidos.</translation>
+        <translation type="vanished">Las claves privadas que ingresó son inválidos.</translation>
     </message>
     <message>
         <source>Tracking key is not valid</source>
@@ -2345,23 +2421,23 @@ Are you sure?</source>
     </message>
     <message>
         <source>Key is not valid</source>
-        <translation>La clave no es válida</translation>
+        <translation type="vanished">La clave no es válida</translation>
     </message>
     <message>
         <source>The public spend key you entered is not valid.</source>
-        <translation>La clave de gasto público que ingresó es inválido.</translation>
+        <translation type="vanished">La clave de gasto público que ingresó es inválido.</translation>
     </message>
     <message>
         <source>The public view key you entered is not valid.</source>
-        <translation>La clave de vista pública que ingresó es inválido.</translation>
+        <translation type="vanished">La clave de vista pública que ingresó es inválido.</translation>
     </message>
     <message>
         <source>The private spend key you entered is not valid.</source>
-        <translation>La clave de gasto privado que ingresó es inválido.</translation>
+        <translation type="vanished">La clave de gasto privado que ingresó es inválido.</translation>
     </message>
     <message>
         <source>The private view key you entered is not valid.</source>
-        <translation>La clave de vista privada que ingresó es inválido.</translation>
+        <translation type="vanished">La clave de vista privada que ingresó es inválido.</translation>
     </message>
     <message>
         <source>Wrong wallet file extension</source>
@@ -2668,6 +2744,22 @@ Are you sure?</source>
     <message>
         <source>Wallets (*.wallet)</source>
         <translation>Monederos (*.wallet)</translation>
+    </message>
+    <message>
+        <source>Mnemonic seed is not correct</source>
+        <translation>Frase mnemónica es incorrecta</translation>
+    </message>
+    <message>
+        <source>There must be an error in mnemonic seed. Make sure you entered it correctly.</source>
+        <translation>Debe haber un error en la frase mnemónica. Asegúrate de haberlo ingresado correctamente.</translation>
+    </message>
+    <message>
+        <source>File path is empty</source>
+        <translation>La ruta del archivo está vacía</translation>
+    </message>
+    <message>
+        <source>Please enter the path where to save the wallet file and its name.</source>
+        <translation>Ingrese la ruta donde guardar el archivo de la billetera y su nombre.</translation>
     </message>
 </context>
 <context>

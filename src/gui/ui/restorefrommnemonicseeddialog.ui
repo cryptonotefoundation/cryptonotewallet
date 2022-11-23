@@ -132,7 +132,7 @@
    <sender>m_okButton</sender>
    <signal>clicked()</signal>
    <receiver>RestoreFromMnemonicSeedDialog</receiver>
-   <slot>accept()</slot>
+   <slot>onAccept()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>594</x>

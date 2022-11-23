@@ -196,7 +196,6 @@ gui/ui/walletrpcsettingsdialog.ui \
 
 
 TRANSLATIONS = 	languages/uk.ts \
-				languages/ru.ts \
 				languages/pl.ts \
 				languages/be.ts \
 				languages/de.ts \
@@ -209,4 +208,3 @@ TRANSLATIONS = 	languages/uk.ts \
 				languages/zh.ts \
 				languages/hi.ts \
 				languages/ar.ts \
-				languages/fa.ts \
