@@ -12,12 +12,12 @@ jobs:
     env:
       BOOST_ROOT: C:\thirdparties\boost-1.72.0
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
       - name: Add msbuild to PATH
-        uses: microsoft/setup-msbuild@v1.0.2
+        uses: microsoft/setup-msbuild@v1.1
 
       - name: Install Boost
         shell: cmd
@@ -30,18 +30,12 @@ jobs:
         run: choco install openssl
 
       - name: Install Qt
-        uses: jurplel/install-qt-action@v2
+        uses: jurplel/install-qt-action@v3
         with:
           version: '5.15.2'
           host: 'windows'
           target: 'desktop'
-          modules: 'qttools5'
           install-deps: 'true'
-
-      - name: Install NSIS
-        uses: joncloud/makensis-action@v1
-        with:
-          just-include: true
 
       - name: Build
         shell: powershell
@@ -62,9 +56,9 @@ jobs:
           Start-Process cmake -ArgumentList "-DBOOST_ROOT=""$env:BOOST_ROOT"" -DBOOST_INCLUDE_DIRS=""$env:BOOST_ROOT/include"" -G ""Visual Studio 16 2019"" -A x64 -DARCH=default",".." -NoNewWindow -Wait
           Start-Process msbuild -ArgumentList "KarbowanecWallet.sln","/p:Configuration=Release" -NoNewWindow -Wait
           $build_path = "./$build_folder"
-          echo "::set-output name=build_path::${build_path}"
-          echo "::set-output name=release_name::${release_name}"
-          echo "::set-output name=krb_ver::${krb_ver}"
+          echo "build_path=${build_path}" >> $env:GITHUB_OUTPUT
+          echo "release_name=${release_name}" >> $env:GITHUB_OUTPUT
+          echo "krb_ver=${krb_ver}" >> $env:GITHUB_OUTPUT
   
       - name: Pack
         shell: powershell
@@ -90,25 +84,26 @@ jobs:
           Compress-Archive -Path "$release_name/" -DestinationPath "$release_name.zip"
           $sha256a = (Get-FileHash "$release_name.zip").Hash
           $asset_path_archive = "./$build_folder/$release_folder/$release_name.zip"
-          echo "::set-output name=sha256a::${sha256a}"
-          echo "::set-output name=release_name_archive::${release_name}.zip"
-          echo "::set-output name=asset_path_archive::${asset_path_archive}"
+          echo "sha256a=${sha256a}" >> $env:GITHUB_OUTPUT
+          echo "release_name_archive=${release_name}.zip" >> $env:GITHUB_OUTPUT
+          echo "asset_path_archive=${asset_path_archive}" >> $env:GITHUB_OUTPUT
           cd ../
           makensis WindowsInstall.nsi
           cd "$release_folder"
           Compress-Archive -Path "KarbowanecWallet-Setup.exe" -DestinationPath "$release_name-install.zip"
           $sha256i = (Get-FileHash "$release_name-install.zip").Hash
           $asset_path_install = "./$build_folder/$release_folder/$release_name-install.zip"
-          echo "::set-output name=sha256i::${sha256i}"
-          echo "::set-output name=release_name_install::${release_name}-install.zip"
-          echo "::set-output name=asset_path_install::${asset_path_install}"
-          echo "::set-output name=krb_ver::${krb_ver}"
+          echo "sha256i=${sha256i}" >> $env:GITHUB_OUTPUT
+          echo "release_name_install=${release_name}-install.zip" >> $env:GITHUB_OUTPUT
+          echo "asset_path_install=${asset_path_install}" >> $env:GITHUB_OUTPUT
+          echo "krb_ver=${krb_ver}" >> $env:GITHUB_OUTPUT
 
       - name: Create Release Archive
-        uses: softprops/action-gh-release@v0.1.8
+        uses: softprops/action-gh-release@v0.1.15
         with:
           files: ${{ steps.pack.outputs.asset_path_archive }}
           name: Karbo Wallet ${{ steps.pack.outputs.krb_ver }}
+          append_body: true
           body: |
             **${{ steps.pack.outputs.release_name_archive }}**
             ${{ steps.pack.outputs.sha256a }}
@@ -116,10 +111,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create Release Installer
-        uses: softprops/action-gh-release@v0.1.8
+        uses: softprops/action-gh-release@v0.1.15
         with:
           files: ${{ steps.pack.outputs.asset_path_install }}
           name: Karbo Wallet ${{ steps.pack.outputs.krb_ver }}
+          append_body: true
           body: |
             **${{ steps.pack.outputs.release_name_install }}**
             ${{ steps.pack.outputs.sha256i }}
@@ -130,15 +126,14 @@ jobs:
     name: macOS
     runs-on: macos-11
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
       - name: Install Qt
-        uses: jurplel/install-qt-action@v2
+        uses: jurplel/install-qt-action@v3
         with:
           version: '5.15.2'
-          modules: 'qttools5'
           install-deps: 'true'
 
       - name: Setup Xcode
@@ -172,18 +167,63 @@ jobs:
           mv *.dmg "$release_name".dmg
           sha256=$(shasum -a 256 "$release_name".dmg | awk '{ print toupper($1) }')
           asset_path="./$build_folder/$release_name.dmg"
-          echo "::set-output name=sha256::${sha256}"
-          echo "::set-output name=release_name::${release_name}.zip"
-          echo "::set-output name=asset_path::${asset_path}"
-          echo "::set-output name=krb_ver::${krb_ver}"
+          echo "sha256=${sha256}" >> $GITHUB_OUTPUT
+          echo "release_name=${release_name}.zip" >> $GITHUB_OUTPUT
+          echo "asset_path=${asset_path}" >> $GITHUB_OUTPUT
+          echo "krb_ver=${krb_ver}" >> $GITHUB_OUTPUT
         env:
           MACOSX_DEPLOYMENT_TARGET: '10.12'
 
       - name: Create Release
-        uses: softprops/action-gh-release@v0.1.8
+        uses: softprops/action-gh-release@v0.1.15
         with:
           files: ${{ steps.build.outputs.asset_path }}
           name: Karbo Wallet ${{ steps.build.outputs.krb_ver }}
+          append_body: true
+          body: |
+            **${{ steps.build.outputs.release_name }}**
+            ${{ steps.build.outputs.sha256 }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  build-ubuntu22:
+    name: Ubuntu 22.04
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Build
+        id: build
+        run: |
+          sudo apt update -y
+          sudo apt install -y qtbase5-dev qttools5-dev qttools5-dev-tools libboost-all-dev
+          build_folder="build/release"
+          krb_ver=$(echo "$GITHUB_REF" | sed 's|refs/tags/||')
+          release_name=Karbo-wallet-ubuntu-22.04-"$krb_ver"
+          app_name="KarbowanecWallet"
+          rm -rf cryptonote
+          git clone https://github.com/seredat/karbowanec.git cryptonote
+          mkdir -p "$build_folder"
+          cd "$build_folder"
+          cmake -D ARCH=default -D CMAKE_BUILD_TYPE=Release -D CMAKE_POSITION_INDEPENDENT_CODE:BOOL=true -D BOOST_IGNORE_SYSTEM_PATHS_DEFAULT=ON -D BOOST_ROOT=/usr ../..
+          make
+          cpack
+          tar -czf "$release_name".tar.gz *.deb
+          sha256=$(shasum -a 256 "$release_name".tar.gz | awk '{print toupper($1)}')
+          asset_path="./$build_folder/$release_name".tar.gz
+          echo "sha256=${sha256}" >> $GITHUB_OUTPUT
+          echo "release_name=${release_name}.tar.gz" >> $GITHUB_OUTPUT
+          echo "asset_path=${asset_path}" >> $GITHUB_OUTPUT
+          echo "krb_ver=${krb_ver}" >> $GITHUB_OUTPUT
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v0.1.15
+        with:
+          files: ${{ steps.build.outputs.asset_path }}
+          name: Karbo Wallet ${{ steps.build.outputs.krb_ver }}
+          append_body: true
           body: |
             **${{ steps.build.outputs.release_name }}**
             ${{ steps.build.outputs.sha256 }}
@@ -194,7 +234,7 @@ jobs:
     name: Ubuntu 20.04
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
 
@@ -217,63 +257,19 @@ jobs:
           tar -czf "$release_name".tar.gz *.deb
           sha256=$(shasum -a 256 "$release_name".tar.gz | awk '{print toupper($1)}')
           asset_path="./$build_folder/$release_name".tar.gz
-          echo "::set-output name=sha256::${sha256}"
-          echo "::set-output name=release_name::${release_name}.tar.gz"
-          echo "::set-output name=asset_path::${asset_path}"
-          echo "::set-output name=krb_ver::${krb_ver}"
+          echo "sha256=${sha256}" >> $GITHUB_OUTPUT
+          echo "release_name=${release_name}.tar.gz" >> $GITHUB_OUTPUT
+          echo "asset_path=${asset_path}" >> $GITHUB_OUTPUT
+          echo "krb_ver=${krb_ver}" >> $GITHUB_OUTPUT
 
       - name: Create Release
-        uses: softprops/action-gh-release@v0.1.8
+        uses: softprops/action-gh-release@v0.1.15
         with:
           files: ${{ steps.build.outputs.asset_path }}
           name: Karbo Wallet ${{ steps.build.outputs.krb_ver }}
+          append_body: true
           body: |
             **${{ steps.build.outputs.release_name }}**
             ${{ steps.build.outputs.sha256 }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  build-ubuntu18:
-    name: Ubuntu 18.04
-    runs-on: ubuntu-18.04
-    steps:
-      - uses: actions/checkout@master
-        with:
-          fetch-depth: 0
-
-      - name: Build
-        id: build
-        run: |
-          sudo apt-get purge '*boost*'
-          sudo apt update -y
-          sudo apt install -y qt5-default qttools5-dev qttools5-dev-tools libboost1.62-all-dev
-          build_folder="build/release"
-          krb_ver=$(echo "$GITHUB_REF" | sed 's|refs/tags/||')
-          release_name=Karbo-wallet-ubuntu-18.04-"$krb_ver"
-          app_name="KarbowanecWallet"
-          rm -rf cryptonote
-          git clone https://github.com/seredat/karbowanec.git cryptonote
-          mkdir -p "$build_folder"
-          cd "$build_folder"
-          cmake -D ARCH=default -D CMAKE_BUILD_TYPE=Release -D CMAKE_POSITION_INDEPENDENT_CODE:BOOL=true -D BOOST_IGNORE_SYSTEM_PATHS_DEFAULT=ON -D BOOST_ROOT=/usr ../..
-          make
-          cpack
-          tar -czf "$release_name".tar.gz *.deb
-          sha256=$(shasum -a 256 "$release_name".tar.gz | awk '{print toupper($1)}')
-          asset_path="./$build_folder/$release_name".tar.gz
-          echo "::set-output name=sha256::${sha256}"
-          echo "::set-output name=release_name::${release_name}.tar.gz"
-          echo "::set-output name=asset_path::${asset_path}"
-          echo "::set-output name=krb_ver::${krb_ver}"
-
-      - name: Create Release
-        uses: softprops/action-gh-release@v0.1.8
-        with:
-          files: ${{ steps.build.outputs.asset_path }}
-          name: Karbo Wallet ${{ steps.build.outputs.krb_ver }}
-          body: |
-            **${{ steps.build.outputs.release_name }}**
-            ${{ steps.build.outputs.sha256 }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
