@@ -88,7 +88,7 @@ jobs:
           echo "asset_path_install=${asset_path_install}" >> $env:GITHUB_OUTPUT
 
       - name: Create Archive Artifact
-        uses: actions/upload-artifact@v1.0.0
+        uses: actions/upload-artifact@v3
         with:
           path: ${{ steps.build.outputs.asset_path_archive }}
           name: ${{ steps.build.outputs.release_name_archive }}
@@ -96,7 +96,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create Installer Artifact
-        uses: actions/upload-artifact@v1.0.0
+        uses: actions/upload-artifact@v3
         with:
           path: ${{ steps.build.outputs.asset_path_install }}
           name: ${{ steps.build.outputs.release_name_install }}
@@ -156,7 +156,7 @@ jobs:
           MACOSX_DEPLOYMENT_TARGET: '10.12'
 
       - name: Create Artifact
-        uses: actions/upload-artifact@v1.0.0
+        uses: actions/upload-artifact@v3
         with:
           path: ${{ steps.build.outputs.asset_path }}
           name: ${{ steps.build.outputs.release_name }}
@@ -196,7 +196,7 @@ jobs:
           echo "krb_ver=${krb_ver}" >> $GITHUB_OUTPUT
 
       - name: Create Artifact
-        uses: actions/upload-artifact@v1.0.0
+        uses: actions/upload-artifact@v3
         with:
           path: ${{ steps.build.outputs.asset_path }}
           name: ${{ steps.build.outputs.release_name }}
@@ -236,7 +236,7 @@ jobs:
           echo "krb_ver=${krb_ver}" >> $GITHUB_OUTPUT
 
       - name: Create Artifact
-        uses: actions/upload-artifact@v1.0.0
+        uses: actions/upload-artifact@v3
         with:
           path: ${{ steps.build.outputs.asset_path }}
           name: ${{ steps.build.outputs.release_name }}
