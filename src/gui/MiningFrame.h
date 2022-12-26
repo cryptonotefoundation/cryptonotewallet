@@ -67,6 +67,7 @@ private:
   Q_SLOT void updatePendingBalance(quint64 _balance);
   Q_SLOT void updateMinerLog(const QString& _message);
   Q_SLOT void coreDealTurned(int _cores);
+  Q_SLOT void poolChanged();
 };
 
 }

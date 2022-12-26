@@ -81,6 +81,7 @@ MiningFrame::MiningFrame(QWidget* _parent) :
   connect(&WalletAdapter::instance(), &WalletAdapter::walletPendingBalanceUpdatedSignal, this, &MiningFrame::updatePendingBalance, Qt::QueuedConnection);
   connect(&WalletAdapter::instance(), &WalletAdapter::walletSynchronizationCompletedSignal, this, &MiningFrame::onSynchronizationCompleted, Qt::QueuedConnection);
   connect(&NodeAdapter::instance(), &NodeAdapter::localBlockchainUpdatedSignal, this, &MiningFrame::onBlockHeightUpdated, Qt::QueuedConnection);
+  connect(&NodeAdapter::instance(), &NodeAdapter::poolChangedSignal, this, &MiningFrame::poolChanged,Qt::QueuedConnection);
   connect(&*m_miner, &Miner::minerMessageSignal, this, &MiningFrame::updateMinerLog, Qt::QueuedConnection);
 }
 
@@ -275,6 +276,11 @@ void MiningFrame::coreDealTurned(int _cores) {
   QTimer::singleShot(600, [this, _cores]() {
     Settings::instance().setMiningThreads(_cores);
   } );
+}
+
+void MiningFrame::poolChanged() {
+  qDebug() << "Mempool changed, requesting block template";
+  m_miner->on_idle();
 }
 
 }
