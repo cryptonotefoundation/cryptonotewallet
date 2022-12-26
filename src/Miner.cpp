@@ -177,7 +177,7 @@ namespace WalletGui
 
       uint64_t total_hr = std::accumulate(m_last_hash_rates.begin(), m_last_hash_rates.end(), static_cast<uint64_t>(0));
       m_hash_rate = static_cast<float>(total_hr) / static_cast<float>(m_last_hash_rates.size());
-      qDebug() << "Hashrate: " << m_hash_rate << " H/s";
+      //qDebug() << "Hashrate: " << m_hash_rate << " H/s";
     }
     
     m_last_hr_merge_time = millisecondsSinceEpoch();
