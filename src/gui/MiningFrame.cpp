@@ -27,7 +27,7 @@
 namespace WalletGui {
 
 const quint32 HASHRATE_TIMER_INTERVAL = 1000;
-const quint32 MINER_ROUTINE_TIMER_INTERVAL = 60000;
+const quint32 MINER_ROUTINE_TIMER_INTERVAL = 240000;
 
 MiningFrame::MiningFrame(QWidget* _parent) :
     QFrame(_parent), m_ui(new Ui::MiningFrame),
@@ -126,7 +126,11 @@ void MiningFrame::timerEvent(QTimerEvent* _event) {
     return;
   }
   if (_event->timerId() == m_minerRoutineTimerId) {
-    m_miner->on_idle();
+    QDateTime date = QDateTime::currentDateTime();
+    QString formattedTime = date.toString("dd.MM.yyyy hh:mm:ss");
+    qDebug() << formattedTime << "Event, requesting block template";
+
+    m_miner->request_block_template();
   }
 
   QFrame::timerEvent(_event);
@@ -239,6 +243,10 @@ void MiningFrame::setMiningThreads() {
 }
 
 void MiningFrame::onBlockHeightUpdated() {
+  QDateTime date = QDateTime::currentDateTime();
+  QString formattedTime = date.toString("dd.MM.yyyy hh:mm:ss");
+  qDebug() << formattedTime << "Blockchain update, requesting block template";
+
   m_miner->on_block_chain_update();
 
   quint64 difficulty = NodeAdapter::instance().getDifficulty();
@@ -279,8 +287,11 @@ void MiningFrame::coreDealTurned(int _cores) {
 }
 
 void MiningFrame::poolChanged() {
-  qDebug() << "Mempool changed, requesting block template";
-  m_miner->on_idle();
+  QDateTime date = QDateTime::currentDateTime();
+  QString formattedTime = date.toString("dd.MM.yyyy hh:mm:ss");
+  qDebug() << formattedTime << "Mempool changed, requesting block template";
+
+  m_miner->on_block_chain_update();
 }
 
 }
