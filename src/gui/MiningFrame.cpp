@@ -130,7 +130,7 @@ void MiningFrame::timerEvent(QTimerEvent* _event) {
     QString formattedTime = date.toString("dd.MM.yyyy hh:mm:ss");
     qDebug() << formattedTime << "Event, requesting block template";
 
-    m_miner->request_block_template();
+    m_miner->on_block_chain_update();
   }
 
   QFrame::timerEvent(_event);
