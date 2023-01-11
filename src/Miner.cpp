@@ -76,7 +76,7 @@ namespace WalletGui
     m_do_mining(false),
     m_current_hash_rate(0),
     m_hash_rate(0),
-    m_update_block_template_interval(30),
+    m_update_block_template_interval(240),
     m_update_merge_hr_interval(2) {
   }
   //-----------------------------------------------------------------------------------------------------
@@ -127,7 +127,10 @@ namespace WalletGui
   }
   //-----------------------------------------------------------------------------------------------------
   bool Miner::request_block_template() {
-    qDebug() << "Requesting block template";
+    QDateTime date = QDateTime::currentDateTime();
+    QString formattedTime = date.toString("dd.MM.yyyy hh:mm:ss");
+    qDebug() << formattedTime << "Requesting block template";
+
     Block bl = boost::value_initialized<Block>();
     CryptoNote::difficulty_type di = 0;
     uint32_t height;
@@ -177,7 +180,7 @@ namespace WalletGui
 
       uint64_t total_hr = std::accumulate(m_last_hash_rates.begin(), m_last_hash_rates.end(), static_cast<uint64_t>(0));
       m_hash_rate = static_cast<float>(total_hr) / static_cast<float>(m_last_hash_rates.size());
-      qDebug() << "Hashrate: " << m_hash_rate << " H/s";
+      //qDebug() << "Hashrate: " << m_hash_rate << " H/s";
     }
     
     m_last_hr_merge_time = millisecondsSinceEpoch();

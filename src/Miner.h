@@ -45,6 +45,7 @@ namespace WalletGui {
     ~Miner();
 
     bool set_block_template(const Block& bl, const difficulty_type& diffic);
+    bool request_block_template();
     bool on_block_chain_update();
     bool start(size_t threads_count);
     double get_speed();
@@ -59,7 +60,6 @@ namespace WalletGui {
 
   private:
     bool worker_thread(uint32_t th_local_index);
-    bool request_block_template();
 
     struct miner_config
     {

@@ -81,6 +81,7 @@ MiningFrame::MiningFrame(QWidget* _parent) :
   connect(&WalletAdapter::instance(), &WalletAdapter::walletPendingBalanceUpdatedSignal, this, &MiningFrame::updatePendingBalance, Qt::QueuedConnection);
   connect(&WalletAdapter::instance(), &WalletAdapter::walletSynchronizationCompletedSignal, this, &MiningFrame::onSynchronizationCompleted, Qt::QueuedConnection);
   connect(&NodeAdapter::instance(), &NodeAdapter::localBlockchainUpdatedSignal, this, &MiningFrame::onBlockHeightUpdated, Qt::QueuedConnection);
+  connect(&NodeAdapter::instance(), &NodeAdapter::poolChangedSignal, this, &MiningFrame::poolChanged,Qt::QueuedConnection);
   connect(&*m_miner, &Miner::minerMessageSignal, this, &MiningFrame::updateMinerLog, Qt::QueuedConnection);
 }
 
@@ -125,7 +126,11 @@ void MiningFrame::timerEvent(QTimerEvent* _event) {
     return;
   }
   if (_event->timerId() == m_minerRoutineTimerId) {
-    m_miner->on_idle();
+    QDateTime date = QDateTime::currentDateTime();
+    QString formattedTime = date.toString("dd.MM.yyyy hh:mm:ss");
+    qDebug() << formattedTime << "Event, requesting block template";
+
+    m_miner->on_block_chain_update();
   }
 
   QFrame::timerEvent(_event);
@@ -238,6 +243,10 @@ void MiningFrame::setMiningThreads() {
 }
 
 void MiningFrame::onBlockHeightUpdated() {
+  QDateTime date = QDateTime::currentDateTime();
+  QString formattedTime = date.toString("dd.MM.yyyy hh:mm:ss");
+  qDebug() << formattedTime << "Blockchain update, requesting block template";
+
   m_miner->on_block_chain_update();
 
   quint64 difficulty = NodeAdapter::instance().getDifficulty();
@@ -275,6 +284,14 @@ void MiningFrame::coreDealTurned(int _cores) {
   QTimer::singleShot(600, [this, _cores]() {
     Settings::instance().setMiningThreads(_cores);
   } );
+}
+
+void MiningFrame::poolChanged() {
+  QDateTime date = QDateTime::currentDateTime();
+  QString formattedTime = date.toString("dd.MM.yyyy hh:mm:ss");
+  qDebug() << formattedTime << "Mempool changed, requesting block template";
+
+  m_miner->on_block_chain_update();
 }
 
 }

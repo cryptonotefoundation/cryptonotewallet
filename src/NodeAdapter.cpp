@@ -354,6 +354,9 @@ void NodeAdapter::connectionStatusUpdated(bool _connected) {
   Q_EMIT connectionStatusUpdatedSignal(_connected);
 }
 
+void NodeAdapter::poolChanged(Node& _node) {
+  Q_EMIT poolChangedSignal();
+}
 
 bool NodeAdapter::initInProcessNode() {
   Q_ASSERT(m_node == nullptr);

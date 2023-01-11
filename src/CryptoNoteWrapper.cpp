@@ -283,6 +283,10 @@ private:
     m_callback.lastKnownBlockHeightUpdated(*this, height);
   }
 
+  void poolChanged() override {
+    m_callback.poolChanged(*this);
+  }
+
   // INodeRpcProxyObserver
   void connectionStatusUpdated(bool _connected) override {
     m_callback.connectionStatusUpdated(_connected);
@@ -544,6 +548,10 @@ private:
 
   void lastKnownBlockHeightUpdated(uint32_t height) override {
     m_callback.lastKnownBlockHeightUpdated(*this, height);
+  }
+
+  void poolChanged() override {
+    m_callback.poolChanged(*this);
   }
 
   // dummy, used only for INodeRpcProxyObserver
