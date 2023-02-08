@@ -603,9 +603,7 @@ void WalletAdapter::onWalletInitCompleted(int _error, const QString& _errorText)
     if (Settings::instance().runWalletRpc()) {
       auto& dispatcher = NodeAdapter::instance().getDispatcher();
       System::ContextGroup contextGroup(dispatcher);
-      contextGroup.spawn([this]() {
-        runWalletRpc();
-      });
+      contextGroup.spawn(std::bind(&WalletAdapter::runWalletRpc, this));
       contextGroup.wait();
     }
 
