@@ -20,7 +20,8 @@
 #include <boost/program_options.hpp>
 
 #include <IWalletLegacy.h>
-
+#include "System/ContextGroup.h"
+#include "System/RemoteContext.h"
 #include "Wallet/WalletRpcServer.h"
 
 namespace WalletGui {
@@ -132,6 +133,7 @@ private:
   void closeFile();
   void notifyAboutLastTransaction();
   QString walletErrorMessage(int _error_code);
+  void runWalletRpc();
 
   static void renameFile(const QString& _old_name, const QString& _new_name);
   Q_SLOT void updateBlockStatusText();
