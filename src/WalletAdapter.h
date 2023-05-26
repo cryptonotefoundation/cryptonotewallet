@@ -20,8 +20,6 @@
 #include <boost/program_options.hpp>
 
 #include <IWalletLegacy.h>
-#include "System/ContextGroup.h"
-#include "System/RemoteContext.h"
 #include "Wallet/WalletRpcServer.h"
 
 namespace WalletGui {
