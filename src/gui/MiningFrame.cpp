@@ -126,10 +126,6 @@ void MiningFrame::timerEvent(QTimerEvent* _event) {
     return;
   }
   if (_event->timerId() == m_minerRoutineTimerId) {
-    QDateTime date = QDateTime::currentDateTime();
-    QString formattedTime = date.toString("dd.MM.yyyy hh:mm:ss");
-    qDebug() << formattedTime << "Event, requesting block template";
-
     m_miner->on_block_chain_update();
   }
 
@@ -243,11 +239,9 @@ void MiningFrame::setMiningThreads() {
 }
 
 void MiningFrame::onBlockHeightUpdated() {
-  QDateTime date = QDateTime::currentDateTime();
-  QString formattedTime = date.toString("dd.MM.yyyy hh:mm:ss");
-  qDebug() << formattedTime << "Blockchain update, requesting block template";
-
-  m_miner->on_block_chain_update();
+  if (m_miner->is_mining()) {
+    m_miner->on_block_chain_update();
+  }
 
   quint64 difficulty = NodeAdapter::instance().getDifficulty();
   m_ui->m_difficulty->setText(QString(tr("%1")).arg(difficulty));
@@ -287,11 +281,9 @@ void MiningFrame::coreDealTurned(int _cores) {
 }
 
 void MiningFrame::poolChanged() {
-  QDateTime date = QDateTime::currentDateTime();
-  QString formattedTime = date.toString("dd.MM.yyyy hh:mm:ss");
-  qDebug() << formattedTime << "Mempool changed, requesting block template";
-
-  m_miner->on_block_chain_update();
+  if (m_miner->is_mining()) {
+    m_miner->on_block_chain_update();
+  }
 }
 
 }
