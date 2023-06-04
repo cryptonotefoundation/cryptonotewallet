@@ -1,4 +1,5 @@
 // Copyright (c) 2011-2015 The Cryptonote developers
+// Copyright (c) 2016 befrank developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -15,7 +16,7 @@ CommandLineParser::CommandLineParser(QObject* _parent) : QObject(_parent), m_par
     "Use it with –data-dir flag. The wallet must be launched with –testnet flag")),
   m_p2pBindIpOption("p2p-bind-ip", tr("Interface for p2p network protocol"), tr("ip"), "0.0.0.0"),
   m_p2pBindPortOption("p2p-bind-port", tr("Port for p2p network protocol"), tr("port"), QString::number(CryptoNote::P2P_DEFAULT_PORT)),
-  m_p2pExternalOption("p2p-external-port", tr("xternal port for p2p network protocol (if port forwarding used with NAT)"),
+  m_p2pExternalOption("p2p-external-port", tr("External port for p2p network protocol (if port forwarding used with NAT)"),
     tr("port"), 0),
   m_allowLocalIpOption("allow-local-ip", tr("Allow local ip add to peer list, mostly in debug purposes")),
   m_addPeerOption("add-peer", tr("Manually add peer to local peerlist"), tr("peer")),
@@ -25,9 +26,9 @@ CommandLineParser::CommandLineParser(QObject* _parent) : QObject(_parent), m_par
     "add-priority-node and seed-node are ignored"), tr("node")),
   m_seedNodeOption("seed-node", tr("Connect to a node to retrieve peer addresses, and disconnect"), tr("node")),
   m_hideMyPortOption("hide-my-port", tr("Do not announce yourself as peerlist candidate")),
-  m_dataDirOption("data-dir", tr("Specify data directory"), tr("directory"), QString::fromStdString(Tools::getDefaultDataDirectory())),
+  m_dataDirOption("data-dir", tr("Specify data directory"), tr("directory"), QString::fromLocal8Bit(Tools::getDefaultDataDirectory().c_str())),
   m_minimized("minimized", tr("Run application in minimized mode")) {
-  m_parser.setApplicationDescription(tr("Bytecoin wallet"));
+  m_parser.setApplicationDescription(tr("befrank wallet"));
   m_parser.addHelpOption();
   m_parser.addVersionOption();
   m_parser.addOption(m_testnetOption);

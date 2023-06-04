@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>920</width>
-    <height>600</height>
+    <width>980</width>
+    <height>550</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -28,6 +28,11 @@
     <height>16777215</height>
    </size>
   </property>
+  <property name="font">
+   <font>
+    <pointsize>8</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
@@ -36,10 +41,13 @@
     <normaloff>:/images/cryptonote</normaloff>:/images/cryptonote</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout" name="horizontalLayout">
-    <property name="spacing">
-     <number>0</number>
-    </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
     <property name="leftMargin">
      <number>0</number>
     </property>
@@ -52,8 +60,48 @@
     <property name="bottomMargin">
      <number>0</number>
     </property>
-    <item>
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <item row="0" column="0" colspan="6">
+     <widget class="WalletGui::AccountFrame" name="m_accountFrame">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
      <widget class="WalletGui::OverviewFrame" name="m_overviewFrame">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <property name="frameShape">
        <enum>QFrame::NoFrame</enum>
       </property>
@@ -62,28 +110,14 @@
       </property>
      </widget>
     </item>
-    <item>
-     <widget class="WalletGui::SendFrame" name="m_sendFrame">
-      <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="WalletGui::ReceiveFrame" name="m_receiveFrame">
-      <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
-      </property>
-     </widget>
-    </item>
-    <item>
+    <item row="1" column="3">
      <widget class="WalletGui::TransactionsFrame" name="m_transactionsFrame">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <property name="frameShape">
        <enum>QFrame::NoFrame</enum>
       </property>
@@ -92,8 +126,62 @@
       </property>
      </widget>
     </item>
-    <item>
+    <item row="1" column="1">
+     <widget class="WalletGui::SendFrame" name="m_sendFrame">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="4">
      <widget class="WalletGui::AddressBookFrame" name="m_addressBookFrame">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="5">
+     <widget class="WalletGui::MiningFrame" name="m_miningFrame">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="2">
+     <widget class="WalletGui::ReceiveFrame" name="m_receiveFrame">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
       <property name="frameShape">
        <enum>QFrame::NoFrame</enum>
       </property>
@@ -109,17 +197,39 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>920</width>
-     <height>27</height>
+     <width>980</width>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
     <property name="title">
      <string>File</string>
     </property>
+    <widget class="QMenu" name="menuRecent_wallets">
+     <property name="title">
+      <string>Recent wallets</string>
+     </property>
+    </widget>
     <addaction name="m_createWalletAction"/>
+    <addaction name="m_createNondeterministicWalletAction"/>
     <addaction name="m_openWalletAction"/>
+    <addaction name="menuRecent_wallets"/>
     <addaction name="m_backupWalletAction"/>
+    <addaction name="m_resetAction"/>
+    <addaction name="m_closeWalletAction"/>
+    <addaction name="separator"/>
+    <addaction name="m_openUriAction"/>
+    <addaction name="m_openLogFileAction"/>
+    <addaction name="separator"/>
+    <addaction name="m_showMnemonicSeedAction"/>
+    <addaction name="m_restoreFromMnemonicSeedAction"/>
+    <addaction name="separator"/>
+    <addaction name="m_showPrivateKey"/>
+    <addaction name="m_importKeyAction"/>
+    <addaction name="separator"/>
+    <addaction name="m_exportTrackingKeyAction"/>
+    <addaction name="m_importTrackingKeyAction"/>
+    <addaction name="separator"/>
     <addaction name="m_exitAction"/>
    </widget>
    <widget class="QMenu" name="menuSettings">
@@ -128,10 +238,13 @@
     </property>
     <addaction name="m_encryptWalletAction"/>
     <addaction name="m_changePasswordAction"/>
+    <addaction name="m_changeLanguageAction"/>
+    <addaction name="m_connectionSettingsAction"/>
     <addaction name="separator"/>
     <addaction name="m_startOnLoginAction"/>
     <addaction name="m_minimizeToTrayAction"/>
     <addaction name="m_closeToTrayAction"/>
+    <addaction name="m_miningOnLaunchAction"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -139,23 +252,65 @@
     </property>
     <addaction name="m_aboutCryptonoteAction"/>
     <addaction name="m_aboutQtAction"/>
+    <addaction name="actionHelp"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuSettings"/>
    <addaction name="menuHelp"/>
   </widget>
   <widget class="QToolBar" name="toolBar">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>150</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="baseSize">
+    <size>
+     <width>150</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>8</pointsize>
+    </font>
+   </property>
    <property name="windowTitle">
     <string>toolBar</string>
    </property>
    <property name="movable">
     <bool>false</bool>
    </property>
+   <property name="allowedAreas">
+    <set>Qt::LeftToolBarArea|Qt::TopToolBarArea</set>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>20</width>
+     <height>20</height>
+    </size>
+   </property>
    <property name="toolButtonStyle">
     <enum>Qt::ToolButtonTextBesideIcon</enum>
    </property>
    <attribute name="toolBarArea">
-    <enum>TopToolBarArea</enum>
+    <enum>LeftToolBarArea</enum>
    </attribute>
    <attribute name="toolBarBreak">
     <bool>false</bool>
@@ -165,8 +320,20 @@
    <addaction name="m_receiveAction"/>
    <addaction name="m_transactionsAction"/>
    <addaction name="m_addressBookAction"/>
+   <addaction name="m_miningAction"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QToolBar" name="accountToolBar">
+   <property name="windowTitle">
+    <string>Account toolbar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
   <action name="m_overviewAction">
    <property name="checkable">
     <bool>true</bool>
@@ -250,7 +417,7 @@
      <normaloff>:/icons/address-book</normaloff>:/icons/address-book</iconset>
    </property>
    <property name="text">
-    <string>Address Book</string>
+    <string>Contacts</string>
    </property>
   </action>
   <action name="m_createWalletAction">
@@ -336,6 +503,118 @@
     <string>Close to tray</string>
    </property>
   </action>
+  <action name="m_importKeyAction">
+   <property name="text">
+    <string>Import private key</string>
+   </property>
+  </action>
+  <action name="m_miningAction">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../../resources.qrc">
+     <normaloff>:/icons/mining</normaloff>:/icons/mining</iconset>
+   </property>
+   <property name="text">
+    <string>Mining</string>
+   </property>
+  </action>
+  <action name="m_resetAction">
+   <property name="text">
+    <string>Reset wallet</string>
+   </property>
+   <property name="toolTip">
+    <string>Reset wallet</string>
+   </property>
+  </action>
+  <action name="m_changeLanguageAction">
+   <property name="text">
+    <string>Language</string>
+   </property>
+   <property name="toolTip">
+    <string>Change language</string>
+   </property>
+  </action>
+  <action name="m_showPrivateKey">
+   <property name="text">
+    <string>Export private key</string>
+   </property>
+  </action>
+  <action name="actionHelp">
+   <property name="text">
+    <string>Help</string>
+   </property>
+   <property name="shortcut">
+    <string>F1</string>
+   </property>
+  </action>
+  <action name="m_connectionSettingsAction">
+   <property name="text">
+    <string>Connection</string>
+   </property>
+  </action>
+  <action name="m_openUriAction">
+   <property name="text">
+    <string>Open payment request</string>
+   </property>
+  </action>
+  <action name="m_exportTrackingKeyAction">
+   <property name="text">
+    <string>Export tracking key</string>
+   </property>
+  </action>
+  <action name="m_importTrackingKeyAction">
+   <property name="text">
+    <string>Import tracking key</string>
+   </property>
+  </action>
+  <action name="m_closeWalletAction">
+   <property name="text">
+    <string>Close wallet</string>
+   </property>
+  </action>
+  <action name="m_recentWalletsAction">
+   <property name="text">
+    <string>Recent wallets</string>
+   </property>
+  </action>
+  <action name="actionStatus">
+   <property name="text">
+    <string>Information</string>
+   </property>
+  </action>
+  <action name="m_openLogFileAction">
+   <property name="text">
+    <string>Open log file</string>
+   </property>
+  </action>
+  <action name="m_showMnemonicSeedAction">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Show mnemonic seed</string>
+   </property>
+  </action>
+  <action name="m_restoreFromMnemonicSeedAction">
+   <property name="text">
+    <string>Restore from mnemonic seed</string>
+   </property>
+  </action>
+  <action name="m_createNondeterministicWalletAction">
+   <property name="text">
+    <string>Create nondeterministic wallet</string>
+   </property>
+  </action>
+  <action name="m_miningOnLaunchAction">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Start pool mining automatically</string>
+   </property>
+  </action>
  </widget>
  <customwidgets>
   <customwidget>
@@ -351,9 +630,9 @@
    <container>1</container>
   </customwidget>
   <customwidget>
-   <class>WalletGui::ReceiveFrame</class>
+   <class>WalletGui::AccountFrame</class>
    <extends>QFrame</extends>
-   <header>gui/ReceiveFrame.h</header>
+   <header>gui/AccountFrame.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
@@ -368,91 +647,23 @@
    <header>gui/AddressBookFrame.h</header>
    <container>1</container>
   </customwidget>
+  <customwidget>
+   <class>WalletGui::MiningFrame</class>
+   <extends>QFrame</extends>
+   <header>gui/MiningFrame.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>WalletGui::ReceiveFrame</class>
+   <extends>QFrame</extends>
+   <header>gui/ReceiveFrame.h</header>
+   <container>1</container>
+  </customwidget>
  </customwidgets>
  <resources>
   <include location="../../resources.qrc"/>
  </resources>
  <connections>
-  <connection>
-   <sender>m_overviewAction</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>m_overviewFrame</receiver>
-   <slot>setVisible(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>112</x>
-     <y>333</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>m_sendAction</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>m_sendFrame</receiver>
-   <slot>setVisible(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>337</x>
-     <y>333</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>m_receiveAction</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>m_receiveFrame</receiver>
-   <slot>setVisible(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>562</x>
-     <y>333</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>m_transactionsAction</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>m_transactionsFrame</receiver>
-   <slot>setVisible(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>787</x>
-     <y>333</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>m_addressBookAction</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>m_addressBookFrame</receiver>
-   <slot>setVisible(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>-1</x>
-     <y>-1</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>809</x>
-     <y>320</y>
-    </hint>
-   </hints>
-  </connection>
   <connection>
    <sender>m_createWalletAction</sender>
    <signal>triggered()</signal>
@@ -506,6 +717,22 @@
    <signal>triggered()</signal>
    <receiver>MainWindow</receiver>
    <slot>encryptWallet()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>449</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_changeLanguageAction</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>ChangeLanguage()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>-1</x>
@@ -613,6 +840,326 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>m_resetAction</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>resetWallet()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>506</x>
+     <y>301</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_importKeyAction</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>importKey()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>459</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_showPrivateKey</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showPrivateKeys()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>459</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionHelp</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>DisplayCmdLineHelp()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>494</x>
+     <y>319</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_connectionSettingsAction</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>openConnectionSettings()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>494</x>
+     <y>319</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_transactionsAction</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>m_transactionsFrame</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>787</x>
+     <y>333</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_sendAction</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>m_sendFrame</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>337</x>
+     <y>333</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_overviewAction</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>m_overviewFrame</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>112</x>
+     <y>333</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_miningAction</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>m_miningFrame</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>862</x>
+     <y>322</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_addressBookAction</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>m_addressBookFrame</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>809</x>
+     <y>320</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_receiveAction</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>m_receiveFrame</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>562</x>
+     <y>333</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_openUriAction</sender>
+   <signal>triggered()</signal>
+   <receiver>m_sendFrame</receiver>
+   <slot>openUriClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>316</x>
+     <y>310</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_exportTrackingKeyAction</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>exportTrackingKey()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>489</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_importTrackingKeyAction</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>importTrackingKey()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>489</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_closeWalletAction</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>closeWallet()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>489</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_openLogFileAction</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>openLogFile()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>489</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_showMnemonicSeedAction</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showMnemonicSeed()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>489</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_restoreFromMnemonicSeedAction</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>restoreFromMnemonicSeed()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>489</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_createNondeterministicWalletAction</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>createNonDeterministicWallet()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>489</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_miningOnLaunchAction</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>setMiningOnLaunch(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>489</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>createWallet()</slot>
@@ -624,5 +1171,10 @@
   <slot>setStartOnLogin(bool)</slot>
   <slot>setMinimizeToTray(bool)</slot>
   <slot>setCloseToTray(bool)</slot>
+  <slot>importKey()</slot>
+  <slot>resetWallet()</slot>
+  <slot>showPrivateKeys()</slot>
+  <slot>openConnectionSettings()</slot>
+  <slot>showStatusInfo()</slot>
  </slots>
 </ui>

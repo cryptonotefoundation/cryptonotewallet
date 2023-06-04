@@ -1,4 +1,5 @@
 // Copyright (c) 2011-2015 The Cryptonote developers
+// Copyright (c) 2016 befrank developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -36,10 +37,23 @@ public:
   QStringList getSeedNodes() const;
 
   QString getWalletFile() const;
+  QStringList getRecentWalletsList() const;
   QString getAddressBookFile() const;
-  bool isEncrypted() const;
   QString getVersion() const;
+  QStringList getMiningPoolList() const;
+  QString getLanguage() const;
+  QString getConnection() const;
+  QStringList getRpcNodesList() const;
+  quint16 getCurrentLocalDaemonPort() const;
+  QString getCurrentRemoteNode() const;
+  QString getCurrentPool() const;
+  quint16 getMiningThreads() const;
+
+  bool isEncrypted() const;
   bool isStartOnLoginEnabled() const;
+  bool isMiningOnLaunchEnabled() const;
+  bool isTrackingMode() const;
+
 #ifdef Q_OS_WIN
   bool isMinimizeToTrayEnabled() const;
   bool isCloseToTrayEnabled() const;
@@ -47,8 +61,18 @@ public:
 
   void setWalletFile(const QString& _file);
   void setEncrypted(bool _encrypted);
+  void setTrackingMode(bool _tracking);
   void setCurrentTheme(const QString& _theme);
+  void setLanguage(const QString& _language);
   void setStartOnLoginEnabled(bool _enable);
+  void setMiningOnLaunchEnabled(bool _enable);
+  void setMiningPoolList(const QStringList& _miningPoolList);
+  void setConnection(const QString& _connection);
+  void setCurrentLocalDaemonPort(const quint16& _daemonPort);
+  void setCurrentRemoteNode(const QString& _remoteNode);
+  void setRpcNodesList(const QStringList& _RpcNodesList);
+  void setCurrentPool(const QString& _pool);
+  void setMiningThreads(const quint16& _threads);
 #ifdef Q_OS_WIN
   void setMinimizeToTrayEnabled(bool _enable);
   void setCloseToTrayEnabled(bool _enable);
@@ -57,6 +81,9 @@ public:
 private:
   QJsonObject m_settings;
   QString m_addressBookFile;
+  QString m_currentLang;
+  QString m_connectionMode;
+  quint16 m_daemonPort;
   CommandLineParser* m_cmdLineParser;
 
   Settings();

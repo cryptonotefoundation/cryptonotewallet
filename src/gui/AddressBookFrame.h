@@ -4,7 +4,10 @@
 
 #pragma once
 
+#include <QWidget>
 #include <QFrame>
+#include <QMenu>
+#include <QStyledItemDelegate>
 
 namespace Ui {
 class AddressBookFrame;
@@ -19,13 +22,25 @@ class AddressBookFrame : public QFrame {
 public:
   AddressBookFrame(QWidget* _parent);
   ~AddressBookFrame();
+  QModelIndex index;
+
+public slots:
+  void onCustomContextMenu(const QPoint &point);
+
+public Q_SLOTS:
+  void addClicked();
+  void editClicked();
+  void copyClicked();
+  void copyPaymentIdClicked();
+  void copyLabelClicked();
+  void deleteClicked();
 
 private:
   QScopedPointer<Ui::AddressBookFrame> m_ui;
 
-  Q_SLOT void addClicked();
-  Q_SLOT void copyClicked();
-  Q_SLOT void deleteClicked();
+  static bool isValidPaymentId(const QByteArray& _paymentIdString);
+  QMenu* contextMenu;
+
   Q_SLOT void currentAddressChanged(const QModelIndex& _index);
 };
 

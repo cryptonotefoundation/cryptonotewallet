@@ -37,13 +37,19 @@
        <property name="text">
         <string>Choose</string>
        </property>
+       <property name="icon">
+        <iconset resource="../../resources.qrc">
+         <normaloff>:/icons/add_recepient</normaloff>:/icons/add_recepient</iconset>
+       </property>
       </widget>
      </item>
     </layout>
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../../resources.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>m_okButton</sender>

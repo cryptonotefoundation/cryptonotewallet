@@ -14,7 +14,7 @@ AboutDialog::AboutDialog(QWidget* _parent) : QDialog(_parent), m_ui(new Ui::Abou
   m_ui->setupUi(this);
   setWindowTitle(QString(tr("About %1 Wallet")).arg(CurrencyAdapter::instance().getCurrencyDisplayName()));
   QString aboutText = m_ui->m_aboutLabel->text();
-  m_ui->m_aboutLabel->setText(aboutText.arg(GIT_REVISION));
+  m_ui->m_aboutLabel->setText(aboutText.arg(VERSION));
 }
 
 AboutDialog::~AboutDialog() {

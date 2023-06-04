@@ -1,0 +1,14 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=BeFrank
+GenericName=BeFrank Wallet
+Name[de]=BeFrank
+Comment=BeFrank Wallet
+Comment[de]=BeFrank Wallet
+Exec=befrank %U
+Terminal=false
+Type=Application
+Icon=befrank
+MimeType=x-scheme-handler/befrank;
+Categories=Office;Finance;
+Version=1.0.1

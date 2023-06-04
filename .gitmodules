@@ -1,0 +1,7 @@
+[submodule "cryptonote"]
+	path = cryptonote
+	url = https://github.com/befrank-project/befrank-daemon.git
+[submodule "libqrencode"]
+	path = libqrencode
+	url = https://github.com/fukuchi/libqrencode.git
+	branch = 3.4

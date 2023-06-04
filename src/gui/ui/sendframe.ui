@@ -34,7 +34,7 @@
         <x>0</x>
         <y>0</y>
         <width>840</width>
-        <height>446</height>
+        <height>412</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="m_send_frame_layout">
@@ -72,8 +72,85 @@
      <property name="topMargin">
       <number>5</number>
      </property>
-     <item row="1" column="2">
+     <item row="5" column="1">
+      <widget class="QSlider" name="m_mixinSlider">
+       <property name="maximumSize">
+        <size>
+         <width>150</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="baseSize">
+        <size>
+         <width>200</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximum">
+        <number>10</number>
+       </property>
+       <property name="pageStep">
+        <number>1</number>
+       </property>
+       <property name="value">
+        <number>5</number>
+       </property>
+       <property name="sliderPosition">
+        <number>5</number>
+       </property>
+       <property name="tracking">
+        <bool>false</bool>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="tickPosition">
+        <enum>QSlider::TicksBothSides</enum>
+       </property>
+       <property name="tickInterval">
+        <number>1</number>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>Anonymity level:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="3">
+      <widget class="QCheckBox" name="donateCheckBox">
+       <property name="text">
+        <string>Donate 0.1% to community fund:</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Fee:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_6">
+       <property name="text">
+        <string>PaymentID:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="2">
       <widget class="QLineEdit" name="m_mixinEdit">
+       <property name="minimumSize">
+        <size>
+         <width>35</width>
+         <height>0</height>
+        </size>
+       </property>
        <property name="maximumSize">
         <size>
          <width>30</width>
@@ -94,17 +171,113 @@
        </property>
       </widget>
      </item>
-     <item row="0" column="1" colspan="3">
-      <widget class="QLineEdit" name="m_paymentIdEdit"/>
-     </item>
-     <item row="1" column="0">
-      <widget class="QLabel" name="label_2">
-       <property name="text">
-        <string>Anonimity level:</string>
+     <item row="3" column="1" colspan="3">
+      <widget class="QLineEdit" name="m_paymentIdEdit">
+       <property name="maxLength">
+        <number>64</number>
+       </property>
+       <property name="placeholderText">
+        <string>Payment identifier issued by payee (exchange, shop or other entity)</string>
        </property>
       </widget>
      </item>
-     <item row="1" column="3">
+     <item row="1" column="1">
+      <widget class="QDoubleSpinBox" name="m_feeSpin">
+       <property name="minimumSize">
+        <size>
+         <width>150</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="baseSize">
+        <size>
+         <width>150</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>IBeamCursor</cursorShape>
+       </property>
+       <property name="locale">
+        <locale language="English" country="UnitedStates"/>
+       </property>
+       <property name="suffix">
+        <string/>
+       </property>
+       <property name="decimals">
+        <number>2</number>
+       </property>
+       <property name="minimum">
+        <double>0.000000000000000</double>
+       </property>
+       <property name="maximum">
+        <double>999999999999999.000000000000000</double>
+       </property>
+       <property name="singleStep">
+        <double>1.000000000000000</double>
+       </property>
+       <property name="value">
+        <double>0.000000000000000</double>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="4">
+      <widget class="QPushButton" name="m_generatePaymentIdButton">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>200</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Generate Payment ID</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="4">
+      <widget class="QDoubleSpinBox" name="m_donateSpin">
+       <property name="minimumSize">
+        <size>
+         <width>150</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="baseSize">
+        <size>
+         <width>150</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>IBeamCursor</cursorShape>
+       </property>
+       <property name="locale">
+        <locale language="English" country="UnitedStates"/>
+       </property>
+       <property name="decimals">
+        <number>2</number>
+       </property>
+       <property name="maximum">
+        <double>999999999999999.000000000000000</double>
+       </property>
+       <property name="singleStep">
+        <double>0.100000000000000</double>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="2">
       <spacer name="horizontalSpacer">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -114,49 +287,11 @@
        </property>
        <property name="sizeHint" stdset="0">
         <size>
-         <width>298</width>
+         <width>100</width>
          <height>20</height>
         </size>
        </property>
       </spacer>
-     </item>
-     <item row="0" column="0">
-      <widget class="QLabel" name="label_6">
-       <property name="text">
-        <string>PaymentID:</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="QSlider" name="m_mixinSlider">
-       <property name="maximumSize">
-        <size>
-         <width>200</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="maximum">
-        <number>10</number>
-       </property>
-       <property name="pageStep">
-        <number>1</number>
-       </property>
-       <property name="value">
-        <number>1</number>
-       </property>
-       <property name="tracking">
-        <bool>false</bool>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="tickPosition">
-        <enum>QSlider::TicksBothSides</enum>
-       </property>
-       <property name="tickInterval">
-        <number>1</number>
-       </property>
-      </widget>
      </item>
     </layout>
    </item>
@@ -164,12 +299,21 @@
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QPushButton" name="m_sendButton">
+       <property name="minimumSize">
+        <size>
+         <width>100</width>
+         <height>0</height>
+        </size>
+       </property>
        <property name="text">
         <string>Send</string>
        </property>
        <property name="icon">
         <iconset resource="../../resources.qrc">
-         <normaloff>:/icons/send</normaloff>:/icons/send</iconset>
+         <normaloff>:/icons/btn-send</normaloff>:/icons/btn-send</iconset>
+       </property>
+       <property name="default">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -191,7 +335,7 @@
        </property>
        <property name="icon">
         <iconset resource="../../resources.qrc">
-         <normaloff>:/icons/add</normaloff>:/icons/add</iconset>
+         <normaloff>:/icons/add_recepient</normaloff>:/icons/add_recepient</iconset>
        </property>
       </widget>
      </item>
@@ -209,9 +353,25 @@
       </spacer>
      </item>
      <item>
+      <widget class="QLabel" name="m_remote_label">
+       <property name="font">
+        <font>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>Wallet is connected through remote node. Additional 0.25% fee will be applied.</string>
+       </property>
+       <property name="text">
+        <string>Remote node mode</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QLabel" name="label_4">
        <property name="text">
-        <string>Balance:</string>
+        <string>Available balance:</string>
        </property>
       </widget>
      </item>
@@ -234,13 +394,16 @@
   </layout>
  </widget>
  <tabstops>
+  <tabstop>m_feeSpin</tabstop>
+  <tabstop>donateCheckBox</tabstop>
+  <tabstop>m_donateSpin</tabstop>
   <tabstop>m_paymentIdEdit</tabstop>
   <tabstop>m_mixinSlider</tabstop>
+  <tabstop>m_mixinEdit</tabstop>
   <tabstop>m_sendButton</tabstop>
   <tabstop>m_clearAllButton</tabstop>
   <tabstop>m_addRecipientButton</tabstop>
   <tabstop>m_transfersScrollarea</tabstop>
-  <tabstop>m_mixinEdit</tabstop>
  </tabstops>
  <resources>
   <include location="../../resources.qrc"/>
@@ -303,6 +466,22 @@
     <hint type="sourcelabel">
      <x>221</x>
      <y>520</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>432</x>
+     <y>294</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_generatePaymentIdButton</sender>
+   <signal>clicked()</signal>
+   <receiver>SendFrame</receiver>
+   <slot>generatePaymentIdClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>748</x>
+     <y>497</y>
     </hint>
     <hint type="destinationlabel">
      <x>432</x>

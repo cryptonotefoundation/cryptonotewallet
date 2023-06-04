@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ShowPaymentRequestDialog</class>
+ <widget class="QDialog" name="ShowPaymentRequestDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>385</width>
+    <height>527</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>385</width>
+    <height>400</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>16777215</width>
+    <height>16777215</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Payment request</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <property name="spacing">
+      <number>6</number>
+     </property>
+     <property name="sizeConstraint">
+      <enum>QLayout::SetDefaultConstraint</enum>
+     </property>
+     <property name="bottomMargin">
+      <number>0</number>
+     </property>
+     <item>
+      <widget class="WalletGui::QRLabel" name="m_requestQRlabel">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>300</width>
+         <height>300</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>300</width>
+         <height>300</height>
+        </size>
+       </property>
+       <property name="baseSize">
+        <size>
+         <width>300</width>
+         <height>300</height>
+        </size>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="m_paymentRequestContent">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>150</height>
+      </size>
+     </property>
+     <property name="title">
+      <string>Payment information</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0">
+       <widget class="QTextEdit" name="m_paymentRequestUriText">
+        <property name="whatsThis">
+         <string/>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>94</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QPushButton" name="m_copyUriButton">
+       <property name="text">
+        <string>Copy URI</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="m_saveUriButton">
+       <property name="text">
+        <string>Save URI</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="m_saveImageButton">
+       <property name="text">
+        <string>Save image</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="m_closeButton">
+       <property name="text">
+        <string>Close</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>WalletGui::QRLabel</class>
+   <extends>QLabel</extends>
+   <header>gui/QRLabel.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>m_closeButton</sender>
+   <signal>clicked()</signal>
+   <receiver>ShowPaymentRequestDialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>538</x>
+     <y>285</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>294</x>
+     <y>156</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_copyUriButton</sender>
+   <signal>clicked()</signal>
+   <receiver>ShowPaymentRequestDialog</receiver>
+   <slot>copyUri()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>44</x>
+     <y>441</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>159</x>
+     <y>231</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_saveUriButton</sender>
+   <signal>clicked()</signal>
+   <receiver>ShowPaymentRequestDialog</receiver>
+   <slot>saveUri()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>119</x>
+     <y>441</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>159</x>
+     <y>231</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_saveImageButton</sender>
+   <signal>clicked()</signal>
+   <receiver>ShowPaymentRequestDialog</receiver>
+   <slot>saveQRcodeToFile()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>194</x>
+     <y>441</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>159</x>
+     <y>231</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

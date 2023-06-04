@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 2.8)
 
 include(CryptoNoteWallet.cmake)
+include(QREncode.cmake)
 
 project(${CN_PROJECT_NAME})
 
@@ -14,10 +15,12 @@ include_directories(${CMAKE_BINARY_DIR}
     src
     cryptonote/external
     cryptonote/include
-    cryptonote/src)
+    cryptonote/src
+    libqrencode)
 
 find_package(Qt5Gui REQUIRED)
 find_package(Qt5Widgets REQUIRED)
+find_package(Qt5Network REQUIRED)
 
 set(Boost_USE_STATIC_LIBS ON)
 if(WIN32)
@@ -26,7 +29,7 @@ else(WIN32)
   set(Boost_USE_STATIC_RUNTIME ON)
 endif(WIN32)
 
-find_package(Boost 1.55 REQUIRED COMPONENTS date_time filesystem program_options regex serialization system thread chrono)
+find_package(Boost 1.58 REQUIRED COMPONENTS date_time filesystem program_options regex serialization system thread chrono)
 if ((${Boost_MAJOR_VERSION} EQUAL 1) AND (${Boost_MINOR_VERSION} EQUAL 54))
 	message(SEND_ERROR "Boost version 1.54 is unsupported, more details are available here http://goo.gl/RrCFmA")
 endif ()
@@ -38,6 +41,7 @@ set(VERSION "")
 configure_file("cryptonote/src/version.h.in" "version.h")
 configure_file("src/CryptoNoteWalletConfig.h.in" "CryptoNoteWalletConfig.h")
 
+add_definitions(-DVERSION=\"${CN_VERSION}\")
 add_definitions(-DGIT_REVISION=\"${GIT_REVISION}\")
 
 set(CMAKE_AUTOMOC ON)
@@ -130,6 +134,9 @@ set(CRYPTONOTE_SOURCES
   cryptonote/src/Wallet/LegacyKeysImporter.cpp
   cryptonote/src/Wallet/WalletAsyncContextCounter.cpp
   cryptonote/src/Wallet/WalletErrors.cpp
+  cryptonote/src/Wallet/WalletSerializationV1.cpp
+  cryptonote/src/Wallet/WalletSerializationV2.cpp
+  cryptonote/src/Wallet/WalletUtils.cpp
   cryptonote/src/WalletLegacy/KeysStorage.cpp
   cryptonote/src/WalletLegacy/WalletLegacy.cpp
   cryptonote/src/WalletLegacy/WalletHelper.cpp
@@ -172,6 +179,7 @@ set(CRYPTONOTE_SOURCES
 file(GLOB_RECURSE SOURCES src/*.cpp)
 file(GLOB_RECURSE HEADERS src/*.h)
 file(GLOB_RECURSE FORMS src/gui/ui/*.ui)
+file(GLOB_RECURSE Mnemonics cryptonote/src/mnemonics/*)
 
 set(QRC src/resources.qrc)
 
@@ -198,9 +206,9 @@ elseif (UNIX)
     file(GLOB_RECURSE OBJC_SOURCES src/*.mm)
     set(SOURCES ${SOURCES} ${OBJC_SOURCES})
     set(PLATFORM_DIR OSX)
-    set(MACOSX_BUNDLE_INFO_STRING "Cryptonote GUI wallet")
+    set(MACOSX_BUNDLE_INFO_STRING "BeFrank Wallet")
     set(MACOSX_BUNDLE_LONG_VERSION_STRING "${VERSION_VERSION}.${VERSION_MINOR}.${VERSION_PATCH}")
-    set(MACOSX_BUNDLE_BUNDLE_NAME CryptonoteWallet)
+    set(MACOSX_BUNDLE_BUNDLE_NAME "BeFrank Team")
     set(MACOSX_BUNDLE_SHORT_VERSION_STRING "${VERSION_VERSION}.${VERSION_MINOR}.${VERSION_PATCH}")
     set(MACOSX_BUNDLE_BUNDLE_VERSION "$${VERSION_VERSION}.${VERSION_MINOR}.${VERSION_PATCH}")
 
@@ -212,8 +220,8 @@ elseif (UNIX)
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c11 -maes -D_DARWIN_C_SOURCE")
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -framework Cocoa -framework OpenGL -framework CoreFoundation -framework Carbon -framework IOKit -L/usr/lib")
 
-    set(MACOSX_BUNDLE_ICON_FILE cryptonote.icns)
-    set(APPLICATION_ICON src/images/cryptonote.icns)
+    set(MACOSX_BUNDLE_ICON_FILE befrank.icns)
+    set(APPLICATION_ICON src/images/befrank.icns)
     set_source_files_properties(${APPLICATION_ICON} PROPERTIES MACOSX_PACKAGE_LOCATION "Resources")
 
     set(BUILD_PLATFORM MACOSX_BUNDLE)
@@ -223,22 +231,28 @@ elseif (UNIX)
     GET_FILENAME_COMPONENT(QT_LIB_DIR "${QT_LIB_DIR}" PATH)
   else(APPLE)
     set(PLATFORM_DIR Linux)
+    list(REMOVE_ITEM HEADERS ${CMAKE_SOURCE_DIR}/src/gui/macdockiconhandler.h)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -maes -std=c++11")
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -maes -std=c11")
   endif (APPLE)
 endif ()
 
 include_directories(cryptonote/src/Platform/${PLATFORM_DIR})
+include_directories(cryptonote/src/Platform/Posix)
 file(GLOB PLATFORM_SOURCES cryptonote/src/Platform/${PLATFORM_DIR}/System/*)
 set(CRYPTONOTE_SOURCES ${CRYPTONOTE_SOURCES} ${PLATFORM_SOURCES})
 
 add_library(${CRYPTONOTE_LIB} STATIC ${CRYPTONOTE_SOURCES})
+add_library(Mnemonics ${Mnemonics})
 set_target_properties(${CRYPTONOTE_LIB} PROPERTIES COMPILE_DEFINITIONS _GNU_SOURCE)
 target_link_libraries(${CRYPTONOTE_LIB} ${Boost_LIBRARIES})
+set_target_properties(Mnemonics PROPERTIES COMPILE_DEFINITIONS _GNU_SOURCE)
+target_link_libraries(Mnemonics ${Boost_LIBRARIES})
 
+#add_executable(${PROJECT_NAME} ${BUILD_PLATFORM} ${BUILD_RESOURCES} ${SOURCES} ${HEADERS} ${UIS} ${RCC} ${QM} ${TRANSLATIONS})
 add_executable(${PROJECT_NAME} ${BUILD_PLATFORM} ${BUILD_RESOURCES} ${SOURCES} ${HEADERS} ${UIS} ${RCC})
 set_target_properties(${PROJECT_NAME} PROPERTIES COMPILE_DEFINITIONS _GNU_SOURCE)
-target_link_libraries(${PROJECT_NAME} ${Boost_LIBRARIES} ${QTMAIN} ${CRYPTONOTE_LIB})
+target_link_libraries(${PROJECT_NAME} ${Boost_LIBRARIES} ${QTMAIN} ${CRYPTONOTE_LIB} ${QRENCODE_LIB} Mnemonics)
 
 if (APPLE)
   qt5_use_modules(${PROJECT_NAME} PrintSupport)
@@ -248,4 +262,57 @@ elseif (WIN32)
   target_link_libraries(${PROJECT_NAME} Imm32 Iphlpapi Winmm)
 endif (APPLE)
 
-qt5_use_modules(${PROJECT_NAME} Widgets Gui)
+qt5_use_modules(${PROJECT_NAME} Widgets Gui Network)
+
+# Installation
+
+set(CPACK_PACKAGE_NAME ${CN_PROJECT_NAME})
+set(CPACK_PACKAGE_VERSION ${CN_VERSION})
+set(CPACK_PACKAGE_VENDOR "befrank-project")
+set(CPACK_PACKAGE_CONTACT "http://befrank.be")
+set(CPACK_STRIP_FILES ON)
+if (APPLE)
+    set(CPACK_GENERATOR DragNDrop)
+    install(TARGETS ${PROJECT_NAME} BUNDLE DESTINATION .)
+    set(CPACK_PACKAGE_FILE_NAME "${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}-${VERSION_RELEASE}")
+elseif (UNIX)
+    find_program(RPMBUILD rpmbuild)
+
+    install(PROGRAMS build/${PROJECT_NAME} DESTINATION bin
+    PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE)
+    install(FILES src/befrank.desktop DESTINATION share/applications)
+    install(FILES src/images/befrank.png DESTINATION share/pixmaps RENAME befrank.png)
+    install(FILES copyright DESTINATION share/doc/befrankwallet)
+
+    if (NOT RPMBUILD)
+        set(CPACK_GENERATOR DEB)
+        set(CPACK_DEBIAN_PACKAGE_NAME ${CPACK_PACKAGE_NAME})
+        set(CPACK_SYSTEM_NAME 64-bit)
+        set(CPACK_DEBIAN_PACKAGE_MAINTAINER "${CPACK_PACKAGE_VENDOR} <frank@getfrank.be>")
+        set(CPACK_DEBIAN_PACKAGE_SECTION Office)
+        set(CPACK_DEBIAN_PACKAGE_SHLIBDEPS ON)
+        set(CPACK_DEBIAN_PACKAGE_DESCRIPTION "BeFrank Wallet
+ BefFank is a Belgian decentralized, privacy oriented peer-to-peer
+ cryptocurrency. It is open-source, nobody owns or controls BeFrank
+ and everyone can take part.")
+set(CPACK_PACKAGE_FILE_NAME "${CPACK_DEBIAN_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}-${VERSION_RELEASE}${CPACK_SYSTEM_NAME}")
+    else()
+        set(CPACK_GENERATOR RPM)
+        set(CPACK_SYSTEM_NAME x86_64)
+        set(CPACK_RPM_PACKAGE_RELEASE ${VERSION_RELEASE})
+        set(CPACK_RPM_PACKAGE_LICENSE "MIT")
+        set(CPACK_RPM_PACKAGE_GROUP Office)
+        set(CPACK_RPM_PACKAGE_REQUIRES "qt5-qtbase >= 5.3.2, qt5-qtbase-gui >= 5.3.2")
+        set(CPACK_RPM_PACKAGE_SUMMARY "BeFrank Wallet")
+        set(CPACK_RPM_PACKAGE_DESCRIPTION "BeFrank Wallet
+ BeFrank is a Belgian decentrilized, privacy oriented peer-to-peer
+ cryptocurrency. It is open-source, nobody owns or controls BeFrank
+ and everyone can take part.")
+set(CPACK_PACKAGE_FILE_NAME "${CPACK_PACKAGE_NAME}-${CPACK_PACKAGE_VERSION}-${VERSION_RELEASE}${CPACK_SYSTEM_NAME}")
+    endif ()
+elseif (WIN32)
+  install(TARGETS ${PROJECT_NAME} RUNTIME DESTINATION .)
+  set(CPACK_GENERATOR ZIP)
+endif (APPLE)
+
+include(CPack)
